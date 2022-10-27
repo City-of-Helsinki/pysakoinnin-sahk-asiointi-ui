@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import * as Sentry from '@sentry/browser';
 
 import './index.css';
+import './utils/i18n.js';
 import BrowserApp from './BrowserApp';
 // eslint-disable-next-line import/no-namespace
 import * as serviceWorker from './serviceWorker';
