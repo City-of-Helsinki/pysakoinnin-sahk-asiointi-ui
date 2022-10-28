@@ -4,10 +4,11 @@ import {
   Fieldset,
   IconArrowLeft,
   IconArrowRight,
-  TextInput,
-  Stepper
+  Stepper,
+  TextInput
 } from 'hds-react';
 import { useTranslation } from 'react-i18next';
+import './LoginForm.css';
 
 const LoginForm = (): React.ReactElement => {
   const { t } = useTranslation();
@@ -15,14 +16,7 @@ const LoginForm = (): React.ReactElement => {
   return (
     <div>
       <form>
-        <h1
-          style={{
-            fontSize: '48px',
-            fontWeight: 'normal',
-            lineHeight: '48px'
-          }}>
-          {t('common:form-title')}
-        </h1>
+        <h1 className="form-title">{t('common:form-title')}</h1>
         <Stepper
           language="fi"
           //onStepClick={() => {}}
@@ -47,9 +41,10 @@ const LoginForm = (): React.ReactElement => {
             }
           ]}
         />
-        <Fieldset heading="" style={{ maxWidth: '400px' }}>
+        <Fieldset className="fieldset" heading="">
           <p>{t('common:required-fields')}</p>
           <TextInput
+            className="field"
             id="refNumber"
             label={t('parking-fine:step1:ref-number:label')}
             placeholder={t('parking-fine:step1:ref-number:placeholder')}
@@ -57,33 +52,20 @@ const LoginForm = (): React.ReactElement => {
             tooltipText={t('parking-fine:step1:ref-number:tooltip-text')}
             //onChange={function noRefCheck() {}}
             required
-            style={{
-              width: '500px'
-            }}
             value=""
           />
           <TextInput
+            className="field"
             id="regNumber"
             label={t('parking-fine:step1:reg-number:label')}
             placeholder={t('parking-fine:step1:reg-number:placeholder')}
             helperText={t('parking-fine:step1:reg-number:helper-text')}
             //onChange={function noRefCheck() {}}
             required
-            style={{
-              width: '500px',
-              marginTop: '18px'
-            }}
             value=""
           />
         </Fieldset>
-        <div
-          style={{
-            alignItems: 'flex-start',
-            display: 'flex',
-            gap: '24px',
-            height: '100px',
-            justifyContent: 'flex-start'
-          }}>
+        <div className="button-container">
           <Button disabled iconLeft={<IconArrowLeft />} variant="primary">
             {t('common:previous')}
           </Button>
