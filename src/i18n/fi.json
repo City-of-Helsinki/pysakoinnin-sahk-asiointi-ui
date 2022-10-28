@@ -1,0 +1,28 @@
+{
+    "common": {
+        "form-title": "Oikaisuvaatimus pysäköintivirhemaksuun",
+        "previous": "Edellinen",
+        "next": "Seuraava",
+        "required-fields": "Pakolliset kentät on merkitty tähdellä *"
+    },
+    "parking-fine": {
+        "stepper": {
+            "step1": "Haku",
+            "step2": "Pysäköintivirhemaksu",
+            "step3": "Oikaisuvaatimus",
+            "step4": "Yhteenveto"
+        },
+        "step1": {
+            "ref-number": {
+                "label": "Asianumero",
+                "placeholder": "Esim. 12345678",
+                "tooltip-text": "Asianumeron löydät pysäköintivirhemaksusta"
+            },
+            "reg-number": {
+                "label": "Ajoneuvon rekisteritunnus",
+                "placeholder": "Esim. ABC-123",
+                "helper-text": "Kirjoita rekisteritunnus kuten se on pysäköintivirhemaksussa."
+            }
+        }
+    }
+}
