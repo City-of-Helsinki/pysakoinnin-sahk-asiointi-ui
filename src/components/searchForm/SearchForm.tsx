@@ -8,9 +8,9 @@ import {
   TextInput
 } from 'hds-react';
 import { useTranslation } from 'react-i18next';
-import './LoginForm.css';
+import './SearchForm.css';
 
-const LoginForm = (): React.ReactElement => {
+const SearchForm = (): React.ReactElement => {
   const { t } = useTranslation();
 
   return (
@@ -81,4 +81,4 @@ const LoginForm = (): React.ReactElement => {
   );
 };
 
-export default LoginForm;
+export default SearchForm;
