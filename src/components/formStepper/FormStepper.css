@@ -1,0 +1,14 @@
+.form-title {
+  font-size: 48px;
+  font-weight: normal;
+  line-height: 48px;
+}
+
+.button-container {
+  align-items: flex-start;
+  display: flex;
+  gap: 24px;
+  height: 100px;
+  justify-content: flex-start;
+  margin-top: 12px;
+}

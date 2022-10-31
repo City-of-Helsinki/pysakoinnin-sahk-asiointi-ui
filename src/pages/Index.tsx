@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { ClientContext } from '../client/ClientProvider';
+import FormStepper from '../components/formStepper/FormStepper';
 import LoginComponent from '../components/Login';
-import SearchForm from '../components/searchForm/SearchForm';
 import PageContent from '../components/PageContent';
 import ReduxConsumer from '../components/ReduxConsumer';
 import WithAuthDemo from '../components/WithAuthDemo';
@@ -40,7 +40,7 @@ const Index = (): React.ReactElement => {
               <Button onClick={() => setShowForm(!showForm)} variant="primary">
                 {showForm ? 'Sulje lomake' : 'Avaa lomake'}
               </Button>
-              {showForm && <SearchForm />}
+              {showForm && <FormStepper />}
             </div>
           )}
           <LoginComponent />

@@ -1,21 +1,7 @@
-.form-title {
-  font-size: 48px;
-  font-weight: normal;
-  line-height: 48px;
-}
-
 .fieldset {
   max-width: 500px;
 }
 
 .field {
   margin-top: 24px;
-}
-
-.button-container {
-  align-items: flex-start;
-  display: flex;
-  gap: 24px;
-  height: 100px;
-  justify-content: flex-start;
 }
