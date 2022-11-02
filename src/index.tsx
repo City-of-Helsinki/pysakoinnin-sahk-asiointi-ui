@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 // eslint-disable-next-line import/no-namespace
-import * as Sentry from '@sentry/browser';
+import * as Sentry from '@sentry/react';
+import { Integrations } from '@sentry/tracing';
 
 import './index.css';
 import './utils/i18n.js';
@@ -16,17 +17,12 @@ declare global {
   }
 }
 
-const ENVS_WITH_SENTRY = ['staging', 'production'];
-
-if (
-  window._env_.REACT_APP_ENVIRONMENT &&
-  ENVS_WITH_SENTRY.includes(window._env_.REACT_APP_ENVIRONMENT)
-) {
-  Sentry.init({
-    dsn: window._env_.REACT_APP_SENTRY_DSN,
-    environment: window._env_.REACT_APP_ENVIRONMENT
-  });
-}
+Sentry.init({
+  dsn: window._env_.REACT_APP_SENTRY_DSN,
+  integrations: [new Integrations.BrowserTracing()],
+  environment: window._env_.REACT_APP_ENVIRONMENT,
+  tracesSampleRate: window._env_.REACT_APP_SENTRY_TRACE_RATE
+});
 
 ReactDOM.render(<BrowserApp />, document.getElementById('root'));
 
