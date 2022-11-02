@@ -1,4 +1,5 @@
 import to from 'await-to-js';
+import config from '../config';
 
 export type User = Record<string, string | number | boolean>;
 export type Token = string | undefined;
@@ -335,19 +336,8 @@ export function createClient(): ClientFactory {
   };
 }
 
-let config: ClientConfig;
-
-export function setClientConfig(newConfig: ClientConfig): ClientConfig {
-  config = newConfig;
-  return config;
-}
-
-export function getClientConfig(): ClientConfig {
-  return config;
-}
-
 export function hasValidClientConfig(): boolean {
-  return !!(config && config.url && config.clientId);
+  return !!(config && config.config.url && config.config.clientId);
 }
 
 export function getLocationBasedUri(

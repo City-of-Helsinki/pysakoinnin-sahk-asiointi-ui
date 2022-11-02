@@ -1,19 +1,11 @@
 /* eslint-disable camelcase */
 import { ReactWrapper } from 'enzyme';
 import { UserManager } from 'oidc-client';
+import { Client, ClientEvent, ClientEventId, Token } from '..';
 import {
-  Client,
-  ClientEvent,
-  ClientEventId,
-  ClientConfig,
-  setClientConfig,
-  Token
-} from '..';
-import config from '../../config';
-import {
-  AnyObject,
   AnyFunction,
   AnyNonNullishValue,
+  AnyObject,
   AnyValue
 } from '../../common';
 import { getSessionStorageKey } from '../oidc-react';
@@ -132,10 +124,6 @@ export const matchClientDataWithComponent = (
   return values;
 };
 
-export const configureClient = (
-  overrides?: Partial<ClientConfig>
-): ClientConfig => setClientConfig({ ...config.mvpConfig, ...overrides });
-
 export const createEventListeners = (
   addEventListener: ListenerSetter
 ): EventListeners => {
@@ -218,7 +206,7 @@ export const mockMutatorCreator = (): MockMutator => {
     loadProfileRejectPayload;
 
   const setUserToSessionStorage = (data: AnyObject | string) => {
-    const key = getSessionStorageKey(config.mvpConfig);
+    const key = getSessionStorageKey();
     sessionStorage.setItem(
       key,
       typeof data === 'object' ? JSON.stringify(data) : data
