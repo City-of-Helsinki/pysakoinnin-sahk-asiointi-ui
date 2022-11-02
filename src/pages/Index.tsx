@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { ClientContext } from '../client/ClientProvider';
-import FormStepper from '../components/formStepper/FormStepper';
+import ParkingFineAppeal from '../components/parkingFineAppeal/ParkingFineAppeal';
 import LoginComponent from '../components/Login';
 import PageContent from '../components/PageContent';
 import ReduxConsumer from '../components/ReduxConsumer';
@@ -16,7 +16,9 @@ const Index = (): React.ReactElement => {
   const clientContext = useContext(ClientContext);
   const state: StoreState = useSelector((storeState: StoreState) => storeState);
   const user = state?.user;
-  const [showForm, setShowForm] = useState(false);
+  const [showParkingFineAppealForm, setShowParkingFineAppealForm] = useState(
+    false
+  );
 
   return (
     <PageContent>
@@ -37,10 +39,16 @@ const Index = (): React.ReactElement => {
           <p>Voit myös kirjatua ulos toisessa ikkunassa.</p>
           {user && (
             <div>
-              <Button onClick={() => setShowForm(!showForm)} variant="primary">
-                {showForm ? 'Sulje lomake' : 'Avaa lomake'}
+              <Button
+                onClick={() =>
+                  setShowParkingFineAppealForm(!showParkingFineAppealForm)
+                }
+                variant="primary">
+                {showParkingFineAppealForm
+                  ? 'Peruuta oikaisuvaatimus'
+                  : 'Tee oikaisuvaatimus'}
               </Button>
-              {showForm && <FormStepper />}
+              {showParkingFineAppealForm && <ParkingFineAppeal />}
             </div>
           )}
           <LoginComponent />

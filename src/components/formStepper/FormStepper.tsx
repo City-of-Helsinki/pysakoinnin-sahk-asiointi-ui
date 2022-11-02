@@ -4,6 +4,11 @@ import { useTranslation } from 'react-i18next';
 import FormContent from '../formContent/FormContent';
 import './FormStepper.css';
 
+interface Props {
+  selectedForm: string;
+  initialSteps: Step[];
+}
+
 type Step = {
   label: string;
   state: number;
@@ -19,13 +24,13 @@ type StepAction = {
   type: string;
 };
 
-enum StepState {
+export enum StepState {
   available,
   completed,
   disabled
 }
 
-const FormStepper = (): React.ReactElement => {
+const FormStepper = (props: Props): React.ReactElement => {
   const { t } = useTranslation();
 
   const commonReducer = (stepsTotal: number) => (
@@ -80,65 +85,48 @@ const FormStepper = (): React.ReactElement => {
 
   const initialState = {
     activeStepIndex: 0,
-    steps: [
-      {
-        label: t('parking-fine:stepper:step1'),
-        state: StepState.available
-      },
-      {
-        label: t('parking-fine:stepper:step2'),
-        state: StepState.disabled
-      },
-      {
-        label: t('parking-fine:stepper:step3'),
-        state: StepState.disabled
-      },
-      {
-        label: t('parking-fine:stepper:step4'),
-        state: StepState.disabled
-      }
-    ]
+    steps: props.initialSteps
   };
-  const reducer = commonReducer(4);
+  const reducer = commonReducer(props.initialSteps.length);
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
     <div>
-      <form>
-        <h1 className="form-title">{t('common:form-title')}</h1>
-        <Stepper
-          language="fi"
-          onStepClick={(event, stepIndex) =>
-            dispatch({ type: 'setActive', payload: stepIndex })
+      <Stepper
+        language="fi"
+        onStepClick={(event, stepIndex) =>
+          dispatch({ type: 'setActive', payload: stepIndex })
+        }
+        selectedStep={state.activeStepIndex}
+        stepHeading
+        steps={state.steps}
+      />
+      <FormContent
+        selectedForm={props.selectedForm}
+        activeStep={state.activeStepIndex}
+      />
+      <div className="button-container">
+        <Button
+          disabled={state.activeStepIndex === 0}
+          iconLeft={<IconArrowLeft />}
+          onClick={() =>
+            dispatch({
+              type: 'setActive',
+              payload: state.activeStepIndex - 1
+            })
           }
-          selectedStep={state.activeStepIndex}
-          stepHeading
-          steps={state.steps}
-        />
-        <FormContent activeStep={state.activeStepIndex} />
-        <div className="button-container">
-          <Button
-            disabled={state.activeStepIndex === 0}
-            iconLeft={<IconArrowLeft />}
-            onClick={() =>
-              dispatch({
-                type: 'setActive',
-                payload: state.activeStepIndex - 1
-              })
-            }
-            variant="secondary">
-            {t('common:previous')}
-          </Button>
-          <Button
-            iconRight={<IconArrowRight />}
-            onClick={() =>
-              dispatch({ type: 'completeStep', payload: state.activeStepIndex })
-            }
-            variant={'primary'}>
-            {t('common:next')}
-          </Button>
-        </div>
-      </form>
+          variant="secondary">
+          {t('common:previous')}
+        </Button>
+        <Button
+          iconRight={<IconArrowRight />}
+          onClick={() =>
+            dispatch({ type: 'completeStep', payload: state.activeStepIndex })
+          }
+          variant={'primary'}>
+          {t('common:next')}
+        </Button>
+      </div>
     </div>
   );
 };
