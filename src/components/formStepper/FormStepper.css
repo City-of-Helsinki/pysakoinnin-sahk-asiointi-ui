@@ -6,3 +6,16 @@
   justify-content: flex-start;
   margin-top: 12px;
 }
+
+.button-container-submit {
+  align-items: flex-start;
+  display: flex;
+  gap: 24px;
+  height: 100px;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.submit-button {
+  min-width: 137px;
+}

@@ -3,6 +3,7 @@
         "form-title": "Oikaisuvaatimus pysäköintivirhemaksuun",
         "previous": "Edellinen",
         "next": "Seuraava",
+        "send": "Lähetä",
         "required-fields": "Pakolliset kentät on merkitty tähdellä *"
     },
     "parking-fine": {

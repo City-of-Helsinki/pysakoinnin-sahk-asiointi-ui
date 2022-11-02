@@ -89,6 +89,7 @@ const FormStepper = (props: Props): React.ReactElement => {
   };
   const reducer = commonReducer(props.initialSteps.length);
   const [state, dispatch] = useReducer(reducer, initialState);
+  const lastStep = state.activeStepIndex === state.steps.length - 1;
 
   return (
     <div>
@@ -105,7 +106,8 @@ const FormStepper = (props: Props): React.ReactElement => {
         selectedForm={props.selectedForm}
         activeStep={state.activeStepIndex}
       />
-      <div className="button-container">
+      <div
+        className={lastStep ? 'button-container-submit' : 'button-container'}>
         <Button
           disabled={state.activeStepIndex === 0}
           iconLeft={<IconArrowLeft />}
@@ -119,12 +121,13 @@ const FormStepper = (props: Props): React.ReactElement => {
           {t('common:previous')}
         </Button>
         <Button
-          iconRight={<IconArrowRight />}
+          className="submit-button"
+          iconRight={lastStep ? undefined : <IconArrowRight />}
           onClick={() =>
             dispatch({ type: 'completeStep', payload: state.activeStepIndex })
           }
           variant={'primary'}>
-          {t('common:next')}
+          {lastStep ? t('common:send') : t('common:next')}
         </Button>
       </div>
     </div>
