@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { useSelector } from 'react-redux';
 import { ClientContext } from '../client/ClientProvider';
+import ParkingFineAppeal from '../components/parkingFineAppeal/ParkingFineAppeal';
 import LoginComponent from '../components/Login';
-import SearchForm from '../components/searchForm/SearchForm';
 import PageContent from '../components/PageContent';
 import { StoreState } from '../client/redux/index';
 
@@ -18,7 +18,7 @@ const Index = (): React.ReactElement => {
           <h1>Pysäköinnin Sähköinen Asiointi</h1>
           {user && (
             <div>
-              <SearchForm />
+              <ParkingFineAppeal />
             </div>
           )}
           <LoginComponent />

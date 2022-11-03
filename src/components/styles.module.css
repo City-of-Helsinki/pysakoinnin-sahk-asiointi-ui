@@ -149,3 +149,9 @@
     color: var(--color-black);
   }
 }
+
+.form-title {
+  font-size: 48px;
+  font-weight: normal;
+  line-height: 48px;
+}
