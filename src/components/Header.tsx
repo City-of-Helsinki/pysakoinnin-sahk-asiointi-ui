@@ -3,7 +3,6 @@ import { IconSignout, Navigation } from 'hds-react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { useClient } from '../client/hooks';
 import styles from './styles.module.css';
-import { getClientConfig } from '../client';
 import config from '../config';
 
 type Page =
@@ -15,7 +14,7 @@ type Page =
   | 'backend';
 
 const Header = (): React.ReactElement => {
-  const currentConfig = getClientConfig();
+  const currentConfig = config.config;
   const pathPrefix = currentConfig.path;
   const client = useClient();
   const authenticated = client.isAuthenticated();

@@ -1,10 +1,5 @@
 import { FetchMock } from 'jest-fetch-mock';
-import {
-  Client,
-  FetchApiTokenOptions,
-  getClientConfig,
-  getTokenUri
-} from '../client';
+import { Client, FetchApiTokenOptions } from '../client';
 import {
   MockMutator,
   requestDelayForStatusChangeDetectionInMs
@@ -33,11 +28,7 @@ export const mockApiTokenResponse = (
         status: 200,
         body: JSON.stringify(tokens)
       };
-  const endPointUri =
-    uri ||
-    getTokenUri({
-      ...getClientConfig()
-    });
+  const endPointUri = uri as string;
   fetchMock.doMockOnceIf(endPointUri, req => {
     if (requestCallback) {
       requestCallback(req);

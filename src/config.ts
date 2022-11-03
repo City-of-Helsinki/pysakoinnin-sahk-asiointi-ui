@@ -19,9 +19,7 @@ function envValueToBoolean(
   return defaultValue;
 }
 
-function createConfigFromEnv(
-  source: 'OIDC' | 'PLAIN_SUOMIFI'
-): Partial<ClientConfig> {
+function createConfigFromEnv(source: 'OIDC'): Partial<ClientConfig> {
   const url = String(window._env_[`REACT_APP_${source}_URL`]);
   const realm = String(window._env_[`REACT_APP_${source}_REALM`]);
   const tokenExchangePath =
@@ -30,22 +28,22 @@ function createConfigFromEnv(
     realm,
     url,
     authority: realm ? `${url}/realms/${realm}` : url,
-    clientId: String(window._env_[`REACT_APP_${source}_CLIENT_ID`]),
-    callbackPath: String(window._env_[`REACT_APP_${source}_CALLBACK_PATH`]),
-    logoutPath: window._env_[`REACT_APP_${source}_LOGOUT_PATH`] || '/',
-    silentAuthPath: window._env_[`REACT_APP_${source}_SILENT_AUTH_PATH`],
-    responseType: window._env_[`REACT_APP_${source}_RESPONSE_TYPE`],
-    scope: window._env_[`REACT_APP_${source}_SCOPE`],
+    clientId: String(window._env_[`REACT_APP_OIDC_CLIENT_ID`]),
+    callbackPath: String(window._env_[`REACT_APP_OIDC_CALLBACK_PATH`]),
+    logoutPath: window._env_[`REACT_APP_OIDC_LOGOUT_PATH`] || '/',
+    silentAuthPath: window._env_[`REACT_APP_OIDC_SILENT_AUTH_PATH`],
+    responseType: window._env_[`REACT_APP_OIDC_RESPONSE_TYPE`],
+    scope: window._env_[`REACT_APP_OIDC_SCOPE`],
     autoSignIn: envValueToBoolean(
-      window._env_[`REACT_APP_${source}_AUTO_SIGN_IN`],
+      window._env_[`REACT_APP_OIDC_AUTO_SIGN_IN`],
       true
     ),
     automaticSilentRenew: envValueToBoolean(
-      window._env_[`REACT_APP_${source}_AUTO_SILENT_RENEW`],
+      window._env_[`REACT_APP_OIDC_AUTO_SILENT_RENEW`],
       true
     ),
     enableLogging: envValueToBoolean(
-      window._env_[`REACT_APP_${source}_LOGGING`],
+      window._env_[`REACT_APP_OIDC_LOGGING`],
       false
     ),
     tokenExchangePath,
@@ -53,9 +51,9 @@ function createConfigFromEnv(
   };
 }
 
-const mvpConfig = {
+const config = {
   ...createConfigFromEnv('OIDC'),
-  path: '/helsinkimvp',
+  path: '/callback',
   label: 'Helsinki-profiili MVP'
 } as ClientConfig;
 
@@ -63,29 +61,10 @@ const uiConfig: { profileUIUrl: string } = {
   profileUIUrl: String(window._env_.REACT_APP_PROFILE_UI_URL)
 };
 
-const plainSuomiFiConfig = {
-  ...createConfigFromEnv('PLAIN_SUOMIFI'),
-  path: '/plainsuomifi',
-  label: 'pelkkä Suomi.fi autentikaatio'
-} as ClientConfig;
-
-const isCallbackUrl = (route: string): boolean =>
-  route === mvpConfig.callbackPath || route === plainSuomiFiConfig.callbackPath;
-
-const getConfigFromRoute = (route: string): ClientConfig | undefined => {
-  if (route.length < 2) {
-    return undefined;
-  }
-  if (route.includes(mvpConfig.path) || route === mvpConfig.callbackPath) {
-    return mvpConfig;
-  }
-  return plainSuomiFiConfig;
-};
+const isCallbackUrl = (route: string): boolean => route === config.callbackPath;
 
 export default {
-  mvpConfig,
+  config,
   ui: uiConfig,
-  plainSuomiFiConfig,
-  isCallbackUrl,
-  getConfigFromRoute
+  isCallbackUrl
 };
