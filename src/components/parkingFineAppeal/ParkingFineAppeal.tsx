@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import PageContent from '../PageContent';
 import FormStepper, { StepState } from '../formStepper/FormStepper';
 import styles from '../styles.module.css';
 
@@ -25,12 +26,12 @@ const ParkingFineAppeal = (): React.ReactElement => {
   ];
 
   return (
-    <div>
+    <PageContent>
       <form>
         <h1 className={styles['form-title']}>{t('common:form-title')}</h1>
         <FormStepper selectedForm="parkingFine" initialSteps={steps} />
       </form>
-    </div>
+    </PageContent>
   );
 };
 
