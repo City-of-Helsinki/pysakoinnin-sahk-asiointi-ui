@@ -8,7 +8,7 @@ import HandleCallback from './components/HandleCallback';
 import Header from './components/Header';
 import LogOut from './pages/LogOut';
 import Index from './pages/Index';
-import SearchForm from './components/searchForm/SearchForm';
+import ParkingFineAppeal from './components/parkingFineAppeal/ParkingFineAppeal';
 
 function App(): React.ReactElement {
   return (
@@ -28,7 +28,7 @@ function App(): React.ReactElement {
                 <LogOut />
               </Route>
               <Route path={['/oikaisuvaatimus']} exact>
-                <SearchForm />
+                <ParkingFineAppeal />
               </Route>
               <Route path="*">404 - not found</Route>
             </Switch>

@@ -1,15 +1,14 @@
 import React, { useContext } from 'react';
-import { useSelector } from 'react-redux';
+import { Link } from 'hds-react';
 import { ClientContext } from '../client/ClientProvider';
-import ParkingFineAppeal from '../components/parkingFineAppeal/ParkingFineAppeal';
 import LoginComponent from '../components/Login';
 import PageContent from '../components/PageContent';
-import { StoreState } from '../client/redux/index';
+import { useClient } from '../client/hooks';
 
 const Index = (): React.ReactElement => {
   const clientContext = useContext(ClientContext);
-  const state: StoreState = useSelector((storeState: StoreState) => storeState);
-  const user = state?.user;
+  const { getUser } = useClient();
+  const user = getUser();
 
   return (
     <PageContent>
@@ -18,7 +17,14 @@ const Index = (): React.ReactElement => {
           <h1>Pysäköinnin Sähköinen Asiointi</h1>
           {user && (
             <div>
-              <ParkingFineAppeal />
+              <h2>Hakemukset ja päätökset</h2>
+              <p>Sinulla ei ole hakemuksia tai päätöksiä.</p>
+              <h2>Lomakkeet</h2>
+              <ul>
+                <li>
+                  <Link href="/oikaisuvaatimus">Tee oikaisuvaatimus</Link>
+                </li>
+              </ul>
             </div>
           )}
           <LoginComponent />
