@@ -1,19 +1,11 @@
 {
     "common": {
-        "form-title": "Oikaisuvaatimus pysäköintivirhemaksuun",
         "previous": "Edellinen",
         "next": "Seuraava",
         "send": "Lähetä",
-        "required-fields": "Pakolliset kentät on merkitty tähdellä *"
-    },
-    "parking-fine": {
-        "stepper": {
-            "step1": "Haku",
-            "step2": "Pysäköintivirhemaksu",
-            "step3": "Oikaisuvaatimus",
-            "step4": "Yhteenveto"
-        },
-        "step1": {
+        "selection": "Haluan *",
+        "required-fields": "Pakolliset kentät on merkitty tähdellä *",
+        "fine-info": {
             "ref-number": {
                 "label": "Asianumero",
                 "placeholder": "Esim. 12345678",
@@ -23,7 +15,45 @@
                 "label": "Ajoneuvon rekisteritunnus",
                 "placeholder": "Esim. ABC-123",
                 "helper-text": "Kirjoita rekisteritunnus kuten se on pysäköintivirhemaksussa."
-            }
+            },
+            "sum": "Pysäköintivirhemaksun summa",
+            "due-date": "Eräpäivä"
         }
+    },
+    "parking-fine": {
+        "title": "Oikaisuvaatimus pysäköintivirhemaksuun",
+        "stepper": {
+            "step1": "Haku",
+            "step2": "Pysäköintivirhemaksu",
+            "step3": "Oikaisuvaatimus",
+            "step4": "Yhteenveto"
+        }
+    },
+    "due-date": {
+        "title": "Pysäköintivirhemaksun eräpäivän siirto 30 päivällä",
+        "stepper": {
+            "step1": "Haku",
+            "step2": "Eräpäivän siirto"
+        },
+        "new-due-date": "Uusi eräpäivä",
+        "notifications": {
+            "allowed": {
+                "label": "Voit siirtää eräpäivää",
+                "text": "Eräpäivän siirto on mahdollista vain, jos pysäköintivirhemaksun eräpäivä ei ole mennyt umpeen."
+            },
+            "not-allowed": {
+                "label": "Et voi enää siirtää eräpäivää",
+                "text": "Eräpäivän siirto on mahdollista vain, jos pysäköintivirhemaksun eräpäivä ei ole mennyt umpeen."
+            },
+            "success": {
+                "label": "Eräpäivää on siirretty",
+                "text": "Pysäköintivirhemaksun eräpäivää on siirretty 30 päivää. Uusi eräpäivä on x.x.xxxx ."
+            }
+        },
+        "radio-button": {
+            "extend": "Siirtää eräpäivää 30 päivää",
+            "pay": "Maksaa pysäköintivirhemaksun"
+        },
+        "submit": "Siirrä eräpäivää"
     }
 }

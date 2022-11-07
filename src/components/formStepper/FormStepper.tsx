@@ -120,15 +120,27 @@ const FormStepper = (props: Props): React.ReactElement => {
           variant="secondary">
           {t('common:previous')}
         </Button>
-        <Button
-          className="submit-button"
-          iconRight={lastStep ? undefined : <IconArrowRight />}
-          onClick={() =>
-            dispatch({ type: 'completeStep', payload: state.activeStepIndex })
-          }
-          variant={'primary'}>
-          {lastStep ? t('common:send') : t('common:next')}
-        </Button>
+        {!lastStep ? (
+          <Button
+            iconRight={<IconArrowRight />}
+            onClick={() =>
+              dispatch({ type: 'completeStep', payload: state.activeStepIndex })
+            }
+            variant={'primary'}>
+            {t('common:next')}
+          </Button>
+        ) : (
+          <Button
+            className="submit-button"
+            onClick={() =>
+              dispatch({ type: 'completeStep', payload: state.activeStepIndex })
+            }
+            variant={'primary'}>
+            {props.selectedForm === 'dueDate'
+              ? t('due-date:submit')
+              : t('common:send')}
+          </Button>
+        )}
       </div>
     </div>
   );

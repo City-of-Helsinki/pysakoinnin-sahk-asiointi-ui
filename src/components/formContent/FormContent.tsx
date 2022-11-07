@@ -1,5 +1,7 @@
 import React from 'react';
 import SearchForm from '../searchForm/SearchForm';
+import ExtendDueDateForm from '../extendDueDate/ExtendDueDateForm';
+import './FormContent.css';
 
 interface Props {
   selectedForm: string;
@@ -7,9 +9,10 @@ interface Props {
 }
 
 const FormContent = (props: Props): React.ReactElement => (
-  <div>
-    {props.selectedForm === 'parkingFine' && props.activeStep === 0 && (
-      <SearchForm />
+  <div className="form-container">
+    {props.activeStep === 0 && <SearchForm />}
+    {props.activeStep === 1 && props.selectedForm === 'dueDate' && (
+      <ExtendDueDateForm />
     )}
   </div>
 );

@@ -24,6 +24,9 @@ const Index = (): React.ReactElement => {
                 <li>
                   <Link href="/oikaisuvaatimus">Tee oikaisuvaatimus</Link>
                 </li>
+                <li>
+                  <Link href="/erapaivansiirto">Siirrä eräpäivää</Link>
+                </li>
               </ul>
             </div>
           )}
