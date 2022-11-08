@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { formatISO } from 'date-fns';
 import {
   Button,
   IconLinkExternal,
@@ -15,7 +16,7 @@ const ExtendDueDateForm = (): React.ReactElement => {
   const [extensionAllowed, setExtensionAllowed] = useState(false);
   const [infoNotificationOpen, setInfoNotificationOpen] = useState(false);
   // For testing the notifications
-  const dueDate = new Date('2022-11-20').valueOf();
+  const dueDate = formatISO(new Date('2022-11-20'), { representation: 'date' });
 
   const handleSelectedChange = (value: number) => {
     setSelectedItem(value);
@@ -26,7 +27,7 @@ const ExtendDueDateForm = (): React.ReactElement => {
   };
 
   useEffect(() => {
-    const currentDate = new Date().setHours(0, 0, 0, 0);
+    const currentDate = formatISO(new Date(), { representation: 'date' });
     if (dueDate >= currentDate) {
       setExtensionAllowed(true);
     }
