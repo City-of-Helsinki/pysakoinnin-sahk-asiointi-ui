@@ -43,8 +43,7 @@
                 "text": "Eräpäivän siirto on mahdollista vain, jos pysäköintivirhemaksun eräpäivä ei ole mennyt umpeen."
             },
             "not-allowed": {
-                "label": "Et voi enää siirtää eräpäivää",
-                "text": "Eräpäivän siirto on mahdollista vain, jos pysäköintivirhemaksun eräpäivä ei ole mennyt umpeen."
+                "label": "Et voi enää siirtää eräpäivää"
             },
             "success": {
                 "label": "Eräpäivää on siirretty",

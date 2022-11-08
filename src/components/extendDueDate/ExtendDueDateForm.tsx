@@ -1,14 +1,37 @@
-import React, { useState } from 'react';
-import { Button, IconLinkExternal, RadioButton, TextInput } from 'hds-react';
+import React, { useEffect, useState } from 'react';
+import {
+  Button,
+  IconLinkExternal,
+  Notification,
+  RadioButton,
+  TextInput
+} from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import './ExtendDueDateForm.css';
 
 const ExtendDueDateForm = (): React.ReactElement => {
   const { t } = useTranslation();
   const [selectedItem, setSelectedItem] = useState<number>();
+  const [infoNotificationSuccess, setInfoNotificationSuccess] = useState(false);
+  const [infoNotificationOpen, setInfoNotificationOpen] = useState(false);
+  // For testing the notifications
+  const dueDate = new Date('2022-11-20').valueOf();
+
   const handleSelectedChange = (value: number) => {
     setSelectedItem(value);
   };
+
+  const onInfoNotificationClose = () => {
+    setInfoNotificationOpen(false);
+  };
+
+  useEffect(() => {
+    const currentDate = new Date().setHours(0, 0, 0, 0);
+    if (dueDate >= currentDate) {
+      setInfoNotificationSuccess(true);
+    }
+    setInfoNotificationOpen(true);
+  }, [dueDate]);
 
   return (
     <div>
@@ -36,16 +59,31 @@ const ExtendDueDateForm = (): React.ReactElement => {
         <TextInput
           id="dueDate"
           label={t('common:fine-info:due-date')}
-          defaultValue="2.12.2019"
+          defaultValue="20.11.2022"
           readOnly
         />
         <TextInput
           id="newDueDate"
           label={t('due-date:new-due-date')}
-          defaultValue="2.1.2020"
+          defaultValue="20.12.2022"
           readOnly
         />
       </div>
+      {infoNotificationOpen && (
+        <Notification
+          className="notification"
+          label={
+            infoNotificationSuccess
+              ? t('due-date:notifications:allowed:label')
+              : t('due-date:notifications:not-allowed:label')
+          }
+          type={infoNotificationSuccess ? 'success' : 'error'}
+          dismissible
+          closeButtonLabelText="Close notification"
+          onClose={() => onInfoNotificationClose()}>
+          {t('due-date:notifications:allowed:text')}
+        </Notification>
+      )}
       <div>
         <p>{t('common:selection')}</p>
         <RadioButton
