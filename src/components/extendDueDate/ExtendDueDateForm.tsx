@@ -12,7 +12,7 @@ import './ExtendDueDateForm.css';
 const ExtendDueDateForm = (): React.ReactElement => {
   const { t } = useTranslation();
   const [selectedItem, setSelectedItem] = useState<number>();
-  const [infoNotificationSuccess, setInfoNotificationSuccess] = useState(false);
+  const [extensionAllowed, setExtensionAllowed] = useState(false);
   const [infoNotificationOpen, setInfoNotificationOpen] = useState(false);
   // For testing the notifications
   const dueDate = new Date('2022-11-20').valueOf();
@@ -28,7 +28,7 @@ const ExtendDueDateForm = (): React.ReactElement => {
   useEffect(() => {
     const currentDate = new Date().setHours(0, 0, 0, 0);
     if (dueDate >= currentDate) {
-      setInfoNotificationSuccess(true);
+      setExtensionAllowed(true);
     }
     setInfoNotificationOpen(true);
   }, [dueDate]);
@@ -73,11 +73,11 @@ const ExtendDueDateForm = (): React.ReactElement => {
         <Notification
           className="notification"
           label={
-            infoNotificationSuccess
+            extensionAllowed
               ? t('due-date:notifications:allowed:label')
               : t('due-date:notifications:not-allowed:label')
           }
-          type={infoNotificationSuccess ? 'success' : 'error'}
+          type={extensionAllowed ? 'success' : 'error'}
           dismissible
           closeButtonLabelText="Close notification"
           onClose={() => onInfoNotificationClose()}>
@@ -89,6 +89,7 @@ const ExtendDueDateForm = (): React.ReactElement => {
         <RadioButton
           id="extendRadio"
           name="extendRadio"
+          disabled={!extensionAllowed}
           label={t('due-date:radio-button:extend')}
           value="1"
           checked={selectedItem === 1}
@@ -97,6 +98,7 @@ const ExtendDueDateForm = (): React.ReactElement => {
         <RadioButton
           id="payRadio"
           name="payRadio"
+          disabled={!extensionAllowed}
           label={t('due-date:radio-button:pay')}
           value="2"
           checked={selectedItem === 2}
