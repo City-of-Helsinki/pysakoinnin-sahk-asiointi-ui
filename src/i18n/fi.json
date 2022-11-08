@@ -51,7 +51,7 @@
             }
         },
         "radio-button": {
-            "extend": "Siirtää eräpäivää 30 päivää",
+            "extend": "Siirtää eräpäivää 30 päivällä",
             "pay": "Maksaa pysäköintivirhemaksun"
         },
         "submit": "Siirrä eräpäivää"
