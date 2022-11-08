@@ -55,12 +55,14 @@ const ExtendDueDateForm = (): React.ReactElement => {
           defaultValue="20.11.2022"
           readOnly
         />
-        <TextInput
-          id="newDueDate"
-          label={t('due-date:new-due-date')}
-          defaultValue="20.12.2022"
-          readOnly
-        />
+        {extensionAllowed && (
+          <TextInput
+            id="newDueDate"
+            label={t('due-date:new-due-date')}
+            defaultValue="20.12.2022"
+            readOnly
+          />
+        )}
       </div>
       {infoNotificationOpen && (
         <Notification
