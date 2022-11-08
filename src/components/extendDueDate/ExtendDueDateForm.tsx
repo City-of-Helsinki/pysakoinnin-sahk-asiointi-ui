@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { RadioButton, TextInput } from 'hds-react';
+import { Button, IconLinkExternal, RadioButton, TextInput } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import './ExtendDueDateForm.css';
 
@@ -49,22 +49,30 @@ const ExtendDueDateForm = (): React.ReactElement => {
       <div>
         <p>{t('common:selection')}</p>
         <RadioButton
-          id="radio1"
-          name="extend"
+          id="extendRadio"
+          name="extendRadio"
           label={t('due-date:radio-button:extend')}
           value="1"
           checked={selectedItem === 1}
           onChange={() => handleSelectedChange(1)}
         />
         <RadioButton
-          id="radio2"
-          name="pay"
+          id="payRadio"
+          name="payRadio"
           label={t('due-date:radio-button:pay')}
           value="2"
           checked={selectedItem === 2}
           onChange={() => handleSelectedChange(2)}
         />
       </div>
+      <Button
+        className="pay-button"
+        disabled={selectedItem !== 2}
+        iconRight={<IconLinkExternal />}
+        //onClick={}
+        variant="secondary">
+        {t('common:pay')}
+      </Button>
     </div>
   );
 };
