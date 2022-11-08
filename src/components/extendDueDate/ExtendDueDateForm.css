@@ -1,0 +1,15 @@
+.info-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 12px 12px;
+  margin-top: 24px;
+}
+
+.notification {
+  max-width: 384px;
+}
+
+.pay-button {
+  width: 332px;
+  margin-top: 24px;
+}

@@ -9,6 +9,7 @@ import Header from './components/Header';
 import LogOut from './pages/LogOut';
 import Index from './pages/Index';
 import ParkingFineAppeal from './components/parkingFineAppeal/ParkingFineAppeal';
+import ExtendDueDate from './components/extendDueDate/ExtendDueDate';
 
 function App(): React.ReactElement {
   return (
@@ -29,6 +30,9 @@ function App(): React.ReactElement {
               </Route>
               <Route path={['/oikaisuvaatimus']} exact>
                 <ParkingFineAppeal />
+              </Route>
+              <Route path={['/erapaivansiirto']} exact>
+                <ExtendDueDate />
               </Route>
               <Route path="*">404 - not found</Route>
             </Switch>

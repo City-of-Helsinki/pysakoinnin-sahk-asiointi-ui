@@ -28,7 +28,7 @@ const ParkingFineAppeal = (): React.ReactElement => {
   return (
     <PageContent>
       <form>
-        <h1 className={styles['form-title']}>{t('common:form-title')}</h1>
+        <h1 className={styles['form-title']}>{t('parking-fine:title')}</h1>
         <FormStepper selectedForm="parkingFine" initialSteps={steps} />
       </form>
     </PageContent>
