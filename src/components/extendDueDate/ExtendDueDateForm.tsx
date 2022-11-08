@@ -18,14 +18,6 @@ const ExtendDueDateForm = (): React.ReactElement => {
   // For testing the notifications
   const dueDate = formatISO(new Date('2022-11-20'), { representation: 'date' });
 
-  const handleSelectedChange = (value: number) => {
-    setSelectedItem(value);
-  };
-
-  const onInfoNotificationClose = () => {
-    setInfoNotificationOpen(false);
-  };
-
   useEffect(() => {
     const currentDate = formatISO(new Date(), { representation: 'date' });
     if (dueDate >= currentDate) {
@@ -81,7 +73,7 @@ const ExtendDueDateForm = (): React.ReactElement => {
           type={extensionAllowed ? 'success' : 'error'}
           dismissible
           closeButtonLabelText="Close notification"
-          onClose={() => onInfoNotificationClose()}>
+          onClose={() => setInfoNotificationOpen(false)}>
           {t('due-date:notifications:allowed:text')}
         </Notification>
       )}
@@ -94,7 +86,7 @@ const ExtendDueDateForm = (): React.ReactElement => {
           label={t('due-date:radio-button:extend')}
           value="1"
           checked={selectedItem === 1}
-          onChange={() => handleSelectedChange(1)}
+          onChange={() => setSelectedItem(1)}
         />
         <RadioButton
           id="payRadio"
@@ -103,7 +95,7 @@ const ExtendDueDateForm = (): React.ReactElement => {
           label={t('due-date:radio-button:pay')}
           value="2"
           checked={selectedItem === 2}
-          onChange={() => handleSelectedChange(2)}
+          onChange={() => setSelectedItem(2)}
         />
       </div>
       <Button
