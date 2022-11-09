@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { formatISO } from 'date-fns';
 import {
   Button,
@@ -8,15 +9,23 @@ import {
   TextInput
 } from 'hds-react';
 import { useTranslation } from 'react-i18next';
+import { setSubmitDisabled } from '../formContent/formContentSlice';
+import { selectedOption, setSelectedOption } from './extendDueDateFormSlice';
 import './ExtendDueDateForm.css';
 
 const ExtendDueDateForm = (): React.ReactElement => {
   const { t } = useTranslation();
-  const [selectedItem, setSelectedItem] = useState<number>();
+  const dispatch = useDispatch();
+  const selectedItem = useSelector(selectedOption);
   const [extensionAllowed, setExtensionAllowed] = useState(false);
   const [infoNotificationOpen, setInfoNotificationOpen] = useState(false);
   // For testing the notifications
   const dueDate = formatISO(new Date('2022-11-20'), { representation: 'date' });
+
+  const handleItemChange = (value: number) => {
+    dispatch(setSelectedOption(value));
+    dispatch(setSubmitDisabled(value !== 1));
+  };
 
   useEffect(() => {
     const currentDate = formatISO(new Date(), { representation: 'date' });
@@ -88,7 +97,7 @@ const ExtendDueDateForm = (): React.ReactElement => {
           label={t('due-date:radio-button:extend')}
           value="1"
           checked={selectedItem === 1}
-          onChange={() => setSelectedItem(1)}
+          onChange={() => handleItemChange(1)}
         />
         <RadioButton
           id="payRadio"
@@ -97,7 +106,7 @@ const ExtendDueDateForm = (): React.ReactElement => {
           label={t('due-date:radio-button:pay')}
           value="2"
           checked={selectedItem === 2}
-          onChange={() => setSelectedItem(2)}
+          onChange={() => handleItemChange(2)}
         />
       </div>
       <Button

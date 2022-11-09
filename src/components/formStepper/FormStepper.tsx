@@ -1,12 +1,14 @@
 import React, { useReducer } from 'react';
+import { useSelector } from 'react-redux';
 import { Button, IconArrowLeft, IconArrowRight, Stepper } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import FormContent from '../formContent/FormContent';
+import { selectFormContent } from '../formContent/formContentSlice';
 import './FormStepper.css';
 
 interface Props {
-  selectedForm: string;
   initialSteps: Step[];
+  onSubmit: () => void;
 }
 
 type Step = {
@@ -32,6 +34,7 @@ export enum StepState {
 
 const FormStepper = (props: Props): React.ReactElement => {
   const { t } = useTranslation();
+  const formContent = useSelector(selectFormContent);
 
   const commonReducer = (stepsTotal: number) => (
     state: StepperState,
@@ -102,10 +105,7 @@ const FormStepper = (props: Props): React.ReactElement => {
         stepHeading
         steps={state.steps}
       />
-      <FormContent
-        selectedForm={props.selectedForm}
-        activeStep={state.activeStepIndex}
-      />
+      <FormContent activeStep={state.activeStepIndex} />
       <div
         className={lastStep ? 'button-container-submit' : 'button-container'}>
         <Button
@@ -124,19 +124,21 @@ const FormStepper = (props: Props): React.ReactElement => {
           <Button
             iconRight={<IconArrowRight />}
             onClick={() =>
-              dispatch({ type: 'completeStep', payload: state.activeStepIndex })
+              dispatch({
+                type: 'completeStep',
+                payload: state.activeStepIndex
+              })
             }
-            variant={'primary'}>
+            variant="primary">
             {t('common:next')}
           </Button>
         ) : (
           <Button
             className="submit-button"
-            onClick={() =>
-              dispatch({ type: 'completeStep', payload: state.activeStepIndex })
-            }
-            variant={'primary'}>
-            {props.selectedForm === 'dueDate'
+            onClick={() => props.onSubmit()}
+            variant="primary"
+            disabled={formContent.submitDisabled}>
+            {formContent.selectedForm === 'dueDate'
               ? t('due-date:submit')
               : t('common:send')}
           </Button>
