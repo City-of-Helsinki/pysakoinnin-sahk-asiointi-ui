@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import PageContent from '../PageContent';
-import FormStepper, { StepState } from '../formStepper/FormStepper';
+import FormStepper from '../formStepper/FormStepper';
+import { StepState } from '../formStepper/formStepperSlice';
 import { FormId, setSelectedForm } from '../formContent/formContentSlice';
 import styles from '../styles.module.css';
 
