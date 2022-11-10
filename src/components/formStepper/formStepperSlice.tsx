@@ -15,7 +15,6 @@ export type Step = {
 type SliceState = {
   activeStepIndex: number;
   steps: Step[];
-  stepsTotal: number;
 };
 
 const initialState: SliceState = {
@@ -25,8 +24,7 @@ const initialState: SliceState = {
       label: '',
       state: StepState.disabled
     }
-  ],
-  stepsTotal: 0
+  ]
 };
 
 export const slice = createSlice({
@@ -36,16 +34,12 @@ export const slice = createSlice({
     setSteps: (state, action) => {
       state.steps = action.payload;
     },
-    setNumberOfSteps: (state, action) => {
-      state.stepsTotal = action.payload;
-    },
     completeStep: (state, action) => {
+      const stepsTotal = state.steps.length;
       state.activeStepIndex =
-        action.payload === state.stepsTotal - 1
-          ? state.stepsTotal - 1
-          : action.payload + 1;
+        action.payload === stepsTotal - 1 ? stepsTotal - 1 : action.payload + 1;
       state.steps = state.steps.map((step: Step, index: number) => {
-        if (index === action.payload && index !== state.stepsTotal - 1) {
+        if (index === action.payload && index !== stepsTotal - 1) {
           // current one but not last one
           return {
             state: StepState.completed,
@@ -78,12 +72,7 @@ export const slice = createSlice({
 });
 
 // Actions
-export const {
-  completeStep,
-  setActive,
-  setSteps,
-  setNumberOfSteps
-} = slice.actions;
+export const { completeStep, setActive, setSteps } = slice.actions;
 
 // Selectors
 export const selectStepperState = (state: RootState) => state.formStepper;

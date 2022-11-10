@@ -8,8 +8,7 @@ import {
   selectStepperState,
   completeStep,
   setActive,
-  setSteps,
-  setNumberOfSteps
+  setSteps
 } from './formStepperSlice';
 import { selectFormContent } from '../formContent/formContentSlice';
 import './FormStepper.css';
@@ -22,13 +21,12 @@ interface Props {
 const FormStepper = (props: Props): React.ReactElement => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const stepperState = useSelector(selectStepperState);
+  const { activeStepIndex, steps } = useSelector(selectStepperState);
   const formContent = useSelector(selectFormContent);
-  const lastStep = stepperState.activeStepIndex === stepperState.stepsTotal - 1;
+  const lastStep = activeStepIndex === steps.length - 1;
 
   useEffect(() => {
     dispatch(setSteps(props.initialSteps));
-    dispatch(setNumberOfSteps(props.initialSteps.length));
   }, [dispatch, props.initialSteps]);
 
   return (
@@ -36,24 +34,24 @@ const FormStepper = (props: Props): React.ReactElement => {
       <Stepper
         language="fi"
         onStepClick={(event, stepIndex) => dispatch(setActive(stepIndex))}
-        selectedStep={stepperState.activeStepIndex}
+        selectedStep={activeStepIndex}
         stepHeading
-        steps={stepperState.steps}
+        steps={steps}
       />
-      <FormContent activeStep={stepperState.activeStepIndex} />
+      <FormContent activeStep={activeStepIndex} />
       <div
         className={lastStep ? 'button-container-submit' : 'button-container'}>
         <Button
-          disabled={stepperState.activeStepIndex === 0}
+          disabled={activeStepIndex === 0}
           iconLeft={<IconArrowLeft />}
-          onClick={() => dispatch(setActive(stepperState.activeStepIndex - 1))}
+          onClick={() => dispatch(setActive(activeStepIndex - 1))}
           variant="secondary">
           {t('common:previous')}
         </Button>
         {!lastStep ? (
           <Button
             iconRight={<IconArrowRight />}
-            onClick={() => dispatch(completeStep(stepperState.activeStepIndex))}
+            onClick={() => dispatch(completeStep(activeStepIndex))}
             variant="primary">
             {t('common:next')}
           </Button>
