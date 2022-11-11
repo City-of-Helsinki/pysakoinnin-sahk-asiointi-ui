@@ -17,6 +17,26 @@
         "placeholder": "Esim. ABC-123",
         "helper-text": "Kirjoita rekisteritunnus kuten se on pysäköintivirhemaksussa."
       },
+      "fine-timestamp": {
+        "label": "Virheen ajankohta",
+        "placeholder": "1.11.2019 09:41 - 1.11.2019 09:43"
+      },
+      "address": {
+        "label": "Osoite",
+        "placeholder": "Näkinkuja 1c"
+      },
+      "fine-title": {
+        "label": "Virhe",
+        "placeholder": "Pysäköinti kielletty liikennemerkin noudattamatta jättäminen. TLL 3 § 1 mom, TL 16 § merkki 372"
+      },
+      "fine-details": {
+        "label": "Lisätieto",
+        "placeholder": "Liikennemerkistä n. 3 m"
+      },
+      "additional-details": {
+        "label": "Lisätietoja",
+        "placeholder": "Kääntymispaikka"
+      },
       "sum": "Pysäköintivirhemaksun summa",
       "due-date": "Eräpäivä"
     }
@@ -28,7 +48,10 @@
       "step2": "Pysäköintivirhemaksu",
       "step3": "Oikaisuvaatimus",
       "step4": "Yhteenveto"
-    }
+    },
+    "make-rectification": "Tehdä oikaisuvaatimuksen",
+    "pay-fine": "Maksaa pysäköintivirhemaksun",
+    "to-payment": "Maksamaan"
   },
   "due-date": {
     "title": "Pysäköintivirhemaksun eräpäivän siirto 30 päivällä",

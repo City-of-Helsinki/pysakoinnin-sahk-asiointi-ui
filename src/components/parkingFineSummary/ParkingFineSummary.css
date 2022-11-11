@@ -1,0 +1,17 @@
+.summary-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(8, 1fr);
+}
+
+.info-container {
+    width: max-content;
+    grid-column-start: 1;
+    grid-row-end: span 2;
+}
+
+.vehicle-details-container {
+    grid-column-start: 3;
+    grid-row-start: 1;
+    grid-row-end: 8;
+}
