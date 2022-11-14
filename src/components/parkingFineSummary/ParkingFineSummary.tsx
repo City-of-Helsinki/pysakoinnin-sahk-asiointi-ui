@@ -139,8 +139,11 @@ const ParkingFineSummary = (): React.ReactElement => {
         label={t('common:fine-info:barcode:label')}
         value={t('common:fine-info:barcode:placeholder')}
       />
-      <Button type="button" variant="secondary" onClick={() => null}>
-        <IconCopy />
+      <Button
+        type="button"
+        variant="secondary"
+        onClick={() => null}
+        iconLeft={<IconCopy />}>
         {t('common:copy-barcode')}
       </Button>
     </>
