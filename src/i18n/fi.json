@@ -6,6 +6,7 @@
     "pay": "Maksamaan",
     "selection": "Haluan *",
     "required-fields": "Pakolliset kentät on merkitty tähdellä *",
+    "copy-barcode": "Kopioi virtuaaliviivakoodi",
     "fine-info": {
       "ref-number": {
         "label": "Asianumero",
@@ -37,8 +38,22 @@
         "label": "Lisätietoja",
         "placeholder": "Kääntymispaikka"
       },
-      "sum": "Pysäköintivirhemaksun summa",
-      "due-date": "Eräpäivä"
+      "fine-additional-details": {
+        "label": "Pysäköintivirheen lisätiedot",
+        "placeholder": "Lyökämme käsi kätehen, sormet sormien lomahan, lauloaksemme hyviä, parahia pannaksemme, kuulla noien kultaisien, tietä mielitehtoisien, nuorisossa nousevassa, kansassa kasuavassa: noita saamia sanoja, virsiä virittämiä vyöltä vanhan Väinämöisen, alta ahjon Ilmarisen, päästä kalvan Kaukomielen. 294 merkkiä"
+      },
+      "sum": {
+        "label": "Pysäköintivirhemaksun summa",
+        "placeholder": "80,00 EUR"
+      },
+      "due-date": {
+        "label": "Eräpäivä",
+        "placeholder": "2.12.2019"
+      },
+      "barcode": {
+        "label": "Virtuaaliviivakoodi",
+        "placeholder": "430123730001230560012400000000000000000100018714210302"
+      }
     }
   },
   "parking-fine": {
@@ -51,7 +66,25 @@
     },
     "make-rectification": "Tehdä oikaisuvaatimuksen",
     "pay-fine": "Maksaa pysäköintivirhemaksun",
-    "to-payment": "Maksamaan"
+    "to-payment": "Maksamaan",
+    "vehicle-info": {
+      "type": {
+        "label": "Ajoneuvolaji",
+        "placeholder": "Henkilöauto M1"
+      },
+      "brand": {
+        "label": "Merkki",
+        "placeholder": "Citroen"
+      },
+      "model": {
+        "label": "Malli",
+        "placeholder": "2D C2 HATCHBACK 1.4l-JMKFVC/232"
+      },
+      "color": {
+        "label": "Väri",
+        "placeholder": "Punainen"
+      }
+    }
   },
   "due-date": {
     "title": "Pysäköintivirhemaksun eräpäivän siirto 30 päivällä",

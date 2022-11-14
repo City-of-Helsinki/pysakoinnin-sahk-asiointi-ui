@@ -1,9 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import SearchForm from '../searchForm/SearchForm';
-import ExtendDueDateForm from '../extendDueDate/ExtendDueDateForm';
 import { FormId, selectFormContent } from './formContentSlice';
 import './FormContent.css';
+import ExtendDueDateForm from '../extendDueDate/ExtendDueDateForm';
+import ParkingFineSummary from '../parkingFineSummary/ParkingFineSummary';
 
 interface Props {
   activeStep: number;
@@ -11,11 +12,24 @@ interface Props {
 
 const FormContent = (props: Props): React.ReactElement => {
   const formContent = useSelector(selectFormContent);
+
+  const selectForm = (selectedForm: FormId) => {
+    switch (selectedForm) {
+      case 'dueDate':
+        return <ExtendDueDateForm />;
+      case 'parkingFine':
+        return <ParkingFineSummary />;
+    }
+  };
+
   return (
     <div className="form-container">
-      {props.activeStep === 0 && <SearchForm />}
-      {props.activeStep === 1 &&
-        formContent.selectedForm === FormId.DUEDATE && <ExtendDueDateForm />}
+      {
+        {
+          0: <SearchForm />,
+          1: selectForm(formContent.selectedForm)
+        }[props.activeStep]
+      }
     </div>
   );
 };
