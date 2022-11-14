@@ -3,10 +3,9 @@
     "previous": "Edellinen",
     "next": "Seuraava",
     "send": "Lähetä",
-    "pay": "Maksamaan",
-    "selection": "Haluan *",
     "required-fields": "Pakolliset kentät on merkitty tähdellä *",
     "copy-barcode": "Kopioi virtuaaliviivakoodi",
+    "email-confirmation": "Haluan vahvistuksen sähköpostiini",
     "fine-info": {
       "ref-number": {
         "label": "Asianumero",

@@ -1,43 +1,54 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { formatISO } from 'date-fns';
-import {
-  Button,
-  IconLinkExternal,
-  Notification,
-  RadioButton,
-  TextInput
-} from 'hds-react';
+import { Button, Checkbox, IconCopy, Notification, TextInput } from 'hds-react';
 import { useTranslation } from 'react-i18next';
-import { setSubmitDisabled } from '../formContent/formContentSlice';
-import { selectedOption, setSelectedOption } from './extendDueDateFormSlice';
+import {
+  emailConfirmationChecked,
+  setEmailConfirmationChecked
+} from './extendDueDateFormSlice';
 import './ExtendDueDateForm.css';
+import { setSubmitDisabled } from '../formContent/formContentSlice';
 
 const ExtendDueDateForm = (): React.ReactElement => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const selectedItem = useSelector(selectedOption);
+  const checkboxChecked = useSelector(emailConfirmationChecked);
   const [extensionAllowed, setExtensionAllowed] = useState(false);
   const [infoNotificationOpen, setInfoNotificationOpen] = useState(false);
   // For testing the notifications
   const dueDate = formatISO(new Date('2022-11-20'), { representation: 'date' });
 
-  const handleItemChange = (value: number) => {
-    dispatch(setSelectedOption(value));
-    dispatch(setSubmitDisabled(value !== 1));
+  const handleCheckedChange = () => {
+    dispatch(setEmailConfirmationChecked(!checkboxChecked));
   };
 
   useEffect(() => {
     const currentDate = formatISO(new Date(), { representation: 'date' });
     if (dueDate >= currentDate) {
       setExtensionAllowed(true);
+      dispatch(setSubmitDisabled(false));
     }
     setInfoNotificationOpen(true);
-  }, [dueDate]);
+  }, [dispatch, dueDate]);
 
   return (
     <div>
       <p>{t('common:required-fields')}</p>
+      {infoNotificationOpen && (
+        <Notification
+          label={
+            extensionAllowed
+              ? t('due-date:notifications:allowed:label')
+              : t('due-date:notifications:not-allowed:label')
+          }
+          type={extensionAllowed ? 'success' : 'error'}
+          dismissible
+          closeButtonLabelText="Close notification"
+          onClose={() => setInfoNotificationOpen(false)}>
+          {t('due-date:notifications:allowed:text')}
+        </Notification>
+      )}
       <div className="info-container">
         <TextInput
           id="refNumber"
@@ -73,50 +84,29 @@ const ExtendDueDateForm = (): React.ReactElement => {
           />
         )}
       </div>
-      {infoNotificationOpen && (
-        <Notification
-          className="notification"
-          label={
-            extensionAllowed
-              ? t('due-date:notifications:allowed:label')
-              : t('due-date:notifications:not-allowed:label')
-          }
-          type={extensionAllowed ? 'success' : 'error'}
-          dismissible
-          closeButtonLabelText="Close notification"
-          onClose={() => setInfoNotificationOpen(false)}>
-          {t('due-date:notifications:allowed:text')}
-        </Notification>
-      )}
-      <div>
-        <p>{t('common:selection')}</p>
-        <RadioButton
-          id="extendRadio"
-          name="extendRadio"
-          disabled={!extensionAllowed}
-          label={t('due-date:radio-button:extend')}
-          value="1"
-          checked={selectedItem === 1}
-          onChange={() => handleItemChange(1)}
+      <div className="barcode-container">
+        <TextInput
+          id="barCode"
+          label={t('common:fine-info:barcode:label')}
+          defaultValue="43012383000123056001240000000000000000018714210302"
+          readOnly
         />
-        <RadioButton
-          id="payRadio"
-          name="payRadio"
-          disabled={!extensionAllowed}
-          label={t('due-date:radio-button:pay')}
-          value="2"
-          checked={selectedItem === 2}
-          onChange={() => handleItemChange(2)}
-        />
+        <Button
+          className="barcode-button"
+          iconLeft={<IconCopy />}
+          //onClick={}
+          variant="secondary">
+          {t('common:copy-barcode')}
+        </Button>
       </div>
-      <Button
-        className="pay-button"
-        disabled={selectedItem !== 2}
-        iconRight={<IconLinkExternal />}
-        //onClick={}
-        variant="secondary">
-        {t('common:pay')}
-      </Button>
+      <Checkbox
+        className="checkbox"
+        label={t('common:email-confirmation')}
+        id="emailConfirmationCheckbox"
+        checked={checkboxChecked}
+        onChange={handleCheckedChange}
+        disabled={!extensionAllowed}
+      />
     </div>
   );
 };

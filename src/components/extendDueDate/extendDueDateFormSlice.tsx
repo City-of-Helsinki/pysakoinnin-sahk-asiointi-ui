@@ -2,28 +2,28 @@ import { createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../../store';
 
 type SliceState = {
-  selectedOption: number;
+  emailConfirmationChecked: boolean;
 };
 
 const initialState: SliceState = {
-  selectedOption: 0
+  emailConfirmationChecked: false
 };
 
 export const slice = createSlice({
   name: 'extendDueDateForm',
   initialState,
   reducers: {
-    setSelectedOption: (state, action) => {
-      state.selectedOption = action.payload;
+    setEmailConfirmationChecked: (state, action) => {
+      state.emailConfirmationChecked = action.payload;
     }
   }
 });
 
 // Actions
-export const { setSelectedOption } = slice.actions;
+export const { setEmailConfirmationChecked } = slice.actions;
 
 // Selectors
-export const selectedOption = (state: RootState) =>
-  state.extendDueDateForm.selectedOption;
+export const emailConfirmationChecked = (state: RootState) =>
+  state.extendDueDateForm.emailConfirmationChecked;
 
 export default slice.reducer;
