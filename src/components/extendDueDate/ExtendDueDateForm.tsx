@@ -16,13 +16,16 @@ const ExtendDueDateForm = (): React.ReactElement => {
   const checkboxChecked = useSelector(emailConfirmationChecked);
   const [extensionAllowed, setExtensionAllowed] = useState(false);
   const [infoNotificationOpen, setInfoNotificationOpen] = useState(false);
+  const [emailNotificationOpen, setEmailNotificationOpen] = useState(true);
   // For testing the notifications
   const dueDate = formatISO(new Date('2022-11-20'), { representation: 'date' });
 
   const handleCheckedChange = () => {
     dispatch(setEmailConfirmationChecked(!checkboxChecked));
+    setEmailNotificationOpen(true);
   };
 
+  // Allow extension only if due date has not passed
   useEffect(() => {
     const currentDate = formatISO(new Date(), { representation: 'date' });
     if (dueDate >= currentDate) {
@@ -100,13 +103,23 @@ const ExtendDueDateForm = (): React.ReactElement => {
         </Button>
       </div>
       <Checkbox
-        className="checkbox"
         label={t('common:email-confirmation')}
         id="emailConfirmationCheckbox"
         checked={checkboxChecked}
         onChange={handleCheckedChange}
         disabled={!extensionAllowed}
       />
+      {checkboxChecked && emailNotificationOpen && (
+        <Notification
+          className="email-notification"
+          size="small"
+          label={t('due-date:notifications:email-confirmation:label')}
+          dismissible
+          closeButtonLabelText="Close notification"
+          onClose={() => setEmailNotificationOpen(false)}>
+          {t('due-date:notifications:email-confirmation:text')}
+        </Notification>
+      )}
     </div>
   );
 };
