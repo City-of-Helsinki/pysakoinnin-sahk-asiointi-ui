@@ -26,25 +26,25 @@ const ParkingFineSummary = (): React.ReactElement => {
             readOnly
           />
           <TextInput
-            id="regNumber"
+            id="vehicleType"
             label={t('parking-fine:vehicle-info:type:label')}
             value={t('parking-fine:vehicle-info:type:placeholder')}
             readOnly
           />
           <TextInput
-            id="regNumber"
+            id="vehicleBrand"
             label={t('parking-fine:vehicle-info:brand:label')}
             value={t('parking-fine:vehicle-info:brand:placeholder')}
             readOnly
           />
           <TextInput
-            id="regNumber"
+            id="vehicleModel"
             label={t('parking-fine:vehicle-info:model:label')}
             value={t('parking-fine:vehicle-info:model:placeholder')}
             readOnly
           />
           <TextInput
-            id="regNumber"
+            id="vehicleColor"
             label={t('parking-fine:vehicle-info:color:label')}
             value={t('parking-fine:vehicle-info:color:placeholder')}
             readOnly
@@ -60,7 +60,7 @@ const ParkingFineSummary = (): React.ReactElement => {
         />
         <TextInput
           className="info-field"
-          id="ref-number"
+          id="refNumber"
           label={t('common:fine-info:ref-number:label')}
           value={t('common:fine-info:ref-number:placeholder')}
           readOnly
@@ -83,28 +83,28 @@ const ParkingFineSummary = (): React.ReactElement => {
 
         <TextArea
           className="info-field"
-          id="fine-title"
+          id="fineTitle"
           label={t('common:fine-info:fine-title:label')}
           value={t('common:fine-info:fine-title:placeholder')}
           readOnly
         />
         <TextInput
           className="info-field"
-          id="additionalDetails"
+          id="fineDetails"
           label={t('common:fine-info:fine-details:label')}
           value={t('common:fine-info:fine-details:placeholder')}
           readOnly
         />
         <TextArea
           className="info-field"
-          id="fine-title"
+          id="fineTitle"
           label={t('common:fine-info:fine-title:label')}
           value={t('common:fine-info:fine-title:placeholder')}
           readOnly
         />
         <TextInput
           className="info-field"
-          id="additionalDetails"
+          id="fineDetails"
           label={t('common:fine-info:fine-details:label')}
           value={t('common:fine-info:fine-details:placeholder')}
           readOnly
@@ -112,7 +112,7 @@ const ParkingFineSummary = (): React.ReactElement => {
 
         <TextArea
           className="wide-field"
-          id="address"
+          id="fineAdditionalDetails"
           label={t('common:fine-info:fine-additional-details:label')}
           value={t('common:fine-info:fine-additional-details:placeholder')}
           readOnly
