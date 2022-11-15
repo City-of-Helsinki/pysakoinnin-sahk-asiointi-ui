@@ -1,0 +1,26 @@
+.summary-container {
+  display: grid;
+  grid-template-columns: 510px auto auto;
+  grid-template-rows: repeat(6, 130px);
+  grid-gap: 12px 12px;
+}
+
+.info-field {
+  max-width: 384px;
+  grid-row-end: auto;
+}
+
+.wide-field {
+  grid-column-start: 1;
+  grid-column-end: span 2;
+}
+
+textarea {
+  resize: none !important;
+}
+
+.vehicle-details-container {
+  grid-column-start: 3;
+  grid-row-start: 1;
+  grid-row-end: 8;
+}
