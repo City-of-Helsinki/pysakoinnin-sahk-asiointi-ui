@@ -109,10 +109,6 @@
         "text": "Pysäköintivirhemaksun eräpäivää on siirretty 30 päivää. Uusi eräpäivä on x.x.xxxx."
       }
     },
-    "radio-button": {
-      "extend": "Siirtää eräpäivää 30 päivällä",
-      "pay": "Maksaa pysäköintivirhemaksun"
-    },
     "submit": "Siirrä eräpäivää"
   }
 }
