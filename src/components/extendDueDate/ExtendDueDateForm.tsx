@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { formatISO } from 'date-fns';
 import {
   Button,
   Checkbox,
@@ -11,6 +10,11 @@ import {
 } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import { useClient } from '../../client/hooks';
+import {
+  formatDate,
+  getNewDueDate,
+  isExtensionAllowed
+} from '../../utils/helpers';
 import {
   emailConfirmationChecked,
   setEmailConfirmationChecked
@@ -24,11 +28,13 @@ const ExtendDueDateForm = (): React.ReactElement => {
   const { getUser } = useClient();
   const user = getUser();
   const checkboxChecked = useSelector(emailConfirmationChecked);
-  const [extensionAllowed, setExtensionAllowed] = useState(false);
   const [infoNotificationOpen, setInfoNotificationOpen] = useState(false);
   const [emailNotificationOpen, setEmailNotificationOpen] = useState(true);
   // For testing the notifications
-  const dueDate = formatISO(new Date('2022-11-20'), { representation: 'date' });
+  const dueDateObject = new Date('2022-12-12');
+  const extensionAllowed = isExtensionAllowed(dueDateObject);
+  const dueDate = formatDate(dueDateObject);
+  const newDueDate = getNewDueDate(dueDateObject);
 
   const handleCheckedChange = () => {
     dispatch(setEmailConfirmationChecked(!checkboxChecked));
@@ -37,13 +43,11 @@ const ExtendDueDateForm = (): React.ReactElement => {
 
   // Allow extension only if due date has not passed
   useEffect(() => {
-    const currentDate = formatISO(new Date(), { representation: 'date' });
-    if (dueDate >= currentDate) {
-      setExtensionAllowed(true);
+    if (extensionAllowed) {
       dispatch(setSubmitDisabled(false));
     }
     setInfoNotificationOpen(true);
-  }, [dispatch, dueDate]);
+  }, [dispatch, extensionAllowed]);
 
   return (
     <div>
@@ -85,14 +89,14 @@ const ExtendDueDateForm = (): React.ReactElement => {
         <TextInput
           id="dueDate"
           label={t('common:fine-info:due-date:label')}
-          defaultValue="20.11.2022"
+          value={dueDate}
           readOnly
         />
         {extensionAllowed && (
           <TextInput
             id="newDueDate"
             label={t('due-date:new-due-date')}
-            defaultValue="20.12.2022"
+            value={newDueDate}
             readOnly
           />
         )}
