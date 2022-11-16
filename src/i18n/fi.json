@@ -7,6 +7,10 @@
     "copy-barcode": "Kopioi virtuaaliviivakoodi",
     "email-confirmation": "Haluan vahvistuksen sähköpostiini",
     "helsinki-profile-link": "Siirry Helsinki-profiiliin muokataksesi tietoja.",
+    "aria": {
+      "open-external": "Avaa toisen verkkosivun.",
+      "open-new-tab": "Avautuu uudessa välilehdessä."
+    },
     "fine-info": {
       "ref-number": {
         "label": "Asianumero",
