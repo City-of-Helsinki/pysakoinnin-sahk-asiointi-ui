@@ -107,7 +107,7 @@
       },
       "email-confirmation": {
         "label": "Saat vahvistuksen sähköpostilla",
-        "text": "Vahvistus lähetetään Helsinki-profiilissasi olevaan sähköpostiosoitteeseen: etunimi@sukunimi.fi. "
+        "text": "Vahvistus lähetetään Helsinki-profiilissasi olevaan sähköpostiosoitteeseen: {{email}}. "
       },
       "success": {
         "label": "Eräpäivää on siirretty",

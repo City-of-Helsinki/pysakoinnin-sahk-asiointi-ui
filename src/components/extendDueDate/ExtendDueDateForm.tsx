@@ -10,6 +10,7 @@ import {
   TextInput
 } from 'hds-react';
 import { useTranslation } from 'react-i18next';
+import { useClient } from '../../client/hooks';
 import {
   emailConfirmationChecked,
   setEmailConfirmationChecked
@@ -20,6 +21,8 @@ import { setSubmitDisabled } from '../formContent/formContentSlice';
 const ExtendDueDateForm = (): React.ReactElement => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
+  const { getUser } = useClient();
+  const user = getUser();
   const checkboxChecked = useSelector(emailConfirmationChecked);
   const [extensionAllowed, setExtensionAllowed] = useState(false);
   const [infoNotificationOpen, setInfoNotificationOpen] = useState(false);
@@ -124,7 +127,9 @@ const ExtendDueDateForm = (): React.ReactElement => {
           dismissible
           closeButtonLabelText="Close notification"
           onClose={() => setEmailNotificationOpen(false)}>
-          {t('due-date:notifications:email-confirmation:text')}
+          {t('due-date:notifications:email-confirmation:text', {
+            email: user?.email
+          })}
           <Link
             href={window._env_.REACT_APP_PROFILE_UI_URL}
             size="S"
