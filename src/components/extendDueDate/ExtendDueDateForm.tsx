@@ -10,34 +10,34 @@ import {
 } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import { useClient } from '../../client/hooks';
+import { formatDate, isExtensionAllowed } from '../../utils/helpers';
 import {
-  formatDate,
-  getNewDueDate,
-  isExtensionAllowed
-} from '../../utils/helpers';
-import {
-  emailConfirmationChecked,
+  selectDueDateFormValues,
   setEmailConfirmationChecked
 } from './extendDueDateFormSlice';
 import './ExtendDueDateForm.css';
-import { setSubmitDisabled } from '../formContent/formContentSlice';
+import {
+  selectFormContent,
+  setSubmitDisabled
+} from '../formContent/formContentSlice';
 
 const ExtendDueDateForm = (): React.ReactElement => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const { getUser } = useClient();
   const user = getUser();
-  const checkboxChecked = useSelector(emailConfirmationChecked);
+  const formContent = useSelector(selectFormContent);
+  const dueDateFormValues = useSelector(selectDueDateFormValues);
+  const dueDate = formatDate(dueDateFormValues.dueDate);
+  const newDueDate = formatDate(dueDateFormValues.newDueDate);
+  const extensionAllowed = isExtensionAllowed(dueDateFormValues.dueDate);
   const [infoNotificationOpen, setInfoNotificationOpen] = useState(false);
   const [emailNotificationOpen, setEmailNotificationOpen] = useState(true);
-  // For testing the notifications
-  const dueDateObject = new Date('2022-12-12');
-  const extensionAllowed = isExtensionAllowed(dueDateObject);
-  const dueDate = formatDate(dueDateObject);
-  const newDueDate = getNewDueDate(dueDateObject);
 
   const handleCheckedChange = () => {
-    dispatch(setEmailConfirmationChecked(!checkboxChecked));
+    dispatch(
+      setEmailConfirmationChecked(!dueDateFormValues.emailConfirmationChecked)
+    );
     setEmailNotificationOpen(true);
   };
 
@@ -119,11 +119,11 @@ const ExtendDueDateForm = (): React.ReactElement => {
       <Checkbox
         label={t('common:email-confirmation')}
         id="emailConfirmationCheckbox"
-        checked={checkboxChecked}
+        checked={dueDateFormValues.emailConfirmationChecked}
         onChange={handleCheckedChange}
-        disabled={!extensionAllowed}
+        disabled={!extensionAllowed || formContent.formSubmitted}
       />
-      {checkboxChecked && emailNotificationOpen && (
+      {dueDateFormValues.emailConfirmationChecked && emailNotificationOpen && (
         <Notification
           className="email-notification"
           size="small"

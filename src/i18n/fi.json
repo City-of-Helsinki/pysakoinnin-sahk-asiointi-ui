@@ -111,7 +111,7 @@
       },
       "success": {
         "label": "Eräpäivää on siirretty",
-        "text": "Pysäköintivirhemaksun eräpäivää on siirretty 30 päivää. Uusi eräpäivä on x.x.xxxx."
+        "text": "Pysäköintivirhemaksun eräpäivää on siirretty 30 päivää. Uusi eräpäivä on {{newDueDate}}."
       }
     },
     "submit": "Siirrä eräpäivää"

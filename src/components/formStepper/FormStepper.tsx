@@ -1,7 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, IconArrowLeft, IconArrowRight, Stepper } from 'hds-react';
+import {
+  Button,
+  IconArrowLeft,
+  IconArrowRight,
+  Notification,
+  Stepper
+} from 'hds-react';
 import { useTranslation } from 'react-i18next';
+import { formatDate } from '../../utils/helpers';
 import FormContent from '../formContent/FormContent';
 import {
   Step,
@@ -10,7 +17,8 @@ import {
   setActive,
   setSteps
 } from './formStepperSlice';
-import { selectFormContent } from '../formContent/formContentSlice';
+import { FormId, selectFormContent } from '../formContent/formContentSlice';
+import { selectDueDateFormValues } from '../extendDueDate/extendDueDateFormSlice';
 import './FormStepper.css';
 
 interface Props {
@@ -23,7 +31,9 @@ const FormStepper = (props: Props): React.ReactElement => {
   const dispatch = useDispatch();
   const { activeStepIndex, steps } = useSelector(selectStepperState);
   const formContent = useSelector(selectFormContent);
+  const dueDateFormValues = useSelector(selectDueDateFormValues);
   const lastStep = activeStepIndex === steps.length - 1;
+  const [submitNotificationOpen, setSubmitNotificationOpen] = useState(true);
 
   useEffect(() => {
     dispatch(setSteps(props.initialSteps));
@@ -67,6 +77,22 @@ const FormStepper = (props: Props): React.ReactElement => {
           </Button>
         )}
       </div>
+      {formContent.formSubmitted && submitNotificationOpen && (
+        <Notification
+          label={
+            formContent.selectedForm == FormId.DUEDATE &&
+            t('due-date:notifications:success:label')
+          }
+          type={'success'}
+          dismissible
+          closeButtonLabelText="Close notification"
+          onClose={() => setSubmitNotificationOpen(false)}>
+          {formContent.selectedForm == FormId.DUEDATE &&
+            t('due-date:notifications:success:text', {
+              newDueDate: formatDate(dueDateFormValues.newDueDate)
+            })}
+        </Notification>
+      )}
     </div>
   );
 };
