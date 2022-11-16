@@ -5,11 +5,10 @@
   margin-top: 24px;
 }
 
-.notification {
-  max-width: 384px;
+.barcode-container {
+  margin: 12px 0 24px;
 }
 
-.pay-button {
-  width: 332px;
-  margin-top: 24px;
+.email-notification {
+  margin: 24px 0 12px;
 }

@@ -3,10 +3,9 @@
     "previous": "Edellinen",
     "next": "Seuraava",
     "send": "Lähetä",
-    "pay": "Maksamaan",
-    "selection": "Haluan *",
     "required-fields": "Pakolliset kentät on merkitty tähdellä *",
     "copy-barcode": "Kopioi virtuaaliviivakoodi",
+    "email-confirmation": "Haluan vahvistuksen sähköpostiini",
     "fine-info": {
       "ref-number": {
         "label": "Asianumero",
@@ -99,16 +98,16 @@
         "text": "Eräpäivän siirto on mahdollista vain, jos pysäköintivirhemaksun eräpäivä ei ole mennyt umpeen."
       },
       "not-allowed": {
-        "label": "Et voi enää siirtää eräpäivää"
+        "label": "Et voi siirtää eräpäivää"
+      },
+      "email-confirmation": {
+        "label": "Saat vahvistuksen sähköpostilla",
+        "text": "Vahvistus lähetetään Helsinki-profiilissasi olevaan sähköpostiosoitteeseen: etunimi@sukunimi.fi."
       },
       "success": {
         "label": "Eräpäivää on siirretty",
-        "text": "Pysäköintivirhemaksun eräpäivää on siirretty 30 päivää. Uusi eräpäivä on x.x.xxxx ."
+        "text": "Pysäköintivirhemaksun eräpäivää on siirretty 30 päivää. Uusi eräpäivä on x.x.xxxx."
       }
-    },
-    "radio-button": {
-      "extend": "Siirtää eräpäivää 30 päivällä",
-      "pay": "Maksaa pysäköintivirhemaksun"
     },
     "submit": "Siirrä eräpäivää"
   }
