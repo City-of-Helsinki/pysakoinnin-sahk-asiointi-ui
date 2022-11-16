@@ -6,6 +6,7 @@
     "required-fields": "Pakolliset kentät on merkitty tähdellä *",
     "copy-barcode": "Kopioi virtuaaliviivakoodi",
     "email-confirmation": "Haluan vahvistuksen sähköpostiini",
+    "helsinki-profile-link": "Siirry Helsinki-profiiliin muokataksesi tietoja.",
     "fine-info": {
       "ref-number": {
         "label": "Asianumero",
@@ -102,7 +103,7 @@
       },
       "email-confirmation": {
         "label": "Saat vahvistuksen sähköpostilla",
-        "text": "Vahvistus lähetetään Helsinki-profiilissasi olevaan sähköpostiosoitteeseen: etunimi@sukunimi.fi."
+        "text": "Vahvistus lähetetään Helsinki-profiilissasi olevaan sähköpostiosoitteeseen: etunimi@sukunimi.fi. "
       },
       "success": {
         "label": "Eräpäivää on siirretty",

@@ -1,7 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { formatISO } from 'date-fns';
-import { Button, Checkbox, IconCopy, Notification, TextInput } from 'hds-react';
+import {
+  Button,
+  Checkbox,
+  IconCopy,
+  Link,
+  Notification,
+  TextInput
+} from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import {
   emailConfirmationChecked,
@@ -118,6 +125,15 @@ const ExtendDueDateForm = (): React.ReactElement => {
           closeButtonLabelText="Close notification"
           onClose={() => setEmailNotificationOpen(false)}>
           {t('due-date:notifications:email-confirmation:text')}
+          <Link
+            href={window._env_.REACT_APP_PROFILE_UI_URL}
+            size="S"
+            external
+            openInNewTab
+            openInExternalDomainAriaLabel="Opens a different website"
+            openInNewTabAriaLabel="Opens in a new tab.">
+            {t('common:helsinki-profile-link')}
+          </Link>
         </Notification>
       )}
     </div>
