@@ -35,6 +35,11 @@ const FormStepper = (props: Props): React.ReactElement => {
   const lastStep = activeStepIndex === steps.length - 1;
   const [submitNotificationOpen, setSubmitNotificationOpen] = useState(true);
 
+  const handleSubmit = () => {
+    setSubmitNotificationOpen(true);
+    props.onSubmit();
+  };
+
   useEffect(() => {
     dispatch(setSteps(props.initialSteps));
   }, [dispatch, props.initialSteps]);
@@ -68,7 +73,7 @@ const FormStepper = (props: Props): React.ReactElement => {
         ) : (
           <Button
             className="submit-button"
-            onClick={() => props.onSubmit()}
+            onClick={handleSubmit}
             variant="primary"
             disabled={formContent.submitDisabled}>
             {formContent.selectedForm === 'dueDate'
@@ -77,8 +82,9 @@ const FormStepper = (props: Props): React.ReactElement => {
           </Button>
         )}
       </div>
-      {formContent.formSubmitted && submitNotificationOpen && (
+      {lastStep && formContent.formSubmitted && submitNotificationOpen && (
         <Notification
+          className="submit-notification"
           label={
             formContent.selectedForm == FormId.DUEDATE &&
             t('due-date:notifications:success:label')
