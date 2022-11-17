@@ -1,39 +1,53 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { formatISO } from 'date-fns';
-import { Button, Checkbox, IconCopy, Notification, TextInput } from 'hds-react';
-import { useTranslation } from 'react-i18next';
 import {
-  emailConfirmationChecked,
+  Button,
+  Checkbox,
+  IconCopy,
+  Link,
+  Notification,
+  TextInput
+} from 'hds-react';
+import { useTranslation } from 'react-i18next';
+import { useClient } from '../../client/hooks';
+import { formatDate, isExtensionAllowed } from '../../utils/helpers';
+import {
+  selectDueDateFormValues,
   setEmailConfirmationChecked
 } from './extendDueDateFormSlice';
 import './ExtendDueDateForm.css';
-import { setSubmitDisabled } from '../formContent/formContentSlice';
+import {
+  selectFormContent,
+  setSubmitDisabled
+} from '../formContent/formContentSlice';
 
 const ExtendDueDateForm = (): React.ReactElement => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const checkboxChecked = useSelector(emailConfirmationChecked);
-  const [extensionAllowed, setExtensionAllowed] = useState(false);
+  const { getUser } = useClient();
+  const user = getUser();
+  const formContent = useSelector(selectFormContent);
+  const dueDateFormValues = useSelector(selectDueDateFormValues);
+  const dueDate = formatDate(dueDateFormValues.dueDate);
+  const newDueDate = formatDate(dueDateFormValues.newDueDate);
+  const extensionAllowed = isExtensionAllowed(dueDateFormValues.dueDate);
   const [infoNotificationOpen, setInfoNotificationOpen] = useState(false);
   const [emailNotificationOpen, setEmailNotificationOpen] = useState(true);
-  // For testing the notifications
-  const dueDate = formatISO(new Date('2022-11-20'), { representation: 'date' });
 
   const handleCheckedChange = () => {
-    dispatch(setEmailConfirmationChecked(!checkboxChecked));
+    dispatch(
+      setEmailConfirmationChecked(!dueDateFormValues.emailConfirmationChecked)
+    );
     setEmailNotificationOpen(true);
   };
 
   // Allow extension only if due date has not passed
   useEffect(() => {
-    const currentDate = formatISO(new Date(), { representation: 'date' });
-    if (dueDate >= currentDate) {
-      setExtensionAllowed(true);
+    if (extensionAllowed) {
       dispatch(setSubmitDisabled(false));
     }
     setInfoNotificationOpen(true);
-  }, [dispatch, dueDate]);
+  }, [dispatch, extensionAllowed]);
 
   return (
     <div>
@@ -75,14 +89,14 @@ const ExtendDueDateForm = (): React.ReactElement => {
         <TextInput
           id="dueDate"
           label={t('common:fine-info:due-date:label')}
-          defaultValue="20.11.2022"
+          value={dueDate}
           readOnly
         />
         {extensionAllowed && (
           <TextInput
             id="newDueDate"
             label={t('due-date:new-due-date')}
-            defaultValue="20.12.2022"
+            value={newDueDate}
             readOnly
           />
         )}
@@ -105,11 +119,11 @@ const ExtendDueDateForm = (): React.ReactElement => {
       <Checkbox
         label={t('common:email-confirmation')}
         id="emailConfirmationCheckbox"
-        checked={checkboxChecked}
+        checked={dueDateFormValues.emailConfirmationChecked}
         onChange={handleCheckedChange}
-        disabled={!extensionAllowed}
+        disabled={!extensionAllowed || formContent.formSubmitted}
       />
-      {checkboxChecked && emailNotificationOpen && (
+      {dueDateFormValues.emailConfirmationChecked && emailNotificationOpen && (
         <Notification
           className="email-notification"
           size="small"
@@ -117,7 +131,18 @@ const ExtendDueDateForm = (): React.ReactElement => {
           dismissible
           closeButtonLabelText="Close notification"
           onClose={() => setEmailNotificationOpen(false)}>
-          {t('due-date:notifications:email-confirmation:text')}
+          {t('due-date:notifications:email-confirmation:text', {
+            email: user?.email
+          })}
+          <Link
+            href={window._env_.REACT_APP_PROFILE_UI_URL}
+            size="S"
+            external
+            openInNewTab
+            openInExternalDomainAriaLabel={t('common:aria:open-external')}
+            openInNewTabAriaLabel={t('common:aria:open-new-tab')}>
+            {t('common:helsinki-profile-link')}
+          </Link>
         </Notification>
       )}
     </div>

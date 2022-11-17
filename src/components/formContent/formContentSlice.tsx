@@ -9,11 +9,13 @@ export enum FormId {
 }
 
 type SliceState = {
+  formSubmitted: boolean;
   selectedForm: FormId;
   submitDisabled: boolean;
 };
 
 const initialState: SliceState = {
+  formSubmitted: false,
   selectedForm: FormId.NONE,
   submitDisabled: true
 };
@@ -22,6 +24,9 @@ export const slice = createSlice({
   name: 'formContent',
   initialState,
   reducers: {
+    setFormSubmitted: (state, action) => {
+      state.formSubmitted = action.payload;
+    },
     setSelectedForm: (state, action) => {
       state.selectedForm = action.payload;
     },
@@ -32,7 +37,11 @@ export const slice = createSlice({
 });
 
 // Actions
-export const { setSelectedForm, setSubmitDisabled } = slice.actions;
+export const {
+  setFormSubmitted,
+  setSelectedForm,
+  setSubmitDisabled
+} = slice.actions;
 
 // Selectors
 export const selectFormContent = (state: RootState) => state.formContent;
