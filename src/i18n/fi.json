@@ -1,5 +1,10 @@
 {
   "common": {
+    "name": "Nimi *",
+    "ssn": "Henkilötunnus *",
+    "email": "Sähköpostiosoite *",
+    "fetched-from-profile": "Merkityt tiedot on haettu Helsinki-profiilistasi.",
+    "to-helsinki-profile": "Siirry Helsinki-profiiliin muokataksesi tietoja.",
     "previous": "Edellinen",
     "next": "Seuraava",
     "send": "Lähetä",
@@ -115,5 +120,10 @@
       }
     },
     "submit": "Siirrä eräpäivää"
+  },
+  "rectification": {
+    "driver": "Kuljettaja",
+    "owner": "Omistaja",
+    "holder": "Haltija"
   }
 }

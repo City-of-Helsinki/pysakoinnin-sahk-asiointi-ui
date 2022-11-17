@@ -15,8 +15,6 @@ const ParkingFineSummary = (): React.ReactElement => {
 
   return (
     <>
-      <p>{t('common:required-fields')}</p>
-
       <div className="summary-container">
         <Card className="vehicle-details-container" border>
           <TextInput
