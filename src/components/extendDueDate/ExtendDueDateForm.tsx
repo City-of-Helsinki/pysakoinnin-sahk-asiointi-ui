@@ -95,7 +95,7 @@ const ExtendDueDateForm = (): React.ReactElement => {
         {extensionAllowed && (
           <TextInput
             id="newDueDate"
-            label={t('due-date:new-due-date')}
+            label={t('dueDate:new-due-date')}
             value={newDueDate}
             readOnly
           />
@@ -127,11 +127,11 @@ const ExtendDueDateForm = (): React.ReactElement => {
         <Notification
           className="email-notification"
           size="small"
-          label={t('due-date:notifications:email-confirmation:label')}
+          label={t('dueDate:notifications:email-confirmation:label')}
           dismissible
           closeButtonLabelText="Close notification"
           onClose={() => setEmailNotificationOpen(false)}>
-          {t('due-date:notifications:email-confirmation:text', {
+          {t('dueDate:notifications:email-confirmation:text', {
             email: user?.email
           })}
           <Link

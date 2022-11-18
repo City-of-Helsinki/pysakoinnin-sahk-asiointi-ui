@@ -4,11 +4,7 @@ import { useTranslation } from 'react-i18next';
 import PageContent from '../PageContent';
 import FormStepper from '../formStepper/FormStepper';
 import { StepState } from '../formStepper/formStepperSlice';
-import {
-  FormId,
-  setFormSubmitted,
-  setSelectedForm
-} from '../formContent/formContentSlice';
+import { FormId, setSelectedForm } from '../formContent/formContentSlice';
 import styles from '../styles.module.css';
 
 const ExtendDueDate = (): React.ReactElement => {
@@ -26,7 +22,7 @@ const ExtendDueDate = (): React.ReactElement => {
   ];
 
   function handleSubmit() {
-    dispatch(setFormSubmitted(true));
+    //dispatch(setFormSubmitted(true));
   }
 
   useEffect(() => {

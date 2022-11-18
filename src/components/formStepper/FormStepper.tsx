@@ -4,6 +4,7 @@ import {
   Button,
   IconArrowLeft,
   IconArrowRight,
+  IconThumbsUp,
   Notification,
   Stepper
 } from 'hds-react';
@@ -17,7 +18,10 @@ import {
   setActive,
   setSteps
 } from './formStepperSlice';
-import { FormId, selectFormContent } from '../formContent/formContentSlice';
+import {
+  selectFormContent,
+  setFormSubmitted
+} from '../formContent/formContentSlice';
 import { selectDueDateFormValues } from '../extendDueDate/extendDueDateFormSlice';
 import './FormStepper.css';
 
@@ -35,10 +39,10 @@ const FormStepper = (props: Props): React.ReactElement => {
   const lastStep = activeStepIndex === steps.length - 1;
   const [submitNotificationOpen, setSubmitNotificationOpen] = useState(true);
 
-  const handleSubmit = () => {
+  function handleSubmit() {
     setSubmitNotificationOpen(true);
-    props.onSubmit();
-  };
+    dispatch(setFormSubmitted(true));
+  }
 
   useEffect(() => {
     dispatch(setSteps(props.initialSteps));
@@ -70,13 +74,20 @@ const FormStepper = (props: Props): React.ReactElement => {
             variant="primary">
             {t('common:next')}
           </Button>
+        ) : formContent.formSubmitted ? (
+          <Button
+            iconLeft={<IconThumbsUp />}
+            onClick={handleSubmit}
+            variant="success">
+            {t(`${formContent.selectedForm}:submit-success`)}
+          </Button>
         ) : (
           <Button
             className="submit-button"
             onClick={handleSubmit}
             variant="primary"
             disabled={formContent.submitDisabled}>
-            {formContent.selectedForm === 'dueDate'
+            {formContent.selectedForm === 'due-date'
               ? t('due-date:submit')
               : t('common:send')}
           </Button>
@@ -85,19 +96,22 @@ const FormStepper = (props: Props): React.ReactElement => {
       {lastStep && formContent.formSubmitted && submitNotificationOpen && (
         <Notification
           className="submit-notification"
-          label={
-            formContent.selectedForm == FormId.DUEDATE &&
-            t('due-date:notifications:success:label')
-          }
+          label={t(`${formContent.selectedForm}:notifications:success:label`)}
           type={'success'}
           dismissible
           closeButtonLabelText="Close notification"
           onClose={() => setSubmitNotificationOpen(false)}>
-          {formContent.selectedForm == FormId.DUEDATE &&
-            t('due-date:notifications:success:text', {
-              newDueDate: formatDate(dueDateFormValues.newDueDate)
-            })}
+          {t(`${formContent.selectedForm}:notifications:success:text`, {
+            newDueDate: formatDate(dueDateFormValues.newDueDate)
+          })}
         </Notification>
+      )}
+      {lastStep && formContent.formSubmitted && (
+        <a href="/">
+          <Button className="wide-button" role="link" variant="primary">
+            {t('common:to-mainpage')}
+          </Button>
+        </a>
       )}
     </div>
   );

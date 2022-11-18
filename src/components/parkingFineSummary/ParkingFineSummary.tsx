@@ -1,6 +1,8 @@
 import { Button, Card, IconCopy, TextArea, TextInput } from 'hds-react';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { setSubmitDisabled } from '../formContent/formContentSlice';
 import './ParkingFineSummary.css';
 
 /**
@@ -12,6 +14,11 @@ import './ParkingFineSummary.css';
 
 const ParkingFineSummary = (): React.ReactElement => {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setSubmitDisabled(false));
+  }, [dispatch]);
 
   return (
     <>
@@ -127,8 +134,8 @@ const ParkingFineSummary = (): React.ReactElement => {
         <TextInput
           className="info-field"
           id="dueDate"
-          label={t('common:fine-info:due-date:label')}
-          value={t('common:fine-info:due-date:placeholder')}
+          label={t('common:fine-info:dueDate:label')}
+          value={t('common:fine-info:dueDate:placeholder')}
           readOnly
         />
       </div>
