@@ -5,6 +5,7 @@ import { FormId, selectFormContent } from './formContentSlice';
 import './FormContent.css';
 import ExtendDueDateForm from '../extendDueDate/ExtendDueDateForm';
 import ParkingFineSummary from '../parkingFineSummary/ParkingFineSummary';
+import RectificationForm from '../rectification/RectificationForm';
 
 interface Props {
   activeStep: number;
@@ -27,7 +28,8 @@ const FormContent = (props: Props): React.ReactElement => {
       {
         {
           0: <SearchForm />,
-          1: selectForm(formContent.selectedForm)
+          1: selectForm(formContent.selectedForm),
+          2: <RectificationForm />
         }[props.activeStep]
       }
     </div>

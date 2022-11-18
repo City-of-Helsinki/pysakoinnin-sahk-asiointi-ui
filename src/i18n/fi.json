@@ -1,5 +1,10 @@
 {
   "common": {
+    "name": "Nimi *",
+    "ssn": "Henkilötunnus *",
+    "email": "Sähköpostiosoite *",
+    "verify-email": "Kirjoita sähköpostiosoite uudelleen",
+    "fetched-from-profile": "Merkityt tiedot on haettu Helsinki-profiilistasi.",
     "previous": "Edellinen",
     "next": "Seuraava",
     "send": "Lähetä",
@@ -115,5 +120,20 @@
       }
     },
     "submit": "Siirrä eräpäivää"
+  },
+  "rectification": {
+    "relation": "Olen ajoneuvon *",
+    "driver": "Kuljettaja",
+    "owner": "Omistaja",
+    "holder": "Haltija",
+    "rectification-content": "Oikaisuvaatimuksen sisältö",
+    "description-over-limit": "Kuvaus ylittää merkkimäärän",
+    "to-separate-email": "Haluan ilmoitukset asian käsittelystä eri sähköpostiosoitteeseen",
+    "address": "Osoite",
+    "zipcode": "Postinumero",
+    "city": "Postitoimipaikka",
+    "area-code": "Maakoodi",
+    "phone": "Puhelinnumero",
+    "IBAN": "Pankkitilinumero (IBAN)"
   }
 }
