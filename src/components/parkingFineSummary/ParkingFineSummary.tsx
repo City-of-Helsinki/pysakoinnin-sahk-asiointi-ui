@@ -134,8 +134,8 @@ const ParkingFineSummary = (): React.ReactElement => {
         <TextInput
           className="info-field"
           id="dueDate"
-          label={t('common:fine-info:dueDate:label')}
-          value={t('common:fine-info:dueDate:placeholder')}
+          label={t('common:fine-info:due-date:label')}
+          value={t('common:fine-info:due-date:placeholder')}
           readOnly
         />
       </div>
