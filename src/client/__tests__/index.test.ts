@@ -9,17 +9,14 @@ import {
   createClient,
   EventPayload,
   FetchApiTokenConfiguration,
-  getTokenUri,
-  getClientConfig,
-  FetchError
+  FetchError,
+  getTokenUri
 } from '../index';
-import { configureClient } from '../__mocks__';
 import { AnyFunction, AnyObject } from '../../common';
 
 describe('Client factory ', () => {
   let client: ClientFactory;
   const fetchMock: FetchMock = global.fetch;
-  configureClient();
   beforeEach(() => {
     client = createClient();
   });
@@ -187,7 +184,14 @@ describe('Client factory ', () => {
     afterEach(() => fetchMock.resetMocks());
     const fetchConfig: FetchApiTokenConfiguration = {
       uri: getTokenUri({
-        ...getClientConfig(),
+        authority: '',
+        callbackPath: '',
+        clientId: '',
+        hasApiTokenSupport: false,
+        label: '',
+        path: '',
+        url: '',
+        ...client,
         realm: 'realm-value'
       }),
       accessToken: 'accessToken-value',

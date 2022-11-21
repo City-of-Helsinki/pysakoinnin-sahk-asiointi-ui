@@ -8,6 +8,9 @@ import {
   mockOidcUserManager
 } from './client/__mocks__/oidc-react-mock';
 import { AnyFunction } from './common';
+import { toHaveNoViolations } from 'jest-axe';
+
+expect.extend(toHaveNoViolations);
 
 const customGlobal: GlobalWithFetchMock = global as GlobalWithFetchMock;
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -40,6 +43,7 @@ jest.mock('oidc-client', () => {
       return userManager;
     }
   }
+
   return {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore: expected ts type error
@@ -47,5 +51,3 @@ jest.mock('oidc-client', () => {
     UserManager: MockUserManagerClass
   };
 });
-
-jest.mock('./client/http-poller');

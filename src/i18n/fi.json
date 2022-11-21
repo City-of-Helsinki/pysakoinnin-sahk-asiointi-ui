@@ -5,6 +5,7 @@
     "email": "Sähköpostiosoite *",
     "verify-email": "Kirjoita sähköpostiosoite uudelleen",
     "fetched-from-profile": "Merkityt tiedot on haettu Helsinki-profiilistasi.",
+    "fetched-from-profile-aria": "Tieto haettu Helsinki-profiilista",
     "previous": "Edellinen",
     "next": "Seuraava",
     "send": "Lähetä",

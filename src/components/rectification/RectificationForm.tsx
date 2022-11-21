@@ -66,26 +66,26 @@ const RectificationForm = () => {
             label={t('common:name')}
             defaultValue={user?.name as string}
           />
-          <IconCheckCircle />
+          <IconCheckCircle aria-label={t('common:fetched-from-profile-aria')} />
           <TextInput
             id="ssn"
             readOnly
             label={t('common:ssn')}
             defaultValue="123456-789A"
           />
-          <IconCheckCircle />
+          <IconCheckCircle aria-label={t('common:fetched-from-profile-aria')} />
           <TextInput
             id="email"
             readOnly
             label={t('common:email')}
             defaultValue={user?.email as string}
           />
-          <IconCheckCircle />
+          <IconCheckCircle aria-label={t('common:fetched-from-profile-aria')} />
         </div>
 
         <hr />
         <p>
-          <IconCheckCircle />
+          <IconCheckCircle aria-hidden="true" />
           {t('common:fetched-from-profile')}
           <Link
             href={window._env_.REACT_APP_PROFILE_UI_URL}
