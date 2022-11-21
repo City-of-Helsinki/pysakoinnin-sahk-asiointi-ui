@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   Button,
@@ -37,16 +37,22 @@ const FormStepper = (props: Props): React.ReactElement => {
   const formContent = useSelector(selectFormContent);
   const dueDateFormValues = useSelector(selectDueDateFormValues);
   const lastStep = activeStepIndex === steps.length - 1;
-  const [submitNotificationOpen, setSubmitNotificationOpen] = useState(true);
+  const [showSubmitNotification, setShowSubmitNotification] = useState(false);
+  const mainPageButtonRef = useRef<null | HTMLDivElement>(null);
 
   function handleSubmit() {
-    setSubmitNotificationOpen(true);
     dispatch(setFormSubmitted(true));
+    setShowSubmitNotification(true);
   }
 
   useEffect(() => {
     dispatch(setSteps(props.initialSteps));
   }, [dispatch, props.initialSteps]);
+
+  // scroll down to ensure submit notification and button to main page are visible
+  useEffect(() => {
+    mainPageButtonRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [showSubmitNotification]);
 
   return (
     <div>
@@ -93,25 +99,27 @@ const FormStepper = (props: Props): React.ReactElement => {
           </Button>
         )}
       </div>
-      {lastStep && formContent.formSubmitted && submitNotificationOpen && (
+      {lastStep && formContent.formSubmitted && showSubmitNotification && (
         <Notification
           className="submit-notification"
           label={t(`${formContent.selectedForm}:notifications:success:label`)}
           type={'success'}
           dismissible
           closeButtonLabelText="Close notification"
-          onClose={() => setSubmitNotificationOpen(false)}>
+          onClose={() => setShowSubmitNotification(false)}>
           {t(`${formContent.selectedForm}:notifications:success:text`, {
             newDueDate: formatDate(dueDateFormValues.newDueDate)
           })}
         </Notification>
       )}
       {lastStep && formContent.formSubmitted && (
-        <a href="/">
-          <Button className="wide-button" role="link" variant="primary">
-            {t('common:to-mainpage')}
-          </Button>
-        </a>
+        <div ref={mainPageButtonRef}>
+          <a href="/">
+            <Button className="wide-button" role="link" variant="primary">
+              {t('common:to-mainpage')}
+            </Button>
+          </a>
+        </div>
       )}
     </div>
   );
