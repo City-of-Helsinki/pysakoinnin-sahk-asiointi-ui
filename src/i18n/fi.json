@@ -135,6 +135,9 @@
     "city": "Postitoimipaikka",
     "area-code": "Maakoodi",
     "phone": "Puhelinnumero",
-    "IBAN": "Pankkitilinumero (IBAN)"
+    "IBAN": "Pankkitilinumero (IBAN)",
+    "decision-choice": "Haluan päätöksen",
+    "toParkingService": "Pysäköinnin asiointikansiooni",
+    "byMail": "Kirjeitse antamaani osoitteeseen"
   }
 }

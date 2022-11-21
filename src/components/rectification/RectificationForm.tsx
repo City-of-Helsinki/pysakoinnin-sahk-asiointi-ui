@@ -1,3 +1,4 @@
+/* eslint-disable sonarjs/no-duplicate-string */
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
@@ -177,16 +178,16 @@ const RectificationForm = () => {
             placeholder="Esim. FI9780001700903330"
           />
 
-          <SelectionGroup label="Haluan päätöksen *">
+          <SelectionGroup label={t('rectification:decision-choice')} required>
             <RadioButton
-              label="Pysäköinnin asiointikansiooni"
+              label={t('rectification:toParkingService')}
               id="toParkingService"
               value="toParkingService"
               onChange={handleDecision}
               checked={decision === 'toParkingService'}
             />
             <RadioButton
-              label="Kirjeitse antamaani osoitteeseen"
+              label={t('rectification:byMail')}
               id="byMail"
               value="byMail"
               onChange={handleDecision}

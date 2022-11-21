@@ -584,8 +584,14 @@ exports[`Component matches snapshot 1`] = `
         <legend
           class="SelectionGroup-module_label__qlluz"
         >
-          Haluan päätöksen *
+          rectification:decision-choice
            
+          <span
+            class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
+          >
+             
+            *
+          </span>
         </legend>
         <div
           class="SelectionGroup-module_items__28m_S SelectionGroup-module_vertical__3iorC"
@@ -605,7 +611,7 @@ exports[`Component matches snapshot 1`] = `
                 class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
                 for="toParkingService"
               >
-                Pysäköinnin asiointikansiooni
+                rectification:toParkingService
               </label>
             </div>
           </div>
@@ -623,7 +629,7 @@ exports[`Component matches snapshot 1`] = `
                 class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
                 for="byMail"
               >
-                Kirjeitse antamaani osoitteeseen
+                rectification:byMail
               </label>
             </div>
           </div>
