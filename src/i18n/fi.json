@@ -2,7 +2,6 @@
   "common": {
     "previous": "Edellinen",
     "next": "Seuraava",
-    "send": "Lähetä",
     "required-fields": "Pakolliset kentät on merkitty tähdellä *",
     "copy-barcode": "Kopioi virtuaaliviivakoodi",
     "email-confirmation": "Haluan vahvistuksen sähköpostiini",
@@ -96,7 +95,8 @@
         "label": "Olemme vastaanottaneet oikaisuvaatimuksesi",
         "text": "Saat ilmoitukset oikaisuvaatimuksen käsittelyn eri vaiheista antamaasi sähköpostiosoitteeseen. Kun päätös on tehty, saat sen pysäköinnin asiointikansioosi."
       }
-    }
+    },
+    "submit": "Lähetä"
   },
   "due-date": {
     "title": "Pysäköintivirhemaksun eräpäivän siirto 30 päivällä",

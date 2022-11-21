@@ -93,9 +93,7 @@ const FormStepper = (props: Props): React.ReactElement => {
             onClick={handleSubmit}
             variant="primary"
             disabled={formContent.submitDisabled}>
-            {formContent.selectedForm === 'due-date'
-              ? t('due-date:submit')
-              : t('common:send')}
+            {t(`${formContent.selectedForm}:submit`)}
           </Button>
         )}
       </div>
