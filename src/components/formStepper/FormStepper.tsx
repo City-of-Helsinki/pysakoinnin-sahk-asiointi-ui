@@ -40,10 +40,10 @@ const FormStepper = (props: Props): React.ReactElement => {
   const [showSubmitNotification, setShowSubmitNotification] = useState(false);
   const mainPageButtonRef = useRef<null | HTMLDivElement>(null);
 
-  function handleSubmit() {
+  const handleSubmit = () => {
     dispatch(setFormSubmitted(true));
     setShowSubmitNotification(true);
-  }
+  };
 
   useEffect(() => {
     dispatch(setSteps(props.initialSteps));

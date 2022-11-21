@@ -21,9 +21,9 @@ const ExtendDueDate = (): React.ReactElement => {
     }
   ];
 
-  function handleSubmit() {
-    //dispatch(setFormSubmitted(true));
-  }
+  const handleSubmit = () => {
+    //console.log('submit extend due date form');
+  };
 
   useEffect(() => {
     dispatch(setSelectedForm(FormId.DUEDATE));
