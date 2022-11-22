@@ -1,17 +1,19 @@
+import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
+import { axe } from 'jest-axe';
 import FormStepper from './FormStepper';
 import { I18nextProvider } from 'react-i18next';
 import i18n from '../../utils/i18n';
 import { Provider } from 'react-redux';
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 import { BrowserRouter as Router } from 'react-router-dom';
-import '@testing-library/jest-dom'
+import '@testing-library/jest-dom';
 
 const mockAction = jest.fn(() => {
   // Mock function
 });
 
-export const formContentSliceMock = createSlice({
+const formContentSliceMock = createSlice({
   name: 'formContent',
   initialState: {
     formSubmitted: false,
@@ -25,7 +27,7 @@ export const formContentSliceMock = createSlice({
   }
 });
 
-export const extendDueDateFormSliceMock = createSlice({
+const extendDueDateFormSliceMock = createSlice({
   name: 'extendDueDateForm',
   initialState: {
     dueDate: '2022-12-12',
@@ -33,80 +35,99 @@ export const extendDueDateFormSliceMock = createSlice({
     emailConfirmationChecked: false
   },
   reducers: {
-    setEmailConfirmationChecked: mockAction,
-  },
+    setEmailConfirmationChecked: mockAction
+  }
 });
 
+let formStepperSliceMock = createSlice({
+  name: 'formStepper',
+  initialState: {
+    activeStepIndex: 0,
+    steps: [
+      {
+        label: 'Haku',
+        state: 0
+      },
+      {
+        label: 'Eräpäivän siirto',
+        state: 2
+      }
+    ]
+  },
+  reducers: {
+    completeStep: mockAction,
+    setActive: mockAction,
+    setSteps: mockAction
+  }
+});
 
 describe('form stepper', () => {
-
-  test('renders first step view correctly', async () => {
-    const formStepperSliceMock = createSlice({
-      name: 'formStepper',
-      initialState: {
-        activeStepIndex: 0,
-        steps: [
-          {
-            label: 'Haku',
-            state: 0
-          },
-          {
-            label: 'Eräpäivän siirto',
-            state: 2
-          }
-        ]
-      },
-      reducers: {
-        completeStep: mockAction, 
-        setActive: mockAction,
-        setSteps: mockAction
-      },
-    });
-
+  test('passes a11y validation', async () => {
     const store = configureStore({
       reducer: {
         formContent: formContentSliceMock.reducer,
         formStepper: formStepperSliceMock.reducer,
         extendDueDateForm: extendDueDateFormSliceMock.reducer
-      },
+      }
+    });
+
+    const { container } = render(
+      <Provider store={store}>
+        <FormStepper
+          initialSteps={formStepperSliceMock.getInitialState().steps}
+          onSubmit={mockAction}
+        />
+      </Provider>
+    );
+    expect(await axe(container)).toHaveNoViolations();
+  });
+
+  test('renders first step view correctly', async () => {
+    const store = configureStore({
+      reducer: {
+        formContent: formContentSliceMock.reducer,
+        formStepper: formStepperSliceMock.reducer,
+        extendDueDateForm: extendDueDateFormSliceMock.reducer
+      }
     });
 
     render(
       <Provider store={store}>
-        <Router>
-          <I18nextProvider i18n={i18n}>
-            <FormStepper initialSteps={formStepperSliceMock.getInitialState().steps} onSubmit={mockAction}/>
-            </I18nextProvider>
-        </Router>
+        <FormStepper
+          initialSteps={formStepperSliceMock.getInitialState().steps}
+          onSubmit={mockAction}
+        />
       </Provider>
     );
 
     // Check that the correct step is rendered
-    const firstStepHeading = screen.getByRole('heading', { name: 'Vaihe 1/2: Haku' })
+    const firstStepHeading = screen.getByRole('heading', {
+      name: 'Vaihe 1/2: Haku'
+    });
     expect(firstStepHeading).toBeInTheDocument();
 
-    const secondStepHeading = screen.queryByRole('heading', { name: 'Vaihe 2/2: Eräpäivän siirto' })
+    const secondStepHeading = screen.queryByRole('heading', {
+      name: 'Vaihe 2/2: Eräpäivän siirto'
+    });
     expect(secondStepHeading).toBeNull();
 
     // Check that both buttons are visible but "previous" is disabled
     const previousButton = screen.getByRole('button', { name: 'Edellinen' });
     expect(previousButton).toBeInTheDocument();
     expect(previousButton).toBeDisabled();
-  
+
     const nextButton = screen.getByRole('button', { name: 'Seuraava' });
     expect(nextButton).toBeInTheDocument();
 
     await waitFor(() => {
       nextButton.click();
     });
-  
-    expect(mockAction).toHaveBeenCalled();
 
+    expect(mockAction).toHaveBeenCalled();
   });
 
   test('renders last step view correctly', async () => {
-
-    const formStepperSliceMock = createSlice({
+    formStepperSliceMock = createSlice({
       name: 'formStepper',
       initialState: {
         activeStepIndex: 1,
@@ -122,10 +143,10 @@ describe('form stepper', () => {
         ]
       },
       reducers: {
-        completeStep: mockAction, 
+        completeStep: mockAction,
         setActive: mockAction,
         setSteps: mockAction
-      },
+      }
     });
 
     const store = configureStore({
@@ -133,38 +154,46 @@ describe('form stepper', () => {
         formContent: formContentSliceMock.reducer,
         formStepper: formStepperSliceMock.reducer,
         extendDueDateForm: extendDueDateFormSliceMock.reducer
-      },
+      }
     });
 
     render(
       <Provider store={store}>
         <Router>
           <I18nextProvider i18n={i18n}>
-            <FormStepper initialSteps={formStepperSliceMock.getInitialState().steps} onSubmit={mockAction}/>
-            </I18nextProvider>
+            <FormStepper
+              initialSteps={formStepperSliceMock.getInitialState().steps}
+              onSubmit={mockAction}
+            />
+          </I18nextProvider>
         </Router>
       </Provider>
     );
 
     // Check that the correct step is rendered
-    const firstStepHeading = screen.queryByRole('heading', { name: 'Vaihe 1/2: Haku' })
+    const firstStepHeading = screen.queryByRole('heading', {
+      name: 'Vaihe 1/2: Haku'
+    });
     expect(firstStepHeading).toBeNull();
 
-    const secondStepHeading = screen.getByRole('heading', { name: 'Vaihe 2/2: Eräpäivän siirto' })
+    const secondStepHeading = screen.getByRole('heading', {
+      name: 'Vaihe 2/2: Eräpäivän siirto'
+    });
     expect(secondStepHeading).toBeInTheDocument();
 
     // Check that both buttons are visible
     const previousButton = screen.getByRole('button', { name: 'Edellinen' });
     expect(previousButton).toBeInTheDocument();
-  
-    const submitButton = screen.getByRole('button', { name: 'Siirrä eräpäivää' });
+
+    const submitButton = screen.getByRole('button', {
+      name: 'Siirrä eräpäivää'
+    });
     expect(submitButton).toBeInTheDocument();
 
     await waitFor(() => {
       submitButton.click();
     });
-  
+
     expect(mockAction).toHaveBeenCalled();
   });
-
 });
