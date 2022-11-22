@@ -28,6 +28,7 @@ const Barcode = (props: BarcodeProps) => {
           readOnly
         />
         <Button
+          data-testid="copy-to-clipboard"
           className="barcode-button"
           iconLeft={<IconCopy />}
           onClick={copyToClipboard}
