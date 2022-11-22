@@ -12,7 +12,7 @@ exports[`Component matches snapshot 1`] = `
         class="FieldLabel-module_label__1zrXK "
         for="barCode"
       >
-        common:barcode:label
+        Virtuaaliviivakoodi
       </label>
       <div
         class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
@@ -59,7 +59,7 @@ exports[`Component matches snapshot 1`] = `
       <span
         class="Button-module_label__a4np1 button_hds-button__label__2EQa-"
       >
-        common:barcode:copy-barcode
+        Kopioi virtuaaliviivakoodi
       </span>
     </button>
   </div>
