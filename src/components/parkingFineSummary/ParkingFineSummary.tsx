@@ -15,8 +15,6 @@ const ParkingFineSummary = (): React.ReactElement => {
 
   return (
     <>
-      <p>{t('common:required-fields')}</p>
-
       <div className="summary-container">
         <Card className="vehicle-details-container" border>
           <TextInput
@@ -83,28 +81,28 @@ const ParkingFineSummary = (): React.ReactElement => {
 
         <TextArea
           className="info-field"
-          id="fineTitle"
+          id="fineTitle-1"
           label={t('common:fine-info:fine-title:label')}
           value={t('common:fine-info:fine-title:placeholder')}
           readOnly
         />
         <TextInput
           className="info-field"
-          id="fineDetails"
+          id="fineDetails-1"
           label={t('common:fine-info:fine-details:label')}
           value={t('common:fine-info:fine-details:placeholder')}
           readOnly
         />
         <TextArea
           className="info-field"
-          id="fineTitle"
+          id="fineTitle-2"
           label={t('common:fine-info:fine-title:label')}
           value={t('common:fine-info:fine-title:placeholder')}
           readOnly
         />
         <TextInput
           className="info-field"
-          id="fineDetails"
+          id="fineDetails-2"
           label={t('common:fine-info:fine-details:label')}
           value={t('common:fine-info:fine-details:placeholder')}
           readOnly
@@ -143,7 +141,7 @@ const ParkingFineSummary = (): React.ReactElement => {
         type="button"
         variant="secondary"
         onClick={() => null}
-        iconLeft={<IconCopy />}>
+        iconLeft={<IconCopy aria-hidden="true" />}>
         {t('common:copy-barcode')}
       </Button>
     </>

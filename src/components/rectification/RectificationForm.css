@@ -1,0 +1,29 @@
+.rectification-form-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(7, auto);
+  grid-gap: 24px;
+}
+
+.rectification-textarea {
+  grid-column: 2;
+  grid-row: 1 / 7;
+}
+
+.rectification-textarea div:first-of-type, .rectification-textarea textarea {
+  height: 100% !important;
+}
+
+.rectification-subgrid {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 12px;
+}
+
+.rectification-form-user-details {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: repeat(3, auto);
+}

@@ -1,0 +1,408 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component matches snapshot 1`] = `
+<div>
+  <div
+    class="summary-container"
+  >
+    <div
+      class="Card-module_card__1WbKx card_hds-card--border__c2dBc vehicle-details-container"
+      role="region"
+    >
+      <div
+        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+      >
+        <label
+          class="FieldLabel-module_label__1zrXK "
+          for="regNumber"
+        >
+          common:fine-info:reg-number:label
+        </label>
+        <div
+          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+        >
+          <input
+            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+            id="regNumber"
+            readonly=""
+            type="text"
+            value="common:fine-info:reg-number:placeholder"
+          />
+        </div>
+      </div>
+      <div
+        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+      >
+        <label
+          class="FieldLabel-module_label__1zrXK "
+          for="vehicleType"
+        >
+          parking-fine:vehicle-info:type:label
+        </label>
+        <div
+          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+        >
+          <input
+            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+            id="vehicleType"
+            readonly=""
+            type="text"
+            value="parking-fine:vehicle-info:type:placeholder"
+          />
+        </div>
+      </div>
+      <div
+        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+      >
+        <label
+          class="FieldLabel-module_label__1zrXK "
+          for="vehicleBrand"
+        >
+          parking-fine:vehicle-info:brand:label
+        </label>
+        <div
+          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+        >
+          <input
+            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+            id="vehicleBrand"
+            readonly=""
+            type="text"
+            value="parking-fine:vehicle-info:brand:placeholder"
+          />
+        </div>
+      </div>
+      <div
+        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+      >
+        <label
+          class="FieldLabel-module_label__1zrXK "
+          for="vehicleModel"
+        >
+          parking-fine:vehicle-info:model:label
+        </label>
+        <div
+          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+        >
+          <input
+            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+            id="vehicleModel"
+            readonly=""
+            type="text"
+            value="parking-fine:vehicle-info:model:placeholder"
+          />
+        </div>
+      </div>
+      <div
+        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+      >
+        <label
+          class="FieldLabel-module_label__1zrXK "
+          for="vehicleColor"
+        >
+          parking-fine:vehicle-info:color:label
+        </label>
+        <div
+          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+        >
+          <input
+            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+            id="vehicleColor"
+            readonly=""
+            type="text"
+            value="parking-fine:vehicle-info:color:placeholder"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq info-field"
+    >
+      <label
+        class="FieldLabel-module_label__1zrXK "
+        for="fineTimeStamp"
+      >
+        common:fine-info:fine-timestamp:label
+      </label>
+      <div
+        class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+      >
+        <input
+          class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+          id="fineTimeStamp"
+          readonly=""
+          type="text"
+          value="common:fine-info:fine-timestamp:placeholder"
+        />
+      </div>
+    </div>
+    <div
+      class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq info-field"
+    >
+      <label
+        class="FieldLabel-module_label__1zrXK "
+        for="refNumber"
+      >
+        common:fine-info:ref-number:label
+      </label>
+      <div
+        class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+      >
+        <input
+          class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+          id="refNumber"
+          readonly=""
+          type="text"
+          value="common:fine-info:ref-number:placeholder"
+        />
+      </div>
+    </div>
+    <div
+      class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq info-field"
+    >
+      <label
+        class="FieldLabel-module_label__1zrXK "
+        for="address"
+      >
+        common:fine-info:address:label
+      </label>
+      <div
+        class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+      >
+        <input
+          class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+          id="address"
+          readonly=""
+          type="text"
+          value="common:fine-info:address:placeholder"
+        />
+      </div>
+    </div>
+    <div
+      class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq info-field"
+    >
+      <label
+        class="FieldLabel-module_label__1zrXK "
+        for="additionalDetails"
+      >
+        common:fine-info:additional-details:label
+      </label>
+      <div
+        class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+      >
+        <input
+          class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+          id="additionalDetails"
+          readonly=""
+          type="text"
+          value="common:fine-info:additional-details:placeholder"
+        />
+      </div>
+    </div>
+    <div
+      class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq info-field"
+    >
+      <label
+        class="FieldLabel-module_label__1zrXK "
+        for="fineTitle-1"
+      >
+        common:fine-info:fine-title:label
+      </label>
+      <div
+        class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+      >
+        <textarea
+          class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+          id="fineTitle-1"
+          readonly=""
+        >
+          common:fine-info:fine-title:placeholder
+        </textarea>
+      </div>
+    </div>
+    <div
+      class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq info-field"
+    >
+      <label
+        class="FieldLabel-module_label__1zrXK "
+        for="fineDetails-1"
+      >
+        common:fine-info:fine-details:label
+      </label>
+      <div
+        class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+      >
+        <input
+          class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+          id="fineDetails-1"
+          readonly=""
+          type="text"
+          value="common:fine-info:fine-details:placeholder"
+        />
+      </div>
+    </div>
+    <div
+      class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq info-field"
+    >
+      <label
+        class="FieldLabel-module_label__1zrXK "
+        for="fineTitle-2"
+      >
+        common:fine-info:fine-title:label
+      </label>
+      <div
+        class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+      >
+        <textarea
+          class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+          id="fineTitle-2"
+          readonly=""
+        >
+          common:fine-info:fine-title:placeholder
+        </textarea>
+      </div>
+    </div>
+    <div
+      class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq info-field"
+    >
+      <label
+        class="FieldLabel-module_label__1zrXK "
+        for="fineDetails-2"
+      >
+        common:fine-info:fine-details:label
+      </label>
+      <div
+        class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+      >
+        <input
+          class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+          id="fineDetails-2"
+          readonly=""
+          type="text"
+          value="common:fine-info:fine-details:placeholder"
+        />
+      </div>
+    </div>
+    <div
+      class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq wide-field"
+    >
+      <label
+        class="FieldLabel-module_label__1zrXK "
+        for="fineAdditionalDetails"
+      >
+        common:fine-info:fine-additional-details:label
+      </label>
+      <div
+        class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+      >
+        <textarea
+          class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+          id="fineAdditionalDetails"
+          readonly=""
+        >
+          common:fine-info:fine-additional-details:placeholder
+        </textarea>
+      </div>
+    </div>
+    <div
+      class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq info-field"
+    >
+      <label
+        class="FieldLabel-module_label__1zrXK "
+        for="sum"
+      >
+        common:fine-info:sum:label
+      </label>
+      <div
+        class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+      >
+        <input
+          class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+          id="sum"
+          readonly=""
+          type="text"
+          value="common:fine-info:sum:placeholder"
+        />
+      </div>
+    </div>
+    <div
+      class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq info-field"
+    >
+      <label
+        class="FieldLabel-module_label__1zrXK "
+        for="dueDate"
+      >
+        common:fine-info:due-date:label
+      </label>
+      <div
+        class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+      >
+        <input
+          class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+          id="dueDate"
+          readonly=""
+          type="text"
+          value="common:fine-info:due-date:placeholder"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+  >
+    <label
+      class="FieldLabel-module_label__1zrXK "
+      for="fineBarcode"
+    >
+      common:fine-info:barcode:label
+    </label>
+    <div
+      class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+    >
+      <input
+        class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+        id="fineBarcode"
+        readonly=""
+        type="text"
+        value="common:fine-info:barcode:placeholder"
+      />
+    </div>
+  </div>
+  <button
+    class="Button-module_button__1msFE button_hds-button__2A0je Button-module_secondary__1nABp button_hds-button--secondary__1NOWS"
+    type="button"
+  >
+    <div
+      aria-hidden="true"
+      class="Button-module_icon__O-h7R button_hds-icon__17j8Z"
+    >
+      <svg
+        aria-hidden="true"
+        class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+        role="img"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g
+          fill="none"
+          fill-rule="evenodd"
+        >
+          <rect
+            height="24"
+            width="24"
+          />
+          <path
+            d="M6,10 L6,12 L5,12 L5,18 L12,18 L12,17 L14,17 L14,19 C14,19.5522847 13.5522847,20 13,20 L4,20 C3.44771525,20 3,19.5522847 3,19 L3,11 C3,10.4477153 3.44771525,10 4,10 L6,10 Z M20,4 C20.5522847,4 21,4.44771525 21,5 L21,15 C21,15.5522847 20.5522847,16 20,16 L8,16 C7.44771525,16 7,15.5522847 7,15 L7,5 C7,4.44771525 7.44771525,4 8,4 L20,4 Z M19,6 L9,6 L9,14 L19,14 L19,6 Z"
+            fill="currentColor"
+          />
+        </g>
+      </svg>
+    </div>
+    <span
+      class="Button-module_label__a4np1 button_hds-button__label__2EQa-"
+    >
+      common:copy-barcode
+    </span>
+  </button>
+</div>
+`;
