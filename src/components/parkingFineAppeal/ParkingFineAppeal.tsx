@@ -29,9 +29,9 @@ const ParkingFineAppeal = (): React.ReactElement => {
     }
   ];
 
-  function handleSubmit() {
+  const handleSubmit = () => {
     //console.log('submit parking fine appeal form');
-  }
+  };
 
   useEffect(() => {
     dispatch(setSelectedForm(FormId.PARKINGFINE));

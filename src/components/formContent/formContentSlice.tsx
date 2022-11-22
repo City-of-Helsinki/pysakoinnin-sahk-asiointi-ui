@@ -3,9 +3,9 @@ import { RootState } from '../../store';
 
 export enum FormId {
   NONE = '',
-  DUEDATE = 'dueDate',
-  PARKINGFINE = 'parkingFine',
-  MOVEDCAR = 'movedCar'
+  DUEDATE = 'due-date',
+  PARKINGFINE = 'parking-fine',
+  MOVEDCAR = 'moved-car'
 }
 
 type SliceState = {

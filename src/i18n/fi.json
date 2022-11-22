@@ -8,11 +8,11 @@
     "fetched-from-profile-aria": "Tieto haettu Helsinki-profiilista",
     "previous": "Edellinen",
     "next": "Seuraava",
-    "send": "Lähetä",
     "required-fields": "Pakolliset kentät on merkitty tähdellä *",
     "copy-barcode": "Kopioi virtuaaliviivakoodi",
     "email-confirmation": "Haluan vahvistuksen sähköpostiini",
     "helsinki-profile-link": "Siirry Helsinki-profiiliin muokataksesi tietoja.",
+    "to-mainpage": "Siirry pysäköinnin asiointiin",
     "aria": {
       "open-external": "Avaa toisen verkkosivun.",
       "open-new-tab": "Avautuu uudessa välilehdessä."
@@ -77,6 +77,7 @@
     "make-rectification": "Tehdä oikaisuvaatimuksen",
     "pay-fine": "Maksaa pysäköintivirhemaksun",
     "to-payment": "Maksamaan",
+    "submit-success": "Lähetys onnistui",
     "vehicle-info": {
       "type": {
         "label": "Ajoneuvolaji",
@@ -94,7 +95,14 @@
         "label": "Väri",
         "placeholder": "Punainen"
       }
-    }
+    },
+    "notifications": {
+      "success": {
+        "label": "Olemme vastaanottaneet oikaisuvaatimuksesi",
+        "text": "Saat ilmoitukset oikaisuvaatimuksen käsittelyn eri vaiheista antamaasi sähköpostiosoitteeseen. Kun päätös on tehty, saat sen pysäköinnin asiointikansioosi."
+      }
+    },
+    "submit": "Lähetä"
   },
   "due-date": {
     "title": "Pysäköintivirhemaksun eräpäivän siirto 30 päivällä",
@@ -103,6 +111,7 @@
       "step2": "Eräpäivän siirto"
     },
     "new-due-date": "Uusi eräpäivä",
+    "submit-success": "Siirto onnistui",
     "notifications": {
       "allowed": {
         "label": "Voit siirtää eräpäivää",

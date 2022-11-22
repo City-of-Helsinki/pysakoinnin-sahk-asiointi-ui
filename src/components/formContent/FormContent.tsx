@@ -16,9 +16,9 @@ const FormContent = (props: Props): React.ReactElement => {
 
   const selectForm = (selectedForm: FormId) => {
     switch (selectedForm) {
-      case 'dueDate':
+      case 'due-date':
         return <ExtendDueDateForm />;
-      case 'parkingFine':
+      case 'parking-fine':
         return <ParkingFineSummary />;
     }
   };
