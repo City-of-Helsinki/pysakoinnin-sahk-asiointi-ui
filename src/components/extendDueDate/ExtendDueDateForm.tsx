@@ -1,13 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  Button,
-  Checkbox,
-  IconCopy,
-  Link,
-  Notification,
-  TextInput
-} from 'hds-react';
+import { Checkbox, Link, Notification, TextInput } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import { useClient } from '../../client/hooks';
 import { formatDate, isExtensionAllowed } from '../../utils/helpers';
@@ -20,6 +13,7 @@ import {
   selectFormContent,
   setSubmitDisabled
 } from '../formContent/formContentSlice';
+import Barcode from '../barcode/Barcode';
 
 const ExtendDueDateForm = (): React.ReactElement => {
   const { t } = useTranslation();
@@ -101,21 +95,9 @@ const ExtendDueDateForm = (): React.ReactElement => {
           />
         )}
       </div>
-      <div className="barcode-container">
-        <TextInput
-          id="barCode"
-          label={t('common:fine-info:barcode:label')}
-          defaultValue="43012383000123056001240000000000000000018714210302"
-          readOnly
-        />
-        <Button
-          className="barcode-button"
-          iconLeft={<IconCopy />}
-          //onClick={}
-          variant="secondary">
-          {t('common:copy-barcode')}
-        </Button>
-      </div>
+
+      <Barcode barcode="43012383000123056001240000000000000000018714210302" />
+
       <Checkbox
         label={t('common:email-confirmation')}
         id="emailConfirmationCheckbox"

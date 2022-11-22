@@ -3,7 +3,7 @@
 exports[`Component matches snapshot 1`] = `
 <div>
   <p>
-    common:required-fields
+    Pakolliset kentät on merkitty tähdellä *
   </p>
   <div
     class="userDetails"
@@ -14,7 +14,7 @@ exports[`Component matches snapshot 1`] = `
       <legend
         class="SelectionGroup-module_label__qlluz"
       >
-        rectification:relation
+        Olen ajoneuvon *
          
       </legend>
       <div
@@ -35,7 +35,7 @@ exports[`Component matches snapshot 1`] = `
               class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
               for="driver"
             >
-              rectification:driver
+              Kuljettaja
             </label>
           </div>
         </div>
@@ -53,7 +53,7 @@ exports[`Component matches snapshot 1`] = `
               class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
               for="owner"
             >
-              rectification:owner
+              Omistaja
             </label>
           </div>
         </div>
@@ -71,7 +71,7 @@ exports[`Component matches snapshot 1`] = `
               class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
               for="holder"
             >
-              rectification:holder
+              Haltija
             </label>
           </div>
         </div>
@@ -87,7 +87,7 @@ exports[`Component matches snapshot 1`] = `
           class="FieldLabel-module_label__1zrXK "
           for="fullName"
         >
-          common:name
+          Nimi *
         </label>
         <div
           class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
@@ -102,7 +102,7 @@ exports[`Component matches snapshot 1`] = `
         </div>
       </div>
       <svg
-        aria-label="common:fetched-from-profile-aria"
+        aria-label="Tieto haettu Helsinki-profiilista"
         class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
         role="img"
         viewBox="0 0 24 24"
@@ -129,7 +129,7 @@ exports[`Component matches snapshot 1`] = `
           class="FieldLabel-module_label__1zrXK "
           for="ssn"
         >
-          common:ssn
+          Henkilötunnus *
         </label>
         <div
           class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
@@ -144,7 +144,7 @@ exports[`Component matches snapshot 1`] = `
         </div>
       </div>
       <svg
-        aria-label="common:fetched-from-profile-aria"
+        aria-label="Tieto haettu Helsinki-profiilista"
         class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
         role="img"
         viewBox="0 0 24 24"
@@ -171,7 +171,7 @@ exports[`Component matches snapshot 1`] = `
           class="FieldLabel-module_label__1zrXK "
           for="email"
         >
-          common:email
+          Sähköpostiosoite *
         </label>
         <div
           class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
@@ -186,7 +186,7 @@ exports[`Component matches snapshot 1`] = `
         </div>
       </div>
       <svg
-        aria-label="common:fetched-from-profile-aria"
+        aria-label="Tieto haettu Helsinki-profiilista"
         class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
         role="img"
         viewBox="0 0 24 24"
@@ -230,15 +230,15 @@ exports[`Component matches snapshot 1`] = `
           />
         </g>
       </svg>
-      common:fetched-from-profile
+      Merkityt tiedot on haettu Helsinki-profiilistasi.
       <a
-        aria-label="common:helsinki-profile-link. common:aria:open-new-tab common:aria:open-external"
+        aria-label="Siirry Helsinki-profiiliin muokataksesi tietoja. Avautuu uudessa välilehdessä. Avaa toisen verkkosivun."
         class="Link-module_link__TeBQo link_hds-link__5Oxo- Link-module_linkM__30gsY link_hds-link--medium__xEU_F"
         href="https://profiili.test.kuva.hel.ninja"
         rel="noopener"
         target="_blank"
       >
-        common:helsinki-profile-link
+        Siirry Helsinki-profiiliin muokataksesi tietoja.
         <svg
           aria-hidden="true"
           class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik Link-module_icon__3ReCc link_icon__i_HqN Link-module_verticalAlignSmallOrMediumIcon__3FOVU link_vertical-align-small-or-medium-icon__25J0G"
@@ -271,7 +271,7 @@ exports[`Component matches snapshot 1`] = `
           class="FieldLabel-module_label__1zrXK "
           for="rectification-content"
         >
-          rectification:rectification-content
+          Oikaisuvaatimuksen sisältö
           <span
             class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
           >
@@ -310,7 +310,7 @@ exports[`Component matches snapshot 1`] = `
           class="Checkbox-module_label__L5AN1 checkbox_hds-checkbox__label__3HoD3"
           for="newEmail"
         >
-          rectification:to-separate-email
+          Haluan ilmoitukset asian käsittelystä eri sähköpostiosoitteeseen
         </label>
       </div>
       <div
@@ -320,7 +320,7 @@ exports[`Component matches snapshot 1`] = `
           class="FieldLabel-module_label__1zrXK "
           for="newEmailAddress"
         >
-          common:email
+          Sähköpostiosoite *
           <span
             class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
           >
@@ -348,7 +348,7 @@ exports[`Component matches snapshot 1`] = `
           class="FieldLabel-module_label__1zrXK "
           for="newEmailConfirm"
         >
-          common:verify-email
+          Kirjoita sähköpostiosoite uudelleen
           <span
             class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
           >
@@ -376,7 +376,7 @@ exports[`Component matches snapshot 1`] = `
           class="FieldLabel-module_label__1zrXK "
           for="address"
         >
-          rectification:address
+          Osoite
           <span
             class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
           >
@@ -407,7 +407,7 @@ exports[`Component matches snapshot 1`] = `
             class="FieldLabel-module_label__1zrXK "
             for="zipCode"
           >
-            rectification:zipcode
+            Postinumero
             <span
               class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
             >
@@ -435,7 +435,7 @@ exports[`Component matches snapshot 1`] = `
             class="FieldLabel-module_label__1zrXK "
             for="city"
           >
-            rectification:city
+            Postitoimipaikka
             <span
               class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
             >
@@ -464,7 +464,7 @@ exports[`Component matches snapshot 1`] = `
             for="hds-select-1-toggle-button"
             id="hds-select-1-label"
           >
-            rectification:area-code
+            Maakoodi
             <span
               class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
             >
@@ -528,7 +528,7 @@ exports[`Component matches snapshot 1`] = `
             class="FieldLabel-module_label__1zrXK "
             for="phone"
           >
-            rectification:phone
+            Puhelinnumero
             <span
               class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
             >
@@ -557,7 +557,7 @@ exports[`Component matches snapshot 1`] = `
           class="FieldLabel-module_label__1zrXK "
           for="IBAN"
         >
-          rectification:IBAN
+          Pankkitilinumero (IBAN)
           <span
             class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
           >
@@ -584,7 +584,7 @@ exports[`Component matches snapshot 1`] = `
         <legend
           class="SelectionGroup-module_label__qlluz"
         >
-          rectification:decision-choice
+          Haluan päätöksen
            
           <span
             class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
@@ -611,7 +611,7 @@ exports[`Component matches snapshot 1`] = `
                 class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
                 for="toParkingService"
               >
-                rectification:toParkingService
+                Pysäköinnin asiointikansiooni
               </label>
             </div>
           </div>
@@ -629,7 +629,7 @@ exports[`Component matches snapshot 1`] = `
                 class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
                 for="byMail"
               >
-                rectification:byMail
+                Kirjeitse antamaani osoitteeseen
               </label>
             </div>
           </div>

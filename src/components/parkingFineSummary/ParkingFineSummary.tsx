@@ -1,13 +1,13 @@
-import { Button, Card, IconCopy, TextArea, TextInput } from 'hds-react';
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { Card, TextArea, TextInput } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import { setSubmitDisabled } from '../formContent/formContentSlice';
 import './ParkingFineSummary.css';
+import Barcode from '../barcode/Barcode';
 
 /**
  * TODO
- * - Handle copying barcode to clipboard
  * - Add dividers
  * - Add image view to vehicle details
  */
@@ -138,19 +138,7 @@ const ParkingFineSummary = (): React.ReactElement => {
         />
       </div>
 
-      <TextInput
-        id="fineBarcode"
-        readOnly
-        label={t('common:fine-info:barcode:label')}
-        value={t('common:fine-info:barcode:placeholder')}
-      />
-      <Button
-        type="button"
-        variant="secondary"
-        onClick={() => null}
-        iconLeft={<IconCopy aria-hidden="true" />}>
-        {t('common:copy-barcode')}
-      </Button>
+      <Barcode barcode="430123730001230560012400000000000000000100018714210302" />
     </>
   );
 };

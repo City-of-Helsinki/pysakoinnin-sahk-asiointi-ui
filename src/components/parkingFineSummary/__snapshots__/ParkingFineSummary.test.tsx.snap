@@ -16,7 +16,7 @@ exports[`Component matches snapshot 1`] = `
           class="FieldLabel-module_label__1zrXK "
           for="regNumber"
         >
-          common:fine-info:reg-number:label
+          Ajoneuvon rekisteritunnus
         </label>
         <div
           class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
@@ -26,7 +26,7 @@ exports[`Component matches snapshot 1`] = `
             id="regNumber"
             readonly=""
             type="text"
-            value="common:fine-info:reg-number:placeholder"
+            value="Esim. ABC-123"
           />
         </div>
       </div>
@@ -37,7 +37,7 @@ exports[`Component matches snapshot 1`] = `
           class="FieldLabel-module_label__1zrXK "
           for="vehicleType"
         >
-          parking-fine:vehicle-info:type:label
+          Ajoneuvolaji
         </label>
         <div
           class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
@@ -47,7 +47,7 @@ exports[`Component matches snapshot 1`] = `
             id="vehicleType"
             readonly=""
             type="text"
-            value="parking-fine:vehicle-info:type:placeholder"
+            value="Henkilöauto M1"
           />
         </div>
       </div>
@@ -58,7 +58,7 @@ exports[`Component matches snapshot 1`] = `
           class="FieldLabel-module_label__1zrXK "
           for="vehicleBrand"
         >
-          parking-fine:vehicle-info:brand:label
+          Merkki
         </label>
         <div
           class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
@@ -68,7 +68,7 @@ exports[`Component matches snapshot 1`] = `
             id="vehicleBrand"
             readonly=""
             type="text"
-            value="parking-fine:vehicle-info:brand:placeholder"
+            value="Citroen"
           />
         </div>
       </div>
@@ -79,7 +79,7 @@ exports[`Component matches snapshot 1`] = `
           class="FieldLabel-module_label__1zrXK "
           for="vehicleModel"
         >
-          parking-fine:vehicle-info:model:label
+          Malli
         </label>
         <div
           class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
@@ -89,7 +89,7 @@ exports[`Component matches snapshot 1`] = `
             id="vehicleModel"
             readonly=""
             type="text"
-            value="parking-fine:vehicle-info:model:placeholder"
+            value="2D C2 HATCHBACK 1.4l-JMKFVC/232"
           />
         </div>
       </div>
@@ -100,7 +100,7 @@ exports[`Component matches snapshot 1`] = `
           class="FieldLabel-module_label__1zrXK "
           for="vehicleColor"
         >
-          parking-fine:vehicle-info:color:label
+          Väri
         </label>
         <div
           class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
@@ -110,7 +110,7 @@ exports[`Component matches snapshot 1`] = `
             id="vehicleColor"
             readonly=""
             type="text"
-            value="parking-fine:vehicle-info:color:placeholder"
+            value="Punainen"
           />
         </div>
       </div>
@@ -122,7 +122,7 @@ exports[`Component matches snapshot 1`] = `
         class="FieldLabel-module_label__1zrXK "
         for="fineTimeStamp"
       >
-        common:fine-info:fine-timestamp:label
+        Virheen ajankohta
       </label>
       <div
         class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
@@ -132,7 +132,7 @@ exports[`Component matches snapshot 1`] = `
           id="fineTimeStamp"
           readonly=""
           type="text"
-          value="common:fine-info:fine-timestamp:placeholder"
+          value="1.11.2019 09:41 - 1.11.2019 09:43"
         />
       </div>
     </div>
@@ -143,7 +143,7 @@ exports[`Component matches snapshot 1`] = `
         class="FieldLabel-module_label__1zrXK "
         for="refNumber"
       >
-        common:fine-info:ref-number:label
+        Asianumero
       </label>
       <div
         class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
@@ -153,7 +153,7 @@ exports[`Component matches snapshot 1`] = `
           id="refNumber"
           readonly=""
           type="text"
-          value="common:fine-info:ref-number:placeholder"
+          value="Esim. 12345678"
         />
       </div>
     </div>
@@ -164,7 +164,7 @@ exports[`Component matches snapshot 1`] = `
         class="FieldLabel-module_label__1zrXK "
         for="address"
       >
-        common:fine-info:address:label
+        Osoite
       </label>
       <div
         class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
@@ -174,7 +174,7 @@ exports[`Component matches snapshot 1`] = `
           id="address"
           readonly=""
           type="text"
-          value="common:fine-info:address:placeholder"
+          value="Näkinkuja 1c"
         />
       </div>
     </div>
@@ -185,7 +185,7 @@ exports[`Component matches snapshot 1`] = `
         class="FieldLabel-module_label__1zrXK "
         for="additionalDetails"
       >
-        common:fine-info:additional-details:label
+        Lisätietoja
       </label>
       <div
         class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
@@ -195,7 +195,7 @@ exports[`Component matches snapshot 1`] = `
           id="additionalDetails"
           readonly=""
           type="text"
-          value="common:fine-info:additional-details:placeholder"
+          value="Kääntymispaikka"
         />
       </div>
     </div>
@@ -206,7 +206,7 @@ exports[`Component matches snapshot 1`] = `
         class="FieldLabel-module_label__1zrXK "
         for="fineTitle-1"
       >
-        common:fine-info:fine-title:label
+        Virhe
       </label>
       <div
         class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
@@ -216,7 +216,7 @@ exports[`Component matches snapshot 1`] = `
           id="fineTitle-1"
           readonly=""
         >
-          common:fine-info:fine-title:placeholder
+          Pysäköinti kielletty liikennemerkin noudattamatta jättäminen. TLL 3 § 1 mom, TL 16 § merkki 372
         </textarea>
       </div>
     </div>
@@ -227,7 +227,7 @@ exports[`Component matches snapshot 1`] = `
         class="FieldLabel-module_label__1zrXK "
         for="fineDetails-1"
       >
-        common:fine-info:fine-details:label
+        Lisätieto
       </label>
       <div
         class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
@@ -237,7 +237,7 @@ exports[`Component matches snapshot 1`] = `
           id="fineDetails-1"
           readonly=""
           type="text"
-          value="common:fine-info:fine-details:placeholder"
+          value="Liikennemerkistä n. 3 m"
         />
       </div>
     </div>
@@ -248,7 +248,7 @@ exports[`Component matches snapshot 1`] = `
         class="FieldLabel-module_label__1zrXK "
         for="fineTitle-2"
       >
-        common:fine-info:fine-title:label
+        Virhe
       </label>
       <div
         class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
@@ -258,7 +258,7 @@ exports[`Component matches snapshot 1`] = `
           id="fineTitle-2"
           readonly=""
         >
-          common:fine-info:fine-title:placeholder
+          Pysäköinti kielletty liikennemerkin noudattamatta jättäminen. TLL 3 § 1 mom, TL 16 § merkki 372
         </textarea>
       </div>
     </div>
@@ -269,7 +269,7 @@ exports[`Component matches snapshot 1`] = `
         class="FieldLabel-module_label__1zrXK "
         for="fineDetails-2"
       >
-        common:fine-info:fine-details:label
+        Lisätieto
       </label>
       <div
         class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
@@ -279,7 +279,7 @@ exports[`Component matches snapshot 1`] = `
           id="fineDetails-2"
           readonly=""
           type="text"
-          value="common:fine-info:fine-details:placeholder"
+          value="Liikennemerkistä n. 3 m"
         />
       </div>
     </div>
@@ -290,7 +290,7 @@ exports[`Component matches snapshot 1`] = `
         class="FieldLabel-module_label__1zrXK "
         for="fineAdditionalDetails"
       >
-        common:fine-info:fine-additional-details:label
+        Pysäköintivirheen lisätiedot
       </label>
       <div
         class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
@@ -300,7 +300,7 @@ exports[`Component matches snapshot 1`] = `
           id="fineAdditionalDetails"
           readonly=""
         >
-          common:fine-info:fine-additional-details:placeholder
+          Lyökämme käsi kätehen, sormet sormien lomahan, lauloaksemme hyviä, parahia pannaksemme, kuulla noien kultaisien, tietä mielitehtoisien, nuorisossa nousevassa, kansassa kasuavassa: noita saamia sanoja, virsiä virittämiä vyöltä vanhan Väinämöisen, alta ahjon Ilmarisen, päästä kalvan Kaukomielen. 294 merkkiä
         </textarea>
       </div>
     </div>
@@ -311,7 +311,7 @@ exports[`Component matches snapshot 1`] = `
         class="FieldLabel-module_label__1zrXK "
         for="sum"
       >
-        common:fine-info:sum:label
+        Pysäköintivirhemaksun summa
       </label>
       <div
         class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
@@ -321,7 +321,7 @@ exports[`Component matches snapshot 1`] = `
           id="sum"
           readonly=""
           type="text"
-          value="common:fine-info:sum:placeholder"
+          value="80,00 EUR"
         />
       </div>
     </div>
@@ -332,7 +332,7 @@ exports[`Component matches snapshot 1`] = `
         class="FieldLabel-module_label__1zrXK "
         for="dueDate"
       >
-        common:fine-info:due-date:label
+        Eräpäivä
       </label>
       <div
         class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
@@ -342,67 +342,71 @@ exports[`Component matches snapshot 1`] = `
           id="dueDate"
           readonly=""
           type="text"
-          value="common:fine-info:due-date:placeholder"
+          value="2.12.2019"
         />
       </div>
     </div>
   </div>
   <div
-    class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
-  >
-    <label
-      class="FieldLabel-module_label__1zrXK "
-      for="fineBarcode"
-    >
-      common:fine-info:barcode:label
-    </label>
-    <div
-      class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-    >
-      <input
-        class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-        id="fineBarcode"
-        readonly=""
-        type="text"
-        value="common:fine-info:barcode:placeholder"
-      />
-    </div>
-  </div>
-  <button
-    class="Button-module_button__1msFE button_hds-button__2A0je Button-module_secondary__1nABp button_hds-button--secondary__1NOWS"
-    type="button"
+    class="barcode-container"
   >
     <div
-      aria-hidden="true"
-      class="Button-module_icon__O-h7R button_hds-icon__17j8Z"
+      class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
     >
-      <svg
-        aria-hidden="true"
-        class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
-        role="img"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
+      <label
+        class="FieldLabel-module_label__1zrXK "
+        for="barCode"
       >
-        <g
-          fill="none"
-          fill-rule="evenodd"
-        >
-          <rect
-            height="24"
-            width="24"
-          />
-          <path
-            d="M6,10 L6,12 L5,12 L5,18 L12,18 L12,17 L14,17 L14,19 C14,19.5522847 13.5522847,20 13,20 L4,20 C3.44771525,20 3,19.5522847 3,19 L3,11 C3,10.4477153 3.44771525,10 4,10 L6,10 Z M20,4 C20.5522847,4 21,4.44771525 21,5 L21,15 C21,15.5522847 20.5522847,16 20,16 L8,16 C7.44771525,16 7,15.5522847 7,15 L7,5 C7,4.44771525 7.44771525,4 8,4 L20,4 Z M19,6 L9,6 L9,14 L19,14 L19,6 Z"
-            fill="currentColor"
-          />
-        </g>
-      </svg>
+        Virtuaaliviivakoodi
+      </label>
+      <div
+        class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+      >
+        <input
+          class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+          id="barCode"
+          readonly=""
+          type="text"
+          value="430123730001230560012400000000000000000100018714210302"
+        />
+      </div>
     </div>
-    <span
-      class="Button-module_label__a4np1 button_hds-button__label__2EQa-"
+    <button
+      class="Button-module_button__1msFE button_hds-button__2A0je Button-module_secondary__1nABp button_hds-button--secondary__1NOWS barcode-button"
+      data-testid="copy-to-clipboard"
+      type="button"
     >
-      common:copy-barcode
-    </span>
-  </button>
+      <div
+        aria-hidden="true"
+        class="Button-module_icon__O-h7R button_hds-icon__17j8Z"
+      >
+        <svg
+          class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+          role="img"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g
+            fill="none"
+            fill-rule="evenodd"
+          >
+            <rect
+              height="24"
+              width="24"
+            />
+            <path
+              d="M6,10 L6,12 L5,12 L5,18 L12,18 L12,17 L14,17 L14,19 C14,19.5522847 13.5522847,20 13,20 L4,20 C3.44771525,20 3,19.5522847 3,19 L3,11 C3,10.4477153 3.44771525,10 4,10 L6,10 Z M20,4 C20.5522847,4 21,4.44771525 21,5 L21,15 C21,15.5522847 20.5522847,16 20,16 L8,16 C7.44771525,16 7,15.5522847 7,15 L7,5 C7,4.44771525 7.44771525,4 8,4 L20,4 Z M19,6 L9,6 L9,14 L19,14 L19,6 Z"
+              fill="currentColor"
+            />
+          </g>
+        </svg>
+      </div>
+      <span
+        class="Button-module_label__a4np1 button_hds-button__label__2EQa-"
+      >
+        Kopioi virtuaaliviivakoodi
+      </span>
+    </button>
+  </div>
 </div>
 `;

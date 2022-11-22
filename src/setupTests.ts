@@ -4,6 +4,7 @@ import { configure } from 'enzyme';
 import { GlobalWithFetchMock } from 'jest-fetch-mock';
 import { AnyFunction } from './common';
 import { toHaveNoViolations } from 'jest-axe';
+import './utils/i18n.js';
 
 expect.extend(toHaveNoViolations);
 
