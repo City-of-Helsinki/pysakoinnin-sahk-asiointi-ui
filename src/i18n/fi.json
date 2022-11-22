@@ -9,10 +9,15 @@
     "previous": "Edellinen",
     "next": "Seuraava",
     "required-fields": "Pakolliset kentät on merkitty tähdellä *",
-    "copy-barcode": "Kopioi virtuaaliviivakoodi",
     "email-confirmation": "Haluan vahvistuksen sähköpostiini",
     "helsinki-profile-link": "Siirry Helsinki-profiiliin muokataksesi tietoja.",
     "to-mainpage": "Siirry pysäköinnin asiointiin",
+    "barcode": {
+      "label": "Virtuaaliviivakoodi",
+      "copy-barcode": "Kopioi virtuaaliviivakoodi",
+      "toast-label": "Kopioitu leikepöydälle!",
+      "toast-body": "Virtuaaliviivakoodi kopioitu leikepöydälle"
+    },
     "aria": {
       "open-external": "Avaa toisen verkkosivun.",
       "open-new-tab": "Avautuu uudessa välilehdessä."
@@ -59,10 +64,6 @@
       "due-date": {
         "label": "Eräpäivä",
         "placeholder": "2.12.2019"
-      },
-      "barcode": {
-        "label": "Virtuaaliviivakoodi",
-        "placeholder": "430123730001230560012400000000000000000100018714210302"
       }
     }
   },
