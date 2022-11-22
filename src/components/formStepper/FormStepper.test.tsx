@@ -2,11 +2,9 @@ import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import FormStepper from './FormStepper';
-import { I18nextProvider } from 'react-i18next';
-import i18n from '../../utils/i18n';
 import { Provider } from 'react-redux';
 import { configureStore, createSlice } from '@reduxjs/toolkit';
-import { BrowserRouter as Router } from 'react-router-dom';
+import store from '../../store';
 import '@testing-library/jest-dom';
 
 const mockAction = jest.fn(() => {
@@ -20,11 +18,7 @@ const formContentSliceMock = createSlice({
     selectedForm: 'due-date',
     submitDisabled: true
   },
-  reducers: {
-    setFormSubmitted: mockAction,
-    setSelectedForm: mockAction,
-    setSubmitDisabled: mockAction
-  }
+  reducers: {}
 });
 
 const extendDueDateFormSliceMock = createSlice({
@@ -34,9 +28,7 @@ const extendDueDateFormSliceMock = createSlice({
     newDueDate: '2023-01-11',
     emailConfirmationChecked: false
   },
-  reducers: {
-    setEmailConfirmationChecked: mockAction
-  }
+  reducers: {}
 });
 
 let formStepperSliceMock = createSlice({
@@ -63,14 +55,6 @@ let formStepperSliceMock = createSlice({
 
 describe('form stepper', () => {
   test('passes a11y validation', async () => {
-    const store = configureStore({
-      reducer: {
-        formContent: formContentSliceMock.reducer,
-        formStepper: formStepperSliceMock.reducer,
-        extendDueDateForm: extendDueDateFormSliceMock.reducer
-      }
-    });
-
     const { container } = render(
       <Provider store={store}>
         <FormStepper
@@ -111,7 +95,7 @@ describe('form stepper', () => {
     });
     expect(secondStepHeading).toBeNull();
 
-    // Check that both buttons are visible but "previous" is disabled
+    // Check that both buttons are visible but previous button is disabled
     const previousButton = screen.getByRole('button', { name: 'Edellinen' });
     expect(previousButton).toBeInTheDocument();
     expect(previousButton).toBeDisabled();
@@ -159,14 +143,10 @@ describe('form stepper', () => {
 
     render(
       <Provider store={store}>
-        <Router>
-          <I18nextProvider i18n={i18n}>
-            <FormStepper
-              initialSteps={formStepperSliceMock.getInitialState().steps}
-              onSubmit={mockAction}
-            />
-          </I18nextProvider>
-        </Router>
+        <FormStepper
+          initialSteps={formStepperSliceMock.getInitialState().steps}
+          onSubmit={mockAction}
+        />
       </Provider>
     );
 
@@ -181,7 +161,7 @@ describe('form stepper', () => {
     });
     expect(secondStepHeading).toBeInTheDocument();
 
-    // Check that both buttons are visible
+    // Check that both buttons are visible but submit button is disabled by default
     const previousButton = screen.getByRole('button', { name: 'Edellinen' });
     expect(previousButton).toBeInTheDocument();
 
@@ -189,6 +169,7 @@ describe('form stepper', () => {
       name: 'Siirrä eräpäivää'
     });
     expect(submitButton).toBeInTheDocument();
+    expect(submitButton).toBeDisabled();
 
     await waitFor(() => {
       submitButton.click();
