@@ -1,11 +1,14 @@
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import { axe } from 'jest-axe';
+import { I18nextProvider } from 'react-i18next';
+import i18n from '../../utils/i18n';
 import FormStepper from './FormStepper';
 import { Provider } from 'react-redux';
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 import store from '../../store';
 import '@testing-library/jest-dom';
+import { t } from 'i18next';
 
 const mockAction = jest.fn(() => {
   // Mock function
@@ -77,10 +80,12 @@ describe('form stepper', () => {
 
     render(
       <Provider store={store}>
-        <FormStepper
-          initialSteps={formStepperSliceMock.getInitialState().steps}
-          onSubmit={mockAction}
-        />
+        <I18nextProvider i18n={i18n}>
+          <FormStepper
+            initialSteps={formStepperSliceMock.getInitialState().steps}
+            onSubmit={mockAction}
+          />
+        </I18nextProvider>
       </Provider>
     );
 
@@ -96,11 +101,11 @@ describe('form stepper', () => {
     expect(secondStepHeading).toBeNull();
 
     // Check that both buttons are visible but previous button is disabled
-    const previousButton = screen.getByRole('button', { name: 'Edellinen' });
+    const previousButton = screen.getByRole('button', { name: t('common:previous') });
     expect(previousButton).toBeInTheDocument();
     expect(previousButton).toBeDisabled();
 
-    const nextButton = screen.getByRole('button', { name: 'Seuraava' });
+    const nextButton = screen.getByRole('button', { name: t('common:next') });
     expect(nextButton).toBeInTheDocument();
 
     await waitFor(() => {
@@ -143,16 +148,18 @@ describe('form stepper', () => {
 
     render(
       <Provider store={store}>
-        <FormStepper
-          initialSteps={formStepperSliceMock.getInitialState().steps}
-          onSubmit={mockAction}
-        />
+        <I18nextProvider i18n={i18n}>
+          <FormStepper
+            initialSteps={formStepperSliceMock.getInitialState().steps}
+            onSubmit={mockAction}
+          />
+        </I18nextProvider>
       </Provider>
     );
 
     // Check that the correct step is rendered
     const firstStepHeading = screen.queryByRole('heading', {
-      name: 'Vaihe 1/2: Haku'
+      name: 'Vaihe 1/2: Testi'
     });
     expect(firstStepHeading).toBeNull();
 
@@ -162,11 +169,11 @@ describe('form stepper', () => {
     expect(secondStepHeading).toBeInTheDocument();
 
     // Check that both buttons are visible but submit button is disabled by default
-    const previousButton = screen.getByRole('button', { name: 'Edellinen' });
+    const previousButton = screen.getByRole('button', { name: t('common:previous') });
     expect(previousButton).toBeInTheDocument();
 
     const submitButton = screen.getByRole('button', {
-      name: 'Siirrä eräpäivää'
+      name: t('due-date:submit')
     });
     expect(submitButton).toBeInTheDocument();
     expect(submitButton).toBeDisabled();
