@@ -22,7 +22,7 @@ const ParkingFineSummary = (): React.ReactElement => {
 
   return (
     <>
-      <div className="summary-container">
+      <div data-testid="parkingFineSummary" className="summary-container">
         <Card className="vehicle-details-container" border>
           <TextInput
             id="regNumber"

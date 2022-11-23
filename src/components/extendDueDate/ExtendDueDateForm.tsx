@@ -44,7 +44,7 @@ const ExtendDueDateForm = (): React.ReactElement => {
   }, [dispatch, extensionAllowed]);
 
   return (
-    <div>
+    <div data-testid="extendDueDateForm">
       <p>{t('common:required-fields')}</p>
       {infoNotificationOpen && (
         <Notification
