@@ -101,7 +101,9 @@ describe('form stepper', () => {
     expect(secondStepHeading).toBeNull();
 
     // Check that both buttons are visible but previous button is disabled
-    const previousButton = screen.getByRole('button', { name: t('common:previous') });
+    const previousButton = screen.getByRole('button', {
+      name: t('common:previous')
+    });
     expect(previousButton).toBeInTheDocument();
     expect(previousButton).toBeDisabled();
 
@@ -169,7 +171,9 @@ describe('form stepper', () => {
     expect(secondStepHeading).toBeInTheDocument();
 
     // Check that both buttons are visible but submit button is disabled by default
-    const previousButton = screen.getByRole('button', { name: t('common:previous') });
+    const previousButton = screen.getByRole('button', {
+      name: t('common:previous')
+    });
     expect(previousButton).toBeInTheDocument();
 
     const submitButton = screen.getByRole('button', {

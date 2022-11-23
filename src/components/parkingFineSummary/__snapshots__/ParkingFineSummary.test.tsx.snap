@@ -4,6 +4,7 @@ exports[`Component matches snapshot 1`] = `
 <div>
   <div
     class="summary-container"
+    data-testid="parkingFineSummary"
   >
     <div
       class="Card-module_card__1WbKx card_hds-card--border__c2dBc vehicle-details-container"

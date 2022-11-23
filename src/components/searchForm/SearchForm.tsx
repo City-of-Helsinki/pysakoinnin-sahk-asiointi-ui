@@ -7,7 +7,7 @@ const SearchForm = (): React.ReactElement => {
   const { t } = useTranslation();
 
   return (
-    <div className="fieldset">
+    <div data-testid="searchForm" className="fieldset">
       <p>{t('common:required-fields')}</p>
       <TextInput
         className="field"
