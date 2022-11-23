@@ -161,7 +161,7 @@ describe('form stepper', () => {
 
     // Check that the correct step is rendered
     const firstStepHeading = screen.queryByRole('heading', {
-      name: 'Vaihe 1/2: Testi'
+      name: 'Vaihe 1/2: Haku'
     });
     expect(firstStepHeading).toBeNull();
 
