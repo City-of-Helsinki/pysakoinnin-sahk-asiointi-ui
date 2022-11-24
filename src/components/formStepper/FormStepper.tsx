@@ -101,7 +101,9 @@ const FormStepper = (props: Props): React.ReactElement => {
         <Notification
           className="submit-notification"
           label={t(`${formContent.selectedForm}:notifications:success:label`)}
+          position="bottom-right"
           type={'success'}
+          autoClose
           dismissible
           closeButtonLabelText="Close notification"
           onClose={() => setShowSubmitNotification(false)}>
