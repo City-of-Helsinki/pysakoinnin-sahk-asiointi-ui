@@ -27,7 +27,7 @@ const Header = (): React.ReactElement => {
     path && path.length > 1 ? (path.substr(1) as Page) : 'frontpage';
   const [active, setActive] = useState<Page>(currentPageFromPath);
 
-  const title = 'Pysäköinnin Sähköinen Asiointi';
+  const title = 'Pysäköinnin asiointi';
   const userName = user ? `${user.given_name} ${user.family_name}` : '';
 
   const frontPageLink = (
