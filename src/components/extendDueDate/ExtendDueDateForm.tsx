@@ -32,7 +32,6 @@ const ExtendDueDateForm = (): React.ReactElement => {
     dispatch(
       setEmailConfirmationChecked(!dueDateFormValues.emailConfirmationChecked)
     );
-    setEmailNotificationOpen(true);
   };
 
   // Allow extension only if due date has not passed
@@ -44,8 +43,7 @@ const ExtendDueDateForm = (): React.ReactElement => {
   }, [dispatch, extensionAllowed]);
 
   return (
-    <div data-testid="extendDueDateForm">
-      <p>{t('common:required-fields')}</p>
+    <div data-testid="extendDueDateForm" className="form-body">
       {infoNotificationOpen && (
         <Notification
           label={
@@ -105,7 +103,7 @@ const ExtendDueDateForm = (): React.ReactElement => {
         onChange={handleCheckedChange}
         disabled={!extensionAllowed || formContent.formSubmitted}
       />
-      {dueDateFormValues.emailConfirmationChecked && emailNotificationOpen && (
+      {emailNotificationOpen && (
         <Notification
           className="email-notification"
           size="small"

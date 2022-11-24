@@ -1,3 +1,7 @@
+.form-body {
+  margin: 50px 0 12px;
+}
+
 .info-container {
   display: grid;
   grid-template-columns: auto auto auto;
@@ -6,5 +10,5 @@
 }
 
 .email-notification {
-  margin: 24px 0 12px;
+  margin-top: 24px;
 }

@@ -52,6 +52,7 @@ describe('extend due date form', () => {
         </Provider>
       );
 
+      // Parking fine info is visible
       const refNumberEl = screen.getByRole('textbox', {
         name: t('common:fine-info:ref-number:label')
       });
@@ -79,6 +80,13 @@ describe('extend due date form', () => {
       expect(newDueDateEl).toBeInTheDocument();
       expect(newDueDateEl).toHaveValue('11.01.2023');
 
+      // Due date notification is visible
+      const infoNotification = screen.getByRole('heading', {
+        name: t('due-date:notifications:allowed:label')
+      });
+      expect(infoNotification).toBeInTheDocument();
+
+      // Checkbox is visible and clickable
       const checkbox = screen.getByRole('checkbox', {
         name: t('common:email-confirmation')
       });
@@ -89,6 +97,12 @@ describe('extend due date form', () => {
         checkbox.click();
       });
       expect(checkbox).toBeChecked();
+
+      // Email confirmation notification is visible
+      const emailInfoNotification = screen.getByRole('heading', {
+        name: t('due-date:notifications:email-confirmation:label')
+      });
+      expect(emailInfoNotification).toBeInTheDocument();
     });
   });
 });

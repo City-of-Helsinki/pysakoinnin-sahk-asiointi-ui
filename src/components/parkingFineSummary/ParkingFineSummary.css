@@ -3,6 +3,7 @@
   grid-template-columns: 510px auto auto;
   grid-template-rows: repeat(6, 130px);
   grid-gap: 12px 12px;
+  margin-top: 50px;
 }
 
 .info-field {
