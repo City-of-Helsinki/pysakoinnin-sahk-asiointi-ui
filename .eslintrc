@@ -13,7 +13,8 @@
     "plugin:import/warnings",
     "plugin:import/typescript",
     "plugin:jsx-a11y/recommended",
-    "plugin:prettier/recommended" // this should always be the last item on this array
+    "plugin:prettier/recommended"
+    // this should always be the last item on this array
   ],
   "plugins": [
     "react",
@@ -33,19 +34,57 @@
     "no-unused-vars": 0,
     "no-magic-numbers": [
       "error",
-      { "ignoreArrayIndexes": true, "ignore": [1000, -1, 0, 1, 2, 3, 4, 5] }
+      {
+        "ignoreArrayIndexes": true,
+        "ignore": [
+          1000,
+          -1,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      }
     ],
-    "arrow-body-style": ["error", "as-needed"],
-    "line-comment-position": ["error", { "position": "above" }],
-    "no-restricted-imports": ["error", { "patterns": [" * as"] }],
-    "arrow-parens": ["error", "as-needed"],
+    "arrow-body-style": [
+      "error",
+      "as-needed"
+    ],
+    "line-comment-position": [
+      "error",
+      {
+        "position": "above"
+      }
+    ],
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": [
+          " * as"
+        ]
+      }
+    ],
+    "arrow-parens": [
+      "error",
+      "as-needed"
+    ],
     "@typescript-eslint/no-unused-vars": "error",
     "@typescript-eslint/no-explicit-any": "error",
     "@typescript-eslint/no-unnecessary-type-assertion": "error",
     "sonarjs/prefer-immediate-return": "error",
     "sonarjs/no-duplicate-string": "error",
     "import/no-namespace": "error",
-    "no-underscore-dangle": ["error", { "allow": ["__typename", "_env_"] }],
+    "no-underscore-dangle": [
+      "error",
+      {
+        "allow": [
+          "__typename",
+          "_env_"
+        ]
+      }
+    ],
     "jest/expect-expect": "off",
     "jest/valid-expect": "off",
     "jest/no-standalone-expect": "off",
@@ -60,8 +99,15 @@
     },
     "import/resolver": {
       "node": {
-        "extensions": [".js", ".jsx", ".ts", ".tsx"],
-        "paths": ["src"]
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ],
+        "paths": [
+          "src"
+        ]
       }
     }
   },
@@ -71,6 +117,9 @@
     "node": true
   },
   "parserOptions": {
-    "project": "./tsconfig.json"
+    "project": [
+      "./tsconfig.json",
+      "./tsconfig.eslint.json"
+    ]
   }
 }
