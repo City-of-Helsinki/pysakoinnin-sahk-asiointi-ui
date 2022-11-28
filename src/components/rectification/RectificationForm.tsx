@@ -185,7 +185,7 @@ const RectificationForm = () => {
             language={i18n.language as Language}
             multiple
             className="rectification-fileinput"
-            label="Liitetiedostot"
+            label={t('rectification:attachments')}
             id="rectificationAttachments"
             onChange={() => null}
             dragAndDrop
