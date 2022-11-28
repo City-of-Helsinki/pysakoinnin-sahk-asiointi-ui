@@ -28,10 +28,18 @@
         "placeholder": "Esim. 12345678",
         "tooltip-text": "Asianumeron löydät pysäköintivirhemaksusta"
       },
+      "invoice-number": {
+        "label": "Korvauspäätöksen laskun numero",
+        "placeholder": "Esim. 12345678",
+        "tooltip-text": "Laskun numeron löydät sinulle lähetetystä korvauspäätöksestä."
+      },
       "reg-number": {
         "label": "Ajoneuvon rekisteritunnus",
         "placeholder": "Esim. ABC-123",
-        "helper-text": "Kirjoita rekisteritunnus kuten se on pysäköintivirhemaksussa."
+        "helper-text": {
+          "common": "Kirjoita rekisteritunnus kuten se on pysäköintivirhemaksussa.",
+          "moved-car": "Kirjoita rekisteritunnus kuten se on korvauspäätöksessä."
+        }
       },
       "fine-timestamp": {
         "label": "Virheen ajankohta",
@@ -131,6 +139,15 @@
       }
     },
     "submit": "Siirrä eräpäivää"
+  },
+  "moved-car": {
+    "title": "Ajoneuvon siirron oikaisuvaatimus",
+    "stepper": {
+      "step1": "Haku",
+      "step2": "Korvauspäätöksen tiedot",
+      "step3": "Oikaisuvaatimus",
+      "step4": "Yhteenveto"
+    }
   },
   "rectification": {
     "relation": "Olen ajoneuvon *",

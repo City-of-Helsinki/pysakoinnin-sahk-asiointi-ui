@@ -30,6 +30,14 @@ describe('extend due date form', () => {
         </Provider>
       );
 
+      // Form title is visible
+      const formTitle = screen.getByRole('heading', {
+        name: t('due-date:title')
+      });
+      expect(formTitle).toBeInTheDocument();
+
+      // Search fields (reference number and registration number) are visible
+      // and empty by default
       const refNumberEl = screen.getByRole('textbox', {
         name: t('common:fine-info:ref-number:label') + ' *'
       });

@@ -14,18 +14,27 @@ const Index = (): React.ReactElement => {
     <PageContent>
       {!!clientContext && clientContext.client ? (
         <>
-          <h1>Pysäköinnin Sähköinen Asiointi</h1>
+          <h1>Pysäköinnin asiointi</h1>
           {user && (
             <div>
-              <h2>Hakemukset ja päätökset</h2>
-              <p>Sinulla ei ole hakemuksia tai päätöksiä.</p>
-              <h2>Lomakkeet</h2>
+              <h2>Lähetetyt oikaisuvaatimukset</h2>
+              <p>Et ole lähettänyt yhtään oikaisuvaatimusta.</p>
+              <h2>Asiointilomakkeet</h2>
               <ul>
                 <li>
-                  <Link href="/oikaisuvaatimus">Tee oikaisuvaatimus</Link>
+                  <Link href="/virhemaksu">
+                    Tee oikaisuvaatimus pysäköintivirhemaksuun
+                  </Link>
                 </li>
                 <li>
-                  <Link href="/erapaivansiirto">Siirrä eräpäivää</Link>
+                  <Link href="/ajoneuvonsiirto">
+                    Tee ajoneuvon siirron oikaisuvaatimus
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/erapaivansiirto">
+                    Siirrä pysäköintivirhemaksun eräpäivää 30 päivällä
+                  </Link>
                 </li>
               </ul>
             </div>
