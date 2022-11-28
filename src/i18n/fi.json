@@ -148,6 +148,7 @@
     "IBAN": "Pankkitilinumero (IBAN)",
     "decision-choice": "Haluan päätöksen",
     "toParkingService": "Pysäköinnin asiointikansiooni",
-    "byMail": "Kirjeitse antamaani osoitteeseen"
+    "byMail": "Kirjeitse antamaani osoitteeseen",
+    "attachments": "Liitetiedostot"
   }
 }

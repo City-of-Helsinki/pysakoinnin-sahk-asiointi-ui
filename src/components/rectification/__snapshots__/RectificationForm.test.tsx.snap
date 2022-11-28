@@ -578,8 +578,132 @@ exports[`Component matches snapshot 1`] = `
           />
         </div>
       </div>
+      <div
+        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq rectification-fileinput"
+      >
+        <label
+          class="FieldLabel-module_label__1zrXK "
+          for="rectificationAttachments"
+        >
+          Liitetiedostot
+        </label>
+        <div
+          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+        >
+          <div
+            class="FileInput-module_fileInputContainer__9N5TG"
+          >
+            <div
+              aria-hidden="true"
+              class="FileInput-module_dragAndDrop__3d3xe"
+            >
+              <div
+                class="FileInput-module_dragAndDropLabel__1pDQN"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+                  role="img"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g
+                    fill="none"
+                    fill-rule="evenodd"
+                  >
+                    <path
+                      d="M0 0h24v24H0z"
+                    />
+                    <path
+                      d="M12 1.636l5.657 5.657-1.414 1.414L13 5.465V18h-2V5.465L7.757 8.707 6.343 7.293 12 1.636zM5 15v5h14v-5h2v7H3v-7h2z"
+                      fill="currentColor"
+                    />
+                  </g>
+                </svg>
+                <span
+                  class="FileInput-module_dragAndDropLabelText__3AJ4P"
+                >
+                  Raahaa tiedostot tähän
+                </span>
+              </div>
+            </div>
+            <div
+              class="FileInput-module_dragAndDropHelperText__31Ljw"
+            >
+              tai valitse tiedostot laitteeltasi
+            </div>
+            <div
+              class="FileInput-module_fileInputWrapper__1E8Jf"
+            >
+              <button
+                aria-hidden="true"
+                class="Button-module_button__1msFE button_hds-button__2A0je Button-module_secondary__1nABp button_hds-button--secondary__1NOWS"
+                tabindex="-1"
+                type="button"
+              >
+                <div
+                  aria-hidden="true"
+                  class="Button-module_icon__O-h7R button_hds-icon__17j8Z"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g
+                      fill="none"
+                      fill-rule="evenodd"
+                    >
+                      <path
+                        d="M0 0h24v24H0z"
+                      />
+                      <path
+                        d="M13 6v5h5v2h-5v5h-2v-5H6v-2h5V6z"
+                        fill="currentColor"
+                      />
+                    </g>
+                  </svg>
+                </div>
+                <span
+                  class="Button-module_label__a4np1 button_hds-button__label__2EQa-"
+                >
+                  Lisää tiedostoja
+                </span>
+              </button>
+              <input
+                accept=".png, .jpg, .pdf"
+                aria-describedby="rectificationAttachments-helper rectificationAttachments-info"
+                class="FileInput-module_fileInput__hClRc"
+                id="rectificationAttachments"
+                multiple=""
+                type="file"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="TextInput-module_infoText__zHOGs text-input_hds-text-input__info-text__3bqzy"
+          id="rectificationAttachments-info"
+        >
+          Yhtään tiedostoa ei ole valittu.
+        </div>
+        <div
+          class="TextInput-module_helperText__2dLR6 text-input_hds-text-input__helper-text__3V2KM"
+          id="rectificationAttachments-helper"
+        >
+          Vain .png,  .jpg ja  .pdf tiedostoja.
+        </div>
+      </div>
+      <ul
+        aria-label="Yhtään tiedostoa ei ole valittu."
+        class="FileInput-module_fileList__drFD1"
+        id="rectificationAttachments-list"
+        tabindex="-1"
+      />
       <fieldset
-        class="SelectionGroup-module_selectionGroup__6Jxu8"
+        class="SelectionGroup-module_selectionGroup__6Jxu8 rectification-decision-choice"
       >
         <legend
           class="SelectionGroup-module_label__qlluz"

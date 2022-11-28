@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   Checkbox,
+  FileInput,
   IconCheckCircle,
   Link,
   RadioButton,
@@ -15,8 +16,10 @@ import { useClient } from '../../client/hooks';
 
 import './RectificationForm.css';
 
+type Language = 'fi' | 'en' | 'sv';
+
 const RectificationForm = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const { getUser } = useClient();
   const user = getUser();
@@ -178,7 +181,21 @@ const RectificationForm = () => {
             placeholder="Esim. FI9780001700903330"
           />
 
-          <SelectionGroup label={t('rectification:decision-choice')} required>
+          <FileInput
+            language={i18n.language as Language}
+            multiple
+            className="rectification-fileinput"
+            label={t('rectification:attachments')}
+            id="rectificationAttachments"
+            onChange={() => null}
+            dragAndDrop
+            accept={'.png, .jpg, .pdf'}
+          />
+
+          <SelectionGroup
+            label={t('rectification:decision-choice')}
+            required
+            className="rectification-decision-choice">
             <RadioButton
               label={t('rectification:toParkingService')}
               id="toParkingService"
