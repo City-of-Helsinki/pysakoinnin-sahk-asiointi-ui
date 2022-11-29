@@ -35,13 +35,13 @@ describe('moved car appeal form', () => {
       });
       expect(formTitle).toBeInTheDocument();
 
-      // Search fields (fine number and registration number) are visible
+      // Search fields (invoice number and registration number) are visible
       // and empty bu default
-      const fineNumberEl = screen.getByRole('textbox', {
+      const invoiceNumberEl = screen.getByRole('textbox', {
         name: t('common:fine-info:invoice-number:label') + ' *'
       });
-      expect(fineNumberEl).toBeInTheDocument();
-      expect(fineNumberEl).toHaveValue('');
+      expect(invoiceNumberEl).toBeInTheDocument();
+      expect(invoiceNumberEl).toHaveValue('');
 
       const regNumberEl = screen.getByRole('textbox', {
         name: t('common:fine-info:reg-number:label') + ' *'

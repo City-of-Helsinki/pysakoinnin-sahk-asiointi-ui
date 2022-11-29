@@ -16,7 +16,7 @@ const SearchForm = (): React.ReactElement => {
       {movedCarForm ? (
         <TextInput
           className="field"
-          id="fineNumber"
+          id="invoiceNumber"
           label={t('common:fine-info:invoice-number:label')}
           placeholder={t('common:fine-info:invoice-number:placeholder')}
           tooltipLabel={t('common:fine-info:invoice-number:label')}
