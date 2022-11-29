@@ -10,6 +10,7 @@ import LogOut from './pages/LogOut';
 import Index from './pages/Index';
 import store from './store';
 import ParkingFineAppeal from './components/parkingFineAppeal/ParkingFineAppeal';
+import MovedCarAppeal from './components/movedCarAppeal/MovedCarAppeal';
 import ExtendDueDate from './components/extendDueDate/ExtendDueDate';
 
 function App(): React.ReactElement {
@@ -30,8 +31,11 @@ function App(): React.ReactElement {
                 <Route path={['/logout']} exact>
                   <LogOut />
                 </Route>
-                <Route path={['/oikaisuvaatimus']} exact>
+                <Route path={['/virhemaksu']} exact>
                   <ParkingFineAppeal />
+                </Route>
+                <Route path={['/ajoneuvonsiirto']} exact>
+                  <MovedCarAppeal />
                 </Route>
                 <Route path={['/erapaivansiirto']} exact>
                   <ExtendDueDate />
