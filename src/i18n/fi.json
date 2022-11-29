@@ -147,7 +147,8 @@
       "step2": "Korvauspäätöksen tiedot",
       "step3": "Oikaisuvaatimus",
       "step4": "Yhteenveto"
-    }
+    },
+    "submit": "Lähetä"
   },
   "rectification": {
     "relation": "Olen ajoneuvon *",
