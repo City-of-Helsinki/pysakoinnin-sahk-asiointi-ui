@@ -3,6 +3,9 @@ import { render, waitFor } from '@testing-library/react';
 import RectificationForm from './RectificationForm';
 import { axe } from 'jest-axe';
 
+// eslint-disable-next-line no-magic-numbers
+jest.setTimeout(10000);
+
 describe('Component', () => {
   it('matches snapshot', async () => {
     const { container } = render(<RectificationForm />);

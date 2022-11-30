@@ -168,5 +168,13 @@
     "toParkingService": "Pysäköinnin asiointikansiooni",
     "byMail": "Kirjeitse antamaani osoitteeseen",
     "attachments": "Liitetiedostot"
+  },
+  "imageViewer": {
+    "header": "Pysäköintivirhemaksun kuvat",
+    "closebutton-text": "Sulje kuvankatselu",
+    "image": "Kuva",
+    "previous-image": "Edellinen kuva",
+    "next-image": "Seuraava kuva",
+    "image-input-alt": "Avaa kuvankatselu"
   }
 }

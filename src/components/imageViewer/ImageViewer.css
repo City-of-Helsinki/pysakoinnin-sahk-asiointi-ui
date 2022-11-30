@@ -1,0 +1,29 @@
+.imageViewer-preview-container {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-gap: 18px;
+  justify-items: center;
+}
+
+.imageViewer-dialog {
+  width: auto !important;
+}
+
+.imageViewer-dialog-image {
+  max-height: 800px;
+  max-width: 800px;
+  display: inline-block;
+}
+
+.imageViewer-preview-image {
+  display: inline-block;
+  width: 96px;
+  object-fit: cover;
+  object-position: center;
+  height: 96px;
+}
+
+
+.imageViewer-dialog-text {
+  display: block;
+}
