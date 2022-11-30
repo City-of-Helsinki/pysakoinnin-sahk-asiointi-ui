@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: repeat(3, auto);
   grid-gap: 18px;
+  justify-items: center;
 }
 
 .imageViewer-dialog {
@@ -16,8 +17,10 @@
 
 .imageViewer-preview-image {
   display: inline-block;
-  max-width: 96px;
-  max-height: 96px;
+  width: 96px;
+  object-fit: cover;
+  object-position: center;
+  height: 96px;
 }
 
 
