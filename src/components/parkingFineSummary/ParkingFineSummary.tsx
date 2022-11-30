@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { setSubmitDisabled } from '../formContent/formContentSlice';
 import './ParkingFineSummary.css';
 import Barcode from '../barcode/Barcode';
+import ImageViewer from '../imageViewer/ImageViewer';
 
 /**
  * TODO
@@ -15,6 +16,12 @@ import Barcode from '../barcode/Barcode';
 const ParkingFineSummary = (): React.ReactElement => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
+
+  const imageUrls = [
+    'https://via.placeholder.com/600.png',
+    'https://via.placeholder.com/600x1200.png',
+    'https://via.placeholder.com/1200x800.png'
+  ];
 
   useEffect(() => {
     dispatch(setSubmitDisabled(false));
@@ -54,6 +61,7 @@ const ParkingFineSummary = (): React.ReactElement => {
             value={t('parking-fine:vehicle-info:color:placeholder')}
             readOnly
           />
+          <ImageViewer images={imageUrls} />
         </Card>
 
         <TextInput

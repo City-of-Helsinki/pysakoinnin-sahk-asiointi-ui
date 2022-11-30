@@ -115,6 +115,37 @@ exports[`Component matches snapshot 1`] = `
           />
         </div>
       </div>
+      <div
+        class="imageViewer-preview-container"
+      >
+        <input
+          alt="Avaa kuvankatselu"
+          class="imageViewer-preview-image"
+          data-testid="clickable-image"
+          formmethod="dialog"
+          src="https://via.placeholder.com/600.png"
+          type="image"
+          value="0"
+        />
+        <input
+          alt="Avaa kuvankatselu"
+          class="imageViewer-preview-image"
+          data-testid="clickable-image"
+          formmethod="dialog"
+          src="https://via.placeholder.com/600x1200.png"
+          type="image"
+          value="1"
+        />
+        <input
+          alt="Avaa kuvankatselu"
+          class="imageViewer-preview-image"
+          data-testid="clickable-image"
+          formmethod="dialog"
+          src="https://via.placeholder.com/1200x800.png"
+          type="image"
+          value="2"
+        />
+      </div>
     </div>
     <div
       class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq info-field"
