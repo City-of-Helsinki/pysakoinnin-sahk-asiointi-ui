@@ -1,5 +1,6 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import {
   Checkbox,
@@ -13,6 +14,7 @@ import {
   TextInput
 } from 'hds-react';
 import { useClient } from '../../client/hooks';
+import { FormId, selectFormContent } from '../formContent/formContentSlice';
 
 import './RectificationForm.css';
 
@@ -23,6 +25,7 @@ const RectificationForm = () => {
 
   const { getUser } = useClient();
   const user = getUser();
+  const selectedForm = useSelector(selectFormContent).selectedForm;
 
   const [checked, setChecked] = useState(false);
   const [newEmailSelected, setNewEmailSelected] = useState(false);
@@ -44,17 +47,23 @@ const RectificationForm = () => {
     setDecision(e.target.value);
   };
 
-  const relations = ['driver', 'owner', 'holder'];
+  const relations =
+    selectedForm == FormId.MOVEDCAR
+      ? ['driver', 'owner', 'poa-holder']
+      : ['driver', 'owner', 'holder'];
 
   return (
     <>
       <p>{t('common:required-fields')}</p>
       <div className="userDetails">
-        <SelectionGroup label={t('rectification:relation')}>
+        <SelectionGroup
+          label={t(`rectification:relation-info:${selectedForm}:relation`)}>
           {relations.map(relation => (
             <RadioButton
               key={relation}
-              label={t(`rectification:${relation}`)}
+              label={t(
+                `rectification:relation-info:${selectedForm}:${relation}`
+              )}
               id={relation}
               value={relation}
               checked={vehicleRelation === relation}

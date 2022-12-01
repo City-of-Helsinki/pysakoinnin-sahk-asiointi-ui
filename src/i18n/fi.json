@@ -151,10 +151,20 @@
     "submit": "Lähetä"
   },
   "rectification": {
-    "relation": "Olen ajoneuvon *",
-    "driver": "Kuljettaja",
-    "owner": "Omistaja",
-    "holder": "Haltija",
+    "relation-info": {
+      "parking-fine": {
+        "relation": "Olen ajoneuvon *",
+        "driver": "Kuljettaja",
+        "owner": "Omistaja",
+        "holder": "Haltija"
+      },
+      "moved-car": {
+        "relation": "Teen oikaisuvaatimuksen ajoneuvon *",
+        "driver": "Kuljettajana",
+        "owner": "Omistajana",
+        "poa-holder": "Valtakirjalla"
+      }
+    },
     "rectification-content": "Oikaisuvaatimuksen sisältö",
     "description-over-limit": "Kuvaus ylittää merkkimäärän",
     "to-separate-email": "Haluan ilmoitukset asian käsittelystä eri sähköpostiosoitteeseen",
