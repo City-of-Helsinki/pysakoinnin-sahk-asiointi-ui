@@ -26,6 +26,7 @@ const RectificationForm = () => {
   const { getUser } = useClient();
   const user = getUser();
   const selectedForm = useSelector(selectFormContent).selectedForm;
+  const movedCarFormSelected = selectedForm == FormId.MOVEDCAR;
 
   const [checked, setChecked] = useState(false);
   const [newEmailSelected, setNewEmailSelected] = useState(false);
@@ -47,55 +48,79 @@ const RectificationForm = () => {
     setDecision(e.target.value);
   };
 
-  const relations =
-    selectedForm == FormId.MOVEDCAR
-      ? ['driver', 'owner', 'poa-holder']
-      : ['driver', 'owner', 'holder'];
+  const relations = movedCarFormSelected
+    ? ['driver', 'owner', 'poa-holder']
+    : ['driver', 'owner', 'holder'];
 
   return (
     <>
       <p>{t('common:required-fields')}</p>
-      <div className="userDetails">
-        <SelectionGroup
-          label={t(`rectification:relation-info:${selectedForm}:relation`)}>
-          {relations.map(relation => (
-            <RadioButton
-              key={relation}
-              label={t(
-                `rectification:relation-info:${selectedForm}:${relation}`
-              )}
-              id={relation}
-              value={relation}
-              checked={vehicleRelation === relation}
-              onChange={handleVehicleRelation}
-            />
-          ))}
-        </SelectionGroup>
+      <div>
+        <div className="rectification-info-container">
+          <div className="rectification-user-section">
+            <SelectionGroup
+              label={t(`rectification:relation-info:${selectedForm}:relation`)}>
+              {relations.map(relation => (
+                <RadioButton
+                  key={relation}
+                  label={t(
+                    `rectification:relation-info:${selectedForm}:${relation}`
+                  )}
+                  id={relation}
+                  value={relation}
+                  checked={vehicleRelation === relation}
+                  onChange={handleVehicleRelation}
+                />
+              ))}
+            </SelectionGroup>
 
-        <div className="rectification-form-user-details">
-          <TextInput
-            id="fullName"
-            readOnly
-            label={t('common:name')}
-            defaultValue={user?.name as string}
-          />
-          <IconCheckCircle aria-label={t('common:fetched-from-profile-aria')} />
-          <TextInput
-            id="ssn"
-            readOnly
-            label={t('common:ssn')}
-            defaultValue="123456-789A"
-          />
-          <IconCheckCircle aria-label={t('common:fetched-from-profile-aria')} />
-          <TextInput
-            id="email"
-            readOnly
-            label={t('common:email')}
-            defaultValue={user?.email as string}
-          />
-          <IconCheckCircle aria-label={t('common:fetched-from-profile-aria')} />
+            <div
+              className={`rectification-form-user-details ${
+                movedCarFormSelected ? 'small' : ''
+              }`}>
+              <TextInput
+                id="fullName"
+                readOnly
+                label={t('common:name')}
+                defaultValue={user?.name as string}
+              />
+              <IconCheckCircle
+                aria-label={t('common:fetched-from-profile-aria')}
+              />
+              <TextInput
+                id="ssn"
+                readOnly
+                label={t('common:ssn')}
+                defaultValue="123456-789A"
+              />
+              <IconCheckCircle
+                aria-label={t('common:fetched-from-profile-aria')}
+              />
+              <TextInput
+                id="email"
+                readOnly
+                label={t('common:email')}
+                defaultValue={user?.email as string}
+              />
+              <IconCheckCircle
+                aria-label={t('common:fetched-from-profile-aria')}
+              />
+            </div>
+          </div>
+          {movedCarFormSelected && (
+            <div className="rectification-poa-fileinput">
+              <FileInput
+                language={i18n.language as Language}
+                multiple
+                label={t('rectification:attach-poa')}
+                id="rectificationPOAFile"
+                onChange={() => null}
+                dragAndDrop
+                accept={'.png, .jpg, .pdf'}
+              />
+            </div>
+          )}
         </div>
-
         <hr />
         <p>
           <IconCheckCircle aria-hidden="true" />

@@ -5,207 +5,213 @@ exports[`Component matches snapshot 1`] = `
   <p>
     Pakolliset kentät on merkitty tähdellä *
   </p>
-  <div
-    class="userDetails"
-  >
-    <fieldset
-      class="SelectionGroup-module_selectionGroup__6Jxu8"
-    >
-      <legend
-        class="SelectionGroup-module_label__qlluz"
-      >
-        Olen ajoneuvon *
-         
-      </legend>
-      <div
-        class="SelectionGroup-module_items__28m_S SelectionGroup-module_vertical__3iorC"
-      >
-        <div>
-          <div
-            class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
-          >
-            <input
-              checked=""
-              class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
-              id="driver"
-              type="radio"
-              value="driver"
-            />
-            <label
-              class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
-              for="driver"
-            >
-              Kuljettaja
-            </label>
-          </div>
-        </div>
-        <div>
-          <div
-            class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
-          >
-            <input
-              class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
-              id="owner"
-              type="radio"
-              value="owner"
-            />
-            <label
-              class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
-              for="owner"
-            >
-              Omistaja
-            </label>
-          </div>
-        </div>
-        <div>
-          <div
-            class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
-          >
-            <input
-              class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
-              id="holder"
-              type="radio"
-              value="holder"
-            />
-            <label
-              class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
-              for="holder"
-            >
-              Haltija
-            </label>
-          </div>
-        </div>
-      </div>
-    </fieldset>
+  <div>
     <div
-      class="rectification-form-user-details"
+      class="rectification-info-container"
     >
       <div
-        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+        class="rectification-user-section"
       >
-        <label
-          class="FieldLabel-module_label__1zrXK "
-          for="fullName"
+        <fieldset
+          class="SelectionGroup-module_selectionGroup__6Jxu8"
         >
-          Nimi *
-        </label>
+          <legend
+            class="SelectionGroup-module_label__qlluz"
+          >
+            Olen ajoneuvon *
+             
+          </legend>
+          <div
+            class="SelectionGroup-module_items__28m_S SelectionGroup-module_vertical__3iorC"
+          >
+            <div>
+              <div
+                class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+              >
+                <input
+                  checked=""
+                  class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
+                  id="driver"
+                  type="radio"
+                  value="driver"
+                />
+                <label
+                  class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
+                  for="driver"
+                >
+                  Kuljettaja
+                </label>
+              </div>
+            </div>
+            <div>
+              <div
+                class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+              >
+                <input
+                  class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
+                  id="owner"
+                  type="radio"
+                  value="owner"
+                />
+                <label
+                  class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
+                  for="owner"
+                >
+                  Omistaja
+                </label>
+              </div>
+            </div>
+            <div>
+              <div
+                class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+              >
+                <input
+                  class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
+                  id="holder"
+                  type="radio"
+                  value="holder"
+                />
+                <label
+                  class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
+                  for="holder"
+                >
+                  Haltija
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
         <div
-          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+          class="rectification-form-user-details "
         >
-          <input
-            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-            id="fullName"
-            readonly=""
-            type="text"
-            value=""
-          />
+          <div
+            class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+          >
+            <label
+              class="FieldLabel-module_label__1zrXK "
+              for="fullName"
+            >
+              Nimi *
+            </label>
+            <div
+              class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+            >
+              <input
+                class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+                id="fullName"
+                readonly=""
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+          <svg
+            aria-label="Tieto haettu Helsinki-profiilista"
+            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+            role="img"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              fill="none"
+              fill-rule="evenodd"
+            >
+              <rect
+                height="24"
+                width="24"
+              />
+              <path
+                d="M12,2 C17.5228475,2 22,6.4771525 22,12 C22,17.5228475 17.5228475,22 12,22 C6.4771525,22 2,17.5228475 2,12 C2,6.4771525 6.4771525,2 12,2 Z M12,4 C7.581722,4 4,7.581722 4,12 C4,16.418278 7.581722,20 12,20 C16.418278,20 20,16.418278 20,12 C20,7.581722 16.418278,4 12,4 Z M16.5,8 L18,9.5 L10.5,17 L6,12.5 L7.5,11 L10.5,14 L16.5,8 Z"
+                fill="currentColor"
+              />
+            </g>
+          </svg>
+          <div
+            class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+          >
+            <label
+              class="FieldLabel-module_label__1zrXK "
+              for="ssn"
+            >
+              Henkilötunnus *
+            </label>
+            <div
+              class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+            >
+              <input
+                class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+                id="ssn"
+                readonly=""
+                type="text"
+                value="123456-789A"
+              />
+            </div>
+          </div>
+          <svg
+            aria-label="Tieto haettu Helsinki-profiilista"
+            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+            role="img"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              fill="none"
+              fill-rule="evenodd"
+            >
+              <rect
+                height="24"
+                width="24"
+              />
+              <path
+                d="M12,2 C17.5228475,2 22,6.4771525 22,12 C22,17.5228475 17.5228475,22 12,22 C6.4771525,22 2,17.5228475 2,12 C2,6.4771525 6.4771525,2 12,2 Z M12,4 C7.581722,4 4,7.581722 4,12 C4,16.418278 7.581722,20 12,20 C16.418278,20 20,16.418278 20,12 C20,7.581722 16.418278,4 12,4 Z M16.5,8 L18,9.5 L10.5,17 L6,12.5 L7.5,11 L10.5,14 L16.5,8 Z"
+                fill="currentColor"
+              />
+            </g>
+          </svg>
+          <div
+            class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+          >
+            <label
+              class="FieldLabel-module_label__1zrXK "
+              for="email"
+            >
+              Sähköpostiosoite *
+            </label>
+            <div
+              class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+            >
+              <input
+                class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+                id="email"
+                readonly=""
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+          <svg
+            aria-label="Tieto haettu Helsinki-profiilista"
+            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+            role="img"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              fill="none"
+              fill-rule="evenodd"
+            >
+              <rect
+                height="24"
+                width="24"
+              />
+              <path
+                d="M12,2 C17.5228475,2 22,6.4771525 22,12 C22,17.5228475 17.5228475,22 12,22 C6.4771525,22 2,17.5228475 2,12 C2,6.4771525 6.4771525,2 12,2 Z M12,4 C7.581722,4 4,7.581722 4,12 C4,16.418278 7.581722,20 12,20 C16.418278,20 20,16.418278 20,12 C20,7.581722 16.418278,4 12,4 Z M16.5,8 L18,9.5 L10.5,17 L6,12.5 L7.5,11 L10.5,14 L16.5,8 Z"
+                fill="currentColor"
+              />
+            </g>
+          </svg>
         </div>
       </div>
-      <svg
-        aria-label="Tieto haettu Helsinki-profiilista"
-        class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
-        role="img"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <g
-          fill="none"
-          fill-rule="evenodd"
-        >
-          <rect
-            height="24"
-            width="24"
-          />
-          <path
-            d="M12,2 C17.5228475,2 22,6.4771525 22,12 C22,17.5228475 17.5228475,22 12,22 C6.4771525,22 2,17.5228475 2,12 C2,6.4771525 6.4771525,2 12,2 Z M12,4 C7.581722,4 4,7.581722 4,12 C4,16.418278 7.581722,20 12,20 C16.418278,20 20,16.418278 20,12 C20,7.581722 16.418278,4 12,4 Z M16.5,8 L18,9.5 L10.5,17 L6,12.5 L7.5,11 L10.5,14 L16.5,8 Z"
-            fill="currentColor"
-          />
-        </g>
-      </svg>
-      <div
-        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
-      >
-        <label
-          class="FieldLabel-module_label__1zrXK "
-          for="ssn"
-        >
-          Henkilötunnus *
-        </label>
-        <div
-          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-        >
-          <input
-            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-            id="ssn"
-            readonly=""
-            type="text"
-            value="123456-789A"
-          />
-        </div>
-      </div>
-      <svg
-        aria-label="Tieto haettu Helsinki-profiilista"
-        class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
-        role="img"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <g
-          fill="none"
-          fill-rule="evenodd"
-        >
-          <rect
-            height="24"
-            width="24"
-          />
-          <path
-            d="M12,2 C17.5228475,2 22,6.4771525 22,12 C22,17.5228475 17.5228475,22 12,22 C6.4771525,22 2,17.5228475 2,12 C2,6.4771525 6.4771525,2 12,2 Z M12,4 C7.581722,4 4,7.581722 4,12 C4,16.418278 7.581722,20 12,20 C16.418278,20 20,16.418278 20,12 C20,7.581722 16.418278,4 12,4 Z M16.5,8 L18,9.5 L10.5,17 L6,12.5 L7.5,11 L10.5,14 L16.5,8 Z"
-            fill="currentColor"
-          />
-        </g>
-      </svg>
-      <div
-        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
-      >
-        <label
-          class="FieldLabel-module_label__1zrXK "
-          for="email"
-        >
-          Sähköpostiosoite *
-        </label>
-        <div
-          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-        >
-          <input
-            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-            id="email"
-            readonly=""
-            type="text"
-            value=""
-          />
-        </div>
-      </div>
-      <svg
-        aria-label="Tieto haettu Helsinki-profiilista"
-        class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
-        role="img"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <g
-          fill="none"
-          fill-rule="evenodd"
-        >
-          <rect
-            height="24"
-            width="24"
-          />
-          <path
-            d="M12,2 C17.5228475,2 22,6.4771525 22,12 C22,17.5228475 17.5228475,22 12,22 C6.4771525,22 2,17.5228475 2,12 C2,6.4771525 6.4771525,2 12,2 Z M12,4 C7.581722,4 4,7.581722 4,12 C4,16.418278 7.581722,20 12,20 C16.418278,20 20,16.418278 20,12 C20,7.581722 16.418278,4 12,4 Z M16.5,8 L18,9.5 L10.5,17 L6,12.5 L7.5,11 L10.5,14 L16.5,8 Z"
-            fill="currentColor"
-          />
-        </g>
-      </svg>
     </div>
     <hr />
     <p>

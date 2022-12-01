@@ -159,9 +159,9 @@
         "holder": "Haltija"
       },
       "moved-car": {
-        "relation": "Teen oikaisuvaatimuksen ajoneuvon *",
-        "driver": "Kuljettajana",
-        "owner": "Omistajana",
+        "relation": "Teen oikaisuvaatimuksen *",
+        "driver": "Ajoneuvon kuljettajana",
+        "owner": "Ajoneuvon omistajana",
         "poa-holder": "Valtakirjalla"
       }
     },
@@ -177,7 +177,8 @@
     "decision-choice": "Haluan päätöksen",
     "toParkingService": "Pysäköinnin asiointikansiooni",
     "byMail": "Kirjeitse antamaani osoitteeseen",
-    "attachments": "Liitetiedostot"
+    "attachments": "Liitetiedostot",
+    "attach-poa": "Liitä valtakirja"
   },
   "imageViewer": {
     "header": "Pysäköintivirhemaksun kuvat",
