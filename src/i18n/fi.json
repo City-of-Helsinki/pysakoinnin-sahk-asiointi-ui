@@ -8,6 +8,7 @@
     "fetched-from-profile-aria": "Tieto haettu Helsinki-profiilista",
     "previous": "Edellinen",
     "next": "Seuraava",
+    "save-draft": "Tallenna keskeneräisenä",
     "required-fields": "Pakolliset kentät on merkitty tähdellä *",
     "email-confirmation": "Haluan vahvistuksen sähköpostiini",
     "helsinki-profile-link": "Siirry Helsinki-profiiliin muokataksesi tietoja.",
@@ -17,6 +18,12 @@
       "copy-barcode": "Kopioi virtuaaliviivakoodi",
       "toast-label": "Kopioitu leikepöydälle!",
       "toast-body": "Virtuaaliviivakoodi kopioitu leikepöydälle"
+    },
+    "notifications": {
+      "draft-saved": {
+        "label": "Lomake tallennettu",
+        "text": "Lomake tallennettu keskeneräisenä onnistuneesti."
+      }
     },
     "aria": {
       "open-external": "Avaa toisen verkkosivun.",

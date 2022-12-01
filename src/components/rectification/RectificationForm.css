@@ -51,6 +51,10 @@
   grid-row: 9;
 }
 
+.rectification-draft-button {
+  margin: 36px 0 12px;
+}
+
 @media only screen and (max-width: 768px) {
   .rectification-form-user-details {
     grid-template-columns: 1fr 1fr;
