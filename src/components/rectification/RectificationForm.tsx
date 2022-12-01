@@ -121,7 +121,6 @@ const RectificationForm = () => {
             <div className="rectification-poa-fileinput">
               <FileInput
                 language={i18n.language as Language}
-                multiple
                 label={t('rectification:attach-poa')}
                 id="rectificationPOAFile"
                 onChange={() => null}

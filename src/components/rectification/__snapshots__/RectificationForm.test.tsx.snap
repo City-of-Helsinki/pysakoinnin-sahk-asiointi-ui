@@ -306,7 +306,7 @@ exports[`Component in moved car form matches snapshot 1`] = `
                   <span
                     class="Button-module_label__a4np1 button_hds-button__label__2EQa-"
                   >
-                    Lisää tiedostoja
+                    Lisää tiedosto
                   </span>
                 </button>
                 <input
@@ -314,7 +314,6 @@ exports[`Component in moved car form matches snapshot 1`] = `
                   aria-describedby="rectificationPOAFile-helper rectificationPOAFile-info"
                   class="FileInput-module_fileInput__hClRc"
                   id="rectificationPOAFile"
-                  multiple=""
                   type="file"
                 />
               </div>
