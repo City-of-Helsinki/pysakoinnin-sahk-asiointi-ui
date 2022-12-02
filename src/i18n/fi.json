@@ -88,6 +88,7 @@
     "to-payment": "Maksamaan",
     "submit-success": "Lähetys onnistui",
     "vehicle-info": {
+      "header": "Ajoneuvon tiedot",
       "type": {
         "label": "Ajoneuvolaji",
         "placeholder": "Henkilöauto M1"

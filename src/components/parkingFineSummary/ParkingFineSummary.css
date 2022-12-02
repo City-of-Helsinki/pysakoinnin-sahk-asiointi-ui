@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 510px auto auto;
   grid-auto-rows: auto;
-  grid-gap: 12px 12px;
+  grid-gap: 12px 24px;
   margin-top: 50px;
 }
 
@@ -29,10 +29,15 @@ textarea {
   grid-row: span 13;
 }
 
-hr {
+.vehicle-details-header {
+  font-weight: normal;
+  margin-bottom: 2rem;
+}
 
-  height: 1px;
+hr {
+  border: 1px solid var(--color-black-20);
   width: 100%;
+  margin-right: 24px;
   grid-column-start: 1;
   grid-column-end: span 2;
 }

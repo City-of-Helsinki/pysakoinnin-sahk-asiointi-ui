@@ -30,7 +30,17 @@ const ParkingFineSummary = (): React.ReactElement => {
   return (
     <>
       <div data-testid="parkingFineSummary" className="summary-container">
-        <Card className="vehicle-details-container" border>
+        <Card
+          className="vehicle-details-container"
+          border
+          theme={{
+            '--border-color': 'var(--color-black-20)',
+            '--padding-horizontal': 'var(--spacing-l)',
+            '--padding-vertical': 'var(--spacing-m)'
+          }}>
+          <h2 className="vehicle-details-header">
+            {t('parking-fine:vehicle-info:header')}
+          </h2>
           <TextInput
             id="regNumber"
             label={t('common:fine-info:reg-number:label')}
