@@ -94,6 +94,15 @@ describe('extend due date form', () => {
       });
       expect(infoNotification).toBeInTheDocument();
 
+      // Email confirmation text is visible
+      const emailConfirmationLabel = screen.getByText(/Sähköpostivahvistus/i);
+      expect(emailConfirmationLabel).toBeInTheDocument();
+
+      const emailConfirmationText = screen.getByText(
+        /Vahvistus lähetetään Helsinki-profiilissasi olevaan sähköpostiosoitteeseen:/i
+      );
+      expect(emailConfirmationText).toBeInTheDocument();
+
       // Checkbox is visible and clickable
       const checkbox = screen.getByRole('checkbox', {
         name: t('common:email-confirmation')
@@ -105,12 +114,6 @@ describe('extend due date form', () => {
         checkbox.click();
       });
       expect(checkbox).toBeChecked();
-
-      // Email confirmation notification is visible
-      const emailInfoNotification = screen.getByRole('heading', {
-        name: t('due-date:notifications:email-confirmation:label')
-      });
-      expect(emailInfoNotification).toBeInTheDocument();
     });
   });
 });

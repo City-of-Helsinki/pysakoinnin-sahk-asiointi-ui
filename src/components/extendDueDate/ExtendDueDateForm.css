@@ -12,3 +12,8 @@
 .email-notification {
   margin-top: 24px;
 }
+
+.email-confirmation-label {
+  font-size: var(--fontsize-body-m);
+  font-weight: 500;
+}
