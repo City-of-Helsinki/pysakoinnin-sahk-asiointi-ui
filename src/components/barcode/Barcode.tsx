@@ -23,7 +23,7 @@ const Barcode = (props: BarcodeProps) => {
     <>
       <div
         className={`barcode-container ${
-          className !== undefined ? className : ''
+          className ? className : ''
         }`}>
         <TextInput
           id="barCode"
