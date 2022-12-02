@@ -21,10 +21,7 @@ const Barcode = (props: BarcodeProps) => {
 
   return (
     <>
-      <div
-        className={`barcode-container ${
-          className ? className : ''
-        }`}>
+      <div className={`barcode-container ${className ? className : ''}`}>
         <TextInput
           id="barCode"
           label={t('common:barcode:label')}
