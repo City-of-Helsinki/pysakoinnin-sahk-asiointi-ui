@@ -29,7 +29,7 @@ const RectificationForm = () => {
   const { getUser } = useClient();
   const user = getUser();
   const selectedForm = useSelector(selectFormContent).selectedForm;
-  const movedCarFormSelected = selectedForm == FormId.MOVEDCAR;
+  const movedCarFormSelected = selectedForm === FormId.MOVEDCAR;
 
   const [checked, setChecked] = useState(false);
   const [newEmailSelected, setNewEmailSelected] = useState(false);
