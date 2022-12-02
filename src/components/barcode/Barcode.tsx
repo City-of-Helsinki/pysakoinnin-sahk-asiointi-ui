@@ -6,10 +6,11 @@ import { useTranslation } from 'react-i18next';
 
 type BarcodeProps = {
   barcode: string;
+  className?: string;
 };
 
 const Barcode = (props: BarcodeProps) => {
-  const { barcode } = props;
+  const { barcode, className } = props;
   const { t } = useTranslation();
   const [copySuccess, setCopySuccess] = useState(false);
 
@@ -20,7 +21,10 @@ const Barcode = (props: BarcodeProps) => {
 
   return (
     <>
-      <div className="barcode-container">
+      <div
+        className={`barcode-container ${
+          className !== undefined ? className : ''
+        }`}>
         <TextInput
           id="barCode"
           label={t('common:barcode:label')}

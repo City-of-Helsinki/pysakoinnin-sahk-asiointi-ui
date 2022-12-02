@@ -1,7 +1,7 @@
 .summary-container {
   display: grid;
   grid-template-columns: 510px auto auto;
-  grid-template-rows: repeat(6, 130px);
+  grid-auto-rows: auto;
   grid-gap: 12px 12px;
   margin-top: 50px;
 }
@@ -9,6 +9,10 @@
 .info-field {
   max-width: 384px;
   grid-row-end: auto;
+}
+
+.sum-field {
+  grid-column-end: 2;
 }
 
 .wide-field {
@@ -22,6 +26,13 @@ textarea {
 
 .vehicle-details-container {
   grid-column-start: 3;
-  grid-row-start: 1;
-  grid-row-end: 8;
+  grid-row: span 13;
+}
+
+hr {
+
+  height: 1px;
+  width: 100%;
+  grid-column-start: 1;
+  grid-column-end: span 2;
 }

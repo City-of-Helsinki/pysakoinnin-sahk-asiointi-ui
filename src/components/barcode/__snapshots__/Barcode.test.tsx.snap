@@ -3,7 +3,7 @@
 exports[`Component matches snapshot 1`] = `
 <div>
   <div
-    class="barcode-container"
+    class="barcode-container "
   >
     <div
       class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"

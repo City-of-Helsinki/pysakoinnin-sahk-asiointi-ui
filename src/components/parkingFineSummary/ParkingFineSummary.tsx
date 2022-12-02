@@ -79,6 +79,8 @@ const ParkingFineSummary = (): React.ReactElement => {
           readOnly
         />
 
+        <hr />
+
         <TextInput
           className="info-field"
           id="address"
@@ -93,6 +95,8 @@ const ParkingFineSummary = (): React.ReactElement => {
           value={t('common:fine-info:additional-details:placeholder')}
           readOnly
         />
+
+        <hr />
 
         <TextArea
           className="info-field"
@@ -123,6 +127,8 @@ const ParkingFineSummary = (): React.ReactElement => {
           readOnly
         />
 
+        <hr />
+
         <TextArea
           className="wide-field"
           id="fineAdditionalDetails"
@@ -130,12 +136,15 @@ const ParkingFineSummary = (): React.ReactElement => {
           value={t('common:fine-info:fine-additional-details:placeholder')}
           readOnly
         />
+
+        <hr />
+
         <TextInput
           id="sum"
           label={t('common:fine-info:sum:label')}
           value={t('common:fine-info:sum:placeholder')}
           readOnly
-          className="info-field"
+          className="info-field sum-field"
         />
         <TextInput
           className="info-field"
@@ -144,9 +153,13 @@ const ParkingFineSummary = (): React.ReactElement => {
           value={t('common:fine-info:due-date:placeholder')}
           readOnly
         />
-      </div>
 
-      <Barcode barcode="430123730001230560012400000000000000000100018714210302" />
+        <hr />
+        <Barcode
+          barcode="430123730001230560012400000000000000000100018714210302"
+          className="wide-field"
+        />
+      </div>
     </>
   );
 };
