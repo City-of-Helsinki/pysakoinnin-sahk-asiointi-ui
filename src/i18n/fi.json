@@ -8,6 +8,7 @@
     "fetched-from-profile-aria": "Tieto haettu Helsinki-profiilista",
     "previous": "Edellinen",
     "next": "Seuraava",
+    "save-draft": "Tallenna keskeneräisenä",
     "required-fields": "Pakolliset kentät on merkitty tähdellä *",
     "email-confirmation": "Haluan vahvistuksen sähköpostiini",
     "helsinki-profile-link": "Siirry Helsinki-profiiliin muokataksesi tietoja.",
@@ -17,6 +18,12 @@
       "copy-barcode": "Kopioi virtuaaliviivakoodi",
       "toast-label": "Kopioitu leikepöydälle!",
       "toast-body": "Virtuaaliviivakoodi kopioitu leikepöydälle"
+    },
+    "notifications": {
+      "draft-saved": {
+        "label": "Lomake tallennettu",
+        "text": "Lomake tallennettu keskeneräisenä onnistuneesti."
+      }
     },
     "aria": {
       "open-external": "Avaa toisen verkkosivun.",
@@ -151,10 +158,20 @@
     "submit": "Lähetä"
   },
   "rectification": {
-    "relation": "Olen ajoneuvon *",
-    "driver": "Kuljettaja",
-    "owner": "Omistaja",
-    "holder": "Haltija",
+    "relation-info": {
+      "parking-fine": {
+        "relation": "Olen ajoneuvon *",
+        "driver": "Kuljettaja",
+        "owner": "Omistaja",
+        "holder": "Haltija"
+      },
+      "moved-car": {
+        "relation": "Teen oikaisuvaatimuksen *",
+        "driver": "Ajoneuvon kuljettajana",
+        "owner": "Ajoneuvon omistajana",
+        "poa-holder": "Valtakirjalla"
+      }
+    },
     "rectification-content": "Oikaisuvaatimuksen sisältö",
     "description-over-limit": "Kuvaus ylittää merkkimäärän",
     "to-separate-email": "Haluan ilmoitukset asian käsittelystä eri sähköpostiosoitteeseen",
@@ -167,7 +184,8 @@
     "decision-choice": "Haluan päätöksen",
     "toParkingService": "Pysäköinnin asiointikansiooni",
     "byMail": "Kirjeitse antamaani osoitteeseen",
-    "attachments": "Liitetiedostot"
+    "attachments": "Liitetiedostot",
+    "attach-poa": "Liitä valtakirja"
   },
   "imageViewer": {
     "header": "Pysäköintivirhemaksun kuvat",

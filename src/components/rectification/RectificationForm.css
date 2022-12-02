@@ -5,6 +5,18 @@
   grid-gap: 24px;
 }
 
+.rectification-info-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin: 24px 0 24px;
+}
+
+.rectification-user-section {
+  flex: 1;
+  min-width: 500px;
+}
+
 .rectification-textarea {
   grid-column: 2;
   grid-row: 1 / 7;
@@ -24,7 +36,6 @@
 .rectification-form-user-details {
   margin-top: 24px;
   display: grid;
-  grid-template-columns: 1fr 3fr;
   grid-template-rows: repeat(3, auto);
 }
 
@@ -38,4 +49,35 @@
 
 .rectification-decision-choice {
   grid-row: 9;
+}
+
+.rectification-draft-button {
+  margin: 36px 0 12px;
+}
+
+@media only screen and (max-width: 768px) {
+  .rectification-form-user-details {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .rectification-poa-fileinput {
+    flex: 1;
+    min-width: 300px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .rectification-form-user-details {
+    grid-template-columns: 1fr 3fr;
+  }
+
+  .rectification-form-user-details.small {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .rectification-poa-fileinput {
+    flex: 1;
+    margin-top: 5px;
+    min-width: 450px;
+  }
 }
