@@ -7,9 +7,14 @@ exports[`Component matches snapshot 1`] = `
     data-testid="parkingFineSummary"
   >
     <div
-      class="Card-module_card__1WbKx card_hds-card--border__c2dBc vehicle-details-container"
+      class="Card-module_card__1WbKx card_hds-card--border__c2dBc custom-theme-1 vehicle-details-container"
       role="region"
     >
+      <h2
+        class="vehicle-details-header"
+      >
+        Ajoneuvon tiedot
+      </h2>
       <div
         class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
       >
@@ -189,6 +194,7 @@ exports[`Component matches snapshot 1`] = `
         />
       </div>
     </div>
+    <hr />
     <div
       class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq info-field"
     >
@@ -231,6 +237,7 @@ exports[`Component matches snapshot 1`] = `
         />
       </div>
     </div>
+    <hr />
     <div
       class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq info-field"
     >
@@ -315,6 +322,7 @@ exports[`Component matches snapshot 1`] = `
         />
       </div>
     </div>
+    <hr />
     <div
       class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq wide-field"
     >
@@ -336,8 +344,9 @@ exports[`Component matches snapshot 1`] = `
         </textarea>
       </div>
     </div>
+    <hr />
     <div
-      class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq info-field"
+      class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq info-field sum-field"
     >
       <label
         class="FieldLabel-module_label__1zrXK "
@@ -378,67 +387,68 @@ exports[`Component matches snapshot 1`] = `
         />
       </div>
     </div>
-  </div>
-  <div
-    class="barcode-container"
-  >
+    <hr />
     <div
-      class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
-    >
-      <label
-        class="FieldLabel-module_label__1zrXK "
-        for="barCode"
-      >
-        Virtuaaliviivakoodi
-      </label>
-      <div
-        class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-      >
-        <input
-          class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-          id="barCode"
-          readonly=""
-          type="text"
-          value="430123730001230560012400000000000000000100018714210302"
-        />
-      </div>
-    </div>
-    <button
-      class="Button-module_button__1msFE button_hds-button__2A0je Button-module_secondary__1nABp button_hds-button--secondary__1NOWS barcode-button"
-      data-testid="copy-to-clipboard"
-      type="button"
+      class="barcode-container wide-field"
     >
       <div
-        aria-hidden="true"
-        class="Button-module_icon__O-h7R button_hds-icon__17j8Z"
+        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
       >
-        <svg
-          class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
-          role="img"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
+        <label
+          class="FieldLabel-module_label__1zrXK "
+          for="barCode"
         >
-          <g
-            fill="none"
-            fill-rule="evenodd"
-          >
-            <rect
-              height="24"
-              width="24"
-            />
-            <path
-              d="M6,10 L6,12 L5,12 L5,18 L12,18 L12,17 L14,17 L14,19 C14,19.5522847 13.5522847,20 13,20 L4,20 C3.44771525,20 3,19.5522847 3,19 L3,11 C3,10.4477153 3.44771525,10 4,10 L6,10 Z M20,4 C20.5522847,4 21,4.44771525 21,5 L21,15 C21,15.5522847 20.5522847,16 20,16 L8,16 C7.44771525,16 7,15.5522847 7,15 L7,5 C7,4.44771525 7.44771525,4 8,4 L20,4 Z M19,6 L9,6 L9,14 L19,14 L19,6 Z"
-              fill="currentColor"
-            />
-          </g>
-        </svg>
+          Virtuaaliviivakoodi
+        </label>
+        <div
+          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+        >
+          <input
+            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+            id="barCode"
+            readonly=""
+            type="text"
+            value="430123730001230560012400000000000000000100018714210302"
+          />
+        </div>
       </div>
-      <span
-        class="Button-module_label__a4np1 button_hds-button__label__2EQa-"
+      <button
+        class="Button-module_button__1msFE button_hds-button__2A0je Button-module_secondary__1nABp button_hds-button--secondary__1NOWS barcode-button"
+        data-testid="copy-to-clipboard"
+        type="button"
       >
-        Kopioi virtuaaliviivakoodi
-      </span>
-    </button>
+        <div
+          aria-hidden="true"
+          class="Button-module_icon__O-h7R button_hds-icon__17j8Z"
+        >
+          <svg
+            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+            role="img"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              fill="none"
+              fill-rule="evenodd"
+            >
+              <rect
+                height="24"
+                width="24"
+              />
+              <path
+                d="M6,10 L6,12 L5,12 L5,18 L12,18 L12,17 L14,17 L14,19 C14,19.5522847 13.5522847,20 13,20 L4,20 C3.44771525,20 3,19.5522847 3,19 L3,11 C3,10.4477153 3.44771525,10 4,10 L6,10 Z M20,4 C20.5522847,4 21,4.44771525 21,5 L21,15 C21,15.5522847 20.5522847,16 20,16 L8,16 C7.44771525,16 7,15.5522847 7,15 L7,5 C7,4.44771525 7.44771525,4 8,4 L20,4 Z M19,6 L9,6 L9,14 L19,14 L19,6 Z"
+                fill="currentColor"
+              />
+            </g>
+          </svg>
+        </div>
+        <span
+          class="Button-module_label__a4np1 button_hds-button__label__2EQa-"
+        >
+          Kopioi virtuaaliviivakoodi
+        </span>
+      </button>
+    </div>
   </div>
 </div>
 `;

@@ -30,7 +30,17 @@ const ParkingFineSummary = (): React.ReactElement => {
   return (
     <>
       <div data-testid="parkingFineSummary" className="summary-container">
-        <Card className="vehicle-details-container" border>
+        <Card
+          className="vehicle-details-container"
+          border
+          theme={{
+            '--border-color': 'var(--color-black-20)',
+            '--padding-horizontal': 'var(--spacing-l)',
+            '--padding-vertical': 'var(--spacing-m)'
+          }}>
+          <h2 className="vehicle-details-header">
+            {t('parking-fine:vehicle-info:header')}
+          </h2>
           <TextInput
             id="regNumber"
             label={t('common:fine-info:reg-number:label')}
@@ -79,6 +89,8 @@ const ParkingFineSummary = (): React.ReactElement => {
           readOnly
         />
 
+        <hr />
+
         <TextInput
           className="info-field"
           id="address"
@@ -93,6 +105,8 @@ const ParkingFineSummary = (): React.ReactElement => {
           value={t('common:fine-info:additional-details:placeholder')}
           readOnly
         />
+
+        <hr />
 
         <TextArea
           className="info-field"
@@ -123,6 +137,8 @@ const ParkingFineSummary = (): React.ReactElement => {
           readOnly
         />
 
+        <hr />
+
         <TextArea
           className="wide-field"
           id="fineAdditionalDetails"
@@ -130,12 +146,15 @@ const ParkingFineSummary = (): React.ReactElement => {
           value={t('common:fine-info:fine-additional-details:placeholder')}
           readOnly
         />
+
+        <hr />
+
         <TextInput
           id="sum"
           label={t('common:fine-info:sum:label')}
           value={t('common:fine-info:sum:placeholder')}
           readOnly
-          className="info-field"
+          className="info-field sum-field"
         />
         <TextInput
           className="info-field"
@@ -144,9 +163,13 @@ const ParkingFineSummary = (): React.ReactElement => {
           value={t('common:fine-info:due-date:placeholder')}
           readOnly
         />
-      </div>
 
-      <Barcode barcode="430123730001230560012400000000000000000100018714210302" />
+        <hr />
+        <Barcode
+          barcode="430123730001230560012400000000000000000100018714210302"
+          className="wide-field"
+        />
+      </div>
     </>
   );
 };
