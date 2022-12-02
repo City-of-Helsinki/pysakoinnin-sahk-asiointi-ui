@@ -138,7 +138,7 @@
         "label": "Et voi siirtää eräpäivää"
       },
       "email-confirmation": {
-        "label": "Saat vahvistuksen sähköpostilla",
+        "label": "Sähköpostivahvistus",
         "text": "Vahvistus lähetetään Helsinki-profiilissasi olevaan sähköpostiosoitteeseen: {{email}}. "
       },
       "success": {

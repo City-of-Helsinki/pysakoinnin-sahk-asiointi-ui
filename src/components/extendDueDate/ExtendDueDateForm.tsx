@@ -26,7 +26,6 @@ const ExtendDueDateForm = (): React.ReactElement => {
   const newDueDate = formatDate(dueDateFormValues.newDueDate);
   const extensionAllowed = isExtensionAllowed(dueDateFormValues.dueDate);
   const [infoNotificationOpen, setInfoNotificationOpen] = useState(false);
-  const [emailNotificationOpen, setEmailNotificationOpen] = useState(true);
 
   const handleCheckedChange = () => {
     dispatch(
@@ -96,6 +95,23 @@ const ExtendDueDateForm = (): React.ReactElement => {
 
       <Barcode barcode="43012383000123056001240000000000000000018714210302" />
 
+      <p className="email-confirmation-label">
+        {t('due-date:notifications:email-confirmation:label')}
+      </p>
+      <p>
+        {t('due-date:notifications:email-confirmation:text', {
+          email: user?.email
+        })}{' '}
+        <Link
+          href={window._env_.REACT_APP_PROFILE_UI_URL}
+          size="M"
+          external
+          openInNewTab
+          openInExternalDomainAriaLabel={t('common:aria:open-external')}
+          openInNewTabAriaLabel={t('common:aria:open-new-tab')}>
+          {t('common:helsinki-profile-link')}
+        </Link>
+      </p>
       <Checkbox
         label={t('common:email-confirmation')}
         id="emailConfirmationCheckbox"
@@ -103,28 +119,6 @@ const ExtendDueDateForm = (): React.ReactElement => {
         onChange={handleCheckedChange}
         disabled={!extensionAllowed || formContent.formSubmitted}
       />
-      {emailNotificationOpen && (
-        <Notification
-          className="email-notification"
-          size="small"
-          label={t('due-date:notifications:email-confirmation:label')}
-          dismissible
-          closeButtonLabelText="Close notification"
-          onClose={() => setEmailNotificationOpen(false)}>
-          {t('due-date:notifications:email-confirmation:text', {
-            email: user?.email
-          })}
-          <Link
-            href={window._env_.REACT_APP_PROFILE_UI_URL}
-            size="S"
-            external
-            openInNewTab
-            openInExternalDomainAriaLabel={t('common:aria:open-external')}
-            openInNewTabAriaLabel={t('common:aria:open-new-tab')}>
-            {t('common:helsinki-profile-link')}
-          </Link>
-        </Notification>
-      )}
     </div>
   );
 };
