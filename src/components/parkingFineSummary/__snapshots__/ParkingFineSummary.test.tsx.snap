@@ -7,9 +7,14 @@ exports[`Component matches snapshot 1`] = `
     data-testid="parkingFineSummary"
   >
     <div
-      class="Card-module_card__1WbKx card_hds-card--border__c2dBc vehicle-details-container"
+      class="Card-module_card__1WbKx card_hds-card--border__c2dBc custom-theme-1 vehicle-details-container"
       role="region"
     >
+      <h2
+        class="vehicle-details-header"
+      >
+        Ajoneuvon tiedot
+      </h2>
       <div
         class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
       >
