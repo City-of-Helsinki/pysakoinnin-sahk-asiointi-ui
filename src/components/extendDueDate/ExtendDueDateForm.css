@@ -1,19 +1,18 @@
 .form-body {
-  margin: 50px 0 12px;
+  margin-top: var(--spacing-xl);
+  margin-bottom: var(--spacing-xs);
 }
 
 .info-container {
   display: grid;
   grid-template-columns: auto auto auto;
   grid-gap: 12px 12px;
-  margin-top: 24px;
-}
-
-.email-notification {
-  margin-top: 24px;
+  margin-top: var(--spacing-m);
+  margin-bottom: var(--spacing-m);
 }
 
 .email-confirmation-label {
   font-size: var(--fontsize-body-m);
   font-weight: 500;
+  margin-top: var(--spacing-l);
 }
