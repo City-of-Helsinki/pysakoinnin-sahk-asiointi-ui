@@ -156,7 +156,35 @@
       "step3": "Oikaisuvaatimus",
       "step4": "Yhteenveto"
     },
-    "submit": "Lähetä"
+    "submit": "Lähetä",
+    "move-timestamp": {
+      "label": "Siirron päivämäärä",
+      "placeholder": "1.11.2019"
+    },
+    "move-reason": {
+      "label": "Siirron syy",
+      "placeholder": "Katualue varattu"
+    },
+    "move-type": {
+      "label": "Siirron tyyppi",
+      "placeholder": "Maksullinen lähisiirto"
+    },
+    "address-from": {
+      "label": "Siirron lähtöosoite",
+      "placeholder": "Urheilukatu 38",
+      "details-label": "Lähtöosoitteen lisätiedot",
+      "details-placeholder": "Näytetään, jos on lisätietoja"
+    },
+    "address-to": {
+      "label": "Siirron pääteosoite",
+      "placeholder": "Urheilukatu 40",
+      "details-label": "Päätesoitteen lisätiedot",
+      "details-placeholder": "Näytetään, jos on lisätietoja"
+    },
+    "reimbursement-sum": {
+      "label": "Korvauspäätöksen summa",
+      "placeholder": "85,00 EUR"
+    }
   },
   "rectification": {
     "relation-info": {
