@@ -10,7 +10,7 @@ const ReimbursementSummary = (): React.ReactElement => {
 
   return (
     <div>
-      <div className="summary-container">
+      <div data-testid="reimbursementSummary" className="summary-container">
         <CarInfoCard />
         <TextInput
           id="moveTimeStamp"
