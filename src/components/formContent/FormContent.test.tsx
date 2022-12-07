@@ -37,6 +37,16 @@ const parkingFineFormContentSliceMock = createSlice({
   reducers: {}
 });
 
+const movedCarFormContentSliceMock = createSlice({
+  name: 'formContent',
+  initialState: {
+    formSubmitted: false,
+    selectedForm: 'moved-car',
+    submitDisabled: true
+  },
+  reducers: {}
+});
+
 describe('form content', () => {
   test('passes a11y validation', async () => {
     const { container } = render(
@@ -78,6 +88,20 @@ describe('form content', () => {
         );
         await waitFor(() => expect(getByTestId('searchForm')).toBeVisible());
       });
+
+      test('moved car appeal form', async () => {
+        const store = configureStore({
+          reducer: {
+            formContent: movedCarFormContentSliceMock.reducer
+          }
+        });
+        const { getByTestId } = render(
+          <Provider store={store}>
+            <FormContent activeStep={0} />
+          </Provider>
+        );
+        await waitFor(() => expect(getByTestId('searchForm')).toBeVisible());
+      });
     });
     describe('step 2 of', () => {
       test('extend due date form', async () => {
@@ -98,6 +122,7 @@ describe('form content', () => {
           expect(getByTestId('extendDueDateForm')).toBeVisible()
         );
       });
+
       test('parking fine appeal form', async () => {
         const store = configureStore({
           reducer: {
@@ -113,6 +138,22 @@ describe('form content', () => {
 
         await waitFor(() =>
           expect(getByTestId('parkingFineSummary')).toBeVisible()
+        );
+      });
+
+      test('moved car appeal form', async () => {
+        const store = configureStore({
+          reducer: {
+            formContent: movedCarFormContentSliceMock.reducer
+          }
+        });
+        const { getByTestId } = render(
+          <Provider store={store}>
+            <FormContent activeStep={1} />
+          </Provider>
+        );
+        await waitFor(() =>
+          expect(getByTestId('reimbursementSummary')).toBeVisible()
         );
       });
     });
