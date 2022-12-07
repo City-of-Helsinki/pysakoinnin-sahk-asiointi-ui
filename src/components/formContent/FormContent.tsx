@@ -4,9 +4,8 @@ import SearchForm from '../searchForm/SearchForm';
 import { FormId, selectFormContent } from './formContentSlice';
 import './FormContent.css';
 import ExtendDueDateForm from '../extendDueDate/ExtendDueDateForm';
-import ParkingFineSummary from '../parkingFineSummary/ParkingFineSummary';
+import InfoContainer from '../infoContainer/InfoContainer';
 import RectificationForm from '../rectification/RectificationForm';
-import ReimbursementSummary from '../reimbursement/ReimbursementSummary';
 
 interface Props {
   activeStep: number;
@@ -20,9 +19,9 @@ const FormContent = (props: Props): React.ReactElement => {
       case 'due-date':
         return <ExtendDueDateForm />;
       case 'parking-fine':
-        return <ParkingFineSummary />;
+        return <InfoContainer />;
       case 'moved-car':
-        return <ReimbursementSummary />;
+        return <InfoContainer />;
     }
   };
 

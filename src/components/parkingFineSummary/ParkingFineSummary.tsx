@@ -3,9 +3,8 @@ import { useDispatch } from 'react-redux';
 import { TextArea, TextInput } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import { setSubmitDisabled } from '../formContent/formContentSlice';
-import './ParkingFineSummary.css';
 import Barcode from '../barcode/Barcode';
-import CarInfoCard from '../carInfoCard/CarInfoCard';
+import './ParkingFineSummary.css';
 
 const ParkingFineSummary = (): React.ReactElement => {
   const { t } = useTranslation();
@@ -16,10 +15,8 @@ const ParkingFineSummary = (): React.ReactElement => {
   }, [dispatch]);
 
   return (
-    <>
+    <div className="summary-body">
       <div data-testid="parkingFineSummary" className="summary-container">
-        <CarInfoCard />
-
         <TextInput
           className="info-field"
           id="fineTimeStamp"
@@ -116,7 +113,7 @@ const ParkingFineSummary = (): React.ReactElement => {
           className="wide-field"
         />
       </div>
-    </>
+    </div>
   );
 };
 

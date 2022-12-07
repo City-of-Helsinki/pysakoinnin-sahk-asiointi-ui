@@ -1,0 +1,8 @@
+.vehicle-details-container {
+  flex: 1 1;
+}
+
+.vehicle-details-header {
+  font-weight: normal;
+  margin-bottom: 2rem;
+}

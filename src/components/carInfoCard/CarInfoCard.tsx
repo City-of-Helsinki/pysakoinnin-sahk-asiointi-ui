@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, TextInput } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import ImageViewer from '../imageViewer/ImageViewer';
+import './CarInfoCard.css';
 
 const CarInfoCard = (): React.ReactElement => {
   const { t } = useTranslation();

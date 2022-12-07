@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import ReimbursementSummary from './ReimbursementSummary';
 import { Provider } from 'react-redux';
@@ -18,14 +18,11 @@ describe('reimbursement summary', () => {
   });
 
   test('renders correctly', async () => {
-    const { getByTestId } = render(
+    render(
       <Provider store={store}>
         <ReimbursementSummary />
       </Provider>
     );
-
-    // Car info card is visible
-    await waitFor(() => expect(getByTestId('carInfoCard')).toBeVisible());
 
     // Summary fields are visible
     const moveDate = screen.getByRole('textbox', {

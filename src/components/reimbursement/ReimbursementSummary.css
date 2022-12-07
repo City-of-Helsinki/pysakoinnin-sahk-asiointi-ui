@@ -1,3 +1,12 @@
+.summary-body {
+  flex: 2 1;
+}
+
+.wide-field {
+  grid-column-start: 1;
+  grid-column-end: span 2;
+}
+
 .address-field {
   margin-bottom: var(--spacing-m);
 }

@@ -2,16 +2,14 @@ import React from 'react';
 import { TextInput } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import Barcode from '../barcode/Barcode';
-import CarInfoCard from '../carInfoCard/CarInfoCard';
 import './ReimbursementSummary.css';
 
 const ReimbursementSummary = (): React.ReactElement => {
   const { t } = useTranslation();
 
   return (
-    <div>
+    <div className="summary-body">
       <div data-testid="reimbursementSummary" className="summary-container">
-        <CarInfoCard />
         <TextInput
           id="moveTimeStamp"
           label={t('moved-car:move-timestamp:label')}
