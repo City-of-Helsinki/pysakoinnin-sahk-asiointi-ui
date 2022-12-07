@@ -1,8 +1,9 @@
 import React from 'react';
-import { TextArea, TextInput } from 'hds-react';
+import { TextInput } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import Barcode from '../barcode/Barcode';
 import CarInfoCard from '../carInfoCard/CarInfoCard';
+import './ReimbursementSummary.css';
 
 const ReimbursementSummary = (): React.ReactElement => {
   const { t } = useTranslation();
@@ -12,14 +13,12 @@ const ReimbursementSummary = (): React.ReactElement => {
       <div className="summary-container">
         <CarInfoCard />
         <TextInput
-          className="info-field"
           id="moveTimeStamp"
           label={t('moved-car:move-timestamp:label')}
           value={t('moved-car:move-timestamp:placeholder')}
           readOnly
         />
         <TextInput
-          className="info-field"
           id="refNumber"
           label={t('common:fine-info:ref-number:label')}
           value={t('common:fine-info:ref-number:placeholder')}
@@ -27,15 +26,14 @@ const ReimbursementSummary = (): React.ReactElement => {
         />
         <hr />
         <TextInput
-          className="info-field"
           id="moveReason"
           label={t('moved-car:move-reason:label')}
           value={t('moved-car:move-reason:placeholder')}
           readOnly
         />
         <div />
+        <hr />
         <TextInput
-          className="info-field"
           id="moveType"
           label={t('moved-car:move-type:label')}
           value={t('moved-car:move-type:placeholder')}
@@ -43,8 +41,8 @@ const ReimbursementSummary = (): React.ReactElement => {
         />
         <div />
         <hr />
-        <TextArea
-          className="info-field"
+        <TextInput
+          className="address-field"
           id="addressFrom"
           label={t('moved-car:address-from:label')}
           value={t('moved-car:address-from:placeholder')}
@@ -57,15 +55,13 @@ const ReimbursementSummary = (): React.ReactElement => {
           value={t('moved-car:address-from:details-placeholder')}
           readOnly
         />
-        <TextArea
-          className="info-field"
+        <TextInput
           id="addressTo"
           label={t('moved-car:address-to:label')}
           value={t('moved-car:address-to:placeholder')}
           readOnly
         />
         <TextInput
-          className="info-field"
           id="addressToDetails"
           label={t('moved-car:address-to:details-label')}
           value={t('moved-car:address-to:details-placeholder')}
@@ -77,10 +73,8 @@ const ReimbursementSummary = (): React.ReactElement => {
           label={t('moved-car:reimbursement-sum:label')}
           value={t('moved-car:reimbursement-sum:placeholder')}
           readOnly
-          className="info-field sum-field"
         />
         <TextInput
-          className="info-field"
           id="reimbursementDueDate"
           label={t('common:fine-info:due-date:label')}
           value={t('common:fine-info:due-date:placeholder')}
