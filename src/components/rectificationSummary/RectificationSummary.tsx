@@ -34,7 +34,7 @@ const RectificationSummary = () => {
             readOnly
           />
           <TextInput
-            id="address"
+            id="rectification-address"
             label={t('rectification:address')}
             value="Elimäenkatu 5"
             readOnly
