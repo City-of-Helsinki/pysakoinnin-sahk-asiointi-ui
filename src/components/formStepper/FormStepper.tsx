@@ -1,9 +1,10 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   Button,
   IconArrowLeft,
   IconArrowRight,
+  IconPrinter,
   IconThumbsUp,
   Notification,
   Stepper
@@ -12,11 +13,11 @@ import { useTranslation } from 'react-i18next';
 import { formatDate } from '../../utils/helpers';
 import FormContent from '../formContent/FormContent';
 import {
-  Step,
-  selectStepperState,
   completeStep,
+  selectStepperState,
   setActive,
-  setSteps
+  setSteps,
+  Step
 } from './formStepperSlice';
 import {
   selectFormContent,
@@ -73,29 +74,40 @@ const FormStepper = (props: Props): React.ReactElement => {
           variant="secondary">
           {t('common:previous')}
         </Button>
-        {!lastStep ? (
-          <Button
-            iconRight={<IconArrowRight />}
-            onClick={() => dispatch(completeStep(activeStepIndex))}
-            variant="primary">
-            {t('common:next')}
-          </Button>
-        ) : formContent.formSubmitted ? (
-          <Button
-            iconLeft={<IconThumbsUp />}
-            onClick={handleSubmit}
-            variant="success">
-            {t(`${formContent.selectedForm}:submit-success`)}
-          </Button>
-        ) : (
-          <Button
-            className="submit-button"
-            onClick={handleSubmit}
-            variant="primary"
-            disabled={formContent.submitDisabled}>
-            {t(`${formContent.selectedForm}:submit`)}
-          </Button>
-        )}
+        <div>
+          {lastStep && formContent.selectedForm === 'parking-fine' && (
+            <Button
+              iconLeft={<IconPrinter />}
+              onClick={() => null}
+              variant="secondary"
+              className="print-button">
+              Tulosta
+            </Button>
+          )}
+          {!lastStep ? (
+            <Button
+              iconRight={<IconArrowRight />}
+              onClick={() => dispatch(completeStep(activeStepIndex))}
+              variant="primary">
+              {t('common:next')}
+            </Button>
+          ) : formContent.formSubmitted ? (
+            <Button
+              iconLeft={<IconThumbsUp />}
+              onClick={handleSubmit}
+              variant="success">
+              {t(`${formContent.selectedForm}:submit-success`)}
+            </Button>
+          ) : (
+            <Button
+              className="submit-button"
+              onClick={handleSubmit}
+              variant="primary"
+              disabled={formContent.submitDisabled}>
+              {t(`${formContent.selectedForm}:submit`)}
+            </Button>
+          )}
+        </div>
       </div>
       {lastStep && formContent.formSubmitted && showSubmitNotification && (
         <Notification

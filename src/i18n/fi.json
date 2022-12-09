@@ -1,8 +1,9 @@
 {
   "common": {
-    "name": "Nimi *",
-    "ssn": "Henkilötunnus *",
-    "email": "Sähköpostiosoite *",
+    "name": "Nimi",
+    "ssn": "Henkilötunnus",
+    "email": "Sähköpostiosoite",
+    "phone": "Puhelinnumero",
     "verify-email": "Kirjoita sähköpostiosoite uudelleen",
     "fetched-from-profile": "Merkityt tiedot on haettu Helsinki-profiilistasi.",
     "fetched-from-profile-aria": "Tieto haettu Helsinki-profiilista",
@@ -84,6 +85,7 @@
   },
   "parking-fine": {
     "title": "Oikaisuvaatimus pysäköintivirhemaksuun",
+    "fine-info": "Pysäköintivirhemaksun tiedot",
     "stepper": {
       "step1": "Haku",
       "step2": "Pysäköintivirhemaksu",
@@ -189,7 +191,7 @@
   "rectification": {
     "relation-info": {
       "parking-fine": {
-        "relation": "Olen ajoneuvon *",
+        "relation": "Olen ajoneuvon",
         "driver": "Kuljettaja",
         "owner": "Omistaja",
         "holder": "Haltija"
