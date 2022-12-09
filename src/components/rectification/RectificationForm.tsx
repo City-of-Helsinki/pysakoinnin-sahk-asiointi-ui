@@ -69,7 +69,8 @@ const RectificationForm = () => {
         <div className="rectification-info-container">
           <div className="rectification-user-section">
             <SelectionGroup
-              label={t(`rectification:relation-info:${selectedForm}:relation`)}>
+              label={t(`rectification:relation-info:${selectedForm}:relation`)}
+              required>
               {relations.map(relation => (
                 <RadioButton
                   key={relation}
@@ -89,6 +90,7 @@ const RectificationForm = () => {
                 movedCarFormSelected ? 'small' : ''
               }`}>
               <TextInput
+                required
                 id="fullName"
                 readOnly
                 label={t('common:name')}
@@ -98,6 +100,7 @@ const RectificationForm = () => {
                 aria-label={t('common:fetched-from-profile-aria')}
               />
               <TextInput
+                required
                 id="ssn"
                 readOnly
                 label={t('common:ssn')}
@@ -107,6 +110,7 @@ const RectificationForm = () => {
                 aria-label={t('common:fetched-from-profile-aria')}
               />
               <TextInput
+                required
                 id="email"
                 readOnly
                 label={t('common:email')}
