@@ -5,6 +5,9 @@ import RectificationSummary from './RectificationSummary';
 import store from '../../store';
 import { Provider } from 'react-redux';
 
+// eslint-disable-next-line no-magic-numbers
+jest.setTimeout(10000);
+
 describe('Component', () => {
   it('matches snapshot', () => {
     const { container } = render(
@@ -16,8 +19,6 @@ describe('Component', () => {
   });
 
   it('passes A11Y checks', async () => {
-    // eslint-disable-next-line no-magic-numbers
-    jest.setTimeout(10000);
     const { container } = render(
       <Provider store={store}>
         <RectificationSummary />
