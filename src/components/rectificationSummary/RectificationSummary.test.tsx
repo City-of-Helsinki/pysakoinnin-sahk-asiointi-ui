@@ -5,9 +5,6 @@ import RectificationSummary from './RectificationSummary';
 import store from '../../store';
 import { Provider } from 'react-redux';
 
-// eslint-disable-next-line no-magic-numbers
-jest.setTimeout(10000);
-
 describe('Component', () => {
   it('matches snapshot', () => {
     const { container } = render(

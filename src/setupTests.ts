@@ -8,6 +8,9 @@ import './utils/i18n.js';
 
 expect.extend(toHaveNoViolations);
 
+// eslint-disable-next-line no-magic-numbers
+jest.setTimeout(10000);
+
 const customGlobal: GlobalWithFetchMock = global as GlobalWithFetchMock;
 // eslint-disable-next-line import/no-extraneous-dependencies
 customGlobal.fetch = require('jest-fetch-mock');
