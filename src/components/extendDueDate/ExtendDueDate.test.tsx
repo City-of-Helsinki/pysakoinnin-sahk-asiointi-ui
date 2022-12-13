@@ -80,7 +80,7 @@ describe('extend due date form', () => {
         name: t('common:fine-info:due-date:label')
       });
       expect(dueDateEl).toBeInTheDocument();
-      expect(dueDateEl).toHaveValue('12.12.2022');
+      expect(dueDateEl).toHaveValue('15.12.2022');
 
       const newDueDateEl = screen.getByRole('textbox', {
         name: t('due-date:new-due-date')

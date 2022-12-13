@@ -1,9 +1,9 @@
 import React from 'react';
 import { Accordion, TextArea, TextInput } from 'hds-react';
-import ParkingFineSummary from '../parkingFineSummary/ParkingFineSummary';
 
 import './RectificationSummary.css';
 import { useTranslation } from 'react-i18next';
+import InfoContainer from '../infoContainer/InfoContainer';
 
 const RectificationSummary = () => {
   const { t } = useTranslation();
@@ -11,7 +11,7 @@ const RectificationSummary = () => {
   return (
     <>
       <h2 className="rectification-summary-header">
-        Oikaisuvaatimuksen tiedot
+        {t('rectification:rectification-info')}
       </h2>
       <div className="rectification-summary-container">
         <div className="rectification-summary-details">
@@ -91,7 +91,7 @@ const RectificationSummary = () => {
           id="fineSummary"
           heading={t('parking-fine:fine-info')}
           className="rectification-summary-fine-details">
-          <ParkingFineSummary />
+          <InfoContainer />
         </Accordion>
       </div>
     </>
