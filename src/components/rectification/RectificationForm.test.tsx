@@ -5,9 +5,6 @@ import { Provider } from 'react-redux';
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 import { axe } from 'jest-axe';
 
-// eslint-disable-next-line no-magic-numbers
-jest.setTimeout(10000);
-
 describe('Component in parking fine appeal form', () => {
   const formContentSliceMock = createSlice({
     name: 'formContent',

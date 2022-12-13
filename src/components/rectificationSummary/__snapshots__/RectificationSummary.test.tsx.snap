@@ -1,0 +1,502 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component matches snapshot 1`] = `
+<div>
+  <h2
+    class="rectification-summary-header"
+  >
+    Oikaisuvaatimuksen tiedot
+  </h2>
+  <div
+    class="rectification-summary-container"
+  >
+    <div
+      class="rectification-summary-details"
+    >
+      <div
+        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+      >
+        <label
+          class="FieldLabel-module_label__1zrXK "
+          for="relation"
+        >
+          Olen ajoneuvon
+        </label>
+        <div
+          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+        >
+          <input
+            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+            id="relation"
+            readonly=""
+            type="text"
+            value="Kuljettaja"
+          />
+        </div>
+      </div>
+      <div
+        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+      >
+        <label
+          class="FieldLabel-module_label__1zrXK "
+          for="name"
+        >
+          Nimi
+        </label>
+        <div
+          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+        >
+          <input
+            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+            id="name"
+            readonly=""
+            type="text"
+            value="Etunimi Sukunimi"
+          />
+        </div>
+      </div>
+      <div
+        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+      >
+        <label
+          class="FieldLabel-module_label__1zrXK "
+          for="ssn"
+        >
+          Henkilötunnus
+        </label>
+        <div
+          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+        >
+          <input
+            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+            id="ssn"
+            readonly=""
+            type="text"
+            value="123456-123A"
+          />
+        </div>
+      </div>
+      <div
+        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+      >
+        <label
+          class="FieldLabel-module_label__1zrXK "
+          for="rectification-address"
+        >
+          Osoite
+        </label>
+        <div
+          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+        >
+          <input
+            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+            id="rectification-address"
+            readonly=""
+            type="text"
+            value="Elimäenkatu 5"
+          />
+        </div>
+      </div>
+      <div
+        class="rectification-summary-subgrid"
+      >
+        <div
+          class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+        >
+          <label
+            class="FieldLabel-module_label__1zrXK "
+            for="zipcode"
+          >
+            Postinumero
+          </label>
+          <div
+            class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+          >
+            <input
+              class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+              id="zipcode"
+              readonly=""
+              type="text"
+              value="00100"
+            />
+          </div>
+        </div>
+        <div
+          class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+        >
+          <label
+            class="FieldLabel-module_label__1zrXK "
+            for="city"
+          >
+            Postitoimipaikka
+          </label>
+          <div
+            class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+          >
+            <input
+              class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+              id="city"
+              readonly=""
+              type="text"
+              value="Helsinki"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+      >
+        <label
+          class="FieldLabel-module_label__1zrXK "
+          for="email"
+        >
+          Sähköpostiosoite
+        </label>
+        <div
+          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+        >
+          <input
+            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+            id="email"
+            readonly=""
+            type="text"
+            value="etunimi@email.com"
+          />
+        </div>
+      </div>
+      <div
+        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+      >
+        <label
+          class="FieldLabel-module_label__1zrXK "
+          for="phone"
+        >
+          Puhelinnumero
+        </label>
+        <div
+          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+        >
+          <input
+            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+            id="phone"
+            readonly=""
+            type="text"
+            value="+358401234567"
+          />
+        </div>
+      </div>
+      <div
+        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+      >
+        <label
+          class="FieldLabel-module_label__1zrXK "
+          for="IBAN"
+        >
+          Pankkitilinumero (IBAN)
+        </label>
+        <div
+          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+        >
+          <input
+            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+            id="IBAN"
+            readonly=""
+            type="text"
+            value="FI9780001700903330"
+          />
+        </div>
+      </div>
+      <div
+        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+      >
+        <label
+          class="FieldLabel-module_label__1zrXK "
+          for="decision"
+        >
+          Haluan päätöksen
+        </label>
+        <div
+          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+        >
+          <input
+            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+            id="decision"
+            readonly=""
+            type="text"
+            value="Pysäköinnin asiointikansiooni"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="rectification-summary-content"
+    >
+      <div
+        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+      >
+        <label
+          class="FieldLabel-module_label__1zrXK "
+          for="rectification-content"
+        >
+          Oikaisuvaatimuksen sisältö
+        </label>
+        <div
+          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+        >
+          <textarea
+            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+            id="rectification-content"
+            readonly=""
+          >
+            Mieleni minun tekevi, aivoni ajattelevi lähteäni laulamahan, saa'ani sanelemahan, sukuvirttä suoltamahan, lajivirttä laulamahan. Sanat suussani sulavat, puhe'et putoelevat, kielelleni kerkiävät, hampahilleni hajoovat.Veli kulta, veikkoseni, kaunis kasvinkumppalini! Lähe nyt kanssa laulamahan, saa kera sanelemahan yhtehen yhyttyämme, kahta'alta käytyämme! Harvoin yhtehen yhymme, saamme toinen toisihimme näillä raukoilla rajoilla, poloisilla Pohjan mailla.Lyökämme käsi kätehen, sormet sormien lomahan, lauloaksemme hyviä, parahia pannaksemme, kuulla noien kultaisien, tietä mielitehtoisien, nuorisossa nousevassa, kansassa kasuavassa: noita saamia sanoja, virsiä virittämiä vyöltä vanhan Väinämöisen, alta ahjon Ilmarisen, päästä kalvan Kaukomielen, Joukahaisen jousen tiestä, Pohjan peltojen periltä, Kalevalan kankahilta.Niit' ennen isoni lauloi kirvesvartta vuollessansa; niitä äitini opetti väätessänsä värttinätä, minun lasna lattialla eessä polven pyöriessä, maitopartana pahaisna, piimäsuuna pikkaraisna. Sampo ei puuttunut sanoja eikä Louhi luottehia: vanheni sanoihin sampo, katoi Louhi luottehisin, virsihin Vipunen kuoli, Lemminkäinen leikkilöihin.Viel' on muitaki sanoja, ongelmoita oppimia: tieohesta tempomia, kanervoista katkomia, risukoista riipomia, vesoista vetelemiä, päästä heinän hieromia, raitiolta ratkomia, paimenessa käyessäni, lasna karjanlaitumilla, metisillä mättähillä, kultaisilla kunnahilla, mustan Muurikin jälessä, Kimmon kirjavan keralla.Vilu mulle virttä virkkoi, sae saatteli runoja. Virttä toista tuulet toivat, meren aaltoset ajoivat. Linnut liitteli sanoja, puien latvat lausehia. Mieleni minun tekevi, aivoni ajattelevi lähteäni laulamahan, saa'ani sanelemahan, sukuvirttä suoltamahan, lajivirttä laulamahan. Sanat suussani sulavat, puhe'et putoelevat, kielelleni kerkiävät, hampahilleni hajoovat.Veli kulta, veikkoseni, kaunis kasvinkumppalini! Lähe nyt kanssa laulamahan, saa kera sanelemahan yhtehen yhyttyämme, kahta'alta käytyämme! Harvoin yhtehen yhymme, saamme toinen toisihimme näillä raukoilla rajoilla, poloisilla Pohjan mailla.Lyökämme käsi kätehen, sormet sormien lomahan, lauloaksemme hyviä, parahia pannaksemme, kuulla noien kultaisien, tietä mielitehtoisien, nuorisossa nousevassa, kansassa kasuavassa: noita saamia sanoja, virsiä virittämiä vyöltä vanhan Väinämöisen, alta ahjon Ilmarisen, päästä kalvan Kaukomielen 2374 merkkiä
+          </textarea>
+        </div>
+      </div>
+    </div>
+    <div
+      class="Accordion-module_accordion__2fPUT Accordion-module_m__2k6QY rectification-summary-fine-details"
+      id="fineSummary"
+    >
+      <div
+        class="Accordion-module_accordionHeader__3_uK7"
+      >
+        <div
+          aria-level="2"
+          id="fineSummary-heading"
+          role="heading"
+        >
+          <div
+            aria-expanded="false"
+            aria-labelledby="fineSummary-heading"
+            class="Accordion-module_headingContainer__1DzX3"
+            role="button"
+            tabindex="0"
+          >
+            <span
+              class="label"
+            >
+              Pysäköintivirhemaksun tiedot
+            </span>
+            <svg
+              aria-hidden="true"
+              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik Accordion-module_accordionButtonIcon__MQu2J"
+              role="img"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <path
+                  d="M0 0h24v24H0z"
+                />
+                <path
+                  d="M12 13.5l5-5 1.5 1.5-6.5 6.5L5.5 10 7 8.5z"
+                  fill="currentColor"
+                />
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div
+        aria-labelledby="fineSummary-heading"
+        class="Accordion-module_accordionContent__1umso Accordion-module_contentWithCloseButton__-einM"
+        id="fineSummary-content"
+        role="region"
+        style="display: none;"
+      >
+        <div
+          class="info-container"
+        >
+          <div
+            class="Card-module_card__1WbKx card_hds-card--border__c2dBc custom-theme-1 vehicle-details-container"
+            data-testid="carInfoCard"
+            role="region"
+          >
+            <h2
+              class="vehicle-details-header"
+            >
+              Ajoneuvon tiedot
+            </h2>
+            <div
+              class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+            >
+              <label
+                class="FieldLabel-module_label__1zrXK "
+                for="regNumber"
+              >
+                Ajoneuvon rekisteritunnus
+              </label>
+              <div
+                class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+              >
+                <input
+                  class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+                  id="regNumber"
+                  readonly=""
+                  type="text"
+                  value="Esim. ABC-123"
+                />
+              </div>
+            </div>
+            <div
+              class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+            >
+              <label
+                class="FieldLabel-module_label__1zrXK "
+                for="vehicleType"
+              >
+                Ajoneuvolaji
+              </label>
+              <div
+                class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+              >
+                <input
+                  class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+                  id="vehicleType"
+                  readonly=""
+                  type="text"
+                  value="Henkilöauto M1"
+                />
+              </div>
+            </div>
+            <div
+              class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+            >
+              <label
+                class="FieldLabel-module_label__1zrXK "
+                for="vehicleBrand"
+              >
+                Merkki
+              </label>
+              <div
+                class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+              >
+                <input
+                  class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+                  id="vehicleBrand"
+                  readonly=""
+                  type="text"
+                  value="Citroen"
+                />
+              </div>
+            </div>
+            <div
+              class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+            >
+              <label
+                class="FieldLabel-module_label__1zrXK "
+                for="vehicleModel"
+              >
+                Malli
+              </label>
+              <div
+                class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+              >
+                <input
+                  class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+                  id="vehicleModel"
+                  readonly=""
+                  type="text"
+                  value="2D C2 HATCHBACK 1.4l-JMKFVC/232"
+                />
+              </div>
+            </div>
+            <div
+              class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+            >
+              <label
+                class="FieldLabel-module_label__1zrXK "
+                for="vehicleColor"
+              >
+                Väri
+              </label>
+              <div
+                class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+              >
+                <input
+                  class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+                  id="vehicleColor"
+                  readonly=""
+                  type="text"
+                  value="Punainen"
+                />
+              </div>
+            </div>
+            <div
+              class="imageViewer-preview-container"
+            >
+              <input
+                alt="Avaa kuvankatselu"
+                class="imageViewer-preview-image"
+                data-testid="clickable-image"
+                formmethod="dialog"
+                src="https://via.placeholder.com/600.png"
+                type="image"
+                value="0"
+              />
+              <input
+                alt="Avaa kuvankatselu"
+                class="imageViewer-preview-image"
+                data-testid="clickable-image"
+                formmethod="dialog"
+                src="https://via.placeholder.com/600x1200.png"
+                type="image"
+                value="1"
+              />
+              <input
+                alt="Avaa kuvankatselu"
+                class="imageViewer-preview-image"
+                data-testid="clickable-image"
+                formmethod="dialog"
+                src="https://via.placeholder.com/1200x800.png"
+                type="image"
+                value="2"
+              />
+            </div>
+          </div>
+        </div>
+        <button
+          aria-label="Sulje Pysäköintivirhemaksun tiedot"
+          class="Button-module_button__1msFE button_hds-button__2A0je Button-module_supplementary__3YKiS button_hds-button--supplementary__GcHcV Button-module_theme-black__m8giY button_hds-button--theme-black__3K_k4 Button-module_size-small__3lizH button_hds-button--small__2NFef Accordion-module_closeButton__1Qt8U"
+          data-testid="fineSummary-closeButton"
+          type="button"
+        >
+          <span
+            class="Button-module_label__a4np1 button_hds-button__label__2EQa-"
+          >
+            Sulje
+          </span>
+          <div
+            aria-hidden="true"
+            class="Button-module_icon__O-h7R button_hds-icon__17j8Z"
+          >
+            <svg
+              aria-hidden="true"
+              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_xs__3kAOj icon_hds-icon--size-xs__3dAMZ Accordion-module_accordionButtonIcon__MQu2J"
+              role="img"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <path
+                  d="M0 24h24V0H0z"
+                />
+                <path
+                  d="M12 11.5l5 5 1.5-1.5L12 8.5 5.5 15 7 16.5z"
+                  fill="currentColor"
+                />
+              </g>
+            </svg>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

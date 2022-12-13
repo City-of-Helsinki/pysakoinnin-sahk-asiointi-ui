@@ -20,6 +20,12 @@ exports[`Component in moved car form matches snapshot 1`] = `
           >
             Teen oikaisuvaatimuksen *
              
+            <span
+              class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
+            >
+               
+              *
+            </span>
           </legend>
           <div
             class="SelectionGroup-module_items__28m_S SelectionGroup-module_vertical__3iorC"
@@ -91,7 +97,13 @@ exports[`Component in moved car form matches snapshot 1`] = `
               class="FieldLabel-module_label__1zrXK "
               for="fullName"
             >
-              Nimi *
+              Nimi
+              <span
+                class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
+              >
+                 
+                *
+              </span>
             </label>
             <div
               class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
@@ -100,6 +112,7 @@ exports[`Component in moved car form matches snapshot 1`] = `
                 class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
                 id="fullName"
                 readonly=""
+                required=""
                 type="text"
                 value=""
               />
@@ -133,7 +146,13 @@ exports[`Component in moved car form matches snapshot 1`] = `
               class="FieldLabel-module_label__1zrXK "
               for="ssn"
             >
-              Henkilötunnus *
+              Henkilötunnus
+              <span
+                class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
+              >
+                 
+                *
+              </span>
             </label>
             <div
               class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
@@ -142,6 +161,7 @@ exports[`Component in moved car form matches snapshot 1`] = `
                 class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
                 id="ssn"
                 readonly=""
+                required=""
                 type="text"
                 value="123456-789A"
               />
@@ -175,7 +195,13 @@ exports[`Component in moved car form matches snapshot 1`] = `
               class="FieldLabel-module_label__1zrXK "
               for="email"
             >
-              Sähköpostiosoite *
+              Sähköpostiosoite
+              <span
+                class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
+              >
+                 
+                *
+              </span>
             </label>
             <div
               class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
@@ -184,6 +210,7 @@ exports[`Component in moved car form matches snapshot 1`] = `
                 class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
                 id="email"
                 readonly=""
+                required=""
                 type="text"
                 value=""
               />
@@ -453,7 +480,7 @@ exports[`Component in moved car form matches snapshot 1`] = `
           class="FieldLabel-module_label__1zrXK "
           for="newEmailAddress"
         >
-          Sähköpostiosoite *
+          Sähköpostiosoite
           <span
             class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
           >
@@ -952,8 +979,14 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
           <legend
             class="SelectionGroup-module_label__qlluz"
           >
-            Olen ajoneuvon *
+            Olen ajoneuvon
              
+            <span
+              class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
+            >
+               
+              *
+            </span>
           </legend>
           <div
             class="SelectionGroup-module_items__28m_S SelectionGroup-module_vertical__3iorC"
@@ -1025,7 +1058,13 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
               class="FieldLabel-module_label__1zrXK "
               for="fullName"
             >
-              Nimi *
+              Nimi
+              <span
+                class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
+              >
+                 
+                *
+              </span>
             </label>
             <div
               class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
@@ -1034,6 +1073,7 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
                 class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
                 id="fullName"
                 readonly=""
+                required=""
                 type="text"
                 value=""
               />
@@ -1067,7 +1107,13 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
               class="FieldLabel-module_label__1zrXK "
               for="ssn"
             >
-              Henkilötunnus *
+              Henkilötunnus
+              <span
+                class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
+              >
+                 
+                *
+              </span>
             </label>
             <div
               class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
@@ -1076,6 +1122,7 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
                 class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
                 id="ssn"
                 readonly=""
+                required=""
                 type="text"
                 value="123456-789A"
               />
@@ -1109,7 +1156,13 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
               class="FieldLabel-module_label__1zrXK "
               for="email"
             >
-              Sähköpostiosoite *
+              Sähköpostiosoite
+              <span
+                class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
+              >
+                 
+                *
+              </span>
             </label>
             <div
               class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
@@ -1118,6 +1171,7 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
                 class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
                 id="email"
                 readonly=""
+                required=""
                 type="text"
                 value=""
               />
@@ -1260,7 +1314,7 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
           class="FieldLabel-module_label__1zrXK "
           for="newEmailAddress"
         >
-          Sähköpostiosoite *
+          Sähköpostiosoite
           <span
             class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
           >

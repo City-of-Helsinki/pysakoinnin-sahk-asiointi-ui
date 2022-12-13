@@ -9,7 +9,7 @@ type SliceState = {
 
 const initialState: SliceState = {
   // for testing the notifications
-  dueDate: '2022-12-12',
+  dueDate: '2022-12-15',
   newDueDate: '2023-01-11',
   emailConfirmationChecked: false
 };
