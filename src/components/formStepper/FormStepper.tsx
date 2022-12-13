@@ -10,7 +10,7 @@ import {
   Stepper
 } from 'hds-react';
 import { useTranslation } from 'react-i18next';
-import { formatDate } from '../../utils/helpers';
+import { formatDate, isSmallScreen } from '../../utils/helpers';
 import FormContent from '../formContent/FormContent';
 import {
   completeStep,
@@ -40,6 +40,20 @@ const FormStepper = (props: Props): React.ReactElement => {
   const lastStep = activeStepIndex === steps.length - 1;
   const [showSubmitNotification, setShowSubmitNotification] = useState(false);
   const mainPageButtonRef = useRef<null | HTMLDivElement>(null);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+  // save the screen size on window resize event, to decide the size of stepper component
+  useEffect(() => {
+    function handleResize() {
+      setScreenWidth(window.innerWidth);
+    }
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const handleSubmit = () => {
     dispatch(setFormSubmitted(true));
@@ -57,7 +71,9 @@ const FormStepper = (props: Props): React.ReactElement => {
 
   return (
     <div>
+      <h1 className="form-title">{t(`${formContent.selectedForm}:title`)}</h1>
       <Stepper
+        small={isSmallScreen(screenWidth)}
         language="fi"
         onStepClick={(event, stepIndex) => dispatch(setActive(stepIndex))}
         selectedStep={activeStepIndex}
@@ -65,9 +81,9 @@ const FormStepper = (props: Props): React.ReactElement => {
         steps={steps}
       />
       <FormContent activeStep={activeStepIndex} />
-      <div
-        className={lastStep ? 'button-container-submit' : 'button-container'}>
+      <div className={`button-container ${lastStep ? 'submit' : ''}`}>
         <Button
+          className="button"
           disabled={activeStepIndex === 0}
           iconLeft={<IconArrowLeft />}
           onClick={() => dispatch(setActive(activeStepIndex - 1))}
@@ -127,7 +143,7 @@ const FormStepper = (props: Props): React.ReactElement => {
       {lastStep && formContent.formSubmitted && (
         <div ref={mainPageButtonRef}>
           <a href="/">
-            <Button className="wide-button" role="link" variant="primary">
+            <Button className="button back" role="link" variant="primary">
               {t('common:to-mainpage')}
             </Button>
           </a>
