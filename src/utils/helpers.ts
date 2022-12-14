@@ -3,13 +3,18 @@ import { addDays, format, formatISO } from 'date-fns';
 const EXTENDEDDAYS = 30;
 
 // from 'yyyy-mm-dd' to 'dd.mm.yyyy'
-export function formatDate(date: string | Date): string {
+export function formatDate(date: string): string {
   return format(new Date(date), 'dd.MM.yyyy');
 }
 
+// from Date to 'yyyy-mm-dd'
+export function formatISODate(date: Date): string {
+  return formatISO(date, { representation: 'date' });
+}
+
 // add 30 days to the original date and return the new date
-export function getNewDueDate(date: string): string {
-  return formatDate(addDays(new Date(date), EXTENDEDDAYS));
+export function getNewDueDate(date: string): Date {
+  return addDays(new Date(date), EXTENDEDDAYS);
 }
 
 // check if date is the present day or in future
