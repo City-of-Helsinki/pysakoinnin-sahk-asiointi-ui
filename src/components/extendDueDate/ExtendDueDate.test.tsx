@@ -6,9 +6,11 @@ import i18n from '../../utils/i18n';
 import ExtendDueDate from './ExtendDueDate';
 import ExtendDueDateForm from './ExtendDueDateForm';
 import { Provider } from 'react-redux';
+import { configureStore, createSlice } from '@reduxjs/toolkit';
 import store from '../../store';
 import '@testing-library/jest-dom';
 import { t } from 'i18next';
+import { formatDate, formatISODate, getNewDueDate } from '../../utils/helpers';
 
 describe('extend due date form', () => {
   test('passes a11y validation', async () => {
@@ -52,6 +54,39 @@ describe('extend due date form', () => {
     });
 
     test('second step view correctly', async () => {
+      const currentDate = formatISODate(new Date());
+      const newDueDate = formatISODate(getNewDueDate(currentDate));
+
+      const extendDueDateFormSliceMock = createSlice({
+        name: 'extendDueDateForm',
+        initialState: {
+          dueDate: currentDate,
+          newDueDate: newDueDate,
+          emailConfirmationChecked: false
+        },
+        reducers: {
+          setEmailConfirmationChecked: (state, action) => {
+            state.emailConfirmationChecked = action.payload;
+          }
+        }
+      });
+      const formContentSliceMock = createSlice({
+        name: 'formContent',
+        initialState: {
+          formSubmitted: false,
+          selectedForm: 'due-date',
+          submitDisabled: true
+        },
+        reducers: {}
+      });
+
+      const store = configureStore({
+        reducer: {
+          extendDueDateForm: extendDueDateFormSliceMock.reducer,
+          formContent: formContentSliceMock.reducer
+        }
+      });
+
       render(
         <Provider store={store}>
           <I18nextProvider i18n={i18n}>
@@ -80,13 +115,13 @@ describe('extend due date form', () => {
         name: t('common:fine-info:due-date:label')
       });
       expect(dueDateEl).toBeInTheDocument();
-      expect(dueDateEl).toHaveValue('15.12.2022');
+      expect(dueDateEl).toHaveValue(formatDate(currentDate));
 
       const newDueDateEl = screen.getByRole('textbox', {
         name: t('due-date:new-due-date')
       });
       expect(newDueDateEl).toBeInTheDocument();
-      expect(newDueDateEl).toHaveValue('11.01.2023');
+      expect(newDueDateEl).toHaveValue(formatDate(newDueDate));
 
       // Due date notification is visible
       const infoNotification = screen.getByRole('heading', {
