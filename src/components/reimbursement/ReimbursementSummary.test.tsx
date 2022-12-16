@@ -60,9 +60,7 @@ describe('reimbursement summary', () => {
     });
     expect(reimbursementSum).toBeInTheDocument();
 
-    const barcodeEl = screen.getByRole('textbox', {
-      name: t('common:barcode:label')
-    });
+    const barcodeEl = screen.getByText(/Virtuaaliviivakoodi/);
     expect(barcodeEl).toBeInTheDocument();
   });
 });
