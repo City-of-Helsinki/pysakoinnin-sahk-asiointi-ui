@@ -28,6 +28,10 @@
 }
 
 @media (min-width: 768px) {
+  .stepper {
+    transform: translateX(-36px);
+  }
+
   .form-title {
     font-size: 48px;
     font-weight: normal;
@@ -43,7 +47,6 @@
     margin-top: 12px;
   }
   .button-container.submit {
-
     display: flex;
     align-items: flex-start;
     gap: 24px;
