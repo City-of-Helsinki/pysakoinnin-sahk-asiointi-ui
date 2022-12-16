@@ -82,74 +82,80 @@ const FormStepper = (props: Props): React.ReactElement => {
         steps={steps}
       />
       <FormContent activeStep={activeStepIndex} />
-      <div className={`button-container ${lastStep ? 'submit' : ''}`}>
-        <Button
-          className="button"
-          disabled={activeStepIndex === 0}
-          iconLeft={<IconArrowLeft />}
-          onClick={() => dispatch(setActive(activeStepIndex - 1))}
-          variant="secondary">
-          {t('common:previous')}
-        </Button>
+      <div className="button-container">
+        <div className={`button-wrapper ${lastStep ? 'submit' : ''}`}>
+          <Button
+            className="button"
+            disabled={activeStepIndex === 0}
+            iconLeft={<IconArrowLeft />}
+            onClick={() => dispatch(setActive(activeStepIndex - 1))}
+            variant="secondary">
+            {t('common:previous')}
+          </Button>
+          <div>
+            {lastStep && formContent.selectedForm === 'parking-fine' && (
+              <Button
+                iconLeft={<IconPrinter />}
+                onClick={() => null}
+                variant="secondary"
+                className="button print">
+                Tulosta
+              </Button>
+            )}
+            {!lastStep ? (
+              <Button
+                className="button"
+                iconRight={<IconArrowRight />}
+                onClick={() => dispatch(completeStep(activeStepIndex))}
+                variant="primary">
+                {t('common:next')}
+              </Button>
+            ) : formContent.formSubmitted ? (
+              <Button
+                className="button"
+                iconLeft={<IconThumbsUp />}
+                onClick={handleSubmit}
+                variant="success">
+                {t(`${formContent.selectedForm}:submit-success`)}
+              </Button>
+            ) : (
+              <Button
+                className="button submit"
+                onClick={handleSubmit}
+                variant="primary"
+                disabled={formContent.submitDisabled}>
+                {t(`${formContent.selectedForm}:submit`)}
+              </Button>
+            )}
+          </div>
+        </div>
+        {lastStep && formContent.formSubmitted && showSubmitNotification && (
+          <Notification
+            className="submit-notification"
+            label={t(`${formContent.selectedForm}:notifications:success:label`)}
+            position="bottom-right"
+            type={'success'}
+            autoClose
+            dismissible
+            closeButtonLabelText="Close notification"
+            onClose={() => setShowSubmitNotification(false)}>
+            {t(`${formContent.selectedForm}:notifications:success:text`, {
+              newDueDate: formatDate(dueDateFormValues.newDueDate)
+            })}
+          </Notification>
+        )}
         <div>
-          {lastStep && formContent.selectedForm === 'parking-fine' && (
-            <Button
-              iconLeft={<IconPrinter />}
-              onClick={() => null}
-              variant="secondary"
-              className="print-button">
-              Tulosta
-            </Button>
-          )}
-          {!lastStep ? (
-            <Button
-              iconRight={<IconArrowRight />}
-              onClick={() => dispatch(completeStep(activeStepIndex))}
-              variant="primary">
-              {t('common:next')}
-            </Button>
-          ) : formContent.formSubmitted ? (
-            <Button
-              iconLeft={<IconThumbsUp />}
-              onClick={handleSubmit}
-              variant="success">
-              {t(`${formContent.selectedForm}:submit-success`)}
-            </Button>
-          ) : (
-            <Button
-              className="submit-button"
-              onClick={handleSubmit}
-              variant="primary"
-              disabled={formContent.submitDisabled}>
-              {t(`${formContent.selectedForm}:submit`)}
-            </Button>
+          {lastStep && formContent.formSubmitted && (
+            <div ref={mainPageButtonRef}>
+              <a href="/">
+                <Button className="button back" role="link" variant="primary">
+                  {t('common:to-mainpage')}
+                </Button>
+              </a>
+            </div>
           )}
         </div>
       </div>
-      {lastStep && formContent.formSubmitted && showSubmitNotification && (
-        <Notification
-          className="submit-notification"
-          label={t(`${formContent.selectedForm}:notifications:success:label`)}
-          position="bottom-right"
-          type={'success'}
-          autoClose
-          dismissible
-          closeButtonLabelText="Close notification"
-          onClose={() => setShowSubmitNotification(false)}>
-          {t(`${formContent.selectedForm}:notifications:success:text`, {
-            newDueDate: formatDate(dueDateFormValues.newDueDate)
-          })}
-        </Notification>
-      )}
-      {lastStep && formContent.formSubmitted && (
-        <div ref={mainPageButtonRef}>
-          <a href="/">
-            <Button className="button back" role="link" variant="primary">
-              {t('common:to-mainpage')}
-            </Button>
-          </a>
-        </div>
-      )}
     </div>
   );
 };

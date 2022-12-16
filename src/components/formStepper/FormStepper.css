@@ -12,6 +12,10 @@
   }
 
   .button-container {
+    max-width: 500px;
+  }
+
+  .button-wrapper {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column-reverse;
@@ -19,7 +23,7 @@
   }
 
   .button {
-    max-width: 500px;
+    width: 100%;
   }
 
   .button.back {
@@ -38,7 +42,7 @@
     line-height: 48px;
   }
 
-  .button-container {
+  .button-wrapper {
     display: flex;
     align-items: flex-start;
     gap: 24px;
@@ -46,7 +50,7 @@
     justify-content: flex-start;
     margin-top: 12px;
   }
-  .button-container.submit {
+  .button-wrapper.submit {
     display: flex;
     align-items: flex-start;
     gap: 24px;
