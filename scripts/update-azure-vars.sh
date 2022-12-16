@@ -2,12 +2,11 @@
 
 set -Eeo pipefail
 
-while getopts g:e:u: flag
+while getopts g:e: flag
 do
     case "${flag}" in
       g) groupID=${OPTARG};;
       e) envFile=${OPTARG};;
-      u) update=true;;
       *)
     esac
 done
@@ -42,11 +41,11 @@ do
   value=${value%\"}
   value=${value#\"}
 
-  if [ ${update} = true ]
+  if ! az pipelines variable-group variable create --group-id "${groupID}" --name "${varname}" --value "${value}";
   then
-    az pipelines variable-group variable update --group-id "${groupID}" --name "${varname}" --value "${value}"
+     az pipelines variable-group variable update --group-id "${groupID}" --name "${varname}" --value "${value}";
   else
-    az pipelines variable-group variable create --group-id "${groupID}" --name "${varname}" --value "${value}"
+    az pipelines variable-group variable create --group-id "${groupID}" --name "${varname}" --value "${value}";
   fi
 
 done < "${envFile}"
