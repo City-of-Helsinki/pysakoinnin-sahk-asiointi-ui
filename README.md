@@ -48,10 +48,6 @@ e.g. `"pysakoinnin-sahk-asiointi-ui-development"`
 
 this will return the four-digit identifier that you use in the update script
 
-To update existing Azure variables, pass a `-u=true` flag to the script e.g.
-
-`bash ./scripts/update-azure-vars.sh -g <GROUPID> -e <DOTENV FILE> -u=true`
-
 ### Config for Helsinki-Profiili MVP
 
 Settings when using Helsinki-Profiili MVP authentication:
