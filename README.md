@@ -25,7 +25,7 @@ actual used variables when running the app. App is not using CRA's default `proc
 Note that running built application locally you need to generate also `public/env-config.js` file. It can be done with
 `yarn update-runtime-env`. By default it's generated for development environment if no `NODE_ENV` is set.
 
-### Uploading and Updating Azure library variables
+### Adding Azure library variables
 
 This requires the installation and setup
 of [Azure CLI and azure-devops tools](https://learn.microsoft.com/en-us/azure/devops/cli/?view=azure-devops)
@@ -33,7 +33,7 @@ of [Azure CLI and azure-devops tools](https://learn.microsoft.com/en-us/azure/de
 Running the script `./scripts/update-azure-vars.sh` will add Azure library variables for a given variable group by
 passing a .env file
 
-Command for uploading Azure vars
+Command for adding Azure vars
 
 `bash ./scripts/update-azure-vars.sh -g <GROUPID> -e <DOTENV FILE>`
 
@@ -46,7 +46,9 @@ You can find the variable group ID by running the command
 where `<GROUP-NAME>` is the Azure library name of the variable group in double quotes
 e.g. `"pysakoinnin-sahk-asiointi-ui-development"`
 
-this will return the four-digit identifier that you use in the update script
+this will return the four-digit identifier that you use in the update script.
+
+If a given variable key already exists, the command will instead update the existing value.
 
 ### Config for Helsinki-Profiili MVP
 
