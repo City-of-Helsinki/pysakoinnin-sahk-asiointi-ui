@@ -1,12 +1,15 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Accordion, TextArea, TextInput } from 'hds-react';
 
 import './RectificationSummary.css';
 import { useTranslation } from 'react-i18next';
 import InfoContainer from '../infoContainer/InfoContainer';
+import { selectFormContent } from '../formContent/formContentSlice';
 
 const RectificationSummary = () => {
   const { t } = useTranslation();
+  const selectedForm = useSelector(selectFormContent).selectedForm;
 
   return (
     <>
@@ -17,8 +20,8 @@ const RectificationSummary = () => {
         <div className="rectification-summary-details">
           <TextInput
             id="relation"
-            label={t('rectification:relation-info:parking-fine:relation')}
-            value={t('rectification:relation-info:parking-fine:driver')}
+            label={t(`rectification:relation-info:${selectedForm}:relation`)}
+            value={t(`rectification:relation-info:${selectedForm}:driver`)}
             readOnly
           />
           <TextInput
@@ -88,8 +91,8 @@ const RectificationSummary = () => {
         </div>
 
         <Accordion
-          id="fineSummary"
-          heading={t('parking-fine:fine-info')}
+          id="summary"
+          heading={t(`${selectedForm}:stepper:step2`)}
           className="rectification-summary-fine-details">
           <InfoContainer />
         </Accordion>

@@ -22,7 +22,7 @@ const Barcode = (props: BarcodeProps) => {
   return (
     <>
       <div className={`barcode-container ${className ? className : ''}`}>
-        <p className="barcode-label">{t('common:barcode:label')}</p>
+        <label className="barcode-label">{t('common:barcode:label')}</label>
         <p className="barcode">{barcode}</p>
         <Button
           data-testid="copy-to-clipboard"

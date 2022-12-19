@@ -54,7 +54,7 @@
         "placeholder": "1.11.2019 09:41 - 1.11.2019 09:43"
       },
       "address": {
-        "label": "Osoite",
+        "label": "Lähiosoite",
         "placeholder": "Näkinkuja 1c"
       },
       "fine-title": {
@@ -88,7 +88,7 @@
     "fine-info": "Pysäköintivirhemaksun tiedot",
     "stepper": {
       "step1": "Haku",
-      "step2": "Pysäköintivirhemaksu",
+      "step2": "Pysäköintivirhemaksun tiedot",
       "step3": "Oikaisuvaatimus",
       "step4": "Yhteenveto"
     },
@@ -197,7 +197,7 @@
         "holder": "Haltija"
       },
       "moved-car": {
-        "relation": "Teen oikaisuvaatimuksen *",
+        "relation": "Teen oikaisuvaatimuksen",
         "driver": "Ajoneuvon kuljettajana",
         "owner": "Ajoneuvon omistajana",
         "poa-holder": "Valtakirjalla"
@@ -207,7 +207,7 @@
     "rectification-content": "Oikaisuvaatimuksen sisältö",
     "description-over-limit": "Kuvaus ylittää merkkimäärän",
     "to-separate-email": "Haluan ilmoitukset asian käsittelystä eri sähköpostiosoitteeseen",
-    "address": "Osoite",
+    "address": "Lähiosoite",
     "zipcode": "Postinumero",
     "city": "Postitoimipaikka",
     "area-code": "Maakoodi",

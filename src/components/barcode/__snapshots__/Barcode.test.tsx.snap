@@ -5,11 +5,11 @@ exports[`Component matches snapshot 1`] = `
   <div
     class="barcode-container "
   >
-    <p
+    <label
       class="barcode-label"
     >
       Virtuaaliviivakoodi
-    </p>
+    </label>
     <p
       class="barcode"
     >

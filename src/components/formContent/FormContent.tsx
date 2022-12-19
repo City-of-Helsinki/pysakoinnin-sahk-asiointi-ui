@@ -31,9 +31,17 @@ const FormContent = (props: Props): React.ReactElement => {
       {
         {
           0: <SearchForm />,
-          1: selectForm(formContent.selectedForm),
+          1: (
+            <div className="form-body">
+              {selectForm(formContent.selectedForm)}
+            </div>
+          ),
           2: <RectificationForm />,
-          3: <RectificationSummary />
+          3: (
+            <div className="form-body">
+              <RectificationSummary />
+            </div>
+          )
         }[props.activeStep]
       }
     </div>
