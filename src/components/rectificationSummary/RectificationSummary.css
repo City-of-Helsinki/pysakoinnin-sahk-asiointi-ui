@@ -13,13 +13,14 @@
 }
 
 .rectification-summary-header {
-  margin-top: 52px;
+  margin-top: var(--spacing-xl);
   font-weight: 500;
   line-height: 32px;
   letter-spacing: -0.2px;
 }
 
 .rectification-summary-fine-details {
+  margin-top: var(--spacing-m);
   grid-column: 1 / 3;
 }
 

@@ -2,7 +2,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--spacing-m);
-  margin-top: var(--spacing-xl);
 }
 
 .summary-container {

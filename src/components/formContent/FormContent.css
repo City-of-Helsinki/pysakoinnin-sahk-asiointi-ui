@@ -2,6 +2,10 @@
   padding: 4px 0 12px;
 }
 
+.form-body {
+  margin-top: var(--spacing-xl);
+}
+
 @media (max-width: 767px) {
   .button.print {
     margin-bottom: var(--spacing-xs);
