@@ -1,6 +1,6 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import {
   Button,
@@ -18,6 +18,7 @@ import {
 } from 'hds-react';
 import { useClient } from '../../client/hooks';
 import { FormId, selectFormContent } from '../formContent/formContentSlice';
+import { setPOAFile } from './rectificationFormSlice';
 
 import './RectificationForm.css';
 
@@ -25,6 +26,7 @@ type Language = 'fi' | 'en' | 'sv';
 
 const RectificationForm = () => {
   const { t, i18n } = useTranslation();
+  const dispatch = useDispatch();
 
   const { getUser } = useClient();
   const user = getUser();
@@ -56,6 +58,12 @@ const RectificationForm = () => {
 
   const handleDraftSave = () => {
     setShowDraftSavedNotification(true);
+  };
+
+  const setFile = (file: File[]) => {
+    dispatch(
+      setPOAFile({ name: file[0].name, size: file[0].size, type: file[0].type })
+    );
   };
 
   const relations = movedCarFormSelected
@@ -127,7 +135,7 @@ const RectificationForm = () => {
                 language={i18n.language as Language}
                 label={t('rectification:attach-poa')}
                 id="rectificationPOAFile"
-                onChange={() => null}
+                onChange={e => setFile(e)}
                 dragAndDrop
                 accept={'.png, .jpg, .pdf'}
               />

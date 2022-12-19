@@ -8,7 +8,9 @@
   grid-template-columns: 1fr 1fr;
 }
 
-.rectification-summary-content, .rectification-summary-content div, .rectification-summary-content textarea {
+.rectification-summary-content,
+.rectification-summary-content div,
+.rectification-summary-content textarea {
   height: 100% !important;
 }
 
@@ -25,4 +27,41 @@
 
 .rectification-summary-details > div {
   margin-bottom: 24px;
+}
+
+.file-list {
+  list-style: none;
+  margin: var(--spacing-s) 0 0;
+  padding: 0;
+}
+
+.file-list-item {
+  align-items: flex-start;
+  background-color: var(--color-info-light);
+  border-bottom: 2px dotted var(--color-coat-of-arms);
+  box-sizing: border-box;
+  display: flex;
+  padding: var(--spacing-s) var(--spacing-2-xs);
+  margin-top: var(--spacing-s);
+  max-width: 90%;
+}
+
+.file-list-item-title {
+  align-items: flex-start;
+  display: flex;
+  flex: 1;
+  flex-wrap: nowrap;
+  font-size: var(--fontsize-body-s);
+  margin: 2px var(--spacing-xs) 0 var(--spacing-2-xs);
+}
+
+.file-list-item-name {
+  hyphens: auto;
+  word-break: break-word;
+}
+
+.file-list-item-size {
+  margin-left: var(--spacing-2-xs);
+  text-align: right;
+  white-space: nowrap;
 }

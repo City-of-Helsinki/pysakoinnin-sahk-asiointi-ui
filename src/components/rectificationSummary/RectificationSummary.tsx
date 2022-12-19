@@ -1,12 +1,24 @@
 import React from 'react';
-import { Accordion, TextArea, TextInput } from 'hds-react';
-
-import './RectificationSummary.css';
+import { useSelector } from 'react-redux';
+import {
+  Accordion,
+  IconDocument,
+  IconPhoto,
+  TextArea,
+  TextInput
+} from 'hds-react';
 import { useTranslation } from 'react-i18next';
+import { formatBytes } from '../../utils/helpers';
 import InfoContainer from '../infoContainer/InfoContainer';
+import { FormId, selectFormContent } from '../formContent/formContentSlice';
+import { selectRectificationFormValues } from '../rectification/rectificationFormSlice';
+import styles from '../styles.module.css';
+import './RectificationSummary.css';
 
 const RectificationSummary = () => {
   const { t } = useTranslation();
+  const selectedForm = useSelector(selectFormContent).selectedForm;
+  const poaFile = useSelector(selectRectificationFormValues).poaFile;
 
   return (
     <>
@@ -77,6 +89,26 @@ const RectificationSummary = () => {
             value="Pysäköinnin asiointikansiooni"
             readOnly
           />
+          {selectedForm === FormId.MOVEDCAR && poaFile.name && (
+            <div>
+              <label className={styles['text-label']}>
+                {t('rectification:poa')}
+              </label>
+              <div className="file-list-item">
+                {poaFile.type.startsWith('image') ? (
+                  <IconPhoto aria-hidden />
+                ) : (
+                  <IconDocument aria-hidden />
+                )}
+                <div className="file-list-item-title">
+                  <span className="file-list-item-name">{poaFile.name}</span>
+                  <span className="file-list-item-size">
+                    ({formatBytes(poaFile.size)})
+                  </span>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
         <div className="rectification-summary-content">
           <TextArea

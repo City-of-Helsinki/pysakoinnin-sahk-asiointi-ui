@@ -22,7 +22,8 @@
   grid-row: 1 / 7;
 }
 
-.rectification-textarea div:first-of-type, .rectification-textarea textarea {
+.rectification-textarea div:first-of-type,
+.rectification-textarea textarea {
   height: 100% !important;
 }
 
@@ -80,4 +81,12 @@
     margin-top: 5px;
     min-width: 450px;
   }
+}
+
+.fileinput-disabled div div {
+  display: none;
+}
+
+.fileinput-disabled label {
+  display: none;
 }
