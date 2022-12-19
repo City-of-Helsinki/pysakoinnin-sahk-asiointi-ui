@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, IconCopy, Notification, TextInput } from 'hds-react';
+import { Button, IconCopy, Notification } from 'hds-react';
 
 import './Barcode.css';
 import { useTranslation } from 'react-i18next';
@@ -22,12 +22,8 @@ const Barcode = (props: BarcodeProps) => {
   return (
     <>
       <div className={`barcode-container ${className ? className : ''}`}>
-        <TextInput
-          id="barCode"
-          label={t('common:barcode:label')}
-          defaultValue={barcode}
-          readOnly
-        />
+        <p className="barcode-label">{t('common:barcode:label')}</p>
+        <p className="barcode">{barcode}</p>
         <Button
           data-testid="copy-to-clipboard"
           className="barcode-button"

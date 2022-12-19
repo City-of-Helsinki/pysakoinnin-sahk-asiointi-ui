@@ -1,22 +1,67 @@
-.button-container {
-  align-items: flex-start;
-  display: flex;
-  gap: 24px;
-  height: 96px;
-  justify-content: flex-start;
-  margin-top: 12px;
+@media (max-width: 375px) {
+  .form-title {
+    hyphens: auto;
+  }
 }
 
-.button-container-submit {
-  align-items: flex-start;
-  display: flex;
-  gap: 24px;
-  height: 96px;
-  justify-content: space-between;
-  margin-top: 12px;
+@media (max-width: 767px) {
+  .form-title {
+    font-size: 32px;
+    font-weight: normal;
+    line-height: 32px;
+  }
+
+  .button-container {
+    max-width: 500px;
+  }
+
+  .button-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column-reverse;
+    gap: 12px;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .button.back {
+    margin-top: var(--spacing-xs);
+  }
 }
 
-.submit-button {
+@media (min-width: 768px) {
+  .stepper {
+    transform: translateX(-36px);
+  }
+
+  .form-title {
+    font-size: 48px;
+    font-weight: normal;
+    line-height: 48px;
+  }
+
+  .button-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    height: 96px;
+    justify-content: flex-start;
+    margin-top: 12px;
+  }
+  .button-wrapper.submit {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    height: 96px;
+    justify-content: space-between;
+    margin-top: 12px;
+  }
+
+}
+
+.button.submit {
   min-width: 137px;
 }
 
@@ -25,6 +70,6 @@
   z-index: 100;
 }
 
-.wide-button {
+.button.back {
   width: 100%;
 }

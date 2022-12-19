@@ -248,27 +248,16 @@ exports[`Component matches snapshot 1`] = `
       <div
         class="barcode-container wide-field"
       >
-        <div
-          class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+        <p
+          class="barcode-label"
         >
-          <label
-            class="FieldLabel-module_label__1zrXK "
-            for="barCode"
-          >
-            Virtuaaliviivakoodi
-          </label>
-          <div
-            class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-          >
-            <input
-              class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-              id="barCode"
-              readonly=""
-              type="text"
-              value="430123730001230560012400000000000000000100018714210302"
-            />
-          </div>
-        </div>
+          Virtuaaliviivakoodi
+        </p>
+        <p
+          class="barcode"
+        >
+          430123730001230560012400000000000000000100018714210302
+        </p>
         <button
           class="Button-module_button__1msFE button_hds-button__2A0je Button-module_secondary__1nABp button_hds-button--secondary__1NOWS barcode-button"
           data-testid="copy-to-clipboard"

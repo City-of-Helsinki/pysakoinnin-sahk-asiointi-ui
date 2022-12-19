@@ -5,7 +5,6 @@ import PageContent from '../PageContent';
 import FormStepper from '../formStepper/FormStepper';
 import { StepState } from '../formStepper/formStepperSlice';
 import { FormId, setSelectedForm } from '../formContent/formContentSlice';
-import styles from '../styles.module.css';
 
 const ParkingFineAppeal = (): React.ReactElement => {
   const { t } = useTranslation();
@@ -40,7 +39,6 @@ const ParkingFineAppeal = (): React.ReactElement => {
   return (
     <PageContent>
       <form>
-        <h1 className={styles['form-title']}>{t('parking-fine:title')}</h1>
         <FormStepper initialSteps={steps} onSubmit={handleSubmit} />
       </form>
     </PageContent>

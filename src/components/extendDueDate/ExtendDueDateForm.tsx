@@ -57,20 +57,21 @@ const ExtendDueDateForm = (): React.ReactElement => {
           {t('due-date:notifications:allowed:text')}
         </Notification>
       )}
-      <div className="info-container">
+      <div className="text-container">
         <TextInput
           id="refNumber"
           label={t('common:fine-info:ref-number:label')}
           defaultValue="12345678"
           readOnly
         />
-        <TextInput
-          id="regNumber"
-          label={t('common:fine-info:reg-number:label')}
-          defaultValue="ABC-123"
-          readOnly
-        />
-        <div />
+        <div className="reg-number-field">
+          <TextInput
+            id="regNumber"
+            label={t('common:fine-info:reg-number:label')}
+            defaultValue="ABC-123"
+            readOnly
+          />
+        </div>
         <TextInput
           id="sum"
           label={t('common:fine-info:sum:label')}

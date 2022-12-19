@@ -1,6 +1,7 @@
 import { addDays, format, formatISO } from 'date-fns';
 
 const EXTENDEDDAYS = 30;
+const BREAKPOINT_M = 768;
 
 // from 'yyyy-mm-dd' to 'dd.mm.yyyy'
 export function formatDate(date: string): string {
@@ -29,4 +30,8 @@ function isInFuture(date: string): boolean {
 // due date is not allowed
 export function isExtensionAllowed(date: string): boolean {
   return isInFuture(date);
+}
+
+export function isSmallScreen(width: number): boolean {
+  return width < BREAKPOINT_M;
 }
