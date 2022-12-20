@@ -18,7 +18,7 @@ import {
 } from 'hds-react';
 import { useClient } from '../../client/hooks';
 import { FormId, selectFormContent } from '../formContent/formContentSlice';
-import { setPOAFile } from './rectificationFormSlice';
+import { FileItem, setPOAFile, setAttachments } from './rectificationFormSlice';
 
 import './RectificationForm.css';
 
@@ -60,10 +60,22 @@ const RectificationForm = () => {
     setShowDraftSavedNotification(true);
   };
 
-  const setFile = (file: File[]) => {
-    dispatch(
-      setPOAFile({ name: file[0].name, size: file[0].size, type: file[0].type })
-    );
+  const setFiles = (files: File[], type: string) => {
+    const fileList: FileItem[] = [];
+    for (const file of files) {
+      const fileItem = {
+        name: file.name,
+        size: file.size,
+        type: file.type
+      };
+      fileList.push(fileItem);
+    }
+    switch (type) {
+      case 'poa':
+        return dispatch(setPOAFile(fileList[0]));
+      case 'attachments':
+        return dispatch(setAttachments(fileList));
+    }
   };
 
   const relations = movedCarFormSelected
@@ -135,7 +147,7 @@ const RectificationForm = () => {
                 language={i18n.language as Language}
                 label={t('rectification:attach-poa')}
                 id="rectificationPOAFile"
-                onChange={e => setFile(e)}
+                onChange={e => setFiles(e, 'poa')}
                 dragAndDrop
                 accept={'.png, .jpg, .pdf'}
               />
@@ -242,7 +254,7 @@ const RectificationForm = () => {
             className="rectification-fileinput"
             label={t('rectification:attachments')}
             id="rectificationAttachments"
-            onChange={() => null}
+            onChange={e => setFiles(e, 'attachments')}
             dragAndDrop
             accept={'.png, .jpg, .pdf'}
           />

@@ -1,12 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../../store';
 
+export type FileItem = {
+  name: string;
+  size: number;
+  type: string;
+};
+
 type SliceState = {
-  poaFile: {
-    name: string;
-    size: number;
-    type: string;
-  };
+  poaFile: FileItem;
+  attachments: FileItem[];
 };
 
 const initialState: SliceState = {
@@ -14,7 +17,8 @@ const initialState: SliceState = {
     name: '',
     size: 0,
     type: ''
-  }
+  },
+  attachments: []
 };
 
 export const slice = createSlice({
@@ -23,12 +27,15 @@ export const slice = createSlice({
   reducers: {
     setPOAFile: (state, action) => {
       state.poaFile = action.payload;
+    },
+    setAttachments: (state, action) => {
+      state.attachments = action.payload;
     }
   }
 });
 
 // Actions
-export const { setPOAFile } = slice.actions;
+export const { setPOAFile, setAttachments } = slice.actions;
 
 // Selectors
 export const selectRectificationFormValues = (state: RootState) =>
