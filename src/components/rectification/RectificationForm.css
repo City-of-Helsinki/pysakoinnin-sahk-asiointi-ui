@@ -82,11 +82,3 @@
     min-width: 450px;
   }
 }
-
-.fileinput-disabled div div {
-  display: none;
-}
-
-.fileinput-disabled label {
-  display: none;
-}
