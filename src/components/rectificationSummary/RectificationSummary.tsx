@@ -93,8 +93,6 @@ const RectificationSummary = () => {
             value="Pysäköinnin asiointikansiooni"
             readOnly
           />
-        </div>
-        <div>
           {attachments.length > 0 && (
             <div>
               <label className={styles['text-label']}>
@@ -119,8 +117,6 @@ const RectificationSummary = () => {
               </ul>
             </div>
           )}
-        </div>
-        <div>
           {selectedForm === FormId.MOVEDCAR && poaFile.name && (
             <div>
               <label className={styles['text-label']}>

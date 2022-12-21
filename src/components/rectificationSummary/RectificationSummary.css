@@ -1,6 +1,7 @@
 .rectification-summary-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-m);
 }
 
 .rectification-summary-subgrid {
@@ -11,7 +12,7 @@
 .rectification-summary-content,
 .rectification-summary-content div,
 .rectification-summary-content textarea {
-  height: 90vh !important;
+  height: 99% !important;
 }
 
 .rectification-summary-header {

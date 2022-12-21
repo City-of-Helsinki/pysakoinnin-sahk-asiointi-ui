@@ -228,8 +228,6 @@ exports[`Component matches snapshot 1`] = `
         </div>
       </div>
     </div>
-    <div />
-    <div />
     <div
       class="rectification-summary-content"
     >
