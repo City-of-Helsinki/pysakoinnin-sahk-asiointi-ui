@@ -227,6 +227,8 @@ exports[`Component matches snapshot 1`] = `
           />
         </div>
       </div>
+      <div />
+      <div />
     </div>
     <div>
       <div
@@ -253,16 +255,6 @@ exports[`Component matches snapshot 1`] = `
             </textarea>
           </div>
         </div>
-      </div>
-      <div>
-        <label
-          class="text-label"
-        >
-          Liitetiedostot
-        </label>
-        <ul
-          class="file-list"
-        />
       </div>
     </div>
   </div>

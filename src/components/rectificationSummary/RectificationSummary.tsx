@@ -93,26 +93,54 @@ const RectificationSummary = () => {
             value="Pysäköinnin asiointikansiooni"
             readOnly
           />
-          {selectedForm === FormId.MOVEDCAR && poaFile.name && (
-            <div>
-              <label className={styles['text-label']}>
-                {t('rectification:poa')}
-              </label>
-              <div className="file-list-item">
-                {poaFile.type.startsWith('image') ? (
-                  <IconPhoto aria-hidden />
-                ) : (
-                  <IconDocument aria-hidden />
-                )}
-                <div className="file-list-item-title">
-                  <span className="file-list-item-name">{poaFile.name}</span>
-                  <span className="file-list-item-size">
-                    ({formatBytes(poaFile.size)})
-                  </span>
+          <div>
+            {attachments.length > 0 && (
+              <div>
+                <label className={styles['text-label']}>
+                  {t('rectification:attachments')}
+                </label>
+                <ul className="file-list">
+                  {attachments.map((item: FileItem) => (
+                    <li key={item.name} className="file-list-item">
+                      {item.type.startsWith('image') ? (
+                        <IconPhoto aria-hidden />
+                      ) : (
+                        <IconDocument aria-hidden />
+                      )}
+                      <div className="file-list-item-title">
+                        <span className="file-list-item-name">{item.name}</span>
+                        <span className="file-list-item-size">
+                          ({formatBytes(item.size)})
+                        </span>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+          <div>
+            {selectedForm === FormId.MOVEDCAR && poaFile.name && (
+              <div>
+                <label className={styles['text-label']}>
+                  {t('rectification:poa')}
+                </label>
+                <div className="file-list-item">
+                  {poaFile.type.startsWith('image') ? (
+                    <IconPhoto aria-hidden />
+                  ) : (
+                    <IconDocument aria-hidden />
+                  )}
+                  <div className="file-list-item-title">
+                    <span className="file-list-item-name">{poaFile.name}</span>
+                    <span className="file-list-item-size">
+                      ({formatBytes(poaFile.size)})
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
-          )}
+            )}
+          </div>
         </div>
         <div>
           <div className="rectification-summary-content">
@@ -122,28 +150,6 @@ const RectificationSummary = () => {
               label={t('rectification:rectification-content')}
               value="Mieleni minun tekevi, aivoni ajattelevi lähteäni laulamahan, saa'ani sanelemahan, sukuvirttä suoltamahan, lajivirttä laulamahan. Sanat suussani sulavat, puhe'et putoelevat, kielelleni kerkiävät, hampahilleni hajoovat.Veli kulta, veikkoseni, kaunis kasvinkumppalini! Lähe nyt kanssa laulamahan, saa kera sanelemahan yhtehen yhyttyämme, kahta'alta käytyämme! Harvoin yhtehen yhymme, saamme toinen toisihimme näillä raukoilla rajoilla, poloisilla Pohjan mailla.Lyökämme käsi kätehen, sormet sormien lomahan, lauloaksemme hyviä, parahia pannaksemme, kuulla noien kultaisien, tietä mielitehtoisien, nuorisossa nousevassa, kansassa kasuavassa: noita saamia sanoja, virsiä virittämiä vyöltä vanhan Väinämöisen, alta ahjon Ilmarisen, päästä kalvan Kaukomielen, Joukahaisen jousen tiestä, Pohjan peltojen periltä, Kalevalan kankahilta.Niit' ennen isoni lauloi kirvesvartta vuollessansa; niitä äitini opetti väätessänsä värttinätä, minun lasna lattialla eessä polven pyöriessä, maitopartana pahaisna, piimäsuuna pikkaraisna. Sampo ei puuttunut sanoja eikä Louhi luottehia: vanheni sanoihin sampo, katoi Louhi luottehisin, virsihin Vipunen kuoli, Lemminkäinen leikkilöihin.Viel' on muitaki sanoja, ongelmoita oppimia: tieohesta tempomia, kanervoista katkomia, risukoista riipomia, vesoista vetelemiä, päästä heinän hieromia, raitiolta ratkomia, paimenessa käyessäni, lasna karjanlaitumilla, metisillä mättähillä, kultaisilla kunnahilla, mustan Muurikin jälessä, Kimmon kirjavan keralla.Vilu mulle virttä virkkoi, sae saatteli runoja. Virttä toista tuulet toivat, meren aaltoset ajoivat. Linnut liitteli sanoja, puien latvat lausehia. Mieleni minun tekevi, aivoni ajattelevi lähteäni laulamahan, saa'ani sanelemahan, sukuvirttä suoltamahan, lajivirttä laulamahan. Sanat suussani sulavat, puhe'et putoelevat, kielelleni kerkiävät, hampahilleni hajoovat.Veli kulta, veikkoseni, kaunis kasvinkumppalini! Lähe nyt kanssa laulamahan, saa kera sanelemahan yhtehen yhyttyämme, kahta'alta käytyämme! Harvoin yhtehen yhymme, saamme toinen toisihimme näillä raukoilla rajoilla, poloisilla Pohjan mailla.Lyökämme käsi kätehen, sormet sormien lomahan, lauloaksemme hyviä, parahia pannaksemme, kuulla noien kultaisien, tietä mielitehtoisien, nuorisossa nousevassa, kansassa kasuavassa: noita saamia sanoja, virsiä virittämiä vyöltä vanhan Väinämöisen, alta ahjon Ilmarisen, päästä kalvan Kaukomielen 2374 merkkiä"
             />
-          </div>
-          <div>
-            <label className={styles['text-label']}>
-              {t('rectification:attachments')}
-            </label>
-            <ul className="file-list">
-              {attachments.map((item: FileItem) => (
-                <li key={item.name} className="file-list-item">
-                  {item.type.startsWith('image') ? (
-                    <IconPhoto aria-hidden />
-                  ) : (
-                    <IconDocument aria-hidden />
-                  )}
-                  <div className="file-list-item-title">
-                    <span className="file-list-item-name">{item.name}</span>
-                    <span className="file-list-item-size">
-                      ({formatBytes(item.size)})
-                    </span>
-                  </div>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       </div>

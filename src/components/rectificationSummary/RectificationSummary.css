@@ -11,7 +11,7 @@
 .rectification-summary-content,
 .rectification-summary-content div,
 .rectification-summary-content textarea {
-  height: 100% !important;
+  height: 90vh !important;
 }
 
 .rectification-summary-header {
@@ -26,7 +26,7 @@
 }
 
 .rectification-summary-details > div {
-  margin-bottom: 24px;
+  margin-bottom: var(--spacing-m);
 }
 
 .file-list {
@@ -43,7 +43,7 @@
   display: flex;
   padding: var(--spacing-s) var(--spacing-2-xs);
   margin-top: var(--spacing-s);
-  max-width: 90%;
+  max-width: 500px;
 }
 
 .file-list-item-title {
