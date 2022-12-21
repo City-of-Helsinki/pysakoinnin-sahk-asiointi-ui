@@ -2,6 +2,7 @@ import { addDays, format, formatISO } from 'date-fns';
 
 const EXTENDEDDAYS = 30;
 const BREAKPOINT_M = 768;
+const BYTES_IN_KB = 1024;
 
 // from 'yyyy-mm-dd' to 'dd.mm.yyyy'
 export function formatDate(date: string): string {
@@ -35,3 +36,18 @@ export function isExtensionAllowed(date: string): boolean {
 export function isSmallScreen(width: number): boolean {
   return width < BREAKPOINT_M;
 }
+
+export const formatBytes = (bytes: number): string => {
+  if (bytes === 0) {
+    return '0 B';
+  }
+
+  const sizeUnits: string[] = ['B', 'KB', 'MB', 'GB', 'TB'];
+  const sizeUnitIndex = Math.floor(Math.log(bytes) / Math.log(BYTES_IN_KB));
+  const sizeInUnit = bytes / BYTES_IN_KB ** sizeUnitIndex;
+  return `${
+    sizeUnitIndex < 2 || sizeInUnit % 1 === 0
+      ? Math.round(sizeInUnit)
+      : sizeInUnit.toFixed(1)
+  } ${sizeUnits[sizeUnitIndex]}`;
+};

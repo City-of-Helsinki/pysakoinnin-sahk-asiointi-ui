@@ -1,6 +1,6 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import {
   Button,
@@ -18,14 +18,14 @@ import {
 } from 'hds-react';
 import { useClient } from '../../client/hooks';
 import { FormId, selectFormContent } from '../formContent/formContentSlice';
-
+import { FileItem, setPOAFile, setAttachments } from './rectificationFormSlice';
 import './RectificationForm.css';
 
 type Language = 'fi' | 'en' | 'sv';
 
 const RectificationForm = () => {
   const { t, i18n } = useTranslation();
-
+  const dispatch = useDispatch();
   const { getUser } = useClient();
   const user = getUser();
   const selectedForm = useSelector(selectFormContent).selectedForm;
@@ -56,6 +56,24 @@ const RectificationForm = () => {
 
   const handleDraftSave = () => {
     setShowDraftSavedNotification(true);
+  };
+
+  const setFiles = (files: File[], type: string) => {
+    const fileList: FileItem[] = [];
+    for (const file of files) {
+      const fileItem = {
+        name: file.name,
+        size: file.size,
+        type: file.type
+      };
+      fileList.push(fileItem);
+    }
+    switch (type) {
+      case 'poa':
+        return dispatch(setPOAFile(fileList[0]));
+      case 'attachments':
+        return dispatch(setAttachments(fileList));
+    }
   };
 
   const relations = movedCarFormSelected
@@ -127,7 +145,7 @@ const RectificationForm = () => {
                 language={i18n.language as Language}
                 label={t('rectification:attach-poa')}
                 id="rectificationPOAFile"
-                onChange={() => null}
+                onChange={e => setFiles(e, 'poa')}
                 dragAndDrop
                 accept={'.png, .jpg, .pdf'}
               />
@@ -234,7 +252,7 @@ const RectificationForm = () => {
             className="rectification-fileinput"
             label={t('rectification:attachments')}
             id="rectificationAttachments"
-            onChange={() => null}
+            onChange={e => setFiles(e, 'attachments')}
             dragAndDrop
             accept={'.png, .jpg, .pdf'}
           />
