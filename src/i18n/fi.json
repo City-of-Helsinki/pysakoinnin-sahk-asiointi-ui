@@ -217,6 +217,7 @@
     "toParkingService": "Pysäköinnin asiointikansiooni",
     "byMail": "Kirjeitse antamaani osoitteeseen",
     "attachments": "Liitetiedostot",
+    "poa": "Valtakirja",
     "attach-poa": "Liitä valtakirja"
   },
   "imageViewer": {

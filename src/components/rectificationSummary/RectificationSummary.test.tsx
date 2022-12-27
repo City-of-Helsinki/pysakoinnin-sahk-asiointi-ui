@@ -18,9 +18,23 @@ describe('Component', () => {
       reducers: {}
     });
 
+    const rectificationFormSliceMock = createSlice({
+      name: 'rectificationForm',
+      initialState: {
+        poaFile: {
+          name: '',
+          size: 0,
+          type: ''
+        },
+        attachments: []
+      },
+      reducers: {}
+    });
+
     const store = configureStore({
       reducer: {
-        formContent: formContentSliceMock.reducer
+        formContent: formContentSliceMock.reducer,
+        rectificationForm: rectificationFormSliceMock.reducer
       }
     });
     const { container } = render(
