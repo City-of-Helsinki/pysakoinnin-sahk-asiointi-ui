@@ -105,13 +105,13 @@ const FormStepper = (props: Props): React.ReactElement => {
             </a>
           )}
           <div>
-            {lastStep && formContent.selectedForm === 'parking-fine' && (
+            {lastStep && formContent.selectedForm !== 'due-date' && (
               <Button
                 iconLeft={<IconPrinter />}
                 onClick={() => null}
                 variant="secondary"
                 className="button print">
-                Tulosta
+                {t('common:print')}
               </Button>
             )}
             {!lastStep ? (
