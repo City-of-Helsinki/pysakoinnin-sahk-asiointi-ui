@@ -4,6 +4,7 @@ import {
   Button,
   IconArrowLeft,
   IconArrowRight,
+  IconHome,
   IconPrinter,
   IconThumbsUp,
   Notification,
@@ -92,14 +93,25 @@ const FormStepper = (props: Props): React.ReactElement => {
             variant="secondary">
             {t('common:previous')}
           </Button>
+          {activeStepIndex === 1 && !lastStep && (
+            <a className="button link" href="/">
+              <Button
+                className="button"
+                iconRight={<IconHome />}
+                role="link"
+                variant="secondary">
+                {t('common:to-mainpage')}
+              </Button>
+            </a>
+          )}
           <div>
-            {lastStep && formContent.selectedForm === 'parking-fine' && (
+            {lastStep && formContent.selectedForm !== 'due-date' && (
               <Button
                 iconLeft={<IconPrinter />}
                 onClick={() => null}
                 variant="secondary"
                 className="button print">
-                Tulosta
+                {t('common:print')}
               </Button>
             )}
             {!lastStep ? (
@@ -108,7 +120,9 @@ const FormStepper = (props: Props): React.ReactElement => {
                 iconRight={<IconArrowRight />}
                 onClick={() => dispatch(completeStep(activeStepIndex))}
                 variant="primary">
-                {t('common:next')}
+                {activeStepIndex === 1
+                  ? t('common:make-rectification')
+                  : t('common:next')}
               </Button>
             ) : formContent.formSubmitted ? (
               <Button
@@ -147,8 +161,12 @@ const FormStepper = (props: Props): React.ReactElement => {
         <div>
           {lastStep && formContent.formSubmitted && (
             <div ref={mainPageButtonRef}>
-              <a href="/">
-                <Button className="button back" role="link" variant="primary">
+              <a className="button link" href="/">
+                <Button
+                  className="button back"
+                  iconRight={<IconHome />}
+                  role="link"
+                  variant="primary">
                   {t('common:to-mainpage')}
                 </Button>
               </a>

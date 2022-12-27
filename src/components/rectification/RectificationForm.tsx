@@ -3,13 +3,10 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import {
-  Button,
   Checkbox,
   FileInput,
   IconCheckCircle,
-  IconUploadCloud,
   Link,
-  Notification,
   RadioButton,
   Select,
   SelectionGroup,
@@ -35,9 +32,6 @@ const RectificationForm = () => {
   const [newEmailSelected, setNewEmailSelected] = useState(false);
   const [vehicleRelation, setVehicleRelation] = useState('driver');
   const [currentCharacters, setCurrentCharacters] = useState(0);
-  const [showDraftSavedNotification, setShowDraftSavedNotification] = useState(
-    false
-  );
 
   const [decision, setDecision] = useState('toParkingService');
 
@@ -52,10 +46,6 @@ const RectificationForm = () => {
 
   const handleDecision = (e: React.ChangeEvent<HTMLInputElement>) => {
     setDecision(e.target.value);
-  };
-
-  const handleDraftSave = () => {
-    setShowDraftSavedNotification(true);
   };
 
   const setFiles = (files: File[], type: string) => {
@@ -276,27 +266,6 @@ const RectificationForm = () => {
               checked={decision === 'byMail'}
             />
           </SelectionGroup>
-        </div>
-        <div>
-          <Button
-            className="rectification-draft-button"
-            iconLeft={<IconUploadCloud />}
-            onClick={handleDraftSave}
-            variant="secondary">
-            {t('common:save-draft')}
-          </Button>
-          {showDraftSavedNotification && (
-            <Notification
-              label={t('common:notifications:draft-saved:label')}
-              position="bottom-right"
-              type={'success'}
-              autoClose
-              dismissible
-              closeButtonLabelText="Close notification"
-              onClose={() => setShowDraftSavedNotification(false)}>
-              {t('common:notifications:draft-saved:text')}
-            </Notification>
-          )}
         </div>
       </div>
     </>

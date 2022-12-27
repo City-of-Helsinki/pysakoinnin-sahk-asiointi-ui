@@ -58,7 +58,10 @@
     justify-content: space-between;
     margin-top: 12px;
   }
+}
 
+.button {
+  height: 56px;
 }
 
 .button.submit {
@@ -72,4 +75,8 @@
 
 .button.back {
   width: 100%;
+}
+
+.button.link {
+  text-decoration: none;
 }
