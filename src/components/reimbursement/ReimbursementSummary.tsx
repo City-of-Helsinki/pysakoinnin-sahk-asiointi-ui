@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { TextInput } from 'hds-react';
 import { useTranslation } from 'react-i18next';
+import { setSubmitDisabled } from '../formContent/formContentSlice';
 import Barcode from '../barcode/Barcode';
 import './ReimbursementSummary.css';
 
 const ReimbursementSummary = (): React.ReactElement => {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setSubmitDisabled(false));
+  }, [dispatch]);
 
   return (
     <div className="summary-body">

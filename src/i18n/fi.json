@@ -9,6 +9,7 @@
     "fetched-from-profile-aria": "Tieto haettu Helsinki-profiilista",
     "previous": "Edellinen",
     "next": "Seuraava",
+    "make-rectification": "Tee oikaisuvaatimus",
     "save-draft": "Tallenna keskeneräisenä",
     "required-fields": "Pakolliset kentät on merkitty tähdellä *",
     "email-confirmation": "Haluan vahvistuksen sähköpostiini",
@@ -159,6 +160,13 @@
       "step4": "Yhteenveto"
     },
     "submit": "Lähetä",
+    "submit-success": "Lähetys onnistui",
+    "notifications": {
+      "success": {
+        "label": "Olemme vastaanottaneet oikaisuvaatimuksesi",
+        "text": "Saat ilmoitukset oikaisuvaatimuksen käsittelyn eri vaiheista antamaasi sähköpostiosoitteeseen. Kun päätös on tehty, saat sen pysäköinnin asiointikansioosi."
+      }
+    },
     "move-timestamp": {
       "label": "Siirron päivämäärä",
       "placeholder": "1.11.2019"
