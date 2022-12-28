@@ -609,6 +609,7 @@ exports[`Component matches snapshot 1`] = `
         <div
           class="Card-module_card__1WbKx card_hds-card--border__c2dBc custom-theme-1 vehicle-details-container"
           data-testid="carInfoCard"
+          id="carInfoCard"
           role="region"
         >
           <h2
