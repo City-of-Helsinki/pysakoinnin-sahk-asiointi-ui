@@ -1,8 +1,7 @@
 .imageViewer-preview-container {
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-  grid-gap: 18px;
-  justify-items: center;
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-s);
 }
 
 .imageViewer-dialog {
@@ -17,12 +16,11 @@
 
 .imageViewer-preview-image {
   display: inline-block;
-  width: 96px;
+  width: 100px;
   object-fit: cover;
   object-position: center;
-  height: 96px;
+  height: 100px;
 }
-
 
 .imageViewer-dialog-text {
   display: block;
