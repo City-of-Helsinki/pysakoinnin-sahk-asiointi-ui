@@ -1,9 +1,6 @@
 .form-container {
   padding: 4px 0 12px;
-}
-
-.form-body {
-  margin-top: var(--spacing-xl);
+  margin: var(--spacing-m) 0 var(--spacing-m);
 }
 
 @media (max-width: 767px) {

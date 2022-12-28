@@ -1,10 +1,6 @@
 .barcode-container {
-  margin: 12px 0 24px;
-}
-
-.barcode-label {
-  font-size: var(--fontsize-body-m);
-  font-weight: 500;
+  max-width: 90vw;
+  margin-bottom: var(--spacing-m);
 }
 
 .barcode {

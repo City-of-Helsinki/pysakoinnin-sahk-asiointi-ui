@@ -8,9 +8,9 @@
   margin-bottom: 2rem;
 }
 
-@media (max-width: 440px) {
+@media (max-width: 450px) {
   #carInfoCard {
     border: none !important;
-    padding: 0 0 var(--spacing-m) 0;
+    padding: 0;
   }
 }

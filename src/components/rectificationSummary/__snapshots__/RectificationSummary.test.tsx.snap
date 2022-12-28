@@ -319,239 +319,118 @@ exports[`Component matches snapshot 1`] = `
             data-testid="parkingFineSummary"
           >
             <div
-              class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq info-field"
+              class="info-field"
             >
-              <label
-                class="FieldLabel-module_label__1zrXK "
-                for="fineTimeStamp"
-              >
+              <label>
                 Virheen ajankohta
               </label>
-              <div
-                class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-              >
-                <input
-                  class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-                  id="fineTimeStamp"
-                  readonly=""
-                  type="text"
-                  value="1.11.2019 09:41 - 1.11.2019 09:43"
-                />
-              </div>
+              <p>
+                1.11.2019 09:41 - 1.11.2019 09:43
+              </p>
             </div>
             <div
-              class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq info-field"
+              class="info-field"
             >
-              <label
-                class="FieldLabel-module_label__1zrXK "
-                for="refNumber"
-              >
+              <label>
                 Asianumero
               </label>
-              <div
-                class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-              >
-                <input
-                  class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-                  id="refNumber"
-                  readonly=""
-                  type="text"
-                  value="Esim. 12345678"
-                />
-              </div>
+              <p>
+                Esim. 12345678
+              </p>
             </div>
             <hr />
             <div
-              class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq info-field"
+              class="info-field"
             >
-              <label
-                class="FieldLabel-module_label__1zrXK "
-                for="address"
-              >
+              <label>
                 Lähiosoite
               </label>
-              <div
-                class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-              >
-                <input
-                  class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-                  id="address"
-                  readonly=""
-                  type="text"
-                  value="Näkinkuja 1c"
-                />
-              </div>
+              <p>
+                Näkinkuja 1c
+              </p>
             </div>
             <div
-              class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq info-field"
+              class="info-field"
             >
-              <label
-                class="FieldLabel-module_label__1zrXK "
-                for="additionalDetails"
-              >
+              <label>
                 Lisätietoja
               </label>
-              <div
-                class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-              >
-                <input
-                  class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-                  id="additionalDetails"
-                  readonly=""
-                  type="text"
-                  value="Kääntymispaikka"
-                />
-              </div>
+              <p>
+                Kääntymispaikka
+              </p>
             </div>
             <hr />
             <div
-              class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq info-field"
+              class="info-field"
             >
-              <label
-                class="FieldLabel-module_label__1zrXK "
-                for="fineTitle-1"
-              >
+              <label>
                 Virhe
               </label>
-              <div
-                class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-              >
-                <textarea
-                  class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-                  id="fineTitle-1"
-                  readonly=""
-                >
-                  Pysäköinti kielletty liikennemerkin noudattamatta jättäminen. TLL 3 § 1 mom, TL 16 § merkki 372
-                </textarea>
-              </div>
+              <p>
+                Pysäköinti kielletty liikennemerkin noudattamatta jättäminen. TLL 3 § 1 mom, TL 16 § merkki 372
+              </p>
             </div>
             <div
-              class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq info-field"
+              class="info-field"
             >
-              <label
-                class="FieldLabel-module_label__1zrXK "
-                for="fineDetails-1"
-              >
+              <label>
                 Lisätieto
               </label>
-              <div
-                class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-              >
-                <input
-                  class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-                  id="fineDetails-1"
-                  readonly=""
-                  type="text"
-                  value="Liikennemerkistä n. 3 m"
-                />
-              </div>
+              <p>
+                Liikennemerkistä n. 3 m
+              </p>
             </div>
             <div
-              class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq info-field"
+              class="info-field"
             >
-              <label
-                class="FieldLabel-module_label__1zrXK "
-                for="fineTitle-2"
-              >
+              <label>
                 Virhe
               </label>
-              <div
-                class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-              >
-                <textarea
-                  class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-                  id="fineTitle-2"
-                  readonly=""
-                >
-                  Pysäköinti kielletty liikennemerkin noudattamatta jättäminen. TLL 3 § 1 mom, TL 16 § merkki 372
-                </textarea>
-              </div>
+              <p>
+                Pysäköinti kielletty liikennemerkin noudattamatta jättäminen. TLL 3 § 1 mom, TL 16 § merkki 372
+              </p>
             </div>
             <div
-              class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq info-field"
+              class="info-field"
             >
-              <label
-                class="FieldLabel-module_label__1zrXK "
-                for="fineDetails-2"
-              >
+              <label>
                 Lisätieto
               </label>
-              <div
-                class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-              >
-                <input
-                  class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-                  id="fineDetails-2"
-                  readonly=""
-                  type="text"
-                  value="Liikennemerkistä n. 3 m"
-                />
-              </div>
+              <p>
+                Liikennemerkistä n. 3 m
+              </p>
             </div>
             <hr />
             <div
-              class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq wide-field"
+              class="wide-field"
             >
-              <label
-                class="FieldLabel-module_label__1zrXK "
-                for="fineAdditionalDetails"
-              >
+              <label>
                 Pysäköintivirheen lisätiedot
               </label>
-              <div
-                class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-              >
-                <textarea
-                  class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-                  id="fineAdditionalDetails"
-                  readonly=""
-                >
-                  Lyökämme käsi kätehen, sormet sormien lomahan, lauloaksemme hyviä, parahia pannaksemme, kuulla noien kultaisien, tietä mielitehtoisien, nuorisossa nousevassa, kansassa kasuavassa: noita saamia sanoja, virsiä virittämiä vyöltä vanhan Väinämöisen, alta ahjon Ilmarisen, päästä kalvan Kaukomielen. 294 merkkiä
-                </textarea>
-              </div>
+              <p>
+                Lyökämme käsi kätehen, sormet sormien lomahan, lauloaksemme hyviä, parahia pannaksemme, kuulla noien kultaisien, tietä mielitehtoisien, nuorisossa nousevassa, kansassa kasuavassa: noita saamia sanoja, virsiä virittämiä vyöltä vanhan Väinämöisen, alta ahjon Ilmarisen, päästä kalvan Kaukomielen. 294 merkkiä
+              </p>
             </div>
             <hr />
             <div
-              class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq info-field sum-field"
+              class="info-field sum-field"
             >
-              <label
-                class="FieldLabel-module_label__1zrXK "
-                for="sum"
-              >
+              <label>
                 Pysäköintivirhemaksun summa
               </label>
-              <div
-                class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-              >
-                <input
-                  class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-                  id="sum"
-                  readonly=""
-                  type="text"
-                  value="80,00 EUR"
-                />
-              </div>
+              <p>
+                80,00 EUR
+              </p>
             </div>
             <div
-              class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq info-field"
+              class="info-field"
             >
-              <label
-                class="FieldLabel-module_label__1zrXK "
-                for="dueDate"
-              >
+              <label>
                 Eräpäivä
               </label>
-              <div
-                class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-              >
-                <input
-                  class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-                  id="dueDate"
-                  readonly=""
-                  type="text"
-                  value="2.12.2019"
-                />
-              </div>
+              <p>
+                2.12.2019
+              </p>
             </div>
             <hr />
             <div

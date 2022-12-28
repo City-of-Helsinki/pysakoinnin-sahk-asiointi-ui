@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { TextArea, TextInput } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import { setSubmitDisabled } from '../formContent/formContentSlice';
 import Barcode from '../barcode/Barcode';
@@ -17,95 +16,64 @@ const ParkingFineSummary = (): React.ReactElement => {
   return (
     <div className="summary-body">
       <div data-testid="parkingFineSummary" className="summary-container">
-        <TextInput
-          className="info-field"
-          id="fineTimeStamp"
-          label={t('common:fine-info:fine-timestamp:label')}
-          value={t('common:fine-info:fine-timestamp:placeholder')}
-          readOnly
-        />
-        <TextInput
-          className="info-field"
-          id="refNumber"
-          label={t('common:fine-info:ref-number:label')}
-          value={t('common:fine-info:ref-number:placeholder')}
-          readOnly
-        />
+        <div className="info-field">
+          <label>{t('common:fine-info:fine-timestamp:label')}</label>
+          <p>{t('common:fine-info:fine-timestamp:placeholder')}</p>
+        </div>
+        <div className="info-field">
+          <label>{t('common:fine-info:ref-number:label')}</label>
+          <p>{t('common:fine-info:ref-number:placeholder')}</p>
+        </div>
 
         <hr />
 
-        <TextInput
-          className="info-field"
-          id="address"
-          label={t('common:fine-info:address:label')}
-          value={t('common:fine-info:address:placeholder')}
-          readOnly
-        />
-        <TextInput
-          className="info-field"
-          id="additionalDetails"
-          label={t('common:fine-info:additional-details:label')}
-          value={t('common:fine-info:additional-details:placeholder')}
-          readOnly
-        />
+        <div className="info-field">
+          <label>{t('common:fine-info:address:label')}</label>
+          <p>{t('common:fine-info:address:placeholder')}</p>
+        </div>
+        <div className="info-field">
+          <label>{t('common:fine-info:additional-details:label')}</label>
+          <p>{t('common:fine-info:additional-details:placeholder')}</p>
+        </div>
 
         <hr />
 
-        <TextArea
-          className="info-field"
-          id="fineTitle-1"
-          label={t('common:fine-info:fine-title:label')}
-          value={t('common:fine-info:fine-title:placeholder')}
-          readOnly
-        />
-        <TextInput
-          className="info-field"
-          id="fineDetails-1"
-          label={t('common:fine-info:fine-details:label')}
-          value={t('common:fine-info:fine-details:placeholder')}
-          readOnly
-        />
-        <TextArea
-          className="info-field"
-          id="fineTitle-2"
-          label={t('common:fine-info:fine-title:label')}
-          value={t('common:fine-info:fine-title:placeholder')}
-          readOnly
-        />
-        <TextInput
-          className="info-field"
-          id="fineDetails-2"
-          label={t('common:fine-info:fine-details:label')}
-          value={t('common:fine-info:fine-details:placeholder')}
-          readOnly
-        />
+        <div className="info-field">
+          <label>{t('common:fine-info:fine-title:label')}</label>
+          <p>{t('common:fine-info:fine-title:placeholder')}</p>
+        </div>
+        <div className="info-field">
+          <label>{t('common:fine-info:fine-details:label')}</label>
+          <p>{t('common:fine-info:fine-details:placeholder')}</p>
+        </div>
+
+        <div className="info-field">
+          <label>{t('common:fine-info:fine-title:label')}</label>
+          <p>{t('common:fine-info:fine-title:placeholder')}</p>
+        </div>
+        <div className="info-field">
+          <label>{t('common:fine-info:fine-details:label')}</label>
+          <p>{t('common:fine-info:fine-details:placeholder')}</p>
+        </div>
 
         <hr />
 
-        <TextArea
-          className="wide-field"
-          id="fineAdditionalDetails"
-          label={t('common:fine-info:fine-additional-details:label')}
-          value={t('common:fine-info:fine-additional-details:placeholder')}
-          readOnly
-        />
+        <div className="wide-field">
+          <label>{t('common:fine-info:fine-additional-details:label')}</label>
+          <p>{t('common:fine-info:fine-additional-details:placeholder')}</p>
+        </div>
 
         <hr />
 
-        <TextInput
-          id="sum"
-          label={t('common:fine-info:sum:label')}
-          value={t('common:fine-info:sum:placeholder')}
-          readOnly
-          className="info-field sum-field"
-        />
-        <TextInput
-          className="info-field"
-          id="dueDate"
-          label={t('common:fine-info:due-date:label')}
-          value={t('common:fine-info:due-date:placeholder')}
-          readOnly
-        />
+        <div className="info-field sum-field">
+          <label>{t('common:fine-info:sum:label')}</label>
+          <p>{t('common:fine-info:sum:placeholder')}</p>
+        </div>
+
+        <div className="info-field">
+          <label>{t('common:fine-info:due-date:label')}</label>
+          <p>{t('common:fine-info:due-date:placeholder')}</p>
+        </div>
 
         <hr />
         <Barcode
