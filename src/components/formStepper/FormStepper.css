@@ -23,17 +23,36 @@
   }
 
   .button-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column-reverse;
-    gap: 12px;
+    display: grid;
+    grid-gap: var(--spacing-xs);
+  }
+
+  .submit-and-print-button-wrapper {
+    display: grid;
+    grid-gap: var(--spacing-xs);
   }
 
   .button {
     width: 100%;
   }
 
-  .button.back {
+  #button-previous {
+    grid-row: 2;
+  }
+
+  #button-next {
+    grid-row: 1;
+  }
+
+  #button-home {
+    grid-row: 3;
+  }
+
+  #button-print {
+    grid-row: 2;
+  }
+
+  .button.home {
     margin-top: var(--spacing-xs);
   }
 }
@@ -58,12 +77,7 @@
     margin-top: 12px;
   }
   .button-wrapper.submit {
-    display: flex;
-    align-items: flex-start;
-    gap: 24px;
-    height: 96px;
     justify-content: space-between;
-    margin-top: 12px;
   }
 }
 
@@ -80,7 +94,7 @@
   z-index: 100;
 }
 
-.button.back {
+.button.home {
   width: 100%;
 }
 

@@ -88,15 +88,16 @@ const FormStepper = (props: Props): React.ReactElement => {
       <div className="button-container">
         <div className={`button-wrapper ${lastStep ? 'submit' : ''}`}>
           <Button
+            id="button-previous"
             className="button"
-            disabled={activeStepIndex === 0}
+            disabled={activeStepIndex === 0 || formContent.formSubmitted}
             iconLeft={<IconArrowLeft />}
             onClick={() => dispatch(setActive(activeStepIndex - 1))}
             variant="secondary">
             {t('common:previous')}
           </Button>
           {activeStepIndex === 1 && !lastStep && (
-            <a className="button link" href="/">
+            <a id="button-home" className="button link" href="/">
               <Button
                 className="button"
                 iconRight={<IconHome />}
@@ -106,9 +107,10 @@ const FormStepper = (props: Props): React.ReactElement => {
               </Button>
             </a>
           )}
-          <div>
+          <div className="submit-and-print-button-wrapper">
             {lastStep && formContent.selectedForm !== 'due-date' && (
               <Button
+                id="button-print"
                 iconLeft={<IconPrinter />}
                 onClick={() => null}
                 variant="secondary"
@@ -118,6 +120,7 @@ const FormStepper = (props: Props): React.ReactElement => {
             )}
             {!lastStep ? (
               <Button
+                id="button-next"
                 className="button"
                 iconRight={<IconArrowRight />}
                 onClick={() => dispatch(completeStep(activeStepIndex))}
@@ -128,6 +131,7 @@ const FormStepper = (props: Props): React.ReactElement => {
               </Button>
             ) : formContent.formSubmitted ? (
               <Button
+                id="button-next"
                 className="button"
                 iconLeft={<IconThumbsUp />}
                 onClick={handleSubmit}
@@ -136,6 +140,7 @@ const FormStepper = (props: Props): React.ReactElement => {
               </Button>
             ) : (
               <Button
+                id="button-next"
                 className="button submit"
                 onClick={handleSubmit}
                 variant="primary"
@@ -165,7 +170,7 @@ const FormStepper = (props: Props): React.ReactElement => {
             <div ref={mainPageButtonRef}>
               <a className="button link" href="/">
                 <Button
-                  className="button back"
+                  className="button home"
                   iconRight={<IconHome />}
                   role="link"
                   variant="primary">

@@ -3,12 +3,6 @@
   margin: var(--spacing-m) 0 var(--spacing-m);
 }
 
-@media (max-width: 767px) {
-  .button.print {
-    margin-bottom: var(--spacing-xs);
-  }
-}
-
 @media (min-width: 768px) {
   .button.print {
     margin-right: var(--spacing-m);
