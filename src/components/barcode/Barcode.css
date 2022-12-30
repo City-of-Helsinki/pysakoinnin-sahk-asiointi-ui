@@ -4,6 +4,5 @@
 }
 
 .barcode {
-  font-size: var(--fontsize-body-l);
   overflow-wrap: break-word;
 }

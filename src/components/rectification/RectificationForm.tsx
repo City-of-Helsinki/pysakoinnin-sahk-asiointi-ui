@@ -72,7 +72,7 @@ const RectificationForm = () => {
 
   return (
     <>
-      <p>{t('common:required-fields')}</p>
+      <p className="small-text">{t('common:required-fields')}</p>
       <div>
         <div className="rectification-info-container">
           <div className="rectification-user-section">
@@ -143,7 +143,7 @@ const RectificationForm = () => {
           )}
         </div>
         <hr />
-        <p>
+        <p className="small-text">
           <IconCheckCircle aria-hidden="true" />
           {t('common:fetched-from-profile')}
           <Link
