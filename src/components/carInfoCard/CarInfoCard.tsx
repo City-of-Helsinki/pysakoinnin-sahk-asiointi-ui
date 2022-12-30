@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, TextInput } from 'hds-react';
+import { Card } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import ImageViewer from '../imageViewer/ImageViewer';
 import './CarInfoCard.css';
@@ -27,36 +27,26 @@ const CarInfoCard = (): React.ReactElement => {
       <h2 className="vehicle-details-header">
         {t('parking-fine:vehicle-info:header')}
       </h2>
-      <TextInput
-        id="regNumber"
-        label={t('common:fine-info:reg-number:label')}
-        value={t('common:fine-info:reg-number:placeholder')}
-        readOnly
-      />
-      <TextInput
-        id="vehicleType"
-        label={t('parking-fine:vehicle-info:type:label')}
-        value={t('parking-fine:vehicle-info:type:placeholder')}
-        readOnly
-      />
-      <TextInput
-        id="vehicleBrand"
-        label={t('parking-fine:vehicle-info:brand:label')}
-        value={t('parking-fine:vehicle-info:brand:placeholder')}
-        readOnly
-      />
-      <TextInput
-        id="vehicleModel"
-        label={t('parking-fine:vehicle-info:model:label')}
-        value={t('parking-fine:vehicle-info:model:placeholder')}
-        readOnly
-      />
-      <TextInput
-        id="vehicleColor"
-        label={t('parking-fine:vehicle-info:color:label')}
-        value={t('parking-fine:vehicle-info:color:placeholder')}
-        readOnly
-      />
+      <div>
+        <label>{t('common:fine-info:reg-number:label')}</label>
+        <p>{t('common:fine-info:reg-number:placeholder')}</p>
+      </div>
+      <div>
+        <label>{t('parking-fine:vehicle-info:type:label')}</label>
+        <p>{t('parking-fine:vehicle-info:type:placeholder')}</p>
+      </div>
+      <div>
+        <label>{t('parking-fine:vehicle-info:brand:label')}</label>
+        <p>{t('parking-fine:vehicle-info:brand:placeholder')}</p>
+      </div>
+      <div>
+        <label>{t('parking-fine:vehicle-info:model:label')}</label>
+        <p>{t('parking-fine:vehicle-info:model:placeholder')}</p>
+      </div>
+      <div>
+        <label>{t('parking-fine:vehicle-info:color:label')}</label>
+        <p>{t('parking-fine:vehicle-info:color:placeholder')}</p>
+      </div>
       <ImageViewer images={imageUrls} />
     </Card>
   );
