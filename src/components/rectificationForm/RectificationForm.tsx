@@ -15,7 +15,7 @@ import {
 } from 'hds-react';
 import { useClient } from '../../client/hooks';
 import { FormId, selectFormContent } from '../formContent/formContentSlice';
-import { FileItem, setPOAFile, setAttachments } from './rectificationFormSlice';
+import { FileItem, setAttachments, setPOAFile } from './rectificationFormSlice';
 import './RectificationForm.css';
 
 type Language = 'fi' | 'en' | 'sv';
@@ -72,18 +72,20 @@ const RectificationForm = () => {
 
   return (
     <>
-      <p className="small-text">{t('common:required-fields')}</p>
+      <p>{t('common:required-fields')}</p>
       <div>
         <div className="rectification-info-container">
           <div className="rectification-user-section">
             <SelectionGroup
-              label={t(`rectification:relation-info:${selectedForm}:relation`)}
+              label={t(
+                `rectificationForm:relation-info:${selectedForm}:relation`
+              )}
               required>
               {relations.map(relation => (
                 <RadioButton
                   key={relation}
                   label={t(
-                    `rectification:relation-info:${selectedForm}:${relation}`
+                    `rectificationForm:relation-info:${selectedForm}:${relation}`
                   )}
                   id={relation}
                   value={relation}
@@ -133,7 +135,7 @@ const RectificationForm = () => {
             <div className="rectification-poa-fileinput">
               <FileInput
                 language={i18n.language as Language}
-                label={t('rectification:attach-poa')}
+                label={t('rectificationForm:attach-poa')}
                 id="rectificationPOAFile"
                 onChange={e => setFiles(e, 'poa')}
                 dragAndDrop
@@ -143,7 +145,7 @@ const RectificationForm = () => {
           )}
         </div>
         <hr />
-        <p className="small-text">
+        <p className="rectification-link-to-profile">
           <IconCheckCircle aria-hidden="true" />
           {t('common:fetched-from-profile')}
           <Link
@@ -158,26 +160,8 @@ const RectificationForm = () => {
         </p>
 
         <div className="rectification-form-container">
-          <TextArea
-            label={t('rectification:rectification-content')}
-            required
-            id="rectification-content"
-            className="rectification-textarea"
-            helperText={`${currentCharacters}/${window._env_.REACT_APP_RECTIFICATION_CHAR_LIMIT}`}
-            onChange={e => setCurrentCharacters(e.target.value.length)}
-            errorText={
-              currentCharacters >=
-              window._env_.REACT_APP_RECTIFICATION_CHAR_LIMIT
-                ? t('rectification:description-over-limit')
-                : ''
-            }
-            invalid={
-              currentCharacters >=
-              window._env_.REACT_APP_RECTIFICATION_CHAR_LIMIT
-            }
-          />
           <Checkbox
-            label={t('rectification:to-separate-email')}
+            label={t('rectificationForm:to-separate-email')}
             id="newEmail"
             onChange={handleCheckbox}
             checked={checked}
@@ -197,33 +181,33 @@ const RectificationForm = () => {
 
           <TextInput
             id="address"
-            label={t('rectification:address')}
+            label={t('rectificationForm:address')}
             placeholder="Esim. Elimäenkatu 5"
             required
           />
           <div className="rectification-subgrid">
             <TextInput
               id="zipCode"
-              label={t('rectification:zipcode')}
+              label={t('rectificationForm:zipcode')}
               placeholder="Esim. 00100"
               required
             />
             <TextInput
               id="city"
-              label={t('rectification:city')}
+              label={t('rectificationForm:city')}
               placeholder="Esim. Helsinki"
               required
             />
 
             <Select
-              label={t('rectification:area-code')}
+              label={t('rectificationForm:area-code')}
               options={[{ label: 'Suomi (+358)' }]}
               defaultValue={{ label: 'Suomi (+358)' }}
               required
             />
             <TextInput
               id="phone"
-              label={t('rectification:phone')}
+              label={t('rectificationForm:phone')}
               placeholder="Esim. 401234567"
               required
             />
@@ -231,16 +215,35 @@ const RectificationForm = () => {
 
           <TextInput
             id="IBAN"
-            label={t('rectification:IBAN')}
+            label={t('rectificationForm:IBAN')}
             required
             placeholder="Esim. FI9780001700903330"
+          />
+
+          <TextArea
+            label={t('rectificationForm:rectification-content')}
+            required
+            id="rectification-content"
+            className="rectification-textarea"
+            helperText={`${currentCharacters}/${window._env_.REACT_APP_RECTIFICATION_CHAR_LIMIT}`}
+            onChange={e => setCurrentCharacters(e.target.value.length)}
+            errorText={
+              currentCharacters >=
+              window._env_.REACT_APP_RECTIFICATION_CHAR_LIMIT
+                ? t('rectificationForm:description-over-limit')
+                : ''
+            }
+            invalid={
+              currentCharacters >=
+              window._env_.REACT_APP_RECTIFICATION_CHAR_LIMIT
+            }
           />
 
           <FileInput
             language={i18n.language as Language}
             multiple
             className="rectification-fileinput"
-            label={t('rectification:attachments')}
+            label={t('rectificationForm:attachments')}
             id="rectificationAttachments"
             onChange={e => setFiles(e, 'attachments')}
             dragAndDrop
@@ -248,18 +251,18 @@ const RectificationForm = () => {
           />
 
           <SelectionGroup
-            label={t('rectification:decision-choice')}
+            label={t('rectificationForm:decision-choice')}
             required
             className="rectification-decision-choice">
             <RadioButton
-              label={t('rectification:toParkingService')}
+              label={t('rectificationForm:toParkingService')}
               id="toParkingService"
               value="toParkingService"
               onChange={handleDecision}
               checked={decision === 'toParkingService'}
             />
             <RadioButton
-              label={t('rectification:byMail')}
+              label={t('rectificationForm:byMail')}
               id="byMail"
               value="byMail"
               onChange={handleDecision}

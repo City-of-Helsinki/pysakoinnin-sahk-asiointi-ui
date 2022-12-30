@@ -57,6 +57,16 @@
 }
 
 @media only screen and (max-width: 768px) {
+  .rectification-form-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .rectification-textarea {
+    height: 25vh;
+    margin-bottom: var(--spacing-2-xl);
+  }
+
   .rectification-form-user-details {
     grid-template-columns: 1fr 1fr;
   }
@@ -64,6 +74,12 @@
   .rectification-poa-fileinput {
     flex: 1;
     min-width: 300px;
+  }
+
+  .rectification-link-to-profile a {
+    display: block;
+    margin-top: var(--spacing-s);
+    margin-left: var(--spacing-layout-xs);
   }
 }
 

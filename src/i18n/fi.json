@@ -196,7 +196,7 @@
       "placeholder": "85,00 EUR"
     }
   },
-  "rectification": {
+  "rectificationForm": {
     "relation-info": {
       "parking-fine": {
         "relation": "Olen ajoneuvon",
