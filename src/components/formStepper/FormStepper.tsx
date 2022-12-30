@@ -73,15 +73,17 @@ const FormStepper = (props: Props): React.ReactElement => {
   return (
     <div>
       <h1 className="form-title">{t(`${formContent.selectedForm}:title`)}</h1>
-      <Stepper
-        className="stepper"
-        small={isSmallScreen(screenWidth)}
-        language="fi"
-        onStepClick={(event, stepIndex) => dispatch(setActive(stepIndex))}
-        selectedStep={activeStepIndex}
-        stepHeading
-        steps={steps}
-      />
+      <div id="stepper">
+        <Stepper
+          className="stepper"
+          small={isSmallScreen(screenWidth)}
+          language="fi"
+          onStepClick={(event, stepIndex) => dispatch(setActive(stepIndex))}
+          selectedStep={activeStepIndex}
+          stepHeading
+          steps={steps}
+        />
+      </div>
       <FormContent activeStep={activeStepIndex} />
       <div className="button-container">
         <div className={`button-wrapper ${lastStep ? 'submit' : ''}`}>

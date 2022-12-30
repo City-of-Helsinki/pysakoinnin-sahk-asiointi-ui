@@ -11,6 +11,13 @@
     line-height: 32px;
   }
 
+  #stepper div div:nth-child(2) {
+    font-size: 24px;
+  }
+  #stepper div div:nth-child(2) button {
+    font-size: 16px;
+  }
+
   .button-container {
     max-width: 500px;
   }
