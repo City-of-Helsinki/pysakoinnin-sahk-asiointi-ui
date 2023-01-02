@@ -5,3 +5,7 @@
 .field {
   margin-top: 24px;
 }
+
+.small-text {
+  font-size: var(--fontsize-body-m);
+}

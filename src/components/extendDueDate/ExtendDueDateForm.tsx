@@ -42,7 +42,7 @@ const ExtendDueDateForm = (): React.ReactElement => {
   }, [dispatch, extensionAllowed]);
 
   return (
-    <div data-testid="extendDueDateForm" className="form-body">
+    <div data-testid="extendDueDateForm">
       {infoNotificationOpen && (
         <Notification
           label={

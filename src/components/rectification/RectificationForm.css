@@ -82,3 +82,7 @@
     min-width: 450px;
   }
 }
+
+.small-text {
+  font-size: var(--fontsize-body-m);
+}

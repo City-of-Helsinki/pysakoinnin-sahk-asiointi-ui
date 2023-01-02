@@ -12,7 +12,7 @@ const SearchForm = (): React.ReactElement => {
 
   return (
     <div data-testid="searchForm" className="fieldset">
-      <p>{t('common:required-fields')}</p>
+      <p className="small-text">{t('common:required-fields')}</p>
       {movedCarForm ? (
         <TextInput
           className="field"

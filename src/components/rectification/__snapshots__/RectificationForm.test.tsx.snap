@@ -2,7 +2,9 @@
 
 exports[`Component in moved car form matches snapshot 1`] = `
 <div>
-  <p>
+  <p
+    class="small-text"
+  >
     Pakolliset kentät on merkitty tähdellä *
   </p>
   <div>
@@ -368,7 +370,9 @@ exports[`Component in moved car form matches snapshot 1`] = `
       </div>
     </div>
     <hr />
-    <p>
+    <p
+      class="small-text"
+    >
       <svg
         aria-hidden="true"
         class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
@@ -926,7 +930,9 @@ exports[`Component in moved car form matches snapshot 1`] = `
 
 exports[`Component in parking fine appeal form matches snapshot 1`] = `
 <div>
-  <p>
+  <p
+    class="small-text"
+  >
     Pakolliset kentät on merkitty tähdellä *
   </p>
   <div>
@@ -1165,7 +1171,9 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
       </div>
     </div>
     <hr />
-    <p>
+    <p
+      class="small-text"
+    >
       <svg
         aria-hidden="true"
         class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"

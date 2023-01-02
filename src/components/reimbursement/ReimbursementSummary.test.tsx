@@ -5,7 +5,6 @@ import ReimbursementSummary from './ReimbursementSummary';
 import { Provider } from 'react-redux';
 import store from '../../store';
 import '@testing-library/jest-dom';
-import { t } from 'i18next';
 
 describe('reimbursement summary', () => {
   test('passes a11y validation', async () => {
@@ -25,39 +24,25 @@ describe('reimbursement summary', () => {
     );
 
     // Summary fields are visible
-    const moveDate = screen.getByRole('textbox', {
-      name: t('moved-car:move-timestamp:label')
-    });
+    const moveDate = screen.getByText(/Siirron päivämäärä/i);
     expect(moveDate).toBeInTheDocument();
 
-    const refNumberEl = screen.getByRole('textbox', {
-      name: t('common:fine-info:ref-number:label')
-    });
+    const refNumberEl = screen.getByText(/Asianumero/i);
     expect(refNumberEl).toBeInTheDocument();
 
-    const moveReasonEl = screen.getByRole('textbox', {
-      name: t('moved-car:move-reason:label')
-    });
+    const moveReasonEl = screen.getByText(/Siirron syy/i);
     expect(moveReasonEl).toBeInTheDocument();
 
-    const moveTypeEl = screen.getByRole('textbox', {
-      name: t('moved-car:move-type:label')
-    });
+    const moveTypeEl = screen.getByText(/Siirron tyyppi/i);
     expect(moveTypeEl).toBeInTheDocument();
 
-    const moveAddressFromEl = screen.getByRole('textbox', {
-      name: t('moved-car:address-from:label')
-    });
+    const moveAddressFromEl = screen.getByText(/Siirron lähtöosoite/i);
     expect(moveAddressFromEl).toBeInTheDocument();
 
-    const moveAddressToEl = screen.getByRole('textbox', {
-      name: t('moved-car:address-to:label')
-    });
+    const moveAddressToEl = screen.getByText(/Siirron pääteosoite/i);
     expect(moveAddressToEl).toBeInTheDocument();
 
-    const reimbursementSum = screen.getByRole('textbox', {
-      name: t('moved-car:reimbursement-sum:label')
-    });
+    const reimbursementSum = screen.getByText(/Korvauspäätöksen summa/i);
     expect(reimbursementSum).toBeInTheDocument();
 
     const barcodeEl = screen.getByText(/Virtuaaliviivakoodi/);

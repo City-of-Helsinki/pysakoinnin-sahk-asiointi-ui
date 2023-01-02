@@ -150,7 +150,11 @@
   }
 }
 
-.text-label {
+label {
   font-size: var(--fontsize-body-m);
   font-weight: 500;
+}
+
+p {
+  font-size: var(--fontsize-body-l);
 }
