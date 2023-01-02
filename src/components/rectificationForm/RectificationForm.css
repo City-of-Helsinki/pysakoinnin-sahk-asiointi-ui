@@ -14,7 +14,6 @@
 
 .rectification-user-section {
   flex: 1;
-  min-width: 500px;
 }
 
 .rectification-textarea {
@@ -63,7 +62,7 @@
   }
 
   .rectification-textarea {
-    height: 25vh;
+    height: 50vh;
     margin-bottom: var(--spacing-2-xl);
   }
 
@@ -80,6 +79,10 @@
     display: block;
     margin-top: var(--spacing-s);
     margin-left: var(--spacing-layout-xs);
+  }
+
+  .rectification-form-checkmark {
+
   }
 }
 

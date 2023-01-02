@@ -107,6 +107,7 @@ const RectificationForm = () => {
                 defaultValue={user?.name as string}
               />
               <IconCheckCircle
+                className="rectification-form-checkmark"
                 aria-label={t('common:fetched-from-profile-aria')}
               />
               <TextInput
@@ -117,6 +118,7 @@ const RectificationForm = () => {
                 defaultValue="123456-789A"
               />
               <IconCheckCircle
+                className="rectification-form-checkmark"
                 aria-label={t('common:fetched-from-profile-aria')}
               />
               <TextInput
@@ -127,6 +129,7 @@ const RectificationForm = () => {
                 defaultValue={user?.email as string}
               />
               <IconCheckCircle
+                className="rectification-form-checkmark"
                 aria-label={t('common:fetched-from-profile-aria')}
               />
             </div>
@@ -150,7 +153,7 @@ const RectificationForm = () => {
           {t('common:fetched-from-profile')}
           <Link
             href={window._env_.REACT_APP_PROFILE_UI_URL}
-            size="M"
+            size="S"
             external
             openInNewTab
             openInExternalDomainAriaLabel={t('common:aria:open-external')}
@@ -201,8 +204,8 @@ const RectificationForm = () => {
 
             <Select
               label={t('rectificationForm:area-code')}
-              options={[{ label: 'Suomi (+358)' }]}
-              defaultValue={{ label: 'Suomi (+358)' }}
+              options={[{ label: '(+358)' }]}
+              defaultValue={{ label: '(+358)' }}
               required
             />
             <TextInput
@@ -225,7 +228,9 @@ const RectificationForm = () => {
             required
             id="rectification-content"
             className="rectification-textarea"
-            helperText={`${currentCharacters}/${window._env_.REACT_APP_RECTIFICATION_CHAR_LIMIT}`}
+            helperText={`${currentCharacters}/${
+              window._env_.REACT_APP_RECTIFICATION_CHAR_LIMIT
+            } ${t('common:characters')}`}
             onChange={e => setCurrentCharacters(e.target.value.length)}
             errorText={
               currentCharacters >=
