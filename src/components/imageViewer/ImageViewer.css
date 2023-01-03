@@ -5,13 +5,35 @@
 }
 
 .imageViewer-dialog {
-  width: auto !important;
+  height: 90vh !important;
+  width: 95vw !important;
 }
 
-.imageViewer-dialog-image {
-  max-height: 800px;
-  max-width: 800px;
-  display: inline-block;
+@media (max-width: 767px) {
+  .imageViewer-dialog div:nth-child(2) {
+    height: 60vh;
+    width: 80vw;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    overflow-y: auto;
+  }
+
+  .imageViewer-dialog img {
+    max-height: 90%;
+    max-width: 100%;
+  }
+
+  .imageViewer-button-container {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: var(--spacing-xs);
+    padding-top: 0;
+  }
 }
 
 .imageViewer-preview-image {

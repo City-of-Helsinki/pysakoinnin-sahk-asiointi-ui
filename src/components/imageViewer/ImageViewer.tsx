@@ -59,7 +59,7 @@ const ImageViewer = (props: ImageViewerProps) => {
             {t('imageViewer:image')} {currentImage + 1} / {images.length}
           </span>
         </Dialog.Content>
-        <Dialog.ActionButtons>
+        <Dialog.ActionButtons className="imageViewer-button-container">
           <Button onClick={previousImage} disabled={currentImage === 0}>
             {t('imageViewer:previous-image')}
           </Button>
