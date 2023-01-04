@@ -10,8 +10,8 @@
 }
 
 .imageViewer-dialog div:nth-child(2) {
-  height: 67vh;
-  width: 80vw;
+  height: 100%;
+  width: 80%;
   margin: 0 auto;
   text-align: center;
   display: flex;
