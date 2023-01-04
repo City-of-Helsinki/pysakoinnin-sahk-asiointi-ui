@@ -61,6 +61,10 @@ const FormStepper = (props: Props): React.ReactElement => {
     setShowSubmitNotification(true);
   };
 
+  const handlePrint = () => {
+    window.print();
+  };
+
   useEffect(() => {
     dispatch(setSteps(props.initialSteps));
   }, [dispatch, props.initialSteps]);
@@ -75,7 +79,7 @@ const FormStepper = (props: Props): React.ReactElement => {
       <h1 className="form-title">{t(`${formContent.selectedForm}:title`)}</h1>
       <div id="stepper">
         <Stepper
-          className="stepper"
+          className="stepper hide-on-print"
           small={isSmallScreen(screenWidth)}
           language="fi"
           onStepClick={(event, stepIndex) => dispatch(setActive(stepIndex))}
@@ -112,7 +116,7 @@ const FormStepper = (props: Props): React.ReactElement => {
               <Button
                 id="button-print"
                 iconLeft={<IconPrinter />}
-                onClick={() => null}
+                onClick={handlePrint}
                 variant="secondary"
                 className="button print">
                 {t('common:print')}
