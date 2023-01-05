@@ -55,6 +55,17 @@
   margin: 36px 0 12px;
 }
 
+.rectification-link-to-profile {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-m);
+}
+
+
+.rectification-link-to-profile svg {
+  margin-right: var(--spacing-xs);
+}
+
 @media only screen and (max-width: 768px) {
   .rectification-form-container {
     display: flex;
@@ -75,14 +86,20 @@
     min-width: 300px;
   }
 
+  .rectification-link-to-profile {
+    display: block;
+  }
+
+  .rectification-link-to-profile span {
+    display: inline-block;
+    width: 70%;
+  }
+
   .rectification-link-to-profile a {
     display: block;
     margin-top: var(--spacing-s);
-    margin-left: var(--spacing-layout-xs);
-  }
-
-  .rectification-form-checkmark {
-
+    margin-left: var(--spacing-layout-s);
+    font-size: var(--fontsize-body-m);
   }
 }
 

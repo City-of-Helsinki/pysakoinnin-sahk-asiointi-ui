@@ -148,19 +148,20 @@ const RectificationForm = () => {
           )}
         </div>
         <hr />
-        <p className="rectification-link-to-profile">
+        <div className="rectification-link-to-profile">
           <IconCheckCircle aria-hidden="true" />
-          {t('common:fetched-from-profile')}
+
+          <span>{t('common:fetched-from-profile')}</span>
           <Link
             href={window._env_.REACT_APP_PROFILE_UI_URL}
-            size="S"
+            size="M"
             external
             openInNewTab
             openInExternalDomainAriaLabel={t('common:aria:open-external')}
             openInNewTabAriaLabel={t('common:aria:open-new-tab')}>
             {t('common:helsinki-profile-link')}
           </Link>
-        </p>
+        </div>
 
         <div className="rectification-form-container">
           <Checkbox
