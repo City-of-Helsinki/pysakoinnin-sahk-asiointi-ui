@@ -9,12 +9,6 @@
   grid-template-columns: 1fr 1fr;
 }
 
-.rectification-summary-content,
-.rectification-summary-content div,
-.rectification-summary-content textarea {
-  height: 99% !important;
-}
-
 .rectification-summary-header {
   margin-top: var(--spacing-xl);
   font-weight: 500;
@@ -66,4 +60,26 @@
   margin-left: var(--spacing-2-xs);
   text-align: right;
   white-space: nowrap;
+}
+
+.rectification-summary-contents {
+  display: flex;
+  flex-direction: column;
+}
+
+@media only screen and (max-width: 768px) {
+  .rectification-summary-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .rectification-summary-rectification-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  .rectification-summary-details > div:last-of-type {
+    margin-bottom: 0;
+  }
 }
