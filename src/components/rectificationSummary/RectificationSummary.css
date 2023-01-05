@@ -67,6 +67,10 @@
   flex-direction: column;
 }
 
+.rectification-summary-contents > div {
+  margin-bottom: var(--spacing-m);
+}
+
 @media only screen and (max-width: 768px) {
   .rectification-summary-container {
     display: flex;
@@ -77,7 +81,6 @@
     display: flex;
     flex-direction: column;
   }
-
 
   .rectification-summary-details > div:last-of-type {
     margin-bottom: 0;

@@ -1,4 +1,3 @@
-/* eslint-disable no-magic-numbers */
 import React, { useState } from 'react';
 import { Button, IconAngleDown, IconAngleUp } from 'hds-react';
 import { useTranslation } from 'react-i18next';
@@ -10,10 +9,14 @@ type ExtendedTextFieldProps = {
 const ExtendedTextField = (props: ExtendedTextFieldProps) => {
   const { content } = props;
   const { t } = useTranslation();
+
+  const TO_EXTEND = 500;
+  const CONTENT_SLICE = 450;
+
   const [expandable, setExpandable] = useState(false);
   const [extended, setExtended] = useState(false);
 
-  if (content.length >= 350 && expandable === false) {
+  if (content.length > TO_EXTEND && expandable === false) {
     setExpandable(true);
   }
 
@@ -22,7 +25,7 @@ const ExtendedTextField = (props: ExtendedTextFieldProps) => {
 
   return expandable ? (
     <>
-      <p>{extended ? content : content.slice(0, 200)}</p>
+      <p>{extended ? content : content.slice(0, CONTENT_SLICE)}</p>
       <Button
         variant="supplementary"
         iconRight={extended ? <IconAngleUp /> : <IconAngleDown />}

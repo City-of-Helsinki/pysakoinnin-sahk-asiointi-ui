@@ -105,7 +105,7 @@ const RectificationSummary = () => {
             )}
           </div>
           {attachments.length > 0 && (
-            <div className="rectification-summary-attachments">
+            <div>
               <label className={styles['text-label']}>
                 {t('rectification:attachments')}
               </label>
@@ -129,7 +129,7 @@ const RectificationSummary = () => {
             </div>
           )}
           {selectedForm === FormId.MOVEDCAR && poaFile.name && (
-            <div className="rectification-summary-POA">
+            <div>
               <label className={styles['text-label']}>
                 {t('rectification:poa')}
               </label>
