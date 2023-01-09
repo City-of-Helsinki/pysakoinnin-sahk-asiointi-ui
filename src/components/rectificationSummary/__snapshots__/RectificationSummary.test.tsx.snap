@@ -5,7 +5,7 @@ exports[`Component matches snapshot 1`] = `
   <h2
     class="rectification-summary-header"
   >
-    rectificationForm-info
+    Oikaisuvaatimuksen tiedot
   </h2>
   <div
     class="rectification-summary-container"
@@ -20,7 +20,7 @@ exports[`Component matches snapshot 1`] = `
           class="FieldLabel-module_label__1zrXK "
           for="relation"
         >
-          relation-info.parking-fine.relation
+          Olen ajoneuvon
         </label>
         <div
           class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
@@ -30,7 +30,7 @@ exports[`Component matches snapshot 1`] = `
             id="relation"
             readonly=""
             type="text"
-            value="relation-info.parking-fine.driver"
+            value="Kuljettaja"
           />
         </div>
       </div>
