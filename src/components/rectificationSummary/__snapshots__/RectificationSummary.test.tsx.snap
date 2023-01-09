@@ -3,7 +3,7 @@
 exports[`Component matches snapshot 1`] = `
 <div>
   <h2>
-    rectificationForm-info
+    Oikaisuvaatimuksen tiedot
   </h2>
   <div
     class="rectification-summary-container"
@@ -18,7 +18,7 @@ exports[`Component matches snapshot 1`] = `
           class="FieldLabel-module_label__1zrXK "
           for="relation"
         >
-          relation-info.parking-fine.relation
+          Olen ajoneuvon
         </label>
         <div
           class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
@@ -28,7 +28,7 @@ exports[`Component matches snapshot 1`] = `
             id="relation"
             readonly=""
             type="text"
-            value="relation-info.parking-fine.driver"
+            value="Kuljettaja"
           />
         </div>
       </div>
@@ -236,7 +236,7 @@ exports[`Component matches snapshot 1`] = `
           class="text-label"
           for="rectification-content"
         >
-          rectificationForm-content
+          rectification-content
         </label>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse bibendum condimentum mi, vitae efficitur mi vulputate at. Aliquam porttitor tincidunt ex non fermentum. Fusce consequat imperdiet augue ut pulvinar. Praesent sollicitudin nulla non lacus tristique, sed faucibus urna viverra. Nullam pretium velit lorem. Maecenas porttitor molestie.

@@ -71,7 +71,10 @@ const FormStepper = (props: Props): React.ReactElement => {
 
   // scroll down to ensure submit notification and button to main page are visible
   useEffect(() => {
-    mainPageButtonRef.current?.scrollIntoView({ behavior: 'smooth' });
+    mainPageButtonRef.current?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest'
+    });
   }, [showSubmitNotification]);
 
   return (
@@ -158,7 +161,7 @@ const FormStepper = (props: Props): React.ReactElement => {
           <Notification
             className="submit-notification"
             label={t(`${formContent.selectedForm}:notifications:success:label`)}
-            position="bottom-right"
+            position="top-right"
             type={'success'}
             autoClose
             dismissible
@@ -171,7 +174,7 @@ const FormStepper = (props: Props): React.ReactElement => {
         )}
         <div>
           {lastStep && formContent.formSubmitted && (
-            <div ref={mainPageButtonRef}>
+            <div ref={mainPageButtonRef} className="home-button-container">
               <a className="button link" href="/">
                 <Button
                   className="button home"

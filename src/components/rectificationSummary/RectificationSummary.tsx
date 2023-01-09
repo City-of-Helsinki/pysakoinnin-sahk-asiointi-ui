@@ -24,14 +24,16 @@ const RectificationSummary = () => {
   return (
     <>
       <h2>
-        {t('rectificationForm:rectificationForm-info')}
+        {t('rectificationForm:rectification-info')}
       </h2>
       <div className="rectification-summary-container">
         <div className="rectification-summary-details">
           <TextInput
             id="relation"
-            label={t(`rectification:relation-info:${selectedForm}:relation`)}
-            value={t(`rectification:relation-info:${selectedForm}:driver`)}
+            label={t(
+              `rectificationForm:relation-info:${selectedForm}:relation`
+            )}
+            value={t(`rectificationForm:relation-info:${selectedForm}:driver`)}
             readOnly
           />
           <TextInput
@@ -96,7 +98,7 @@ const RectificationSummary = () => {
             <label
               htmlFor="rectification-content"
               className={styles['text-label']}>
-              {t('rectification:rectification-content')}
+              {t('rectificationForm:rectification-content')}
             </label>
             {useMobileWidth() ? (
               <ExtendedTextField content={t('common:long-placeholder-text')} />
@@ -152,7 +154,11 @@ const RectificationSummary = () => {
       </div>
       <Accordion
         id="fineSummary"
-        heading={t('parking-fine:fine-info')}
+        heading={
+          selectedForm === FormId.MOVEDCAR
+            ? t('moved-car:stepper:step2')
+            : t('parking-fine:fine-info')
+        }
         className="rectification-summary-fine-details hide-on-print">
         <InfoContainer />
       </Accordion>
