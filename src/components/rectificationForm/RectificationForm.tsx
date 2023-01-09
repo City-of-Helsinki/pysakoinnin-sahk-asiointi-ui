@@ -1,5 +1,5 @@
 /* eslint-disable sonarjs/no-duplicate-string */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import {
@@ -70,6 +70,12 @@ const RectificationForm = () => {
     selectedForm === 'parking-fine'
       ? ['driver', 'owner', 'poa-holder']
       : ['owner', 'poa-holder'];
+
+  useEffect(() => {
+    if (movedCarFormSelected && vehicleRelation !== 'owner') {
+      setVehicleRelation('owner');
+    }
+  }, []);
 
   return (
     <>
