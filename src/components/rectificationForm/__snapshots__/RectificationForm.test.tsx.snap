@@ -35,25 +35,6 @@ exports[`Component in moved car form matches snapshot 1`] = `
                 class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
               >
                 <input
-                  checked=""
-                  class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
-                  id="driver"
-                  type="radio"
-                  value="driver"
-                />
-                <label
-                  class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
-                  for="driver"
-                >
-                  Ajoneuvon kuljettajana
-                </label>
-              </div>
-            </div>
-            <div>
-              <div
-                class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
-              >
-                <input
                   class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
                   id="owner"
                   type="radio"
@@ -63,7 +44,7 @@ exports[`Component in moved car form matches snapshot 1`] = `
                   class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
                   for="owner"
                 >
-                  Ajoneuvon omistajana
+                  Ajoneuvon omistajana/haltijana
                 </label>
               </div>
             </div>
@@ -81,7 +62,7 @@ exports[`Component in moved car form matches snapshot 1`] = `
                   class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
                   for="poa-holder"
                 >
-                  Valtakirjalla
+                  Valtakirjalla (toisen puolesta)
                 </label>
               </div>
             </div>
@@ -946,7 +927,7 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
           <legend
             class="SelectionGroup-module_label__qlluz"
           >
-            Olen ajoneuvon
+            Teen oikaisuvaatimuksen
              
             <span
               class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
@@ -973,7 +954,7 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
                   class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
                   for="driver"
                 >
-                  Kuljettaja
+                  Ajoneuvon kuljettajana
                 </label>
               </div>
             </div>
@@ -991,7 +972,7 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
                   class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
                   for="owner"
                 >
-                  Omistaja
+                  Ajoneuvon omistajana/haltijana
                 </label>
               </div>
             </div>
@@ -1001,15 +982,15 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
               >
                 <input
                   class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
-                  id="holder"
+                  id="poa-holder"
                   type="radio"
-                  value="holder"
+                  value="poa-holder"
                 />
                 <label
                   class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
-                  for="holder"
+                  for="poa-holder"
                 >
-                  Haltija
+                  Valtakirjalla (toisen puolesta)
                 </label>
               </div>
             </div>
