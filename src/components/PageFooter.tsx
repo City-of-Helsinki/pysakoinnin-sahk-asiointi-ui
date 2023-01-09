@@ -12,7 +12,7 @@ import {
  */
 
 const PageFooter = () => (
-  <Footer title="Pysäköinnin asiointi">
+  <Footer title="Pysäköinnin asiointi" className="hide-on-print">
     <Footer.Navigation navigationAriaLabel="HDS Footer navigation">
       <Footer.Item label="Item" />
       <Footer.Item label="Item" />
