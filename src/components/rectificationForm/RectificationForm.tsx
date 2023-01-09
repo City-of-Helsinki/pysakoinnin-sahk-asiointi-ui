@@ -66,9 +66,10 @@ const RectificationForm = () => {
     }
   };
 
-  const relations = movedCarFormSelected
-    ? ['driver', 'owner', 'poa-holder']
-    : ['driver', 'owner', 'holder'];
+  const relations =
+    selectedForm === 'parking-fine'
+      ? ['driver', 'owner', 'poa-holder']
+      : ['owner', 'poa-holder'];
 
   return (
     <>
@@ -77,16 +78,12 @@ const RectificationForm = () => {
         <div className="rectification-info-container">
           <div className="rectification-user-section">
             <SelectionGroup
-              label={t(
-                `rectificationForm:relation-info:${selectedForm}:relation`
-              )}
+              label={t(`rectificationForm:relation-info:relation`)}
               required>
               {relations.map(relation => (
                 <RadioButton
                   key={relation}
-                  label={t(
-                    `rectificationForm:relation-info:${selectedForm}:${relation}`
-                  )}
+                  label={t(`rectificationForm:relation-info:${relation}`)}
                   id={relation}
                   value={relation}
                   checked={vehicleRelation === relation}
