@@ -152,7 +152,11 @@ const RectificationSummary = () => {
       </div>
       <Accordion
         id="fineSummary"
-        heading={t('parking-fine:fine-info')}
+        heading={
+          selectedForm === FormId.MOVEDCAR
+            ? t('moved-car:stepper:step2')
+            : t('parking-fine:fine-info')
+        }
         className="rectification-summary-fine-details">
         <InfoContainer />
       </Accordion>
