@@ -1,3 +1,7 @@
+.home-button-container {
+  scroll-margin: var(--spacing-s)
+}
+
 @media (max-width: 375px) {
   .form-title {
     hyphens: auto;
@@ -14,6 +18,7 @@
   #stepper div div:nth-child(2) {
     font-size: 24px;
   }
+
   #stepper div div:nth-child(2) button {
     font-size: 16px;
   }
@@ -76,6 +81,7 @@
     justify-content: flex-start;
     margin-top: 12px;
   }
+
   .button-wrapper.submit {
     justify-content: space-between;
   }

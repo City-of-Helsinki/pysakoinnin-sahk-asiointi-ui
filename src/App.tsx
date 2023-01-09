@@ -12,6 +12,7 @@ import store from './store';
 import ParkingFineAppeal from './components/parkingFineAppeal/ParkingFineAppeal';
 import MovedCarAppeal from './components/movedCarAppeal/MovedCarAppeal';
 import ExtendDueDate from './components/extendDueDate/ExtendDueDate';
+import PageFooter from './components/PageFooter';
 
 function App(): React.ReactElement {
   return (
@@ -42,6 +43,7 @@ function App(): React.ReactElement {
                 </Route>
                 <Route path="*">404 - not found</Route>
               </Switch>
+              <PageFooter />
             </PageContainer>
           </Provider>
         </StoreProvider>
