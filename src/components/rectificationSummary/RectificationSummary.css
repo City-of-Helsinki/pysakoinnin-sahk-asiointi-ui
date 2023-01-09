@@ -10,7 +10,6 @@
 }
 
 .rectification-summary-header {
-  margin-top: var(--spacing-xl);
   font-weight: 500;
   line-height: 32px;
   letter-spacing: -0.2px;

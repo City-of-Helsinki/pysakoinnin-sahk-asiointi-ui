@@ -14,7 +14,6 @@
 
 .rectification-user-section {
   flex: 1;
-  min-width: 500px;
 }
 
 .rectification-textarea {
@@ -56,7 +55,28 @@
   margin: 36px 0 12px;
 }
 
+.rectification-link-to-profile {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-m);
+}
+
+
+.rectification-link-to-profile svg {
+  margin-right: var(--spacing-xs);
+}
+
 @media only screen and (max-width: 768px) {
+  .rectification-form-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .rectification-textarea {
+    height: 50vh;
+    margin-bottom: var(--spacing-2-xl);
+  }
+
   .rectification-form-user-details {
     grid-template-columns: 1fr 1fr;
   }
@@ -64,6 +84,22 @@
   .rectification-poa-fileinput {
     flex: 1;
     min-width: 300px;
+  }
+
+  .rectification-link-to-profile {
+    display: block;
+  }
+
+  .rectification-link-to-profile span {
+    display: inline-block;
+    width: 70%;
+  }
+
+  .rectification-link-to-profile a {
+    display: block;
+    margin-top: var(--spacing-s);
+    margin-left: var(--spacing-layout-s);
+    font-size: var(--fontsize-body-m);
   }
 }
 
@@ -81,4 +117,8 @@
     margin-top: 5px;
     min-width: 450px;
   }
+}
+
+.small-text {
+  font-size: var(--fontsize-body-m);
 }

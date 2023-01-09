@@ -7,6 +7,15 @@
   grid-row-end: auto;
 }
 
+@media (max-width: 767px) {
+  .info-field {
+    margin: var(--spacing-m) 0;
+  }
+  .wide-field {
+    margin: var(--spacing-m) 0;
+  }
+}
+
 .sum-field {
   grid-column-end: 2;
 }
@@ -19,4 +28,3 @@
 textarea {
   resize: none !important;
 }
-

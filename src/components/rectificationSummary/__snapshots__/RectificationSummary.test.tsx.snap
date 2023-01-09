@@ -5,7 +5,7 @@ exports[`Component matches snapshot 1`] = `
   <h2
     class="rectification-summary-header"
   >
-    Oikaisuvaatimuksen tiedot
+    rectificationForm-info
   </h2>
   <div
     class="rectification-summary-container"
@@ -20,7 +20,7 @@ exports[`Component matches snapshot 1`] = `
           class="FieldLabel-module_label__1zrXK "
           for="relation"
         >
-          Olen ajoneuvon
+          relation-info.parking-fine.relation
         </label>
         <div
           class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
@@ -30,7 +30,7 @@ exports[`Component matches snapshot 1`] = `
             id="relation"
             readonly=""
             type="text"
-            value="Kuljettaja"
+            value="relation-info.parking-fine.driver"
           />
         </div>
       </div>
@@ -238,7 +238,7 @@ exports[`Component matches snapshot 1`] = `
           class="text-label"
           for="rectification-content"
         >
-          Oikaisuvaatimuksen sisältö
+          rectificationForm-content
         </label>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse bibendum condimentum mi, vitae efficitur mi vulputate at. Aliquam porttitor tincidunt ex non fermentum. Fusce consequat imperdiet augue ut pulvinar. Praesent sollicitudin nulla non lacus tristique, sed faucibus urna viverra. Nullam pretium velit lorem. Maecenas porttitor molestie.
@@ -311,239 +311,118 @@ exports[`Component matches snapshot 1`] = `
             data-testid="parkingFineSummary"
           >
             <div
-              class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq info-field"
+              class="info-field"
             >
-              <label
-                class="FieldLabel-module_label__1zrXK "
-                for="fineTimeStamp"
-              >
+              <label>
                 Virheen ajankohta
               </label>
-              <div
-                class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-              >
-                <input
-                  class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-                  id="fineTimeStamp"
-                  readonly=""
-                  type="text"
-                  value="1.11.2019 09:41 - 1.11.2019 09:43"
-                />
-              </div>
+              <p>
+                1.11.2019 09:41 - 1.11.2019 09:43
+              </p>
             </div>
             <div
-              class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq info-field"
+              class="info-field"
             >
-              <label
-                class="FieldLabel-module_label__1zrXK "
-                for="refNumber"
-              >
+              <label>
                 Asianumero
               </label>
-              <div
-                class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-              >
-                <input
-                  class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-                  id="refNumber"
-                  readonly=""
-                  type="text"
-                  value="Esim. 12345678"
-                />
-              </div>
+              <p>
+                Esim. 12345678
+              </p>
             </div>
             <hr />
             <div
-              class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq info-field"
+              class="info-field"
             >
-              <label
-                class="FieldLabel-module_label__1zrXK "
-                for="address"
-              >
+              <label>
                 Lähiosoite
               </label>
-              <div
-                class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-              >
-                <input
-                  class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-                  id="address"
-                  readonly=""
-                  type="text"
-                  value="Näkinkuja 1c"
-                />
-              </div>
+              <p>
+                Näkinkuja 1c
+              </p>
             </div>
             <div
-              class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq info-field"
+              class="info-field"
             >
-              <label
-                class="FieldLabel-module_label__1zrXK "
-                for="additionalDetails"
-              >
+              <label>
                 Lisätietoja
               </label>
-              <div
-                class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-              >
-                <input
-                  class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-                  id="additionalDetails"
-                  readonly=""
-                  type="text"
-                  value="Kääntymispaikka"
-                />
-              </div>
+              <p>
+                Kääntymispaikka
+              </p>
             </div>
             <hr />
             <div
-              class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq info-field"
+              class="info-field"
             >
-              <label
-                class="FieldLabel-module_label__1zrXK "
-                for="fineTitle-1"
-              >
+              <label>
                 Virhe
               </label>
-              <div
-                class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-              >
-                <textarea
-                  class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-                  id="fineTitle-1"
-                  readonly=""
-                >
-                  Pysäköinti kielletty liikennemerkin noudattamatta jättäminen. TLL 3 § 1 mom, TL 16 § merkki 372
-                </textarea>
-              </div>
+              <p>
+                Pysäköinti kielletty liikennemerkin noudattamatta jättäminen. TLL 3 § 1 mom, TL 16 § merkki 372
+              </p>
             </div>
             <div
-              class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq info-field"
+              class="info-field"
             >
-              <label
-                class="FieldLabel-module_label__1zrXK "
-                for="fineDetails-1"
-              >
+              <label>
                 Lisätieto
               </label>
-              <div
-                class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-              >
-                <input
-                  class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-                  id="fineDetails-1"
-                  readonly=""
-                  type="text"
-                  value="Liikennemerkistä n. 3 m"
-                />
-              </div>
+              <p>
+                Liikennemerkistä n. 3 m
+              </p>
             </div>
             <div
-              class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq info-field"
+              class="info-field"
             >
-              <label
-                class="FieldLabel-module_label__1zrXK "
-                for="fineTitle-2"
-              >
+              <label>
                 Virhe
               </label>
-              <div
-                class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-              >
-                <textarea
-                  class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-                  id="fineTitle-2"
-                  readonly=""
-                >
-                  Pysäköinti kielletty liikennemerkin noudattamatta jättäminen. TLL 3 § 1 mom, TL 16 § merkki 372
-                </textarea>
-              </div>
+              <p>
+                Pysäköinti kielletty liikennemerkin noudattamatta jättäminen. TLL 3 § 1 mom, TL 16 § merkki 372
+              </p>
             </div>
             <div
-              class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq info-field"
+              class="info-field"
             >
-              <label
-                class="FieldLabel-module_label__1zrXK "
-                for="fineDetails-2"
-              >
+              <label>
                 Lisätieto
               </label>
-              <div
-                class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-              >
-                <input
-                  class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-                  id="fineDetails-2"
-                  readonly=""
-                  type="text"
-                  value="Liikennemerkistä n. 3 m"
-                />
-              </div>
+              <p>
+                Liikennemerkistä n. 3 m
+              </p>
             </div>
             <hr />
             <div
-              class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq wide-field"
+              class="wide-field"
             >
-              <label
-                class="FieldLabel-module_label__1zrXK "
-                for="fineAdditionalDetails"
-              >
+              <label>
                 Pysäköintivirheen lisätiedot
               </label>
-              <div
-                class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-              >
-                <textarea
-                  class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-                  id="fineAdditionalDetails"
-                  readonly=""
-                >
-                  Lyökämme käsi kätehen, sormet sormien lomahan, lauloaksemme hyviä, parahia pannaksemme, kuulla noien kultaisien, tietä mielitehtoisien, nuorisossa nousevassa, kansassa kasuavassa: noita saamia sanoja, virsiä virittämiä vyöltä vanhan Väinämöisen, alta ahjon Ilmarisen, päästä kalvan Kaukomielen. 294 merkkiä
-                </textarea>
-              </div>
+              <p>
+                Lyökämme käsi kätehen, sormet sormien lomahan, lauloaksemme hyviä, parahia pannaksemme, kuulla noien kultaisien, tietä mielitehtoisien, nuorisossa nousevassa, kansassa kasuavassa: noita saamia sanoja, virsiä virittämiä vyöltä vanhan Väinämöisen, alta ahjon Ilmarisen, päästä kalvan Kaukomielen. 294 merkkiä
+              </p>
             </div>
             <hr />
             <div
-              class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq info-field sum-field"
+              class="info-field sum-field"
             >
-              <label
-                class="FieldLabel-module_label__1zrXK "
-                for="sum"
-              >
+              <label>
                 Pysäköintivirhemaksun summa
               </label>
-              <div
-                class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-              >
-                <input
-                  class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-                  id="sum"
-                  readonly=""
-                  type="text"
-                  value="80,00 EUR"
-                />
-              </div>
+              <p>
+                80,00 EUR
+              </p>
             </div>
             <div
-              class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq info-field"
+              class="info-field"
             >
-              <label
-                class="FieldLabel-module_label__1zrXK "
-                for="dueDate"
-              >
+              <label>
                 Eräpäivä
               </label>
-              <div
-                class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-              >
-                <input
-                  class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-                  id="dueDate"
-                  readonly=""
-                  type="text"
-                  value="2.12.2019"
-                />
-              </div>
+              <p>
+                2.12.2019
+              </p>
             </div>
             <hr />
             <div
@@ -601,6 +480,7 @@ exports[`Component matches snapshot 1`] = `
         <div
           class="Card-module_card__1WbKx card_hds-card--border__c2dBc custom-theme-1 vehicle-details-container"
           data-testid="carInfoCard"
+          id="carInfoCard"
           role="region"
         >
           <h2
@@ -608,110 +488,45 @@ exports[`Component matches snapshot 1`] = `
           >
             Ajoneuvon tiedot
           </h2>
-          <div
-            class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
-          >
-            <label
-              class="FieldLabel-module_label__1zrXK "
-              for="regNumber"
-            >
+          <div>
+            <label>
               Ajoneuvon rekisteritunnus
             </label>
-            <div
-              class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-            >
-              <input
-                class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-                id="regNumber"
-                readonly=""
-                type="text"
-                value="Esim. ABC-123"
-              />
-            </div>
+            <p>
+              Esim. ABC-123
+            </p>
           </div>
-          <div
-            class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
-          >
-            <label
-              class="FieldLabel-module_label__1zrXK "
-              for="vehicleType"
-            >
+          <div>
+            <label>
               Ajoneuvolaji
             </label>
-            <div
-              class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-            >
-              <input
-                class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-                id="vehicleType"
-                readonly=""
-                type="text"
-                value="Henkilöauto M1"
-              />
-            </div>
+            <p>
+              Henkilöauto M1
+            </p>
           </div>
-          <div
-            class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
-          >
-            <label
-              class="FieldLabel-module_label__1zrXK "
-              for="vehicleBrand"
-            >
+          <div>
+            <label>
               Merkki
             </label>
-            <div
-              class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-            >
-              <input
-                class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-                id="vehicleBrand"
-                readonly=""
-                type="text"
-                value="Citroen"
-              />
-            </div>
+            <p>
+              Citroen
+            </p>
           </div>
-          <div
-            class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
-          >
-            <label
-              class="FieldLabel-module_label__1zrXK "
-              for="vehicleModel"
-            >
+          <div>
+            <label>
               Malli
             </label>
-            <div
-              class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-            >
-              <input
-                class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-                id="vehicleModel"
-                readonly=""
-                type="text"
-                value="2D C2 HATCHBACK 1.4l-JMKFVC/232"
-              />
-            </div>
+            <p>
+              2D C2 HATCHBACK 1.4l-JMKFVC/232
+            </p>
           </div>
-          <div
-            class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
-          >
-            <label
-              class="FieldLabel-module_label__1zrXK "
-              for="vehicleColor"
-            >
+          <div>
+            <label>
               Väri
             </label>
-            <div
-              class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-            >
-              <input
-                class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-                id="vehicleColor"
-                readonly=""
-                type="text"
-                value="Punainen"
-              />
-            </div>
+            <p>
+              Punainen
+            </p>
           </div>
           <div
             class="imageViewer-preview-container"

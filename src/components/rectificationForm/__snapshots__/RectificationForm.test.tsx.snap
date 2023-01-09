@@ -120,7 +120,7 @@ exports[`Component in moved car form matches snapshot 1`] = `
           </div>
           <svg
             aria-label="Tieto haettu Helsinki-profiilista"
-            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik rectification-form-checkmark"
             role="img"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
@@ -169,7 +169,7 @@ exports[`Component in moved car form matches snapshot 1`] = `
           </div>
           <svg
             aria-label="Tieto haettu Helsinki-profiilista"
-            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik rectification-form-checkmark"
             role="img"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
@@ -218,7 +218,7 @@ exports[`Component in moved car form matches snapshot 1`] = `
           </div>
           <svg
             aria-label="Tieto haettu Helsinki-profiilista"
-            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik rectification-form-checkmark"
             role="img"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
@@ -368,7 +368,9 @@ exports[`Component in moved car form matches snapshot 1`] = `
       </div>
     </div>
     <hr />
-    <p>
+    <div
+      class="rectification-link-to-profile"
+    >
       <svg
         aria-hidden="true"
         class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
@@ -390,7 +392,9 @@ exports[`Component in moved car form matches snapshot 1`] = `
           />
         </g>
       </svg>
-      Merkityt tiedot on haettu Helsinki-profiilistasi.
+      <span>
+        Merkityt tiedot on haettu Helsinki-profiilistasi.
+      </span>
       <a
         aria-label="Siirry Helsinki-profiiliin muokataksesi tietoja. Avautuu uudessa välilehdessä. Avaa toisen verkkosivun."
         class="Link-module_link__TeBQo link_hds-link__5Oxo- Link-module_linkM__30gsY link_hds-link--medium__xEU_F"
@@ -420,43 +424,10 @@ exports[`Component in moved car form matches snapshot 1`] = `
           </g>
         </svg>
       </a>
-    </p>
+    </div>
     <div
       class="rectification-form-container"
     >
-      <div
-        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq rectification-textarea"
-      >
-        <label
-          class="FieldLabel-module_label__1zrXK "
-          for="rectification-content"
-        >
-          Oikaisuvaatimuksen sisältö
-          <span
-            class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
-          >
-             
-            *
-          </span>
-        </label>
-        <div
-          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-        >
-          <textarea
-            aria-describedby="rectification-content-helper"
-            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-            id="rectification-content"
-            required=""
-          />
-        </div>
-        
-        <div
-          class="TextInput-module_helperText__2dLR6 text-input_hds-text-input__helper-text__3V2KM"
-          id="rectification-content-helper"
-        >
-          0/2500
-        </div>
-      </div>
       <div
         class="Checkbox-module_checkbox__3L0GR checkbox_hds-checkbox__9HMCz"
       >
@@ -647,7 +618,7 @@ exports[`Component in moved car form matches snapshot 1`] = `
               <span
                 class="Select-module_buttonLabel__1fqu5"
               >
-                Suomi (+358)
+                (+358)
               </span>
               <svg
                 aria-hidden="true"
@@ -736,6 +707,39 @@ exports[`Component in moved car form matches snapshot 1`] = `
             type="text"
             value=""
           />
+        </div>
+      </div>
+      <div
+        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq rectification-textarea"
+      >
+        <label
+          class="FieldLabel-module_label__1zrXK "
+          for="rectification-content"
+        >
+          Oikaisuvaatimuksen sisältö
+          <span
+            class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
+          >
+             
+            *
+          </span>
+        </label>
+        <div
+          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+        >
+          <textarea
+            aria-describedby="rectification-content-helper"
+            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+            id="rectification-content"
+            required=""
+          />
+        </div>
+        
+        <div
+          class="TextInput-module_helperText__2dLR6 text-input_hds-text-input__helper-text__3V2KM"
+          id="rectification-content-helper"
+        >
+          0/2500 merkkiä
         </div>
       </div>
       <div
@@ -1044,7 +1048,7 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
           </div>
           <svg
             aria-label="Tieto haettu Helsinki-profiilista"
-            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik rectification-form-checkmark"
             role="img"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
@@ -1093,7 +1097,7 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
           </div>
           <svg
             aria-label="Tieto haettu Helsinki-profiilista"
-            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik rectification-form-checkmark"
             role="img"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
@@ -1142,7 +1146,7 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
           </div>
           <svg
             aria-label="Tieto haettu Helsinki-profiilista"
-            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik rectification-form-checkmark"
             role="img"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
@@ -1165,7 +1169,9 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
       </div>
     </div>
     <hr />
-    <p>
+    <div
+      class="rectification-link-to-profile"
+    >
       <svg
         aria-hidden="true"
         class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
@@ -1187,7 +1193,9 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
           />
         </g>
       </svg>
-      Merkityt tiedot on haettu Helsinki-profiilistasi.
+      <span>
+        Merkityt tiedot on haettu Helsinki-profiilistasi.
+      </span>
       <a
         aria-label="Siirry Helsinki-profiiliin muokataksesi tietoja. Avautuu uudessa välilehdessä. Avaa toisen verkkosivun."
         class="Link-module_link__TeBQo link_hds-link__5Oxo- Link-module_linkM__30gsY link_hds-link--medium__xEU_F"
@@ -1217,43 +1225,10 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
           </g>
         </svg>
       </a>
-    </p>
+    </div>
     <div
       class="rectification-form-container"
     >
-      <div
-        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq rectification-textarea"
-      >
-        <label
-          class="FieldLabel-module_label__1zrXK "
-          for="rectification-content"
-        >
-          Oikaisuvaatimuksen sisältö
-          <span
-            class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
-          >
-             
-            *
-          </span>
-        </label>
-        <div
-          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-        >
-          <textarea
-            aria-describedby="rectification-content-helper"
-            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-            id="rectification-content"
-            required=""
-          />
-        </div>
-        
-        <div
-          class="TextInput-module_helperText__2dLR6 text-input_hds-text-input__helper-text__3V2KM"
-          id="rectification-content-helper"
-        >
-          0/2500
-        </div>
-      </div>
       <div
         class="Checkbox-module_checkbox__3L0GR checkbox_hds-checkbox__9HMCz"
       >
@@ -1444,7 +1419,7 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
               <span
                 class="Select-module_buttonLabel__1fqu5"
               >
-                Suomi (+358)
+                (+358)
               </span>
               <svg
                 aria-hidden="true"
@@ -1533,6 +1508,39 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
             type="text"
             value=""
           />
+        </div>
+      </div>
+      <div
+        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq rectification-textarea"
+      >
+        <label
+          class="FieldLabel-module_label__1zrXK "
+          for="rectification-content"
+        >
+          Oikaisuvaatimuksen sisältö
+          <span
+            class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
+          >
+             
+            *
+          </span>
+        </label>
+        <div
+          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+        >
+          <textarea
+            aria-describedby="rectification-content-helper"
+            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+            id="rectification-content"
+            required=""
+          />
+        </div>
+        
+        <div
+          class="TextInput-module_helperText__2dLR6 text-input_hds-text-input__helper-text__3V2KM"
+          id="rectification-content-helper"
+        >
+          0/2500 merkkiä
         </div>
       </div>
       <div

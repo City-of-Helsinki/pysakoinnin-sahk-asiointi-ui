@@ -1,8 +1,16 @@
 .vehicle-details-container {
   flex: 1 1;
+  max-width: calc(500px - 4.25rem);
 }
 
 .vehicle-details-header {
   font-weight: normal;
   margin-bottom: 2rem;
+}
+
+@media (max-width: 450px) {
+  #carInfoCard {
+    border: none !important;
+    padding: 0;
+  }
 }

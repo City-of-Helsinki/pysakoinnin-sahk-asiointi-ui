@@ -9,7 +9,7 @@ import { FormId, selectFormContent } from '../formContent/formContentSlice';
 import {
   FileItem,
   selectRectificationFormValues
-} from '../rectification/rectificationFormSlice';
+} from '../rectificationForm/rectificationFormSlice';
 import styles from '../styles.module.css';
 import './RectificationSummary.css';
 import ExtendedTextField from '../extendedTextField/ExtendedTextField';
@@ -24,7 +24,7 @@ const RectificationSummary = () => {
   return (
     <>
       <h2 className="rectification-summary-header">
-        {t('rectification:rectification-info')}
+        {t('rectificationForm:rectificationForm-info')}
       </h2>
       <div className="rectification-summary-container">
         <div className="rectification-summary-details">
@@ -48,20 +48,20 @@ const RectificationSummary = () => {
           />
           <TextInput
             id="rectification-address"
-            label={t('rectification:address')}
+            label={t('rectificationForm:address')}
             value="Elimäenkatu 5"
             readOnly
           />
           <div className="rectification-summary-subgrid">
             <TextInput
               id="zipcode"
-              label={t('rectification:zipcode')}
+              label={t('rectificationForm:zipcode')}
               value="00100"
               readOnly
             />
             <TextInput
               id="city"
-              label={t('rectification:city')}
+              label={t('rectificationForm:city')}
               value="Helsinki"
               readOnly
             />
@@ -80,13 +80,13 @@ const RectificationSummary = () => {
           />
           <TextInput
             id="IBAN"
-            label={t('rectification:IBAN')}
+            label={t('rectificationForm:IBAN')}
             value="FI9780001700903330"
             readOnly
           />
           <TextInput
             id="decision"
-            label={t('rectification:decision-choice')}
+            label={t('rectificationForm:decision-choice')}
             value="Pysäköinnin asiointikansiooni"
             readOnly
           />
@@ -107,7 +107,7 @@ const RectificationSummary = () => {
           {attachments.length > 0 && (
             <div>
               <label className={styles['text-label']}>
-                {t('rectification:attachments')}
+                {t('rectificationForm:attachments')}
               </label>
               <ul className="file-list">
                 {attachments.map((item: FileItem) => (
@@ -131,7 +131,7 @@ const RectificationSummary = () => {
           {selectedForm === FormId.MOVEDCAR && poaFile.name && (
             <div>
               <label className={styles['text-label']}>
-                {t('rectification:poa')}
+                {t('rectificationForm:poa')}
               </label>
               <div className="file-list-item">
                 {poaFile.type.startsWith('image') ? (
