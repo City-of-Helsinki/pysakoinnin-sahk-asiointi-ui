@@ -15,6 +15,7 @@
     "email-confirmation": "Haluan vahvistuksen sähköpostiini",
     "helsinki-profile-link": "Siirry Helsinki-profiiliin muokataksesi tietoja.",
     "to-mainpage": "Siirry pysäköinnin asiointiin",
+    "characters": "merkkiä",
     "barcode": {
       "label": "Virtuaaliviivakoodi",
       "copy-barcode": "Kopioi virtuaaliviivakoodi",
@@ -196,7 +197,7 @@
       "placeholder": "85,00 EUR"
     }
   },
-  "rectification": {
+  "rectificationForm": {
     "relation-info": {
       "parking-fine": {
         "relation": "Olen ajoneuvon",
