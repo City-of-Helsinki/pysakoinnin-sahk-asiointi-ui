@@ -5,7 +5,7 @@ import { FormId, selectFormContent } from './formContentSlice';
 import './FormContent.css';
 import ExtendDueDateForm from '../extendDueDate/ExtendDueDateForm';
 import InfoContainer from '../infoContainer/InfoContainer';
-import RectificationForm from '../rectification/RectificationForm';
+import RectificationForm from '../rectificationForm/RectificationForm';
 import RectificationSummary from '../rectificationSummary/RectificationSummary';
 
 interface Props {

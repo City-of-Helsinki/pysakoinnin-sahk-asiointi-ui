@@ -1,12 +1,7 @@
+/* eslint-disable sonarjs/no-duplicate-string */
 import React from 'react';
 import { useSelector } from 'react-redux';
-import {
-  Accordion,
-  IconDocument,
-  IconPhoto,
-  TextArea,
-  TextInput
-} from 'hds-react';
+import { Accordion, IconDocument, IconPhoto, TextInput } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import { formatBytes } from '../../utils/helpers';
 import InfoContainer from '../infoContainer/InfoContainer';
@@ -14,9 +9,11 @@ import { FormId, selectFormContent } from '../formContent/formContentSlice';
 import {
   FileItem,
   selectRectificationFormValues
-} from '../rectification/rectificationFormSlice';
+} from '../rectificationForm/rectificationFormSlice';
 import styles from '../styles.module.css';
 import './RectificationSummary.css';
+import ExtendedTextField from '../extendedTextField/ExtendedTextField';
+import useMobileWidth from '../../hooks/useMobileWidth';
 
 const RectificationSummary = () => {
   const { t } = useTranslation();
@@ -26,7 +23,9 @@ const RectificationSummary = () => {
 
   return (
     <>
-      <h2>{t('rectification:rectification-info')}</h2>
+      <h2>
+        {t('rectificationForm:rectificationForm-info')}
+      </h2>
       <div className="rectification-summary-container">
         <div className="rectification-summary-details">
           <TextInput
@@ -49,20 +48,20 @@ const RectificationSummary = () => {
           />
           <TextInput
             id="rectification-address"
-            label={t('rectification:address')}
+            label={t('rectificationForm:address')}
             value="Elimäenkatu 5"
             readOnly
           />
           <div className="rectification-summary-subgrid">
             <TextInput
               id="zipcode"
-              label={t('rectification:zipcode')}
+              label={t('rectificationForm:zipcode')}
               value="00100"
               readOnly
             />
             <TextInput
               id="city"
-              label={t('rectification:city')}
+              label={t('rectificationForm:city')}
               value="Helsinki"
               readOnly
             />
@@ -81,20 +80,34 @@ const RectificationSummary = () => {
           />
           <TextInput
             id="IBAN"
-            label={t('rectification:IBAN')}
+            label={t('rectificationForm:IBAN')}
             value="FI9780001700903330"
             readOnly
           />
           <TextInput
             id="decision"
-            label={t('rectification:decision-choice')}
+            label={t('rectificationForm:decision-choice')}
             value="Pysäköinnin asiointikansiooni"
             readOnly
           />
+        </div>
+        <div className="rectification-summary-contents">
+          <div className="rectification-summary-rectification-content">
+            <label
+              htmlFor="rectification-content"
+              className={styles['text-label']}>
+              {t('rectification:rectification-content')}
+            </label>
+            {useMobileWidth() ? (
+              <ExtendedTextField content={t('common:long-placeholder-text')} />
+            ) : (
+              <p>{t('common:long-placeholder-text')}</p>
+            )}
+          </div>
           {attachments.length > 0 && (
             <div>
               <label className={styles['text-label']}>
-                {t('rectification:attachments')}
+                {t('rectificationForm:attachments')}
               </label>
               <ul className="file-list">
                 {attachments.map((item: FileItem) => (
@@ -118,7 +131,7 @@ const RectificationSummary = () => {
           {selectedForm === FormId.MOVEDCAR && poaFile.name && (
             <div>
               <label className={styles['text-label']}>
-                {t('rectification:poa')}
+                {t('rectificationForm:poa')}
               </label>
               <div className="file-list-item">
                 {poaFile.type.startsWith('image') ? (
@@ -135,14 +148,6 @@ const RectificationSummary = () => {
               </div>
             </div>
           )}
-        </div>
-        <div className="rectification-summary-content">
-          <TextArea
-            readOnly
-            id="rectification-content"
-            label={t('rectification:rectification-content')}
-            value="Mieleni minun tekevi, aivoni ajattelevi lähteäni laulamahan, saa'ani sanelemahan, sukuvirttä suoltamahan, lajivirttä laulamahan. Sanat suussani sulavat, puhe'et putoelevat, kielelleni kerkiävät, hampahilleni hajoovat.Veli kulta, veikkoseni, kaunis kasvinkumppalini! Lähe nyt kanssa laulamahan, saa kera sanelemahan yhtehen yhyttyämme, kahta'alta käytyämme! Harvoin yhtehen yhymme, saamme toinen toisihimme näillä raukoilla rajoilla, poloisilla Pohjan mailla.Lyökämme käsi kätehen, sormet sormien lomahan, lauloaksemme hyviä, parahia pannaksemme, kuulla noien kultaisien, tietä mielitehtoisien, nuorisossa nousevassa, kansassa kasuavassa: noita saamia sanoja, virsiä virittämiä vyöltä vanhan Väinämöisen, alta ahjon Ilmarisen, päästä kalvan Kaukomielen, Joukahaisen jousen tiestä, Pohjan peltojen periltä, Kalevalan kankahilta.Niit' ennen isoni lauloi kirvesvartta vuollessansa; niitä äitini opetti väätessänsä värttinätä, minun lasna lattialla eessä polven pyöriessä, maitopartana pahaisna, piimäsuuna pikkaraisna. Sampo ei puuttunut sanoja eikä Louhi luottehia: vanheni sanoihin sampo, katoi Louhi luottehisin, virsihin Vipunen kuoli, Lemminkäinen leikkilöihin.Viel' on muitaki sanoja, ongelmoita oppimia: tieohesta tempomia, kanervoista katkomia, risukoista riipomia, vesoista vetelemiä, päästä heinän hieromia, raitiolta ratkomia, paimenessa käyessäni, lasna karjanlaitumilla, metisillä mättähillä, kultaisilla kunnahilla, mustan Muurikin jälessä, Kimmon kirjavan keralla.Vilu mulle virttä virkkoi, sae saatteli runoja. Virttä toista tuulet toivat, meren aaltoset ajoivat. Linnut liitteli sanoja, puien latvat lausehia. Mieleni minun tekevi, aivoni ajattelevi lähteäni laulamahan, saa'ani sanelemahan, sukuvirttä suoltamahan, lajivirttä laulamahan. Sanat suussani sulavat, puhe'et putoelevat, kielelleni kerkiävät, hampahilleni hajoovat.Veli kulta, veikkoseni, kaunis kasvinkumppalini! Lähe nyt kanssa laulamahan, saa kera sanelemahan yhtehen yhyttyämme, kahta'alta käytyämme! Harvoin yhtehen yhymme, saamme toinen toisihimme näillä raukoilla rajoilla, poloisilla Pohjan mailla.Lyökämme käsi kätehen, sormet sormien lomahan, lauloaksemme hyviä, parahia pannaksemme, kuulla noien kultaisien, tietä mielitehtoisien, nuorisossa nousevassa, kansassa kasuavassa: noita saamia sanoja, virsiä virittämiä vyöltä vanhan Väinämöisen, alta ahjon Ilmarisen, päästä kalvan Kaukomielen 2374 merkkiä"
-          />
         </div>
       </div>
       <Accordion
