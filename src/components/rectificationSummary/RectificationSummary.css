@@ -15,12 +15,6 @@
   height: 99% !important;
 }
 
-.rectification-summary-header {
-  font-weight: 500;
-  line-height: 32px;
-  letter-spacing: -0.2px;
-}
-
 .rectification-summary-fine-details {
   margin-top: var(--spacing-m);
   grid-column: 1 / 3;

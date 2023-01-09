@@ -26,9 +26,7 @@ const RectificationSummary = () => {
 
   return (
     <>
-      <h2 className="rectification-summary-header">
-        {t('rectification:rectification-info')}
-      </h2>
+      <h2>{t('rectification:rectification-info')}</h2>
       <div className="rectification-summary-container">
         <div className="rectification-summary-details">
           <TextInput
@@ -150,9 +148,12 @@ const RectificationSummary = () => {
       <Accordion
         id="fineSummary"
         heading={t('parking-fine:fine-info')}
-        className="rectification-summary-fine-details">
+        className="rectification-summary-fine-details hide-on-print">
         <InfoContainer />
       </Accordion>
+      <div className="show-on-print" aria-hidden="true">
+        <InfoContainer />
+      </div>
     </>
   );
 };
