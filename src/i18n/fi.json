@@ -15,6 +15,9 @@
     "email-confirmation": "Haluan vahvistuksen sähköpostiini",
     "helsinki-profile-link": "Siirry Helsinki-profiiliin muokataksesi tietoja.",
     "to-mainpage": "Siirry pysäköinnin asiointiin",
+    "long-placeholder-text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse bibendum condimentum mi, vitae efficitur mi vulputate at. Aliquam porttitor tincidunt ex non fermentum. Fusce consequat imperdiet augue ut pulvinar. Praesent sollicitudin nulla non lacus tristique, sed faucibus urna viverra. Nullam pretium velit lorem. Maecenas porttitor molestie.",
+    "show-more": "Näytä enemmän",
+    "show-less": "Näytä vähemmän",
     "characters": "merkkiä",
     "barcode": {
       "label": "Virtuaaliviivakoodi",
