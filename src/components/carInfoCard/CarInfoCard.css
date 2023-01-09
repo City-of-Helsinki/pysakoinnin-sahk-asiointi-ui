@@ -9,7 +9,7 @@
 }
 
 @media (max-width: 450px) {
-  #carInfoCard {
+  .vehicle-details-container {
     border: none !important;
     padding: 0;
   }

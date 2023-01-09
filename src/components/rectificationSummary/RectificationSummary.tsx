@@ -23,9 +23,7 @@ const RectificationSummary = () => {
 
   return (
     <>
-      <h2 className="rectification-summary-header">
-        {t('rectificationForm:rectification-info')}
-      </h2>
+      <h2>{t('rectificationForm:rectification-info')}</h2>
       <div className="rectification-summary-container">
         <div className="rectification-summary-details">
           <TextInput
@@ -159,9 +157,12 @@ const RectificationSummary = () => {
             ? t('moved-car:stepper:step2')
             : t('parking-fine:fine-info')
         }
-        className="rectification-summary-fine-details">
+        className="rectification-summary-fine-details hide-on-print">
         <InfoContainer />
       </Accordion>
+      <div className="show-on-print" aria-hidden="true">
+        <InfoContainer />
+      </div>
     </>
   );
 };

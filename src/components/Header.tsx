@@ -125,6 +125,7 @@ const Header = (): React.ReactElement => {
 
   return (
     <Navigation
+      className="hide-on-print"
       fixed={false}
       logoLanguage="fi"
       menuToggleAriaLabel="Close menu"

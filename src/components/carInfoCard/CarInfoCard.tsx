@@ -15,7 +15,6 @@ const CarInfoCard = (): React.ReactElement => {
 
   return (
     <Card
-      id="carInfoCard"
       data-testid="carInfoCard"
       className="vehicle-details-container"
       border

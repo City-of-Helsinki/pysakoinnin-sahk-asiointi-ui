@@ -2,9 +2,7 @@
 
 exports[`Component matches snapshot 1`] = `
 <div>
-  <h2
-    class="rectification-summary-header"
-  >
+  <h2>
     Oikaisuvaatimuksen tiedot
   </h2>
   <div
@@ -238,7 +236,7 @@ exports[`Component matches snapshot 1`] = `
           class="text-label"
           for="rectification-content"
         >
-          rectification-content
+          Oikaisuvaatimuksen sisältö
         </label>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse bibendum condimentum mi, vitae efficitur mi vulputate at. Aliquam porttitor tincidunt ex non fermentum. Fusce consequat imperdiet augue ut pulvinar. Praesent sollicitudin nulla non lacus tristique, sed faucibus urna viverra. Nullam pretium velit lorem. Maecenas porttitor molestie.
@@ -247,7 +245,7 @@ exports[`Component matches snapshot 1`] = `
     </div>
   </div>
   <div
-    class="Accordion-module_accordion__2fPUT Accordion-module_m__2k6QY rectification-summary-fine-details"
+    class="Accordion-module_accordion__2fPUT Accordion-module_m__2k6QY rectification-summary-fine-details hide-on-print"
     id="fineSummary"
   >
     <div
@@ -310,6 +308,12 @@ exports[`Component matches snapshot 1`] = `
             class="summary-container"
             data-testid="parkingFineSummary"
           >
+            <h2
+              aria-hidden="true"
+              class="show-on-print"
+            >
+              Pysäköintivirhemaksun tiedot
+            </h2>
             <div
               class="info-field"
             >
@@ -480,7 +484,6 @@ exports[`Component matches snapshot 1`] = `
         <div
           class="Card-module_card__1WbKx card_hds-card--border__c2dBc custom-theme-1 vehicle-details-container"
           data-testid="carInfoCard"
-          id="carInfoCard"
           role="region"
         >
           <h2
@@ -598,6 +601,277 @@ exports[`Component matches snapshot 1`] = `
           </svg>
         </div>
       </button>
+    </div>
+  </div>
+  <div
+    aria-hidden="true"
+    class="show-on-print"
+  >
+    <div
+      class="info-container"
+    >
+      <div
+        class="summary-body"
+      >
+        <div
+          class="summary-container"
+          data-testid="parkingFineSummary"
+        >
+          <h2
+            aria-hidden="true"
+            class="show-on-print"
+          >
+            Pysäköintivirhemaksun tiedot
+          </h2>
+          <div
+            class="info-field"
+          >
+            <label>
+              Virheen ajankohta
+            </label>
+            <p>
+              1.11.2019 09:41 - 1.11.2019 09:43
+            </p>
+          </div>
+          <div
+            class="info-field"
+          >
+            <label>
+              Asianumero
+            </label>
+            <p>
+              Esim. 12345678
+            </p>
+          </div>
+          <hr />
+          <div
+            class="info-field"
+          >
+            <label>
+              Lähiosoite
+            </label>
+            <p>
+              Näkinkuja 1c
+            </p>
+          </div>
+          <div
+            class="info-field"
+          >
+            <label>
+              Lisätietoja
+            </label>
+            <p>
+              Kääntymispaikka
+            </p>
+          </div>
+          <hr />
+          <div
+            class="info-field"
+          >
+            <label>
+              Virhe
+            </label>
+            <p>
+              Pysäköinti kielletty liikennemerkin noudattamatta jättäminen. TLL 3 § 1 mom, TL 16 § merkki 372
+            </p>
+          </div>
+          <div
+            class="info-field"
+          >
+            <label>
+              Lisätieto
+            </label>
+            <p>
+              Liikennemerkistä n. 3 m
+            </p>
+          </div>
+          <div
+            class="info-field"
+          >
+            <label>
+              Virhe
+            </label>
+            <p>
+              Pysäköinti kielletty liikennemerkin noudattamatta jättäminen. TLL 3 § 1 mom, TL 16 § merkki 372
+            </p>
+          </div>
+          <div
+            class="info-field"
+          >
+            <label>
+              Lisätieto
+            </label>
+            <p>
+              Liikennemerkistä n. 3 m
+            </p>
+          </div>
+          <hr />
+          <div
+            class="wide-field"
+          >
+            <label>
+              Pysäköintivirheen lisätiedot
+            </label>
+            <p>
+              Lyökämme käsi kätehen, sormet sormien lomahan, lauloaksemme hyviä, parahia pannaksemme, kuulla noien kultaisien, tietä mielitehtoisien, nuorisossa nousevassa, kansassa kasuavassa: noita saamia sanoja, virsiä virittämiä vyöltä vanhan Väinämöisen, alta ahjon Ilmarisen, päästä kalvan Kaukomielen. 294 merkkiä
+            </p>
+          </div>
+          <hr />
+          <div
+            class="info-field sum-field"
+          >
+            <label>
+              Pysäköintivirhemaksun summa
+            </label>
+            <p>
+              80,00 EUR
+            </p>
+          </div>
+          <div
+            class="info-field"
+          >
+            <label>
+              Eräpäivä
+            </label>
+            <p>
+              2.12.2019
+            </p>
+          </div>
+          <hr />
+          <div
+            class="barcode-container wide-field"
+          >
+            <label
+              class="barcode-label"
+            >
+              Virtuaaliviivakoodi
+            </label>
+            <p
+              class="barcode"
+            >
+              430123730001230560012400000000000000000100018714210302
+            </p>
+            <button
+              class="Button-module_button__1msFE button_hds-button__2A0je Button-module_secondary__1nABp button_hds-button--secondary__1NOWS barcode-button"
+              data-testid="copy-to-clipboard"
+              type="button"
+            >
+              <div
+                aria-hidden="true"
+                class="Button-module_icon__O-h7R button_hds-icon__17j8Z"
+              >
+                <svg
+                  class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+                  role="img"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g
+                    fill="none"
+                    fill-rule="evenodd"
+                  >
+                    <rect
+                      height="24"
+                      width="24"
+                    />
+                    <path
+                      d="M6,10 L6,12 L5,12 L5,18 L12,18 L12,17 L14,17 L14,19 C14,19.5522847 13.5522847,20 13,20 L4,20 C3.44771525,20 3,19.5522847 3,19 L3,11 C3,10.4477153 3.44771525,10 4,10 L6,10 Z M20,4 C20.5522847,4 21,4.44771525 21,5 L21,15 C21,15.5522847 20.5522847,16 20,16 L8,16 C7.44771525,16 7,15.5522847 7,15 L7,5 C7,4.44771525 7.44771525,4 8,4 L20,4 Z M19,6 L9,6 L9,14 L19,14 L19,6 Z"
+                      fill="currentColor"
+                    />
+                  </g>
+                </svg>
+              </div>
+              <span
+                class="Button-module_label__a4np1 button_hds-button__label__2EQa-"
+              >
+                Kopioi virtuaaliviivakoodi
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="Card-module_card__1WbKx card_hds-card--border__c2dBc custom-theme-2 vehicle-details-container"
+        data-testid="carInfoCard"
+        role="region"
+      >
+        <h2
+          class="vehicle-details-header"
+        >
+          Ajoneuvon tiedot
+        </h2>
+        <div>
+          <label>
+            Ajoneuvon rekisteritunnus
+          </label>
+          <p>
+            Esim. ABC-123
+          </p>
+        </div>
+        <div>
+          <label>
+            Ajoneuvolaji
+          </label>
+          <p>
+            Henkilöauto M1
+          </p>
+        </div>
+        <div>
+          <label>
+            Merkki
+          </label>
+          <p>
+            Citroen
+          </p>
+        </div>
+        <div>
+          <label>
+            Malli
+          </label>
+          <p>
+            2D C2 HATCHBACK 1.4l-JMKFVC/232
+          </p>
+        </div>
+        <div>
+          <label>
+            Väri
+          </label>
+          <p>
+            Punainen
+          </p>
+        </div>
+        <div
+          class="imageViewer-preview-container"
+        >
+          <input
+            alt="Avaa kuvankatselu"
+            class="imageViewer-preview-image"
+            data-testid="clickable-image"
+            formmethod="dialog"
+            src="https://via.placeholder.com/600.png"
+            type="image"
+            value="0"
+          />
+          <input
+            alt="Avaa kuvankatselu"
+            class="imageViewer-preview-image"
+            data-testid="clickable-image"
+            formmethod="dialog"
+            src="https://via.placeholder.com/600x1200.png"
+            type="image"
+            value="1"
+          />
+          <input
+            alt="Avaa kuvankatselu"
+            class="imageViewer-preview-image"
+            data-testid="clickable-image"
+            formmethod="dialog"
+            src="https://via.placeholder.com/1200x800.png"
+            type="image"
+            value="2"
+          />
+        </div>
+      </div>
     </div>
   </div>
 </div>
