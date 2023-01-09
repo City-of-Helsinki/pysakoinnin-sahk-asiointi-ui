@@ -69,7 +69,7 @@ const FormStepper = (props: Props): React.ReactElement => {
   useEffect(() => {
     mainPageButtonRef.current?.scrollIntoView({
       behavior: 'smooth',
-      block: 'end'
+      block: 'nearest'
     });
   }, [showSubmitNotification]);
 
