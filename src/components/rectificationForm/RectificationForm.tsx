@@ -28,13 +28,16 @@ const RectificationForm = () => {
   const selectedForm = useSelector(selectFormContent).selectedForm;
   const movedCarFormSelected = selectedForm === FormId.MOVEDCAR;
 
+  const relations = movedCarFormSelected
+    ? ['owner', 'poa-holder']
+    : ['driver', 'owner', 'poa-holder'];
+
   const [checked, setChecked] = useState(false);
   const [newEmailSelected, setNewEmailSelected] = useState(false);
-  const [vehicleRelation, setVehicleRelation] = useState('driver');
+  const [vehicleRelation, setVehicleRelation] = useState(relations[0]);
   const [currentCharacters, setCurrentCharacters] = useState(0);
 
   const [decision, setDecision] = useState('toParkingService');
-
   const handleCheckbox = (e: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(e.target.checked);
     setNewEmailSelected(e.target.checked);
@@ -66,10 +69,6 @@ const RectificationForm = () => {
     }
   };
 
-  const relations = movedCarFormSelected
-    ? ['driver', 'owner', 'poa-holder']
-    : ['driver', 'owner', 'holder'];
-
   return (
     <>
       <p>{t('common:required-fields')}</p>
@@ -77,16 +76,12 @@ const RectificationForm = () => {
         <div className="rectification-info-container">
           <div className="rectification-user-section">
             <SelectionGroup
-              label={t(
-                `rectificationForm:relation-info:${selectedForm}:relation`
-              )}
+              label={t(`rectificationForm:relation-info:relation`)}
               required>
               {relations.map(relation => (
                 <RadioButton
                   key={relation}
-                  label={t(
-                    `rectificationForm:relation-info:${selectedForm}:${relation}`
-                  )}
+                  label={t(`rectificationForm:relation-info:${relation}`)}
                   id={relation}
                   value={relation}
                   checked={vehicleRelation === relation}
