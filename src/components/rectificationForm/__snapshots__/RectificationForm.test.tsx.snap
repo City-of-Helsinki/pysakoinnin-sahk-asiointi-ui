@@ -35,6 +35,7 @@ exports[`Component in moved car form matches snapshot 1`] = `
                 class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
               >
                 <input
+                  checked=""
                   class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
                   id="owner"
                   type="radio"
