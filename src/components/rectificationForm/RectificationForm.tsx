@@ -1,5 +1,5 @@
 /* eslint-disable sonarjs/no-duplicate-string */
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import {
@@ -28,13 +28,16 @@ const RectificationForm = () => {
   const selectedForm = useSelector(selectFormContent).selectedForm;
   const movedCarFormSelected = selectedForm === FormId.MOVEDCAR;
 
+  const relations = movedCarFormSelected
+    ? ['owner', 'poa-holder']
+    : ['driver', 'owner', 'poa-holder'];
+
   const [checked, setChecked] = useState(false);
   const [newEmailSelected, setNewEmailSelected] = useState(false);
-  const [vehicleRelation, setVehicleRelation] = useState('driver');
+  const [vehicleRelation, setVehicleRelation] = useState(relations[0]);
   const [currentCharacters, setCurrentCharacters] = useState(0);
 
   const [decision, setDecision] = useState('toParkingService');
-
   const handleCheckbox = (e: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(e.target.checked);
     setNewEmailSelected(e.target.checked);
@@ -65,17 +68,6 @@ const RectificationForm = () => {
         return dispatch(setAttachments(fileList));
     }
   };
-
-  const relations =
-    selectedForm === 'parking-fine'
-      ? ['driver', 'owner', 'poa-holder']
-      : ['owner', 'poa-holder'];
-
-  useEffect(() => {
-    if (movedCarFormSelected && vehicleRelation !== 'owner') {
-      setVehicleRelation('owner');
-    }
-  }, []);
 
   return (
     <>
