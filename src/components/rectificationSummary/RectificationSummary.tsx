@@ -128,7 +128,7 @@ const RectificationSummary = () => {
               </ul>
             </div>
           )}
-          {selectedForm === FormId.MOVEDCAR && poaFile.name && (
+          {poaFile.name && (
             <div>
               <label className={styles['text-label']}>
                 {t('rectificationForm:poa')}

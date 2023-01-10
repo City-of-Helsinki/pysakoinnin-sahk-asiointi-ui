@@ -129,18 +129,16 @@ const RectificationForm = () => {
               />
             </div>
           </div>
-          {movedCarFormSelected && (
-            <div className="rectification-poa-fileinput">
-              <FileInput
-                language={i18n.language as Language}
-                label={t('rectificationForm:attach-poa')}
-                id="rectificationPOAFile"
-                onChange={e => setFiles(e, 'poa')}
-                dragAndDrop
-                accept={'.png, .jpg, .pdf'}
-              />
-            </div>
-          )}
+          <div className="rectification-poa-fileinput">
+            <FileInput
+              language={i18n.language as Language}
+              label={t('rectificationForm:attach-poa')}
+              id="rectificationPOAFile"
+              onChange={e => setFiles(e, 'poa')}
+              dragAndDrop
+              accept={'.png, .jpg, .pdf'}
+            />
+          </div>
         </div>
         <hr />
         <div className="rectification-link-to-profile">
