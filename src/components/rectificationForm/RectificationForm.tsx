@@ -14,6 +14,7 @@ import {
   TextInput
 } from 'hds-react';
 import { useClient } from '../../client/hooks';
+import useMobileWidth from '../../hooks/useMobileWidth';
 import { FormId, selectFormContent } from '../formContent/formContentSlice';
 import { FileItem, setAttachments, setPOAFile } from './rectificationFormSlice';
 import './RectificationForm.css';
@@ -130,14 +131,24 @@ const RectificationForm = () => {
             </div>
           </div>
           <div className="rectification-poa-fileinput">
-            <FileInput
-              language={i18n.language as Language}
-              label={t('rectificationForm:attach-poa')}
-              id="rectificationPOAFile"
-              onChange={e => setFiles(e, 'poa')}
-              dragAndDrop
-              accept={'.png, .jpg, .pdf'}
-            />
+            {useMobileWidth() ? (
+              <FileInput
+                language={i18n.language as Language}
+                label={t('rectificationForm:attach-poa')}
+                id="rectificationPOAFile"
+                onChange={e => setFiles(e, 'poa')}
+                accept={'.png, .jpg, .pdf'}
+              />
+            ) : (
+              <FileInput
+                language={i18n.language as Language}
+                label={t('rectificationForm:attach-poa')}
+                id="rectificationPOAFile"
+                onChange={e => setFiles(e, 'poa')}
+                dragAndDrop
+                accept={'.png, .jpg, .pdf'}
+              />
+            )}
           </div>
         </div>
         <hr />
@@ -238,16 +249,28 @@ const RectificationForm = () => {
             }
           />
 
-          <FileInput
-            language={i18n.language as Language}
-            multiple
-            className="rectification-fileinput"
-            label={t('rectificationForm:attachments')}
-            id="rectificationAttachments"
-            onChange={e => setFiles(e, 'attachments')}
-            dragAndDrop
-            accept={'.png, .jpg, .pdf'}
-          />
+          {useMobileWidth() ? (
+            <FileInput
+              language={i18n.language as Language}
+              multiple
+              className="rectification-fileinput"
+              label={t('rectificationForm:attachments')}
+              id="rectificationAttachments"
+              onChange={e => setFiles(e, 'attachments')}
+              accept={'.png, .jpg, .pdf'}
+            />
+          ) : (
+            <FileInput
+              language={i18n.language as Language}
+              multiple
+              className="rectification-fileinput"
+              label={t('rectificationForm:attachments')}
+              id="rectificationAttachments"
+              onChange={e => setFiles(e, 'attachments')}
+              dragAndDrop
+              accept={'.png, .jpg, .pdf'}
+            />
+          )}
 
           <SelectionGroup
             label={t('rectificationForm:decision-choice')}
