@@ -14,6 +14,7 @@ import {
   TextInput
 } from 'hds-react';
 import { useClient } from '../../client/hooks';
+import useMobileWidth from '../../hooks/useMobileWidth';
 import { FormId, selectFormContent } from '../formContent/formContentSlice';
 import { FileItem, setAttachments, setPOAFile } from './rectificationFormSlice';
 import './RectificationForm.css';
@@ -135,7 +136,7 @@ const RectificationForm = () => {
               label={t('rectificationForm:attach-poa')}
               id="rectificationPOAFile"
               onChange={e => setFiles(e, 'poa')}
-              dragAndDrop
+              dragAndDrop={!useMobileWidth()}
               accept={'.png, .jpg, .pdf'}
             />
           </div>
@@ -245,7 +246,7 @@ const RectificationForm = () => {
             label={t('rectificationForm:attachments')}
             id="rectificationAttachments"
             onChange={e => setFiles(e, 'attachments')}
-            dragAndDrop
+            dragAndDrop={!useMobileWidth()}
             accept={'.png, .jpg, .pdf'}
           />
 

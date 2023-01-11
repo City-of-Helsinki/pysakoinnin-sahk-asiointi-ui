@@ -11,7 +11,8 @@ import {
   Stepper
 } from 'hds-react';
 import { useTranslation } from 'react-i18next';
-import { formatDate, isSmallScreen } from '../../utils/helpers';
+import { formatDate } from '../../utils/helpers';
+import useMobileWidth from '../../hooks/useMobileWidth';
 import FormContent from '../formContent/FormContent';
 import {
   completeStep,
@@ -41,20 +42,6 @@ const FormStepper = (props: Props): React.ReactElement => {
   const lastStep = activeStepIndex === steps.length - 1;
   const [showSubmitNotification, setShowSubmitNotification] = useState(false);
   const mainPageButtonRef = useRef<null | HTMLDivElement>(null);
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-
-  // save the screen size on window resize event, to decide the size of stepper component
-  useEffect(() => {
-    function handleResize() {
-      setScreenWidth(window.innerWidth);
-    }
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
 
   const handleSubmit = () => {
     dispatch(setFormSubmitted(true));
@@ -83,7 +70,7 @@ const FormStepper = (props: Props): React.ReactElement => {
       <div id="stepper">
         <Stepper
           className="stepper hide-on-print"
-          small={isSmallScreen(screenWidth)}
+          small={useMobileWidth()}
           language="fi"
           onStepClick={(event, stepIndex) => dispatch(setActive(stepIndex))}
           selectedStep={activeStepIndex}

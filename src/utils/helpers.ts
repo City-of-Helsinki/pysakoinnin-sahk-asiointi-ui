@@ -1,7 +1,6 @@
 import { addDays, format, formatISO } from 'date-fns';
 
 const EXTENDEDDAYS = 30;
-const BREAKPOINT_M = 768;
 const BYTES_IN_KB = 1024;
 
 // from 'yyyy-mm-dd' to 'dd.mm.yyyy'
@@ -31,10 +30,6 @@ function isInFuture(date: string): boolean {
 // due date is not allowed
 export function isExtensionAllowed(date: string): boolean {
   return isInFuture(date);
-}
-
-export function isSmallScreen(width: number): boolean {
-  return width < BREAKPOINT_M;
 }
 
 export const formatBytes = (bytes: number): string => {
