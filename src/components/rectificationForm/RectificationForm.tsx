@@ -131,24 +131,14 @@ const RectificationForm = () => {
             </div>
           </div>
           <div className="rectification-poa-fileinput">
-            {useMobileWidth() ? (
-              <FileInput
-                language={i18n.language as Language}
-                label={t('rectificationForm:attach-poa')}
-                id="rectificationPOAFile"
-                onChange={e => setFiles(e, 'poa')}
-                accept={'.png, .jpg, .pdf'}
-              />
-            ) : (
-              <FileInput
-                language={i18n.language as Language}
-                label={t('rectificationForm:attach-poa')}
-                id="rectificationPOAFile"
-                onChange={e => setFiles(e, 'poa')}
-                dragAndDrop
-                accept={'.png, .jpg, .pdf'}
-              />
-            )}
+            <FileInput
+              language={i18n.language as Language}
+              label={t('rectificationForm:attach-poa')}
+              id="rectificationPOAFile"
+              onChange={e => setFiles(e, 'poa')}
+              dragAndDrop={!useMobileWidth()}
+              accept={'.png, .jpg, .pdf'}
+            />
           </div>
         </div>
         <hr />
@@ -249,28 +239,16 @@ const RectificationForm = () => {
             }
           />
 
-          {useMobileWidth() ? (
-            <FileInput
-              language={i18n.language as Language}
-              multiple
-              className="rectification-fileinput"
-              label={t('rectificationForm:attachments')}
-              id="rectificationAttachments"
-              onChange={e => setFiles(e, 'attachments')}
-              accept={'.png, .jpg, .pdf'}
-            />
-          ) : (
-            <FileInput
-              language={i18n.language as Language}
-              multiple
-              className="rectification-fileinput"
-              label={t('rectificationForm:attachments')}
-              id="rectificationAttachments"
-              onChange={e => setFiles(e, 'attachments')}
-              dragAndDrop
-              accept={'.png, .jpg, .pdf'}
-            />
-          )}
+          <FileInput
+            language={i18n.language as Language}
+            multiple
+            className="rectification-fileinput"
+            label={t('rectificationForm:attachments')}
+            id="rectificationAttachments"
+            onChange={e => setFiles(e, 'attachments')}
+            dragAndDrop={!useMobileWidth()}
+            accept={'.png, .jpg, .pdf'}
+          />
 
           <SelectionGroup
             label={t('rectificationForm:decision-choice')}
