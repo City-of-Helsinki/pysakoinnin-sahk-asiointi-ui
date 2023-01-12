@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router';
+import { Route, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { ClientProvider } from './client/ClientProvider';
 import StoreProvider from './client/redux/StoreProvider';
@@ -22,27 +22,18 @@ function App(): React.ReactElement {
           <Provider store={store}>
             <PageContainer>
               <Header />
-              <Switch>
-                <Route path={'/'} exact>
-                  <Index />
-                </Route>
-                <Route path={['/authError']} exact>
-                  <div>Autentikaatio epäonnistui</div>
-                </Route>
-                <Route path={['/logout']} exact>
-                  <LogOut />
-                </Route>
-                <Route path={['/virhemaksu']} exact>
-                  <ParkingFineAppeal />
-                </Route>
-                <Route path={['/ajoneuvonsiirto']} exact>
-                  <MovedCarAppeal />
-                </Route>
-                <Route path={['/erapaivansiirto']} exact>
-                  <ExtendDueDate />
-                </Route>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route
+                  path="/authError"
+                  element={<div>Autentikaatio epäonnistui</div>}
+                />
+                <Route path="/logout" element={<LogOut />} />
+                <Route path="/virhemaksu" element={<ParkingFineAppeal />} />
+                <Route path="/ajoneuvonsiirto" element={<MovedCarAppeal />} />
+                <Route path="/erapaivansiirto" element={<ExtendDueDate />} />
                 <Route path="*">404 - not found</Route>
-              </Switch>
+              </Routes>
               <PageFooter />
             </PageContainer>
           </Provider>
