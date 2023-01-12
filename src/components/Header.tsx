@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { IconSignout, Navigation } from 'hds-react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useClient } from '../client/hooks';
 import styles from './styles.module.css';
 import config from '../config';
@@ -20,7 +20,7 @@ const Header = (): React.ReactElement => {
   const authenticated = client.isAuthenticated();
   const initialized = client.isInitialized();
   const user = client.getUser();
-  const history = useHistory();
+  const navigate = useNavigate();
   const location = useLocation();
   const path = location.pathname.replace(pathPrefix, '');
   const currentPageFromPath: Page =
@@ -29,99 +29,6 @@ const Header = (): React.ReactElement => {
 
   const title = 'Pysäköinnin asiointi';
   const userName = user ? `${user.given_name} ${user.family_name}` : '';
-
-  const frontPageLink = (
-    <Navigation.Item
-      active={active === 'frontpage'}
-      label="Etusivu"
-      key="frontpage"
-      tabIndex={0}
-      onClick={(): void => {
-        setActive('frontpage');
-        history.push(pathPrefix);
-      }}
-      data-test-id="header-link-frontpage"
-    />
-  );
-
-  const accessTokenLink = (
-    <Navigation.Item
-      active={active === 'apiAccessTokens'}
-      as="button"
-      label="Hae API access token"
-      key="apiAccessTokens"
-      type="button"
-      onClick={(): void => {
-        setActive('apiAccessTokens');
-        history.push(`${pathPrefix}/apiAccessTokens`);
-      }}
-      data-test-id="header-link-apiAccessTokens"
-    />
-  );
-
-  const userTokenLink = (
-    <Navigation.Item
-      active={active === 'userTokens'}
-      as="button"
-      label="Tokenit"
-      key="userTokens"
-      type="button"
-      onClick={(): void => {
-        setActive('userTokens');
-        history.push(`${pathPrefix}/userTokens`);
-      }}
-      data-test-id="header-link-userTokens"
-    />
-  );
-
-  const profileLink = (
-    <Navigation.Item
-      active={active === 'profile'}
-      as="button"
-      label="Profiili"
-      key="profile"
-      type="button"
-      onClick={(): void => {
-        setActive('profile');
-        history.push(`${pathPrefix}/profile`);
-      }}
-      data-test-id="header-link-profile"
-    />
-  );
-  const userInfoLink = (
-    <Navigation.Item
-      active={active === 'userinfo'}
-      as="button"
-      label="User info"
-      key="userinfo"
-      type="button"
-      onClick={(): void => {
-        setActive('userinfo');
-        history.push(`${pathPrefix}/userinfo`);
-      }}
-      data-test-id="header-link-user-info"
-    />
-  );
-  const backendLink = (
-    <Navigation.Item
-      active={active === 'backend'}
-      as="button"
-      label="Backend data"
-      key="backend"
-      type="button"
-      onClick={(): void => {
-        setActive('backend');
-        history.push(`${pathPrefix}/backend`);
-      }}
-      data-test-id="header-link-backend"
-    />
-  );
-
-  // <Navigation.Row> cannot not handle null/undefined as children.
-  // That is why if..else cannot be used in <Navigation.Row>
-  const links = currentConfig.hasApiTokenSupport
-    ? [frontPageLink, accessTokenLink, userTokenLink, profileLink, backendLink]
-    : [frontPageLink, userTokenLink, userInfoLink];
 
   return (
     <Navigation
@@ -135,7 +42,17 @@ const Header = (): React.ReactElement => {
       skipTo="#content"
       skipToContentLabel="Skip to main content">
       <Navigation.Row variant="inline">
-        {links.map(link => link)}
+        <Navigation.Item
+          active={active === 'frontpage'}
+          label="Etusivu"
+          key="frontpage"
+          tabIndex={0}
+          onClick={(): void => {
+            setActive('frontpage');
+            navigate('/');
+          }}
+          data-test-id="header-link-frontpage"
+        />
       </Navigation.Row>
       <Navigation.Actions>
         {initialized && (
