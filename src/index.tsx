@@ -17,11 +17,13 @@ declare global {
   }
 }
 
+const isLocalhost = window.location.hostname === 'localhost';
+
 Sentry.init({
   dsn: window._env_.REACT_APP_SENTRY_DSN,
   integrations: [new Integrations.BrowserTracing()],
   environment: window._env_.REACT_APP_ENVIRONMENT,
-  tracesSampleRate: window._env_.REACT_APP_SENTRY_TRACE_RATE
+  tracesSampleRate: isLocalhost ? 0.0 : window._env_.REACT_APP_SENTRY_TRACE_RATE
 });
 
 ReactDOM.render(<BrowserApp />, document.getElementById('root'));
