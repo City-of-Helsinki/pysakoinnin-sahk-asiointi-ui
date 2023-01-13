@@ -3,13 +3,15 @@ import formContentReducer from './components/formContent/formContentSlice';
 import formStepperReducer from './components/formStepper/formStepperSlice';
 import extendDueDateFormReducer from './components/extendDueDate/extendDueDateFormSlice';
 import rectificationFormReducer from './components/rectificationForm/rectificationFormSlice';
+import searchFormReducer from './components/searchForm/searchFormSlice';
 
 const store = configureStore({
   reducer: {
     formContent: formContentReducer,
     formStepper: formStepperReducer,
     extendDueDateForm: extendDueDateFormReducer,
-    rectificationForm: rectificationFormReducer
+    rectificationForm: rectificationFormReducer,
+    searchForm: searchFormReducer
   }
 });
 

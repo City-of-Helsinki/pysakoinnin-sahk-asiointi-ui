@@ -39,12 +39,14 @@
       "ref-number": {
         "label": "Asianumero",
         "placeholder": "Esim. 12345678",
-        "tooltip-text": "Asianumeron löydät pysäköintivirhemaksusta"
+        "tooltip-text": "Asianumeron löydät pysäköintivirhemaksusta",
+        "error": "Tarkista asianumero. Kirjoita muodossa 12345678."
       },
       "invoice-number": {
         "label": "Korvauspäätöksen laskun numero",
         "placeholder": "Esim. 12345678",
-        "tooltip-text": "Laskun numeron löydät sinulle lähetetystä korvauspäätöksestä."
+        "tooltip-text": "Laskun numeron löydät sinulle lähetetystä korvauspäätöksestä.",
+        "error": "Tarkista laskun numero. Kirjoita muodossa 12345678."
       },
       "reg-number": {
         "label": "Ajoneuvon rekisteritunnus",
@@ -52,7 +54,8 @@
         "helper-text": {
           "common": "Kirjoita rekisteritunnus kuten se on pysäköintivirhemaksussa.",
           "moved-car": "Kirjoita rekisteritunnus kuten se on korvauspäätöksessä."
-        }
+        },
+        "error": "Tarkista rekisteritunnus. Kirjoita muodossa ABC-123."
       },
       "fine-timestamp": {
         "label": "Virheen ajankohta",

@@ -2,14 +2,16 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import SearchForm from '../searchForm/SearchForm';
 import { FormId, selectFormContent } from './formContentSlice';
-import './FormContent.css';
 import ExtendDueDateForm from '../extendDueDate/ExtendDueDateForm';
 import InfoContainer from '../infoContainer/InfoContainer';
 import RectificationForm from '../rectificationForm/RectificationForm';
 import RectificationSummary from '../rectificationSummary/RectificationSummary';
+import { RectificationControlType } from '../../interfaces/formInterfaces';
+import './FormContent.css';
 
 interface Props {
   activeStep: number;
+  control: RectificationControlType;
 }
 
 const FormContent = (props: Props): React.ReactElement => {
@@ -30,7 +32,7 @@ const FormContent = (props: Props): React.ReactElement => {
     <div className="form-container">
       {
         {
-          0: <SearchForm />,
+          0: <SearchForm control={props.control} />,
           1: selectForm(formContent.selectedForm),
           2: <RectificationForm />,
           3: <RectificationSummary />
