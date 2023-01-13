@@ -11,6 +11,6 @@
 @media (max-width: 450px) {
   .vehicle-details-container {
     border: none !important;
-    padding: 0;
+    padding: 0 !important;
   }
 }

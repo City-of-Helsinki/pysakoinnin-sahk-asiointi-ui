@@ -28,10 +28,8 @@ const RectificationSummary = () => {
         <div className="rectification-summary-details">
           <TextInput
             id="relation"
-            label={t(
-              `rectificationForm:relation-info:${selectedForm}:relation`
-            )}
-            value={t(`rectificationForm:relation-info:${selectedForm}:driver`)}
+            label={t(`rectificationForm:relation-info:relation`)}
+            value={t(`rectificationForm:relation-info:driver`)}
             readOnly
           />
           <TextInput
