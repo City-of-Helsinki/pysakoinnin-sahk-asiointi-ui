@@ -30,9 +30,7 @@ const ExtendDueDate = (): React.ReactElement => {
 
   return (
     <PageContent>
-      <form>
-        <FormStepper initialSteps={steps} onSubmit={handleSubmit} />
-      </form>
+      <FormStepper initialSteps={steps} onSubmit={handleSubmit} />
     </PageContent>
   );
 };

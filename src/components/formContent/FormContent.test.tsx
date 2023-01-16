@@ -1,12 +1,14 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import { render, waitFor } from '@testing-library/react';
+import { renderHook } from '@testing-library/react-hooks';
+import { useForm } from 'react-hook-form';
 import { axe } from 'jest-axe';
 import FormContent from './FormContent';
-import { Provider } from 'react-redux';
+import { RectificationFormType } from '../../interfaces/formInterfaces';
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 import store from '../../store';
 import '@testing-library/jest-dom';
-
 const extendDueDateFormSliceMock = createSlice({
   name: 'extendDueDateForm',
   initialState: {
@@ -47,11 +49,23 @@ const movedCarFormContentSliceMock = createSlice({
   reducers: {}
 });
 
+const { result } = renderHook(() =>
+  useForm<RectificationFormType>({
+    defaultValues: {
+      invoiceNumber: '',
+      refNumber: '',
+      regNumber: ''
+    }
+  })
+);
+
+const control = result.current.control;
+
 describe('form content', () => {
   test('passes a11y validation', async () => {
     const { container } = render(
       <Provider store={store}>
-        <FormContent activeStep={0} />
+        <FormContent activeStep={0} control={control} />
       </Provider>
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -68,7 +82,7 @@ describe('form content', () => {
 
         const { getByTestId } = render(
           <Provider store={store}>
-            <FormContent activeStep={0} />
+            <FormContent activeStep={0} control={control} />
           </Provider>
         );
 
@@ -83,7 +97,7 @@ describe('form content', () => {
         });
         const { getByTestId } = render(
           <Provider store={store}>
-            <FormContent activeStep={0} />
+            <FormContent activeStep={0} control={control} />
           </Provider>
         );
         await waitFor(() => expect(getByTestId('searchForm')).toBeVisible());
@@ -97,7 +111,7 @@ describe('form content', () => {
         });
         const { getByTestId } = render(
           <Provider store={store}>
-            <FormContent activeStep={0} />
+            <FormContent activeStep={0} control={control} />
           </Provider>
         );
         await waitFor(() => expect(getByTestId('searchForm')).toBeVisible());
@@ -114,7 +128,7 @@ describe('form content', () => {
 
         const { getByTestId } = render(
           <Provider store={store}>
-            <FormContent activeStep={1} />
+            <FormContent activeStep={1} control={control} />
           </Provider>
         );
 
@@ -132,7 +146,7 @@ describe('form content', () => {
 
         const { getByTestId } = render(
           <Provider store={store}>
-            <FormContent activeStep={1} />
+            <FormContent activeStep={1} control={control} />
           </Provider>
         );
 
@@ -149,7 +163,7 @@ describe('form content', () => {
         });
         const { getByTestId } = render(
           <Provider store={store}>
-            <FormContent activeStep={1} />
+            <FormContent activeStep={1} control={control} />
           </Provider>
         );
         await waitFor(() =>
