@@ -13,6 +13,7 @@ import ParkingFineAppeal from './components/parkingFineAppeal/ParkingFineAppeal'
 import MovedCarAppeal from './components/movedCarAppeal/MovedCarAppeal';
 import ExtendDueDate from './components/extendDueDate/ExtendDueDate';
 import PageFooter from './components/PageFooter';
+import ProtectedRoute from '../src/components/ProtectedRoute';
 
 function App(): React.ReactElement {
   return (
@@ -29,9 +30,11 @@ function App(): React.ReactElement {
                   element={<div>Autentikaatio epäonnistui</div>}
                 />
                 <Route path="/logout" element={<LogOut />} />
-                <Route path="/virhemaksu" element={<ParkingFineAppeal />} />
-                <Route path="/ajoneuvonsiirto" element={<MovedCarAppeal />} />
-                <Route path="/erapaivansiirto" element={<ExtendDueDate />} />
+                <Route element={<ProtectedRoute />}>
+                  <Route path="/virhemaksu" element={<ParkingFineAppeal />} />
+                  <Route path="/ajoneuvonsiirto" element={<MovedCarAppeal />} />
+                  <Route path="/erapaivansiirto" element={<ExtendDueDate />} />
+                </Route>
                 <Route path="*">404 - not found</Route>
               </Routes>
               <PageFooter />
