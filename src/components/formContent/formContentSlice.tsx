@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../../store';
+import { Control } from 'react-hook-form';
 
 export enum FormId {
   NONE = '',
@@ -8,16 +9,68 @@ export enum FormId {
   MOVEDCAR = 'moved-car'
 }
 
-type SliceState = {
+export type FileItem = {
+  name: string;
+  size: number;
+  type: string;
+};
+
+export type RectificationFormType = {
+  invoiceNumber: string;
+  refNumber: string;
+  regNumber: string;
+  relation: string;
+  poaFile: FileItem;
+  attachments: FileItem[];
+  toSeparateEmail: boolean;
+  newEmailAddress: string;
+  newEmailConfirm: string;
+  address: string;
+  zipCode: string;
+  city: string;
+  countryCode: string;
+  phone: string;
+  IBAN: string;
+  rectificationContent: string;
+  deliveryDecision: string;
+};
+
+export type RectificationControlType = Control<RectificationFormType>;
+
+export type FormState = {
   formSubmitted: boolean;
   selectedForm: FormId;
   submitDisabled: boolean;
+  formValues: RectificationFormType;
 };
 
-const initialState: SliceState = {
+const initialState: FormState = {
   formSubmitted: false,
   selectedForm: FormId.NONE,
-  submitDisabled: true
+  submitDisabled: true,
+  formValues: {
+    invoiceNumber: '',
+    refNumber: '',
+    regNumber: '',
+    relation: '',
+    poaFile: {
+      name: '',
+      size: 0,
+      type: ''
+    },
+    attachments: [],
+    toSeparateEmail: false,
+    newEmailAddress: '',
+    newEmailConfirm: '',
+    address: '',
+    zipCode: '',
+    city: '',
+    countryCode: '',
+    phone: '',
+    IBAN: '',
+    rectificationContent: '',
+    deliveryDecision: 'toParkingService'
+  }
 };
 
 export const slice = createSlice({
@@ -32,6 +85,9 @@ export const slice = createSlice({
     },
     setSubmitDisabled: (state, action) => {
       state.submitDisabled = action.payload;
+    },
+    setFormValues: (state, action) => {
+      state.formValues = { ...state.formValues, ...action.payload };
     }
   }
 });
@@ -40,10 +96,14 @@ export const slice = createSlice({
 export const {
   setFormSubmitted,
   setSelectedForm,
-  setSubmitDisabled
+  setSubmitDisabled,
+  setFormValues
 } = slice.actions;
 
 // Selectors
 export const selectFormContent = (state: RootState) => state.formContent;
+
+export const selectFormValues = (state: RootState) =>
+  state.formContent.formValues;
 
 export default slice.reducer;

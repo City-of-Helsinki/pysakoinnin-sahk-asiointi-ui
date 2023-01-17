@@ -5,7 +5,7 @@ import { renderHook } from '@testing-library/react-hooks';
 import { useForm } from 'react-hook-form';
 import { axe } from 'jest-axe';
 import FormContent from './FormContent';
-import { RectificationFormType } from '../../interfaces/formInterfaces';
+import { RectificationFormType } from './formContentSlice';
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 import store from '../../store';
 import '@testing-library/jest-dom';

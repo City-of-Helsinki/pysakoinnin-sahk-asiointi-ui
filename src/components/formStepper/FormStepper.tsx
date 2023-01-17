@@ -24,20 +24,46 @@ import {
 } from './formStepperSlice';
 import {
   selectFormContent,
-  setFormSubmitted
+  setFormSubmitted,
+  selectFormValues,
+  setFormValues,
+  FormId,
+  RectificationFormType
 } from '../formContent/formContentSlice';
 import { selectDueDateFormValues } from '../extendDueDate/extendDueDateFormSlice';
-import {
-  selectSearchFormValues,
-  setSearchFormValues
-} from '../searchForm/searchFormSlice';
-import { RectificationFormType } from '../../interfaces/formInterfaces';
 import './FormStepper.css';
 
 interface Props {
   initialSteps: Step[];
   onSubmit: () => void;
 }
+
+const useRectificationForm = () => {
+  const formValues = useSelector(selectFormValues);
+  const formContent = useSelector(selectFormContent);
+
+  const { control, handleSubmit, reset } = useForm<RectificationFormType>({
+    defaultValues: formValues
+  });
+
+  useEffect(() => {
+    // if form values are found from redux (i.e. a change happens), update the form default values
+    if (formValues) {
+      reset({
+        ...formValues,
+        relation: formValues.relation
+          ? formValues.relation
+          : formContent.selectedForm === FormId.MOVEDCAR
+          ? 'owner'
+          : 'driver'
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [formValues, formContent.selectedForm]);
+
+  // export the needed functions/hooks to use the form
+  return { control, handleSubmit };
+};
 
 const FormStepper = (props: Props): React.ReactElement => {
   const { t } = useTranslation();
@@ -48,20 +74,16 @@ const FormStepper = (props: Props): React.ReactElement => {
   const lastStep = activeStepIndex === steps.length - 1;
   const [showSubmitNotification, setShowSubmitNotification] = useState(false);
   const mainPageButtonRef = useRef<null | HTMLDivElement>(null);
-  const searchFormValues = useSelector(selectSearchFormValues);
-  const defaultValues = searchFormValues;
-  const { control, handleSubmit, reset } = useForm<RectificationFormType>({
-    defaultValues
-  });
+
+  const { control, handleSubmit } = useRectificationForm();
 
   const handleFormSubmit = () => {
     dispatch(setFormSubmitted(true));
     setShowSubmitNotification(true);
   };
 
-  const onSubmitSearchForm = (form: RectificationFormType) => {
-    dispatch(setSearchFormValues(form));
-    reset(defaultValues);
+  const onSubmitForm = (form: RectificationFormType) => {
+    dispatch(setFormValues(form));
     dispatch(completeStep(activeStepIndex));
   };
 
@@ -72,13 +94,6 @@ const FormStepper = (props: Props): React.ReactElement => {
   useEffect(() => {
     dispatch(setSteps(props.initialSteps));
   }, [dispatch, props.initialSteps]);
-
-  useEffect(() => {
-    if (searchFormValues) {
-      reset(defaultValues);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchFormValues]);
 
   // scroll down to ensure submit notification and button to main page are visible
   useEffect(() => {
@@ -142,7 +157,7 @@ const FormStepper = (props: Props): React.ReactElement => {
                   id="button-next"
                   className="button"
                   iconRight={<IconArrowRight />}
-                  onClick={handleSubmit(onSubmitSearchForm)}
+                  onClick={handleSubmit(onSubmitForm)}
                   variant="primary">
                   {activeStepIndex === 1
                     ? t('common:make-rectification')

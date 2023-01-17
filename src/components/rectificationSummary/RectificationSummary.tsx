@@ -5,11 +5,12 @@ import { Accordion, IconDocument, IconPhoto, TextInput } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import { formatBytes } from '../../utils/helpers';
 import InfoContainer from '../infoContainer/InfoContainer';
-import { FormId, selectFormContent } from '../formContent/formContentSlice';
 import {
   FileItem,
-  selectRectificationFormValues
-} from '../rectificationForm/rectificationFormSlice';
+  FormId,
+  selectFormContent,
+  selectFormValues
+} from '../formContent/formContentSlice';
 import styles from '../styles.module.css';
 import './RectificationSummary.css';
 import ExtendedTextField from '../extendedTextField/ExtendedTextField';
@@ -18,8 +19,7 @@ import useMobileWidth from '../../hooks/useMobileWidth';
 const RectificationSummary = () => {
   const { t } = useTranslation();
   const selectedForm = useSelector(selectFormContent).selectedForm;
-  const poaFile = useSelector(selectRectificationFormValues).poaFile;
-  const attachments = useSelector(selectRectificationFormValues).attachments;
+  const formValues = useSelector(selectFormValues);
 
   return (
     <>
@@ -102,13 +102,13 @@ const RectificationSummary = () => {
               <p>{t('common:long-placeholder-text')}</p>
             )}
           </div>
-          {attachments.length > 0 && (
+          {formValues?.attachments.length > 0 && (
             <div>
               <label className={styles['text-label']}>
                 {t('rectificationForm:attachments')}
               </label>
               <ul className="file-list">
-                {attachments.map((item: FileItem) => (
+                {formValues?.attachments.map((item: FileItem) => (
                   <li key={item.name} className="file-list-item">
                     {item.type.startsWith('image') ? (
                       <IconPhoto aria-hidden />
@@ -126,21 +126,23 @@ const RectificationSummary = () => {
               </ul>
             </div>
           )}
-          {poaFile.name && (
+          {formValues?.poaFile.name && (
             <div>
               <label className={styles['text-label']}>
                 {t('rectificationForm:poa')}
               </label>
               <div className="file-list-item">
-                {poaFile.type.startsWith('image') ? (
+                {formValues?.poaFile.type.startsWith('image') ? (
                   <IconPhoto aria-hidden />
                 ) : (
                   <IconDocument aria-hidden />
                 )}
                 <div className="file-list-item-title">
-                  <span className="file-list-item-name">{poaFile.name}</span>
+                  <span className="file-list-item-name">
+                    {formValues?.poaFile.name}
+                  </span>
                   <span className="file-list-item-size">
-                    ({formatBytes(poaFile.size)})
+                    ({formatBytes(formValues?.poaFile.size)})
                   </span>
                 </div>
               </div>

@@ -1,9 +1,15 @@
 import React from 'react';
 import { render, waitFor } from '@testing-library/react';
 import RectificationForm from './RectificationForm';
+import { RectificationFormType } from '../formContent/formContentSlice';
 import { Provider } from 'react-redux';
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 import { axe } from 'jest-axe';
+import { renderHook } from '@testing-library/react-hooks';
+import { useForm } from 'react-hook-form';
+
+const { result } = renderHook(() => useForm<RectificationFormType>());
+const control = result.current.control;
 
 describe('Component in parking fine appeal form', () => {
   const formContentSliceMock = createSlice({
@@ -25,7 +31,7 @@ describe('Component in parking fine appeal form', () => {
   it('matches snapshot', async () => {
     const { container } = render(
       <Provider store={store}>
-        <RectificationForm />
+        <RectificationForm control={control} />
       </Provider>
     );
 
@@ -35,7 +41,7 @@ describe('Component in parking fine appeal form', () => {
   it('passes A11y checks', async () => {
     const { container } = render(
       <Provider store={store}>
-        <RectificationForm />
+        <RectificationForm control={control} />
       </Provider>
     );
 
@@ -63,7 +69,7 @@ describe('Component in moved car form', () => {
   it('matches snapshot', async () => {
     const { container } = render(
       <Provider store={store}>
-        <RectificationForm />
+        <RectificationForm control={control} />
       </Provider>
     );
 
@@ -73,7 +79,7 @@ describe('Component in moved car form', () => {
   it('passes A11y checks', async () => {
     const { container } = render(
       <Provider store={store}>
-        <RectificationForm />
+        <RectificationForm control={control} />
       </Provider>
     );
 
