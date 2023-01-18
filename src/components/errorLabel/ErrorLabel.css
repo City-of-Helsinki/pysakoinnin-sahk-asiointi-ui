@@ -3,3 +3,7 @@
   align-items: center;
   color: var(--color-error);
 }
+
+.error-icon {
+  margin-right: 6px;
+}
