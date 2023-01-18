@@ -81,7 +81,7 @@ const RectificationSummary = () => {
           <TextInput
             id="phone"
             label={t('common:phone')}
-            value={`${formValues?.countryCode} ${formValues?.phone}`}
+            value={`${formValues?.countryCode}${formValues?.phone}`}
             readOnly
           />
           <TextInput
@@ -91,8 +91,8 @@ const RectificationSummary = () => {
             readOnly
           />
           <TextInput
-            id="decision"
-            label={t('rectificationForm:decision-choice')}
+            id="deliveryDecision"
+            label={t('rectificationForm:delivery-decision')}
             value={t(`rectificationForm:${formValues?.deliveryDecision}`)}
             readOnly
           />

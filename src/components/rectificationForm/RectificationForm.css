@@ -47,7 +47,7 @@
   max-width: 100%;
 }
 
-.rectification-decision-choice {
+.rectification-delivery-decision {
   grid-row: 9;
 }
 
@@ -60,7 +60,6 @@
   align-items: center;
   margin-bottom: var(--spacing-m);
 }
-
 
 .rectification-link-to-profile svg {
   margin-right: var(--spacing-xs);

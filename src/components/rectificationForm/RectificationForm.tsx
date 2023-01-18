@@ -334,9 +334,9 @@ const RectificationForm = (props: Props) => {
             control={props.control}
             render={({ field }) => (
               <SelectionGroup
-                label={t('rectificationForm:decision-choice')}
+                label={t('rectificationForm:delivery-decision')}
                 required
-                className="rectification-decision-choice">
+                className="rectification-delivery-decision">
                 <RadioButton
                   label={t('rectificationForm:toParkingService')}
                   id="toParkingService"

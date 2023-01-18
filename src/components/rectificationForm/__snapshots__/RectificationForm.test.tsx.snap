@@ -817,7 +817,7 @@ exports[`Component in moved car form matches snapshot 1`] = `
         tabindex="-1"
       />
       <fieldset
-        class="SelectionGroup-module_selectionGroup__6Jxu8 rectification-decision-choice"
+        class="SelectionGroup-module_selectionGroup__6Jxu8 rectification-delivery-decision"
       >
         <legend
           class="SelectionGroup-module_label__qlluz"
@@ -1712,7 +1712,7 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
         tabindex="-1"
       />
       <fieldset
-        class="SelectionGroup-module_selectionGroup__6Jxu8 rectification-decision-choice"
+        class="SelectionGroup-module_selectionGroup__6Jxu8 rectification-delivery-decision"
       >
         <legend
           class="SelectionGroup-module_label__qlluz"

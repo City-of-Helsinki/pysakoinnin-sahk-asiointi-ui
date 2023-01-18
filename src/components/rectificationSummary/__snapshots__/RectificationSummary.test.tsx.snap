@@ -28,7 +28,7 @@ exports[`Component matches snapshot 1`] = `
             id="relation"
             readonly=""
             type="text"
-            value="relation-info.undefined"
+            value="Ajoneuvon kuljettajana"
           />
         </div>
       </div>
@@ -91,7 +91,7 @@ exports[`Component matches snapshot 1`] = `
             id="rectification-address"
             readonly=""
             type="text"
-            value=""
+            value="Elimäenkatu 5"
           />
         </div>
       </div>
@@ -115,7 +115,7 @@ exports[`Component matches snapshot 1`] = `
               id="zipcode"
               readonly=""
               type="text"
-              value=""
+              value="00100"
             />
           </div>
         </div>
@@ -136,7 +136,7 @@ exports[`Component matches snapshot 1`] = `
               id="city"
               readonly=""
               type="text"
-              value=""
+              value="Helsinki"
             />
           </div>
         </div>
@@ -179,7 +179,7 @@ exports[`Component matches snapshot 1`] = `
             id="phone"
             readonly=""
             type="text"
-            value="undefined undefined"
+            value="+358401234567"
           />
         </div>
       </div>
@@ -200,7 +200,7 @@ exports[`Component matches snapshot 1`] = `
             id="IBAN"
             readonly=""
             type="text"
-            value=""
+            value="FI9780001700903330"
           />
         </div>
       </div>
@@ -209,7 +209,7 @@ exports[`Component matches snapshot 1`] = `
       >
         <label
           class="FieldLabel-module_label__1zrXK "
-          for="decision"
+          for="deliveryDecision"
         >
           Haluan päätöksen
         </label>
@@ -218,10 +218,10 @@ exports[`Component matches snapshot 1`] = `
         >
           <input
             class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-            id="decision"
+            id="deliveryDecision"
             readonly=""
             type="text"
-            value="undefined"
+            value="Pysäköinnin asiointikansiooni"
           />
         </div>
       </div>
@@ -238,7 +238,108 @@ exports[`Component matches snapshot 1`] = `
         >
           Oikaisuvaatimuksen sisältö
         </label>
-        <p />
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse bibendum condimentum mi, vitae efficitur mi vulputate at. Aliquam porttitor tincidunt ex non fermentum. Fusce consequat imperdiet augue ut pulvinar. Praesent sollicitudin nulla non lacus tristique, sed faucibus urna viverra. Nullam pretium velit lorem. Maecenas porttitor molestie.
+        </p>
+      </div>
+      <div>
+        <label
+          class="text-label"
+        >
+          Liitetiedostot
+        </label>
+        <ul
+          class="file-list"
+        >
+          <li
+            class="file-list-item"
+          >
+            <svg
+              aria-hidden="true"
+              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+              role="img"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <path
+                  d="M0 0h24v24H0z"
+                />
+                <path
+                  d="M20 2v20H4V2h16zm-4 13c-.86 0-1.284.222-2.12 1.036l-.173.171C12.411 17.503 11.583 18 10 18c-1.5 0-2.322-.446-3.506-1.595L6 15.92V20h12v-4.078l-.042-.04C17.226 15.193 16.803 15 16 15zm2-11H6l.001 9.44c.502.243.928.59 1.51 1.159l.196.194C8.661 15.747 9.083 16 10 16c.86 0 1.284-.222 2.12-1.036l.173-.171C13.589 13.497 14.417 13 16 13c.81 0 1.422.13 2 .43V4zm-8 2a3 3 0 110 6 3 3 0 010-6zm0 2a1 1 0 100 2 1 1 0 000-2z"
+                  fill="currentColor"
+                />
+              </g>
+            </svg>
+            <div
+              class="file-list-item-title"
+            >
+              <span
+                class="file-list-item-name"
+              >
+                test2.jpg
+              </span>
+              <span
+                class="file-list-item-size"
+              >
+                (
+                49 KB
+                )
+              </span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <label
+          class="text-label"
+        >
+          Valtakirja
+        </label>
+        <div
+          class="file-list-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+            role="img"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              fill="none"
+              fill-rule="evenodd"
+            >
+              <rect
+                height="24"
+                width="24"
+              />
+              <path
+                d="M15,2 L20,7 L20,22 L4,22 L4,2 L15,2 Z M14,4 L14,8 L18,8 L14,4 Z M14.0082581,4 L18,8 L18,20 L6,20 L6,4 L14.0082581,4 Z M17,16 L7,16 L7,18 L17,18 L17,16 Z M17,12 L7,12 L7,14 L17,14 L17,12 Z M13,8 L7,8 L7,10 L13,10 L13,8 Z"
+                fill="currentColor"
+              />
+            </g>
+          </svg>
+          <div
+            class="file-list-item-title"
+          >
+            <span
+              class="file-list-item-name"
+            >
+              test.pdf
+            </span>
+            <span
+              class="file-list-item-size"
+            >
+              (
+              12 KB
+              )
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   </div>

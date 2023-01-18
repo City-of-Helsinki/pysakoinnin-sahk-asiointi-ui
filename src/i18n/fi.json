@@ -219,7 +219,7 @@
     "area-code": "Maakoodi",
     "phone": "Puhelinnumero",
     "IBAN": "Pankkitilinumero (IBAN)",
-    "decision-choice": "Haluan päätöksen",
+    "delivery-decision": "Haluan päätöksen",
     "toParkingService": "Pysäköinnin asiointikansiooni",
     "byMail": "Kirjeitse antamaani osoitteeseen",
     "attachments": "Liitetiedostot",
