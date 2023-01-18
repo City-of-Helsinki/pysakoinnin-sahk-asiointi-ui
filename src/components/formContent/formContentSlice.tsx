@@ -69,7 +69,7 @@ const initialState: FormState = {
     phone: '',
     IBAN: '',
     rectificationContent: '',
-    deliveryDecision: 'toParkingService'
+    deliveryDecision: ''
   }
 };
 

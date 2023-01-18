@@ -34,7 +34,7 @@
 }
 
 .rectification-form-user-details {
-  margin-top: 24px;
+  margin-top: var(--spacing-xl);
   display: grid;
   grid-template-rows: repeat(3, auto);
 }
@@ -48,7 +48,7 @@
 }
 
 .rectification-delivery-decision {
-  grid-row: 9;
+  grid-row: 8;
 }
 
 .rectification-draft-button {
@@ -116,6 +116,12 @@
     margin-top: 5px;
     min-width: 450px;
   }
+}
+
+.radio-group-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
 }
 
 .small-text {

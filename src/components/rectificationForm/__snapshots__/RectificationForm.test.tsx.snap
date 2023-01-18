@@ -12,62 +12,54 @@ exports[`Component in moved car form matches snapshot 1`] = `
       <div
         class="rectification-user-section"
       >
-        <fieldset
-          class="SelectionGroup-module_selectionGroup__6Jxu8"
-        >
+        <div>
           <legend
-            class="SelectionGroup-module_label__qlluz"
+            class="field-label"
           >
             Teen oikaisuvaatimuksen
-             
             <span
-              class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
+              class="required-icon"
             >
-               
               *
             </span>
           </legend>
           <div
-            class="SelectionGroup-module_items__28m_S SelectionGroup-module_vertical__3iorC"
+            class="radio-group-container"
           >
-            <div>
-              <div
-                class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+            <div
+              class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+            >
+              <input
+                class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
+                id="owner"
+                type="radio"
+                value="owner"
+              />
+              <label
+                class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
+                for="owner"
               >
-                <input
-                  class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
-                  id="owner"
-                  type="radio"
-                  value="owner"
-                />
-                <label
-                  class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
-                  for="owner"
-                >
-                  Ajoneuvon omistajana/haltijana
-                </label>
-              </div>
+                Ajoneuvon omistajana/haltijana
+              </label>
             </div>
-            <div>
-              <div
-                class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+            <div
+              class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+            >
+              <input
+                class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
+                id="poa-holder"
+                type="radio"
+                value="poa-holder"
+              />
+              <label
+                class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
+                for="poa-holder"
               >
-                <input
-                  class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
-                  id="poa-holder"
-                  type="radio"
-                  value="poa-holder"
-                />
-                <label
-                  class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
-                  for="poa-holder"
-                >
-                  Valtakirjalla (toisen puolesta)
-                </label>
-              </div>
+                Valtakirjalla (toisen puolesta)
+              </label>
             </div>
           </div>
-        </fieldset>
+        </div>
         <div
           class="rectification-form-user-details small"
         >
@@ -816,62 +808,56 @@ exports[`Component in moved car form matches snapshot 1`] = `
         id="rectificationAttachments-list"
         tabindex="-1"
       />
-      <fieldset
-        class="SelectionGroup-module_selectionGroup__6Jxu8 rectification-delivery-decision"
+      <div
+        class="rectification-delivery-decision"
       >
         <legend
-          class="SelectionGroup-module_label__qlluz"
+          class="field-label"
         >
-          Haluan päätöksen
-           
+          Teen oikaisuvaatimuksen
           <span
-            class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
+            class="required-icon"
           >
-             
             *
           </span>
         </legend>
         <div
-          class="SelectionGroup-module_items__28m_S SelectionGroup-module_vertical__3iorC"
+          class="radio-group-container"
         >
-          <div>
-            <div
-              class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+          <div
+            class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+          >
+            <input
+              class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
+              id="toParkingService"
+              type="radio"
+              value="toParkingService"
+            />
+            <label
+              class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
+              for="toParkingService"
             >
-              <input
-                class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
-                id="toParkingService"
-                type="radio"
-                value="toParkingService"
-              />
-              <label
-                class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
-                for="toParkingService"
-              >
-                Pysäköinnin asiointikansiooni
-              </label>
-            </div>
+              Pysäköinnin asiointikansiooni
+            </label>
           </div>
-          <div>
-            <div
-              class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+          <div
+            class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+          >
+            <input
+              class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
+              id="byMail"
+              type="radio"
+              value="byMail"
+            />
+            <label
+              class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
+              for="byMail"
             >
-              <input
-                class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
-                id="byMail"
-                type="radio"
-                value="byMail"
-              />
-              <label
-                class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
-                for="byMail"
-              >
-                Kirjeitse antamaani osoitteeseen
-              </label>
-            </div>
+              Kirjeitse antamaani osoitteeseen
+            </label>
           </div>
         </div>
-      </fieldset>
+      </div>
     </div>
   </div>
 </div>
@@ -889,80 +875,70 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
       <div
         class="rectification-user-section"
       >
-        <fieldset
-          class="SelectionGroup-module_selectionGroup__6Jxu8"
-        >
+        <div>
           <legend
-            class="SelectionGroup-module_label__qlluz"
+            class="field-label"
           >
             Teen oikaisuvaatimuksen
-             
             <span
-              class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
+              class="required-icon"
             >
-               
               *
             </span>
           </legend>
           <div
-            class="SelectionGroup-module_items__28m_S SelectionGroup-module_vertical__3iorC"
+            class="radio-group-container"
           >
-            <div>
-              <div
-                class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+            <div
+              class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+            >
+              <input
+                class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
+                id="driver"
+                type="radio"
+                value="driver"
+              />
+              <label
+                class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
+                for="driver"
               >
-                <input
-                  class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
-                  id="driver"
-                  type="radio"
-                  value="driver"
-                />
-                <label
-                  class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
-                  for="driver"
-                >
-                  Ajoneuvon kuljettajana
-                </label>
-              </div>
+                Ajoneuvon kuljettajana
+              </label>
             </div>
-            <div>
-              <div
-                class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+            <div
+              class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+            >
+              <input
+                class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
+                id="owner"
+                type="radio"
+                value="owner"
+              />
+              <label
+                class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
+                for="owner"
               >
-                <input
-                  class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
-                  id="owner"
-                  type="radio"
-                  value="owner"
-                />
-                <label
-                  class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
-                  for="owner"
-                >
-                  Ajoneuvon omistajana/haltijana
-                </label>
-              </div>
+                Ajoneuvon omistajana/haltijana
+              </label>
             </div>
-            <div>
-              <div
-                class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+            <div
+              class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+            >
+              <input
+                class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
+                id="poa-holder"
+                type="radio"
+                value="poa-holder"
+              />
+              <label
+                class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
+                for="poa-holder"
               >
-                <input
-                  class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
-                  id="poa-holder"
-                  type="radio"
-                  value="poa-holder"
-                />
-                <label
-                  class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
-                  for="poa-holder"
-                >
-                  Valtakirjalla (toisen puolesta)
-                </label>
-              </div>
+                Valtakirjalla (toisen puolesta)
+              </label>
             </div>
           </div>
-        </fieldset>
+        </div>
         <div
           class="rectification-form-user-details "
         >
@@ -1711,62 +1687,56 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
         id="rectificationAttachments-list"
         tabindex="-1"
       />
-      <fieldset
-        class="SelectionGroup-module_selectionGroup__6Jxu8 rectification-delivery-decision"
+      <div
+        class="rectification-delivery-decision"
       >
         <legend
-          class="SelectionGroup-module_label__qlluz"
+          class="field-label"
         >
-          Haluan päätöksen
-           
+          Teen oikaisuvaatimuksen
           <span
-            class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
+            class="required-icon"
           >
-             
             *
           </span>
         </legend>
         <div
-          class="SelectionGroup-module_items__28m_S SelectionGroup-module_vertical__3iorC"
+          class="radio-group-container"
         >
-          <div>
-            <div
-              class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+          <div
+            class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+          >
+            <input
+              class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
+              id="toParkingService"
+              type="radio"
+              value="toParkingService"
+            />
+            <label
+              class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
+              for="toParkingService"
             >
-              <input
-                class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
-                id="toParkingService"
-                type="radio"
-                value="toParkingService"
-              />
-              <label
-                class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
-                for="toParkingService"
-              >
-                Pysäköinnin asiointikansiooni
-              </label>
-            </div>
+              Pysäköinnin asiointikansiooni
+            </label>
           </div>
-          <div>
-            <div
-              class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+          <div
+            class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+          >
+            <input
+              class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
+              id="byMail"
+              type="radio"
+              value="byMail"
+            />
+            <label
+              class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
+              for="byMail"
             >
-              <input
-                class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
-                id="byMail"
-                type="radio"
-                value="byMail"
-              />
-              <label
-                class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
-                for="byMail"
-              >
-                Kirjeitse antamaani osoitteeseen
-              </label>
-            </div>
+              Kirjeitse antamaani osoitteeseen
+            </label>
           </div>
         </div>
-      </fieldset>
+      </div>
     </div>
   </div>
 </div>

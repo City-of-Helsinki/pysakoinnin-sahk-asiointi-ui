@@ -27,7 +27,6 @@ import {
   setFormSubmitted,
   selectFormValues,
   setFormValues,
-  FormId,
   RectificationFormType
 } from '../formContent/formContentSlice';
 import { selectDueDateFormValues } from '../extendDueDate/extendDueDateFormSlice';
@@ -40,7 +39,6 @@ interface Props {
 
 const useRectificationForm = () => {
   const formValues = useSelector(selectFormValues);
-  const formContent = useSelector(selectFormContent);
 
   const { control, handleSubmit, reset } = useForm<RectificationFormType>({
     defaultValues: formValues
@@ -48,18 +46,9 @@ const useRectificationForm = () => {
 
   useEffect(() => {
     // if form values are found from redux (i.e. a change happens), update the form default values
-    if (formValues) {
-      reset({
-        ...formValues,
-        relation: formValues.relation
-          ? formValues.relation
-          : formContent.selectedForm === FormId.MOVEDCAR
-          ? 'owner'
-          : 'driver'
-      });
-    }
+    formValues && reset(formValues);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [formValues, formContent.selectedForm]);
+  }, [formValues]);
 
   // export the needed functions/hooks to use the form
   return { control, handleSubmit };

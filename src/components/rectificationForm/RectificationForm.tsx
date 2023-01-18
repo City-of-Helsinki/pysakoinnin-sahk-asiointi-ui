@@ -3,6 +3,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { Controller, FieldValues } from 'react-hook-form';
 import {
   Checkbox,
   FileInput,
@@ -10,7 +11,6 @@ import {
   Link,
   RadioButton,
   Select,
-  SelectionGroup,
   TextArea,
   TextInput
 } from 'hds-react';
@@ -22,8 +22,9 @@ import {
   selectFormContent,
   RectificationControlType
 } from '../formContent/formContentSlice';
+import FieldLabel from '../fieldLabel/FieldLabel';
+import ErrorLabel from '../errorLabel/ErrorLabel';
 import './RectificationForm.css';
-import { Controller, FieldValues } from 'react-hook-form';
 
 type Language = 'fi' | 'en' | 'sv';
 
@@ -72,21 +73,29 @@ const RectificationForm = (props: Props) => {
             <Controller
               name="relation"
               control={props.control}
-              render={({ field }) => (
-                <SelectionGroup
-                  label={t(`rectificationForm:relation-info:relation`)}
-                  required>
-                  {relations.map(relation => (
-                    <RadioButton
-                      key={relation}
-                      label={t(`rectificationForm:relation-info:${relation}`)}
-                      id={relation}
-                      value={relation}
-                      checked={relation === field.value}
-                      onChange={e => field.onChange(e.target.value)}
-                    />
-                  ))}
-                </SelectionGroup>
+              rules={{ required: t('common:required-field') as string }}
+              render={({ field, fieldState }) => (
+                <div>
+                  <FieldLabel
+                    text={t(`rectificationForm:relation-info:relation`)}
+                    required={true}
+                  />
+                  <div className="radio-group-container">
+                    {relations.map(relation => (
+                      <RadioButton
+                        key={relation}
+                        label={t(`rectificationForm:relation-info:${relation}`)}
+                        id={relation}
+                        value={relation}
+                        checked={relation === field.value}
+                        onChange={e => field.onChange(e.target.value)}
+                      />
+                    ))}
+                    {fieldState.error && (
+                      <ErrorLabel text={fieldState.error.message} />
+                    )}
+                  </div>
+                </div>
               )}
             />
 
@@ -332,26 +341,33 @@ const RectificationForm = (props: Props) => {
           <Controller
             name="deliveryDecision"
             control={props.control}
-            render={({ field }) => (
-              <SelectionGroup
-                label={t('rectificationForm:delivery-decision')}
-                required
-                className="rectification-delivery-decision">
-                <RadioButton
-                  label={t('rectificationForm:toParkingService')}
-                  id="toParkingService"
-                  value="toParkingService"
-                  checked={field.value === 'toParkingService'}
-                  onChange={e => field.onChange(e.target.value)}
+            rules={{ required: t('common:required-field') as string }}
+            render={({ field, fieldState }) => (
+              <div className="rectification-delivery-decision">
+                <FieldLabel
+                  text={t(`rectificationForm:relation-info:relation`)}
+                  required={true}
                 />
-                <RadioButton
-                  label={t('rectificationForm:byMail')}
-                  id="byMail"
-                  value="byMail"
-                  checked={field.value === 'byMail'}
-                  onChange={e => field.onChange(e.target.value)}
-                />
-              </SelectionGroup>
+                <div className="radio-group-container">
+                  <RadioButton
+                    label={t('rectificationForm:toParkingService')}
+                    id="toParkingService"
+                    value="toParkingService"
+                    checked={field.value === 'toParkingService'}
+                    onChange={e => field.onChange(e.target.value)}
+                  />
+                  <RadioButton
+                    label={t('rectificationForm:byMail')}
+                    id="byMail"
+                    value="byMail"
+                    checked={field.value === 'byMail'}
+                    onChange={e => field.onChange(e.target.value)}
+                  />
+                  {fieldState.error && (
+                    <ErrorLabel text={fieldState.error.message} />
+                  )}
+                </div>
+              </div>
             )}
           />
         </div>

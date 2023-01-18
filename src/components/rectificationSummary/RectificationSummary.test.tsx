@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import RectificationSummary from './RectificationSummary';
 import store from '../../store';
@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 
 describe('Component', () => {
-  it('matches snapshot', () => {
+  it('matches snapshot', async () => {
     const formContentSliceMock = createSlice({
       name: 'formContent',
       initialState: {
@@ -48,7 +48,7 @@ describe('Component', () => {
         <RectificationSummary />
       </Provider>
     );
-    expect(container).toMatchSnapshot();
+    await waitFor(() => expect(container).toMatchSnapshot());
   });
 
   it('passes A11Y checks', async () => {
