@@ -11,13 +11,17 @@ import {
   selectFormContent,
   selectFormValues
 } from '../formContent/formContentSlice';
-import styles from '../styles.module.css';
-import './RectificationSummary.css';
+import { useClient } from '../../client/hooks';
 import ExtendedTextField from '../extendedTextField/ExtendedTextField';
 import useMobileWidth from '../../hooks/useMobileWidth';
+import styles from '../styles.module.css';
+import './RectificationSummary.css';
 
 const RectificationSummary = () => {
   const { t } = useTranslation();
+  const { getUser } = useClient();
+  // TODO: Get SSN from Helsinki profile / Suomi.fi
+  const user = getUser();
   const selectedForm = useSelector(selectFormContent).selectedForm;
   const formValues = useSelector(selectFormValues);
 
@@ -29,63 +33,67 @@ const RectificationSummary = () => {
           <TextInput
             id="relation"
             label={t(`rectificationForm:relation-info:relation`)}
-            value={t(`rectificationForm:relation-info:driver`)}
+            value={t(`rectificationForm:relation-info:${formValues?.relation}`)}
             readOnly
           />
           <TextInput
             id="name"
             label={t('common:name')}
-            value="Etunimi Sukunimi"
+            value={user?.name as string}
             readOnly
           />
           <TextInput
             id="ssn"
             label={t('common:ssn')}
-            value="123456-123A"
+            value="123456-789A"
             readOnly
           />
           <TextInput
             id="rectification-address"
             label={t('rectificationForm:address')}
-            value="Elimäenkatu 5"
+            value={formValues?.address}
             readOnly
           />
           <div className="rectification-summary-subgrid">
             <TextInput
               id="zipcode"
               label={t('rectificationForm:zipcode')}
-              value="00100"
+              value={formValues?.zipCode}
               readOnly
             />
             <TextInput
               id="city"
               label={t('rectificationForm:city')}
-              value="Helsinki"
+              value={formValues?.city}
               readOnly
             />
           </div>
           <TextInput
             id="email"
             label={t('common:email')}
-            value="etunimi@email.com"
+            value={
+              formValues?.newEmailAddress
+                ? formValues?.newEmailAddress
+                : (user?.email as string)
+            }
             readOnly
           />
           <TextInput
             id="phone"
             label={t('common:phone')}
-            value="+358401234567"
+            value={`${formValues?.countryCode} ${formValues?.phone}`}
             readOnly
           />
           <TextInput
             id="IBAN"
             label={t('rectificationForm:IBAN')}
-            value="FI9780001700903330"
+            value={formValues?.IBAN}
             readOnly
           />
           <TextInput
             id="decision"
             label={t('rectificationForm:decision-choice')}
-            value="Pysäköinnin asiointikansiooni"
+            value={t(`rectificationForm:${formValues?.deliveryDecision}`)}
             readOnly
           />
         </div>
@@ -97,9 +105,9 @@ const RectificationSummary = () => {
               {t('rectificationForm:rectification-content')}
             </label>
             {useMobileWidth() ? (
-              <ExtendedTextField content={t('common:long-placeholder-text')} />
+              <ExtendedTextField content={formValues?.rectificationContent} />
             ) : (
-              <p>{t('common:long-placeholder-text')}</p>
+              <p>{formValues?.rectificationContent}</p>
             )}
           </div>
           {formValues?.attachments.length > 0 && (
