@@ -65,7 +65,7 @@ const initialState: FormState = {
     address: '',
     zipCode: '',
     city: '',
-    countryCode: '',
+    countryCode: '+358',
     phone: '',
     IBAN: '',
     rectificationContent: '',
