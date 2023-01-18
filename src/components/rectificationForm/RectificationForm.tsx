@@ -38,6 +38,8 @@ const RectificationForm = (props: Props) => {
   const selectedForm = useSelector(selectFormContent).selectedForm;
   const movedCarFormSelected = selectedForm === FormId.MOVEDCAR;
   const isMobileWidth = useMobileWidth();
+  const rectificationMaxLength =
+    window._env_.REACT_APP_RECTIFICATION_CHAR_LIMIT;
 
   const relations = movedCarFormSelected
     ? ['owner', 'poa-holder']
@@ -285,6 +287,9 @@ const RectificationForm = (props: Props) => {
           <Controller
             name="rectificationContent"
             control={props.control}
+            rules={{
+              maxLength: rectificationMaxLength
+            }}
             render={({ field }) => (
               <>
                 <TextArea
@@ -293,19 +298,15 @@ const RectificationForm = (props: Props) => {
                   required
                   id="rectification-content"
                   className="rectification-textarea"
-                  helperText={`${field.value?.length}/${
-                    window._env_.REACT_APP_RECTIFICATION_CHAR_LIMIT
-                  } ${t('common:characters')}`}
+                  helperText={`${
+                    field.value?.length
+                  }/${rectificationMaxLength} ${t('common:characters')}`}
                   errorText={
-                    field.value?.length >=
-                    window._env_.REACT_APP_RECTIFICATION_CHAR_LIMIT
+                    field.value?.length >= rectificationMaxLength
                       ? t('rectificationForm:description-over-limit')
                       : ''
                   }
-                  invalid={
-                    field.value?.length >=
-                    window._env_.REACT_APP_RECTIFICATION_CHAR_LIMIT
-                  }
+                  invalid={field.value?.length >= rectificationMaxLength}
                 />
               </>
             )}
