@@ -149,7 +149,7 @@ const RectificationForm = (props: Props) => {
                   label={t('rectificationForm:attach-poa')}
                   id="rectificationPOAFile"
                   onChange={e => setFiles(e, 'poa', field)}
-                  dragAndDrop={isMobileWidth}
+                  dragAndDrop={!isMobileWidth}
                   accept={'.png, .jpg, .pdf'}
                 />
               )}
