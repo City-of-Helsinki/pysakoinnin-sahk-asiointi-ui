@@ -99,43 +99,31 @@ const RectificationForm = (props: Props) => {
               )}
             />
 
-            <div
-              className={`rectification-form-user-details ${
-                movedCarFormSelected ? 'small' : ''
-              }`}>
-              <TextInput
-                required
-                id="fullName"
-                readOnly
-                label={t('common:name')}
-                defaultValue={user?.name as string}
-              />
-              <IconCheckCircle
-                className="rectification-form-checkmark"
-                aria-label={t('common:fetched-from-profile-aria')}
-              />
-              <TextInput
-                required
-                id="ssn"
-                readOnly
-                label={t('common:ssn')}
-                defaultValue="123456-789A"
-              />
-              <IconCheckCircle
-                className="rectification-form-checkmark"
-                aria-label={t('common:fetched-from-profile-aria')}
-              />
-              <TextInput
-                required
-                id="email"
-                readOnly
-                label={t('common:email')}
-                defaultValue={user?.email as string}
-              />
-              <IconCheckCircle
-                className="rectification-form-checkmark"
-                aria-label={t('common:fetched-from-profile-aria')}
-              />
+            <div className="rectification-form-user-details">
+              <div>
+                <FieldLabel text={t('common:name')} required={true} />
+                <IconCheckCircle
+                  aria-label={t('common:fetched-from-profile-aria')}
+                  color={'var(--color-info)'}
+                />
+              </div>
+              <p>{user?.name as string}</p>
+              <div>
+                <FieldLabel text={t('common:ssn')} required={true} />
+                <IconCheckCircle
+                  aria-label={t('common:fetched-from-profile-aria')}
+                  color={'var(--color-info)'}
+                />
+              </div>
+              <p>123456-789A</p>
+              <div>
+                <FieldLabel text={t('common:email')} required={true} />
+                <IconCheckCircle
+                  aria-label={t('common:fetched-from-profile-aria')}
+                  color={'var(--color-info)'}
+                />
+              </div>
+              <p>{user?.email as string}</p>
             </div>
           </div>
 
@@ -158,7 +146,7 @@ const RectificationForm = (props: Props) => {
         </div>
         <hr />
         <div className="rectification-link-to-profile">
-          <IconCheckCircle aria-hidden="true" />
+          <IconCheckCircle aria-hidden="true" color={'var(--color-info)'} />
 
           <span>{t('common:fetched-from-profile')}</span>
           <Link
