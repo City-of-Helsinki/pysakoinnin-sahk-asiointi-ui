@@ -34,7 +34,7 @@
 }
 
 .rectification-form-user-details {
-  margin-top: 24px;
+  margin-top: var(--spacing-xl);
   display: grid;
   grid-template-rows: repeat(3, auto);
 }
@@ -47,8 +47,8 @@
   max-width: 100%;
 }
 
-.rectification-decision-choice {
-  grid-row: 9;
+.rectification-delivery-decision {
+  grid-row: 8;
 }
 
 .rectification-draft-button {
@@ -60,7 +60,6 @@
   align-items: center;
   margin-bottom: var(--spacing-m);
 }
-
 
 .rectification-link-to-profile svg {
   margin-right: var(--spacing-xs);
@@ -117,6 +116,12 @@
     margin-top: 5px;
     min-width: 450px;
   }
+}
+
+.radio-group-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
 }
 
 .small-text {

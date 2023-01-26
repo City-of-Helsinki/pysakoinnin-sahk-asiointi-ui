@@ -12,63 +12,54 @@ exports[`Component in moved car form matches snapshot 1`] = `
       <div
         class="rectification-user-section"
       >
-        <fieldset
-          class="SelectionGroup-module_selectionGroup__6Jxu8"
-        >
+        <div>
           <legend
-            class="SelectionGroup-module_label__qlluz"
+            class="field-label"
           >
             Teen oikaisuvaatimuksen
-             
             <span
-              class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
+              class="required-icon"
             >
-               
               *
             </span>
           </legend>
           <div
-            class="SelectionGroup-module_items__28m_S SelectionGroup-module_vertical__3iorC"
+            class="radio-group-container"
           >
-            <div>
-              <div
-                class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+            <div
+              class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+            >
+              <input
+                class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
+                id="owner"
+                type="radio"
+                value="owner"
+              />
+              <label
+                class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
+                for="owner"
               >
-                <input
-                  checked=""
-                  class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
-                  id="owner"
-                  type="radio"
-                  value="owner"
-                />
-                <label
-                  class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
-                  for="owner"
-                >
-                  Ajoneuvon omistajana/haltijana
-                </label>
-              </div>
+                Ajoneuvon omistajana/haltijana
+              </label>
             </div>
-            <div>
-              <div
-                class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+            <div
+              class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+            >
+              <input
+                class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
+                id="poa-holder"
+                type="radio"
+                value="poa-holder"
+              />
+              <label
+                class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
+                for="poa-holder"
               >
-                <input
-                  class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
-                  id="poa-holder"
-                  type="radio"
-                  value="poa-holder"
-                />
-                <label
-                  class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
-                  for="poa-holder"
-                >
-                  Valtakirjalla (toisen puolesta)
-                </label>
-              </div>
+                Valtakirjalla (toisen puolesta)
+              </label>
             </div>
           </div>
-        </fieldset>
+        </div>
         <div
           class="rectification-form-user-details small"
         >
@@ -415,13 +406,13 @@ exports[`Component in moved car form matches snapshot 1`] = `
       >
         <input
           class="Checkbox-module_input__3VZvy checkbox_hds-checkbox__input__1w0pu"
-          id="newEmail"
+          id="toSeparateEmail"
           type="checkbox"
           value=""
         />
         <label
           class="Checkbox-module_label__L5AN1 checkbox_hds-checkbox__label__3HoD3"
-          for="newEmail"
+          for="toSeparateEmail"
         >
           Haluan ilmoitukset asian käsittelystä eri sähköpostiosoitteeseen
         </label>
@@ -448,6 +439,7 @@ exports[`Component in moved car form matches snapshot 1`] = `
             class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
             disabled=""
             id="newEmailAddress"
+            name="newEmailAddress"
             required=""
             type="text"
             value=""
@@ -476,6 +468,7 @@ exports[`Component in moved car form matches snapshot 1`] = `
             class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
             disabled=""
             id="newEmailConfirm"
+            name="newEmailConfirm"
             required=""
             type="text"
             value=""
@@ -503,6 +496,7 @@ exports[`Component in moved car form matches snapshot 1`] = `
           <input
             class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
             id="address"
+            name="address"
             placeholder="Esim. Elimäenkatu 5"
             required=""
             type="text"
@@ -534,6 +528,7 @@ exports[`Component in moved car form matches snapshot 1`] = `
             <input
               class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
               id="zipCode"
+              name="zipCode"
               placeholder="Esim. 00100"
               required=""
               type="text"
@@ -562,6 +557,7 @@ exports[`Component in moved car form matches snapshot 1`] = `
             <input
               class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
               id="city"
+              name="city"
               placeholder="Esim. Helsinki"
               required=""
               type="text"
@@ -655,6 +651,7 @@ exports[`Component in moved car form matches snapshot 1`] = `
             <input
               class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
               id="phone"
+              name="phone"
               placeholder="Esim. 401234567"
               required=""
               type="text"
@@ -684,6 +681,7 @@ exports[`Component in moved car form matches snapshot 1`] = `
           <input
             class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
             id="IBAN"
+            name="IBAN"
             placeholder="Esim. FI9780001700903330"
             required=""
             type="text"
@@ -713,6 +711,7 @@ exports[`Component in moved car form matches snapshot 1`] = `
             aria-describedby="rectification-content-helper"
             class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
             id="rectification-content"
+            name="rectificationContent"
             required=""
           />
         </div>
@@ -721,7 +720,7 @@ exports[`Component in moved car form matches snapshot 1`] = `
           class="TextInput-module_helperText__2dLR6 text-input_hds-text-input__helper-text__3V2KM"
           id="rectification-content-helper"
         >
-          0/2500 merkkiä
+          undefined/2500 merkkiä
         </div>
       </div>
       <div
@@ -848,63 +847,56 @@ exports[`Component in moved car form matches snapshot 1`] = `
         id="rectificationAttachments-list"
         tabindex="-1"
       />
-      <fieldset
-        class="SelectionGroup-module_selectionGroup__6Jxu8 rectification-decision-choice"
+      <div
+        class="rectification-delivery-decision"
       >
         <legend
-          class="SelectionGroup-module_label__qlluz"
+          class="field-label"
         >
-          Haluan päätöksen
-           
+          Teen oikaisuvaatimuksen
           <span
-            class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
+            class="required-icon"
           >
-             
             *
           </span>
         </legend>
         <div
-          class="SelectionGroup-module_items__28m_S SelectionGroup-module_vertical__3iorC"
+          class="radio-group-container"
         >
-          <div>
-            <div
-              class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+          <div
+            class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+          >
+            <input
+              class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
+              id="toParkingService"
+              type="radio"
+              value="toParkingService"
+            />
+            <label
+              class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
+              for="toParkingService"
             >
-              <input
-                checked=""
-                class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
-                id="toParkingService"
-                type="radio"
-                value="toParkingService"
-              />
-              <label
-                class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
-                for="toParkingService"
-              >
-                Pysäköinnin asiointikansiooni
-              </label>
-            </div>
+              Pysäköinnin asiointikansiooni
+            </label>
           </div>
-          <div>
-            <div
-              class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+          <div
+            class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+          >
+            <input
+              class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
+              id="byMail"
+              type="radio"
+              value="byMail"
+            />
+            <label
+              class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
+              for="byMail"
             >
-              <input
-                class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
-                id="byMail"
-                type="radio"
-                value="byMail"
-              />
-              <label
-                class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
-                for="byMail"
-              >
-                Kirjeitse antamaani osoitteeseen
-              </label>
-            </div>
+              Kirjeitse antamaani osoitteeseen
+            </label>
           </div>
         </div>
-      </fieldset>
+      </div>
     </div>
   </div>
 </div>
@@ -922,81 +914,70 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
       <div
         class="rectification-user-section"
       >
-        <fieldset
-          class="SelectionGroup-module_selectionGroup__6Jxu8"
-        >
+        <div>
           <legend
-            class="SelectionGroup-module_label__qlluz"
+            class="field-label"
           >
             Teen oikaisuvaatimuksen
-             
             <span
-              class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
+              class="required-icon"
             >
-               
               *
             </span>
           </legend>
           <div
-            class="SelectionGroup-module_items__28m_S SelectionGroup-module_vertical__3iorC"
+            class="radio-group-container"
           >
-            <div>
-              <div
-                class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+            <div
+              class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+            >
+              <input
+                class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
+                id="driver"
+                type="radio"
+                value="driver"
+              />
+              <label
+                class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
+                for="driver"
               >
-                <input
-                  checked=""
-                  class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
-                  id="driver"
-                  type="radio"
-                  value="driver"
-                />
-                <label
-                  class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
-                  for="driver"
-                >
-                  Ajoneuvon kuljettajana
-                </label>
-              </div>
+                Ajoneuvon kuljettajana
+              </label>
             </div>
-            <div>
-              <div
-                class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+            <div
+              class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+            >
+              <input
+                class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
+                id="owner"
+                type="radio"
+                value="owner"
+              />
+              <label
+                class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
+                for="owner"
               >
-                <input
-                  class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
-                  id="owner"
-                  type="radio"
-                  value="owner"
-                />
-                <label
-                  class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
-                  for="owner"
-                >
-                  Ajoneuvon omistajana/haltijana
-                </label>
-              </div>
+                Ajoneuvon omistajana/haltijana
+              </label>
             </div>
-            <div>
-              <div
-                class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+            <div
+              class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+            >
+              <input
+                class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
+                id="poa-holder"
+                type="radio"
+                value="poa-holder"
+              />
+              <label
+                class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
+                for="poa-holder"
               >
-                <input
-                  class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
-                  id="poa-holder"
-                  type="radio"
-                  value="poa-holder"
-                />
-                <label
-                  class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
-                  for="poa-holder"
-                >
-                  Valtakirjalla (toisen puolesta)
-                </label>
-              </div>
+                Valtakirjalla (toisen puolesta)
+              </label>
             </div>
           </div>
-        </fieldset>
+        </div>
         <div
           class="rectification-form-user-details "
         >
@@ -1343,13 +1324,13 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
       >
         <input
           class="Checkbox-module_input__3VZvy checkbox_hds-checkbox__input__1w0pu"
-          id="newEmail"
+          id="toSeparateEmail"
           type="checkbox"
           value=""
         />
         <label
           class="Checkbox-module_label__L5AN1 checkbox_hds-checkbox__label__3HoD3"
-          for="newEmail"
+          for="toSeparateEmail"
         >
           Haluan ilmoitukset asian käsittelystä eri sähköpostiosoitteeseen
         </label>
@@ -1376,6 +1357,7 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
             class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
             disabled=""
             id="newEmailAddress"
+            name="newEmailAddress"
             required=""
             type="text"
             value=""
@@ -1404,6 +1386,7 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
             class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
             disabled=""
             id="newEmailConfirm"
+            name="newEmailConfirm"
             required=""
             type="text"
             value=""
@@ -1431,6 +1414,7 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
           <input
             class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
             id="address"
+            name="address"
             placeholder="Esim. Elimäenkatu 5"
             required=""
             type="text"
@@ -1462,6 +1446,7 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
             <input
               class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
               id="zipCode"
+              name="zipCode"
               placeholder="Esim. 00100"
               required=""
               type="text"
@@ -1490,6 +1475,7 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
             <input
               class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
               id="city"
+              name="city"
               placeholder="Esim. Helsinki"
               required=""
               type="text"
@@ -1583,6 +1569,7 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
             <input
               class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
               id="phone"
+              name="phone"
               placeholder="Esim. 401234567"
               required=""
               type="text"
@@ -1612,6 +1599,7 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
           <input
             class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
             id="IBAN"
+            name="IBAN"
             placeholder="Esim. FI9780001700903330"
             required=""
             type="text"
@@ -1641,6 +1629,7 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
             aria-describedby="rectification-content-helper"
             class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
             id="rectification-content"
+            name="rectificationContent"
             required=""
           />
         </div>
@@ -1649,7 +1638,7 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
           class="TextInput-module_helperText__2dLR6 text-input_hds-text-input__helper-text__3V2KM"
           id="rectification-content-helper"
         >
-          0/2500 merkkiä
+          undefined/2500 merkkiä
         </div>
       </div>
       <div
@@ -1776,63 +1765,56 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
         id="rectificationAttachments-list"
         tabindex="-1"
       />
-      <fieldset
-        class="SelectionGroup-module_selectionGroup__6Jxu8 rectification-decision-choice"
+      <div
+        class="rectification-delivery-decision"
       >
         <legend
-          class="SelectionGroup-module_label__qlluz"
+          class="field-label"
         >
-          Haluan päätöksen
-           
+          Teen oikaisuvaatimuksen
           <span
-            class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
+            class="required-icon"
           >
-             
             *
           </span>
         </legend>
         <div
-          class="SelectionGroup-module_items__28m_S SelectionGroup-module_vertical__3iorC"
+          class="radio-group-container"
         >
-          <div>
-            <div
-              class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+          <div
+            class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+          >
+            <input
+              class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
+              id="toParkingService"
+              type="radio"
+              value="toParkingService"
+            />
+            <label
+              class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
+              for="toParkingService"
             >
-              <input
-                checked=""
-                class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
-                id="toParkingService"
-                type="radio"
-                value="toParkingService"
-              />
-              <label
-                class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
-                for="toParkingService"
-              >
-                Pysäköinnin asiointikansiooni
-              </label>
-            </div>
+              Pysäköinnin asiointikansiooni
+            </label>
           </div>
-          <div>
-            <div
-              class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+          <div
+            class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+          >
+            <input
+              class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
+              id="byMail"
+              type="radio"
+              value="byMail"
+            />
+            <label
+              class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
+              for="byMail"
             >
-              <input
-                class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
-                id="byMail"
-                type="radio"
-                value="byMail"
-              />
-              <label
-                class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
-                for="byMail"
-              >
-                Kirjeitse antamaani osoitteeseen
-              </label>
-            </div>
+              Kirjeitse antamaani osoitteeseen
+            </label>
           </div>
         </div>
-      </fieldset>
+      </div>
     </div>
   </div>
 </div>

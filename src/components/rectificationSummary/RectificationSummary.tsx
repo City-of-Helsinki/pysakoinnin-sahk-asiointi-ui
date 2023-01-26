@@ -5,21 +5,25 @@ import { Accordion, IconDocument, IconPhoto, TextInput } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import { formatBytes } from '../../utils/helpers';
 import InfoContainer from '../infoContainer/InfoContainer';
-import { FormId, selectFormContent } from '../formContent/formContentSlice';
 import {
   FileItem,
-  selectRectificationFormValues
-} from '../rectificationForm/rectificationFormSlice';
-import styles from '../styles.module.css';
-import './RectificationSummary.css';
+  FormId,
+  selectFormContent,
+  selectFormValues
+} from '../formContent/formContentSlice';
+import { useClient } from '../../client/hooks';
 import ExtendedTextField from '../extendedTextField/ExtendedTextField';
 import useMobileWidth from '../../hooks/useMobileWidth';
+import styles from '../styles.module.css';
+import './RectificationSummary.css';
 
 const RectificationSummary = () => {
   const { t } = useTranslation();
+  const { getUser } = useClient();
+  // TODO: Get SSN from Helsinki profile / Suomi.fi
+  const user = getUser();
   const selectedForm = useSelector(selectFormContent).selectedForm;
-  const poaFile = useSelector(selectRectificationFormValues).poaFile;
-  const attachments = useSelector(selectRectificationFormValues).attachments;
+  const formValues = useSelector(selectFormValues);
 
   return (
     <>
@@ -29,63 +33,67 @@ const RectificationSummary = () => {
           <TextInput
             id="relation"
             label={t(`rectificationForm:relation-info:relation`)}
-            value={t(`rectificationForm:relation-info:driver`)}
+            value={t(`rectificationForm:relation-info:${formValues?.relation}`)}
             readOnly
           />
           <TextInput
             id="name"
             label={t('common:name')}
-            value="Etunimi Sukunimi"
+            value={user?.name as string}
             readOnly
           />
           <TextInput
             id="ssn"
             label={t('common:ssn')}
-            value="123456-123A"
+            value="123456-789A"
             readOnly
           />
           <TextInput
             id="rectification-address"
             label={t('rectificationForm:address')}
-            value="Elimäenkatu 5"
+            value={formValues?.address}
             readOnly
           />
           <div className="rectification-summary-subgrid">
             <TextInput
               id="zipcode"
               label={t('rectificationForm:zipcode')}
-              value="00100"
+              value={formValues?.zipCode}
               readOnly
             />
             <TextInput
               id="city"
               label={t('rectificationForm:city')}
-              value="Helsinki"
+              value={formValues?.city}
               readOnly
             />
           </div>
           <TextInput
             id="email"
             label={t('common:email')}
-            value="etunimi@email.com"
+            value={
+              formValues?.newEmailAddress
+                ? formValues?.newEmailAddress
+                : (user?.email as string)
+            }
             readOnly
           />
           <TextInput
             id="phone"
             label={t('common:phone')}
-            value="+358401234567"
+            value={`${formValues?.countryCode}${formValues?.phone}`}
             readOnly
           />
           <TextInput
             id="IBAN"
             label={t('rectificationForm:IBAN')}
-            value="FI9780001700903330"
+            value={formValues?.IBAN}
             readOnly
           />
           <TextInput
-            id="decision"
-            label={t('rectificationForm:decision-choice')}
-            value="Pysäköinnin asiointikansiooni"
+            id="deliveryDecision"
+            label={t('rectificationForm:delivery-decision')}
+            value={t(`rectificationForm:${formValues?.deliveryDecision}`)}
             readOnly
           />
         </div>
@@ -97,18 +105,18 @@ const RectificationSummary = () => {
               {t('rectificationForm:rectification-content')}
             </label>
             {useMobileWidth() ? (
-              <ExtendedTextField content={t('common:long-placeholder-text')} />
+              <ExtendedTextField content={formValues?.rectificationContent} />
             ) : (
-              <p>{t('common:long-placeholder-text')}</p>
+              <p>{formValues?.rectificationContent}</p>
             )}
           </div>
-          {attachments.length > 0 && (
+          {formValues?.attachments.length > 0 && (
             <div>
               <label className={styles['text-label']}>
                 {t('rectificationForm:attachments')}
               </label>
               <ul className="file-list">
-                {attachments.map((item: FileItem) => (
+                {formValues?.attachments.map((item: FileItem) => (
                   <li key={item.name} className="file-list-item">
                     {item.type.startsWith('image') ? (
                       <IconPhoto aria-hidden />
@@ -126,21 +134,23 @@ const RectificationSummary = () => {
               </ul>
             </div>
           )}
-          {poaFile.name && (
+          {formValues?.poaFile.name && (
             <div>
               <label className={styles['text-label']}>
                 {t('rectificationForm:poa')}
               </label>
               <div className="file-list-item">
-                {poaFile.type.startsWith('image') ? (
+                {formValues?.poaFile.type.startsWith('image') ? (
                   <IconPhoto aria-hidden />
                 ) : (
                   <IconDocument aria-hidden />
                 )}
                 <div className="file-list-item-title">
-                  <span className="file-list-item-name">{poaFile.name}</span>
+                  <span className="file-list-item-name">
+                    {formValues?.poaFile.name}
+                  </span>
                   <span className="file-list-item-size">
-                    ({formatBytes(poaFile.size)})
+                    ({formatBytes(formValues?.poaFile.size)})
                   </span>
                 </div>
               </div>

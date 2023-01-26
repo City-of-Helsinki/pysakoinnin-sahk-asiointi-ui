@@ -1,12 +1,15 @@
+/* eslint-disable @typescript-eslint/no-unnecessary-type-assertion */
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Controller } from 'react-hook-form';
 import { TextInput } from 'hds-react';
 import { useTranslation } from 'react-i18next';
-import { FormId, selectFormContent } from '../formContent/formContentSlice';
-import { RectificationControlType } from '../../interfaces/formInterfaces';
+import {
+  FormId,
+  selectFormContent,
+  RectificationControlType
+} from '../formContent/formContentSlice';
 import './SearchForm.css';
-/* eslint-disable @typescript-eslint/no-unnecessary-type-assertion */
 
 interface Props {
   control: RectificationControlType;
