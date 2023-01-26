@@ -56,17 +56,12 @@ export function convertQueryToData(
     return undefined;
   }
   const { id, firstName, lastName, nickname, language } = profile;
-  const getEmail = (data: UserProfile): string | undefined => {
-    const list = data?.emails?.edges;
-    return list && list[0] && list[0].edges.node.email;
-  };
   return {
     id,
     firstName,
     lastName,
     nickname,
-    language,
-    email: getEmail(profile)
+    language
   };
 }
 

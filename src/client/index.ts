@@ -352,7 +352,7 @@ export function getLocationBasedUri(
 
 export function getTokenUri(clientConfig: ClientConfig): string {
   if (clientConfig.tokenExchangePath) {
-    return `${clientConfig.url}${clientConfig.tokenExchangePath}`;
+    return `${clientConfig.tokenExchangePath}`;
   }
   return `${clientConfig.url}/realms/${clientConfig.realm}/protocol/openid-connect/token`;
 }
