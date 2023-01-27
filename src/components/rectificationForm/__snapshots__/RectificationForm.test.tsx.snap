@@ -12,7 +12,9 @@ exports[`Component in moved car form matches snapshot 1`] = `
       <div
         class="rectification-user-section"
       >
-        <div>
+        <div
+          class="radio-group-section"
+        >
           <legend
             class="field-label"
           >
@@ -61,155 +63,115 @@ exports[`Component in moved car form matches snapshot 1`] = `
           </div>
         </div>
         <div
-          class="rectification-form-user-details small"
+          class="rectification-form-user-details"
         >
-          <div
-            class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
-          >
-            <label
-              class="FieldLabel-module_label__1zrXK "
-              for="fullName"
+          <div>
+            <legend
+              class="field-label"
             >
               Nimi
               <span
-                class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
+                class="required-icon"
               >
-                 
                 *
               </span>
-            </label>
-            <div
-              class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+            </legend>
+            <svg
+              aria-label="Tieto haettu Helsinki-profiilista"
+              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+              color="var(--color-info)"
+              role="img"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <input
-                class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-                id="fullName"
-                readonly=""
-                required=""
-                type="text"
-                value=""
-              />
-            </div>
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <rect
+                  height="24"
+                  width="24"
+                />
+                <path
+                  d="M12,2 C17.5228475,2 22,6.4771525 22,12 C22,17.5228475 17.5228475,22 12,22 C6.4771525,22 2,17.5228475 2,12 C2,6.4771525 6.4771525,2 12,2 Z M12,4 C7.581722,4 4,7.581722 4,12 C4,16.418278 7.581722,20 12,20 C16.418278,20 20,16.418278 20,12 C20,7.581722 16.418278,4 12,4 Z M16.5,8 L18,9.5 L10.5,17 L6,12.5 L7.5,11 L10.5,14 L16.5,8 Z"
+                  fill="currentColor"
+                />
+              </g>
+            </svg>
           </div>
-          <svg
-            aria-label="Tieto haettu Helsinki-profiilista"
-            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik rectification-form-checkmark"
-            role="img"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g
-              fill="none"
-              fill-rule="evenodd"
-            >
-              <rect
-                height="24"
-                width="24"
-              />
-              <path
-                d="M12,2 C17.5228475,2 22,6.4771525 22,12 C22,17.5228475 17.5228475,22 12,22 C6.4771525,22 2,17.5228475 2,12 C2,6.4771525 6.4771525,2 12,2 Z M12,4 C7.581722,4 4,7.581722 4,12 C4,16.418278 7.581722,20 12,20 C16.418278,20 20,16.418278 20,12 C20,7.581722 16.418278,4 12,4 Z M16.5,8 L18,9.5 L10.5,17 L6,12.5 L7.5,11 L10.5,14 L16.5,8 Z"
-                fill="currentColor"
-              />
-            </g>
-          </svg>
-          <div
-            class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
-          >
-            <label
-              class="FieldLabel-module_label__1zrXK "
-              for="ssn"
+          <p />
+          <div>
+            <legend
+              class="field-label"
             >
               Henkilötunnus
               <span
-                class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
+                class="required-icon"
               >
-                 
                 *
               </span>
-            </label>
-            <div
-              class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+            </legend>
+            <svg
+              aria-label="Tieto haettu Helsinki-profiilista"
+              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+              color="var(--color-info)"
+              role="img"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <input
-                class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-                id="ssn"
-                readonly=""
-                required=""
-                type="text"
-                value="123456-789A"
-              />
-            </div>
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <rect
+                  height="24"
+                  width="24"
+                />
+                <path
+                  d="M12,2 C17.5228475,2 22,6.4771525 22,12 C22,17.5228475 17.5228475,22 12,22 C6.4771525,22 2,17.5228475 2,12 C2,6.4771525 6.4771525,2 12,2 Z M12,4 C7.581722,4 4,7.581722 4,12 C4,16.418278 7.581722,20 12,20 C16.418278,20 20,16.418278 20,12 C20,7.581722 16.418278,4 12,4 Z M16.5,8 L18,9.5 L10.5,17 L6,12.5 L7.5,11 L10.5,14 L16.5,8 Z"
+                  fill="currentColor"
+                />
+              </g>
+            </svg>
           </div>
-          <svg
-            aria-label="Tieto haettu Helsinki-profiilista"
-            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik rectification-form-checkmark"
-            role="img"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g
-              fill="none"
-              fill-rule="evenodd"
-            >
-              <rect
-                height="24"
-                width="24"
-              />
-              <path
-                d="M12,2 C17.5228475,2 22,6.4771525 22,12 C22,17.5228475 17.5228475,22 12,22 C6.4771525,22 2,17.5228475 2,12 C2,6.4771525 6.4771525,2 12,2 Z M12,4 C7.581722,4 4,7.581722 4,12 C4,16.418278 7.581722,20 12,20 C16.418278,20 20,16.418278 20,12 C20,7.581722 16.418278,4 12,4 Z M16.5,8 L18,9.5 L10.5,17 L6,12.5 L7.5,11 L10.5,14 L16.5,8 Z"
-                fill="currentColor"
-              />
-            </g>
-          </svg>
-          <div
-            class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
-          >
-            <label
-              class="FieldLabel-module_label__1zrXK "
-              for="email"
+          <p>
+            123456-789A
+          </p>
+          <div>
+            <legend
+              class="field-label"
             >
               Sähköpostiosoite
               <span
-                class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
+                class="required-icon"
               >
-                 
                 *
               </span>
-            </label>
-            <div
-              class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+            </legend>
+            <svg
+              aria-label="Tieto haettu Helsinki-profiilista"
+              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+              color="var(--color-info)"
+              role="img"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <input
-                class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-                id="email"
-                readonly=""
-                required=""
-                type="text"
-                value=""
-              />
-            </div>
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <rect
+                  height="24"
+                  width="24"
+                />
+                <path
+                  d="M12,2 C17.5228475,2 22,6.4771525 22,12 C22,17.5228475 17.5228475,22 12,22 C6.4771525,22 2,17.5228475 2,12 C2,6.4771525 6.4771525,2 12,2 Z M12,4 C7.581722,4 4,7.581722 4,12 C4,16.418278 7.581722,20 12,20 C16.418278,20 20,16.418278 20,12 C20,7.581722 16.418278,4 12,4 Z M16.5,8 L18,9.5 L10.5,17 L6,12.5 L7.5,11 L10.5,14 L16.5,8 Z"
+                  fill="currentColor"
+                />
+              </g>
+            </svg>
           </div>
-          <svg
-            aria-label="Tieto haettu Helsinki-profiilista"
-            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik rectification-form-checkmark"
-            role="img"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g
-              fill="none"
-              fill-rule="evenodd"
-            >
-              <rect
-                height="24"
-                width="24"
-              />
-              <path
-                d="M12,2 C17.5228475,2 22,6.4771525 22,12 C22,17.5228475 17.5228475,22 12,22 C6.4771525,22 2,17.5228475 2,12 C2,6.4771525 6.4771525,2 12,2 Z M12,4 C7.581722,4 4,7.581722 4,12 C4,16.418278 7.581722,20 12,20 C16.418278,20 20,16.418278 20,12 C20,7.581722 16.418278,4 12,4 Z M16.5,8 L18,9.5 L10.5,17 L6,12.5 L7.5,11 L10.5,14 L16.5,8 Z"
-                fill="currentColor"
-              />
-            </g>
-          </svg>
+          <p />
         </div>
       </div>
       <div
@@ -347,6 +309,7 @@ exports[`Component in moved car form matches snapshot 1`] = `
       <svg
         aria-hidden="true"
         class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+        color="var(--color-info)"
         role="img"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
@@ -848,7 +811,7 @@ exports[`Component in moved car form matches snapshot 1`] = `
         tabindex="-1"
       />
       <div
-        class="rectification-delivery-decision"
+        class="rectification-delivery-decision radio-group-section"
       >
         <legend
           class="field-label"
@@ -914,7 +877,9 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
       <div
         class="rectification-user-section"
       >
-        <div>
+        <div
+          class="radio-group-section"
+        >
           <legend
             class="field-label"
           >
@@ -979,155 +944,115 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
           </div>
         </div>
         <div
-          class="rectification-form-user-details "
+          class="rectification-form-user-details"
         >
-          <div
-            class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
-          >
-            <label
-              class="FieldLabel-module_label__1zrXK "
-              for="fullName"
+          <div>
+            <legend
+              class="field-label"
             >
               Nimi
               <span
-                class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
+                class="required-icon"
               >
-                 
                 *
               </span>
-            </label>
-            <div
-              class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+            </legend>
+            <svg
+              aria-label="Tieto haettu Helsinki-profiilista"
+              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+              color="var(--color-info)"
+              role="img"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <input
-                class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-                id="fullName"
-                readonly=""
-                required=""
-                type="text"
-                value=""
-              />
-            </div>
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <rect
+                  height="24"
+                  width="24"
+                />
+                <path
+                  d="M12,2 C17.5228475,2 22,6.4771525 22,12 C22,17.5228475 17.5228475,22 12,22 C6.4771525,22 2,17.5228475 2,12 C2,6.4771525 6.4771525,2 12,2 Z M12,4 C7.581722,4 4,7.581722 4,12 C4,16.418278 7.581722,20 12,20 C16.418278,20 20,16.418278 20,12 C20,7.581722 16.418278,4 12,4 Z M16.5,8 L18,9.5 L10.5,17 L6,12.5 L7.5,11 L10.5,14 L16.5,8 Z"
+                  fill="currentColor"
+                />
+              </g>
+            </svg>
           </div>
-          <svg
-            aria-label="Tieto haettu Helsinki-profiilista"
-            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik rectification-form-checkmark"
-            role="img"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g
-              fill="none"
-              fill-rule="evenodd"
-            >
-              <rect
-                height="24"
-                width="24"
-              />
-              <path
-                d="M12,2 C17.5228475,2 22,6.4771525 22,12 C22,17.5228475 17.5228475,22 12,22 C6.4771525,22 2,17.5228475 2,12 C2,6.4771525 6.4771525,2 12,2 Z M12,4 C7.581722,4 4,7.581722 4,12 C4,16.418278 7.581722,20 12,20 C16.418278,20 20,16.418278 20,12 C20,7.581722 16.418278,4 12,4 Z M16.5,8 L18,9.5 L10.5,17 L6,12.5 L7.5,11 L10.5,14 L16.5,8 Z"
-                fill="currentColor"
-              />
-            </g>
-          </svg>
-          <div
-            class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
-          >
-            <label
-              class="FieldLabel-module_label__1zrXK "
-              for="ssn"
+          <p />
+          <div>
+            <legend
+              class="field-label"
             >
               Henkilötunnus
               <span
-                class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
+                class="required-icon"
               >
-                 
                 *
               </span>
-            </label>
-            <div
-              class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+            </legend>
+            <svg
+              aria-label="Tieto haettu Helsinki-profiilista"
+              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+              color="var(--color-info)"
+              role="img"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <input
-                class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-                id="ssn"
-                readonly=""
-                required=""
-                type="text"
-                value="123456-789A"
-              />
-            </div>
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <rect
+                  height="24"
+                  width="24"
+                />
+                <path
+                  d="M12,2 C17.5228475,2 22,6.4771525 22,12 C22,17.5228475 17.5228475,22 12,22 C6.4771525,22 2,17.5228475 2,12 C2,6.4771525 6.4771525,2 12,2 Z M12,4 C7.581722,4 4,7.581722 4,12 C4,16.418278 7.581722,20 12,20 C16.418278,20 20,16.418278 20,12 C20,7.581722 16.418278,4 12,4 Z M16.5,8 L18,9.5 L10.5,17 L6,12.5 L7.5,11 L10.5,14 L16.5,8 Z"
+                  fill="currentColor"
+                />
+              </g>
+            </svg>
           </div>
-          <svg
-            aria-label="Tieto haettu Helsinki-profiilista"
-            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik rectification-form-checkmark"
-            role="img"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g
-              fill="none"
-              fill-rule="evenodd"
-            >
-              <rect
-                height="24"
-                width="24"
-              />
-              <path
-                d="M12,2 C17.5228475,2 22,6.4771525 22,12 C22,17.5228475 17.5228475,22 12,22 C6.4771525,22 2,17.5228475 2,12 C2,6.4771525 6.4771525,2 12,2 Z M12,4 C7.581722,4 4,7.581722 4,12 C4,16.418278 7.581722,20 12,20 C16.418278,20 20,16.418278 20,12 C20,7.581722 16.418278,4 12,4 Z M16.5,8 L18,9.5 L10.5,17 L6,12.5 L7.5,11 L10.5,14 L16.5,8 Z"
-                fill="currentColor"
-              />
-            </g>
-          </svg>
-          <div
-            class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
-          >
-            <label
-              class="FieldLabel-module_label__1zrXK "
-              for="email"
+          <p>
+            123456-789A
+          </p>
+          <div>
+            <legend
+              class="field-label"
             >
               Sähköpostiosoite
               <span
-                class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
+                class="required-icon"
               >
-                 
                 *
               </span>
-            </label>
-            <div
-              class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+            </legend>
+            <svg
+              aria-label="Tieto haettu Helsinki-profiilista"
+              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+              color="var(--color-info)"
+              role="img"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <input
-                class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-                id="email"
-                readonly=""
-                required=""
-                type="text"
-                value=""
-              />
-            </div>
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <rect
+                  height="24"
+                  width="24"
+                />
+                <path
+                  d="M12,2 C17.5228475,2 22,6.4771525 22,12 C22,17.5228475 17.5228475,22 12,22 C6.4771525,22 2,17.5228475 2,12 C2,6.4771525 6.4771525,2 12,2 Z M12,4 C7.581722,4 4,7.581722 4,12 C4,16.418278 7.581722,20 12,20 C16.418278,20 20,16.418278 20,12 C20,7.581722 16.418278,4 12,4 Z M16.5,8 L18,9.5 L10.5,17 L6,12.5 L7.5,11 L10.5,14 L16.5,8 Z"
+                  fill="currentColor"
+                />
+              </g>
+            </svg>
           </div>
-          <svg
-            aria-label="Tieto haettu Helsinki-profiilista"
-            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik rectification-form-checkmark"
-            role="img"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g
-              fill="none"
-              fill-rule="evenodd"
-            >
-              <rect
-                height="24"
-                width="24"
-              />
-              <path
-                d="M12,2 C17.5228475,2 22,6.4771525 22,12 C22,17.5228475 17.5228475,22 12,22 C6.4771525,22 2,17.5228475 2,12 C2,6.4771525 6.4771525,2 12,2 Z M12,4 C7.581722,4 4,7.581722 4,12 C4,16.418278 7.581722,20 12,20 C16.418278,20 20,16.418278 20,12 C20,7.581722 16.418278,4 12,4 Z M16.5,8 L18,9.5 L10.5,17 L6,12.5 L7.5,11 L10.5,14 L16.5,8 Z"
-                fill="currentColor"
-              />
-            </g>
-          </svg>
+          <p />
         </div>
       </div>
       <div
@@ -1265,6 +1190,7 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
       <svg
         aria-hidden="true"
         class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+        color="var(--color-info)"
         role="img"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
@@ -1766,7 +1692,7 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
         tabindex="-1"
       />
       <div
-        class="rectification-delivery-decision"
+        class="rectification-delivery-decision radio-group-section"
       >
         <legend
           class="field-label"
