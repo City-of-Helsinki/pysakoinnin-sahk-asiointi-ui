@@ -48,6 +48,7 @@
 
 .rectification-form-user-details p {
   overflow-wrap: break-word;
+  margin-bottom: var(--spacing-m);
 }
 
 .rectification-fileinput div:first-of-type {
@@ -111,6 +112,10 @@
     margin-top: 5px;
     min-width: 450px;
   }
+}
+
+.radio-group-section .field-label {
+  margin-bottom: var(--spacing-s);
 }
 
 .radio-group-container {

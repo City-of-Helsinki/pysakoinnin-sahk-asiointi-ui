@@ -75,7 +75,7 @@ const RectificationForm = (props: Props) => {
               control={props.control}
               rules={{ required: t('common:required-field') as string }}
               render={({ field, fieldState }) => (
-                <div>
+                <div className="radio-group-section">
                   <FieldLabel
                     text={t(`rectificationForm:relation-info:relation`)}
                     required={true}
@@ -331,7 +331,7 @@ const RectificationForm = (props: Props) => {
             control={props.control}
             rules={{ required: t('common:required-field') as string }}
             render={({ field, fieldState }) => (
-              <div className="rectification-delivery-decision">
+              <div className="rectification-delivery-decision radio-group-section">
                 <FieldLabel
                   text={t(`rectificationForm:relation-info:relation`)}
                   required={true}
