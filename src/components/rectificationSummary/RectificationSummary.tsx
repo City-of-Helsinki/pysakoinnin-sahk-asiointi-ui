@@ -21,7 +21,7 @@ const RectificationSummary = () => {
   const { t } = useTranslation();
   const selectedForm = useSelector(selectFormContent).selectedForm;
   const formValues = useSelector(selectFormValues);
-  const userProfile = useSelector(selectUserProfile);
+  const user = useSelector(selectUserProfile);
 
   return (
     <>
@@ -37,13 +37,13 @@ const RectificationSummary = () => {
           <TextInput
             id="name"
             label={t('common:name')}
-            value={userProfile?.name}
+            value={user?.name}
             readOnly
           />
           <TextInput
             id="ssn"
             label={t('common:ssn')}
-            value={userProfile?.SSN}
+            value={user?.SSN}
             readOnly
           />
           <TextInput
@@ -72,7 +72,7 @@ const RectificationSummary = () => {
             value={
               formValues?.newEmailAddress
                 ? formValues?.newEmailAddress
-                : userProfile?.email
+                : user?.email
             }
             readOnly
           />

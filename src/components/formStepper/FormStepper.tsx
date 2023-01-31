@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import {
@@ -12,6 +12,7 @@ import {
   Stepper
 } from 'hds-react';
 import { useTranslation } from 'react-i18next';
+import { ClientContext } from '../../client/ClientProvider';
 import { formatDate } from '../../utils/helpers';
 import useMobileWidth from '../../hooks/useMobileWidth';
 import useUserProfile from '../../hooks/useUserProfile';
@@ -57,6 +58,8 @@ const useRectificationForm = () => {
 };
 
 const FormStepper = (props: Props): React.ReactElement => {
+  // ClientContext is needed to get user profile
+  useContext(ClientContext);
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const { activeStepIndex, steps } = useSelector(selectStepperState);

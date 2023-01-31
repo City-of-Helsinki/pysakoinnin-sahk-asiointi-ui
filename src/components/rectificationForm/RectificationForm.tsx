@@ -34,7 +34,7 @@ interface Props {
 
 const RectificationForm = (props: Props) => {
   const { t, i18n } = useTranslation();
-  const userProfile = useSelector(selectUserProfile);
+  const user = useSelector(selectUserProfile);
   const selectedForm = useSelector(selectFormContent).selectedForm;
   const movedCarFormSelected = selectedForm === FormId.MOVEDCAR;
   const isMobileWidth = useMobileWidth();
@@ -106,7 +106,7 @@ const RectificationForm = (props: Props) => {
                   color={'var(--color-info)'}
                 />
               </div>
-              <p>{userProfile?.name}</p>
+              <p>{user?.name}</p>
               <div>
                 <FieldLabel text={t('common:ssn')} required={true} />
                 <IconCheckCircle
@@ -114,7 +114,7 @@ const RectificationForm = (props: Props) => {
                   color={'var(--color-info)'}
                 />
               </div>
-              <p>{userProfile?.SSN}</p>
+              <p>{user?.SSN}</p>
               <div>
                 <FieldLabel text={t('common:email')} required={true} />
                 <IconCheckCircle
@@ -122,7 +122,7 @@ const RectificationForm = (props: Props) => {
                   color={'var(--color-info)'}
                 />
               </div>
-              <p>{userProfile?.email}</p>
+              <p>{user?.email}</p>
             </div>
           </div>
 

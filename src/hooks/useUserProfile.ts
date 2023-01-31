@@ -1,13 +1,10 @@
 import { getClient } from '../client/oidc-react';
 import { getProfileData, ProfileQueryResult } from '../profile/profile';
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { GraphQLClientError } from '../graphql/graphqlClient';
 import { UserProfile } from '../common';
-import { ClientContext } from '../client/ClientProvider';
 
 const useUserProfile = () => {
-  // useContext needs to be called to get user profile
-  useContext(ClientContext);
   const client = getClient();
   const user = client.getUserProfile();
   const [profile, setProfile] = useState<UserProfile | Error | undefined>(

@@ -99,7 +99,9 @@ exports[`Component in moved car form matches snapshot 1`] = `
               </g>
             </svg>
           </div>
-          <p />
+          <p>
+            Test User
+          </p>
           <div>
             <legend
               class="field-label"
@@ -171,7 +173,9 @@ exports[`Component in moved car form matches snapshot 1`] = `
               </g>
             </svg>
           </div>
-          <p />
+          <p>
+            test.user@test.fi
+          </p>
         </div>
       </div>
       <div
@@ -533,8 +537,8 @@ exports[`Component in moved car form matches snapshot 1`] = `
         >
           <label
             class="FieldLabel-module_label__1zrXK "
-            for="hds-select-8-toggle-button"
-            id="hds-select-8-label"
+            for="hds-select-7-toggle-button"
+            id="hds-select-7-label"
           >
             Maakoodi
             <span
@@ -550,10 +554,10 @@ exports[`Component in moved car form matches snapshot 1`] = `
             <button
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-labelledby="hds-select-8-label hds-select-8-toggle-button"
-              aria-owns="hds-select-8-menu"
+              aria-labelledby="hds-select-7-label hds-select-7-toggle-button"
+              aria-owns="hds-select-7-menu"
               class="Select-module_button__1aIsm"
-              id="hds-select-8-toggle-button"
+              id="hds-select-7-toggle-button"
               type="button"
             >
               <span
@@ -583,10 +587,10 @@ exports[`Component in moved car form matches snapshot 1`] = `
               </svg>
             </button>
             <ul
-              aria-labelledby="hds-select-8-label"
+              aria-labelledby="hds-select-7-label"
               aria-required="true"
               class="Select-module_menu__1H2aU"
-              id="hds-select-8-menu"
+              id="hds-select-7-menu"
               role="listbox"
               style="max-height: 260px;"
               tabindex="-1"
@@ -980,7 +984,9 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
               </g>
             </svg>
           </div>
-          <p />
+          <p>
+            Test User
+          </p>
           <div>
             <legend
               class="field-label"
@@ -1052,7 +1058,9 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
               </g>
             </svg>
           </div>
-          <p />
+          <p>
+            test.user@test.fi
+          </p>
         </div>
       </div>
       <div
