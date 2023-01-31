@@ -11,7 +11,7 @@ import {
   selectFormContent,
   selectFormValues
 } from '../formContent/formContentSlice';
-import { useClient } from '../../client/hooks';
+import { selectUserProfile } from '../user/userSlice';
 import ExtendedTextField from '../extendedTextField/ExtendedTextField';
 import useMobileWidth from '../../hooks/useMobileWidth';
 import styles from '../styles.module.css';
@@ -19,11 +19,9 @@ import './RectificationSummary.css';
 
 const RectificationSummary = () => {
   const { t } = useTranslation();
-  const { getUser } = useClient();
-  // TODO: Get SSN from Helsinki profile / Suomi.fi
-  const user = getUser();
   const selectedForm = useSelector(selectFormContent).selectedForm;
   const formValues = useSelector(selectFormValues);
+  const userProfile = useSelector(selectUserProfile);
 
   return (
     <>
@@ -39,13 +37,13 @@ const RectificationSummary = () => {
           <TextInput
             id="name"
             label={t('common:name')}
-            value={user?.name as string}
+            value={userProfile?.name}
             readOnly
           />
           <TextInput
             id="ssn"
             label={t('common:ssn')}
-            value="123456-789A"
+            value={userProfile?.SSN}
             readOnly
           />
           <TextInput
@@ -74,7 +72,7 @@ const RectificationSummary = () => {
             value={
               formValues?.newEmailAddress
                 ? formValues?.newEmailAddress
-                : (user?.email as string)
+                : userProfile?.email
             }
             readOnly
           />

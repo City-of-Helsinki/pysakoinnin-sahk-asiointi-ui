@@ -1,15 +1,20 @@
 import { getClient } from '../client/oidc-react';
 import { getProfileData, ProfileQueryResult } from '../profile/profile';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { GraphQLClientError } from '../graphql/graphqlClient';
 import { UserProfile } from '../common';
+import { ClientContext } from '../client/ClientProvider';
 
 const useUserProfile = () => {
+  // useContext needs to be called to get user profile
+  useContext(ClientContext);
   const client = getClient();
+  const user = client.getUserProfile();
   const [profile, setProfile] = useState<UserProfile | Error | undefined>(
     undefined
   );
 
+  // listen to user and fetch the profile if a user is found
   useEffect(() => {
     const fetchProfile = async () => {
       const apiAccessToken = await client.getApiAccessToken({
@@ -27,11 +32,11 @@ const useUserProfile = () => {
       }
     };
 
-    if (!profile) {
+    if (user) {
       fetchProfile();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [user]);
 
   return profile;
 };

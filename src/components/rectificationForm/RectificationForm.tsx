@@ -14,7 +14,6 @@ import {
   TextArea,
   TextInput
 } from 'hds-react';
-import { useClient } from '../../client/hooks';
 import useMobileWidth from '../../hooks/useMobileWidth';
 import {
   FileItem,
@@ -22,6 +21,7 @@ import {
   selectFormContent,
   RectificationControlType
 } from '../formContent/formContentSlice';
+import { selectUserProfile } from '../user/userSlice';
 import FieldLabel from '../fieldLabel/FieldLabel';
 import ErrorLabel from '../errorLabel/ErrorLabel';
 import './RectificationForm.css';
@@ -34,8 +34,7 @@ interface Props {
 
 const RectificationForm = (props: Props) => {
   const { t, i18n } = useTranslation();
-  const { getUser } = useClient();
-  const user = getUser();
+  const userProfile = useSelector(selectUserProfile);
   const selectedForm = useSelector(selectFormContent).selectedForm;
   const movedCarFormSelected = selectedForm === FormId.MOVEDCAR;
   const isMobileWidth = useMobileWidth();
@@ -107,7 +106,7 @@ const RectificationForm = (props: Props) => {
                   color={'var(--color-info)'}
                 />
               </div>
-              <p>{user?.name as string}</p>
+              <p>{userProfile?.name}</p>
               <div>
                 <FieldLabel text={t('common:ssn')} required={true} />
                 <IconCheckCircle
@@ -115,7 +114,7 @@ const RectificationForm = (props: Props) => {
                   color={'var(--color-info)'}
                 />
               </div>
-              <p>123456-789A</p>
+              <p>{userProfile?.SSN}</p>
               <div>
                 <FieldLabel text={t('common:email')} required={true} />
                 <IconCheckCircle
@@ -123,7 +122,7 @@ const RectificationForm = (props: Props) => {
                   color={'var(--color-info)'}
                 />
               </div>
-              <p>{user?.email as string}</p>
+              <p>{userProfile?.email}</p>
             </div>
           </div>
 

@@ -49,7 +49,7 @@ exports[`Component matches snapshot 1`] = `
             id="name"
             readonly=""
             type="text"
-            value=""
+            value="Test User"
           />
         </div>
       </div>
@@ -158,7 +158,7 @@ exports[`Component matches snapshot 1`] = `
             id="email"
             readonly=""
             type="text"
-            value=""
+            value="test.user@test.fi"
           />
         </div>
       </div>
