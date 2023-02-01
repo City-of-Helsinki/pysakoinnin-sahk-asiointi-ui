@@ -38,9 +38,20 @@ describe('Component', () => {
       reducers: {}
     });
 
+    const userSliceMock = createSlice({
+      name: 'userProfile',
+      initialState: {
+        name: 'Test User',
+        email: 'test.user@test.fi',
+        SSN: '123456-789A'
+      },
+      reducers: {}
+    });
+
     const store = configureStore({
       reducer: {
-        formContent: formContentSliceMock.reducer
+        formContent: formContentSliceMock.reducer,
+        userProfile: userSliceMock.reducer
       }
     });
     const { container } = render(

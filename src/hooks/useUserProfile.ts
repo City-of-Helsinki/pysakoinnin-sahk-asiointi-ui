@@ -6,10 +6,12 @@ import { UserProfile } from '../common';
 
 const useUserProfile = () => {
   const client = getClient();
+  const user = client.getUserProfile();
   const [profile, setProfile] = useState<UserProfile | Error | undefined>(
     undefined
   );
 
+  // listen to user and fetch the profile if a user is found
   useEffect(() => {
     const fetchProfile = async () => {
       const apiAccessToken = await client.getApiAccessToken({
@@ -27,11 +29,11 @@ const useUserProfile = () => {
       }
     };
 
-    if (!profile) {
+    if (user) {
       fetchProfile();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [user]);
 
   return profile;
 };

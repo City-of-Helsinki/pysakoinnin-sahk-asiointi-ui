@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import {
@@ -12,8 +12,10 @@ import {
   Stepper
 } from 'hds-react';
 import { useTranslation } from 'react-i18next';
+import { ClientContext } from '../../client/ClientProvider';
 import { formatDate } from '../../utils/helpers';
 import useMobileWidth from '../../hooks/useMobileWidth';
+import useUserProfile from '../../hooks/useUserProfile';
 import FormContent from '../formContent/FormContent';
 import {
   completeStep,
@@ -30,6 +32,7 @@ import {
   RectificationFormType
 } from '../formContent/formContentSlice';
 import { selectDueDateFormValues } from '../extendDueDate/extendDueDateFormSlice';
+import { setUserProfile } from '../user/userSlice';
 import './FormStepper.css';
 
 interface Props {
@@ -55,6 +58,8 @@ const useRectificationForm = () => {
 };
 
 const FormStepper = (props: Props): React.ReactElement => {
+  // ClientContext is needed to get user profile
+  useContext(ClientContext);
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const { activeStepIndex, steps } = useSelector(selectStepperState);
@@ -63,6 +68,7 @@ const FormStepper = (props: Props): React.ReactElement => {
   const lastStep = activeStepIndex === steps.length - 1;
   const [showSubmitNotification, setShowSubmitNotification] = useState(false);
   const mainPageButtonRef = useRef<null | HTMLDivElement>(null);
+  const userProfile = useUserProfile();
 
   const { control, handleSubmit } = useRectificationForm();
 
@@ -79,6 +85,12 @@ const FormStepper = (props: Props): React.ReactElement => {
   const handlePrint = () => {
     window.print();
   };
+
+  // if user profile is found, add it to redux
+  useEffect(() => {
+    userProfile && dispatch(setUserProfile(userProfile));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userProfile]);
 
   useEffect(() => {
     dispatch(setSteps(props.initialSteps));

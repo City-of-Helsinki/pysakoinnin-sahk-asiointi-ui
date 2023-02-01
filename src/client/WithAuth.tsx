@@ -14,6 +14,7 @@ const WithAuth = (
   if (InitializingContent && !client.isInitialized()) {
     return <InitializingContent />;
   }
+  // FIXME: this shouldn't be true if apiAccessToken is expired
   return client.isAuthenticated() ? (
     <AuthorizedContent client={client} />
   ) : (

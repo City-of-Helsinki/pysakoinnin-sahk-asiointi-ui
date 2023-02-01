@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { render, waitFor } from '@testing-library/react';
 import RectificationForm from './RectificationForm';
 import { RectificationFormType } from '../formContent/formContentSlice';
@@ -7,7 +7,10 @@ import { configureStore, createSlice } from '@reduxjs/toolkit';
 import { axe } from 'jest-axe';
 import { renderHook } from '@testing-library/react-hooks';
 import { useForm } from 'react-hook-form';
+import { ClientContext } from '../../client/ClientProvider';
 
+// ClientContext needs to be added here since the tests don't get it from FormStepper
+renderHook(() => useContext(ClientContext));
 const { result } = renderHook(() => useForm<RectificationFormType>());
 const control = result.current.control;
 
@@ -22,9 +25,20 @@ describe('Component in parking fine appeal form', () => {
     reducers: {}
   });
 
+  const userProfileSliceMock = createSlice({
+    name: 'userProfile',
+    initialState: {
+      name: 'Test User',
+      email: 'test.user@test.fi',
+      SSN: '123456-789A'
+    },
+    reducers: {}
+  });
+
   const store = configureStore({
     reducer: {
-      formContent: formContentSliceMock.reducer
+      formContent: formContentSliceMock.reducer,
+      userProfile: userProfileSliceMock.reducer
     }
   });
 
@@ -60,9 +74,20 @@ describe('Component in moved car form', () => {
     reducers: {}
   });
 
+  const userProfileSliceMock = createSlice({
+    name: 'userProfile',
+    initialState: {
+      name: 'Test User',
+      email: 'test.user@test.fi',
+      SSN: '123456-789A'
+    },
+    reducers: {}
+  });
+
   const store = configureStore({
     reducer: {
-      formContent: formContentSliceMock.reducer
+      formContent: formContentSliceMock.reducer,
+      userProfile: userProfileSliceMock.reducer
     }
   });
 

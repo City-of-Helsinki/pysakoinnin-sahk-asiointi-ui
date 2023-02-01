@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Checkbox, Link, Notification, TextInput } from 'hds-react';
 import { useTranslation } from 'react-i18next';
-import { useClient } from '../../client/hooks';
 import { formatDate, isExtensionAllowed } from '../../utils/helpers';
 import {
   selectDueDateFormValues,
   setEmailConfirmationChecked
 } from './extendDueDateFormSlice';
+import { selectUserProfile } from '../user/userSlice';
 import './ExtendDueDateForm.css';
 import {
   selectFormContent,
@@ -18,8 +18,7 @@ import Barcode from '../barcode/Barcode';
 const ExtendDueDateForm = (): React.ReactElement => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const { getUser } = useClient();
-  const user = getUser();
+  const user = useSelector(selectUserProfile);
   const formContent = useSelector(selectFormContent);
   const dueDateFormValues = useSelector(selectDueDateFormValues);
   const dueDate = formatDate(dueDateFormValues.dueDate);
