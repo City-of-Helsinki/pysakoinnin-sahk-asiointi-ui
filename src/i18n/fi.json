@@ -212,7 +212,6 @@
     },
     "rectification-info": "Oikaisuvaatimuksen tiedot",
     "rectification-content": "Oikaisuvaatimuksen sisältö",
-    "description-over-limit": "Kuvaus ylittää merkkimäärän",
     "to-separate-email": "Haluan ilmoitukset asian käsittelystä eri sähköpostiosoitteeseen",
     "address": "Lähiosoite",
     "zipcode": "Postinumero",
@@ -225,7 +224,15 @@
     "byMail": "Kirjeitse antamaani osoitteeseen",
     "attachments": "Liitetiedostot",
     "poa": "Valtakirja",
-    "attach-poa": "Liitä valtakirja"
+    "attach-poa": "Liitä valtakirja",
+    "errors": {
+      "description-over-limit": "Kuvaus ylittää merkkimäärän",
+      "poa-required": "Valtakirja puuttuu",
+      "invalid-email": "Tarkista sähköpostiosoite",
+      "invalid-phone": "Tarkista puhelinnumero",
+      "invalid-iban": "Tarkista pankkitilinumero",
+      "too-many-attachments": "Voit liittää enintään kolme liitettä"
+    }
   },
   "imageViewer": {
     "header": "Pysäköintivirhemaksun kuvat",

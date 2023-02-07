@@ -65,12 +65,13 @@ const { result } = renderHook(() =>
 );
 
 const control = result.current.control;
+const values = result.current.getValues;
 
 describe('form content', () => {
   test('passes a11y validation', async () => {
     const { container } = render(
       <Provider store={store}>
-        <FormContent activeStep={0} control={control} />
+        <FormContent activeStep={0} control={control} values={values} />
       </Provider>
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -87,7 +88,7 @@ describe('form content', () => {
 
         const { getByTestId } = render(
           <Provider store={store}>
-            <FormContent activeStep={0} control={control} />
+            <FormContent activeStep={0} control={control} values={values} />
           </Provider>
         );
 
@@ -102,7 +103,7 @@ describe('form content', () => {
         });
         const { getByTestId } = render(
           <Provider store={store}>
-            <FormContent activeStep={0} control={control} />
+            <FormContent activeStep={0} control={control} values={values} />
           </Provider>
         );
         await waitFor(() => expect(getByTestId('searchForm')).toBeVisible());
@@ -116,7 +117,7 @@ describe('form content', () => {
         });
         const { getByTestId } = render(
           <Provider store={store}>
-            <FormContent activeStep={0} control={control} />
+            <FormContent activeStep={0} control={control} values={values} />
           </Provider>
         );
         await waitFor(() => expect(getByTestId('searchForm')).toBeVisible());
@@ -133,7 +134,7 @@ describe('form content', () => {
 
         const { getByTestId } = render(
           <Provider store={store}>
-            <FormContent activeStep={1} control={control} />
+            <FormContent activeStep={1} control={control} values={values} />
           </Provider>
         );
 
@@ -151,7 +152,7 @@ describe('form content', () => {
 
         const { getByTestId } = render(
           <Provider store={store}>
-            <FormContent activeStep={1} control={control} />
+            <FormContent activeStep={1} control={control} values={values} />
           </Provider>
         );
 
@@ -168,7 +169,7 @@ describe('form content', () => {
         });
         const { getByTestId } = render(
           <Provider store={store}>
-            <FormContent activeStep={1} control={control} />
+            <FormContent activeStep={1} control={control} values={values} />
           </Provider>
         );
         await waitFor(() =>

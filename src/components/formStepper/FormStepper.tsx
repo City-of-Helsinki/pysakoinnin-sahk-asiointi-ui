@@ -43,7 +43,9 @@ interface Props {
 const useRectificationForm = () => {
   const formValues = useSelector(selectFormValues);
 
-  const { control, handleSubmit, reset } = useForm<RectificationFormType>({
+  const { control, handleSubmit, reset, getValues } = useForm<
+    RectificationFormType
+  >({
     defaultValues: formValues
   });
 
@@ -54,7 +56,7 @@ const useRectificationForm = () => {
   }, [formValues]);
 
   // export the needed functions/hooks to use the form
-  return { control, handleSubmit };
+  return { control, handleSubmit, getValues };
 };
 
 const FormStepper = (props: Props): React.ReactElement => {
@@ -70,7 +72,7 @@ const FormStepper = (props: Props): React.ReactElement => {
   const mainPageButtonRef = useRef<null | HTMLDivElement>(null);
   const userProfile = useUserProfile();
 
-  const { control, handleSubmit } = useRectificationForm();
+  const { control, handleSubmit, getValues } = useRectificationForm();
 
   const handleFormSubmit = () => {
     dispatch(setFormSubmitted(true));
@@ -119,7 +121,11 @@ const FormStepper = (props: Props): React.ReactElement => {
             steps={steps}
           />
         </div>
-        <FormContent activeStep={activeStepIndex} control={control} />
+        <FormContent
+          activeStep={activeStepIndex}
+          control={control}
+          values={getValues}
+        />
         <div className="button-container">
           <div className={`button-wrapper ${lastStep ? 'submit' : ''}`}>
             <Button

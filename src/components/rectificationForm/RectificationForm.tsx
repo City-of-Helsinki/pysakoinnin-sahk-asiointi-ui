@@ -3,14 +3,13 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { Controller, FieldValues } from 'react-hook-form';
+import { Controller, FieldValues, UseFormGetValues } from 'react-hook-form';
 import {
   Checkbox,
   FileInput,
   IconCheckCircle,
   Link,
   RadioButton,
-  Select,
   TextArea,
   TextInput
 } from 'hds-react';
@@ -19,7 +18,8 @@ import {
   FileItem,
   FormId,
   selectFormContent,
-  RectificationControlType
+  RectificationControlType,
+  RectificationFormType
 } from '../formContent/formContentSlice';
 import { selectUserProfile } from '../user/userSlice';
 import FieldLabel from '../fieldLabel/FieldLabel';
@@ -30,6 +30,7 @@ type Language = 'fi' | 'en' | 'sv';
 
 interface Props {
   control: RectificationControlType;
+  values: UseFormGetValues<RectificationFormType>;
 }
 
 const RectificationForm = (props: Props) => {
@@ -62,6 +63,22 @@ const RectificationForm = (props: Props) => {
         return field.onChange(fileList);
     }
   };
+
+  // Required if POA holder selected as the role
+  const isValidPOAFile = (field: FieldValues) =>
+    props.values().relation !== 'poa-holder' ||
+    (field && field.name && field.name !== '');
+
+  // Required if toSeparateEmail checkbox selected
+  const isValidEmail = (field: string) =>
+    !props.values().toSeparateEmail || field !== '';
+
+  // Required if email field is not empty, and if so, emails have to match
+  const isValidEmailConfirmation = (field: string) =>
+    props.values().newEmailAddress === '' ||
+    field === props.values().newEmailAddress;
+
+  const numberOfAttachmentsIsValid = (field: FieldValues) => field.length <= 3;
 
   return (
     <>
@@ -130,15 +147,25 @@ const RectificationForm = (props: Props) => {
             <Controller
               name="poaFile"
               control={props.control}
-              render={({ field }) => (
-                <FileInput
-                  language={i18n.language as Language}
-                  label={t('rectificationForm:attach-poa')}
-                  id="rectificationPOAFile"
-                  onChange={e => setFiles(e, 'poa', field)}
-                  dragAndDrop={!isMobileWidth}
-                  accept={'.png, .jpg, .pdf'}
-                />
+              rules={{
+                validate: isValidPOAFile
+              }}
+              render={({ field, fieldState }) => (
+                <>
+                  <FileInput
+                    language={i18n.language as Language}
+                    label={t('rectificationForm:attach-poa')}
+                    id="rectificationPOAFile"
+                    onChange={e => setFiles(e, 'poa', field)}
+                    dragAndDrop={!isMobileWidth}
+                    accept={'.png, .jpg, .pdf'}
+                  />
+                  {fieldState.error && (
+                    <ErrorLabel
+                      text={t('rectificationForm:errors:poa-required')}
+                    />
+                  )}
+                </>
               )}
             />
           </div>
@@ -176,26 +203,49 @@ const RectificationForm = (props: Props) => {
                   <Controller
                     name="newEmailAddress"
                     control={props.control}
-                    render={({ field }) => (
+                    rules={{
+                      validate: isValidEmail,
+                      pattern: {
+                        value: /^\S+@\S+$/i,
+                        message: t('rectificationForm:errors:invalid-email')
+                      }
+                    }}
+                    render={({ field, fieldState }) => (
                       <TextInput
                         {...field}
                         id="newEmailAddress"
                         disabled={!checkboxField.value}
                         label={t('common:email')}
-                        required
+                        required={checkboxField.value}
+                        invalid={checkboxField.value && !!fieldState.error}
+                        errorText={
+                          checkboxField.value && fieldState.error
+                            ? t('common:required-field')
+                            : undefined
+                        }
                       />
                     )}
                   />
                   <Controller
                     name="newEmailConfirm"
                     control={props.control}
-                    render={({ field }) => (
+                    rules={{
+                      validate: isValidEmailConfirmation,
+                      pattern: /^\S+@\S+$/i
+                    }}
+                    render={({ field, fieldState }) => (
                       <TextInput
                         {...field}
                         id="newEmailConfirm"
                         disabled={!checkboxField.value}
                         label={t('common:verify-email')}
-                        required
+                        required={checkboxField.value}
+                        invalid={checkboxField.value && !!fieldState.error}
+                        errorText={
+                          checkboxField.value && fieldState.error
+                            ? t('rectificationForm:errors:invalid-email')
+                            : undefined
+                        }
                       />
                     )}
                   />
@@ -207,13 +257,16 @@ const RectificationForm = (props: Props) => {
           <Controller
             name="address"
             control={props.control}
-            render={({ field }) => (
+            rules={{ required: t('common:required-field') as string }}
+            render={({ field, fieldState }) => (
               <TextInput
                 {...field}
                 id="address"
                 label={t('rectificationForm:address')}
                 placeholder="Esim. Elimäenkatu 5"
                 required
+                invalid={!!fieldState.error}
+                errorText={fieldState.error?.message}
               />
             )}
           />
@@ -221,61 +274,79 @@ const RectificationForm = (props: Props) => {
             <Controller
               name="zipCode"
               control={props.control}
-              render={({ field }) => (
+              rules={{ required: t('common:required-field') as string }}
+              render={({ field, fieldState }) => (
                 <TextInput
                   {...field}
                   id="zipCode"
                   label={t('rectificationForm:zipcode')}
                   placeholder="Esim. 00100"
                   required
+                  invalid={!!fieldState.error}
+                  errorText={fieldState.error?.message}
                 />
               )}
             />
             <Controller
               name="city"
               control={props.control}
-              render={({ field }) => (
+              rules={{ required: t('common:required-field') as string }}
+              render={({ field, fieldState }) => (
                 <TextInput
                   {...field}
                   id="city"
                   label={t('rectificationForm:city')}
                   placeholder="Esim. Helsinki"
                   required
-                />
-              )}
-            />
-
-            <Select
-              label={t('rectificationForm:area-code')}
-              options={[{ label: '(+358)' }]}
-              defaultValue={{ label: '(+358)' }}
-              required
-            />
-            <Controller
-              name="phone"
-              control={props.control}
-              render={({ field }) => (
-                <TextInput
-                  {...field}
-                  id="phone"
-                  label={t('rectificationForm:phone')}
-                  placeholder="Esim. 401234567"
-                  required
+                  invalid={!!fieldState.error}
+                  errorText={fieldState.error?.message}
                 />
               )}
             />
           </div>
 
           <Controller
+            name="phone"
+            control={props.control}
+            rules={{
+              required: t('common:required-field') as string,
+              pattern: {
+                value: /^[0-9]+$/i,
+                message: t('rectificationForm:errors:invalid-phone')
+              }
+            }}
+            render={({ field, fieldState }) => (
+              <TextInput
+                {...field}
+                id="phone"
+                label={t('rectificationForm:phone')}
+                placeholder="Esim. +358401234567"
+                required
+                invalid={!!fieldState.error}
+                errorText={fieldState.error?.message}
+              />
+            )}
+          />
+
+          <Controller
             name="IBAN"
             control={props.control}
-            render={({ field }) => (
+            rules={{
+              required: t('common:required-field') as string,
+              pattern: {
+                value: /(?=^.{18,}$)/i,
+                message: t('rectificationForm:errors:invalid-iban')
+              }
+            }}
+            render={({ field, fieldState }) => (
               <TextInput
                 {...field}
                 id="IBAN"
                 label={t('rectificationForm:IBAN')}
                 required
                 placeholder="Esim. FI9780001700903330"
+                invalid={!!fieldState.error}
+                errorText={fieldState.error?.message}
               />
             )}
           />
@@ -284,9 +355,10 @@ const RectificationForm = (props: Props) => {
             name="rectificationContent"
             control={props.control}
             rules={{
+              required: t('common:required-field') as string,
               maxLength: rectificationMaxLength
             }}
-            render={({ field }) => (
+            render={({ field, fieldState }) => (
               <>
                 <TextArea
                   {...field}
@@ -299,31 +371,50 @@ const RectificationForm = (props: Props) => {
                   }/${rectificationMaxLength} ${t('common:characters')}`}
                   errorText={
                     field.value?.length >= rectificationMaxLength
-                      ? t('rectificationForm:description-over-limit')
+                      ? t('rectificationForm:errors:description-over-limit')
+                      : fieldState.error
+                      ? t('common:required-field')
                       : ''
                   }
-                  invalid={field.value?.length >= rectificationMaxLength}
+                  invalid={
+                    !!fieldState.error ||
+                    field.value?.length >= rectificationMaxLength
+                  }
                 />
               </>
             )}
           />
 
-          <Controller
-            name="attachments"
-            control={props.control}
-            render={({ field }) => (
-              <FileInput
-                language={i18n.language as Language}
-                multiple
-                className="rectification-fileinput"
-                label={t('rectificationForm:attachments')}
-                id="rectificationAttachments"
-                onChange={e => setFiles(e, 'attachments', field)}
-                dragAndDrop={!isMobileWidth}
-                accept={'.png, .jpg, .pdf'}
-              />
-            )}
-          />
+          <div className="rectification-attachments">
+            <Controller
+              name="attachments"
+              control={props.control}
+              rules={{
+                validate: numberOfAttachmentsIsValid
+              }}
+              render={({ field, fieldState }) => (
+                <>
+                  <FileInput
+                    language={i18n.language as Language}
+                    multiple
+                    className="rectification-fileinput"
+                    label={t('rectificationForm:attachments')}
+                    id="rectificationAttachments"
+                    onChange={e => setFiles(e, 'attachments', field)}
+                    dragAndDrop={!isMobileWidth}
+                    accept={'.png, .jpg, .pdf'}
+                    // eslint-disable-next-line no-magic-numbers
+                    maxSize={5 * 1024 * 1024}
+                  />
+                  {fieldState.error && (
+                    <ErrorLabel
+                      text={t('rectificationForm:errors:too-many-attachments')}
+                    />
+                  )}
+                </>
+              )}
+            />
+          </div>
 
           <Controller
             name="deliveryDecision"
