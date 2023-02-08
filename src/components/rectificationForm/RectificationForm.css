@@ -32,6 +32,10 @@
   grid-gap: 12px;
 }
 
+.rectification-subgrid label {
+  white-space: nowrap;
+}
+
 .rectification-form-user-details {
   display: inline-flex;
   flex-direction: column;
