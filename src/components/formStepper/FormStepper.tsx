@@ -44,17 +44,27 @@ interface Props {
 const useRectificationForm = () => {
   const formValues = useSelector(selectFormValues);
 
-  const { control, handleSubmit, reset, getValues } = useForm<
-    RectificationFormType
-  >({
+  const {
+    control,
+    handleSubmit,
+    reset,
+    getValues,
+    formState: { isSubmitSuccessful }
+  } = useForm<RectificationFormType>({
     defaultValues: formValues
   });
 
+  // if form values are found from redux (i.e. a change happens), update the form default values
   useEffect(() => {
-    // if form values are found from redux (i.e. a change happens), update the form default values
     formValues && reset(formValues);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formValues]);
+
+  // reset the form when successfully submitting to also reset the validation which happens onSubmit
+  useEffect(() => {
+    isSubmitSuccessful && reset(formValues);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isSubmitSuccessful]);
 
   // export the needed functions/hooks to use the form
   return { control, handleSubmit, getValues };
@@ -80,7 +90,7 @@ const FormStepper = (props: Props): React.ReactElement => {
     setShowSubmitNotification(true);
   };
 
-  const onSubmitForm = (form: RectificationFormType) => {
+  const submitFormAndCompleteStep = (form: RectificationFormType) => {
     dispatch(setFormValues({ ...form, IBAN: friendlyFormatIBAN(form.IBAN) }));
     dispatch(completeStep(activeStepIndex));
   };
@@ -165,7 +175,7 @@ const FormStepper = (props: Props): React.ReactElement => {
                   id="button-next"
                   className="button"
                   iconRight={<IconArrowRight />}
-                  onClick={handleSubmit(onSubmitForm)}
+                  onClick={handleSubmit(submitFormAndCompleteStep)}
                   variant="primary">
                   {activeStepIndex === 1
                     ? t('common:make-rectification')
