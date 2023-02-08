@@ -1,5 +1,6 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 /* eslint-disable @typescript-eslint/no-unnecessary-type-assertion */
+/* eslint-disable no-magic-numbers */
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
@@ -160,11 +161,13 @@ const RectificationForm = (props: Props) => {
                 <>
                   <FileInput
                     language={i18n.language as Language}
-                    label={t('rectificationForm:attach-poa')}
+                    label={t('rectificationForm:attach-poa:label')}
                     id="rectificationPOAFile"
                     onChange={e => setFiles(e, 'poa', field)}
                     dragAndDrop={!isMobileWidth}
-                    accept={'.png, .jpg, .pdf'}
+                    accept={'.jpg, .pdf, .heic'}
+                    maxSize={5 * 1024 * 1024}
+                    helperText={t('rectificationForm:attach-poa:helper-text')}
                   />
                   {fieldState.error && (
                     <ErrorLabel
@@ -406,13 +409,13 @@ const RectificationForm = (props: Props) => {
                     language={i18n.language as Language}
                     multiple
                     className="rectification-fileinput"
-                    label={t('rectificationForm:attachments')}
+                    label={t('rectificationForm:attachments:label')}
                     id="rectificationAttachments"
                     onChange={e => setFiles(e, 'attachments', field)}
                     dragAndDrop={!isMobileWidth}
-                    accept={'.png, .jpg, .pdf'}
-                    // eslint-disable-next-line no-magic-numbers
+                    accept={'.jpg, .pdf, .heic'}
                     maxSize={5 * 1024 * 1024}
+                    helperText={t('rectificationForm:attachments:helper-text')}
                   />
                   {fieldState.error && (
                     <ErrorLabel

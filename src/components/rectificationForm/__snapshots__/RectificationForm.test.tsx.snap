@@ -276,7 +276,7 @@ exports[`Component in moved car form matches snapshot 1`] = `
                   </span>
                 </button>
                 <input
-                  accept=".png, .jpg, .pdf"
+                  accept=".jpg, .pdf, .heic"
                   aria-describedby="rectificationPOAFile-helper rectificationPOAFile-info"
                   class="FileInput-module_fileInput__hClRc"
                   id="rectificationPOAFile"
@@ -295,7 +295,9 @@ exports[`Component in moved car form matches snapshot 1`] = `
             class="TextInput-module_helperText__2dLR6 text-input_hds-text-input__helper-text__3V2KM"
             id="rectificationPOAFile-helper"
           >
-            Vain .png,  .jpg ja  .pdf tiedostoja.
+            Voit liittää vain yhden tiedoston. 
+Sallitut tiedostomuodot ovat JPG, PDF ja HEIC. 
+Liitetiedoston suurin sallittu koko on 5 megatavua.
           </div>
         </div>
         <ul
@@ -709,7 +711,7 @@ exports[`Component in moved car form matches snapshot 1`] = `
                   </span>
                 </button>
                 <input
-                  accept=".png, .jpg, .pdf"
+                  accept=".jpg, .pdf, .heic"
                   aria-describedby="rectificationAttachments-helper rectificationAttachments-info"
                   class="FileInput-module_fileInput__hClRc"
                   id="rectificationAttachments"
@@ -729,7 +731,9 @@ exports[`Component in moved car form matches snapshot 1`] = `
             class="TextInput-module_helperText__2dLR6 text-input_hds-text-input__helper-text__3V2KM"
             id="rectificationAttachments-helper"
           >
-            Vain .png,  .jpg ja  .pdf tiedostoja. Suurin sallittu tiedostokoko on 5 MB.
+            Voit liittää oikaisuvaatimukseen enintään kolme liitettä. 
+Sallitut tiedostomuodot ovat JPG, PDF ja HEIC. 
+Liitetiedoston suurin sallittu koko on 5 megatavua.
           </div>
         </div>
         <ul
@@ -1086,7 +1090,7 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
                   </span>
                 </button>
                 <input
-                  accept=".png, .jpg, .pdf"
+                  accept=".jpg, .pdf, .heic"
                   aria-describedby="rectificationPOAFile-helper rectificationPOAFile-info"
                   class="FileInput-module_fileInput__hClRc"
                   id="rectificationPOAFile"
@@ -1105,7 +1109,9 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
             class="TextInput-module_helperText__2dLR6 text-input_hds-text-input__helper-text__3V2KM"
             id="rectificationPOAFile-helper"
           >
-            Vain .png,  .jpg ja  .pdf tiedostoja.
+            Voit liittää vain yhden tiedoston. 
+Sallitut tiedostomuodot ovat JPG, PDF ja HEIC. 
+Liitetiedoston suurin sallittu koko on 5 megatavua.
           </div>
         </div>
         <ul
@@ -1519,7 +1525,7 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
                   </span>
                 </button>
                 <input
-                  accept=".png, .jpg, .pdf"
+                  accept=".jpg, .pdf, .heic"
                   aria-describedby="rectificationAttachments-helper rectificationAttachments-info"
                   class="FileInput-module_fileInput__hClRc"
                   id="rectificationAttachments"
@@ -1539,7 +1545,9 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
             class="TextInput-module_helperText__2dLR6 text-input_hds-text-input__helper-text__3V2KM"
             id="rectificationAttachments-helper"
           >
-            Vain .png,  .jpg ja  .pdf tiedostoja. Suurin sallittu tiedostokoko on 5 MB.
+            Voit liittää oikaisuvaatimukseen enintään kolme liitettä. 
+Sallitut tiedostomuodot ovat JPG, PDF ja HEIC. 
+Liitetiedoston suurin sallittu koko on 5 megatavua.
           </div>
         </div>
         <ul

@@ -218,9 +218,15 @@
     "delivery-decision": "Haluan päätöksen",
     "toParkingService": "Pysäköinnin asiointikansiooni",
     "byMail": "Kirjeitse antamaani osoitteeseen",
-    "attachments": "Liitetiedostot",
+    "attachments": {
+      "label": "Liitetiedostot",
+      "helper-text": "Voit liittää oikaisuvaatimukseen enintään kolme liitettä. \nSallitut tiedostomuodot ovat JPG, PDF ja HEIC. \nLiitetiedoston suurin sallittu koko on 5 megatavua."
+    },
     "poa": "Valtakirja",
-    "attach-poa": "Liitä valtakirja",
+    "attach-poa": {
+      "label": "Liitä valtakirja",
+      "helper-text": "Voit liittää vain yhden tiedoston. \nSallitut tiedostomuodot ovat JPG, PDF ja HEIC. \nLiitetiedoston suurin sallittu koko on 5 megatavua."
+    },
     "errors": {
       "description-over-limit": "Kuvaus ylittää merkkimäärän",
       "poa-required": "Valtakirja puuttuu",
