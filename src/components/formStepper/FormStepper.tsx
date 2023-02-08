@@ -14,6 +14,7 @@ import {
 import { useTranslation } from 'react-i18next';
 import { ClientContext } from '../../client/ClientProvider';
 import { formatDate } from '../../utils/helpers';
+import { friendlyFormatIBAN } from 'ibantools';
 import useMobileWidth from '../../hooks/useMobileWidth';
 import useUserProfile from '../../hooks/useUserProfile';
 import FormContent from '../formContent/FormContent';
@@ -80,7 +81,7 @@ const FormStepper = (props: Props): React.ReactElement => {
   };
 
   const onSubmitForm = (form: RectificationFormType) => {
-    dispatch(setFormValues(form));
+    dispatch(setFormValues({ ...form, IBAN: friendlyFormatIBAN(form.IBAN) }));
     dispatch(completeStep(activeStepIndex));
   };
 

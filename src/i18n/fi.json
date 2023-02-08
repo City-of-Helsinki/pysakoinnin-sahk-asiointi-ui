@@ -216,7 +216,6 @@
     "address": "Lähiosoite",
     "zipcode": "Postinumero",
     "city": "Postitoimipaikka",
-    "area-code": "Maakoodi",
     "phone": "Puhelinnumero",
     "IBAN": "Pankkitilinumero (IBAN)",
     "delivery-decision": "Haluan päätöksen",

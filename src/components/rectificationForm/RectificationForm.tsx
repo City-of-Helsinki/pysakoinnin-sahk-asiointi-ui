@@ -13,6 +13,7 @@ import {
   TextArea,
   TextInput
 } from 'hds-react';
+import { extractIBAN } from 'ibantools';
 import useMobileWidth from '../../hooks/useMobileWidth';
 import {
   FileItem,
@@ -79,6 +80,11 @@ const RectificationForm = (props: Props) => {
     field === props.values().newEmailAddress;
 
   const numberOfAttachmentsIsValid = (field: FieldValues) => field.length <= 3;
+
+  const isValidIBAN = (field: string) => {
+    const iban = extractIBAN(field);
+    return iban.valid && iban.countryCode === 'FI';
+  };
 
   return (
     <>
@@ -219,8 +225,11 @@ const RectificationForm = (props: Props) => {
                         required={checkboxField.value}
                         invalid={checkboxField.value && !!fieldState.error}
                         errorText={
-                          checkboxField.value && fieldState.error
+                          checkboxField.value &&
+                          fieldState.error?.type === 'validate'
                             ? t('common:required-field')
+                            : fieldState.error
+                            ? fieldState.error?.message
                             : undefined
                         }
                       />
@@ -309,11 +318,7 @@ const RectificationForm = (props: Props) => {
             name="phone"
             control={props.control}
             rules={{
-              required: t('common:required-field') as string,
-              pattern: {
-                value: /^[0-9]+$/i,
-                message: t('rectificationForm:errors:invalid-phone')
-              }
+              required: t('common:required-field') as string
             }}
             render={({ field, fieldState }) => (
               <TextInput
@@ -333,10 +338,7 @@ const RectificationForm = (props: Props) => {
             control={props.control}
             rules={{
               required: t('common:required-field') as string,
-              pattern: {
-                value: /(?=^.{18,}$)/i,
-                message: t('rectificationForm:errors:invalid-iban')
-              }
+              validate: isValidIBAN
             }}
             render={({ field, fieldState }) => (
               <TextInput
@@ -344,9 +346,15 @@ const RectificationForm = (props: Props) => {
                 id="IBAN"
                 label={t('rectificationForm:IBAN')}
                 required
-                placeholder="Esim. FI9780001700903330"
+                placeholder="Esim. FI97 8000 1700 9033 30"
                 invalid={!!fieldState.error}
-                errorText={fieldState.error?.message}
+                errorText={
+                  fieldState.error?.type === 'required'
+                    ? fieldState.error?.message
+                    : fieldState.error
+                    ? t('rectificationForm:errors:invalid-iban')
+                    : undefined
+                }
               />
             )}
           />

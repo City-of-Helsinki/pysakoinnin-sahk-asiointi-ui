@@ -79,7 +79,7 @@ const RectificationSummary = () => {
           <TextInput
             id="phone"
             label={t('common:phone')}
-            value={`${formValues?.countryCode}${formValues?.phone}`}
+            value={`${formValues?.phone}`}
             readOnly
           />
           <TextInput
