@@ -220,12 +220,12 @@
     "byMail": "Kirjeitse antamaani osoitteeseen",
     "attachments": {
       "label": "Liitetiedostot",
-      "helper-text": "Voit liittää oikaisuvaatimukseen enintään kolme liitettä. \nSallitut tiedostomuodot ovat JPG, PDF ja HEIC. \nLiitetiedoston suurin sallittu koko on 5 megatavua."
+      "helper-text": "Voit liittää oikaisuvaatimukseen enintään kolme liitettä. \nSallitut tiedostomuodot ovat JPG ja PDF. \nLiitetiedoston suurin sallittu koko on 5 megatavua."
     },
     "poa": "Valtakirja",
     "attach-poa": {
       "label": "Liitä valtakirja",
-      "helper-text": "Voit liittää vain yhden tiedoston. \nSallitut tiedostomuodot ovat JPG, PDF ja HEIC. \nLiitetiedoston suurin sallittu koko on 5 megatavua."
+      "helper-text": "Voit liittää vain yhden tiedoston. \nSallitut tiedostomuodot ovat JPG ja PDF. \nLiitetiedoston suurin sallittu koko on 5 megatavua."
     },
     "errors": {
       "description-over-limit": "Kuvaus ylittää merkkimäärän",

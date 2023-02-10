@@ -163,7 +163,7 @@ const RectificationForm: FC<Props> = ({ control, values }) => {
                             id="rectificationPOAFile"
                             onChange={e => setFiles(e, 'poa', field)}
                             dragAndDrop={!isMobileWidth}
-                            accept={'.jpg, .pdf, .heic'}
+                            accept={'.jpg, .pdf'}
                             maxSize={5 * 1024 * 1024}
                             helperText={t(
                               'rectificationForm:attach-poa:helper-text'
@@ -420,7 +420,7 @@ const RectificationForm: FC<Props> = ({ control, values }) => {
                     id="rectificationAttachments"
                     onChange={e => setFiles(e, 'attachments', field)}
                     dragAndDrop={!isMobileWidth}
-                    accept={'.jpg, .pdf, .heic'}
+                    accept={'.jpg, .pdf'}
                     maxSize={5 * 1024 * 1024}
                     helperText={t('rectificationForm:attachments:helper-text')}
                   />
