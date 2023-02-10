@@ -78,6 +78,10 @@
   margin-right: var(--spacing-xs);
 }
 
+.rectification-attachments-error {
+  margin-top: var(--spacing-s);
+}
+
 @media only screen and (max-width: 768px) {
   .rectification-form-container {
     display: flex;

@@ -51,6 +51,7 @@ const useRectificationForm = () => {
     getValues,
     formState: { isSubmitSuccessful }
   } = useForm<RectificationFormType>({
+    mode: 'onTouched',
     defaultValues: formValues
   });
 
