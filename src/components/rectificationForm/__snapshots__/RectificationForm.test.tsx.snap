@@ -10,61 +10,59 @@ exports[`Component in moved car form matches snapshot 1`] = `
       class="rectification-info-container"
     >
       <div
-        class="rectification-user-section"
+        class="radio-group-section"
       >
-        <div
-          class="radio-group-section"
+        <legend
+          class="field-label"
         >
-          <legend
-            class="field-label"
+          Teen oikaisuvaatimuksen
+          <span
+            class="required-icon"
           >
-            Teen oikaisuvaatimuksen
-            <span
-              class="required-icon"
-            >
-              *
-            </span>
-          </legend>
+            *
+          </span>
+        </legend>
+        <div
+          class="radio-group-container"
+        >
           <div
-            class="radio-group-container"
+            class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
           >
-            <div
-              class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+            <input
+              class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
+              id="owner"
+              type="radio"
+              value="owner"
+            />
+            <label
+              class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
+              for="owner"
             >
-              <input
-                class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
-                id="owner"
-                type="radio"
-                value="owner"
-              />
-              <label
-                class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
-                for="owner"
-              >
-                Ajoneuvon omistajana/haltijana
-              </label>
-            </div>
-            <div
-              class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+              Ajoneuvon omistajana/haltijana
+            </label>
+          </div>
+          <div
+            class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+          >
+            <input
+              class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
+              id="poa-holder"
+              type="radio"
+              value="poa-holder"
+            />
+            <label
+              class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
+              for="poa-holder"
             >
-              <input
-                class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
-                id="poa-holder"
-                type="radio"
-                value="poa-holder"
-              />
-              <label
-                class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
-                for="poa-holder"
-              >
-                Valtakirjalla (toisen puolesta)
-              </label>
-            </div>
+              Valtakirjalla (toisen puolesta)
+            </label>
           </div>
         </div>
-        <div
-          class="rectification-form-user-details"
-        >
+      </div>
+      <div
+        class="rectification-form-user-details"
+      >
+        <div>
           <div>
             <legend
               class="field-label"
@@ -808,77 +806,75 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
       class="rectification-info-container"
     >
       <div
-        class="rectification-user-section"
+        class="radio-group-section"
       >
-        <div
-          class="radio-group-section"
+        <legend
+          class="field-label"
         >
-          <legend
-            class="field-label"
+          Teen oikaisuvaatimuksen
+          <span
+            class="required-icon"
           >
-            Teen oikaisuvaatimuksen
-            <span
-              class="required-icon"
-            >
-              *
-            </span>
-          </legend>
+            *
+          </span>
+        </legend>
+        <div
+          class="radio-group-container"
+        >
           <div
-            class="radio-group-container"
+            class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
           >
-            <div
-              class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+            <input
+              class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
+              id="driver"
+              type="radio"
+              value="driver"
+            />
+            <label
+              class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
+              for="driver"
             >
-              <input
-                class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
-                id="driver"
-                type="radio"
-                value="driver"
-              />
-              <label
-                class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
-                for="driver"
-              >
-                Ajoneuvon kuljettajana
-              </label>
-            </div>
-            <div
-              class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+              Ajoneuvon kuljettajana
+            </label>
+          </div>
+          <div
+            class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+          >
+            <input
+              class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
+              id="owner"
+              type="radio"
+              value="owner"
+            />
+            <label
+              class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
+              for="owner"
             >
-              <input
-                class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
-                id="owner"
-                type="radio"
-                value="owner"
-              />
-              <label
-                class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
-                for="owner"
-              >
-                Ajoneuvon omistajana/haltijana
-              </label>
-            </div>
-            <div
-              class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+              Ajoneuvon omistajana/haltijana
+            </label>
+          </div>
+          <div
+            class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+          >
+            <input
+              class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
+              id="poa-holder"
+              type="radio"
+              value="poa-holder"
+            />
+            <label
+              class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
+              for="poa-holder"
             >
-              <input
-                class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
-                id="poa-holder"
-                type="radio"
-                value="poa-holder"
-              />
-              <label
-                class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
-                for="poa-holder"
-              >
-                Valtakirjalla (toisen puolesta)
-              </label>
-            </div>
+              Valtakirjalla (toisen puolesta)
+            </label>
           </div>
         </div>
-        <div
-          class="rectification-form-user-details"
-        >
+      </div>
+      <div
+        class="rectification-form-user-details"
+      >
+        <div>
           <div>
             <legend
               class="field-label"

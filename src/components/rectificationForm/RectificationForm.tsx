@@ -96,31 +96,31 @@ const RectificationForm: FC<Props> = ({ control, values }) => {
               const relationField = field;
               return (
                 <>
-                  <div className="rectification-user-section">
-                    <div className="radio-group-section">
-                      <FieldLabel
-                        text={t(`rectificationForm:relation-info:relation`)}
-                        required={true}
-                      />
-                      <div className="radio-group-container">
-                        {relations.map(relation => (
-                          <RadioButton
-                            key={relation}
-                            label={t(
-                              `rectificationForm:relation-info:${relation}`
-                            )}
-                            id={relation}
-                            value={relation}
-                            checked={relation === field.value}
-                            onChange={e => field.onChange(e.target.value)}
-                          />
-                        ))}
-                        {fieldState.error && (
-                          <ErrorLabel text={fieldState.error.message} />
-                        )}
-                      </div>
+                  <div className="radio-group-section">
+                    <FieldLabel
+                      text={t(`rectificationForm:relation-info:relation`)}
+                      required={true}
+                    />
+                    <div className="radio-group-container">
+                      {relations.map(relation => (
+                        <RadioButton
+                          key={relation}
+                          label={t(
+                            `rectificationForm:relation-info:${relation}`
+                          )}
+                          id={relation}
+                          value={relation}
+                          checked={relation === field.value}
+                          onChange={e => field.onChange(e.target.value)}
+                        />
+                      ))}
+                      {fieldState.error && (
+                        <ErrorLabel text={fieldState.error.message} />
+                      )}
                     </div>
-                    <div className="rectification-form-user-details">
+                  </div>
+                  <div className="rectification-form-user-details">
+                    <div>
                       <div>
                         <FieldLabel text={t('common:name')} required={true} />
                         <IconCheckCircle

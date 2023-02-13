@@ -5,14 +5,15 @@
 }
 
 .rectification-info-container {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 130px);
   gap: 24px;
   margin: 24px 0 24px;
 }
 
-.rectification-user-section {
-  flex: 1;
+.rectification-poa-fileinput {
+  min-width: 300px;
 }
 
 .rectification-textarea {
@@ -37,11 +38,21 @@
 }
 
 .rectification-form-user-details {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  grid-row: 2;
+}
+
+/* 
+  sets the items inside rectification-form-user-details as inline flex and 
+  allows expanding of the checkmark icon if needed 
+*/
+.rectification-form-user-details > div {
   display: inline-flex;
   flex-direction: column;
-  margin-top: 2rem;
   min-width: 200px;
-  max-width: 400px;
+  max-width: 350px;
 }
 
 .rectification-form-user-details div {
@@ -83,6 +94,21 @@
 }
 
 @media only screen and (max-width: 768px) {
+  .rectification-info-container {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: auto;
+  }
+
+  .rectification-form-user-details {
+    grid-row: 3;
+    margin-top: 0;
+  }
+
+  .rectification-poa-fileinput {
+    grid-row: 2;
+    margin-top: var(--spacing-s);
+  }
+
   .rectification-form-container {
     display: flex;
     flex-direction: column;
@@ -91,11 +117,6 @@
   .rectification-textarea {
     height: 50vh;
     margin-bottom: var(--spacing-2-xl);
-  }
-
-  .rectification-poa-fileinput {
-    flex: 1;
-    min-width: 300px;
   }
 
   .rectification-link-to-profile {
@@ -119,7 +140,6 @@
   .rectification-poa-fileinput {
     flex: 1;
     margin-top: 5px;
-    min-width: 450px;
   }
 }
 
