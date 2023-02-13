@@ -79,7 +79,7 @@ const RectificationSummary = () => {
           <TextInput
             id="phone"
             label={t('common:phone')}
-            value={`${formValues?.countryCode}${formValues?.phone}`}
+            value={`${formValues?.phone}`}
             readOnly
           />
           <TextInput
@@ -111,7 +111,7 @@ const RectificationSummary = () => {
           {formValues?.attachments.length > 0 && (
             <div>
               <label className={styles['text-label']}>
-                {t('rectificationForm:attachments')}
+                {t('rectificationForm:attachments:label')}
               </label>
               <ul className="file-list">
                 {formValues?.attachments.map((item: FileItem) => (

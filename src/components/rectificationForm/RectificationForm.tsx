@@ -1,25 +1,26 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 /* eslint-disable @typescript-eslint/no-unnecessary-type-assertion */
-import React from 'react';
+/* eslint-disable no-magic-numbers */
+import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { Controller, FieldValues } from 'react-hook-form';
+import { Controller, FieldValues, UseFormGetValues } from 'react-hook-form';
 import {
   Checkbox,
   FileInput,
   IconCheckCircle,
   Link,
   RadioButton,
-  Select,
   TextArea,
   TextInput
 } from 'hds-react';
+import { extractIBAN } from 'ibantools';
 import useMobileWidth from '../../hooks/useMobileWidth';
 import {
-  FileItem,
   FormId,
   selectFormContent,
-  RectificationControlType
+  RectificationControlType,
+  RectificationFormType
 } from '../formContent/formContentSlice';
 import { selectUserProfile } from '../user/userSlice';
 import FieldLabel from '../fieldLabel/FieldLabel';
@@ -30,9 +31,10 @@ type Language = 'fi' | 'en' | 'sv';
 
 interface Props {
   control: RectificationControlType;
+  values: UseFormGetValues<RectificationFormType>;
 }
 
-const RectificationForm = (props: Props) => {
+const RectificationForm: FC<Props> = ({ control, values }) => {
   const { t, i18n } = useTranslation();
   const user = useSelector(selectUserProfile);
   const selectedForm = useSelector(selectFormContent).selectedForm;
@@ -46,21 +48,39 @@ const RectificationForm = (props: Props) => {
     : ['driver', 'owner', 'poa-holder'];
 
   const setFiles = (files: File[], type: string, field: FieldValues) => {
-    const fileList: FileItem[] = [];
-    for (const file of files) {
-      const fileItem = {
-        name: file.name,
-        size: file.size,
-        type: file.type
-      };
-      fileList.push(fileItem);
-    }
+    const fileList = files.map(({ name, size, type }) => ({
+      name,
+      size,
+      type
+    }));
     switch (type) {
       case 'poa':
-        return field.onChange(fileList[0]);
+        return field.onChange(
+          fileList.length > 0 ? fileList[0] : { name: '', size: 0, type: '' }
+        );
       case 'attachments':
         return field.onChange(fileList);
     }
+  };
+
+  // Required if POA holder selected as the role
+  const isValidPOAFile = (field: FieldValues) =>
+    values().relation !== 'poa-holder' ||
+    (field && field.name && field.name !== '');
+
+  // Required if toSeparateEmail checkbox selected
+  const isValidEmail = (field: string) =>
+    !values().toSeparateEmail || field !== '';
+
+  // Required if email field is not empty, and if so, emails have to match
+  const isValidEmailConfirmation = (field: string) =>
+    values().newEmailAddress === '' || field === values().newEmailAddress;
+
+  const numberOfAttachmentsIsValid = (field: FieldValues) => field.length <= 3;
+
+  const isValidIBAN = (field: string) => {
+    const iban = extractIBAN(field);
+    return iban.valid && iban.countryCode === 'FI';
   };
 
   return (
@@ -68,80 +88,103 @@ const RectificationForm = (props: Props) => {
       <p>{t('common:required-fields')}</p>
       <div>
         <div className="rectification-info-container">
-          <div className="rectification-user-section">
-            <Controller
-              name="relation"
-              control={props.control}
-              rules={{ required: t('common:required-field') as string }}
-              render={({ field, fieldState }) => (
-                <div className="radio-group-section">
-                  <FieldLabel
-                    text={t(`rectificationForm:relation-info:relation`)}
-                    required={true}
-                  />
-                  <div className="radio-group-container">
-                    {relations.map(relation => (
-                      <RadioButton
-                        key={relation}
-                        label={t(`rectificationForm:relation-info:${relation}`)}
-                        id={relation}
-                        value={relation}
-                        checked={relation === field.value}
-                        onChange={e => field.onChange(e.target.value)}
+          <Controller
+            name="relation"
+            control={control}
+            rules={{ required: t('common:required-field') as string }}
+            render={({ field, fieldState }) => {
+              const relationField = field;
+              return (
+                <>
+                  <div className="rectification-user-section">
+                    <div className="radio-group-section">
+                      <FieldLabel
+                        text={t(`rectificationForm:relation-info:relation`)}
+                        required={true}
                       />
-                    ))}
-                    {fieldState.error && (
-                      <ErrorLabel text={fieldState.error.message} />
-                    )}
+                      <div className="radio-group-container">
+                        {relations.map(relation => (
+                          <RadioButton
+                            key={relation}
+                            label={t(
+                              `rectificationForm:relation-info:${relation}`
+                            )}
+                            id={relation}
+                            value={relation}
+                            checked={relation === field.value}
+                            onChange={e => field.onChange(e.target.value)}
+                          />
+                        ))}
+                        {fieldState.error && (
+                          <ErrorLabel text={fieldState.error.message} />
+                        )}
+                      </div>
+                    </div>
+                    <div className="rectification-form-user-details">
+                      <div>
+                        <FieldLabel text={t('common:name')} required={true} />
+                        <IconCheckCircle
+                          aria-label={t('common:fetched-from-profile-aria')}
+                          color={'var(--color-info)'}
+                        />
+                      </div>
+                      <p>{user?.name}</p>
+                      <div>
+                        <FieldLabel text={t('common:ssn')} required={true} />
+                        <IconCheckCircle
+                          aria-label={t('common:fetched-from-profile-aria')}
+                          color={'var(--color-info)'}
+                        />
+                      </div>
+                      <p>{user?.SSN}</p>
+                      <div>
+                        <FieldLabel text={t('common:email')} required={true} />
+                        <IconCheckCircle
+                          aria-label={t('common:fetched-from-profile-aria')}
+                          color={'var(--color-info)'}
+                        />
+                      </div>
+                      <p>{user?.email}</p>
+                    </div>
                   </div>
-                </div>
-              )}
-            />
 
-            <div className="rectification-form-user-details">
-              <div>
-                <FieldLabel text={t('common:name')} required={true} />
-                <IconCheckCircle
-                  aria-label={t('common:fetched-from-profile-aria')}
-                  color={'var(--color-info)'}
-                />
-              </div>
-              <p>{user?.name}</p>
-              <div>
-                <FieldLabel text={t('common:ssn')} required={true} />
-                <IconCheckCircle
-                  aria-label={t('common:fetched-from-profile-aria')}
-                  color={'var(--color-info)'}
-                />
-              </div>
-              <p>{user?.SSN}</p>
-              <div>
-                <FieldLabel text={t('common:email')} required={true} />
-                <IconCheckCircle
-                  aria-label={t('common:fetched-from-profile-aria')}
-                  color={'var(--color-info)'}
-                />
-              </div>
-              <p>{user?.email}</p>
-            </div>
-          </div>
-
-          <div className="rectification-poa-fileinput">
-            <Controller
-              name="poaFile"
-              control={props.control}
-              render={({ field }) => (
-                <FileInput
-                  language={i18n.language as Language}
-                  label={t('rectificationForm:attach-poa')}
-                  id="rectificationPOAFile"
-                  onChange={e => setFiles(e, 'poa', field)}
-                  dragAndDrop={!isMobileWidth}
-                  accept={'.png, .jpg, .pdf'}
-                />
-              )}
-            />
-          </div>
+                  <div className="rectification-poa-fileinput">
+                    <Controller
+                      name="poaFile"
+                      control={control}
+                      rules={{
+                        validate: isValidPOAFile
+                      }}
+                      render={({ field }) => (
+                        <>
+                          <FileInput
+                            language={i18n.language as Language}
+                            label={t('rectificationForm:attach-poa:label')}
+                            id="rectificationPOAFile"
+                            onChange={e => setFiles(e, 'poa', field)}
+                            dragAndDrop={!isMobileWidth}
+                            accept={'.jpg, .pdf'}
+                            maxSize={5 * 1024 * 1024}
+                            helperText={t(
+                              'rectificationForm:attach-poa:helper-text'
+                            )}
+                          />
+                          {relationField.value === 'poa-holder' &&
+                            field.value?.name === '' && (
+                              <ErrorLabel
+                                text={t(
+                                  'rectificationForm:errors:poa-required'
+                                )}
+                              />
+                            )}
+                        </>
+                      )}
+                    />
+                  </div>
+                </>
+              );
+            }}
+          />
         </div>
         <hr />
         <div className="rectification-link-to-profile">
@@ -162,7 +205,7 @@ const RectificationForm = (props: Props) => {
         <div className="rectification-form-container">
           <Controller
             name="toSeparateEmail"
-            control={props.control}
+            control={control}
             render={({ field }) => {
               const checkboxField = field;
               return (
@@ -175,27 +218,53 @@ const RectificationForm = (props: Props) => {
                   />
                   <Controller
                     name="newEmailAddress"
-                    control={props.control}
-                    render={({ field }) => (
+                    control={control}
+                    rules={{
+                      validate: isValidEmail,
+                      pattern: {
+                        value: /^\S+@\S+$/i,
+                        message: t('rectificationForm:errors:invalid-email')
+                      }
+                    }}
+                    render={({ field, fieldState }) => (
                       <TextInput
                         {...field}
                         id="newEmailAddress"
                         disabled={!checkboxField.value}
                         label={t('common:email')}
-                        required
+                        required={checkboxField.value}
+                        invalid={checkboxField.value && !!fieldState.error}
+                        errorText={
+                          checkboxField.value &&
+                          fieldState.error?.type === 'validate'
+                            ? t('common:required-field')
+                            : fieldState.error
+                            ? fieldState.error?.message
+                            : undefined
+                        }
                       />
                     )}
                   />
                   <Controller
                     name="newEmailConfirm"
-                    control={props.control}
-                    render={({ field }) => (
+                    control={control}
+                    rules={{
+                      validate: isValidEmailConfirmation,
+                      pattern: /^\S+@\S+$/i
+                    }}
+                    render={({ field, fieldState }) => (
                       <TextInput
                         {...field}
                         id="newEmailConfirm"
                         disabled={!checkboxField.value}
                         label={t('common:verify-email')}
-                        required
+                        required={checkboxField.value}
+                        invalid={checkboxField.value && !!fieldState.error}
+                        errorText={
+                          checkboxField.value && fieldState.error
+                            ? t('rectificationForm:errors:invalid-email')
+                            : undefined
+                        }
                       />
                     )}
                   />
@@ -206,87 +275,108 @@ const RectificationForm = (props: Props) => {
 
           <Controller
             name="address"
-            control={props.control}
-            render={({ field }) => (
+            control={control}
+            rules={{ required: t('common:required-field') as string }}
+            render={({ field, fieldState }) => (
               <TextInput
                 {...field}
                 id="address"
                 label={t('rectificationForm:address')}
                 placeholder="Esim. Elimäenkatu 5"
                 required
+                invalid={!!fieldState.error}
+                errorText={fieldState.error?.message}
               />
             )}
           />
           <div className="rectification-subgrid">
             <Controller
               name="zipCode"
-              control={props.control}
-              render={({ field }) => (
+              control={control}
+              rules={{ required: t('common:required-field') as string }}
+              render={({ field, fieldState }) => (
                 <TextInput
                   {...field}
                   id="zipCode"
                   label={t('rectificationForm:zipcode')}
                   placeholder="Esim. 00100"
                   required
+                  invalid={!!fieldState.error}
+                  errorText={fieldState.error?.message}
                 />
               )}
             />
             <Controller
               name="city"
-              control={props.control}
-              render={({ field }) => (
+              control={control}
+              rules={{ required: t('common:required-field') as string }}
+              render={({ field, fieldState }) => (
                 <TextInput
                   {...field}
                   id="city"
                   label={t('rectificationForm:city')}
                   placeholder="Esim. Helsinki"
                   required
-                />
-              )}
-            />
-
-            <Select
-              label={t('rectificationForm:area-code')}
-              options={[{ label: '(+358)' }]}
-              defaultValue={{ label: '(+358)' }}
-              required
-            />
-            <Controller
-              name="phone"
-              control={props.control}
-              render={({ field }) => (
-                <TextInput
-                  {...field}
-                  id="phone"
-                  label={t('rectificationForm:phone')}
-                  placeholder="Esim. 401234567"
-                  required
+                  invalid={!!fieldState.error}
+                  errorText={fieldState.error?.message}
                 />
               )}
             />
           </div>
 
           <Controller
+            name="phone"
+            control={control}
+            rules={{
+              required: t('common:required-field') as string
+            }}
+            render={({ field, fieldState }) => (
+              <TextInput
+                {...field}
+                id="phone"
+                label={t('rectificationForm:phone')}
+                placeholder="Esim. +358401234567"
+                required
+                invalid={!!fieldState.error}
+                errorText={fieldState.error?.message}
+              />
+            )}
+          />
+
+          <Controller
             name="IBAN"
-            control={props.control}
-            render={({ field }) => (
+            control={control}
+            rules={{
+              required: t('common:required-field') as string,
+              validate: isValidIBAN
+            }}
+            render={({ field, fieldState }) => (
               <TextInput
                 {...field}
                 id="IBAN"
                 label={t('rectificationForm:IBAN')}
                 required
-                placeholder="Esim. FI9780001700903330"
+                placeholder="Esim. FI97 8000 1700 9033 30"
+                invalid={!!fieldState.error}
+                errorText={
+                  fieldState.error?.type === 'required'
+                    ? fieldState.error?.message
+                    : fieldState.error
+                    ? t('rectificationForm:errors:invalid-iban')
+                    : undefined
+                }
               />
             )}
           />
 
           <Controller
             name="rectificationContent"
-            control={props.control}
+            control={control}
             rules={{
+              required: t('common:required-field') as string,
               maxLength: rectificationMaxLength
             }}
-            render={({ field }) => (
+            render={({ field, fieldState }) => (
               <>
                 <TextArea
                   {...field}
@@ -299,35 +389,58 @@ const RectificationForm = (props: Props) => {
                   }/${rectificationMaxLength} ${t('common:characters')}`}
                   errorText={
                     field.value?.length >= rectificationMaxLength
-                      ? t('rectificationForm:description-over-limit')
+                      ? t('rectificationForm:errors:description-over-limit')
+                      : fieldState.error
+                      ? t('common:required-field')
                       : ''
                   }
-                  invalid={field.value?.length >= rectificationMaxLength}
+                  invalid={
+                    !!fieldState.error ||
+                    field.value?.length >= rectificationMaxLength
+                  }
                 />
               </>
             )}
           />
 
-          <Controller
-            name="attachments"
-            control={props.control}
-            render={({ field }) => (
-              <FileInput
-                language={i18n.language as Language}
-                multiple
-                className="rectification-fileinput"
-                label={t('rectificationForm:attachments')}
-                id="rectificationAttachments"
-                onChange={e => setFiles(e, 'attachments', field)}
-                dragAndDrop={!isMobileWidth}
-                accept={'.png, .jpg, .pdf'}
-              />
-            )}
-          />
+          <div className="rectification-attachments">
+            <Controller
+              name="attachments"
+              control={control}
+              rules={{
+                validate: numberOfAttachmentsIsValid
+              }}
+              render={({ field }) => (
+                <>
+                  <FileInput
+                    language={i18n.language as Language}
+                    multiple
+                    className="rectification-fileinput"
+                    label={t('rectificationForm:attachments:label')}
+                    id="rectificationAttachments"
+                    onChange={e => setFiles(e, 'attachments', field)}
+                    dragAndDrop={!isMobileWidth}
+                    accept={'.jpg, .pdf'}
+                    maxSize={5 * 1024 * 1024}
+                    helperText={t('rectificationForm:attachments:helper-text')}
+                  />
+                  {field.value?.length > 3 && (
+                    <div className="rectification-attachments-error">
+                      <ErrorLabel
+                        text={t(
+                          'rectificationForm:errors:too-many-attachments'
+                        )}
+                      />
+                    </div>
+                  )}
+                </>
+              )}
+            />
+          </div>
 
           <Controller
             name="deliveryDecision"
-            control={props.control}
+            control={control}
             rules={{ required: t('common:required-field') as string }}
             render={({ field, fieldState }) => (
               <div className="rectification-delivery-decision radio-group-section">

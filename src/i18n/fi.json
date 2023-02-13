@@ -39,14 +39,12 @@
       "ref-number": {
         "label": "Asianumero",
         "placeholder": "Esim. 12345678",
-        "tooltip-text": "Asianumeron löydät pysäköintivirhemaksusta",
-        "error": "Tarkista asianumero. Kirjoita muodossa 12345678."
+        "tooltip-text": "Asianumeron löydät pysäköintivirhemaksusta"
       },
       "invoice-number": {
         "label": "Korvauspäätöksen laskun numero",
         "placeholder": "Esim. 12345678",
-        "tooltip-text": "Laskun numeron löydät sinulle lähetetystä korvauspäätöksestä.",
-        "error": "Tarkista laskun numero. Kirjoita muodossa 12345678."
+        "tooltip-text": "Laskun numeron löydät sinulle lähetetystä korvauspäätöksestä."
       },
       "reg-number": {
         "label": "Ajoneuvon rekisteritunnus",
@@ -54,8 +52,7 @@
         "helper-text": {
           "common": "Kirjoita rekisteritunnus kuten se on pysäköintivirhemaksussa.",
           "moved-car": "Kirjoita rekisteritunnus kuten se on korvauspäätöksessä."
-        },
-        "error": "Tarkista rekisteritunnus. Kirjoita muodossa ABC-123."
+        }
       },
       "fine-timestamp": {
         "label": "Virheen ajankohta",
@@ -212,20 +209,32 @@
     },
     "rectification-info": "Oikaisuvaatimuksen tiedot",
     "rectification-content": "Oikaisuvaatimuksen sisältö",
-    "description-over-limit": "Kuvaus ylittää merkkimäärän",
     "to-separate-email": "Haluan ilmoitukset asian käsittelystä eri sähköpostiosoitteeseen",
     "address": "Lähiosoite",
     "zipcode": "Postinumero",
     "city": "Postitoimipaikka",
-    "area-code": "Maakoodi",
     "phone": "Puhelinnumero",
     "IBAN": "Pankkitilinumero (IBAN)",
     "delivery-decision": "Haluan päätöksen",
     "toParkingService": "Pysäköinnin asiointikansiooni",
     "byMail": "Kirjeitse antamaani osoitteeseen",
-    "attachments": "Liitetiedostot",
+    "attachments": {
+      "label": "Liitetiedostot",
+      "helper-text": "Voit liittää oikaisuvaatimukseen enintään kolme liitettä. \nSallitut tiedostomuodot ovat JPG ja PDF. \nLiitetiedoston suurin sallittu koko on 5 megatavua."
+    },
     "poa": "Valtakirja",
-    "attach-poa": "Liitä valtakirja"
+    "attach-poa": {
+      "label": "Liitä valtakirja",
+      "helper-text": "Voit liittää vain yhden tiedoston. \nSallitut tiedostomuodot ovat JPG ja PDF. \nLiitetiedoston suurin sallittu koko on 5 megatavua."
+    },
+    "errors": {
+      "description-over-limit": "Kuvaus ylittää merkkimäärän",
+      "poa-required": "Valtakirja puuttuu",
+      "invalid-email": "Tarkista sähköpostiosoite",
+      "invalid-phone": "Tarkista puhelinnumero",
+      "invalid-iban": "Tarkista pankkitilinumero",
+      "too-many-attachments": "Voit liittää enintään kolme liitettä"
+    }
   },
   "imageViewer": {
     "header": "Pysäköintivirhemaksun kuvat",

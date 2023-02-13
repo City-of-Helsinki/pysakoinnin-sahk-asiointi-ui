@@ -27,10 +27,7 @@ const SearchForm = (props: Props): React.ReactElement => {
         <Controller
           name="invoiceNumber"
           control={props.control}
-          rules={{
-            required: t('common:fine-info:invoice-number:error') as string
-          }}
-          render={({ field, fieldState }) => (
+          render={({ field }) => (
             <TextInput
               {...field}
               className="field"
@@ -40,8 +37,6 @@ const SearchForm = (props: Props): React.ReactElement => {
               tooltipLabel={t('common:fine-info:invoice-number:label')}
               tooltipText={t('common:fine-info:invoice-number:tooltip-text')}
               required
-              invalid={fieldState.error ? true : false}
-              errorText={fieldState.error?.message}
             />
           )}
         />
@@ -49,8 +44,7 @@ const SearchForm = (props: Props): React.ReactElement => {
         <Controller
           name="refNumber"
           control={props.control}
-          rules={{ required: t('common:fine-info:ref-number:error') as string }}
-          render={({ field, fieldState }) => (
+          render={({ field }) => (
             <TextInput
               {...field}
               className="field"
@@ -60,8 +54,6 @@ const SearchForm = (props: Props): React.ReactElement => {
               tooltipLabel={t('common:fine-info:ref-number:label')}
               tooltipText={t('common:fine-info:ref-number:tooltip-text')}
               required
-              invalid={fieldState.error ? true : false}
-              errorText={fieldState.error?.message}
             />
           )}
         />
@@ -69,8 +61,7 @@ const SearchForm = (props: Props): React.ReactElement => {
       <Controller
         name="regNumber"
         control={props.control}
-        rules={{ required: t('common:fine-info:reg-number:error') as string }}
-        render={({ field, fieldState }) => (
+        render={({ field }) => (
           <TextInput
             {...field}
             className="field"
@@ -83,8 +74,6 @@ const SearchForm = (props: Props): React.ReactElement => {
                 : t('common:fine-info:reg-number:helper-text:common')
             }
             required
-            invalid={fieldState.error ? true : false}
-            errorText={fieldState.error?.message}
           />
         )}
       />

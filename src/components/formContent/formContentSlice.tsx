@@ -28,7 +28,6 @@ export type RectificationFormType = {
   address: string;
   zipCode: string;
   city: string;
-  countryCode: string;
   phone: string;
   IBAN: string;
   rectificationContent: string;
@@ -65,7 +64,6 @@ const initialState: FormState = {
     address: '',
     zipCode: '',
     city: '',
-    countryCode: '+358',
     phone: '',
     IBAN: '',
     rectificationContent: '',

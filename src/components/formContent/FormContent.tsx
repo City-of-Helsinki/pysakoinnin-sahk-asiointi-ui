@@ -1,10 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { UseFormGetValues } from 'react-hook-form';
 import SearchForm from '../searchForm/SearchForm';
 import {
   FormId,
   selectFormContent,
-  RectificationControlType
+  RectificationControlType,
+  RectificationFormType
 } from './formContentSlice';
 import ExtendDueDateForm from '../extendDueDate/ExtendDueDateForm';
 import InfoContainer from '../infoContainer/InfoContainer';
@@ -15,6 +17,7 @@ import './FormContent.css';
 interface Props {
   activeStep: number;
   control: RectificationControlType;
+  values: UseFormGetValues<RectificationFormType>;
 }
 
 const FormContent = (props: Props): React.ReactElement => {
@@ -37,7 +40,9 @@ const FormContent = (props: Props): React.ReactElement => {
         {
           0: <SearchForm control={props.control} />,
           1: selectForm(formContent.selectedForm),
-          2: <RectificationForm control={props.control} />,
+          2: (
+            <RectificationForm control={props.control} values={props.values} />
+          ),
           3: <RectificationSummary />
         }[props.activeStep]
       }
