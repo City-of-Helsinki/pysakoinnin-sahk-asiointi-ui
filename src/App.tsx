@@ -14,14 +14,40 @@ import MovedCarAppeal from './components/movedCarAppeal/MovedCarAppeal';
 import ExtendDueDate from './components/extendDueDate/ExtendDueDate';
 import PageFooter from './components/PageFooter';
 import ProtectedRoute from '../src/components/ProtectedRoute';
+import { Button, Notification } from 'hds-react';
+import { getClient } from './client/oidc-react';
+import { useTranslation } from 'react-i18next';
 
 function App(): React.ReactElement {
+  const { t } = useTranslation();
+  const client = getClient();
+
+  const promptLogin = sessionStorage.getItem('promptLogin') === 'true';
+
+  console.log(Boolean(promptLogin));
+
+  const initLogin = () => {
+    sessionStorage.setItem('promptLogin', 'false');
+    client.login();
+  };
+
   return (
     <HandleCallback>
       <ClientProvider>
         <StoreProvider>
           <Provider store={store}>
             <PageContainer>
+              {Boolean(promptLogin) && (
+                <Notification
+                  label={t('common:login-prompt:title')}
+                  className="login-prompt"
+                  type="error">
+                  <p>{t('common:login-prompt:body')}</p>
+                  <Button onClick={initLogin}>
+                    {t('common:login-prompt:button-label')}
+                  </Button>
+                </Notification>
+              )}
               <Header />
               <Routes>
                 <Route path="/" element={<Index />} />

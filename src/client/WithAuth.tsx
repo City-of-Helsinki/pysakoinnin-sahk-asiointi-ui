@@ -11,11 +11,12 @@ const WithAuth = (
   InitializingContent?: React.ComponentType<unknown>
 ): React.ReactElement => {
   const client = useClient();
+  const promptLogin = sessionStorage.getItem('promptLogin') === 'true';
   if (InitializingContent && !client.isInitialized()) {
     return <InitializingContent />;
   }
   // FIXME: this shouldn't be true if apiAccessToken is expired
-  return client.isAuthenticated() ? (
+  return client.isAuthenticated() && promptLogin === false ? (
     <AuthorizedContent client={client} />
   ) : (
     <UnAuthorizedContent client={client} />

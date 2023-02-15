@@ -23,8 +23,9 @@ const useUserProfile = () => {
         Object.values(apiAccessToken)[0] as string
       );
       if ((result as GraphQLClientError).error) {
-        setProfile((result as GraphQLClientError).error);
+        sessionStorage.setItem('promptLogin', 'true');
       } else {
+        sessionStorage.setItem('promptLogin', 'false');
         setProfile((result as ProfileQueryResult).data.myProfile);
       }
     };
