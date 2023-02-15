@@ -1,0 +1,21 @@
+.landing-page-link-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+}
+
+.landing-page-linkbox {
+  max-width: 384px;
+  background-color: var(--color-silver-medium-light);
+}
+
+.landing-page-linkbox div {
+  background-color: var(--color-silver-medium-light);
+  font-size: var(--fontsize-heading-m);
+}
+
+@media (max-width: 768px) {
+  .landing-page-linkbox div {
+    font-size: var(--fontsize-heading-s);
+  }
+}

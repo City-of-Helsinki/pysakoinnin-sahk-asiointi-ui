@@ -236,6 +236,13 @@
       "too-many-attachments": "Voit liittää enintään kolme liitettä"
     }
   },
+  "landing-page": {
+    "links": {
+      "due-date": "Siirrä pysäköintivirhemaksun eräpäivää 30 päivällä",
+      "parking-fine": "Tarkastele pysäköintivirheen tietoja ja tee oikaisuvaatimus",
+      "moved-car": "Tarkastele ajoneuvon siirron tietoja ja tee oikaisuvaatimus"
+    }
+  },
   "imageViewer": {
     "header": "Pysäköintivirhemaksun kuvat",
     "closebutton-text": "Sulje kuvankatselu",
