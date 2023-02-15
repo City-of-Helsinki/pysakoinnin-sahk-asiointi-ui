@@ -241,6 +241,19 @@
       "due-date": "Siirrä pysäköintivirhemaksun eräpäivää 30 päivällä",
       "parking-fine": "Tarkastele pysäköintivirheen tietoja ja tee oikaisuvaatimus",
       "moved-car": "Tarkastele ajoneuvon siirron tietoja ja tee oikaisuvaatimus"
+    },
+    "list": {
+      "title": "Oikaisuvaatimukset ja eräpäivän siirrot",
+      "status": {
+        "sent": "Lähetetty",
+        "received": "Vastaanotettu",
+        "processing": "Käsittelyssä",
+        "solved-online": "Päätös asioinnissa",
+        "solved-mailed": "Päätös postitettu"
+      },
+      "last-edited": "Viimeksi muokattu",
+      "show-more": "Näytä lisää",
+      "show-less": "Näytä vähemmän"
     }
   },
   "imageViewer": {

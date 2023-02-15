@@ -14,6 +14,12 @@
   font-size: var(--fontsize-heading-m);
 }
 
+.rectification-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
 @media (max-width: 768px) {
   .landing-page-linkbox div {
     font-size: var(--fontsize-heading-s);

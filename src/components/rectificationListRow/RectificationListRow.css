@@ -1,0 +1,61 @@
+.rectification-list-item {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: var(--spacing-xs);
+}
+
+.rectification-list-item-title {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 500;
+  grid-column: 1 / 6;
+}
+
+.rectification-list-item-date {
+  grid-column: 8 / 10;
+  grid-row: 1;
+  font-size: 14px;
+  color: var(--color-black-60);
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.rectification-list-item-status {
+  display: flex;
+  align-items: center;
+  grid-column: 6 / 8;
+  grid-row: 1;
+}
+
+.rectification-list-item-dropdown {
+  grid-column: 9 / 11;
+  grid-row: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+@media (max-width: 820px) {
+  .rectification-list-item-title {
+    grid-column: 1 / 11;
+    grid-row: 2;
+    white-space: pre-wrap;
+    font-size: 18px;
+  }
+
+  .rectification-list-item-status {
+    grid-column: 1 / 5;
+    grid-row: 3;
+  }
+
+  .rectification-list-item-date {
+    grid-column: 1 / 11;
+    grid-row: 1;
+  }
+
+  .rectification-list-item-dropdown {
+    grid-column: 6 / 11;
+    grid-row: 3;
+  }
+}
