@@ -21,7 +21,7 @@
     "characters": "merkkiä",
     "login-prompt": {
       "title": "Sessio päättynyt",
-      "body": "Käyttäjä kirjautunut ulos toisessa ikkunassa",
+      "body": "Olet kirjautunut ulos toisessa ikkunassa",
       "button-label": "Kirjaudu uudelleen"
     },
     "barcode": {

@@ -56,6 +56,19 @@ let formStepperSliceMock = createSlice({
   }
 });
 
+const userSliceMock = createSlice({
+  name: 'user',
+  initialState: {
+    userProfile: {
+      name: 'Test User',
+      email: 'test.user@test.fi',
+      SSN: '123456-789A'
+    },
+    promptLogin: false
+  },
+  reducers: {}
+});
+
 describe('form stepper', () => {
   test('passes a11y validation', async () => {
     const { container } = render(
@@ -74,7 +87,8 @@ describe('form stepper', () => {
       reducer: {
         formContent: formContentSliceMock.reducer,
         formStepper: formStepperSliceMock.reducer,
-        extendDueDateForm: extendDueDateFormSliceMock.reducer
+        extendDueDateForm: extendDueDateFormSliceMock.reducer,
+        user: userSliceMock.reducer
       }
     });
 
@@ -144,7 +158,8 @@ describe('form stepper', () => {
       reducer: {
         formContent: formContentSliceMock.reducer,
         formStepper: formStepperSliceMock.reducer,
-        extendDueDateForm: extendDueDateFormSliceMock.reducer
+        extendDueDateForm: extendDueDateFormSliceMock.reducer,
+        user: userSliceMock.reducer
       }
     });
 

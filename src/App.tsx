@@ -1,74 +1,72 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { ClientProvider } from './client/ClientProvider';
-import StoreProvider from './client/redux/StoreProvider';
+import { useSelector, useDispatch } from 'react-redux';
 import PageContainer from './components/PageContainer';
-import HandleCallback from './components/HandleCallback';
 import Header from './components/Header';
 import LogOut from './pages/LogOut';
 import Index from './pages/Index';
-import store from './store';
 import ParkingFineAppeal from './components/parkingFineAppeal/ParkingFineAppeal';
 import MovedCarAppeal from './components/movedCarAppeal/MovedCarAppeal';
 import ExtendDueDate from './components/extendDueDate/ExtendDueDate';
 import PageFooter from './components/PageFooter';
 import ProtectedRoute from '../src/components/ProtectedRoute';
-import { Button, Notification } from 'hds-react';
+import { Button, Dialog, IconInfoCircle } from 'hds-react';
 import { getClient } from './client/oidc-react';
 import { useTranslation } from 'react-i18next';
+import { selectPromptLogin, setPromptLogin } from './components/user/userSlice';
 
 function App(): React.ReactElement {
   const { t } = useTranslation();
   const client = getClient();
+  const dispatch = useDispatch();
 
-  const promptLogin = sessionStorage.getItem('promptLogin') === 'true';
-
-  console.log(Boolean(promptLogin));
+  const promptLogin = useSelector(selectPromptLogin);
 
   const initLogin = () => {
-    sessionStorage.setItem('promptLogin', 'false');
+    dispatch(setPromptLogin(false));
     client.login();
   };
 
   return (
-    <HandleCallback>
-      <ClientProvider>
-        <StoreProvider>
-          <Provider store={store}>
-            <PageContainer>
-              {Boolean(promptLogin) && (
-                <Notification
-                  label={t('common:login-prompt:title')}
-                  className="login-prompt"
-                  type="error">
-                  <p>{t('common:login-prompt:body')}</p>
-                  <Button onClick={initLogin}>
-                    {t('common:login-prompt:button-label')}
-                  </Button>
-                </Notification>
-              )}
-              <Header />
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route
-                  path="/authError"
-                  element={<div>Autentikaatio epäonnistui</div>}
-                />
-                <Route path="/logout" element={<LogOut />} />
-                <Route element={<ProtectedRoute />}>
-                  <Route path="/virhemaksu" element={<ParkingFineAppeal />} />
-                  <Route path="/ajoneuvonsiirto" element={<MovedCarAppeal />} />
-                  <Route path="/erapaivansiirto" element={<ExtendDueDate />} />
-                </Route>
-                <Route path="*">404 - not found</Route>
-              </Routes>
-              <PageFooter />
-            </PageContainer>
-          </Provider>
-        </StoreProvider>
-      </ClientProvider>
-    </HandleCallback>
+    <PageContainer>
+      {promptLogin && (
+        <Dialog
+          id="session-end-dialog"
+          aria-labelledby={t('common:login-prompt:title')}
+          className="login-prompt"
+          isOpen={promptLogin}>
+          <Dialog.Header
+            id="session-end-dialog-title"
+            title={t('common:login-prompt:title')}
+            iconLeft={<IconInfoCircle aria-hidden="true" />}
+          />
+          <Dialog.Content>
+            <p>{t('common:login-prompt:body')}</p>
+          </Dialog.Content>
+          <Dialog.ActionButtons>
+            <Button onClick={initLogin}>
+              {t('common:login-prompt:button-label')}
+            </Button>
+          </Dialog.ActionButtons>
+        </Dialog>
+      )}
+      <Header />
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route
+          path="/authError"
+          element={<div>Autentikaatio epäonnistui</div>}
+        />
+        <Route path="/logout" element={<LogOut />} />
+        <Route element={<ProtectedRoute />}>
+          <Route path="/virhemaksu" element={<ParkingFineAppeal />} />
+          <Route path="/ajoneuvonsiirto" element={<MovedCarAppeal />} />
+          <Route path="/erapaivansiirto" element={<ExtendDueDate />} />
+        </Route>
+        <Route path="*">404 - not found</Route>
+      </Routes>
+      <PageFooter />
+    </PageContainer>
   );
 }
 

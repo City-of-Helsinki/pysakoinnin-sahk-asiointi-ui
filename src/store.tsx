@@ -9,7 +9,7 @@ const store = configureStore({
     formContent: formContentReducer,
     formStepper: formStepperReducer,
     extendDueDateForm: extendDueDateFormReducer,
-    userProfile: userReducer
+    user: userReducer
   }
 });
 

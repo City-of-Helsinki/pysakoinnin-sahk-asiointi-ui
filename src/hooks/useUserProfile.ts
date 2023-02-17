@@ -3,8 +3,11 @@ import { getProfileData, ProfileQueryResult } from '../profile/profile';
 import { useEffect, useState } from 'react';
 import { GraphQLClientError } from '../graphql/graphqlClient';
 import { UserProfile } from '../common';
+import { useDispatch } from 'react-redux';
+import { setPromptLogin } from '../components/user/userSlice';
 
 const useUserProfile = () => {
+  const dispatch = useDispatch();
   const client = getClient();
   const user = client.getUserProfile();
   const [profile, setProfile] = useState<UserProfile | Error | undefined>(
@@ -23,9 +26,9 @@ const useUserProfile = () => {
         Object.values(apiAccessToken)[0] as string
       );
       if ((result as GraphQLClientError).error) {
-        sessionStorage.setItem('promptLogin', 'true');
+        dispatch(setPromptLogin(true));
       } else {
-        sessionStorage.setItem('promptLogin', 'false');
+        dispatch(setPromptLogin(false));
         setProfile((result as ProfileQueryResult).data.myProfile);
       }
     };

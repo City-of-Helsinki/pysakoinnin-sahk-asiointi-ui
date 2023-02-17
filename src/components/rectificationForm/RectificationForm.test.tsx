@@ -26,11 +26,14 @@ describe('Component in parking fine appeal form', () => {
   });
 
   const userProfileSliceMock = createSlice({
-    name: 'userProfile',
+    name: 'user',
     initialState: {
-      name: 'Test User',
-      email: 'test.user@test.fi',
-      SSN: '123456-789A'
+      userProfile: {
+        name: 'Test User',
+        email: 'test.user@test.fi',
+        SSN: '123456-789A'
+      },
+      promptLogin: false
     },
     reducers: {}
   });
@@ -38,7 +41,7 @@ describe('Component in parking fine appeal form', () => {
   const store = configureStore({
     reducer: {
       formContent: formContentSliceMock.reducer,
-      userProfile: userProfileSliceMock.reducer
+      user: userProfileSliceMock.reducer
     }
   });
 
@@ -75,11 +78,14 @@ describe('Component in moved car form', () => {
   });
 
   const userProfileSliceMock = createSlice({
-    name: 'userProfile',
+    name: 'user',
     initialState: {
-      name: 'Test User',
-      email: 'test.user@test.fi',
-      SSN: '123456-789A'
+      userProfile: {
+        name: 'Test User',
+        email: 'test.user@test.fi',
+        SSN: '123456-789A'
+      },
+      promptLogin: false
     },
     reducers: {}
   });
@@ -87,7 +93,7 @@ describe('Component in moved car form', () => {
   const store = configureStore({
     reducer: {
       formContent: formContentSliceMock.reducer,
-      userProfile: userProfileSliceMock.reducer
+      user: userProfileSliceMock.reducer
     }
   });
 

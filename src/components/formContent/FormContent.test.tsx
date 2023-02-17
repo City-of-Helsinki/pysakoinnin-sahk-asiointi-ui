@@ -54,6 +54,19 @@ const movedCarFormContentSliceMock = createSlice({
   reducers: {}
 });
 
+const userSliceMock = createSlice({
+  name: 'user',
+  initialState: {
+    userProfile: {
+      name: 'Test User',
+      email: 'test.user@test.fi',
+      SSN: '123456-789A'
+    },
+    promptLogin: false
+  },
+  reducers: {}
+});
+
 const { result } = renderHook(() =>
   useForm<RectificationFormType>({
     defaultValues: {
@@ -81,7 +94,8 @@ describe('form content', () => {
       test('extend due date form', async () => {
         const store = configureStore({
           reducer: {
-            formContent: dueDateFormContentSliceMock.reducer
+            formContent: dueDateFormContentSliceMock.reducer,
+            user: userSliceMock.reducer
           }
         });
 
@@ -97,7 +111,8 @@ describe('form content', () => {
       test('parking fine appeal form', async () => {
         const store = configureStore({
           reducer: {
-            formContent: parkingFineFormContentSliceMock.reducer
+            formContent: parkingFineFormContentSliceMock.reducer,
+            user: userSliceMock.reducer
           }
         });
         const { getByTestId } = render(
@@ -111,7 +126,8 @@ describe('form content', () => {
       test('moved car appeal form', async () => {
         const store = configureStore({
           reducer: {
-            formContent: movedCarFormContentSliceMock.reducer
+            formContent: movedCarFormContentSliceMock.reducer,
+            user: userSliceMock.reducer
           }
         });
         const { getByTestId } = render(
@@ -127,7 +143,8 @@ describe('form content', () => {
         const store = configureStore({
           reducer: {
             formContent: dueDateFormContentSliceMock.reducer,
-            extendDueDateForm: extendDueDateFormSliceMock.reducer
+            extendDueDateForm: extendDueDateFormSliceMock.reducer,
+            user: userSliceMock.reducer
           }
         });
 
@@ -145,7 +162,8 @@ describe('form content', () => {
       test('parking fine appeal form', async () => {
         const store = configureStore({
           reducer: {
-            formContent: parkingFineFormContentSliceMock.reducer
+            formContent: parkingFineFormContentSliceMock.reducer,
+            user: userSliceMock.reducer
           }
         });
 
@@ -163,7 +181,8 @@ describe('form content', () => {
       test('moved car appeal form', async () => {
         const store = configureStore({
           reducer: {
-            formContent: movedCarFormContentSliceMock.reducer
+            formContent: movedCarFormContentSliceMock.reducer,
+            user: userSliceMock.reducer
           }
         });
         const { getByTestId } = render(
