@@ -1,11 +1,10 @@
 .landing-page-link-list {
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-xs);
+  gap: var(--spacing-s);
 }
 
 .landing-page-linkbox {
-  max-width: 384px;
+  flex: 1;
   background-color: var(--color-silver-medium-light);
 }
 
@@ -21,7 +20,17 @@
 }
 
 @media (max-width: 768px) {
+  .landing-page-link-list {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 990px) {
+  .landing-page-link-list {
+    gap: var(--spacing-xs);
+  }
+
   .landing-page-linkbox div {
-    font-size: var(--fontsize-heading-s);
+    font-size: var(--fontsize-body-l);
   }
 }
