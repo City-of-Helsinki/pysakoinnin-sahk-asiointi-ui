@@ -19,6 +19,11 @@
     "show-more": "Näytä enemmän",
     "show-less": "Näytä vähemmän",
     "characters": "merkkiä",
+    "login-prompt": {
+      "title": "Sessio päättynyt",
+      "body": "Olet kirjautunut ulos toisessa ikkunassa",
+      "button-label": "Kirjaudu uudelleen"
+    },
     "barcode": {
       "label": "Virtuaaliviivakoodi",
       "copy-barcode": "Kopioi virtuaaliviivakoodi",

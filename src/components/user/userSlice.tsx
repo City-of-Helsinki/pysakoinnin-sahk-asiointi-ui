@@ -2,19 +2,25 @@ import { createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../../store';
 
 export type SliceState = {
-  name: string;
-  email: string;
-  SSN: string;
+  userProfile: {
+    name: string;
+    email: string;
+    SSN: string;
+  };
+  promptLogin: boolean;
 };
 
 const initialState: SliceState = {
-  name: '',
-  email: '',
-  SSN: ''
+  userProfile: {
+    name: '',
+    email: '',
+    SSN: ''
+  },
+  promptLogin: false
 };
 
 export const slice = createSlice({
-  name: 'userProfile',
+  name: 'user',
   initialState,
   reducers: {
     setUserProfile: (state, action) => {
@@ -26,15 +32,22 @@ export const slice = createSlice({
           action.payload.verifiedPersonalInformation
             .nationalIdentificationNumber
       };
-      return (state = { ...state, ...parsedUserInfo });
+      return {
+        ...state,
+        userProfile: { ...state.userProfile, ...parsedUserInfo }
+      };
+    },
+    setPromptLogin: (state, action) => {
+      state.promptLogin = action.payload;
     }
   }
 });
 
 // Actions
-export const { setUserProfile } = slice.actions;
+export const { setUserProfile, setPromptLogin } = slice.actions;
 
 // Selectors
-export const selectUserProfile = (state: RootState) => state.userProfile;
+export const selectUserProfile = (state: RootState) => state.user.userProfile;
+export const selectPromptLogin = (state: RootState) => state.user.promptLogin;
 
 export default slice.reducer;

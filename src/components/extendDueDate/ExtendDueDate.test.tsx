@@ -75,6 +75,7 @@ describe('extend due date form', () => {
           }
         }
       });
+
       const formContentSliceMock = createSlice({
         name: 'formContent',
         initialState: {
@@ -85,10 +86,24 @@ describe('extend due date form', () => {
         reducers: {}
       });
 
+      const userSliceMock = createSlice({
+        name: 'user',
+        initialState: {
+          userProfile: {
+            name: 'Test User',
+            email: 'test.user@test.fi',
+            SSN: '123456-789A'
+          },
+          promptLogin: false
+        },
+        reducers: {}
+      });
+
       const store = configureStore({
         reducer: {
           extendDueDateForm: extendDueDateFormSliceMock.reducer,
-          formContent: formContentSliceMock.reducer
+          formContent: formContentSliceMock.reducer,
+          user: userSliceMock.reducer
         }
       });
 

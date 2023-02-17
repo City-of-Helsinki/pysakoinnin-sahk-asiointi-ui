@@ -10,6 +10,7 @@
   font-style: normal;
   text-rendering: optimizeLegibility;
 }
+
 @font-face {
   font-family: 'HelsinkiGrotesk';
   src: url('https://makasiini.hel.ninja/delivery/HelsinkiGrotesk/5bb29e3b7b1d3ef30121229bbe67c3e1.woff')
@@ -45,6 +46,7 @@
   font-style: normal;
   text-rendering: optimizeLegibility;
 }
+
 @font-face {
   font-family: 'HelsinkiGrotesk';
   src: url('https://makasiini.hel.ninja/delivery/HelsinkiGrotesk/20d494430c87e15e194932b729d48270.woff')
@@ -62,6 +64,7 @@
   font-style: normal;
   text-rendering: optimizeLegibility;
 }
+
 @font-face {
   font-family: 'HelsinkiGrotesk';
   src: url('https://makasiini.hel.ninja/delivery/HelsinkiGrotesk/62a1781d8b396fbb025b0552cf6304d2.woff')
@@ -89,9 +92,11 @@
   .hide-on-print {
     display: none !important;
   }
+
   .show-on-print {
     display: block !important;
   }
+
   button {
     display: none !important;
   }
