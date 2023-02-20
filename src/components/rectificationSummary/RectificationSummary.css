@@ -4,6 +4,13 @@
   gap: var(--spacing-m);
 }
 
+.rectification-summary-title {
+  font-size: var(--fontsize-heading-m);
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: -0.2px;
+}
+
 .rectification-summary-subgrid {
   display: grid;
   grid-template-columns: 1fr 1fr;

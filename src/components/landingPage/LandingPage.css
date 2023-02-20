@@ -1,6 +1,7 @@
 .landing-page-link-list {
   display: flex;
   gap: var(--spacing-s);
+  margin-bottom: var(--spacing-xl);
 }
 
 .landing-page-linkbox {
@@ -19,9 +20,21 @@
   gap: 12px;
 }
 
+h2 {
+  font-size: 32px;
+  font-weight: normal;
+  line-height: 32px;
+}
+
 @media (max-width: 768px) {
   .landing-page-link-list {
     flex-direction: column;
+  }
+
+  h2 {
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 32px;
   }
 }
 
