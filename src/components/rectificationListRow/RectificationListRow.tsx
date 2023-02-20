@@ -1,4 +1,5 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
+import { Button, IconAngleDown, IconAngleUp } from 'hds-react';
 import { RectificationListItem } from './rectificationListRowSlice';
 import CustomTag from '../customTag/CustomTag';
 import './RectificationListRow.css';
@@ -9,6 +10,7 @@ interface Props {
 }
 
 const RectificationListRow: FC<Props> = ({ form }): React.ReactElement => {
+  const [extended, setExtended] = useState(false);
   const tagColor = (status: string) => {
     switch (status) {
       case 'solved-online':
@@ -36,9 +38,16 @@ const RectificationListRow: FC<Props> = ({ form }): React.ReactElement => {
           textColor={form.status !== 'processing' ? 'white' : undefined}
         />
       </div>
-      <div className="rectification-list-item-dropdown">
-        {t('landing-page:list:show-more')}
-      </div>
+      <Button
+        className="rectification-list-item-button"
+        variant="supplementary"
+        size="small"
+        iconRight={extended ? <IconAngleUp /> : <IconAngleDown />}
+        onClick={() => setExtended(!extended)}>
+        {extended
+          ? t('landing-page:list:show-less')
+          : t('landing-page:list:show-more')}
+      </Button>
     </div>
   );
 };
