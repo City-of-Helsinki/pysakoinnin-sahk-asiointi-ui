@@ -255,7 +255,10 @@
       "show-more": "Näytä lisää",
       "show-less": "Näytä vähemmän"
     },
-    "sent": "lähetettyä"
+    "sent": "lähetettyä",
+    "newest-first": "Uusimmat ensin",
+    "oldest-first": "Vanhimmat ensin",
+    "show-all": "Näytä kaikki"
   },
   "imageViewer": {
     "header": "Pysäköintivirhemaksun kuvat",

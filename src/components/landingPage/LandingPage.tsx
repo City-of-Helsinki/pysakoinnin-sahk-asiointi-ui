@@ -1,5 +1,11 @@
 import React, { useRef, useState, MouseEvent } from 'react';
-import { Linkbox, Pagination } from 'hds-react';
+import {
+  Button,
+  IconAngleDown,
+  IconSort,
+  Linkbox,
+  Pagination
+} from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import RectificationListRow from '../rectificationListRow/RectificationListRow';
 import './LandingPage.css';
@@ -8,6 +14,7 @@ import './LandingPage.css';
 const LandingPage = (): React.ReactElement => {
   const { t } = useTranslation();
   const [pageIndex, setPageIndex] = useState(0);
+  const [sortByNewest, setSortByNewest] = useState(true);
   const elementsOnPage = 5;
   const titleRef = useRef<null | HTMLDivElement>(null);
   const links = [
@@ -21,6 +28,11 @@ const LandingPage = (): React.ReactElement => {
     setPageIndex(index);
     titleRef.current?.scrollIntoView();
   };
+
+  const sortByDate = (a: string, b: string) =>
+    sortByNewest
+      ? Date.parse(b) - Date.parse(a)
+      : Date.parse(a) - Date.parse(b);
 
   const rectificationForms = [
     {
@@ -84,12 +96,34 @@ const LandingPage = (): React.ReactElement => {
         ))}
       </div>
       <h2 ref={titleRef}>{t('landing-page:list:title')}</h2>
-      <p>
-        <b>{rectificationForms.length}</b> {t('landing-page:sent')}
-      </p>
+      <div className="rectification-list-filters">
+        <p className="rectification-list-sent-count">
+          <b>{rectificationForms.length}</b> {t('landing-page:sent')}
+        </p>
+        <Button
+          className="rectification-list-sort-date"
+          variant="supplementary"
+          size="small"
+          iconRight={<IconSort />}
+          onClick={() => setSortByNewest(!sortByNewest)}>
+          {sortByNewest
+            ? t('landing-page:newest-first')
+            : t('landing-page:oldest-first')}
+        </Button>
+        <Button
+          className="rectification-list-filter-selector"
+          variant="supplementary"
+          size="small"
+          iconRight={<IconAngleDown />}
+          //onClick={() => {}}
+        >
+          {t('landing-page:show-all')}
+        </Button>
+      </div>
       <div className="rectification-list">
         <hr />
         {rectificationForms
+          .sort((a, b) => sortByDate(a.edited, b.edited))
           .slice(
             pageIndex * elementsOnPage,
             pageIndex * elementsOnPage + elementsOnPage
