@@ -1,10 +1,10 @@
-.rectification-list-item {
+.rectification-list-row {
   display: grid;
   grid-template-columns: repeat(15, 1fr);
   grid-gap: var(--spacing-xs) var(--spacing-s);
 }
 
-.rectification-list-item-title {
+.rectification-list-row-title {
   grid-column: 1 / 8;
   grid-row: 2;
   font-size: 20px;
@@ -14,7 +14,7 @@
   align-items: center;
 }
 
-.rectification-list-item-date {
+.rectification-list-row-date {
   grid-column: 1 / 14;
   grid-row: 1;
   display: flex;
@@ -24,14 +24,14 @@
   color: var(--color-black-60);
 }
 
-.rectification-list-item-status {
+.rectification-list-row-status {
   grid-column: 8 / 10;
   grid-row: 2;
   display: flex;
   align-items: center;
 }
 
-.rectification-list-item-button {
+.rectification-list-row-button {
   grid-column: 13 / 16;
   grid-row: 2;
   display: flex;
@@ -42,44 +42,44 @@
 }
 
 @media (max-width: 768px) {
-  .rectification-list-item-title {
+  .rectification-list-row-title {
     grid-column: 1 / 16;
     grid-row: 2;
     white-space: pre-wrap;
     font-size: 18px;
   }
 
-  .rectification-list-item-status {
+  .rectification-list-row-status {
     grid-column: 1 / 7;
     grid-row: 3;
   }
 
-  .rectification-list-item-date {
+  .rectification-list-row-date {
     grid-column: 1 / 16;
     grid-row: 1;
   }
 
-  .rectification-list-item-button {
+  .rectification-list-row-button {
     grid-column: 7 / 16;
     grid-row: 3;
   }
 }
 
 @media (min-width: 769px) and (max-width: 992px) {
-  .rectification-list-item-button {
+  .rectification-list-row-button {
     grid-column: 11 / 16;
     grid-row: 2;
   }
 }
 
 @media (min-width: 1248px) {
-  .rectification-list-item-title,
-  .rectification-list-item-status,
-  .rectification-list-item-button {
+  .rectification-list-row-title,
+  .rectification-list-row-status,
+  .rectification-list-row-button {
     grid-row: 1;
   }
 
-  .rectification-list-item-date {
+  .rectification-list-row-date {
     grid-column: 10 / 14;
     grid-row: 1;
   }

@@ -34,6 +34,7 @@
 .rectification-list-filter-selector {
   flex: 1;
   justify-content: flex-end;
+  height: 52px;
 }
 
 .rectification-list-filter-selector span {
