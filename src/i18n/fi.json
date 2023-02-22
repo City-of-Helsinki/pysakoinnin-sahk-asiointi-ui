@@ -245,11 +245,30 @@
     "list": {
       "title": "Oikaisuvaatimukset ja eräpäivän siirrot",
       "status": {
-        "sent": "Lähetetty",
-        "received": "Vastaanotettu",
-        "processing": "Käsittelyssä",
-        "solved-online": "Päätös asioinnissa",
-        "solved-mailed": "Päätös postitettu"
+        "sent": {
+          "default": "Lähetetty",
+          "conjugated": "lähetettyä"
+        },
+        "received": {
+          "default": "Vastaanotettu",
+          "conjugated": "vastaanotettua"
+        },
+        "processing": {
+          "default": "Käsittelyssä",
+          "conjugated": "käsittelyssä"
+        },
+        "solved-online": {
+          "default": "Päätös asioinnissa",
+          "conjugated": "ratkaistua"
+        },
+        "solved-mailed": {
+          "default": "Päätös postitettu",
+          "conjugated": "ratkaistua"
+        },
+        "show-all": {
+          "default": "Näytä kaikki",
+          "conjugated": "lähetettyä"
+        }
       },
       "last-edited": "Viimeksi muokattu",
       "show-more": "Näytä lisää",
@@ -257,8 +276,7 @@
     },
     "sent": "lähetettyä",
     "newest-first": "Uusimmat ensin",
-    "oldest-first": "Vanhimmat ensin",
-    "show-all": "Näytä kaikki"
+    "oldest-first": "Vanhimmat ensin"
   },
   "imageViewer": {
     "header": "Pysäköintivirhemaksun kuvat",

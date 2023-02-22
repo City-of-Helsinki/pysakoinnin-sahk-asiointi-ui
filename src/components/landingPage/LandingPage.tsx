@@ -1,15 +1,59 @@
 import React, { useRef, useState, MouseEvent } from 'react';
-import {
-  Button,
-  IconAngleDown,
-  IconSort,
-  Linkbox,
-  Pagination
-} from 'hds-react';
+import { Button, IconSort, Linkbox, Pagination, Select } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import RectificationListRow from '../rectificationListRow/RectificationListRow';
 import './LandingPage.css';
 /* eslint-disable sonarjs/no-duplicate-string */
+
+const rectificationForms = [
+  {
+    id: 12345678,
+    type: 'parking-fine',
+    status: 'solved-mailed',
+    edited: '2022-12-01'
+  },
+  {
+    id: 23456789,
+    type: 'parking-fine',
+    status: 'received',
+    edited: '2023-02-11'
+  },
+  {
+    id: 34567890,
+    type: 'due-date',
+    status: 'processing',
+    edited: '2023-02-11'
+  },
+  {
+    id: 45678901,
+    type: 'moved-car',
+    status: 'sent',
+    edited: '2023-02-01'
+  },
+  {
+    id: 56789012,
+    type: 'moved-car',
+    status: 'solved-online',
+    edited: '2023-02-01'
+  },
+  {
+    id: 67890123,
+    type: 'parking-fine',
+    status: 'processing',
+    edited: '2023-02-11'
+  },
+  {
+    id: 78901234,
+    type: 'due-date',
+    status: 'solved-online',
+    edited: '2022-11-20'
+  }
+];
+
+type StatusFilter = {
+  value: string;
+  label: string;
+};
 
 const LandingPage = (): React.ReactElement => {
   const { t } = useTranslation();
@@ -17,11 +61,30 @@ const LandingPage = (): React.ReactElement => {
   const [sortByNewest, setSortByNewest] = useState(true);
   const elementsOnPage = 5;
   const titleRef = useRef<null | HTMLDivElement>(null);
+  const [filter, setFilter] = useState({
+    value: 'show-all',
+    label: t('landing-page:list.status:show-all:default')
+  });
+  const filteredRectifications = rectificationForms.filter(a =>
+    filter.value !== 'show-all' ? a.status === filter.value : a
+  );
   const links = [
     { name: 'due-date', value: '/erapaivansiirto' },
     { name: 'parking-fine', value: '/virhemaksu' },
     { name: 'moved-car', value: '/ajoneuvonsiirto' }
   ];
+  const statuses = [
+    'show-all',
+    'received',
+    'sent',
+    'processing',
+    'solved-online',
+    'solved-mailed'
+  ];
+  const options = statuses.map(status => ({
+    value: status,
+    label: t(`landing-page:list:status:${status}:default`)
+  }));
 
   const handlePageChange = (event: MouseEvent, index: number) => {
     event.preventDefault();
@@ -33,51 +96,6 @@ const LandingPage = (): React.ReactElement => {
     sortByNewest
       ? Date.parse(b) - Date.parse(a)
       : Date.parse(a) - Date.parse(b);
-
-  const rectificationForms = [
-    {
-      id: 12345678,
-      type: 'parking-fine',
-      status: 'solved-mailed',
-      edited: '2022-12-01'
-    },
-    {
-      id: 23456789,
-      type: 'parking-fine',
-      status: 'received',
-      edited: '2023-02-11'
-    },
-    {
-      id: 34567890,
-      type: 'due-date',
-      status: 'processing',
-      edited: '2023-02-11'
-    },
-    {
-      id: 45678901,
-      type: 'moved-car',
-      status: 'sent',
-      edited: '2023-02-01'
-    },
-    {
-      id: 56789012,
-      type: 'moved-car',
-      status: 'solved-online',
-      edited: '2023-02-01'
-    },
-    {
-      id: 67890123,
-      type: 'parking-fine',
-      status: 'processing',
-      edited: '2023-02-11'
-    },
-    {
-      id: 78901234,
-      type: 'due-date',
-      status: 'solved-online',
-      edited: '2022-11-20'
-    }
-  ];
 
   return (
     <>
@@ -98,7 +116,8 @@ const LandingPage = (): React.ReactElement => {
       <h2 ref={titleRef}>{t('landing-page:list:title')}</h2>
       <div className="rectification-list-filters">
         <p className="rectification-list-sent-count">
-          <b>{rectificationForms.length}</b> {t('landing-page:sent')}
+          <b>{filteredRectifications.length}</b>{' '}
+          {t(`landing-page:list:status:${filter.value}:conjugated`)}
         </p>
         <Button
           className="rectification-list-sort-date"
@@ -110,19 +129,20 @@ const LandingPage = (): React.ReactElement => {
             ? t('landing-page:newest-first')
             : t('landing-page:oldest-first')}
         </Button>
-        <Button
+        <Select
           className="rectification-list-filter-selector"
-          variant="supplementary"
-          size="small"
-          iconRight={<IconAngleDown />}
-          //onClick={() => {}}
-        >
-          {t('landing-page:show-all')}
-        </Button>
+          label=""
+          options={options}
+          value={{
+            label: filter.label,
+            value: filter.value
+          }}
+          onChange={(option: StatusFilter) => setFilter(option)}
+        />
       </div>
       <div className="rectification-list">
         <hr />
-        {rectificationForms
+        {filteredRectifications
           .sort((a, b) => sortByDate(a.edited, b.edited))
           .slice(
             pageIndex * elementsOnPage,
@@ -138,7 +158,7 @@ const LandingPage = (): React.ReactElement => {
       <Pagination
         language="fi"
         onChange={(event, index) => handlePageChange(event, index)}
-        pageCount={Math.ceil(rectificationForms.length / elementsOnPage)}
+        pageCount={Math.ceil(filteredRectifications.length / elementsOnPage)}
         pageHref={() => '#'}
         pageIndex={pageIndex}
         paginationAriaLabel="pagination"

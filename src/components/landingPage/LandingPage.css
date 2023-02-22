@@ -36,6 +36,17 @@
   justify-content: flex-end;
 }
 
+.rectification-list-filter-selector span {
+  margin-right: var(--spacing-s);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-bus) !important;
+}
+
+.rectification-list-filter-selector svg {
+  color: var(--color-bus) !important;
+}
+
 .rectification-list {
   display: flex;
   flex-direction: column;
@@ -61,9 +72,11 @@ h2 {
   }
 
   .rectification-list-filter-selector {
-    min-width: 100% !important;
-    border-color: var(--color-bus) !important;
-    justify-content: center;
+    min-width: 100%;
+  }
+
+  .rectification-list-filter-selector > div {
+    border-color: var(--color-bus);
   }
 }
 
@@ -87,6 +100,14 @@ h2 {
 
 @media (min-width: 769px) {
   .rectification-list-filter-selector {
-    max-width: 200px;
+    max-width: 210px;
+  }
+
+  .rectification-list-filter-selector > div {
+    border: none;
+  }
+
+  .rectification-list-filter-selector button {
+    justify-content: end;
   }
 }

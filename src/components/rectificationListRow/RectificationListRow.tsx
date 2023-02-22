@@ -33,7 +33,7 @@ const RectificationListRow: FC<Props> = ({ form }): React.ReactElement => {
       </div>
       <div className="rectification-list-item-status">
         <CustomTag
-          text={t(`landing-page:list:status:${form.status}`)}
+          text={t(`landing-page:list:status:${form.status}:default`)}
           color={tagColor(form.status)}
           textColor={form.status !== 'processing' ? 'white' : undefined}
         />
