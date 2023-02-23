@@ -1,4 +1,4 @@
-# Pysäköinnin sähköinen asiointi React UI
+# Pysäköinnin asiointi React UI
 
 ## Config
 

@@ -1,5 +1,6 @@
 {
   "common": {
+    "title": "Pysäköinnin asiointi",
     "name": "Nimi",
     "ssn": "Henkilötunnus",
     "email": "Sähköpostiosoite",

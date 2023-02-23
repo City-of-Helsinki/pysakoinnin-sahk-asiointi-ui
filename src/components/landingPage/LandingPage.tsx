@@ -2,53 +2,8 @@ import React, { useRef, useState, MouseEvent } from 'react';
 import { Button, IconSort, Linkbox, Pagination, Select } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import RectificationListRow from '../rectificationListRow/RectificationListRow';
+import mockRectificationList from '../../mocks/mockRectificationList'; /* use mock data for now */
 import './LandingPage.css';
-/* eslint-disable sonarjs/no-duplicate-string */
-
-const rectificationForms = [
-  {
-    id: 12345678,
-    type: 'parking-fine',
-    status: 'solved-mailed',
-    edited: '2022-12-01'
-  },
-  {
-    id: 23456789,
-    type: 'parking-fine',
-    status: 'received',
-    edited: '2023-02-11'
-  },
-  {
-    id: 34567890,
-    type: 'due-date',
-    status: 'processing',
-    edited: '2023-02-11'
-  },
-  {
-    id: 45678901,
-    type: 'moved-car',
-    status: 'sent',
-    edited: '2023-02-01'
-  },
-  {
-    id: 56789012,
-    type: 'moved-car',
-    status: 'solved-online',
-    edited: '2023-02-01'
-  },
-  {
-    id: 67890123,
-    type: 'parking-fine',
-    status: 'processing',
-    edited: '2023-02-11'
-  },
-  {
-    id: 78901234,
-    type: 'due-date',
-    status: 'solved-online',
-    edited: '2022-11-20'
-  }
-];
 
 type StatusFilter = {
   value: string;
@@ -65,7 +20,7 @@ const LandingPage = (): React.ReactElement => {
     value: 'show-all',
     label: t('landing-page:list.status:show-all:default')
   });
-  const filteredRectifications = rectificationForms.filter(a =>
+  const filteredRectifications = mockRectificationList.filter(a =>
     filter.value !== 'show-all' ? a.status === filter.value : a
   );
   const links = [
@@ -120,7 +75,8 @@ const LandingPage = (): React.ReactElement => {
           {t(`landing-page:list:status:${filter.value}:conjugated`)}
         </p>
         <Button
-          className="rectification-list-sort-date"
+          className="rectification-list-sort-button"
+          data-testid="rectification-list-sort-button"
           variant="supplementary"
           size="small"
           iconRight={<IconSort />}
