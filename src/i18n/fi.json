@@ -273,7 +273,8 @@
       },
       "last-edited": "Viimeksi muokattu",
       "show-more": "Näytä lisää",
-      "show-less": "Näytä vähemmän"
+      "show-less": "Näytä vähemmän",
+      "no-forms": "Et ole tehnyt yhtään oikaisuvaatimusta tai siirtänyt pysäköintivirhemaksun eräpäivää."
     },
     "sent": "lähetettyä",
     "newest-first": "Uusimmat ensin",

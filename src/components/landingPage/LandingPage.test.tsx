@@ -9,6 +9,7 @@ import store from '../../store';
 import '@testing-library/jest-dom';
 import { t } from 'i18next';
 /* eslint-disable sonarjs/no-duplicate-string */
+/* eslint-disable @typescript-eslint/no-unnecessary-type-assertion */
 
 describe('landing page', () => {
   test('passes a11y validation', async () => {
@@ -175,7 +176,7 @@ describe('landing page', () => {
 
     // Filter by 'received' status
     const receivedOption = screen.getAllByText(
-      t('landing-page:list:status:received:default')
+      t('landing-page:list:status:received:default') as string
     )[0];
     fireEvent.click(receivedOption);
 
@@ -194,7 +195,7 @@ describe('landing page', () => {
 
     // Filter by 'processing' status
     const processingOption = screen.getAllByText(
-      t('landing-page:list:status:processing:default')
+      t('landing-page:list:status:processing:default') as string
     )[0];
     fireEvent.click(processingOption);
 

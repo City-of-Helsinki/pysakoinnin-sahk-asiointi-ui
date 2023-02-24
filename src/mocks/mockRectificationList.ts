@@ -1,5 +1,6 @@
 /* eslint-disable sonarjs/no-duplicate-string */
-const mockRectificationList = [
+import { RectificationListItem } from '../components/rectificationListRow/rectificationListRowSlice';
+const mockRectificationList: RectificationListItem[] = [
   {
     id: 12345678,
     type: 'parking-fine',

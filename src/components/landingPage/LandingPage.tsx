@@ -20,6 +20,7 @@ const LandingPage = (): React.ReactElement => {
     value: 'show-all',
     label: t('landing-page:list.status:show-all:default')
   });
+  const isEmptyList = mockRectificationList.length === 0;
   const filteredRectifications = mockRectificationList.filter(a =>
     filter.value !== 'show-all' ? a.status === filter.value : a
   );
@@ -80,19 +81,23 @@ const LandingPage = (): React.ReactElement => {
           variant="supplementary"
           size="small"
           iconRight={<IconSort />}
+          disabled={isEmptyList}
           onClick={() => setSortByNewest(!sortByNewest)}>
           {sortByNewest
             ? t('landing-page:newest-first')
             : t('landing-page:oldest-first')}
         </Button>
         <Select
-          className="rectification-list-filter-selector"
+          className={`rectification-list-filter-selector ${
+            isEmptyList ? 'disabled' : ''
+          }`}
           label=""
           options={options}
           value={{
             label: filter.label,
             value: filter.value
           }}
+          disabled={isEmptyList}
           onChange={(option: StatusFilter) => setFilter(option)}
         />
       </div>
@@ -111,6 +116,9 @@ const LandingPage = (): React.ReactElement => {
             </div>
           ))}
       </div>
+      {isEmptyList && (
+        <p className="disabled-text">{t('landing-page:list:no-forms')}</p>
+      )}
       <Pagination
         language="fi"
         onChange={(event, index) => handlePageChange(event, index)}

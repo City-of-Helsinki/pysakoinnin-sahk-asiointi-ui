@@ -37,8 +37,21 @@
   height: 52px;
 }
 
+.rectification-list-filter-selector.disabled div,
+.rectification-list-filter-selector.disabled span,
+.rectification-list-filter-selector.disabled svg {
+  background-color: transparent;
+  border-color: var(--color-black-40) !important;
+  color: var(--color-black-40) !important;
+}
+
+.rectification-list-filter-selector button {
+  justify-content: center;
+  padding: 0;
+}
+
 .rectification-list-filter-selector span {
-  margin-right: var(--spacing-s);
+  margin-right: var(--spacing-m);
   font-size: 16px;
   font-weight: 500;
   color: var(--color-bus) !important;
@@ -61,6 +74,11 @@ h2 {
   line-height: 32px;
 }
 
+.disabled-text {
+  font-size: 1em;
+  color: var(--color-black-60);
+}
+
 @media (max-width: 768px) {
   .landing-page-link-list {
     flex-direction: column;
@@ -74,10 +92,21 @@ h2 {
 
   .rectification-list-filter-selector {
     min-width: 100%;
+    margin-bottom: var(--spacing-xs);
   }
 
-  .rectification-list-filter-selector > div {
-    border-color: var(--color-bus);
+  .rectification-list-filter-selector div {
+    border-color: var(--color-bus) !important;
+  }
+
+  .rectification-list-filter-selector span {
+    margin-right: var(--spacing-2-xs);
+    padding: 0;
+  }
+
+  .rectification-list-filter-selector svg {
+    position: inherit;
+    transform: translateY(0px);
   }
 }
 
@@ -101,7 +130,7 @@ h2 {
 
 @media (min-width: 769px) {
   .rectification-list-filter-selector {
-    max-width: 210px;
+    max-width: 200px;
   }
 
   .rectification-list-filter-selector > div {
