@@ -96,7 +96,7 @@ describe('landing page', () => {
       expect(rectificationList[0]).toHaveTextContent(/23456789/);
       expect(rectificationList[0]).toHaveTextContent(/Vastaanotettu/);
       expect(rectificationList[0]).toHaveTextContent(
-        /Viimeksi muokattu 2023-02-11 klo 12:00/
+        /Viimeksi muokattu 11.2.2023 klo 23:20/
       );
 
       // 7 results in total, 5 results shown on the main page
@@ -132,7 +132,7 @@ describe('landing page', () => {
     expect(sortButton).toHaveTextContent(t('landing-page:newest-first'));
 
     expect(rectificationList[0]).toHaveTextContent(
-      /Viimeksi muokattu 2023-02-11/
+      /Viimeksi muokattu 11.2.2023 klo 23:20/
     );
 
     // 'Sort by date' button is clicked
@@ -141,7 +141,7 @@ describe('landing page', () => {
     expect(sortButton).toHaveTextContent(t('landing-page:oldest-first'));
     expect(rectificationList.length).toBe(5);
     expect(rectificationList[0]).toHaveTextContent(
-      /Viimeksi muokattu 2022-11-20/
+      /Viimeksi muokattu 20.11.2022 klo 20:11/
     );
   });
 

@@ -2,6 +2,7 @@ import React, { FC, useState } from 'react';
 import { Button, IconAngleDown, IconAngleUp } from 'hds-react';
 import { RectificationListItem } from './rectificationListRowSlice';
 import CustomTag from '../customTag/CustomTag';
+import { formatDateTime } from '../../utils/helpers';
 import './RectificationListRow.css';
 import { t } from 'i18next';
 
@@ -26,7 +27,7 @@ const RectificationListRow: FC<Props> = ({ form }): React.ReactElement => {
   return (
     <div className="rectification-list-row">
       <div className="rectification-list-row-date">
-        {`${t('landing-page:list:last-edited')} ${form.edited} klo 12:00`}
+        {`${t('landing-page:list:last-edited')} ${formatDateTime(form.edited)}`}
       </div>
       <div className="rectification-list-row-title">
         {`${t(`${form.type}:title`)} (${form.id})`}
