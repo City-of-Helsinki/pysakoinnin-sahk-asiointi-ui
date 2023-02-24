@@ -25,7 +25,9 @@ const RectificationSummary = () => {
 
   return (
     <>
-      <h2>{t('rectificationForm:rectification-info')}</h2>
+      <h2 className="rectification-summary-title">
+        {t('rectificationForm:rectification-info')}
+      </h2>
       <div className="rectification-summary-container">
         <div className="rectification-summary-details">
           <TextInput

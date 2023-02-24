@@ -2,7 +2,9 @@
 
 exports[`Component matches snapshot 1`] = `
 <div>
-  <h2>
+  <h2
+    class="rectification-summary-title"
+  >
     Oikaisuvaatimuksen tiedot
   </h2>
   <div

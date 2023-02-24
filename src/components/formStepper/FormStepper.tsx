@@ -121,7 +121,7 @@ const FormStepper = (props: Props): React.ReactElement => {
   return (
     <div>
       <form>
-        <h1 className="form-title">{t(`${formContent.selectedForm}:title`)}</h1>
+        <h1>{t(`${formContent.selectedForm}:title`)}</h1>
         <div id="stepper">
           <Stepper
             className="stepper hide-on-print"

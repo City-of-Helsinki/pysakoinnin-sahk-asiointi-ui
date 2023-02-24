@@ -5,7 +5,12 @@ const BYTES_IN_KB = 1024;
 
 // from 'yyyy-mm-dd' to 'dd.mm.yyyy'
 export function formatDate(date: string): string {
-  return format(new Date(date), 'dd.MM.yyyy');
+  return format(new Date(date), 'd.M.yyyy');
+}
+
+// from 'yyyy-mm-ddTHH:mm:ssZ' to 'd.mm.yyyy klo HH:mm'
+export function formatDateTime(date: string): string {
+  return format(new Date(date), "d.M.yyyy 'klo' H:mm");
 }
 
 // from Date to 'yyyy-mm-dd'

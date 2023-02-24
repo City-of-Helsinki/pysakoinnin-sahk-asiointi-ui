@@ -1,5 +1,6 @@
 {
   "common": {
+    "title": "Pysäköinnin asiointi",
     "name": "Nimi",
     "ssn": "Henkilötunnus",
     "email": "Sähköpostiosoite",
@@ -240,6 +241,49 @@
       "invalid-iban": "Tarkista pankkitilinumero",
       "too-many-attachments": "Voit liittää enintään kolme liitettä"
     }
+  },
+  "landing-page": {
+    "links": {
+      "due-date": "Siirrä pysäköintivirhemaksun eräpäivää 30 päivällä",
+      "parking-fine": "Tarkastele pysäköintivirheen tietoja ja tee oikaisuvaatimus",
+      "moved-car": "Tarkastele ajoneuvon siirron tietoja ja tee oikaisuvaatimus"
+    },
+    "list": {
+      "title": "Oikaisuvaatimukset ja eräpäivän siirrot",
+      "status": {
+        "sent": {
+          "default": "Lähetetty",
+          "conjugated": "lähetettyä"
+        },
+        "received": {
+          "default": "Vastaanotettu",
+          "conjugated": "vastaanotettua"
+        },
+        "processing": {
+          "default": "Käsittelyssä",
+          "conjugated": "käsittelyssä"
+        },
+        "solved-online": {
+          "default": "Päätös asioinnissa",
+          "conjugated": "ratkaistua"
+        },
+        "solved-mailed": {
+          "default": "Päätös postitettu",
+          "conjugated": "ratkaistua"
+        },
+        "show-all": {
+          "default": "Näytä kaikki",
+          "conjugated": "lähetettyä"
+        }
+      },
+      "last-edited": "Viimeksi muokattu",
+      "show-more": "Näytä lisää",
+      "show-less": "Näytä vähemmän",
+      "no-forms": "Et ole tehnyt yhtään oikaisuvaatimusta tai siirtänyt pysäköintivirhemaksun eräpäivää."
+    },
+    "sent": "lähetettyä",
+    "newest-first": "Uusimmat ensin",
+    "oldest-first": "Vanhimmat ensin"
   },
   "imageViewer": {
     "header": "Pysäköintivirhemaksun kuvat",

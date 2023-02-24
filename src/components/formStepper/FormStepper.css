@@ -1,20 +1,8 @@
 .home-button-container {
-  scroll-margin: var(--spacing-s)
-}
-
-@media (max-width: 375px) {
-  .form-title {
-    hyphens: auto;
-  }
+  scroll-margin: var(--spacing-s);
 }
 
 @media (max-width: 767px) {
-  .form-title {
-    font-size: 32px;
-    font-weight: normal;
-    line-height: 32px;
-  }
-
   #stepper div div:nth-child(2) {
     font-size: 24px;
   }
@@ -65,12 +53,6 @@
 @media (min-width: 768px) {
   .stepper {
     transform: translateX(-36px);
-  }
-
-  .form-title {
-    font-size: 48px;
-    font-weight: normal;
-    line-height: 48px;
   }
 
   .button-wrapper {

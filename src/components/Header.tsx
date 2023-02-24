@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useClient } from '../client/hooks';
 import styles from './styles.module.css';
 import config from '../config';
+import { useTranslation } from 'react-i18next';
 
 type Page =
   | 'frontpage'
@@ -26,8 +27,9 @@ const Header = (): React.ReactElement => {
   const currentPageFromPath: Page =
     path && path.length > 1 ? (path.substr(1) as Page) : 'frontpage';
   const [active, setActive] = useState<Page>(currentPageFromPath);
+  const { t } = useTranslation();
 
-  const title = 'Pysäköinnin asiointi';
+  const title = t('common:title');
   const userName = user ? `${user.given_name} ${user.family_name}` : '';
 
   return (
