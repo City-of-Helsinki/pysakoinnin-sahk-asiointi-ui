@@ -6,9 +6,11 @@ import LandingPage from '../components/landingPage/LandingPage';
 import useUserProfile from '../hooks/useUserProfile';
 import { UserProfile } from '../common';
 import { GraphQLClientError } from '../graphql/graphqlClient';
+import { useTranslation } from 'react-i18next';
 
 const Index = (): React.ReactElement => {
   const clientContext = useContext(ClientContext);
+  const { t } = useTranslation();
   // No need to add the user to redux here, since all the links will redirect the user
   // to a new page, thus refreshing the store. The user is re-fetched and added to redux in FormStepper.tsx
   const userProfile = useUserProfile() as UserProfile | GraphQLClientError;
@@ -19,13 +21,11 @@ const Index = (): React.ReactElement => {
 
   return (
     <PageContent>
-      {!!clientContext && clientContext.client ? (
-        <>
-          <h1>Pysäköinnin asiointi</h1>
-          {isUser ? <LandingPage /> : <LoginComponent />}
-        </>
+      <h1>{t('common:title')}</h1>
+      {!!clientContext && clientContext.client && isUser ? (
+        <LandingPage />
       ) : (
-        <div>Error:Clientia ei löydy contextista</div>
+        <LoginComponent />
       )}
     </PageContent>
   );
