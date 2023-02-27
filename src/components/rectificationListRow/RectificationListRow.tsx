@@ -1,6 +1,7 @@
 import React, { FC, useState } from 'react';
 import { Button, IconAngleDown, IconAngleUp } from 'hds-react';
 import { RectificationListItem } from './rectificationListRowSlice';
+import RectificationListDetails from '../rectificationListDetails/RectificationListDetails';
 import CustomTag from '../customTag/CustomTag';
 import { formatDateTime } from '../../utils/helpers';
 import './RectificationListRow.css';
@@ -25,31 +26,36 @@ const RectificationListRow: FC<Props> = ({ form }): React.ReactElement => {
   };
 
   return (
-    <div className="rectification-list-row">
-      <div className="rectification-list-row-date">
-        {`${t('landing-page:list:last-edited')} ${formatDateTime(form.edited)}`}
+    <>
+      <div className="rectification-list-row">
+        <div className="rectification-list-row-date">
+          {`${t('landing-page:list:last-edited')} ${formatDateTime(
+            form.edited
+          )}`}
+        </div>
+        <div className="rectification-list-row-title">
+          {`${t(`${form.type}:title`)} (${form.id})`}
+        </div>
+        <div className="rectification-list-row-status">
+          <CustomTag
+            text={t(`landing-page:list:status:${form.status}:default`)}
+            color={tagColor(form.status)}
+            textColor={form.status !== 'processing' ? 'white' : undefined}
+          />
+        </div>
+        <Button
+          className="rectification-list-row-button"
+          variant="supplementary"
+          size="small"
+          iconRight={extended ? <IconAngleUp /> : <IconAngleDown />}
+          onClick={() => setExtended(!extended)}>
+          {extended
+            ? t('landing-page:list:show-less')
+            : t('landing-page:list:show-more')}
+        </Button>
       </div>
-      <div className="rectification-list-row-title">
-        {`${t(`${form.type}:title`)} (${form.id})`}
-      </div>
-      <div className="rectification-list-row-status">
-        <CustomTag
-          text={t(`landing-page:list:status:${form.status}:default`)}
-          color={tagColor(form.status)}
-          textColor={form.status !== 'processing' ? 'white' : undefined}
-        />
-      </div>
-      <Button
-        className="rectification-list-row-button"
-        variant="supplementary"
-        size="small"
-        iconRight={extended ? <IconAngleUp /> : <IconAngleDown />}
-        onClick={() => setExtended(!extended)}>
-        {extended
-          ? t('landing-page:list:show-less')
-          : t('landing-page:list:show-more')}
-      </Button>
-    </div>
+      {extended && <RectificationListDetails form={form} />}
+    </>
   );
 };
 

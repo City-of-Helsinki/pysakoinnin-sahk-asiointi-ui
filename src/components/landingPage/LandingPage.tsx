@@ -1,6 +1,7 @@
 import React, { useRef, useState, MouseEvent } from 'react';
 import { Button, IconSort, Linkbox, Pagination, Select } from 'hds-react';
 import { useTranslation } from 'react-i18next';
+import { sortByDate } from '../../utils/helpers';
 import RectificationListRow from '../rectificationListRow/RectificationListRow';
 import mockRectificationList from '../../mocks/mockRectificationList'; /* use mock data for now */
 import './LandingPage.css';
@@ -47,11 +48,6 @@ const LandingPage = (): React.ReactElement => {
     setPageIndex(index);
     titleRef.current?.scrollIntoView();
   };
-
-  const sortByDate = (a: string, b: string) =>
-    sortByNewest
-      ? Date.parse(b) - Date.parse(a)
-      : Date.parse(a) - Date.parse(b);
 
   return (
     <>
@@ -104,7 +100,7 @@ const LandingPage = (): React.ReactElement => {
       <div className="rectification-list">
         <hr />
         {filteredRectifications
-          .sort((a, b) => sortByDate(a.edited, b.edited))
+          .sort((a, b) => sortByDate(a.edited, b.edited, sortByNewest))
           .slice(
             pageIndex * elementsOnPage,
             pageIndex * elementsOnPage + elementsOnPage

@@ -19,7 +19,7 @@
   grid-row: 1;
   display: flex;
   align-items: center;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 20px;
   color: var(--color-black-60);
 }
