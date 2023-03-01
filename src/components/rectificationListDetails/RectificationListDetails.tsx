@@ -9,10 +9,14 @@ import './RectificationListDetails.css';
 interface Props {
   form: RectificationListItem;
 }
+
 const RectificationListDetails: FC<Props> = ({ form }): React.ReactElement => {
   const { t } = useTranslation();
-  const [dueDateNotificationOpen, setDueDateNotificationOpen] = useState(true);
-  const [mailedNotificationOpen, setMailedNotificationOpen] = useState(true);
+  const isDueDateForm = form.type === 'due-date';
+  const notificationType = isDueDateForm ? form.type : form.status;
+  const [notificationOpen, setNotificationOpen] = useState(
+    isDueDateForm || form.status === 'solved-mailed'
+  );
 
   return (
     <div className="rectification-details">
@@ -30,7 +34,7 @@ const RectificationListDetails: FC<Props> = ({ form }): React.ReactElement => {
               </p>
             ))}
         </div>
-        {form.type !== 'due-date' && (
+        {!isDueDateForm && (
           <div className="rectification-details-attachments">
             <span className="rectification-details-title">
               {t('landing-page:list:details:attachments')}
@@ -41,45 +45,37 @@ const RectificationListDetails: FC<Props> = ({ form }): React.ReactElement => {
           </div>
         )}
       </div>
-      {form.type === 'due-date' ? (
-        <div className="rectification-details-button-container">
-          {dueDateNotificationOpen && (
-            <Notification
-              size="small"
-              label={t('landing-page:list:details:due-date-notification:label')}
-              dismissible
-              closeButtonLabelText={t('common:close-notification') as string}
-              onClose={() => setDueDateNotificationOpen(false)}>
-              {t(`landing-page:list:details:due-date-notification:text`, {
-                newDueDate: formatDate(
+      <div className="rectification-details-button-container">
+        {notificationOpen && (
+          <Notification
+            size="small"
+            label={t(
+              `landing-page:list:details:notification:${notificationType}:label`
+            )}
+            dismissible
+            closeButtonLabelText={t('common:close-notification') as string}
+            onClose={() => setNotificationOpen(false)}>
+            {t(
+              `landing-page:list:details:notification:${notificationType}:text`,
+              {
+                timestamp: formatDate(
                   '2022-01-02T13:20:00Z'
                 ) /* TODO: Get the real date */
-              })}
-            </Notification>
-          )}
-        </div>
-      ) : (
-        <div className="rectification-details-button-container">
-          {form.status === 'solved-online' && (
-            <Button iconRight={<IconDocument />}>
-              {t('landing-page:list:details:open-decision')}
-            </Button>
-          )}
-          {form.status === 'solved-mailed' && mailedNotificationOpen && (
-            <Notification
-              size="small"
-              label={t('landing-page:list:details:mailed-notification:label')}
-              dismissible
-              closeButtonLabelText={t('common:close-notification') as string}
-              onClose={() => setMailedNotificationOpen(false)}>
-              {t('landing-page:list:details:mailed-notification:text')}
-            </Notification>
-          )}
+              }
+            )}
+          </Notification>
+        )}
+        {form.status === 'solved-online' && (
+          <Button iconRight={<IconDocument />}>
+            {t('landing-page:list:details:open-decision')}
+          </Button>
+        )}
+        {!isDueDateForm && (
           <Button variant="secondary" iconRight={<IconArrowRight />}>
             {t('landing-page:list:details:show-form')}
           </Button>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };

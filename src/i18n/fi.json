@@ -282,13 +282,15 @@
         "attachments": "Liitteet",
         "open-decision": "Avaa päätös",
         "show-form": "Näytä oikaisuvaatimus",
-        "mailed-notification": {
-          "label": "Päätös on postitettu",
-          "text": "Päätös on postitettu sinulle kirjeitse antamaasi osoitteeseen."
-        },
-        "due-date-notification": {
-          "label": "Eräpäivää on siirretty",
-          "text": "Eräpäivää on siirretty 30 päivällä. Uusi eräpäivä on {{newDueDate}}."
+        "notification": {
+          "due-date": {
+            "label": "Eräpäivää on siirretty",
+            "text": "Eräpäivää on siirretty 30 päivällä. Uusi eräpäivä on {{timestamp}}."
+          },
+          "solved-mailed": {
+            "label": "Päätös on postitettu",
+            "text": "Päätös on postitettu sinulle kirjeitse antamaasi osoitteeseen."
+          }
         }
       },
       "last-edited": "Viimeksi muokattu",

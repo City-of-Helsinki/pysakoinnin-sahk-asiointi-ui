@@ -91,7 +91,7 @@ describe('rectification list row', () => {
       });
       expect(mailNotification).toBeVisible();
       expect(mailNotification).toHaveTextContent(
-        t('landing-page:list:details:mailed-notification:text')
+        t('landing-page:list:details:notification:solved-mailed:text')
       );
 
       // 'Show form' button is visible but 'open decision' button is not
