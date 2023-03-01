@@ -8,6 +8,10 @@ const mockRectificationList: RectificationListItem[] = [
     edited: '2022-12-01T06:00:00Z',
     events: [
       {
+        status: 'solved-mailed',
+        timestamp: '2022-12-01T06:00:00Z'
+      },
+      {
         status: 'processing',
         timestamp: '2022-11-11T07:40:00Z'
       },
