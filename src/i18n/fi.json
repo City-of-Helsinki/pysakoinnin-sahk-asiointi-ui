@@ -20,6 +20,7 @@
     "show-more": "Näytä enemmän",
     "show-less": "Näytä vähemmän",
     "characters": "merkkiä",
+    "close-notification": "Sulje ilmoitus",
     "login-prompt": {
       "title": "Sessio päättynyt",
       "body": "Olet kirjautunut ulos toisessa ikkunassa",
@@ -274,6 +275,22 @@
         "show-all": {
           "default": "Näytä kaikki",
           "conjugated": "lähetettyä"
+        }
+      },
+      "details": {
+        "events": "Tapahtumat",
+        "attachments": "Liitteet",
+        "open-decision": "Avaa päätös",
+        "show-form": "Näytä oikaisuvaatimus",
+        "notification": {
+          "due-date": {
+            "label": "Eräpäivää on siirretty",
+            "text": "Eräpäivää on siirretty 30 päivällä. Uusi eräpäivä on {{timestamp}}."
+          },
+          "solved-mailed": {
+            "label": "Päätös on postitettu",
+            "text": "Päätös on postitettu sinulle kirjeitse antamaasi osoitteeseen."
+          }
         }
       },
       "last-edited": "Viimeksi muokattu",

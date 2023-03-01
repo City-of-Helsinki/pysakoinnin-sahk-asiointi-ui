@@ -51,3 +51,6 @@ export const formatBytes = (bytes: number): string => {
       : sizeInUnit.toFixed(1)
   } ${sizeUnits[sizeUnitIndex]}`;
 };
+
+export const sortByDate = (a: string, b: string, sortByNewest: boolean) =>
+  sortByNewest ? Date.parse(b) - Date.parse(a) : Date.parse(a) - Date.parse(b);

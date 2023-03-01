@@ -19,7 +19,7 @@
   grid-row: 1;
   display: flex;
   align-items: center;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 20px;
   color: var(--color-black-60);
 }
@@ -32,7 +32,7 @@
 }
 
 .rectification-list-row-button {
-  grid-column: 13 / 16;
+  grid-column: 12 / 16;
   grid-row: 2;
   display: flex;
   justify-self: flex-end;

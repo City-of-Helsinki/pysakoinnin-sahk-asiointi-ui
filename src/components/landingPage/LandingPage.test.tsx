@@ -141,7 +141,7 @@ describe('landing page', () => {
     expect(sortButton).toHaveTextContent(t('landing-page:oldest-first'));
     expect(rectificationList.length).toBe(5);
     expect(rectificationList[0]).toHaveTextContent(
-      /Viimeksi muokattu 20.11.2022/
+      /Viimeksi muokattu 20.11.2021/
     );
   });
 
@@ -174,22 +174,22 @@ describe('landing page', () => {
     expect(filterButton).toBeVisible();
     fireEvent.click(filterButton);
 
-    // Filter by 'received' status
+    // Filter by 'sent' status
     const receivedOption = screen.getAllByText(
-      t('landing-page:list:status:received:default') as string
+      t('landing-page:list:status:sent:default') as string
     )[0];
     fireEvent.click(receivedOption);
 
     expect(rectificationList.length).toBe(1);
     expect(rectificationList[0]).toHaveTextContent(
-      t('landing-page:list:status:received:default')
+      t('landing-page:list:status:sent:default')
     );
     expect(rectificationCounter).toHaveTextContent(
-      `1 ${t('landing-page:list:status:received:conjugated')}`
+      `1 ${t('landing-page:list:status:sent:conjugated')}`
     );
 
     const receivedFilterButton = screen.getByRole('button', {
-      name: t('landing-page:list:status:received:default')
+      name: t('landing-page:list:status:sent:default')
     });
     fireEvent.click(receivedFilterButton);
 
