@@ -77,18 +77,7 @@ const mockRectificationList: RectificationListItem[] = [
         timestamp: '2023-01-20T11:11:11Z'
       }
     ],
-    attachments: [
-      {
-        name: 'test-image3.jpg',
-        size: 65049,
-        type: 'jpg'
-      },
-      {
-        name: 'test-file1.pdf',
-        size: 80500,
-        type: 'pdf'
-      }
-    ]
+    attachments: []
   },
   {
     id: '45678901',

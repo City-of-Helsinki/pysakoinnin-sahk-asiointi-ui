@@ -30,14 +30,16 @@ const RectificationListDetails: FC<Props> = ({ form }): React.ReactElement => {
               </p>
             ))}
         </div>
-        <div className="rectification-details-attachments">
-          <span className="rectification-details-title">
-            {t('landing-page:list:details:attachments')}
-          </span>
-          {form.attachments.map((attachment, i) => (
-            <p key={i}>{attachment.name}</p>
-          ))}
-        </div>
+        {form.type !== 'due-date' && (
+          <div className="rectification-details-attachments">
+            <span className="rectification-details-title">
+              {t('landing-page:list:details:attachments')}
+            </span>
+            {form.attachments.map((attachment, i) => (
+              <p key={i}>{attachment.name}</p>
+            ))}
+          </div>
+        )}
       </div>
       {form.type === 'due-date' ? (
         <div className="rectification-details-button-container">
