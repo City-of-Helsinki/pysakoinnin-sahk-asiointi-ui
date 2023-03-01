@@ -115,6 +115,10 @@ const mockRectificationList: RectificationListItem[] = [
       {
         status: 'sent',
         timestamp: '2023-01-30T15:39:58Z'
+      },
+      {
+        status: 'solved-online',
+        timestamp: '2023-02-01T08:39:11Z'
       }
     ],
     attachments: [
@@ -146,24 +150,16 @@ const mockRectificationList: RectificationListItem[] = [
   {
     id: '78901234',
     type: 'due-date',
-    status: 'solved-online',
-    edited: '2022-11-20:18:11:21Z',
+    status: 'received',
+    edited: '2021-11-20:18:11:21Z',
     events: [
       {
-        status: 'solved-online',
-        timestamp: '2022-11-01:18:11:21Z'
-      },
-      {
-        status: 'processing',
-        timestamp: '2022-11-30T15:40:10Z'
-      },
-      {
         status: 'received',
-        timestamp: '2021-11-30T15:40:00Z'
+        timestamp: '2021-11-20T15:40:00Z'
       },
       {
         status: 'sent',
-        timestamp: '2022-11-30T15:39:58Z'
+        timestamp: '2021-11-10T15:39:58Z'
       }
     ],
     attachments: []

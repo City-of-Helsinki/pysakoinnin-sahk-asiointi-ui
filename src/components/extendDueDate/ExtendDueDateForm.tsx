@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unnecessary-type-assertion */
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Checkbox, Link, Notification, TextInput } from 'hds-react';
@@ -51,7 +52,7 @@ const ExtendDueDateForm = (): React.ReactElement => {
           }
           type={extensionAllowed ? 'success' : 'error'}
           dismissible
-          closeButtonLabelText="Close notification"
+          closeButtonLabelText={t('common:close-notification') as string}
           onClose={() => setInfoNotificationOpen(false)}>
           {t('due-date:notifications:allowed:text')}
         </Notification>

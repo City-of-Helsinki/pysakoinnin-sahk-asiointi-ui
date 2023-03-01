@@ -213,7 +213,7 @@ const FormStepper = (props: Props): React.ReactElement => {
               type={'success'}
               autoClose
               dismissible
-              closeButtonLabelText="Close notification"
+              closeButtonLabelText={t('common:close-notification')}
               onClose={() => setShowSubmitNotification(false)}>
               {t(`${formContent.selectedForm}:notifications:success:text`, {
                 newDueDate: formatDate(dueDateFormValues.newDueDate)
