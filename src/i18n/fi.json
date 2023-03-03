@@ -21,6 +21,9 @@
     "show-less": "Näytä vähemmän",
     "characters": "merkkiä",
     "close-notification": "Sulje ilmoitus",
+    "loading": "Sisältöä ladataan",
+    "log-in": "Kirjaudu sisään",
+    "not-logged-in": "Et ole kirjautunut sisään",
     "login-prompt": {
       "title": "Sessio päättynyt",
       "body": "Olet kirjautunut ulos toisessa ikkunassa",
