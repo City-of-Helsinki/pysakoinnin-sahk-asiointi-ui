@@ -1,4 +1,4 @@
-import React, { useRef, useState, MouseEvent } from 'react';
+import React, { useRef, useState } from 'react';
 import { Button, IconSort, Linkbox, Pagination, Select } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import { sortByDate } from '../../utils/helpers';
@@ -32,8 +32,8 @@ const LandingPage = (): React.ReactElement => {
   ];
   const statuses = [
     'show-all',
-    'received',
     'sent',
+    'received',
     'processing',
     'solved-online',
     'solved-mailed'
@@ -43,8 +43,7 @@ const LandingPage = (): React.ReactElement => {
     label: t(`landing-page:list:status:${status}:default`)
   }));
 
-  const handlePageChange = (event: MouseEvent, index: number) => {
-    event.preventDefault();
+  const handlePageChange = (index: number) => {
     setPageIndex(index);
     titleRef.current?.scrollIntoView();
   };
@@ -94,7 +93,11 @@ const LandingPage = (): React.ReactElement => {
             value: filter.value
           }}
           disabled={isEmptyList}
-          onChange={(option: StatusFilter) => setFilter(option)}
+          onChange={(option: StatusFilter) => {
+            setFilter(option);
+            // Reset the pagination when filtering
+            handlePageChange(0);
+          }}
         />
       </div>
       <div className="rectification-list">
@@ -117,7 +120,10 @@ const LandingPage = (): React.ReactElement => {
       )}
       <Pagination
         language="fi"
-        onChange={(event, index) => handlePageChange(event, index)}
+        onChange={(event, index) => {
+          event.preventDefault();
+          handlePageChange(index);
+        }}
         pageCount={Math.ceil(filteredRectifications.length / elementsOnPage)}
         pageHref={() => '#'}
         pageIndex={pageIndex}
