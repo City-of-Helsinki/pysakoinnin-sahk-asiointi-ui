@@ -102,9 +102,9 @@ describe('landing page', () => {
       // 7 results in total, 5 results shown on the main page
       expect(rectificationList.length).toBe(5);
 
-      const nextPagebutton = screen.getByTestId('hds-pagination-next-button');
-      expect(nextPagebutton).toBeVisible();
-      fireEvent.click(nextPagebutton);
+      const nextPageButton = screen.getByTestId('hds-pagination-next-button');
+      expect(nextPageButton).toBeVisible();
+      fireEvent.click(nextPageButton);
 
       // 2 results on the second page
       expect(rectificationList.length).toBe(2);
