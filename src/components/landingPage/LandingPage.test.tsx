@@ -112,14 +112,13 @@ describe('landing page', () => {
   });
 
   test('sorts results correctly by date', async () => {
-    const renderResult = render(
+    const { container } = render(
       <Provider store={store}>
         <I18nextProvider i18n={i18n}>
           <LandingPage />
         </I18nextProvider>
       </Provider>
     );
-    const { container } = renderResult;
 
     // Get all rectification forms
     const rectificationList = container.getElementsByClassName(
@@ -146,14 +145,13 @@ describe('landing page', () => {
   });
 
   test('filters results correctly by status', async () => {
-    const renderResult = render(
+    const { container } = render(
       <Provider store={store}>
         <I18nextProvider i18n={i18n}>
           <LandingPage />
         </I18nextProvider>
       </Provider>
     );
-    const { container } = renderResult;
 
     // Get all rectification forms
     const rectificationList = container.getElementsByClassName(
@@ -205,6 +203,51 @@ describe('landing page', () => {
     );
     expect(rectificationCounter).toHaveTextContent(
       `2 ${t('landing-page:list:status:processing:conjugated')}`
+    );
+  });
+
+  test('filters results correctly by status after page is changed', async () => {
+    const { container } = render(
+      <Provider store={store}>
+        <I18nextProvider i18n={i18n}>
+          <LandingPage />
+        </I18nextProvider>
+      </Provider>
+    );
+
+    // Get all rectification forms
+    const rectificationList = container.getElementsByClassName(
+      'rectification-list-row'
+    );
+
+    // Click the 'next page' button
+    const nextPageButton = screen.getByTestId('hds-pagination-next-button');
+    expect(nextPageButton).toBeVisible();
+    fireEvent.click(nextPageButton);
+
+    // Filter results
+
+    // Open dropdown menu
+    const filterButton = screen.getByRole('button', {
+      name: t('landing-page:list:status:show-all:default')
+    });
+    expect(filterButton).toBeVisible();
+    fireEvent.click(filterButton);
+
+    // Filter by 'solved (mailed)' status
+    const solvedMailedOption = screen.getAllByText(
+      t('landing-page:list:status:solved-mailed:default') as string
+    )[0];
+    fireEvent.click(solvedMailedOption);
+
+    // 1 result should be shown
+    expect(rectificationList.length).toBe(1);
+
+    const rectificationCounter = container.getElementsByClassName(
+      'rectification-list-sent-count'
+    )[0];
+    expect(rectificationCounter).toHaveTextContent(
+      `1 ${t('landing-page:list:status:solved-mailed:conjugated')}`
     );
   });
 });
