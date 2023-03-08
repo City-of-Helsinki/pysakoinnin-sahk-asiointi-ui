@@ -194,7 +194,7 @@ describe('rectification list row', () => {
       const { container } = render(
         <Provider store={store}>
           <I18nextProvider i18n={i18n}>
-            <RectificationListRow form={mockRectificationList[6]} />
+            <RectificationListRow form={mockRectificationList[2]} />
           </I18nextProvider>
         </Provider>
       );
@@ -203,7 +203,7 @@ describe('rectification list row', () => {
         'rectification-list-row-status'
       )[0];
       expect(status).toHaveTextContent(
-        t('landing-page:list:status:received:default')
+        t('landing-page:list:status:sent:default')
       );
 
       const showMoreButton = screen.getByRole('button', {
@@ -211,7 +211,7 @@ describe('rectification list row', () => {
       });
       expect(showMoreButton).toBeVisible();
 
-      // Details not visible before 'show form' button is clicked
+      // Details not visible before 'show more' button is clicked
       const details = container.getElementsByClassName('rectification-details');
       expect(details.length).toBe(0);
 
@@ -234,9 +234,6 @@ describe('rectification list row', () => {
       expect(events.length).toBe(1);
       expect(events[0]).toHaveTextContent(
         t('landing-page:list:status:sent:default')
-      );
-      expect(events[0]).toHaveTextContent(
-        t('landing-page:list:status:received:default')
       );
 
       // Attachments should be empty and title not visible

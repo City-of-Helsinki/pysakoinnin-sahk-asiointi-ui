@@ -16,11 +16,6 @@
   grid-template-columns: 1fr 1fr;
 }
 
-.rectification-summary-fine-details {
-  margin-top: var(--spacing-m);
-  grid-column: 1 / 3;
-}
-
 .rectification-summary-details > div {
   margin-bottom: var(--spacing-m);
 }

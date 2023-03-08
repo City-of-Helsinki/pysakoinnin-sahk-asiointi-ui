@@ -1,5 +1,6 @@
 .summary-body {
   flex: 2 1;
+  max-width: 100%;
 }
 
 .info-field {

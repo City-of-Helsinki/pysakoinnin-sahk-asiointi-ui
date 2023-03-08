@@ -1,16 +1,26 @@
 .vehicle-details-container {
-  flex: 1 1;
-  max-width: calc(500px - 4.25rem);
+  max-width: calc(400px - (2 * var(--spacing-m)));
+  border-color: var(--color-black-20);
+  padding: var(--spacing-l);
+  width: 100%;
 }
 
 .vehicle-details-header {
-  font-weight: normal;
+  font-weight: 500;
+  font-size: 24px;
   margin-bottom: 2rem;
+  margin-top: 0;
 }
 
 @media (max-width: 450px) {
   .vehicle-details-container {
     border: none !important;
     padding: 0 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .vehicle-details-container {
+    max-width: calc(500px - (2 * var(--spacing-m)));
   }
 }

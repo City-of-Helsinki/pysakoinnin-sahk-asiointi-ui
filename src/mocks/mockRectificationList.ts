@@ -73,12 +73,12 @@ const mockRectificationList: RectificationListItem[] = [
   {
     id: '34567890',
     type: 'due-date',
-    status: 'processing',
+    status: 'sent',
     edited: '2023-02-11T14:00:20Z',
     events: [
       {
         status: 'sent',
-        timestamp: '2023-01-20T11:11:11Z'
+        timestamp: '2023-01-11T14:00:20Z'
       }
     ],
     attachments: []
@@ -142,7 +142,7 @@ const mockRectificationList: RectificationListItem[] = [
   },
   {
     id: '78901234',
-    type: 'due-date',
+    type: 'moved-car',
     status: 'received',
     edited: '2021-11-20:18:11:21Z',
     events: [
