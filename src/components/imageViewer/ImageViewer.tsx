@@ -23,7 +23,7 @@ const PreviewImage: FC<PreviewImageProps> = ({
      to make the preview images appear square and scale with screen width */
   useEffect(() => {
     if (imageRef.current) {
-      imageRef.current.style.cssText = `height: ${width}px !important`;
+      imageRef.current.style.cssText = `height: ${width}px`;
     }
   }, [width]);
 

@@ -101,3 +101,28 @@
     min-width: 150px;
   }
 }
+
+@media screen {
+  #rectification-summary-print {
+    display: none;
+  }
+}
+
+/* set this element on top of everything else when printing,
+  hiding other elements with 'display: none' or 'visibility: hidden'
+  could disturb other print views so it's not done here */
+@media print {
+  #rectification-summary-print,
+  #rectification-summary-print * {
+    background: white;
+    visibility: visible;
+    z-index: 999;
+  }
+  #rectification-summary-print {
+    background: white;
+    position: absolute;
+    z-index: 999;
+    left: 0;
+    top: 0;
+  }
+}

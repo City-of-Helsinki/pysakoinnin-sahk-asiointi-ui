@@ -346,42 +346,46 @@ exports[`Component matches snapshot 1`] = `
     </div>
   </div>
   <div
-    class="custom-accordion-container"
+    class="hide-on-print"
   >
-    <button
-      class="Button-module_button__1msFE button_hds-button__2A0je Button-module_supplementary__3YKiS button_hds-button--supplementary__GcHcV custom-accordion custom-accordion-header hide-on-print"
-      type="button"
+    <div
+      class="custom-accordion-container"
     >
-      <span
-        class="Button-module_label__a4np1 button_hds-button__label__2EQa-"
+      <button
+        class="Button-module_button__1msFE button_hds-button__2A0je Button-module_supplementary__3YKiS button_hds-button--supplementary__GcHcV custom-accordion custom-accordion-header"
+        type="button"
       >
-        Pysäköintivirhemaksun tiedot
-      </span>
-      <div
-        aria-hidden="true"
-        class="Button-module_icon__O-h7R button_hds-icon__17j8Z"
-      >
-        <svg
-          class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_xl__1M6cO icon_hds-icon--size-xl__1Jes8"
-          role="img"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
+        <span
+          class="Button-module_label__a4np1 button_hds-button__label__2EQa-"
         >
-          <g
-            fill="none"
-            fill-rule="evenodd"
+          Pysäköintivirhemaksun tiedot
+        </span>
+        <div
+          aria-hidden="true"
+          class="Button-module_icon__O-h7R button_hds-icon__17j8Z"
+        >
+          <svg
+            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_xl__1M6cO icon_hds-icon--size-xl__1Jes8"
+            role="img"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <path
-              d="M0 0h24v24H0z"
-            />
-            <path
-              d="M12 13.5l5-5 1.5 1.5-6.5 6.5L5.5 10 7 8.5z"
-              fill="currentColor"
-            />
-          </g>
-        </svg>
-      </div>
-    </button>
+            <g
+              fill="none"
+              fill-rule="evenodd"
+            >
+              <path
+                d="M0 0h24v24H0z"
+              />
+              <path
+                d="M12 13.5l5-5 1.5 1.5-6.5 6.5L5.5 10 7 8.5z"
+                fill="currentColor"
+              />
+            </g>
+          </svg>
+        </div>
+      </button>
+    </div>
   </div>
   <div
     aria-hidden="true"
@@ -629,7 +633,7 @@ exports[`Component matches snapshot 1`] = `
             data-testid="clickable-image"
             formmethod="dialog"
             src="https://via.placeholder.com/600.png"
-            style="height: 0px !important;"
+            style="height: 0px;"
             type="image"
             value="0"
           />
@@ -639,7 +643,7 @@ exports[`Component matches snapshot 1`] = `
             data-testid="clickable-image"
             formmethod="dialog"
             src="https://via.placeholder.com/600x1200.png"
-            style="height: 0px !important;"
+            style="height: 0px;"
             type="image"
             value="1"
           />
@@ -649,7 +653,7 @@ exports[`Component matches snapshot 1`] = `
             data-testid="clickable-image"
             formmethod="dialog"
             src="https://via.placeholder.com/1200x800.png"
-            style="height: 0px !important;"
+            style="height: 0px;"
             type="image"
             value="2"
           />
@@ -659,7 +663,7 @@ exports[`Component matches snapshot 1`] = `
             data-testid="clickable-image"
             formmethod="dialog"
             src="https://via.placeholder.com/600x300.png"
-            style="height: 0px !important;"
+            style="height: 0px;"
             type="image"
             value="3"
           />
@@ -669,7 +673,7 @@ exports[`Component matches snapshot 1`] = `
             data-testid="clickable-image"
             formmethod="dialog"
             src="https://via.placeholder.com/900x800.png"
-            style="height: 0px !important;"
+            style="height: 0px;"
             type="image"
             value="4"
           />

@@ -159,14 +159,16 @@ const RectificationSummary = () => {
           )}
         </div>
       </div>
-      <CustomAccordion
-        heading={
-          selectedForm === FormId.MOVEDCAR
-            ? t('moved-car:stepper:step2')
-            : t('parking-fine:fine-info')
-        }>
-        <InfoContainer />
-      </CustomAccordion>
+      <div className="hide-on-print">
+        <CustomAccordion
+          heading={
+            selectedForm === FormId.MOVEDCAR
+              ? t('moved-car:stepper:step2')
+              : t('parking-fine:fine-info')
+          }>
+          <InfoContainer />
+        </CustomAccordion>
+      </div>
       <div className="show-on-print" aria-hidden="true">
         <InfoContainer />
       </div>

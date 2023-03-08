@@ -136,6 +136,9 @@ const RectificationListDetails: FC<Props> = ({ form }): React.ReactElement => {
           </>
         )}
       </div>
+      <div id="rectification-summary-print" aria-hidden="true">
+        <RectificationSummary />
+      </div>
     </div>
   );
 };

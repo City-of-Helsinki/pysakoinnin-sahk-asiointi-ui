@@ -51,3 +51,10 @@
     padding-top: 0;
   }
 }
+
+@media print {
+  .imageViewer-preview-image {
+    width: 130px !important;
+    height: 130px !important;
+  }
+}

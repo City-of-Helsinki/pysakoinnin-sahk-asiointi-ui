@@ -23,7 +23,7 @@ const CustomAccordion = ({
             <IconAngleDown size="xl" />
           )
         }
-        className="custom-accordion custom-accordion-header hide-on-print"
+        className="custom-accordion custom-accordion-header"
         variant="supplementary">
         {heading}
       </Button>
