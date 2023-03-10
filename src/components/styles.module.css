@@ -11,6 +11,7 @@
   margin: 0 auto var(--spacing-xl);
   padding: 12px;
   width: 90%;
+  min-height: 70vh;
 }
 
 .content-element {

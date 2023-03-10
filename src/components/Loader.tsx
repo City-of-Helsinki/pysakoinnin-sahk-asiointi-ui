@@ -7,9 +7,11 @@ const Loader = (): React.ReactElement => {
   return (
     <div
       style={{
-        position: 'absolute',
-        top: '30%',
-        left: '50%'
+        position: 'fixed',
+        top: '50%',
+        left: '50%',
+        zIndex: 999,
+        transform: 'translate(-50%, -50%)'
       }}>
       <LoadingSpinner loadingText={t('common:loading')} />
     </div>
