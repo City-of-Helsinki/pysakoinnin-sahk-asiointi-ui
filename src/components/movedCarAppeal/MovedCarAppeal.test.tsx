@@ -8,13 +8,16 @@ import { Provider } from 'react-redux';
 import store from '../../store';
 import '@testing-library/jest-dom';
 import { t } from 'i18next';
+import { BrowserRouter } from 'react-router-dom';
 
 describe('moved car appeal form', () => {
   test('passes a11y validation', async () => {
     const { container } = render(
-      <Provider store={store}>
-        <MovedCarAppeal />
-      </Provider>
+      <BrowserRouter>
+        <Provider store={store}>
+          <MovedCarAppeal />
+        </Provider>
+      </BrowserRouter>
     );
     expect(await axe(container)).toHaveNoViolations();
   });
@@ -22,11 +25,13 @@ describe('moved car appeal form', () => {
   describe('renders ', () => {
     test('first step view correctly', async () => {
       render(
-        <Provider store={store}>
-          <I18nextProvider i18n={i18n}>
-            <MovedCarAppeal />
-          </I18nextProvider>
-        </Provider>
+        <BrowserRouter>
+          <Provider store={store}>
+            <I18nextProvider i18n={i18n}>
+              <MovedCarAppeal />
+            </I18nextProvider>
+          </Provider>
+        </BrowserRouter>
       );
 
       // Form title is visible

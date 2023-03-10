@@ -1,3 +1,4 @@
+/* eslint-disable sonarjs/no-duplicate-string */
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import { axe } from 'jest-axe';
@@ -9,6 +10,7 @@ import { configureStore, createSlice } from '@reduxjs/toolkit';
 import store from '../../store';
 import '@testing-library/jest-dom';
 import { t } from 'i18next';
+import { BrowserRouter } from 'react-router-dom';
 
 const mockAction = jest.fn(() => {
   // Mock function
@@ -72,12 +74,14 @@ const userSliceMock = createSlice({
 describe('form stepper', () => {
   test('passes a11y validation', async () => {
     const { container } = render(
-      <Provider store={store}>
-        <FormStepper
-          initialSteps={formStepperSliceMock.getInitialState().steps}
-          onSubmit={mockAction}
-        />
-      </Provider>
+      <BrowserRouter>
+        <Provider store={store}>
+          <FormStepper
+            initialSteps={formStepperSliceMock.getInitialState().steps}
+            onSubmit={mockAction}
+          />
+        </Provider>
+      </BrowserRouter>
     );
     expect(await axe(container)).toHaveNoViolations();
   });
@@ -93,14 +97,16 @@ describe('form stepper', () => {
     });
 
     render(
-      <Provider store={store}>
-        <I18nextProvider i18n={i18n}>
-          <FormStepper
-            initialSteps={formStepperSliceMock.getInitialState().steps}
-            onSubmit={mockAction}
-          />
-        </I18nextProvider>
-      </Provider>
+      <BrowserRouter>
+        <Provider store={store}>
+          <I18nextProvider i18n={i18n}>
+            <FormStepper
+              initialSteps={formStepperSliceMock.getInitialState().steps}
+              onSubmit={mockAction}
+            />
+          </I18nextProvider>
+        </Provider>
+      </BrowserRouter>
     );
 
     // Check that the correct step is rendered
@@ -114,15 +120,24 @@ describe('form stepper', () => {
     });
     expect(secondStepHeading).toBeNull();
 
-    // Check that both buttons are visible but previous button is disabled
-    const previousButton = screen.getByRole('button', {
+    // Check that both buttons are visible and enabled
+
+    // 'previous' button should have role 'link' instead of 'button'
+    // since it takes user to the landing page
+    const previousButton = screen.queryByRole('button', {
       name: t('common:previous')
     });
-    expect(previousButton).toBeInTheDocument();
-    expect(previousButton).toBeDisabled();
+    expect(previousButton).not.toBeInTheDocument();
+
+    const previousButtonLink = screen.queryByRole('link', {
+      name: t('common:previous')
+    });
+    expect(previousButtonLink).toBeInTheDocument();
+    expect(previousButtonLink).toBeEnabled();
 
     const nextButton = screen.getByRole('button', { name: t('common:next') });
     expect(nextButton).toBeInTheDocument();
+    expect(nextButton).toBeEnabled();
 
     await waitFor(() => {
       nextButton.click();
@@ -164,14 +179,16 @@ describe('form stepper', () => {
     });
 
     render(
-      <Provider store={store}>
-        <I18nextProvider i18n={i18n}>
-          <FormStepper
-            initialSteps={formStepperSliceMock.getInitialState().steps}
-            onSubmit={mockAction}
-          />
-        </I18nextProvider>
-      </Provider>
+      <BrowserRouter>
+        <Provider store={store}>
+          <I18nextProvider i18n={i18n}>
+            <FormStepper
+              initialSteps={formStepperSliceMock.getInitialState().steps}
+              onSubmit={mockAction}
+            />
+          </I18nextProvider>
+        </Provider>
+      </BrowserRouter>
     );
 
     // Check that the correct step is rendered

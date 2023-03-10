@@ -13,6 +13,7 @@ import '@testing-library/jest-dom';
 import { t } from 'i18next';
 import { formatDate, formatISODate, getNewDueDate } from '../../utils/helpers';
 import { ClientContext } from '../../client/ClientProvider';
+import { BrowserRouter } from 'react-router-dom';
 
 // ClientContext needs to be added here since the tests don't get it from FormStepper
 renderHook(() => useContext(ClientContext));
@@ -20,9 +21,11 @@ renderHook(() => useContext(ClientContext));
 describe('extend due date form', () => {
   test('passes a11y validation', async () => {
     const { container } = render(
-      <Provider store={store}>
-        <ExtendDueDate />
-      </Provider>
+      <BrowserRouter>
+        <Provider store={store}>
+          <ExtendDueDate />
+        </Provider>
+      </BrowserRouter>
     );
     expect(await axe(container)).toHaveNoViolations();
   });
@@ -30,11 +33,13 @@ describe('extend due date form', () => {
   describe('renders ', () => {
     test('first step view correctly', async () => {
       render(
-        <Provider store={store}>
-          <I18nextProvider i18n={i18n}>
-            <ExtendDueDate />
-          </I18nextProvider>
-        </Provider>
+        <BrowserRouter>
+          <Provider store={store}>
+            <I18nextProvider i18n={i18n}>
+              <ExtendDueDate />
+            </I18nextProvider>
+          </Provider>
+        </BrowserRouter>
       );
 
       // Form title is visible
