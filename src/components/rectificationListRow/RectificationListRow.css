@@ -19,7 +19,6 @@
   grid-row: 1;
   display: flex;
   align-items: center;
-  font-size: 15px;
   line-height: 20px;
   color: var(--color-black-60);
 }
@@ -80,7 +79,7 @@
   }
 
   .rectification-list-row-date {
-    grid-column: 10 / 14;
+    grid-column: 11 / 14;
     grid-row: 1;
   }
 }

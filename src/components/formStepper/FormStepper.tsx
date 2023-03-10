@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import {
@@ -23,6 +24,7 @@ import {
   selectStepperState,
   setActive,
   setSteps,
+  disablePreviousSteps,
   Step
 } from './formStepperSlice';
 import {
@@ -74,6 +76,7 @@ const useRectificationForm = () => {
 const FormStepper = (props: Props): React.ReactElement => {
   // ClientContext is needed to get user profile
   useContext(ClientContext);
+  const navigate = useNavigate();
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const { activeStepIndex, steps } = useSelector(selectStepperState);
@@ -88,6 +91,7 @@ const FormStepper = (props: Props): React.ReactElement => {
 
   const handleFormSubmit = () => {
     dispatch(setFormSubmitted(true));
+    dispatch(disablePreviousSteps(activeStepIndex));
     setShowSubmitNotification(true);
   };
 
@@ -143,22 +147,26 @@ const FormStepper = (props: Props): React.ReactElement => {
             <Button
               id="button-previous"
               className="button"
-              disabled={activeStepIndex === 0 || formContent.formSubmitted}
+              role={activeStepIndex === 0 ? 'link' : 'button'}
+              disabled={formContent.formSubmitted}
               iconLeft={<IconArrowLeft />}
-              onClick={() => dispatch(setActive(activeStepIndex - 1))}
+              onClick={() =>
+                activeStepIndex === 0
+                  ? navigate('/')
+                  : dispatch(setActive(activeStepIndex - 1))
+              }
               variant="secondary">
               {t('common:previous')}
             </Button>
             {activeStepIndex === 1 && !lastStep && (
-              <a id="button-home" className="button link" href="/">
-                <Button
-                  className="button"
-                  iconRight={<IconHome />}
-                  role="link"
-                  variant="secondary">
-                  {t('common:to-mainpage')}
-                </Button>
-              </a>
+              <Button
+                className="button link"
+                iconRight={<IconHome />}
+                role="link"
+                variant="secondary"
+                onClick={() => navigate('/')}>
+                {t('common:to-mainpage')}
+              </Button>
             )}
             <div className="submit-and-print-button-wrapper">
               {lastStep && formContent.selectedForm !== 'due-date' && (
@@ -223,15 +231,14 @@ const FormStepper = (props: Props): React.ReactElement => {
           <div>
             {lastStep && formContent.formSubmitted && (
               <div ref={mainPageButtonRef} className="home-button-container">
-                <a className="button link" href="/">
-                  <Button
-                    className="button home"
-                    iconRight={<IconHome />}
-                    role="link"
-                    variant="primary">
-                    {t('common:to-mainpage')}
-                  </Button>
-                </a>
+                <Button
+                  className="button home link"
+                  iconRight={<IconHome />}
+                  role="link"
+                  variant="primary"
+                  onClick={() => navigate('/')}>
+                  {t('common:to-mainpage')}
+                </Button>
               </div>
             )}
           </div>

@@ -29,9 +29,7 @@ const RectificationListRow: FC<Props> = ({ form }): React.ReactElement => {
     <>
       <div className="rectification-list-row">
         <div className="rectification-list-row-date">
-          {`${t('landing-page:list:last-edited')} ${formatDateTime(
-            form.edited
-          )}`}
+          {formatDateTime(form.edited)}
         </div>
         <div className="rectification-list-row-title">
           {`${t(`${form.type}:title`)} (${form.id})`}

@@ -67,12 +67,28 @@ export const slice = createSlice({
         }
         return step;
       });
+    },
+    disablePreviousSteps: (state, action) => {
+      state.steps = state.steps.map((step: Step, index: number) => {
+        if (index !== action.payload) {
+          return {
+            state: StepState.disabled,
+            label: step.label
+          };
+        }
+        return step;
+      });
     }
   }
 });
 
 // Actions
-export const { completeStep, setActive, setSteps } = slice.actions;
+export const {
+  completeStep,
+  setActive,
+  setSteps,
+  disablePreviousSteps
+} = slice.actions;
 
 // Selectors
 export const selectStepperState = (state: RootState) => state.formStepper;

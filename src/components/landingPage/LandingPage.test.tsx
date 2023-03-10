@@ -95,9 +95,7 @@ describe('landing page', () => {
       );
       expect(rectificationList[0]).toHaveTextContent(/23456789/);
       expect(rectificationList[0]).toHaveTextContent(/Vastaanotettu/);
-      expect(rectificationList[0]).toHaveTextContent(
-        /Viimeksi muokattu 11.2.2023/
-      );
+      expect(rectificationList[0]).toHaveTextContent(/11.2.2023/);
 
       // 7 results in total, 5 results shown on the main page
       expect(rectificationList.length).toBe(5);
@@ -130,18 +128,14 @@ describe('landing page', () => {
     expect(sortButton).toBeVisible();
     expect(sortButton).toHaveTextContent(t('landing-page:newest-first'));
 
-    expect(rectificationList[0]).toHaveTextContent(
-      /Viimeksi muokattu 11.2.2023/
-    );
+    expect(rectificationList[0]).toHaveTextContent(/11.2.2023/);
 
     // 'Sort by date' button is clicked
     fireEvent.click(sortButton);
 
     expect(sortButton).toHaveTextContent(t('landing-page:oldest-first'));
     expect(rectificationList.length).toBe(5);
-    expect(rectificationList[0]).toHaveTextContent(
-      /Viimeksi muokattu 20.11.2021/
-    );
+    expect(rectificationList[0]).toHaveTextContent(/20.11.2021/);
   });
 
   test('filters results correctly by status', async () => {
