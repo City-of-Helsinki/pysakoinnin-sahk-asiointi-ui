@@ -33,7 +33,12 @@ const RectificationListDetails: FC<Props> = ({ form }): React.ReactElement => {
   const [notificationOpen, setNotificationOpen] = useState(
     isDueDateForm || form.status === 'solved-mailed'
   );
-  const [formOpen, setFormOpen] = useState(false);
+  const [formDialogOpen, setFormDialogOpen] = useState(false);
+
+  const closeFormDialog = () => {
+    setFormDialogOpen(false);
+    document.body.classList.remove('modal-open');
+  };
 
   // Populate redux with mock data (for testing)
   useEffect(() => {
@@ -97,14 +102,19 @@ const RectificationListDetails: FC<Props> = ({ form }): React.ReactElement => {
         )}
         {!isDueDateForm && (
           <>
-            <Button variant="secondary" onClick={() => setFormOpen(true)}>
+            <Button
+              variant="secondary"
+              onClick={() => {
+                setFormDialogOpen(true);
+                document.body.classList.add('modal-open');
+              }}>
               {t('landing-page:list:details:show-form')}
             </Button>
             <Dialog
               id="form-summary-dialog"
               aria-labelledby={t(`${form.type}:title`)}
-              isOpen={formOpen}
-              close={() => setFormOpen(false)}
+              isOpen={formDialogOpen}
+              close={closeFormDialog}
               closeButtonLabelText={
                 t('common:close-rectification-dialog') as string
               }
@@ -119,9 +129,7 @@ const RectificationListDetails: FC<Props> = ({ form }): React.ReactElement => {
                 </div>
               </Dialog.Content>
               <Dialog.ActionButtons className="form-summary-dialog-buttons">
-                <Button
-                  className="button-close"
-                  onClick={() => setFormOpen(false)}>
+                <Button className="button-close" onClick={closeFormDialog}>
                   {t('common:close')}
                 </Button>
                 <Button
