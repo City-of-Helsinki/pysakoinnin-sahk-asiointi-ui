@@ -1,9 +1,24 @@
 /* eslint-disable @typescript-eslint/no-unnecessary-type-assertion */
-import React, { FC, useState } from 'react';
-import { Button, IconArrowRight, IconDocument, Notification } from 'hds-react';
+import React, { FC, useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import {
+  Button,
+  Dialog,
+  IconDocument,
+  IconPrinter,
+  Notification
+} from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import { RectificationListItem } from '../rectificationListRow/rectificationListRowSlice';
 import { formatDate, formatDateTime, sortByDate } from '../../utils/helpers';
+import RectificationSummary from '../rectificationSummary/RectificationSummary';
+import {
+  setFormValues,
+  setSelectedForm
+} from '../formContent/formContentSlice';
+import mockRectificationForm from '../../mocks/mockRectficationForm';
+import { setUserProfile } from '../user/userSlice';
+import mockUserData from '../../mocks/mockUserData';
 import './RectificationListDetails.css';
 
 interface Props {
@@ -12,11 +27,26 @@ interface Props {
 
 const RectificationListDetails: FC<Props> = ({ form }): React.ReactElement => {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
   const isDueDateForm = form.type === 'due-date';
   const notificationType = isDueDateForm ? form.type : form.status;
   const [notificationOpen, setNotificationOpen] = useState(
     isDueDateForm || form.status === 'solved-mailed'
   );
+  const [formDialogOpen, setFormDialogOpen] = useState(false);
+
+  const closeFormDialog = () => {
+    setFormDialogOpen(false);
+    document.body.classList.remove('modal-open');
+  };
+
+  // Populate redux with mock data (for testing)
+  useEffect(() => {
+    dispatch(setSelectedForm(form.type));
+    dispatch(setFormValues(mockRectificationForm));
+    dispatch(setUserProfile(mockUserData));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="rectification-details">
@@ -71,10 +101,51 @@ const RectificationListDetails: FC<Props> = ({ form }): React.ReactElement => {
           </Button>
         )}
         {!isDueDateForm && (
-          <Button variant="secondary" iconRight={<IconArrowRight />}>
-            {t('landing-page:list:details:show-form')}
-          </Button>
+          <>
+            <Button
+              variant="secondary"
+              onClick={() => {
+                setFormDialogOpen(true);
+                document.body.classList.add('modal-open');
+              }}>
+              {t('landing-page:list:details:show-form')}
+            </Button>
+            <Dialog
+              id="form-summary-dialog"
+              aria-labelledby={t(`${form.type}:title`)}
+              isOpen={formDialogOpen}
+              close={closeFormDialog}
+              closeButtonLabelText={
+                t('common:close-rectification-dialog') as string
+              }
+              scrollable>
+              <Dialog.Header
+                id="form-summary-dialog-header"
+                title={t(`${form.type}:title`)}
+              />
+              <Dialog.Content>
+                <div id="form-summary-dialog-content">
+                  <RectificationSummary />
+                </div>
+              </Dialog.Content>
+              <Dialog.ActionButtons className="form-summary-dialog-buttons">
+                <Button className="button-close" onClick={closeFormDialog}>
+                  {t('common:close')}
+                </Button>
+                <Button
+                  className="button-print"
+                  onClick={() => window.print()}
+                  iconLeft={<IconPrinter />}
+                  variant="secondary">
+                  {t('common:print')}
+                </Button>
+              </Dialog.ActionButtons>
+            </Dialog>
+          </>
         )}
+      </div>
+      <div id="rectification-summary-print" aria-hidden="true">
+        <RectificationSummary />
       </div>
     </div>
   );

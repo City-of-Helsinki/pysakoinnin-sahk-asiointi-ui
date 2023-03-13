@@ -1,11 +1,12 @@
 .imageViewer-preview-container {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
   gap: var(--spacing-s);
 }
 
 .imageViewer-dialog {
-  height: 90vh !important;
+  height: 95vh !important;
   width: 95vw !important;
 }
 
@@ -27,7 +28,22 @@
   max-width: 100%;
 }
 
+.imageViewer-preview-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+}
+
+.imageViewer-dialog-text {
+  display: block;
+}
+
 @media (max-width: 768px) {
+  .imageViewer-dialog > div {
+    padding: var(--spacing-s);
+  }
+
   .imageViewer-button-container {
     display: flex;
     flex-direction: column-reverse;
@@ -36,21 +52,9 @@
   }
 }
 
-.imageViewer-preview-image {
-  display: inline-block;
-  width: 100px;
-  object-fit: cover;
-  object-position: center;
-  height: 100px;
-}
-
-@media (max-width: 360px) {
+@media print {
   .imageViewer-preview-image {
-    width: 80px;
-    height: 80px;
+    width: 130px !important;
+    height: 130px !important;
   }
-}
-
-.imageViewer-dialog-text {
-  display: block;
 }

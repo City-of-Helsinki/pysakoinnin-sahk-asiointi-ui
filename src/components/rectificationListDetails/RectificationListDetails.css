@@ -45,9 +45,35 @@
   min-width: 200px;
 }
 
+#form-summary-dialog {
+  width: 50%;
+}
+
+.form-summary-dialog-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-xs);
+}
+
+.form-summary-dialog-buttons button {
+  height: 56px;
+  margin: 0;
+}
+
+@media (max-width: 576px) {
+  #form-summary-dialog {
+    width: 95vw !important;
+    height: 95vh !important;
+  }
+}
+
 @media (max-width: 768px) {
   .rectification-details-button-container {
     max-width: 100%;
+  }
+
+  #form-summary-dialog > div {
+    padding: var(--spacing-s);
   }
 }
 
@@ -61,5 +87,42 @@
     grid-column: 1 / 16;
     grid-row: 2;
     flex-direction: column-reverse;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 1248px) {
+  #form-summary-dialog {
+    width: 80%;
+  }
+}
+
+@media (min-width: 768px) {
+  .form-summary-dialog-buttons button {
+    min-width: 150px;
+  }
+}
+
+@media screen {
+  #rectification-summary-print {
+    display: none;
+  }
+}
+
+/* set this element on top of everything else when printing,
+  hiding other elements with 'display: none' or 'visibility: hidden'
+  could disturb other print views so it's not done here */
+@media print {
+  #rectification-summary-print,
+  #rectification-summary-print * {
+    background: white;
+    visibility: visible;
+    z-index: 999;
+  }
+  #rectification-summary-print {
+    background: white;
+    position: absolute;
+    z-index: 999;
+    left: 0;
+    top: 0;
   }
 }

@@ -1,10 +1,11 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Accordion, IconDocument, IconPhoto, TextInput } from 'hds-react';
+import { IconDocument, IconPhoto, TextInput } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import { formatBytes } from '../../utils/helpers';
 import InfoContainer from '../infoContainer/InfoContainer';
+import CustomAccordion from '../customAccordion/CustomAccordion';
 import {
   FileItem,
   FormId,
@@ -158,16 +159,16 @@ const RectificationSummary = () => {
           )}
         </div>
       </div>
-      <Accordion
-        id="fineSummary"
-        heading={
-          selectedForm === FormId.MOVEDCAR
-            ? t('moved-car:stepper:step2')
-            : t('parking-fine:fine-info')
-        }
-        className="rectification-summary-fine-details hide-on-print">
-        <InfoContainer />
-      </Accordion>
+      <div className="hide-on-print">
+        <CustomAccordion
+          heading={
+            selectedForm === FormId.MOVEDCAR
+              ? t('moved-car:stepper:step2')
+              : t('parking-fine:fine-info')
+          }>
+          <InfoContainer />
+        </CustomAccordion>
+      </div>
       <div className="show-on-print" aria-hidden="true">
         <InfoContainer />
       </div>

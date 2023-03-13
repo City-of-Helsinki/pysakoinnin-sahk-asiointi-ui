@@ -10,7 +10,9 @@ const CarInfoCard = (): React.ReactElement => {
   const imageUrls = [
     'https://via.placeholder.com/600.png',
     'https://via.placeholder.com/600x1200.png',
-    'https://via.placeholder.com/1200x800.png'
+    'https://via.placeholder.com/1200x800.png',
+    'https://via.placeholder.com/600x300.png',
+    'https://via.placeholder.com/900x800.png'
   ];
 
   return (

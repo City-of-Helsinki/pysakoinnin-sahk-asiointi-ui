@@ -172,12 +172,12 @@ describe('landing page', () => {
     )[0];
     fireEvent.click(receivedOption);
 
-    expect(rectificationList.length).toBe(1);
+    expect(rectificationList.length).toBe(2);
     expect(rectificationList[0]).toHaveTextContent(
       t('landing-page:list:status:sent:default')
     );
     expect(rectificationCounter).toHaveTextContent(
-      `1 ${t('landing-page:list:status:sent:conjugated')}`
+      `2 ${t('landing-page:list:status:sent:conjugated')}`
     );
 
     const receivedFilterButton = screen.getByRole('button', {
@@ -191,12 +191,12 @@ describe('landing page', () => {
     )[0];
     fireEvent.click(processingOption);
 
-    expect(rectificationList.length).toBe(2);
+    expect(rectificationList.length).toBe(1);
     expect(rectificationList[0]).toHaveTextContent(
       t('landing-page:list:status:processing:default')
     );
     expect(rectificationCounter).toHaveTextContent(
-      `2 ${t('landing-page:list:status:processing:conjugated')}`
+      `1 ${t('landing-page:list:status:processing:conjugated')}`
     );
   });
 

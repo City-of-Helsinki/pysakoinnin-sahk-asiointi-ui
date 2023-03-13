@@ -388,7 +388,7 @@ const RectificationForm: FC<Props> = ({ control, values }) => {
                     field.value?.length
                   }/${rectificationMaxLength} ${t('common:characters')}`}
                   errorText={
-                    field.value?.length >= rectificationMaxLength
+                    field.value?.length > rectificationMaxLength
                       ? t('rectificationForm:errors:description-over-limit')
                       : fieldState.error
                       ? t('common:required-field')
@@ -396,7 +396,7 @@ const RectificationForm: FC<Props> = ({ control, values }) => {
                   }
                   invalid={
                     !!fieldState.error ||
-                    field.value?.length >= rectificationMaxLength
+                    field.value?.length > rectificationMaxLength
                   }
                 />
               </>

@@ -1,8 +1,46 @@
+import React, { FC, useEffect, useRef, useState } from 'react';
 import { Button, Dialog } from 'hds-react';
-import React, { useState } from 'react';
-
-import './ImageViewer.css';
+import useContainerDimensions from '../../hooks/useContainerDimensions';
 import { useTranslation } from 'react-i18next';
+import './ImageViewer.css';
+
+type PreviewImageProps = {
+  image: string;
+  index: number;
+  handleImageClick: (e: React.MouseEvent<HTMLInputElement>) => void;
+};
+
+const PreviewImage: FC<PreviewImageProps> = ({
+  image,
+  index,
+  handleImageClick
+}) => {
+  const imageRef = useRef<HTMLInputElement>(null);
+  const { t } = useTranslation();
+  const { width } = useContainerDimensions(imageRef);
+
+  /* Set height to be the same as width when we get it from the hook,
+     to make the preview images appear square and scale with screen width */
+  useEffect(() => {
+    if (imageRef.current) {
+      imageRef.current.style.cssText = `height: ${width}px`;
+    }
+  }, [width]);
+
+  return (
+    <input
+      ref={imageRef}
+      alt={t('imageViewer:image-input-alt')}
+      formMethod="dialog"
+      data-testid="clickable-image"
+      type="image"
+      src={image}
+      className="imageViewer-preview-image"
+      onClick={handleImageClick}
+      value={index}
+    />
+  );
+};
 
 type ImageViewerProps = {
   images: Array<string>;
@@ -10,7 +48,6 @@ type ImageViewerProps = {
 
 const ImageViewer = (props: ImageViewerProps) => {
   const { images } = props;
-
   const { t } = useTranslation();
   const [currentImage, setCurrentImage] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
@@ -72,16 +109,11 @@ const ImageViewer = (props: ImageViewerProps) => {
       </Dialog>
       <div className="imageViewer-preview-container">
         {images.map((image, index) => (
-          <input
-            alt={t('imageViewer:image-input-alt')}
-            formMethod="dialog"
-            data-testid="clickable-image"
+          <PreviewImage
             key={index}
-            type="image"
-            src={image}
-            className="imageViewer-preview-image"
-            onClick={handleImageClick}
-            value={index}
+            image={image}
+            index={index}
+            handleImageClick={handleImageClick}
           />
         ))}
       </div>
