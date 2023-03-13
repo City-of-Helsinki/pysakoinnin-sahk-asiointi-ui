@@ -104,6 +104,11 @@ const FormStepper = (props: Props): React.ReactElement => {
     window.print();
   };
 
+  const goToHomePage = () => {
+    navigate('/');
+    window.scrollTo(0, 0);
+  };
+
   // if user profile is found, add it to redux
   useEffect(() => {
     userProfile && dispatch(setUserProfile(userProfile));
@@ -114,7 +119,7 @@ const FormStepper = (props: Props): React.ReactElement => {
     dispatch(setSteps(props.initialSteps));
   }, [dispatch, props.initialSteps]);
 
-  // scroll down to ensure submit notification and button to main page are visible
+  // scroll down to ensure submit notification and button to home page are visible
   useEffect(() => {
     mainPageButtonRef.current?.scrollIntoView({
       behavior: 'smooth',
@@ -152,7 +157,7 @@ const FormStepper = (props: Props): React.ReactElement => {
               iconLeft={<IconArrowLeft />}
               onClick={() =>
                 activeStepIndex === 0
-                  ? navigate('/')
+                  ? goToHomePage()
                   : dispatch(setActive(activeStepIndex - 1))
               }
               variant="secondary">
@@ -160,11 +165,12 @@ const FormStepper = (props: Props): React.ReactElement => {
             </Button>
             {activeStepIndex === 1 && !lastStep && (
               <Button
+                id="button-home"
                 className="button link"
                 iconRight={<IconHome />}
                 role="link"
                 variant="secondary"
-                onClick={() => navigate('/')}>
+                onClick={goToHomePage}>
                 {t('common:to-mainpage')}
               </Button>
             )}
@@ -236,7 +242,7 @@ const FormStepper = (props: Props): React.ReactElement => {
                   iconRight={<IconHome />}
                   role="link"
                   variant="primary"
-                  onClick={() => navigate('/')}>
+                  onClick={goToHomePage}>
                   {t('common:to-mainpage')}
                 </Button>
               </div>
