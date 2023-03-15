@@ -5,7 +5,7 @@ import { setSubmitDisabled } from '../formContent/formContentSlice';
 import { formatDate, formatDateTime } from '../../utils/helpers';
 import { FoulData, Foul } from '../../interfaces/foulInterfaces';
 import Barcode from '../barcode/Barcode';
-import './ParkingFineSummary.css';
+import '../infoContainer/InfoContainer.css';
 
 interface FoulRowProps {
   foul: Foul;
@@ -20,8 +20,12 @@ const FoulRow: FC<FoulRowProps> = ({ foul }) => {
         <p>{foul.description}</p>
       </div>
       <div className="info-field">
-        <label>{t('common:fine-info:fine-details')}</label>
-        <p>{foul.additionalInfo}</p>
+        {foul.additionalInfo && (
+          <>
+            <label>{t('common:fine-info:fine-details')}</label>
+            <p>{foul.additionalInfo}</p>
+          </>
+        )}
       </div>
     </>
   );

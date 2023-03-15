@@ -5,7 +5,7 @@ import { setSubmitDisabled } from '../formContent/formContentSlice';
 import { TransferData } from '../../interfaces/transferInterfaces';
 import Barcode from '../barcode/Barcode';
 import { formatDate } from '../../utils/helpers';
-import './ReimbursementSummary.css';
+import '../infoContainer/InfoContainer.css';
 
 interface Props {
   transferData: TransferData;
@@ -44,21 +44,29 @@ const ReimbursementSummary: FC<Props> = ({ transferData }) => {
           <p>{transferData.transferType}</p>
         </div>
         <hr />
-        <div className="info-field address-field">
+        <div className="info-field high">
           <label>{t('moved-car:start-address')}</label>
           <p>{transferData.startAddress}</p>
         </div>
         <div className="info-field">
-          <label>{t('moved-car:start-address-details')}</label>
-          <p>{transferData.startAddressAdditionalInfo}</p>
+          {transferData.startAddressAdditionalInfo && (
+            <>
+              <label>{t('moved-car:start-address-details')}</label>
+              <p>{transferData.startAddressAdditionalInfo}</p>
+            </>
+          )}
         </div>
         <div className="info-field">
           <label>{t('moved-car:end-address')}</label>
           <p>{transferData.endAddress}</p>
         </div>
         <div className="info-field">
-          <label>{t('moved-car:end-address-details')}</label>
-          <p>{transferData.endAddressAdditionalInfo}</p>
+          {transferData.endAddressAdditionalInfo && (
+            <>
+              <label>{t('moved-car:end-address-details')}</label>
+              <p>{transferData.endAddressAdditionalInfo}</p>
+            </>
+          )}
         </div>
         <hr />
         <div className="info-field">
