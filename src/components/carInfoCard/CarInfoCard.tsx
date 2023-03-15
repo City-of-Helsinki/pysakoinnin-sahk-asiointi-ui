@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { Card } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import ImageViewer from '../imageViewer/ImageViewer';
-import { FoulData } from '../interfaces/foulInterfaces';
+import { FoulData } from '../../interfaces/foulInterfaces';
 import './CarInfoCard.css';
 
 interface Props {

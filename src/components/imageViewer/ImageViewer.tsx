@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
 import { Button, Dialog } from 'hds-react';
 import useContainerDimensions from '../../hooks/useContainerDimensions';
-import { FoulAttachment } from '../interfaces/foulInterfaces';
+import { FoulAttachment } from '../../interfaces/foulInterfaces';
 import { useTranslation } from 'react-i18next';
 import './ImageViewer.css';
 

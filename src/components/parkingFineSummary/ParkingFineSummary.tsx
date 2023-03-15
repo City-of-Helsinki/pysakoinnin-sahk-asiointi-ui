@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { setSubmitDisabled } from '../formContent/formContentSlice';
 import { formatDate, formatDateTime } from '../../utils/helpers';
-import { FoulData, Foul } from '../interfaces/foulInterfaces';
+import { FoulData, Foul } from '../../interfaces/foulInterfaces';
 import Barcode from '../barcode/Barcode';
 import './ParkingFineSummary.css';
 
