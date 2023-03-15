@@ -16,11 +16,11 @@ const FoulRow: FC<FoulRowProps> = ({ foul }) => {
   return (
     <>
       <div className="info-field">
-        <label>{t('common:fine-info:fine-title:label')}</label>
+        <label>{t('common:fine-info:fine-title')}</label>
         <p>{foul.description}</p>
       </div>
       <div className="info-field">
-        <label>{t('common:fine-info:fine-details:label')}</label>
+        <label>{t('common:fine-info:fine-details')}</label>
         <p>{foul.additionalInfo}</p>
       </div>
     </>
@@ -46,7 +46,7 @@ const ParkingFineSummary: FC<Props> = ({ foulData }) => {
           {t('parking-fine:fine-info')}
         </h2>
         <div className="info-field">
-          <label>{t('common:fine-info:fine-timestamp:label')}</label>
+          <label>{t('common:fine-info:fine-timestamp')}</label>
           <p>{formatDateTime(foulData.foulDate)}</p>
         </div>
         <div className="info-field">
@@ -57,11 +57,11 @@ const ParkingFineSummary: FC<Props> = ({ foulData }) => {
         <hr />
 
         <div className="info-field">
-          <label>{t('common:fine-info:address:label')}</label>
+          <label>{t('common:fine-info:address')}</label>
           <p>{foulData.address}</p>
         </div>
         <div className="info-field">
-          <label>{t('common:fine-info:additional-details:label')}</label>
+          <label>{t('common:fine-info:additional-details')}</label>
           <p>{foulData.addressAdditionalInfo}</p>
         </div>
 
@@ -74,19 +74,19 @@ const ParkingFineSummary: FC<Props> = ({ foulData }) => {
         <hr />
 
         <div className="wide-field">
-          <label>{t('common:fine-info:fine-additional-details:label')}</label>
+          <label>{t('common:fine-info:fine-additional-details')}</label>
           <p>{foulData.description}</p>
         </div>
 
         <hr />
 
         <div className="info-field sum-field">
-          <label>{t('common:fine-info:sum:label')}</label>
+          <label>{t('common:fine-info:sum')}</label>
           <p>{foulData.invoiceSumText}</p>
         </div>
 
         <div className="info-field">
-          <label>{t('common:fine-info:due-date:label')}</label>
+          <label>{t('common:fine-info:due-date')}</label>
           <p>{formatDate(foulData.dueDate)}</p>
         </div>
 

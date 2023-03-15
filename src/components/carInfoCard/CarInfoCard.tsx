@@ -30,19 +30,19 @@ const CarInfoCard: FC<Props> = ({ foulData }) => {
         <p>{foulData.registerNumber}</p>
       </div>
       <div>
-        <label>{t('parking-fine:vehicle-info:type:label')}</label>
+        <label>{t('parking-fine:vehicle-info:type')}</label>
         <p>{foulData.vehicleType}</p>
       </div>
       <div>
-        <label>{t('parking-fine:vehicle-info:brand:label')}</label>
+        <label>{t('parking-fine:vehicle-info:brand')}</label>
         <p>{foulData.vehicleBrand}</p>
       </div>
       <div>
-        <label>{t('parking-fine:vehicle-info:model:label')}</label>
+        <label>{t('parking-fine:vehicle-info:model')}</label>
         <p>{foulData.vehicleModel}</p>
       </div>
       <div>
-        <label>{t('parking-fine:vehicle-info:color:label')}</label>
+        <label>{t('parking-fine:vehicle-info:color')}</label>
         <p>{foulData.vehicleColor}</p>
       </div>
       <ImageViewer images={foulData.attachments} />

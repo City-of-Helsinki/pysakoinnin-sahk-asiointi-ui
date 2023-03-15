@@ -1,4 +1,4 @@
-const mockFoulObject = {
+const mockFoulData = {
   foulNumber: 113148427,
   foulDate: '2023-02-20T09:32:14.243',
   monitoringStart: '2023-02-20T09:27:39.46',
@@ -57,4 +57,4 @@ const mockFoulObject = {
   responseCode: 0
 };
 
-export default mockFoulObject;
+export default mockFoulData;
