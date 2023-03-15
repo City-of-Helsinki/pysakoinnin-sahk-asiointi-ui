@@ -89,12 +89,7 @@ exports[`Component matches snapshot 1`] = `
       </div>
       <div
         class="info-field"
-      >
-        <label>
-          Lisätieto
-        </label>
-        <p />
-      </div>
+      />
       <div
         class="info-field"
       >
