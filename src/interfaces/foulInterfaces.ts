@@ -29,7 +29,7 @@ export interface FoulData {
   openAmountText: string;
   dueDate: string;
   referenceNumber: string;
-  iban: string;
+  iban: string | null;
   barCode: string;
   foulMakerAddress: string | null;
   attachments: FoulAttachment[];

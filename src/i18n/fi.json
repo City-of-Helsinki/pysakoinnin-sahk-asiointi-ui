@@ -147,34 +147,14 @@
         "text": "Saat ilmoitukset oikaisuvaatimuksen käsittelyn eri vaiheista antamaasi sähköpostiosoitteeseen. Kun päätös on tehty, saat sen pysäköinnin asiointikansioosi."
       }
     },
-    "move-timestamp": {
-      "label": "Siirron päivämäärä",
-      "placeholder": "1.11.2019"
-    },
-    "move-reason": {
-      "label": "Siirron syy",
-      "placeholder": "Katualue varattu"
-    },
-    "move-type": {
-      "label": "Siirron tyyppi",
-      "placeholder": "Maksullinen lähisiirto"
-    },
-    "address-from": {
-      "label": "Siirron lähtöosoite",
-      "placeholder": "Urheilukatu 38",
-      "details-label": "Lähtöosoitteen lisätiedot",
-      "details-placeholder": "Näytetään, jos on lisätietoja"
-    },
-    "address-to": {
-      "label": "Siirron pääteosoite",
-      "placeholder": "Urheilukatu 40",
-      "details-label": "Päätesoitteen lisätiedot",
-      "details-placeholder": "Näytetään, jos on lisätietoja"
-    },
-    "reimbursement-sum": {
-      "label": "Korvauspäätöksen summa",
-      "placeholder": "85,00 EUR"
-    }
+    "move-timestamp": "Siirron päivämäärä",
+    "move-reason": "Siirron syy",
+    "move-type": "Siirron tyyppi",
+    "start-address": "Siirron lähtöosoite",
+    "start-address-details": "Lähtöosoitteen lisätiedot",
+    "end-address": "Siirron pääteosoite",
+    "end-address-details": "Päätesoitteen lisätiedot",
+    "reimbursement-sum": "Korvauspäätöksen summa"
   },
   "rectificationForm": {
     "relation-info": {
