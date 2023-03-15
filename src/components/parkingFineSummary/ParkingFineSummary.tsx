@@ -1,11 +1,37 @@
-import React, { useEffect } from 'react';
+import React, { FC, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { setSubmitDisabled } from '../formContent/formContentSlice';
+import { formatDate, formatDateTime } from '../../utils/helpers';
+import { FoulData, Foul } from '../interfaces/foulInterfaces';
 import Barcode from '../barcode/Barcode';
 import './ParkingFineSummary.css';
 
-const ParkingFineSummary = (): React.ReactElement => {
+interface FoulRowProps {
+  foul: Foul;
+}
+
+const FoulRow: FC<FoulRowProps> = ({ foul }) => {
+  const { t } = useTranslation();
+  return (
+    <>
+      <div className="info-field">
+        <label>{t('common:fine-info:fine-title:label')}</label>
+        <p>{foul.description}</p>
+      </div>
+      <div className="info-field">
+        <label>{t('common:fine-info:fine-details:label')}</label>
+        <p>{foul.additionalInfo}</p>
+      </div>
+    </>
+  );
+};
+
+interface Props {
+  foulData: FoulData;
+}
+
+const ParkingFineSummary: FC<Props> = ({ foulData }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
@@ -21,68 +47,51 @@ const ParkingFineSummary = (): React.ReactElement => {
         </h2>
         <div className="info-field">
           <label>{t('common:fine-info:fine-timestamp:label')}</label>
-          <p>{t('common:fine-info:fine-timestamp:placeholder')}</p>
+          <p>{formatDateTime(foulData.foulDate)}</p>
         </div>
         <div className="info-field">
           <label>{t('common:fine-info:ref-number:label')}</label>
-          <p>{t('common:fine-info:ref-number:placeholder')}</p>
+          <p>{foulData.foulNumber}</p>
         </div>
 
         <hr />
 
         <div className="info-field">
           <label>{t('common:fine-info:address:label')}</label>
-          <p>{t('common:fine-info:address:placeholder')}</p>
+          <p>{foulData.address}</p>
         </div>
         <div className="info-field">
           <label>{t('common:fine-info:additional-details:label')}</label>
-          <p>{t('common:fine-info:additional-details:placeholder')}</p>
+          <p>{foulData.addressAdditionalInfo}</p>
         </div>
 
         <hr />
 
-        <div className="info-field">
-          <label>{t('common:fine-info:fine-title:label')}</label>
-          <p>{t('common:fine-info:fine-title:placeholder')}</p>
-        </div>
-        <div className="info-field">
-          <label>{t('common:fine-info:fine-details:label')}</label>
-          <p>{t('common:fine-info:fine-details:placeholder')}</p>
-        </div>
-
-        <div className="info-field">
-          <label>{t('common:fine-info:fine-title:label')}</label>
-          <p>{t('common:fine-info:fine-title:placeholder')}</p>
-        </div>
-        <div className="info-field">
-          <label>{t('common:fine-info:fine-details:label')}</label>
-          <p>{t('common:fine-info:fine-details:placeholder')}</p>
-        </div>
+        {foulData.fouls.map((foul: Foul, index: number) => (
+          <FoulRow key={index} foul={foul} />
+        ))}
 
         <hr />
 
         <div className="wide-field">
           <label>{t('common:fine-info:fine-additional-details:label')}</label>
-          <p>{t('common:fine-info:fine-additional-details:placeholder')}</p>
+          <p>{foulData.description}</p>
         </div>
 
         <hr />
 
         <div className="info-field sum-field">
           <label>{t('common:fine-info:sum:label')}</label>
-          <p>{t('common:fine-info:sum:placeholder')}</p>
+          <p>{foulData.invoiceSumText}</p>
         </div>
 
         <div className="info-field">
           <label>{t('common:fine-info:due-date:label')}</label>
-          <p>{t('common:fine-info:due-date:placeholder')}</p>
+          <p>{formatDate(foulData.dueDate)}</p>
         </div>
 
         <hr />
-        <Barcode
-          barcode="430123730001230560012400000000000000000100018714210302"
-          className="wide-field"
-        />
+        <Barcode barcode={foulData.barCode} className="wide-field" />
       </div>
     </div>
   );

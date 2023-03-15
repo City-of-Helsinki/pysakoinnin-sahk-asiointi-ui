@@ -4,15 +4,17 @@ import { FormId, selectFormContent } from '../formContent/formContentSlice';
 import CarInfoCard from '../carInfoCard/CarInfoCard';
 import ParkingFineSummary from '../parkingFineSummary/ParkingFineSummary';
 import ReimbursementSummary from '../reimbursement/ReimbursementSummary';
+import mockFoulObject from '../../mocks/mockFoulObject';
 import './InfoContainer.css';
 
 const InfoContainer = (): React.ReactElement => {
   const selectedForm = useSelector(selectFormContent).selectedForm;
+  const foulData = mockFoulObject; /* TODO: get data from /getFoulData endpoint */
 
   const selectForm = (selectedForm: FormId) => {
     switch (selectedForm) {
       case 'parking-fine':
-        return <ParkingFineSummary />;
+        return <ParkingFineSummary foulData={foulData} />;
       case 'moved-car':
         return <ReimbursementSummary />;
     }
@@ -20,7 +22,7 @@ const InfoContainer = (): React.ReactElement => {
   return (
     <div className="info-container">
       {selectForm(selectedForm)}
-      <CarInfoCard />
+      <CarInfoCard foulData={foulData} />
     </div>
   );
 };

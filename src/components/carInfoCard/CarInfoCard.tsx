@@ -1,19 +1,16 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Card } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import ImageViewer from '../imageViewer/ImageViewer';
+import { FoulData } from '../interfaces/foulInterfaces';
 import './CarInfoCard.css';
 
-const CarInfoCard = (): React.ReactElement => {
-  const { t } = useTranslation();
+interface Props {
+  foulData: FoulData;
+}
 
-  const imageUrls = [
-    'https://via.placeholder.com/600.png',
-    'https://via.placeholder.com/600x1200.png',
-    'https://via.placeholder.com/1200x800.png',
-    'https://via.placeholder.com/600x300.png',
-    'https://via.placeholder.com/900x800.png'
-  ];
+const CarInfoCard: FC<Props> = ({ foulData }) => {
+  const { t } = useTranslation();
 
   return (
     <Card
@@ -30,25 +27,25 @@ const CarInfoCard = (): React.ReactElement => {
       </h2>
       <div>
         <label>{t('common:fine-info:reg-number:label')}</label>
-        <p>{t('common:fine-info:reg-number:placeholder')}</p>
+        <p>{foulData.registerNumber}</p>
       </div>
       <div>
         <label>{t('parking-fine:vehicle-info:type:label')}</label>
-        <p>{t('parking-fine:vehicle-info:type:placeholder')}</p>
+        <p>{foulData.vehicleType}</p>
       </div>
       <div>
         <label>{t('parking-fine:vehicle-info:brand:label')}</label>
-        <p>{t('parking-fine:vehicle-info:brand:placeholder')}</p>
+        <p>{foulData.vehicleBrand}</p>
       </div>
       <div>
         <label>{t('parking-fine:vehicle-info:model:label')}</label>
-        <p>{t('parking-fine:vehicle-info:model:placeholder')}</p>
+        <p>{foulData.vehicleModel}</p>
       </div>
       <div>
         <label>{t('parking-fine:vehicle-info:color:label')}</label>
-        <p>{t('parking-fine:vehicle-info:color:placeholder')}</p>
+        <p>{foulData.vehicleColor}</p>
       </div>
-      <ImageViewer images={imageUrls} />
+      <ImageViewer images={foulData.attachments} />
     </Card>
   );
 };

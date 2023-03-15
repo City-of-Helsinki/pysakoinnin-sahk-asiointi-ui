@@ -1,11 +1,12 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
 import { Button, Dialog } from 'hds-react';
 import useContainerDimensions from '../../hooks/useContainerDimensions';
+import { FoulAttachment } from '../interfaces/foulInterfaces';
 import { useTranslation } from 'react-i18next';
 import './ImageViewer.css';
 
 type PreviewImageProps = {
-  image: string;
+  image: FoulAttachment;
   index: number;
   handleImageClick: (e: React.MouseEvent<HTMLInputElement>) => void;
 };
@@ -34,7 +35,7 @@ const PreviewImage: FC<PreviewImageProps> = ({
       formMethod="dialog"
       data-testid="clickable-image"
       type="image"
-      src={image}
+      src={image.data}
       className="imageViewer-preview-image"
       onClick={handleImageClick}
       value={index}
@@ -43,7 +44,7 @@ const PreviewImage: FC<PreviewImageProps> = ({
 };
 
 type ImageViewerProps = {
-  images: Array<string>;
+  images: Array<FoulAttachment>;
 };
 
 const ImageViewer = (props: ImageViewerProps) => {
@@ -89,7 +90,7 @@ const ImageViewer = (props: ImageViewerProps) => {
         <Dialog.Content>
           <img
             data-testid="image"
-            src={images[currentImage]}
+            src={images[currentImage].data}
             className="imageViewer-dialog-image"
           />
           <span className="imageViewer-dialog-text">
