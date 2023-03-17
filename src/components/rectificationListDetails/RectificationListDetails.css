@@ -50,7 +50,7 @@
 }
 
 .form-summary-dialog-buttons {
-  display: flex;
+  display: flex !important;
   justify-content: space-between;
   gap: var(--spacing-xs);
 }
