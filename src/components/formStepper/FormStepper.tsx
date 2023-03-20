@@ -1,3 +1,4 @@
+/* eslint-disable no-magic-numbers */
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -38,6 +39,7 @@ import {
 import { selectDueDateFormValues } from '../extendDueDate/extendDueDateFormSlice';
 import { setUserProfile } from '../user/userSlice';
 import { getFoulData } from '../../services/foulService';
+import ErrorLabel from '../errorLabel/ErrorLabel';
 import './FormStepper.css';
 
 interface Props {
@@ -53,7 +55,6 @@ const useRectificationForm = () => {
     handleSubmit,
     reset,
     getValues,
-    setError,
     formState: { isSubmitSuccessful }
   } = useForm<RectificationFormType>({
     mode: 'onTouched',
@@ -73,7 +74,7 @@ const useRectificationForm = () => {
   }, [isSubmitSuccessful]);
 
   // export the needed functions/hooks to use the form
-  return { control, handleSubmit, setError, getValues };
+  return { control, handleSubmit, getValues };
 };
 
 const FormStepper = (props: Props): React.ReactElement => {
@@ -89,13 +90,25 @@ const FormStepper = (props: Props): React.ReactElement => {
   const [showSubmitNotification, setShowSubmitNotification] = useState(false);
   const mainPageButtonRef = useRef<null | HTMLDivElement>(null);
   const userProfile = useUserProfile();
+  const [formError, setFormError] = useState(null);
 
-  const { control, handleSubmit, setError, getValues } = useRectificationForm();
+  const { control, handleSubmit, getValues } = useRectificationForm();
 
   const handleFormSubmit = () => {
     dispatch(setFormSubmitted(true));
     dispatch(disablePreviousSteps(activeStepIndex));
     setShowSubmitNotification(true);
+  };
+
+  const handleFormError = (statusCode: number) => {
+    switch (statusCode) {
+      case 404:
+      case 422:
+        return setFormError(t('common:errors:foul-not-found'));
+      // 500, 503 etc.
+      default:
+        return setFormError(t('common:errors:unknown'));
+    }
   };
 
   const submitFormAndCompleteStep = (form: RectificationFormType) => {
@@ -105,8 +118,9 @@ const FormStepper = (props: Props): React.ReactElement => {
         .then(response => {
           dispatch(setFoulData(response));
           dispatch(completeStep(activeStepIndex));
+          setFormError(null);
         })
-        .catch(e => setError('refNumber', { message: e }));
+        .catch(error => handleFormError(error.response.status));
     } else {
       dispatch(completeStep(activeStepIndex));
     }
@@ -159,6 +173,7 @@ const FormStepper = (props: Props): React.ReactElement => {
           control={control}
           values={getValues}
         />
+        {formError && <ErrorLabel text={formError} />}
         <div className="button-container">
           <div className={`button-wrapper ${lastStep ? 'submit' : ''}`}>
             <Button
