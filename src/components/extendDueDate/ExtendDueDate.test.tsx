@@ -132,12 +132,12 @@ describe('extend due date form', () => {
       expect(regNumberEl).toBeInTheDocument();
 
       const sumEl = screen.getByRole('textbox', {
-        name: t('common:fine-info:sum:label')
+        name: t('common:fine-info:sum')
       });
       expect(sumEl).toBeInTheDocument();
 
       const dueDateEl = screen.getByRole('textbox', {
-        name: t('common:fine-info:due-date:label')
+        name: t('common:fine-info:due-date')
       });
       expect(dueDateEl).toBeInTheDocument();
       expect(dueDateEl).toHaveValue(formatDate(currentDate));

@@ -36,6 +36,7 @@ import {
 } from '../formContent/formContentSlice';
 import { selectDueDateFormValues } from '../extendDueDate/extendDueDateFormSlice';
 import { setUserProfile } from '../user/userSlice';
+import { getFoulData } from '../../services/foulService';
 import './FormStepper.css';
 
 interface Props {
@@ -96,8 +97,15 @@ const FormStepper = (props: Props): React.ReactElement => {
   };
 
   const submitFormAndCompleteStep = (form: RectificationFormType) => {
-    dispatch(setFormValues({ ...form, IBAN: friendlyFormatIBAN(form.IBAN) }));
-    dispatch(completeStep(activeStepIndex));
+    if (activeStepIndex === 0 && formContent.selectedForm === 'parking-fine') {
+      getFoulData(Number(form.refNumber), form.regNumber).then(response => {
+        console.log('response: ', response);
+        dispatch(completeStep(activeStepIndex));
+      });
+    } else {
+      dispatch(setFormValues({ ...form, IBAN: friendlyFormatIBAN(form.IBAN) }));
+      dispatch(completeStep(activeStepIndex));
+    }
   };
 
   const handlePrint = () => {
