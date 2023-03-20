@@ -3,14 +3,20 @@ import { Card } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import ImageViewer from '../imageViewer/ImageViewer';
 import { FoulData } from '../../interfaces/foulInterfaces';
+import { TransferData } from '../../interfaces/transferInterfaces';
 import './CarInfoCard.css';
 
 interface Props {
-  foulData: FoulData;
+  data: FoulData | TransferData | undefined;
 }
 
-const CarInfoCard: FC<Props> = ({ foulData }) => {
+const CarInfoCard: FC<Props> = ({ data }) => {
   const { t } = useTranslation();
+
+  // Attachments can also contain pdf file(s), so extract only images here
+  const images = data?.attachments?.filter(attachment =>
+    attachment.mimeType?.startsWith('image')
+  );
 
   return (
     <Card
@@ -27,25 +33,25 @@ const CarInfoCard: FC<Props> = ({ foulData }) => {
       </h2>
       <div>
         <label>{t('common:fine-info:reg-number:label')}</label>
-        <p>{foulData.registerNumber}</p>
+        <p>{data?.registerNumber}</p>
       </div>
       <div>
         <label>{t('parking-fine:vehicle-info:type')}</label>
-        <p>{foulData.vehicleType}</p>
+        <p>{data?.vehicleType}</p>
       </div>
       <div>
         <label>{t('parking-fine:vehicle-info:brand')}</label>
-        <p>{foulData.vehicleBrand}</p>
+        <p>{data?.vehicleBrand}</p>
       </div>
       <div>
         <label>{t('parking-fine:vehicle-info:model')}</label>
-        <p>{foulData.vehicleModel}</p>
+        <p>{data?.vehicleModel}</p>
       </div>
       <div>
         <label>{t('parking-fine:vehicle-info:color')}</label>
-        <p>{foulData.vehicleColor}</p>
+        <p>{data?.vehicleColor}</p>
       </div>
-      <ImageViewer images={foulData.attachments} />
+      {images && images.length > 0 && <ImageViewer images={images} />}
     </Card>
   );
 };

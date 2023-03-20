@@ -17,10 +17,10 @@ const FoulRow: FC<FoulRowProps> = ({ foul }) => {
     <>
       <div className="info-field">
         <label>{t('common:fine-info:fine-title')}</label>
-        <p>{foul.description}</p>
+        <p>{foul?.description}</p>
       </div>
       <div className="info-field">
-        {foul.additionalInfo && (
+        {foul?.additionalInfo && (
           <>
             <label>{t('common:fine-info:fine-details')}</label>
             <p>{foul.additionalInfo}</p>
@@ -32,7 +32,7 @@ const FoulRow: FC<FoulRowProps> = ({ foul }) => {
 };
 
 interface Props {
-  foulData: FoulData;
+  foulData: FoulData | undefined;
 }
 
 const ParkingFineSummary: FC<Props> = ({ foulData }) => {
@@ -51,27 +51,31 @@ const ParkingFineSummary: FC<Props> = ({ foulData }) => {
         </h2>
         <div className="info-field">
           <label>{t('common:fine-info:fine-timestamp')}</label>
-          <p>{formatDateTime(foulData.foulDate)}</p>
+          <p>{foulData?.foulDate && formatDateTime(foulData.foulDate)}</p>
         </div>
         <div className="info-field">
           <label>{t('common:fine-info:ref-number:label')}</label>
-          <p>{foulData.foulNumber}</p>
+          <p>{foulData?.foulNumber}</p>
         </div>
 
         <hr />
 
         <div className="info-field">
           <label>{t('common:fine-info:address')}</label>
-          <p>{foulData.address}</p>
+          <p>{foulData?.address}</p>
         </div>
         <div className="info-field">
-          <label>{t('common:fine-info:additional-details')}</label>
-          <p>{foulData.addressAdditionalInfo}</p>
+          {foulData?.addressAdditionalInfo && (
+            <>
+              <label>{t('common:fine-info:additional-details')}</label>
+              <p>{foulData?.addressAdditionalInfo}</p>
+            </>
+          )}
         </div>
 
         <hr />
 
-        {foulData.fouls.map((foul: Foul, index: number) => (
+        {foulData?.fouls?.map((foul: Foul, index: number) => (
           <FoulRow key={index} foul={foul} />
         ))}
 
@@ -79,23 +83,23 @@ const ParkingFineSummary: FC<Props> = ({ foulData }) => {
 
         <div className="wide-field">
           <label>{t('common:fine-info:fine-additional-details')}</label>
-          <p>{foulData.description}</p>
+          <p>{foulData?.description}</p>
         </div>
 
         <hr />
 
         <div className="info-field sum-field">
           <label>{t('common:fine-info:sum')}</label>
-          <p>{foulData.invoiceSumText}</p>
+          <p>{foulData?.invoiceSumText}</p>
         </div>
 
         <div className="info-field">
           <label>{t('common:fine-info:due-date')}</label>
-          <p>{formatDate(foulData.dueDate)}</p>
+          <p>{foulData?.dueDate && formatDate(foulData.dueDate)}</p>
         </div>
 
         <hr />
-        <Barcode barcode={foulData.barCode} className="wide-field" />
+        <Barcode barcode={foulData?.barCode} className="wide-field" />
       </div>
     </div>
   );

@@ -1,6 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../../store';
 import { Control } from 'react-hook-form';
+import { FoulData } from '../../interfaces/foulInterfaces';
+import { TransferData } from '../../interfaces/transferInterfaces';
 
 export enum FormId {
   NONE = '',
@@ -41,12 +43,16 @@ export type FormState = {
   selectedForm: FormId;
   submitDisabled: boolean;
   formValues: RectificationFormType;
+  foulData: FoulData | undefined;
+  transferData: TransferData | undefined;
 };
 
 const initialState: FormState = {
   formSubmitted: false,
   selectedForm: FormId.NONE,
   submitDisabled: true,
+  foulData: undefined,
+  transferData: undefined,
   formValues: {
     invoiceNumber: '',
     refNumber: '',
@@ -86,6 +92,12 @@ export const slice = createSlice({
     },
     setFormValues: (state, action) => {
       state.formValues = { ...state.formValues, ...action.payload };
+    },
+    setFoulData: (state, action) => {
+      state.foulData = action.payload;
+    },
+    setTransferData: (state, action) => {
+      state.transferData = action.payload;
     }
   }
 });
@@ -95,7 +107,9 @@ export const {
   setFormSubmitted,
   setSelectedForm,
   setSubmitDisabled,
-  setFormValues
+  setFormValues,
+  setFoulData,
+  setTransferData
 } = slice.actions;
 
 // Selectors

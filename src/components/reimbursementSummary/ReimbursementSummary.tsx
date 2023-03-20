@@ -8,7 +8,7 @@ import { formatDate } from '../../utils/helpers';
 import '../infoContainer/InfoContainer.css';
 
 interface Props {
-  transferData: TransferData;
+  transferData: TransferData | undefined;
 }
 
 const ReimbursementSummary: FC<Props> = ({ transferData }) => {
@@ -27,29 +27,32 @@ const ReimbursementSummary: FC<Props> = ({ transferData }) => {
         </h2>
         <div className="info-field">
           <label>{t('moved-car:move-timestamp')}</label>
-          <p>{formatDate(transferData.transferDate)}</p>
+          <p>
+            {transferData?.transferDate &&
+              formatDate(transferData.transferDate)}
+          </p>
         </div>
         <div className="info-field">
           <label>{t('common:fine-info:ref-number:label')}</label>
-          <p>{transferData.transferNumber}</p>
+          <p>{transferData?.transferNumber}</p>
         </div>
         <hr />
         <div className="info-field">
           <label>{t('moved-car:move-reason')}</label>
-          <p>{transferData.transferReason}</p>
+          <p>{transferData?.transferReason}</p>
         </div>
         <hr />
         <div className="info-field">
           <label>{t('moved-car:move-type')}</label>
-          <p>{transferData.transferType}</p>
+          <p>{transferData?.transferType}</p>
         </div>
         <hr />
         <div className="info-field high">
           <label>{t('moved-car:start-address')}</label>
-          <p>{transferData.startAddress}</p>
+          <p>{transferData?.startAddress}</p>
         </div>
         <div className="info-field">
-          {transferData.startAddressAdditionalInfo && (
+          {transferData?.startAddressAdditionalInfo && (
             <>
               <label>{t('moved-car:start-address-details')}</label>
               <p>{transferData.startAddressAdditionalInfo}</p>
@@ -58,10 +61,10 @@ const ReimbursementSummary: FC<Props> = ({ transferData }) => {
         </div>
         <div className="info-field">
           <label>{t('moved-car:end-address')}</label>
-          <p>{transferData.endAddress}</p>
+          <p>{transferData?.endAddress}</p>
         </div>
         <div className="info-field">
-          {transferData.endAddressAdditionalInfo && (
+          {transferData?.endAddressAdditionalInfo && (
             <>
               <label>{t('moved-car:end-address-details')}</label>
               <p>{transferData.endAddressAdditionalInfo}</p>
@@ -71,14 +74,14 @@ const ReimbursementSummary: FC<Props> = ({ transferData }) => {
         <hr />
         <div className="info-field">
           <label>{t('moved-car:reimbursement-sum')}</label>
-          <p>{transferData.invoiceSumText}</p>
+          <p>{transferData?.invoiceSumText}</p>
         </div>
         <div className="info-field">
           <label>{t('common:fine-info:due-date')}</label>
-          <p>{formatDate(transferData.dueDate)}</p>
+          <p>{transferData?.dueDate && formatDate(transferData.dueDate)}</p>
         </div>
         <hr />
-        <Barcode barcode={transferData.barCode} className="wide-field" />
+        <Barcode barcode={transferData?.barCode} className="wide-field" />
       </div>
     </div>
   );

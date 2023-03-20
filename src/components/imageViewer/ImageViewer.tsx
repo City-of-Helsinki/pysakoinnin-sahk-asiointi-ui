@@ -3,6 +3,7 @@ import { Button, Dialog } from 'hds-react';
 import useContainerDimensions from '../../hooks/useContainerDimensions';
 import { FoulAttachment } from '../../interfaces/foulInterfaces';
 import { useTranslation } from 'react-i18next';
+import { formatBase64String } from '../../utils/helpers';
 import './ImageViewer.css';
 
 type PreviewImageProps = {
@@ -35,7 +36,7 @@ const PreviewImage: FC<PreviewImageProps> = ({
       formMethod="dialog"
       data-testid="clickable-image"
       type="image"
-      src={image.data}
+      src={formatBase64String(image)}
       className="imageViewer-preview-image"
       onClick={handleImageClick}
       value={index}
@@ -90,7 +91,7 @@ const ImageViewer = (props: ImageViewerProps) => {
         <Dialog.Content>
           <img
             data-testid="image"
-            src={images[currentImage].data}
+            src={formatBase64String(images[currentImage])}
             className="imageViewer-dialog-image"
           />
           <span className="imageViewer-dialog-text">

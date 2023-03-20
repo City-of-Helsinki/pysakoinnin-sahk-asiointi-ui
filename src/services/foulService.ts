@@ -9,7 +9,7 @@ export const getFoulData = async (
   register_number: string
 ): Promise<Array<FoulData>> =>
   axios
-    .get(`${api_url}/getFoulData/`, {
+    .get(`${api_url}/getFoulData`, {
       params: { foul_number, register_number }
     })
     .then(res => res.data)

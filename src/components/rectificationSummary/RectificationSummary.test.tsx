@@ -5,6 +5,7 @@ import RectificationSummary from './RectificationSummary';
 import store from '../../store';
 import { Provider } from 'react-redux';
 import { configureStore, createSlice } from '@reduxjs/toolkit';
+import mockFoulData from '../../mocks/mockFoulData';
 
 describe('Component', () => {
   it('matches snapshot', async () => {
@@ -14,6 +15,7 @@ describe('Component', () => {
         formSubmitted: false,
         selectedForm: 'parking-fine',
         submitDisabled: true,
+        foulData: mockFoulData,
         formValues: {
           invoiceNumber: '',
           refNumber: '',

@@ -3,6 +3,7 @@ import ImageViewer from './ImageViewer';
 import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { axe } from 'jest-axe';
+import { formatBase64String } from '../../utils/helpers';
 
 describe('Component', () => {
   const images = [
@@ -29,6 +30,6 @@ describe('Component', () => {
     expect(document.getElementById('imageViewer')).toBeInTheDocument();
 
     const image = screen.getByTestId('image');
-    expect(image).toHaveAttribute('src', images[0].data);
+    expect(image).toHaveAttribute('src', formatBase64String(images[0]));
   });
 });

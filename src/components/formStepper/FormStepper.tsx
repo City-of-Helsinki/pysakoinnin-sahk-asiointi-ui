@@ -32,6 +32,7 @@ import {
   setFormSubmitted,
   selectFormValues,
   setFormValues,
+  setFoulData,
   RectificationFormType
 } from '../formContent/formContentSlice';
 import { selectDueDateFormValues } from '../extendDueDate/extendDueDateFormSlice';
@@ -52,6 +53,7 @@ const useRectificationForm = () => {
     handleSubmit,
     reset,
     getValues,
+    setError,
     formState: { isSubmitSuccessful }
   } = useForm<RectificationFormType>({
     mode: 'onTouched',
@@ -71,7 +73,7 @@ const useRectificationForm = () => {
   }, [isSubmitSuccessful]);
 
   // export the needed functions/hooks to use the form
-  return { control, handleSubmit, getValues };
+  return { control, handleSubmit, setError, getValues };
 };
 
 const FormStepper = (props: Props): React.ReactElement => {
@@ -88,7 +90,7 @@ const FormStepper = (props: Props): React.ReactElement => {
   const mainPageButtonRef = useRef<null | HTMLDivElement>(null);
   const userProfile = useUserProfile();
 
-  const { control, handleSubmit, getValues } = useRectificationForm();
+  const { control, handleSubmit, setError, getValues } = useRectificationForm();
 
   const handleFormSubmit = () => {
     dispatch(setFormSubmitted(true));
@@ -97,13 +99,15 @@ const FormStepper = (props: Props): React.ReactElement => {
   };
 
   const submitFormAndCompleteStep = (form: RectificationFormType) => {
+    dispatch(setFormValues({ ...form, IBAN: friendlyFormatIBAN(form.IBAN) }));
     if (activeStepIndex === 0 && formContent.selectedForm === 'parking-fine') {
-      getFoulData(Number(form.refNumber), form.regNumber).then(response => {
-        console.log('response: ', response);
-        dispatch(completeStep(activeStepIndex));
-      });
+      getFoulData(Number(form.refNumber), form.regNumber)
+        .then(response => {
+          dispatch(setFoulData(response));
+          dispatch(completeStep(activeStepIndex));
+        })
+        .catch(e => setError('refNumber', { message: e }));
     } else {
-      dispatch(setFormValues({ ...form, IBAN: friendlyFormatIBAN(form.IBAN) }));
       dispatch(completeStep(activeStepIndex));
     }
   };
