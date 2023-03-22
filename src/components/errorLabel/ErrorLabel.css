@@ -7,3 +7,8 @@
 .error-icon {
   margin-right: 6px;
 }
+
+.error-label svg {
+  min-width: 26px;
+  min-height: 26px;
+}
