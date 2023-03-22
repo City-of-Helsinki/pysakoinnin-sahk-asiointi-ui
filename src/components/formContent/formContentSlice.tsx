@@ -129,12 +129,6 @@ export const slice = createSlice({
     setFormValues: (state, action) => {
       state.formValues = { ...state.formValues, ...action.payload };
     },
-    setFoulData: (state, action) => {
-      state.foulData = action.payload;
-    },
-    setTransferData: (state, action) => {
-      state.transferData = action.payload;
-    },
     setFormError: (state, action) => {
       state.formError = action.payload;
     }
@@ -158,8 +152,6 @@ export const {
   setSelectedForm,
   setSubmitDisabled,
   setFormValues,
-  setFoulData,
-  setTransferData,
   setFormError
 } = slice.actions;
 
