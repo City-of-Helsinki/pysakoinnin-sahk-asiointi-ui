@@ -10,6 +10,11 @@ export interface FoulAttachment {
   attachmentType: number;
 }
 
+export interface FoulRequest {
+  foul_number: number;
+  register_number: string;
+}
+
 export interface FoulData {
   foulNumber: number;
   foulDate: string;

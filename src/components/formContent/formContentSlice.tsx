@@ -1,8 +1,12 @@
-import { createSlice } from '@reduxjs/toolkit';
+/* eslint-disable no-magic-numbers */
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../../store';
 import { Control } from 'react-hook-form';
-import { FoulData } from '../../interfaces/foulInterfaces';
+import { FoulData, FoulRequest } from '../../interfaces/foulInterfaces';
 import { TransferData } from '../../interfaces/transferInterfaces';
+import { getFoulData } from '../../services/foulService';
+import { AxiosError } from 'axios';
+import { completeStep } from '../formStepper/formStepperSlice';
 
 export enum FormId {
   NONE = '',
@@ -45,6 +49,7 @@ export type FormState = {
   formValues: RectificationFormType;
   foulData: FoulData | undefined;
   transferData: TransferData | undefined;
+  formError: string | null;
 };
 
 const initialState: FormState = {
@@ -53,6 +58,7 @@ const initialState: FormState = {
   submitDisabled: true,
   foulData: undefined,
   transferData: undefined,
+  formError: null,
   formValues: {
     invoiceNumber: '',
     refNumber: '',
@@ -77,6 +83,36 @@ const initialState: FormState = {
   }
 };
 
+export const getFoulDataThunk = createAsyncThunk(
+  'formContent/getFoulData',
+  async (req: FoulRequest, thunkAPI) =>
+    await getFoulData(req)
+      .then(res => {
+        const activeStep = (thunkAPI.getState() as RootState).formStepper
+          .activeStepIndex;
+        thunkAPI.dispatch(completeStep(activeStep));
+        return res;
+      })
+      .catch((err: AxiosError) =>
+        thunkAPI.rejectWithValue(err.response?.status)
+      )
+);
+
+const handleFormError = (status: number | undefined) => {
+  if (status) {
+    switch (status) {
+      case 404:
+      case 422:
+        return 'foul-not-found';
+      // 500, 503 etc.
+      default:
+        return 'unknown';
+    }
+  } else {
+    return 'unknown';
+  }
+};
+
 export const slice = createSlice({
   name: 'formContent',
   initialState,
@@ -98,7 +134,21 @@ export const slice = createSlice({
     },
     setTransferData: (state, action) => {
       state.transferData = action.payload;
+    },
+    setFormError: (state, action) => {
+      state.formError = action.payload;
     }
+  },
+  extraReducers: builder => {
+    // GET FoulData
+    builder.addCase(getFoulDataThunk.fulfilled, (state, action) => ({
+      ...state,
+      foulData: action.payload
+    }));
+    builder.addCase(getFoulDataThunk.rejected, (state, action) => ({
+      ...state,
+      formError: handleFormError(action.payload as number | undefined)
+    }));
   }
 });
 
@@ -109,7 +159,8 @@ export const {
   setSubmitDisabled,
   setFormValues,
   setFoulData,
-  setTransferData
+  setTransferData,
+  setFormError
 } = slice.actions;
 
 // Selectors

@@ -77,7 +77,7 @@
     },
     "errors": {
       "foul-not-found": "Virhemaksun tietoja ei löydy. Tarkista tiedot.",
-      "unknown": "Jotain meni pieleen. Kokeile hetken kuluttua uudelleen."
+      "unknown": "Jokin meni pieleen. Kokeile hetken kuluttua uudelleen."
     }
   },
   "parking-fine": {

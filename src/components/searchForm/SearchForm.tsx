@@ -1,12 +1,14 @@
 /* eslint-disable @typescript-eslint/no-unnecessary-type-assertion */
+/* eslint-disable sonarjs/no-duplicate-string */
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Controller } from 'react-hook-form';
 import { TextInput } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import {
   FormId,
   selectFormContent,
+  setFormError,
   RectificationControlType
 } from '../formContent/formContentSlice';
 import './SearchForm.css';
@@ -17,8 +19,10 @@ interface Props {
 
 const SearchForm = (props: Props): React.ReactElement => {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
   const formContent = useSelector(selectFormContent);
   const movedCarForm = formContent.selectedForm == FormId.MOVEDCAR;
+  const formError = formContent.formError;
 
   return (
     <div data-testid="searchForm" className="fieldset">
@@ -27,7 +31,10 @@ const SearchForm = (props: Props): React.ReactElement => {
         <Controller
           name="invoiceNumber"
           control={props.control}
-          render={({ field }) => (
+          rules={{
+            required: t('common:required-field') as string
+          }}
+          render={({ field, fieldState }) => (
             <TextInput
               {...field}
               className="field"
@@ -37,6 +44,13 @@ const SearchForm = (props: Props): React.ReactElement => {
               tooltipLabel={t('common:fine-info:invoice-number:label')}
               tooltipText={t('common:fine-info:invoice-number:tooltip-text')}
               required
+              onChange={e => {
+                field.onChange(e);
+                // clear form error when the field value is changed
+                formError && dispatch(setFormError(null));
+              }}
+              invalid={!!(fieldState.error || formError)}
+              errorText={fieldState.error?.message}
             />
           )}
         />
@@ -44,7 +58,10 @@ const SearchForm = (props: Props): React.ReactElement => {
         <Controller
           name="refNumber"
           control={props.control}
-          render={({ field }) => (
+          rules={{
+            required: t('common:required-field') as string
+          }}
+          render={({ field, fieldState }) => (
             <TextInput
               {...field}
               className="field"
@@ -54,6 +71,12 @@ const SearchForm = (props: Props): React.ReactElement => {
               tooltipLabel={t('common:fine-info:ref-number:label')}
               tooltipText={t('common:fine-info:ref-number:tooltip-text')}
               required
+              onChange={e => {
+                field.onChange(e);
+                formError && dispatch(setFormError(null));
+              }}
+              invalid={!!(fieldState.error || formError)}
+              errorText={fieldState.error?.message}
             />
           )}
         />
@@ -61,7 +84,10 @@ const SearchForm = (props: Props): React.ReactElement => {
       <Controller
         name="regNumber"
         control={props.control}
-        render={({ field }) => (
+        rules={{
+          required: t('common:required-field') as string
+        }}
+        render={({ field, fieldState }) => (
           <TextInput
             {...field}
             className="field"
@@ -74,6 +100,12 @@ const SearchForm = (props: Props): React.ReactElement => {
                 : t('common:fine-info:reg-number:helper-text:common')
             }
             required
+            onChange={e => {
+              field.onChange(e);
+              formError && dispatch(setFormError(null));
+            }}
+            invalid={!!(fieldState.error || formError)}
+            errorText={fieldState.error?.message}
           />
         )}
       />

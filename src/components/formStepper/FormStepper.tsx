@@ -1,7 +1,7 @@
-/* eslint-disable no-magic-numbers */
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useAppDispatch } from '../../store';
 import { useForm } from 'react-hook-form';
 import {
   Button,
@@ -33,12 +33,11 @@ import {
   setFormSubmitted,
   selectFormValues,
   setFormValues,
-  setFoulData,
-  RectificationFormType
+  RectificationFormType,
+  getFoulDataThunk
 } from '../formContent/formContentSlice';
 import { selectDueDateFormValues } from '../extendDueDate/extendDueDateFormSlice';
 import { setUserProfile } from '../user/userSlice';
-import { getFoulData } from '../../services/foulService';
 import ErrorLabel from '../errorLabel/ErrorLabel';
 import './FormStepper.css';
 
@@ -82,7 +81,7 @@ const FormStepper = (props: Props): React.ReactElement => {
   useContext(ClientContext);
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { activeStepIndex, steps } = useSelector(selectStepperState);
   const formContent = useSelector(selectFormContent);
   const dueDateFormValues = useSelector(selectDueDateFormValues);
@@ -90,7 +89,7 @@ const FormStepper = (props: Props): React.ReactElement => {
   const [showSubmitNotification, setShowSubmitNotification] = useState(false);
   const mainPageButtonRef = useRef<null | HTMLDivElement>(null);
   const userProfile = useUserProfile();
-  const [formError, setFormError] = useState(null);
+  const formError = formContent.formError;
 
   const { control, handleSubmit, getValues } = useRectificationForm();
 
@@ -100,27 +99,15 @@ const FormStepper = (props: Props): React.ReactElement => {
     setShowSubmitNotification(true);
   };
 
-  const handleFormError = (statusCode: number) => {
-    switch (statusCode) {
-      case 404:
-      case 422:
-        return setFormError(t('common:errors:foul-not-found'));
-      // 500, 503 etc.
-      default:
-        return setFormError(t('common:errors:unknown'));
-    }
-  };
-
-  const submitFormAndCompleteStep = (form: RectificationFormType) => {
+  const handleNextClick = (form: RectificationFormType) => {
     dispatch(setFormValues({ ...form, IBAN: friendlyFormatIBAN(form.IBAN) }));
     if (activeStepIndex === 0 && formContent.selectedForm === 'parking-fine') {
-      getFoulData(Number(form.refNumber), form.regNumber)
-        .then(response => {
-          dispatch(setFoulData(response));
-          dispatch(completeStep(activeStepIndex));
-          setFormError(null);
+      dispatch(
+        getFoulDataThunk({
+          foul_number: Number(form.refNumber),
+          register_number: form.regNumber
         })
-        .catch(error => handleFormError(error.response.status));
+      );
     } else {
       dispatch(completeStep(activeStepIndex));
     }
@@ -173,7 +160,7 @@ const FormStepper = (props: Props): React.ReactElement => {
           control={control}
           values={getValues}
         />
-        {formError && <ErrorLabel text={formError} />}
+        {formError && <ErrorLabel text={t(`common:errors:${formError}`)} />}
         <div className="button-container">
           <div className={`button-wrapper ${lastStep ? 'submit' : ''}`}>
             <Button
@@ -217,7 +204,7 @@ const FormStepper = (props: Props): React.ReactElement => {
                   id="button-next"
                   className="button"
                   iconRight={<IconArrowRight />}
-                  onClick={handleSubmit(submitFormAndCompleteStep)}
+                  onClick={handleSubmit(handleNextClick)}
                   variant="primary">
                   {activeStepIndex === 1
                     ? t('common:make-rectification')

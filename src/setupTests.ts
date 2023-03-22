@@ -32,3 +32,7 @@ jest.mock('./config', () => {
   jest.requireActual('../public/test-env-config');
   return jest.requireActual('./config');
 });
+
+window._env_ = {
+  REACT_APP_API_URL: 'localhost:8000'
+};
