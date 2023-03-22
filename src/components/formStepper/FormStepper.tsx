@@ -104,7 +104,7 @@ const FormStepper = (props: Props): React.ReactElement => {
     if (activeStepIndex === 0 && formContent.selectedForm === 'parking-fine') {
       dispatch(
         getFoulDataThunk({
-          foul_number: Number(form.refNumber),
+          foul_number: form.refNumber,
           register_number: form.regNumber
         })
       );

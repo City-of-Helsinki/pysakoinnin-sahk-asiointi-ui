@@ -11,7 +11,7 @@ export interface FoulAttachment {
 }
 
 export interface FoulRequest {
-  foul_number: number;
+  foul_number: string;
   register_number: string;
 }
 
