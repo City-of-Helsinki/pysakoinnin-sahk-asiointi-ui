@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useAppDispatch } from '../../store';
 import { useForm } from 'react-hook-form';
 import {
   Button,
@@ -32,10 +33,12 @@ import {
   setFormSubmitted,
   selectFormValues,
   setFormValues,
-  RectificationFormType
+  RectificationFormType,
+  getFoulDataThunk
 } from '../formContent/formContentSlice';
 import { selectDueDateFormValues } from '../extendDueDate/extendDueDateFormSlice';
 import { setUserProfile } from '../user/userSlice';
+import ErrorLabel from '../errorLabel/ErrorLabel';
 import './FormStepper.css';
 
 interface Props {
@@ -78,7 +81,7 @@ const FormStepper = (props: Props): React.ReactElement => {
   useContext(ClientContext);
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { activeStepIndex, steps } = useSelector(selectStepperState);
   const formContent = useSelector(selectFormContent);
   const dueDateFormValues = useSelector(selectDueDateFormValues);
@@ -86,6 +89,7 @@ const FormStepper = (props: Props): React.ReactElement => {
   const [showSubmitNotification, setShowSubmitNotification] = useState(false);
   const mainPageButtonRef = useRef<null | HTMLDivElement>(null);
   const userProfile = useUserProfile();
+  const formError = formContent.formError;
 
   const { control, handleSubmit, getValues } = useRectificationForm();
 
@@ -95,9 +99,18 @@ const FormStepper = (props: Props): React.ReactElement => {
     setShowSubmitNotification(true);
   };
 
-  const submitFormAndCompleteStep = (form: RectificationFormType) => {
+  const handleNextClick = (form: RectificationFormType) => {
     dispatch(setFormValues({ ...form, IBAN: friendlyFormatIBAN(form.IBAN) }));
-    dispatch(completeStep(activeStepIndex));
+    if (activeStepIndex === 0 && formContent.selectedForm === 'parking-fine') {
+      dispatch(
+        getFoulDataThunk({
+          foul_number: form.refNumber,
+          register_number: form.regNumber
+        })
+      );
+    } else {
+      dispatch(completeStep(activeStepIndex));
+    }
   };
 
   const handlePrint = () => {
@@ -147,6 +160,7 @@ const FormStepper = (props: Props): React.ReactElement => {
           control={control}
           values={getValues}
         />
+        {formError && <ErrorLabel text={t(`common:errors:${formError}`)} />}
         <div className="button-container">
           <div className={`button-wrapper ${lastStep ? 'submit' : ''}`}>
             <Button
@@ -190,7 +204,7 @@ const FormStepper = (props: Props): React.ReactElement => {
                   id="button-next"
                   className="button"
                   iconRight={<IconArrowRight />}
-                  onClick={handleSubmit(submitFormAndCompleteStep)}
+                  onClick={handleSubmit(handleNextClick)}
                   variant="primary">
                   {activeStepIndex === 1
                     ? t('common:make-rectification')

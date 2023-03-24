@@ -2,6 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import ReimbursementSummary from './ReimbursementSummary';
+import mockTransferData from '../../mocks/mockTransferData';
 import { Provider } from 'react-redux';
 import store from '../../store';
 import '@testing-library/jest-dom';
@@ -10,7 +11,7 @@ describe('reimbursement summary', () => {
   test('passes a11y validation', async () => {
     const { container } = render(
       <Provider store={store}>
-        <ReimbursementSummary />
+        <ReimbursementSummary transferData={mockTransferData} />
       </Provider>
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -19,7 +20,7 @@ describe('reimbursement summary', () => {
   test('renders correctly', async () => {
     render(
       <Provider store={store}>
-        <ReimbursementSummary />
+        <ReimbursementSummary transferData={mockTransferData} />
       </Provider>
     );
 

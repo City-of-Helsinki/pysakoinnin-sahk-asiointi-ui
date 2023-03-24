@@ -1,4 +1,5 @@
 import { addDays, format, formatISO } from 'date-fns';
+import { FoulAttachment } from '../interfaces/foulInterfaces';
 
 const EXTENDEDDAYS = 30;
 const BYTES_IN_KB = 1024;
@@ -52,5 +53,13 @@ export const formatBytes = (bytes: number): string => {
   } ${sizeUnits[sizeUnitIndex]}`;
 };
 
+// sort two dates either in ascending or descending order
 export const sortByDate = (a: string, b: string, sortByNewest: boolean) =>
   sortByNewest ? Date.parse(b) - Date.parse(a) : Date.parse(a) - Date.parse(b);
+
+/* format attachment to valid base64 string (e.g. 'data:image/jpeg;base64,AAAA...')
+  that can be displayed as image in the UI */
+export const formatBase64String = (attachment: FoulAttachment) =>
+  attachment.data.startsWith('data')
+    ? attachment.data
+    : `data:${attachment.mimeType};base64,${attachment.data}`;

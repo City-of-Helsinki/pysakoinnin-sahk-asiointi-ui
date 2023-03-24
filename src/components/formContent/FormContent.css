@@ -1,6 +1,6 @@
 .form-container {
   padding: 4px 0 12px;
-  margin: var(--spacing-m) 0 var(--spacing-m);
+  margin-top: var(--spacing-m);
 }
 
 @media (min-width: 768px) {

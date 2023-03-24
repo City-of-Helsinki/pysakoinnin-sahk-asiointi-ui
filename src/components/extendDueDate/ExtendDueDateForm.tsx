@@ -74,13 +74,13 @@ const ExtendDueDateForm = (): React.ReactElement => {
         </div>
         <TextInput
           id="sum"
-          label={t('common:fine-info:sum:label')}
+          label={t('common:fine-info:sum')}
           defaultValue="80,00 EUR"
           readOnly
         />
         <TextInput
           id="dueDate"
-          label={t('common:fine-info:due-date:label')}
+          label={t('common:fine-info:due-date')}
           value={dueDate}
           readOnly
         />

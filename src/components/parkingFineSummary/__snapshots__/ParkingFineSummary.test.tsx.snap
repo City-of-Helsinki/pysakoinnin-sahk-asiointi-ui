@@ -22,7 +22,7 @@ exports[`Component matches snapshot 1`] = `
           Virheen ajankohta
         </label>
         <p>
-          1.11.2019 09:41 - 1.11.2019 09:43
+          20.2.2023 klo 9:32
         </p>
       </div>
       <div
@@ -32,7 +32,7 @@ exports[`Component matches snapshot 1`] = `
           Asianumero
         </label>
         <p>
-          Esim. 12345678
+          113148427
         </p>
       </div>
       <hr />
@@ -43,7 +43,7 @@ exports[`Component matches snapshot 1`] = `
           Lähiosoite
         </label>
         <p>
-          Näkinkuja 1c
+          Bulevardi 15
         </p>
       </div>
       <div
@@ -53,7 +53,7 @@ exports[`Component matches snapshot 1`] = `
           Lisätietoja
         </label>
         <p>
-          Kääntymispaikka
+          Vastapäätä
         </p>
       </div>
       <hr />
@@ -64,7 +64,7 @@ exports[`Component matches snapshot 1`] = `
           Virhe
         </label>
         <p>
-          Pysäköinti kielletty liikennemerkin noudattamatta jättäminen. TLL 3 § 1 mom, TL 16 § merkki 372
+          Pysäköinti ajosuunnan vastaisesti taajaman ulkopuolella. TLL 36 § 2 mom
         </p>
       </div>
       <div
@@ -74,7 +74,7 @@ exports[`Component matches snapshot 1`] = `
           Lisätieto
         </label>
         <p>
-          Liikennemerkistä n. 3 m
+          12 metriä
         </p>
       </div>
       <div
@@ -84,7 +84,20 @@ exports[`Component matches snapshot 1`] = `
           Virhe
         </label>
         <p>
-          Pysäköinti kielletty liikennemerkin noudattamatta jättäminen. TLL 3 § 1 mom, TL 16 § merkki 372
+          Pysäköinti kiinteistölle johtavan ajotien kohdalle / siten, että ajoneuvoliikenne kiinteistölle tai sieltä pois on oleellisesti vaikeutunut. TLL 38 § 1 mom
+        </p>
+      </div>
+      <div
+        class="info-field"
+      />
+      <div
+        class="info-field"
+      >
+        <label>
+          Virhe
+        </label>
+        <p>
+          Pysäköinti/Pysäyttäminen pysäkkialueelle. TLL 3 § 1 mom.,  75 §, Liikennemerkki E6
         </p>
       </div>
       <div
@@ -94,7 +107,7 @@ exports[`Component matches snapshot 1`] = `
           Lisätieto
         </label>
         <p>
-          Liikennemerkistä n. 3 m
+          Ajoratamaalauksesta n. 2,0 m
         </p>
       </div>
       <hr />
@@ -105,7 +118,7 @@ exports[`Component matches snapshot 1`] = `
           Pysäköintivirheen lisätiedot
         </label>
         <p>
-          Lyökämme käsi kätehen, sormet sormien lomahan, lauloaksemme hyviä, parahia pannaksemme, kuulla noien kultaisien, tietä mielitehtoisien, nuorisossa nousevassa, kansassa kasuavassa: noita saamia sanoja, virsiä virittämiä vyöltä vanhan Väinämöisen, alta ahjon Ilmarisen, päästä kalvan Kaukomielen. 294 merkkiä
+          lunta maasssa
         </p>
       </div>
       <hr />
@@ -126,7 +139,7 @@ exports[`Component matches snapshot 1`] = `
           Eräpäivä
         </label>
         <p>
-          2.12.2019
+          5.4.2023
         </p>
       </div>
       <hr />
@@ -141,7 +154,7 @@ exports[`Component matches snapshot 1`] = `
         <p
           class="barcode"
         >
-          430123730001230560012400000000000000000100018714210302
+          490166030011987070000800000000000000113148427759230405
         </p>
         <button
           class="Button-module_button__1msFE button_hds-button__2A0je Button-module_secondary__1nABp button_hds-button--secondary__1NOWS barcode-button"

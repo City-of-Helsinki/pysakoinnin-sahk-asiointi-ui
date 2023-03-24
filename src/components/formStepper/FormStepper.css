@@ -18,6 +18,7 @@
   .button-wrapper {
     display: grid;
     grid-gap: var(--spacing-xs);
+    margin-top: var(--spacing-l);
   }
 
   .submit-and-print-button-wrapper {
@@ -61,7 +62,7 @@
     gap: 24px;
     height: 96px;
     justify-content: flex-start;
-    margin-top: 12px;
+    margin-top: var(--spacing-l);
   }
 
   .button-wrapper.submit {

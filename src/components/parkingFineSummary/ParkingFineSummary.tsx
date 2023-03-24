@@ -1,11 +1,41 @@
-import React, { useEffect } from 'react';
+import React, { FC, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { setSubmitDisabled } from '../formContent/formContentSlice';
+import { formatDate, formatDateTime } from '../../utils/helpers';
+import { FoulData, Foul } from '../../interfaces/foulInterfaces';
 import Barcode from '../barcode/Barcode';
-import './ParkingFineSummary.css';
+import '../infoContainer/InfoContainer.css';
 
-const ParkingFineSummary = (): React.ReactElement => {
+interface FoulRowProps {
+  foul: Foul;
+}
+
+const FoulRow: FC<FoulRowProps> = ({ foul }) => {
+  const { t } = useTranslation();
+  return (
+    <>
+      <div className="info-field">
+        <label>{t('common:fine-info:fine-title')}</label>
+        <p>{foul?.description}</p>
+      </div>
+      <div className="info-field">
+        {foul?.additionalInfo && (
+          <>
+            <label>{t('common:fine-info:fine-details')}</label>
+            <p>{foul.additionalInfo}</p>
+          </>
+        )}
+      </div>
+    </>
+  );
+};
+
+interface Props {
+  foulData: FoulData | undefined;
+}
+
+const ParkingFineSummary: FC<Props> = ({ foulData }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
@@ -20,69 +50,56 @@ const ParkingFineSummary = (): React.ReactElement => {
           {t('parking-fine:fine-info')}
         </h2>
         <div className="info-field">
-          <label>{t('common:fine-info:fine-timestamp:label')}</label>
-          <p>{t('common:fine-info:fine-timestamp:placeholder')}</p>
+          <label>{t('common:fine-info:fine-timestamp')}</label>
+          <p>{foulData?.foulDate && formatDateTime(foulData.foulDate)}</p>
         </div>
         <div className="info-field">
           <label>{t('common:fine-info:ref-number:label')}</label>
-          <p>{t('common:fine-info:ref-number:placeholder')}</p>
+          <p>{foulData?.foulNumber}</p>
         </div>
 
         <hr />
 
         <div className="info-field">
-          <label>{t('common:fine-info:address:label')}</label>
-          <p>{t('common:fine-info:address:placeholder')}</p>
+          <label>{t('common:fine-info:address')}</label>
+          <p>{foulData?.address}</p>
         </div>
         <div className="info-field">
-          <label>{t('common:fine-info:additional-details:label')}</label>
-          <p>{t('common:fine-info:additional-details:placeholder')}</p>
+          {foulData?.addressAdditionalInfo && (
+            <>
+              <label>{t('common:fine-info:additional-details')}</label>
+              <p>{foulData?.addressAdditionalInfo}</p>
+            </>
+          )}
         </div>
 
         <hr />
 
-        <div className="info-field">
-          <label>{t('common:fine-info:fine-title:label')}</label>
-          <p>{t('common:fine-info:fine-title:placeholder')}</p>
-        </div>
-        <div className="info-field">
-          <label>{t('common:fine-info:fine-details:label')}</label>
-          <p>{t('common:fine-info:fine-details:placeholder')}</p>
-        </div>
-
-        <div className="info-field">
-          <label>{t('common:fine-info:fine-title:label')}</label>
-          <p>{t('common:fine-info:fine-title:placeholder')}</p>
-        </div>
-        <div className="info-field">
-          <label>{t('common:fine-info:fine-details:label')}</label>
-          <p>{t('common:fine-info:fine-details:placeholder')}</p>
-        </div>
+        {foulData?.fouls?.map((foul: Foul, index: number) => (
+          <FoulRow key={index} foul={foul} />
+        ))}
 
         <hr />
 
         <div className="wide-field">
-          <label>{t('common:fine-info:fine-additional-details:label')}</label>
-          <p>{t('common:fine-info:fine-additional-details:placeholder')}</p>
+          <label>{t('common:fine-info:fine-additional-details')}</label>
+          <p>{foulData?.description}</p>
         </div>
 
         <hr />
 
         <div className="info-field sum-field">
-          <label>{t('common:fine-info:sum:label')}</label>
-          <p>{t('common:fine-info:sum:placeholder')}</p>
+          <label>{t('common:fine-info:sum')}</label>
+          <p>{foulData?.invoiceSumText}</p>
         </div>
 
         <div className="info-field">
-          <label>{t('common:fine-info:due-date:label')}</label>
-          <p>{t('common:fine-info:due-date:placeholder')}</p>
+          <label>{t('common:fine-info:due-date')}</label>
+          <p>{foulData?.dueDate && formatDate(foulData.dueDate)}</p>
         </div>
 
         <hr />
-        <Barcode
-          barcode="430123730001230560012400000000000000000100018714210302"
-          className="wide-field"
-        />
+        <Barcode barcode={foulData?.barCode} className="wide-field" />
       </div>
     </div>
   );

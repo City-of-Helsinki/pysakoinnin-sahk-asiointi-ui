@@ -3,6 +3,7 @@ import formContentReducer from './components/formContent/formContentSlice';
 import formStepperReducer from './components/formStepper/formStepperSlice';
 import extendDueDateFormReducer from './components/extendDueDate/extendDueDateFormSlice';
 import userReducer from './components/user/userSlice';
+import { useDispatch } from 'react-redux';
 
 const store = configureStore({
   reducer: {
@@ -15,3 +16,7 @@ const store = configureStore({
 
 export default store;
 export type RootState = ReturnType<typeof store.getState>;
+
+export type AppDispatch = typeof store.dispatch;
+
+export const useAppDispatch = () => useDispatch<AppDispatch>();

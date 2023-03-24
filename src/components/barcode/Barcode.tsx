@@ -5,7 +5,7 @@ import './Barcode.css';
 import { useTranslation } from 'react-i18next';
 
 type BarcodeProps = {
-  barcode: string;
+  barcode: string | undefined;
   className?: string;
 };
 
@@ -15,7 +15,7 @@ const Barcode = (props: BarcodeProps) => {
   const [copySuccess, setCopySuccess] = useState(false);
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(barcode);
+    barcode && navigator.clipboard.writeText(barcode);
     setCopySuccess(true);
   };
 
@@ -23,15 +23,19 @@ const Barcode = (props: BarcodeProps) => {
     <>
       <div className={`barcode-container ${className ? className : ''}`}>
         <label className="barcode-label">{t('common:barcode:label')}</label>
-        <p className="barcode">{barcode}</p>
-        <Button
-          data-testid="copy-to-clipboard"
-          className="barcode-button"
-          iconLeft={<IconCopy />}
-          onClick={copyToClipboard}
-          variant="secondary">
-          {t('common:barcode:copy-barcode')}
-        </Button>
+        {barcode && (
+          <>
+            <p className="barcode">{barcode}</p>
+            <Button
+              data-testid="copy-to-clipboard"
+              className="barcode-button"
+              iconLeft={<IconCopy />}
+              onClick={copyToClipboard}
+              variant="secondary">
+              {t('common:barcode:copy-barcode')}
+            </Button>
+          </>
+        )}
       </div>
 
       {copySuccess && (

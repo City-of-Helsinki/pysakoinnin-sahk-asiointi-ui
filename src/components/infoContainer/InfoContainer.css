@@ -5,6 +5,11 @@
   width: 100%;
 }
 
+.summary-body {
+  flex: 2 1;
+  max-width: 100%;
+}
+
 @media (min-width: 768px) {
   .summary-container {
     display: grid;
@@ -12,6 +17,30 @@
     grid-auto-rows: auto;
     grid-gap: var(--spacing-xs) var(--spacing-m);
   }
+}
+
+.info-field {
+  max-width: 384px;
+  grid-row-end: auto;
+}
+
+.info-field.high {
+  margin-bottom: var(--spacing-m);
+}
+
+@media (max-width: 767px) {
+  .info-field {
+    margin: var(--spacing-m) 0;
+  }
+
+  .wide-field {
+    margin: var(--spacing-m) 0;
+  }
+}
+
+.wide-field {
+  grid-column-start: 1;
+  grid-column-end: span 2;
 }
 
 hr {

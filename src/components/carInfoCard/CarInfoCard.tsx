@@ -1,19 +1,22 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Card } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import ImageViewer from '../imageViewer/ImageViewer';
+import { FoulData } from '../../interfaces/foulInterfaces';
+import { TransferData } from '../../interfaces/transferInterfaces';
 import './CarInfoCard.css';
 
-const CarInfoCard = (): React.ReactElement => {
+interface Props {
+  data: FoulData | TransferData | undefined;
+}
+
+const CarInfoCard: FC<Props> = ({ data }) => {
   const { t } = useTranslation();
 
-  const imageUrls = [
-    'https://via.placeholder.com/600.png',
-    'https://via.placeholder.com/600x1200.png',
-    'https://via.placeholder.com/1200x800.png',
-    'https://via.placeholder.com/600x300.png',
-    'https://via.placeholder.com/900x800.png'
-  ];
+  // Attachments can also contain pdf file(s), so extract only images here
+  const images = data?.attachments?.filter(attachment =>
+    attachment.mimeType?.startsWith('image')
+  );
 
   return (
     <Card
@@ -30,25 +33,25 @@ const CarInfoCard = (): React.ReactElement => {
       </h2>
       <div>
         <label>{t('common:fine-info:reg-number:label')}</label>
-        <p>{t('common:fine-info:reg-number:placeholder')}</p>
+        <p>{data?.registerNumber}</p>
       </div>
       <div>
-        <label>{t('parking-fine:vehicle-info:type:label')}</label>
-        <p>{t('parking-fine:vehicle-info:type:placeholder')}</p>
+        <label>{t('parking-fine:vehicle-info:type')}</label>
+        <p>{data?.vehicleType}</p>
       </div>
       <div>
-        <label>{t('parking-fine:vehicle-info:brand:label')}</label>
-        <p>{t('parking-fine:vehicle-info:brand:placeholder')}</p>
+        <label>{t('parking-fine:vehicle-info:brand')}</label>
+        <p>{data?.vehicleBrand}</p>
       </div>
       <div>
-        <label>{t('parking-fine:vehicle-info:model:label')}</label>
-        <p>{t('parking-fine:vehicle-info:model:placeholder')}</p>
+        <label>{t('parking-fine:vehicle-info:model')}</label>
+        <p>{data?.vehicleModel}</p>
       </div>
       <div>
-        <label>{t('parking-fine:vehicle-info:color:label')}</label>
-        <p>{t('parking-fine:vehicle-info:color:placeholder')}</p>
+        <label>{t('parking-fine:vehicle-info:color')}</label>
+        <p>{data?.vehicleColor}</p>
       </div>
-      <ImageViewer images={imageUrls} />
+      {images && images.length > 0 && <ImageViewer images={images} />}
     </Card>
   );
 };

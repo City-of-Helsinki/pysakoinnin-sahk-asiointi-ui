@@ -1,5 +1,5 @@
 .vehicle-details-container {
-  max-width: calc(400px - (2 * var(--spacing-m)));
+  max-width: calc(400px - (2 * var(--spacing-l)));
   border-color: var(--color-black-20);
   padding: var(--spacing-l);
   width: 100%;
@@ -21,6 +21,6 @@
 
 @media (max-width: 768px) {
   .vehicle-details-container {
-    max-width: calc(500px - (2 * var(--spacing-m)));
+    max-width: calc(500px - (2 * var(--spacing-l)));
   }
 }
