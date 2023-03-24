@@ -1,5 +1,10 @@
 import { Foul, FoulAttachment } from './foulInterfaces';
 
+export interface TransferRequest {
+  transfer_number: string;
+  register_number: string;
+}
+
 export interface TransferData {
   transferNumber: number;
   transferDate: string;

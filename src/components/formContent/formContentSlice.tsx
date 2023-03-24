@@ -3,8 +3,12 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../../store';
 import { Control } from 'react-hook-form';
 import { FoulData, FoulRequest } from '../../interfaces/foulInterfaces';
-import { TransferData } from '../../interfaces/transferInterfaces';
+import {
+  TransferData,
+  TransferRequest
+} from '../../interfaces/transferInterfaces';
 import { getFoulData } from '../../services/foulService';
+import { getTransferData } from '../../services/transferService';
 import { AxiosError } from 'axios';
 import { completeStep } from '../formStepper/formStepperSlice';
 
@@ -98,12 +102,27 @@ export const getFoulDataThunk = createAsyncThunk(
       )
 );
 
+export const getTransferDataThunk = createAsyncThunk(
+  'formContent/getTransferData',
+  async (req: TransferRequest, thunkAPI) =>
+    await getTransferData(req)
+      .then(res => {
+        const activeStep = (thunkAPI.getState() as RootState).formStepper
+          .activeStepIndex;
+        thunkAPI.dispatch(completeStep(activeStep));
+        return res;
+      })
+      .catch((err: AxiosError) =>
+        thunkAPI.rejectWithValue(err.response?.status)
+      )
+);
+
 const handleFormError = (status: number | undefined) => {
   if (status) {
     switch (status) {
       case 404:
       case 422:
-        return 'foul-not-found';
+        return 'not-found';
       // 500, 503 etc.
       default:
         return 'unknown';
@@ -137,9 +156,20 @@ export const slice = createSlice({
     // GET FoulData
     builder.addCase(getFoulDataThunk.fulfilled, (state, action) => ({
       ...state,
-      foulData: action.payload
+      foulData: action.payload,
+      formError: null
     }));
     builder.addCase(getFoulDataThunk.rejected, (state, action) => ({
+      ...state,
+      formError: handleFormError(action.payload as number | undefined)
+    }));
+    // GET TransferData
+    builder.addCase(getTransferDataThunk.fulfilled, (state, action) => ({
+      ...state,
+      transferData: action.payload,
+      formError: null
+    }));
+    builder.addCase(getTransferDataThunk.rejected, (state, action) => ({
       ...state,
       formError: handleFormError(action.payload as number | undefined)
     }));

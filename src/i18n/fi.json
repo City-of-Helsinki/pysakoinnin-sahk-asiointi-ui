@@ -74,10 +74,6 @@
       "fine-additional-details": "Pysäköintivirheen lisätiedot",
       "sum": "Pysäköintivirhemaksun summa",
       "due-date": "Eräpäivä"
-    },
-    "errors": {
-      "foul-not-found": "Virhemaksun tietoja ei löydy. Tarkista tiedot.",
-      "unknown": "Jokin meni pieleen. Kokeile hetken kuluttua uudelleen."
     }
   },
   "parking-fine": {
@@ -106,7 +102,11 @@
         "text": "Saat ilmoitukset oikaisuvaatimuksen käsittelyn eri vaiheista antamaasi sähköpostiosoitteeseen. Kun päätös on tehty, saat sen pysäköinnin asiointikansioosi."
       }
     },
-    "submit": "Lähetä"
+    "submit": "Lähetä",
+    "errors": {
+      "not-found": "Pysäköintivirhemaksun tietoja ei löydy, tarkista tiedot. Ole tarvittaessa yhteydessä asiakaspalveluun.",
+      "unknown": "Jokin meni pieleen. Kokeile hetken kuluttua uudelleen."
+    }
   },
   "due-date": {
     "title": "Pysäköintivirhemaksun eräpäivän siirto 30 päivällä",
@@ -133,7 +133,11 @@
         "text": "Pysäköintivirhemaksun eräpäivää on siirretty 30 päivää. Uusi eräpäivä on {{newDueDate}}."
       }
     },
-    "submit": "Siirrä eräpäivää"
+    "submit": "Siirrä eräpäivää",
+    "errors": {
+      "not-found": "Pysäköintivirhemaksun tietoja ei löydy, tarkista tiedot. Ole tarvittaessa yhteydessä asiakaspalveluun.",
+      "unknown": "Jokin meni pieleen. Kokeile hetken kuluttua uudelleen."
+    }
   },
   "moved-car": {
     "title": "Ajoneuvon siirron oikaisuvaatimus",
@@ -158,7 +162,11 @@
     "start-address-details": "Lähtöosoitteen lisätiedot",
     "end-address": "Siirron pääteosoite",
     "end-address-details": "Päätesoitteen lisätiedot",
-    "reimbursement-sum": "Korvauspäätöksen summa"
+    "reimbursement-sum": "Korvauspäätöksen summa",
+    "errors": {
+      "not-found": "Ajoneuvon siirron korvauspäätöksen tietoja ei löydy, tarkista tiedot. Ole tarvittaessa yhteydessä asiakaspalveluun.",
+      "unknown": "Jokin meni pieleen. Kokeile hetken kuluttua uudelleen."
+    }
   },
   "rectificationForm": {
     "relation-info": {
