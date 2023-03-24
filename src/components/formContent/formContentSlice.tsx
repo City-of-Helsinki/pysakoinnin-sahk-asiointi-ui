@@ -156,7 +156,8 @@ export const slice = createSlice({
     // GET FoulData
     builder.addCase(getFoulDataThunk.fulfilled, (state, action) => ({
       ...state,
-      foulData: action.payload
+      foulData: action.payload,
+      formError: null
     }));
     builder.addCase(getFoulDataThunk.rejected, (state, action) => ({
       ...state,
@@ -165,7 +166,8 @@ export const slice = createSlice({
     // GET TransferData
     builder.addCase(getTransferDataThunk.fulfilled, (state, action) => ({
       ...state,
-      transferData: action.payload
+      transferData: action.payload,
+      formError: null
     }));
     builder.addCase(getTransferDataThunk.rejected, (state, action) => ({
       ...state,
