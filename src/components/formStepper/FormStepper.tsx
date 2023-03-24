@@ -34,7 +34,9 @@ import {
   selectFormValues,
   setFormValues,
   RectificationFormType,
-  getFoulDataThunk
+  getFoulDataThunk,
+  getTransferDataThunk,
+  FormId
 } from '../formContent/formContentSlice';
 import { selectDueDateFormValues } from '../extendDueDate/extendDueDateFormSlice';
 import { setUserProfile } from '../user/userSlice';
@@ -84,12 +86,13 @@ const FormStepper = (props: Props): React.ReactElement => {
   const dispatch = useAppDispatch();
   const { activeStepIndex, steps } = useSelector(selectStepperState);
   const formContent = useSelector(selectFormContent);
+  const selectedForm = formContent.selectedForm;
+  const formError = formContent.formError;
   const dueDateFormValues = useSelector(selectDueDateFormValues);
   const lastStep = activeStepIndex === steps.length - 1;
   const [showSubmitNotification, setShowSubmitNotification] = useState(false);
   const mainPageButtonRef = useRef<null | HTMLDivElement>(null);
   const userProfile = useUserProfile();
-  const formError = formContent.formError;
 
   const { control, handleSubmit, getValues } = useRectificationForm();
 
@@ -101,13 +104,25 @@ const FormStepper = (props: Props): React.ReactElement => {
 
   const handleNextClick = (form: RectificationFormType) => {
     dispatch(setFormValues({ ...form, IBAN: friendlyFormatIBAN(form.IBAN) }));
-    if (activeStepIndex === 0 && formContent.selectedForm === 'parking-fine') {
-      dispatch(
-        getFoulDataThunk({
-          foul_number: form.refNumber,
-          register_number: form.regNumber
-        })
-      );
+    if (activeStepIndex === 0) {
+      switch (selectedForm) {
+        case FormId.PARKINGFINE:
+          return dispatch(
+            getFoulDataThunk({
+              foul_number: form.refNumber,
+              register_number: form.regNumber
+            })
+          );
+        case FormId.MOVEDCAR:
+          return dispatch(
+            getTransferDataThunk({
+              transfer_number: form.invoiceNumber,
+              register_number: form.regNumber
+            })
+          );
+        case FormId.DUEDATE:
+          return dispatch(completeStep(activeStepIndex));
+      }
     } else {
       dispatch(completeStep(activeStepIndex));
     }
@@ -160,7 +175,11 @@ const FormStepper = (props: Props): React.ReactElement => {
           control={control}
           values={getValues}
         />
-        {formError && <ErrorLabel text={t(`common:errors:${formError}`)} />}
+        <div className="form-error-label">
+          {formError && (
+            <ErrorLabel text={t(`${selectedForm}:errors:${formError}`)} />
+          )}
+        </div>
         <div className="button-container">
           <div className={`button-wrapper ${lastStep ? 'submit' : ''}`}>
             <Button
