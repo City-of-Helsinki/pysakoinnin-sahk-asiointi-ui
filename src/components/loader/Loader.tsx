@@ -1,18 +1,17 @@
 import React from 'react';
 import { LoadingSpinner } from 'hds-react';
 import { useTranslation } from 'react-i18next';
+import './Loader.css';
 
+/**
+ * An overlay component that is used
+ * * on LandingPage when the user info is being retrieved
+ * * by RequestLoader when redux loading.isLoading = true
+ */
 const Loader = (): React.ReactElement => {
   const { t } = useTranslation();
   return (
-    <div
-      style={{
-        position: 'fixed',
-        top: '50%',
-        left: '50%',
-        zIndex: 999,
-        transform: 'translate(-50%, -50%)'
-      }}>
+    <div className="loading-spinner">
       <LoadingSpinner loadingText={t('common:loading')} />
     </div>
   );

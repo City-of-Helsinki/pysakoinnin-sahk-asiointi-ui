@@ -14,6 +14,7 @@ import { Button, Dialog, IconInfoCircle } from 'hds-react';
 import { getClient } from './client/oidc-react';
 import { useTranslation } from 'react-i18next';
 import { selectPromptLogin, setPromptLogin } from './components/user/userSlice';
+import RequestLoader from './components/loader/RequestLoader';
 
 function App(): React.ReactElement {
   const { t } = useTranslation();
@@ -29,6 +30,7 @@ function App(): React.ReactElement {
 
   return (
     <PageContainer>
+      <RequestLoader />
       {promptLogin && (
         <Dialog
           id="session-end-dialog"
