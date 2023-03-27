@@ -41,6 +41,7 @@ import {
 import { selectDueDateFormValues } from '../extendDueDate/extendDueDateFormSlice';
 import { setUserProfile } from '../user/userSlice';
 import ErrorLabel from '../errorLabel/ErrorLabel';
+import { ResponseCode } from '../../interfaces/foulInterfaces';
 import './FormStepper.css';
 
 interface Props {
@@ -88,6 +89,10 @@ const FormStepper = (props: Props): React.ReactElement => {
   const formContent = useSelector(selectFormContent);
   const selectedForm = formContent.selectedForm;
   const formError = formContent.formError;
+  const responseCode =
+    selectedForm === FormId.MOVEDCAR
+      ? formContent.transferData?.responseCode
+      : formContent.foulData?.responseCode;
   const dueDateFormValues = useSelector(selectDueDateFormValues);
   const lastStep = activeStepIndex === steps.length - 1;
   const [showSubmitNotification, setShowSubmitNotification] = useState(false);
@@ -176,9 +181,7 @@ const FormStepper = (props: Props): React.ReactElement => {
           values={getValues}
         />
         <div className="form-error-label">
-          {formError && (
-            <ErrorLabel text={t(`${selectedForm}:errors:${formError}`)} />
-          )}
+          {formError && <ErrorLabel text={t(formError)} />}
         </div>
         <div className="button-container">
           <div className={`button-wrapper ${lastStep ? 'submit' : ''}`}>
@@ -224,7 +227,11 @@ const FormStepper = (props: Props): React.ReactElement => {
                   className="button"
                   iconRight={<IconArrowRight />}
                   onClick={handleSubmit(handleNextClick)}
-                  variant="primary">
+                  variant="primary"
+                  disabled={
+                    activeStepIndex === 1 &&
+                    responseCode !== ResponseCode.Success
+                  }>
                   {activeStepIndex === 1
                     ? t('common:make-rectification')
                     : t('common:next')}

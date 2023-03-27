@@ -8,7 +8,6 @@ import InfoContainer from '../infoContainer/InfoContainer';
 import CustomAccordion from '../customAccordion/CustomAccordion';
 import {
   FileItem,
-  FormId,
   selectFormContent,
   selectFormValues
 } from '../formContent/formContentSlice';
@@ -160,12 +159,7 @@ const RectificationSummary = () => {
         </div>
       </div>
       <div className="hide-on-print">
-        <CustomAccordion
-          heading={
-            selectedForm === FormId.MOVEDCAR
-              ? t('moved-car:stepper:step2')
-              : t('parking-fine:fine-info')
-          }>
+        <CustomAccordion heading={t(`${selectedForm}:stepper:step2`)}>
           <InfoContainer />
         </CustomAccordion>
       </div>

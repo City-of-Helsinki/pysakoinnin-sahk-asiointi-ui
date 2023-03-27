@@ -117,18 +117,14 @@ export const getTransferDataThunk = createAsyncThunk(
       )
 );
 
-const handleFormError = (status: number | undefined) => {
-  if (status) {
-    switch (status) {
-      case 404:
-      case 422:
-        return 'not-found';
-      // 500, 503 etc.
-      default:
-        return 'unknown';
-    }
-  } else {
-    return 'unknown';
+const handleFormError = (status: number | undefined, form: FormId) => {
+  switch (status) {
+    case 404:
+    case 422:
+      return `${form}:errors:not-found`;
+    // 500, 503 etc.
+    default:
+      return 'common:errors:unknown';
   }
 };
 
@@ -161,7 +157,10 @@ export const slice = createSlice({
     }));
     builder.addCase(getFoulDataThunk.rejected, (state, action) => ({
       ...state,
-      formError: handleFormError(action.payload as number | undefined)
+      formError: handleFormError(
+        action.payload as number | undefined,
+        FormId.PARKINGFINE
+      )
     }));
     // GET TransferData
     builder.addCase(getTransferDataThunk.fulfilled, (state, action) => ({
@@ -171,7 +170,10 @@ export const slice = createSlice({
     }));
     builder.addCase(getTransferDataThunk.rejected, (state, action) => ({
       ...state,
-      formError: handleFormError(action.payload as number | undefined)
+      formError: handleFormError(
+        action.payload as number | undefined,
+        FormId.MOVEDCAR
+      )
     }));
   }
 });
