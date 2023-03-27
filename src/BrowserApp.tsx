@@ -6,7 +6,11 @@ import App from './App';
 import { ClientProvider } from './client/ClientProvider';
 import StoreProvider from './client/redux/StoreProvider';
 import HandleCallback from './components/HandleCallback';
-import store from './store';
+import { setupStore } from './store';
+import { injectStore } from './utils/interceptors';
+
+const store = setupStore();
+injectStore(store);
 
 function BrowserApp(): React.ReactElement {
   return (

@@ -2,7 +2,7 @@ import React from 'react';
 
 import PageContent from '../components/PageContent';
 import WithAuth from '../client/WithAuth';
-import Loader from '../components/Loader';
+import Loader from '../components/loader/Loader';
 import LoggedOutInfo from '../components/LoggedOutInfo';
 import { useTranslation } from 'react-i18next';
 
