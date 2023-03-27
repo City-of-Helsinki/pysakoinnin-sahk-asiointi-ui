@@ -74,11 +74,15 @@
       "fine-additional-details": "Pysäköintivirheen lisätiedot",
       "sum": "Pysäköintivirhemaksun summa",
       "due-date": "Eräpäivä"
+    },
+    "errors": {
+      "notification-title": "Et voi tehdä oikaisuvaatimusta",
+      "unknown": "Jokin meni pieleen. Kokeile hetken kuluttua uudelleen.",
+      "default": "Oikaisuvaatimuksen teko ei ole mahdollista sähköisessä asioinnissa. Ole tarvittaessa yhteydessä asiakaspalveluun."
     }
   },
   "parking-fine": {
     "title": "Oikaisuvaatimus pysäköintivirhemaksuun",
-    "fine-info": "Pysäköintivirhemaksun tiedot",
     "stepper": {
       "step1": "Haku",
       "step2": "Pysäköintivirhemaksun tiedot",
@@ -105,7 +109,8 @@
     "submit": "Lähetä",
     "errors": {
       "not-found": "Pysäköintivirhemaksun tietoja ei löydy, tarkista tiedot. Ole tarvittaessa yhteydessä asiakaspalveluun.",
-      "unknown": "Jokin meni pieleen. Kokeile hetken kuluttua uudelleen."
+      "objection-exists": "Pysäköintivirhemaksuun on jo tehty oikaisuvaatimus. Ole tarvittaessa yhteydessä asiakaspalveluun.",
+      "note": "Huomautus pysäköintivirheestä on maksuton ja siihen ei voi tehdä oikaisuvaatimusta."
     }
   },
   "due-date": {
@@ -135,8 +140,7 @@
     },
     "submit": "Siirrä eräpäivää",
     "errors": {
-      "not-found": "Pysäköintivirhemaksun tietoja ei löydy, tarkista tiedot. Ole tarvittaessa yhteydessä asiakaspalveluun.",
-      "unknown": "Jokin meni pieleen. Kokeile hetken kuluttua uudelleen."
+      "not-found": "Pysäköintivirhemaksun tietoja ei löydy, tarkista tiedot. Ole tarvittaessa yhteydessä asiakaspalveluun."
     }
   },
   "moved-car": {
@@ -165,7 +169,7 @@
     "reimbursement-sum": "Korvauspäätöksen summa",
     "errors": {
       "not-found": "Ajoneuvon siirron korvauspäätöksen tietoja ei löydy, tarkista tiedot. Ole tarvittaessa yhteydessä asiakaspalveluun.",
-      "unknown": "Jokin meni pieleen. Kokeile hetken kuluttua uudelleen."
+      "objection-exists": "Ajoneuvon siirron korvauspäätökseen on jo tehty oikaisuvaatimus. Ole tarvittaessa yhteydessä asiakaspalveluun."
     }
   },
   "rectificationForm": {

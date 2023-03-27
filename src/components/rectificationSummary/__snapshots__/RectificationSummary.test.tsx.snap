@@ -391,6 +391,12 @@ exports[`Component matches snapshot 1`] = `
     aria-hidden="true"
     class="show-on-print"
   >
+    <h2
+      aria-hidden="true"
+      class="show-on-print"
+    >
+      Pysäköintivirhemaksun tiedot
+    </h2>
     <div
       class="info-container"
     >
@@ -401,12 +407,6 @@ exports[`Component matches snapshot 1`] = `
           class="summary-container"
           data-testid="parkingFineSummary"
         >
-          <h2
-            aria-hidden="true"
-            class="show-on-print"
-          >
-            Pysäköintivirhemaksun tiedot
-          </h2>
           <div
             class="info-field"
           >

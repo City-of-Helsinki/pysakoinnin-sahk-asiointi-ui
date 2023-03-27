@@ -46,9 +46,6 @@ const ParkingFineSummary: FC<Props> = ({ foulData }) => {
   return (
     <div className="summary-body">
       <div data-testid="parkingFineSummary" className="summary-container">
-        <h2 className="show-on-print" aria-hidden="true">
-          {t('parking-fine:fine-info')}
-        </h2>
         <div className="info-field">
           <label>{t('common:fine-info:fine-timestamp')}</label>
           <p>{foulData?.foulDate && formatDateTime(foulData.foulDate)}</p>

@@ -22,9 +22,6 @@ const ReimbursementSummary: FC<Props> = ({ transferData }) => {
   return (
     <div className="summary-body">
       <div data-testid="reimbursementSummary" className="summary-container">
-        <h2 className="show-on-print" aria-hidden="true">
-          {t('moved-car:stepper:step2')}
-        </h2>
         <div className="info-field">
           <label>{t('moved-car:move-timestamp')}</label>
           <p>
