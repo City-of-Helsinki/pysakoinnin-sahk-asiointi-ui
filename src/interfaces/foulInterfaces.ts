@@ -1,3 +1,17 @@
+export enum ResponseCode {
+  Success,
+  CustomerNotFound,
+  NoVehiclesFoundByRegisterNumber,
+  ParkingPermitNotFound,
+  FoulNotFound,
+  ObjectionExists,
+  TransferNotFound,
+  DueDateExtensionNotPermitted,
+  FoulHasTooManyNoticeChecks,
+  TransferHasTooManyNoticeChecks,
+  FoulIsANote
+}
+
 export interface Foul {
   description: string;
   additionalInfo: string;

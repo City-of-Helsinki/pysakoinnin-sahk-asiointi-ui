@@ -5,6 +5,7 @@ import axios, {
   InternalAxiosRequestConfig
 } from 'axios';
 import { clearLoading, setLoading } from '../components/loader/loadingSlice';
+import { ResponseCode } from '../interfaces/foulInterfaces';
 
 let store: AppStore;
 
@@ -42,7 +43,20 @@ const handleResponse = (res: AxiosResponse) => {
   if (store.getState().loading.isLoading) {
     store.dispatch(clearLoading());
   }
-  return res;
+  /* Check that the foul / transfer really exists,
+   * it can be "not found" even though we get a response */
+  if (
+    [ResponseCode.FoulNotFound, ResponseCode.TransferNotFound].includes(
+      res.data.responseCode
+    )
+  ) {
+    const response: AxiosResponse = { ...res, status: 404 };
+    return Promise.reject(
+      new AxiosError(undefined, undefined, undefined, undefined, response)
+    );
+  } else {
+    return res;
+  }
 };
 
 const handleError = (error: AxiosError) => {
