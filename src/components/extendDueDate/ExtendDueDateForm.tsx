@@ -9,9 +9,10 @@ import {
   setEmailConfirmationChecked
 } from './extendDueDateFormSlice';
 import { selectUserProfile } from '../user/userSlice';
-import './ExtendDueDateForm.css';
 import { selectFormContent } from '../formContent/formContentSlice';
 import Barcode from '../barcode/Barcode';
+import { DueDateExtendableReason } from '../../interfaces/dueDateInterfaces';
+import './ExtendDueDateForm.css';
 
 const ExtendDueDateForm = (): React.ReactElement => {
   const { t } = useTranslation();
@@ -26,6 +27,21 @@ const ExtendDueDateForm = (): React.ReactElement => {
     dispatch(
       setEmailConfirmationChecked(!dueDateFormValues.emailConfirmationChecked)
     );
+  };
+
+  const getErrorMessage = (error: DueDateExtendableReason | undefined) => {
+    switch (error) {
+      case DueDateExtendableReason.HasNoChecks:
+        return 'parking-fine:errors:note';
+      case DueDateExtendableReason.DueDateIsPast:
+        return 'due-date:errors:due-date-past';
+      case DueDateExtendableReason.AlreadyExtended:
+        return 'due-date:errors:already-extended';
+      case DueDateExtendableReason.HasPaidCheck:
+        return 'due-date:errors:already-paid';
+      default:
+        return 'due-date:errors:default';
+    }
   };
 
   // Set notification when data is loaded
@@ -46,7 +62,9 @@ const ExtendDueDateForm = (): React.ReactElement => {
           dismissible
           closeButtonLabelText={t('common:close-notification') as string}
           onClose={() => setInfoNotificationOpen(false)}>
-          {t('due-date:notifications:allowed:text')}
+          {foulData?.dueDateExtendable
+            ? t('due-date:notifications:allowed:text')
+            : t(getErrorMessage(foulData?.dueDateExtendableReason))}
         </Notification>
       )}
       <div className="text-container">
