@@ -15,7 +15,7 @@ import {
 } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import { ClientContext } from '../../client/ClientProvider';
-import { formatDate } from '../../utils/helpers';
+import { formatDate, getNewDueDate } from '../../utils/helpers';
 import { friendlyFormatIBAN } from 'ibantools';
 import useMobileWidth from '../../hooks/useMobileWidth';
 import useUserProfile from '../../hooks/useUserProfile';
@@ -38,7 +38,6 @@ import {
   getTransferDataThunk,
   FormId
 } from '../formContent/formContentSlice';
-import { selectDueDateFormValues } from '../extendDueDate/extendDueDateFormSlice';
 import { setUserProfile } from '../user/userSlice';
 import ErrorLabel from '../errorLabel/ErrorLabel';
 import { ResponseCode } from '../../interfaces/foulInterfaces';
@@ -93,7 +92,6 @@ const FormStepper = (props: Props): React.ReactElement => {
     selectedForm === FormId.MOVEDCAR
       ? formContent.transferData?.responseCode
       : formContent.foulData?.responseCode;
-  const dueDateFormValues = useSelector(selectDueDateFormValues);
   const lastStep = activeStepIndex === steps.length - 1;
   const [showSubmitNotification, setShowSubmitNotification] = useState(false);
   const mainPageButtonRef = useRef<null | HTMLDivElement>(null);
@@ -269,7 +267,9 @@ const FormStepper = (props: Props): React.ReactElement => {
               closeButtonLabelText={t('common:close-notification')}
               onClose={() => setShowSubmitNotification(false)}>
               {t(`${formContent.selectedForm}:notifications:success:text`, {
-                newDueDate: formatDate(dueDateFormValues.newDueDate)
+                newDueDate:
+                  formContent.foulData &&
+                  formatDate(getNewDueDate(formContent.foulData?.dueDate))
               })}
             </Notification>
           )}

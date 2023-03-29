@@ -67,30 +67,23 @@ describe('extend due date form', () => {
       const dueDate = '2023-04-05';
       const newDueDate = '2023-05-05';
 
-      const extendDueDateFormSliceMock = createSlice({
-        name: 'extendDueDateForm',
-        initialState: {
-          emailConfirmationChecked: false
-        },
-        reducers: {
-          setEmailConfirmationChecked: (state, action) => {
-            state.emailConfirmationChecked = action.payload;
-          }
-        }
-      });
-
       const formContentSliceMock = createSlice({
         name: 'formContent',
         initialState: {
           formSubmitted: false,
           selectedForm: 'due-date',
-          submitDisabled: true,
+          submitDisabled: false,
+          emailConfirmation: false,
           foulData: {
             dueDate: '2023-04-05T09:32:00',
             dueDateExtendable: true
           }
         },
-        reducers: {}
+        reducers: {
+          setEmailConfirmation: (state, action) => {
+            state.emailConfirmation = action.payload;
+          }
+        }
       });
 
       const userSliceMock = createSlice({
@@ -108,7 +101,6 @@ describe('extend due date form', () => {
 
       const store = configureStore({
         reducer: {
-          extendDueDateForm: extendDueDateFormSliceMock.reducer,
           formContent: formContentSliceMock.reducer,
           user: userSliceMock.reducer
         }
