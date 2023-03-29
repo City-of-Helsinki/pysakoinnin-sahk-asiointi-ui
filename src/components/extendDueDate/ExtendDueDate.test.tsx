@@ -11,7 +11,7 @@ import { configureStore, createSlice } from '@reduxjs/toolkit';
 import store from '../../store';
 import '@testing-library/jest-dom';
 import { t } from 'i18next';
-import { formatDate, formatISODate, getNewDueDate } from '../../utils/helpers';
+import { formatDate } from '../../utils/helpers';
 import { ClientContext } from '../../client/ClientProvider';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -64,14 +64,12 @@ describe('extend due date form', () => {
     });
 
     test('second step view correctly', async () => {
-      const currentDate = formatISODate(new Date());
-      const newDueDate = formatISODate(getNewDueDate(currentDate));
+      const dueDate = '2023-04-05';
+      const newDueDate = '2023-05-05';
 
       const extendDueDateFormSliceMock = createSlice({
         name: 'extendDueDateForm',
         initialState: {
-          dueDate: currentDate,
-          newDueDate: newDueDate,
           emailConfirmationChecked: false
         },
         reducers: {
@@ -86,7 +84,11 @@ describe('extend due date form', () => {
         initialState: {
           formSubmitted: false,
           selectedForm: 'due-date',
-          submitDisabled: true
+          submitDisabled: true,
+          foulData: {
+            dueDate: '2023-04-05T09:32:00',
+            dueDateExtendable: true
+          }
         },
         reducers: {}
       });
@@ -140,7 +142,7 @@ describe('extend due date form', () => {
         name: t('common:fine-info:due-date')
       });
       expect(dueDateEl).toBeInTheDocument();
-      expect(dueDateEl).toHaveValue(formatDate(currentDate));
+      expect(dueDateEl).toHaveValue(formatDate(dueDate));
 
       const newDueDateEl = screen.getByRole('textbox', {
         name: t('due-date:new-due-date')

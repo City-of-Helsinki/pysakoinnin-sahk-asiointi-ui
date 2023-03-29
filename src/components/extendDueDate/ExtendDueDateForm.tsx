@@ -3,17 +3,14 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Checkbox, Link, Notification, TextInput } from 'hds-react';
 import { useTranslation } from 'react-i18next';
-import { formatDate, isExtensionAllowed } from '../../utils/helpers';
+import { formatDate, getNewDueDate } from '../../utils/helpers';
 import {
   selectDueDateFormValues,
   setEmailConfirmationChecked
 } from './extendDueDateFormSlice';
 import { selectUserProfile } from '../user/userSlice';
 import './ExtendDueDateForm.css';
-import {
-  selectFormContent,
-  setSubmitDisabled
-} from '../formContent/formContentSlice';
+import { selectFormContent } from '../formContent/formContentSlice';
 import Barcode from '../barcode/Barcode';
 
 const ExtendDueDateForm = (): React.ReactElement => {
@@ -22,9 +19,7 @@ const ExtendDueDateForm = (): React.ReactElement => {
   const user = useSelector(selectUserProfile);
   const formContent = useSelector(selectFormContent);
   const dueDateFormValues = useSelector(selectDueDateFormValues);
-  const dueDate = formatDate(dueDateFormValues.dueDate);
-  const newDueDate = formatDate(dueDateFormValues.newDueDate);
-  const extensionAllowed = isExtensionAllowed(dueDateFormValues.dueDate);
+  const foulData = formContent.foulData;
   const [infoNotificationOpen, setInfoNotificationOpen] = useState(false);
 
   const handleCheckedChange = () => {
@@ -33,24 +28,21 @@ const ExtendDueDateForm = (): React.ReactElement => {
     );
   };
 
-  // Allow extension only if due date has not passed
+  // Set notification when data is loaded
   useEffect(() => {
-    if (extensionAllowed) {
-      dispatch(setSubmitDisabled(false));
-    }
-    setInfoNotificationOpen(true);
-  }, [dispatch, extensionAllowed]);
+    foulData && setInfoNotificationOpen(true);
+  }, [foulData]);
 
   return (
     <div data-testid="extendDueDateForm">
       {infoNotificationOpen && (
         <Notification
           label={
-            extensionAllowed
+            foulData?.dueDateExtendable
               ? t('due-date:notifications:allowed:label')
               : t('due-date:notifications:not-allowed:label')
           }
-          type={extensionAllowed ? 'success' : 'error'}
+          type={foulData?.dueDateExtendable ? 'success' : 'error'}
           dismissible
           closeButtonLabelText={t('common:close-notification') as string}
           onClose={() => setInfoNotificationOpen(false)}>
@@ -61,40 +53,40 @@ const ExtendDueDateForm = (): React.ReactElement => {
         <TextInput
           id="refNumber"
           label={t('common:fine-info:ref-number:label')}
-          defaultValue="12345678"
+          defaultValue={foulData?.referenceNumber}
           readOnly
         />
         <div className="reg-number-field">
           <TextInput
             id="regNumber"
             label={t('common:fine-info:reg-number:label')}
-            defaultValue="ABC-123"
+            defaultValue={foulData?.registerNumber}
             readOnly
           />
         </div>
         <TextInput
           id="sum"
           label={t('common:fine-info:sum')}
-          defaultValue="80,00 EUR"
+          defaultValue={foulData?.invoiceSumText}
           readOnly
         />
         <TextInput
           id="dueDate"
           label={t('common:fine-info:due-date')}
-          value={dueDate}
+          value={foulData && formatDate(foulData?.dueDate)}
           readOnly
         />
-        {extensionAllowed && (
+        {foulData?.dueDateExtendable && foulData?.dueDate && (
           <TextInput
             id="newDueDate"
             label={t('due-date:new-due-date')}
-            value={newDueDate}
+            value={formatDate(getNewDueDate(foulData?.dueDate))}
             readOnly
           />
         )}
       </div>
 
-      <Barcode barcode="43012383000123056001240000000000000000018714210302" />
+      <Barcode barcode={foulData?.barCode} />
 
       <p className="email-confirmation-label">
         {t('due-date:notifications:email-confirmation:label')}
@@ -118,7 +110,7 @@ const ExtendDueDateForm = (): React.ReactElement => {
         id="emailConfirmationCheckbox"
         checked={dueDateFormValues.emailConfirmationChecked}
         onChange={handleCheckedChange}
-        disabled={!extensionAllowed || formContent.formSubmitted}
+        disabled={!foulData?.dueDateExtendable || formContent.formSubmitted}
       />
     </div>
   );

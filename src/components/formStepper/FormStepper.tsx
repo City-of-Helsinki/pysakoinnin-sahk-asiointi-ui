@@ -112,6 +112,7 @@ const FormStepper = (props: Props): React.ReactElement => {
     if (activeStepIndex === 0) {
       switch (selectedForm) {
         case FormId.PARKINGFINE:
+        case FormId.DUEDATE:
           return dispatch(
             getFoulDataThunk({
               foul_number: form.refNumber,
@@ -125,8 +126,6 @@ const FormStepper = (props: Props): React.ReactElement => {
               register_number: form.regNumber
             })
           );
-        case FormId.DUEDATE:
-          return dispatch(completeStep(activeStepIndex));
       }
     } else {
       dispatch(completeStep(activeStepIndex));
