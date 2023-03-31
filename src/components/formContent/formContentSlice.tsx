@@ -54,6 +54,7 @@ export type FormState = {
   foulData: FoulData | undefined;
   transferData: TransferData | undefined;
   formError: string | null;
+  emailConfirmation: boolean;
 };
 
 const initialState: FormState = {
@@ -63,6 +64,7 @@ const initialState: FormState = {
   foulData: undefined,
   transferData: undefined,
   formError: null,
+  emailConfirmation: false,
   formValues: {
     invoiceNumber: '',
     refNumber: '',
@@ -146,6 +148,9 @@ export const slice = createSlice({
     },
     setFormError: (state, action) => {
       state.formError = action.payload;
+    },
+    setEmailConfirmation: (state, action) => {
+      state.emailConfirmation = action.payload;
     }
   },
   extraReducers: builder => {
@@ -184,7 +189,8 @@ export const {
   setSelectedForm,
   setSubmitDisabled,
   setFormValues,
-  setFormError
+  setFormError,
+  setEmailConfirmation
 } = slice.actions;
 
 // Selectors

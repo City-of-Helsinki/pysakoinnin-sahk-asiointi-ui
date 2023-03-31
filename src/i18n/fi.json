@@ -140,7 +140,11 @@
     },
     "submit": "Siirrä eräpäivää",
     "errors": {
-      "not-found": "Pysäköintivirhemaksun tietoja ei löydy, tarkista tiedot. Ole tarvittaessa yhteydessä asiakaspalveluun."
+      "not-found": "Pysäköintivirhemaksun tietoja ei löydy, tarkista tiedot. Ole tarvittaessa yhteydessä asiakaspalveluun.",
+      "due-date-past": "Pysäköintivirhemaksun eräpäivä on jo mennyt, etkä voi hakea eräpäivälle lisäaikaa sähköisessä asioinnissa. Ole yhteydessä asiakaspalveluun. Virhemaksu on maksettava 30 päivän kuluessa.",
+      "already-extended": "Pysäköintivirhemaksun eräpäivää on jo siirretty eikä sitä voi enää siirtää sähköinen asioinnissa. Ole yhteydessä asiakaspalveluun.",
+      "already-paid": "Eräpäivän siirto ei ole mahdollista. Pysäköintivirhemaksu on maksettu.",
+      "default": "Eräpäivän siirto ei ole mahdollista. Ole yhteydessä asiakaspalveluun."
     }
   },
   "moved-car": {

@@ -3,98 +3,109 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Checkbox, Link, Notification, TextInput } from 'hds-react';
 import { useTranslation } from 'react-i18next';
-import { formatDate, isExtensionAllowed } from '../../utils/helpers';
-import {
-  selectDueDateFormValues,
-  setEmailConfirmationChecked
-} from './extendDueDateFormSlice';
+import { formatDate, getNewDueDate } from '../../utils/helpers';
 import { selectUserProfile } from '../user/userSlice';
-import './ExtendDueDateForm.css';
 import {
   selectFormContent,
+  setEmailConfirmation,
   setSubmitDisabled
 } from '../formContent/formContentSlice';
 import Barcode from '../barcode/Barcode';
+import { DueDateExtendableReason } from '../../interfaces/dueDateInterfaces';
+import './ExtendDueDateForm.css';
 
 const ExtendDueDateForm = (): React.ReactElement => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const user = useSelector(selectUserProfile);
   const formContent = useSelector(selectFormContent);
-  const dueDateFormValues = useSelector(selectDueDateFormValues);
-  const dueDate = formatDate(dueDateFormValues.dueDate);
-  const newDueDate = formatDate(dueDateFormValues.newDueDate);
-  const extensionAllowed = isExtensionAllowed(dueDateFormValues.dueDate);
+  const foulData = formContent.foulData;
   const [infoNotificationOpen, setInfoNotificationOpen] = useState(false);
 
   const handleCheckedChange = () => {
-    dispatch(
-      setEmailConfirmationChecked(!dueDateFormValues.emailConfirmationChecked)
-    );
+    dispatch(setEmailConfirmation(!formContent.emailConfirmation));
   };
 
-  // Allow extension only if due date has not passed
-  useEffect(() => {
-    if (extensionAllowed) {
-      dispatch(setSubmitDisabled(false));
+  const getErrorMessage = (error: DueDateExtendableReason | undefined) => {
+    switch (error) {
+      case DueDateExtendableReason.HasNoChecks:
+        return 'parking-fine:errors:note';
+      case DueDateExtendableReason.DueDateIsPast:
+        return 'due-date:errors:due-date-past';
+      case DueDateExtendableReason.AlreadyExtended:
+        return 'due-date:errors:already-extended';
+      case DueDateExtendableReason.HasPaidCheck:
+        return 'due-date:errors:already-paid';
+      default:
+        return 'due-date:errors:default';
     }
-    setInfoNotificationOpen(true);
-  }, [dispatch, extensionAllowed]);
+  };
 
-  return (
+  // Set notification and submit disabled status when data is loaded
+  useEffect(() => {
+    if (foulData) {
+      setInfoNotificationOpen(true);
+      dispatch(setSubmitDisabled(!foulData.dueDateExtendable));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [foulData]);
+
+  return foulData ? (
     <div data-testid="extendDueDateForm">
       {infoNotificationOpen && (
         <Notification
           label={
-            extensionAllowed
+            foulData?.dueDateExtendable
               ? t('due-date:notifications:allowed:label')
               : t('due-date:notifications:not-allowed:label')
           }
-          type={extensionAllowed ? 'success' : 'error'}
+          type={foulData?.dueDateExtendable ? 'success' : 'error'}
           dismissible
           closeButtonLabelText={t('common:close-notification') as string}
           onClose={() => setInfoNotificationOpen(false)}>
-          {t('due-date:notifications:allowed:text')}
+          {foulData?.dueDateExtendable
+            ? t('due-date:notifications:allowed:text')
+            : t(getErrorMessage(foulData?.dueDateExtendableReason))}
         </Notification>
       )}
       <div className="text-container">
         <TextInput
           id="refNumber"
           label={t('common:fine-info:ref-number:label')}
-          defaultValue="12345678"
+          value={foulData?.foulNumber ? foulData?.foulNumber.toString() : ''}
           readOnly
         />
         <div className="reg-number-field">
           <TextInput
             id="regNumber"
             label={t('common:fine-info:reg-number:label')}
-            defaultValue="ABC-123"
+            value={foulData?.registerNumber}
             readOnly
           />
         </div>
         <TextInput
           id="sum"
           label={t('common:fine-info:sum')}
-          defaultValue="80,00 EUR"
+          value={foulData?.invoiceSumText}
           readOnly
         />
         <TextInput
           id="dueDate"
           label={t('common:fine-info:due-date')}
-          value={dueDate}
+          value={foulData && formatDate(foulData?.dueDate)}
           readOnly
         />
-        {extensionAllowed && (
+        {foulData?.dueDateExtendable && foulData?.dueDate && (
           <TextInput
             id="newDueDate"
             label={t('due-date:new-due-date')}
-            value={newDueDate}
+            value={formatDate(getNewDueDate(foulData?.dueDate))}
             readOnly
           />
         )}
       </div>
 
-      <Barcode barcode="43012383000123056001240000000000000000018714210302" />
+      <Barcode barcode={foulData?.barCode} />
 
       <p className="email-confirmation-label">
         {t('due-date:notifications:email-confirmation:label')}
@@ -116,11 +127,13 @@ const ExtendDueDateForm = (): React.ReactElement => {
       <Checkbox
         label={t('common:email-confirmation')}
         id="emailConfirmationCheckbox"
-        checked={dueDateFormValues.emailConfirmationChecked}
+        checked={formContent.emailConfirmation}
         onChange={handleCheckedChange}
-        disabled={!extensionAllowed || formContent.formSubmitted}
+        disabled={formContent.submitDisabled}
       />
     </div>
+  ) : (
+    <></>
   );
 };
 

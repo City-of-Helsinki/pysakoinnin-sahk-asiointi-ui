@@ -5,7 +5,6 @@ import {
 } from '@reduxjs/toolkit';
 import formContentReducer from './components/formContent/formContentSlice';
 import formStepperReducer from './components/formStepper/formStepperSlice';
-import extendDueDateFormReducer from './components/extendDueDate/extendDueDateFormSlice';
 import userReducer from './components/user/userSlice';
 import loadingReducer from './components/loader/loadingSlice';
 import { useDispatch } from 'react-redux';
@@ -13,7 +12,6 @@ import { useDispatch } from 'react-redux';
 export const storeItems = {
   formContent: formContentReducer,
   formStepper: formStepperReducer,
-  extendDueDateForm: extendDueDateFormReducer,
   user: userReducer,
   loading: loadingReducer
 };
