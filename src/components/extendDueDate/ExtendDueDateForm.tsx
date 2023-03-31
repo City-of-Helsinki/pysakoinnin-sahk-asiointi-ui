@@ -50,7 +50,7 @@ const ExtendDueDateForm = (): React.ReactElement => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [foulData]);
 
-  return (
+  return foulData ? (
     <div data-testid="extendDueDateForm">
       {infoNotificationOpen && (
         <Notification
@@ -72,34 +72,34 @@ const ExtendDueDateForm = (): React.ReactElement => {
         <TextInput
           id="refNumber"
           label={t('common:fine-info:ref-number:label')}
-          defaultValue={foulData?.referenceNumber}
+          value={foulData?.foulNumber ? foulData?.foulNumber.toString() : ''}
           readOnly
         />
         <div className="reg-number-field">
           <TextInput
             id="regNumber"
             label={t('common:fine-info:reg-number:label')}
-            defaultValue={foulData?.registerNumber}
+            value={foulData?.registerNumber}
             readOnly
           />
         </div>
         <TextInput
           id="sum"
           label={t('common:fine-info:sum')}
-          defaultValue={foulData?.invoiceSumText}
+          value={foulData?.invoiceSumText}
           readOnly
         />
         <TextInput
           id="dueDate"
           label={t('common:fine-info:due-date')}
-          defaultValue={foulData && formatDate(foulData?.dueDate)}
+          value={foulData && formatDate(foulData?.dueDate)}
           readOnly
         />
         {foulData?.dueDateExtendable && foulData?.dueDate && (
           <TextInput
             id="newDueDate"
             label={t('due-date:new-due-date')}
-            defaultValue={formatDate(getNewDueDate(foulData?.dueDate))}
+            value={formatDate(getNewDueDate(foulData?.dueDate))}
             readOnly
           />
         )}
@@ -132,6 +132,8 @@ const ExtendDueDateForm = (): React.ReactElement => {
         disabled={formContent.submitDisabled}
       />
     </div>
+  ) : (
+    <></>
   );
 };
 

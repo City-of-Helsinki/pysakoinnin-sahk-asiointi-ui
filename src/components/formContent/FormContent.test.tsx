@@ -10,26 +10,18 @@ import { configureStore, createSlice } from '@reduxjs/toolkit';
 import { ClientContext } from '../../client/ClientProvider';
 import store from '../../store';
 import '@testing-library/jest-dom';
+import mockFoulData from '../../mocks/mockFoulData';
 
 // ClientContext needs to be added here since the tests don't get it from FormStepper
 renderHook(() => useContext(ClientContext));
-
-const extendDueDateFormSliceMock = createSlice({
-  name: 'extendDueDateForm',
-  initialState: {
-    dueDate: '2022-12-12',
-    newDueDate: '2023-01-11',
-    emailConfirmationChecked: false
-  },
-  reducers: {}
-});
 
 const dueDateFormContentSliceMock = createSlice({
   name: 'formContent',
   initialState: {
     formSubmitted: false,
     selectedForm: 'due-date',
-    submitDisabled: true
+    submitDisabled: true,
+    foulData: mockFoulData
   },
   reducers: {}
 });
@@ -144,7 +136,6 @@ describe('form content', () => {
         const store = configureStore({
           reducer: {
             formContent: dueDateFormContentSliceMock.reducer,
-            extendDueDateForm: extendDueDateFormSliceMock.reducer,
             user: userSliceMock.reducer
           }
         });
