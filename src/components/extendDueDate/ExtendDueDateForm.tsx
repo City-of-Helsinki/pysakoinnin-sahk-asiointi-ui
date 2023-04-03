@@ -129,7 +129,7 @@ const ExtendDueDateForm = (): React.ReactElement => {
         id="emailConfirmationCheckbox"
         checked={formContent.emailConfirmation}
         onChange={handleCheckedChange}
-        disabled={formContent.submitDisabled}
+        disabled={formContent.submitDisabled || formContent.formSubmitted}
       />
     </div>
   ) : (

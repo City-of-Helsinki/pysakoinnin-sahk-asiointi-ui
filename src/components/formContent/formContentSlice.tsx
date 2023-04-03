@@ -10,7 +10,12 @@ import {
 import { getFoulData } from '../../services/foulService';
 import { getTransferData } from '../../services/transferService';
 import { AxiosError } from 'axios';
-import { completeStep } from '../formStepper/formStepperSlice';
+import {
+  completeStep,
+  disablePreviousSteps
+} from '../formStepper/formStepperSlice';
+import { DueDateRequest } from '../../interfaces/dueDateInterfaces';
+import { extendDueDate } from '../../services/dueDateService';
 
 export enum FormId {
   NONE = '',
@@ -54,7 +59,9 @@ export type FormState = {
   foulData: FoulData | undefined;
   transferData: TransferData | undefined;
   formError: string | null;
+  submitError: boolean;
   emailConfirmation: boolean;
+  dueDate: string | undefined;
 };
 
 const initialState: FormState = {
@@ -64,7 +71,9 @@ const initialState: FormState = {
   foulData: undefined,
   transferData: undefined,
   formError: null,
+  submitError: false,
   emailConfirmation: false,
+  dueDate: undefined,
   formValues: {
     invoiceNumber: '',
     refNumber: '',
@@ -119,6 +128,21 @@ export const getTransferDataThunk = createAsyncThunk(
       )
 );
 
+export const extendDueDateThunk = createAsyncThunk(
+  'formContent/extendDueDate',
+  async (req: DueDateRequest, thunkAPI) =>
+    await extendDueDate(req)
+      .then(res => {
+        const activeStep = (thunkAPI.getState() as RootState).formStepper
+          .activeStepIndex;
+        thunkAPI.dispatch(disablePreviousSteps(activeStep));
+        return res;
+      })
+      .catch((err: AxiosError) =>
+        thunkAPI.rejectWithValue(err.response?.status)
+      )
+);
+
 const handleFormError = (status: number | undefined, form: FormId) => {
   switch (status) {
     case 404:
@@ -151,6 +175,9 @@ export const slice = createSlice({
     },
     setEmailConfirmation: (state, action) => {
       state.emailConfirmation = action.payload;
+    },
+    setSubmitError: (state, action) => {
+      state.submitError = action.payload;
     }
   },
   extraReducers: builder => {
@@ -180,6 +207,17 @@ export const slice = createSlice({
         FormId.MOVEDCAR
       )
     }));
+    // POST ExtendDueDate
+    builder.addCase(extendDueDateThunk.fulfilled, (state, action) => ({
+      ...state,
+      formSubmitted: true,
+      dueDate: action.payload.dueDate,
+      submitError: false
+    }));
+    builder.addCase(extendDueDateThunk.rejected, state => ({
+      ...state,
+      submitError: true
+    }));
   }
 });
 
@@ -190,7 +228,8 @@ export const {
   setSubmitDisabled,
   setFormValues,
   setFormError,
-  setEmailConfirmation
+  setEmailConfirmation,
+  setSubmitError
 } = slice.actions;
 
 // Selectors

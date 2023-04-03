@@ -28,17 +28,13 @@ const ParkingFineAppeal = (): React.ReactElement => {
     }
   ];
 
-  const handleSubmit = () => {
-    //console.log('submit parking fine appeal form');
-  };
-
   useEffect(() => {
     dispatch(setSelectedForm(FormId.PARKINGFINE));
   }, [dispatch]);
 
   return (
     <PageContent>
-      <FormStepper initialSteps={steps} onSubmit={handleSubmit} />
+      <FormStepper initialSteps={steps} />
     </PageContent>
   );
 };
