@@ -20,17 +20,13 @@ const ExtendDueDate = (): React.ReactElement => {
     }
   ];
 
-  const handleSubmit = () => {
-    //console.log('submit extend due date form');
-  };
-
   useEffect(() => {
     dispatch(setSelectedForm(FormId.DUEDATE));
   }, [dispatch]);
 
   return (
     <PageContent>
-      <FormStepper initialSteps={steps} onSubmit={handleSubmit} />
+      <FormStepper initialSteps={steps} />
     </PageContent>
   );
 };

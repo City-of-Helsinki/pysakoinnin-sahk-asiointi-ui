@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -15,27 +16,27 @@ import {
 } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import { ClientContext } from '../../client/ClientProvider';
-import { formatDate, getNewDueDate } from '../../utils/helpers';
 import { friendlyFormatIBAN } from 'ibantools';
 import useMobileWidth from '../../hooks/useMobileWidth';
 import useUserProfile from '../../hooks/useUserProfile';
 import FormContent from '../formContent/FormContent';
+import { formatDate } from '../../utils/helpers';
 import {
   completeStep,
   selectStepperState,
   setActive,
   setSteps,
-  disablePreviousSteps,
   Step
 } from './formStepperSlice';
 import {
   selectFormContent,
-  setFormSubmitted,
   selectFormValues,
   setFormValues,
   RectificationFormType,
   getFoulDataThunk,
   getTransferDataThunk,
+  extendDueDateThunk,
+  setSubmitError,
   FormId
 } from '../formContent/formContentSlice';
 import { setUserProfile } from '../user/userSlice';
@@ -45,7 +46,6 @@ import './FormStepper.css';
 
 interface Props {
   initialSteps: Step[];
-  onSubmit: () => void;
 }
 
 const useRectificationForm = () => {
@@ -65,13 +65,11 @@ const useRectificationForm = () => {
   // if form values are found from redux (i.e. a change happens), update the form default values
   useEffect(() => {
     formValues && reset(formValues);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formValues]);
 
   // reset the form when successfully submitting to also reset the validation which happens onSubmit
   useEffect(() => {
     isSubmitSuccessful && reset(formValues);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSubmitSuccessful]);
 
   // export the needed functions/hooks to use the form
@@ -94,15 +92,22 @@ const FormStepper = (props: Props): React.ReactElement => {
       : formContent.foulData?.responseCode;
   const lastStep = activeStepIndex === steps.length - 1;
   const [showSubmitNotification, setShowSubmitNotification] = useState(false);
+  const [showErrorNotification, setShowErrorNotification] = useState(false);
   const mainPageButtonRef = useRef<null | HTMLDivElement>(null);
   const userProfile = useUserProfile();
 
   const { control, handleSubmit, getValues } = useRectificationForm();
 
-  const handleFormSubmit = () => {
-    dispatch(setFormSubmitted(true));
-    dispatch(disablePreviousSteps(activeStepIndex));
-    setShowSubmitNotification(true);
+  const handleFormSubmit = (form: RectificationFormType) => {
+    switch (selectedForm) {
+      case FormId.DUEDATE:
+        dispatch(
+          extendDueDateThunk({
+            foul_number: form.refNumber,
+            register_number: form.regNumber
+          })
+        ).then(() => setShowSubmitNotification(true));
+    }
   };
 
   const handleNextClick = (form: RectificationFormType) => {
@@ -142,12 +147,22 @@ const FormStepper = (props: Props): React.ReactElement => {
   // if user profile is found, add it to redux
   useEffect(() => {
     userProfile && dispatch(setUserProfile(userProfile));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userProfile]);
 
+  // set initial steps when the form is opened
   useEffect(() => {
     dispatch(setSteps(props.initialSteps));
   }, [dispatch, props.initialSteps]);
+
+  // show error notification if submitError = true in redux
+  useEffect(() => {
+    setShowErrorNotification(formContent.submitError);
+  }, [formContent.submitError]);
+
+  // clear submit error when form step is changed
+  useEffect(() => {
+    dispatch(setSubmitError(false));
+  }, [activeStepIndex]);
 
   // scroll down to ensure submit notification and button to home page are visible
   useEffect(() => {
@@ -238,7 +253,7 @@ const FormStepper = (props: Props): React.ReactElement => {
                   id="button-submitted"
                   className="button"
                   iconLeft={<IconThumbsUp />}
-                  onClick={handleFormSubmit}
+                  onClick={handleSubmit(handleFormSubmit)}
                   variant="success">
                   {t(`${formContent.selectedForm}:submit-success`)}
                 </Button>
@@ -246,7 +261,7 @@ const FormStepper = (props: Props): React.ReactElement => {
                 <Button
                   id="button-submit"
                   className="button submit"
-                  onClick={handleFormSubmit}
+                  onClick={handleSubmit(handleFormSubmit)}
                   variant="primary"
                   disabled={formContent.submitDisabled}>
                   {t(`${formContent.selectedForm}:submit`)}
@@ -261,16 +276,30 @@ const FormStepper = (props: Props): React.ReactElement => {
                 `${formContent.selectedForm}:notifications:success:label`
               )}
               position="top-right"
-              type={'success'}
+              type="success"
               autoClose
               dismissible
               closeButtonLabelText={t('common:close-notification')}
               onClose={() => setShowSubmitNotification(false)}>
               {t(`${formContent.selectedForm}:notifications:success:text`, {
                 newDueDate:
-                  formContent.foulData &&
-                  formatDate(getNewDueDate(formContent.foulData?.dueDate))
+                  formContent.dueDate && formatDate(formContent.dueDate)
               })}
+            </Notification>
+          )}
+          {lastStep && showErrorNotification && (
+            <Notification
+              className="submit-notification"
+              label={t(`${formContent.selectedForm}:notifications:fail:label`)}
+              position="top-right"
+              type="error"
+              dismissible
+              closeButtonLabelText={t('common:close-notification')}
+              onClose={() => {
+                dispatch(setSubmitError(false));
+                setShowErrorNotification(false);
+              }}>
+              {t(`${formContent.selectedForm}:notifications:fail:text`)}
             </Notification>
           )}
           <div>
