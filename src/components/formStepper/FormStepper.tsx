@@ -253,7 +253,6 @@ const FormStepper = (props: Props): React.ReactElement => {
                   id="button-submitted"
                   className="button"
                   iconLeft={<IconThumbsUp />}
-                  onClick={handleSubmit(handleFormSubmit)}
                   variant="success">
                   {t(`${formContent.selectedForm}:submit-success`)}
                 </Button>
