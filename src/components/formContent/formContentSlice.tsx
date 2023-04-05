@@ -227,6 +227,9 @@ export const slice = createSlice({
       submitError: false
     }));
     builder.addCase(saveObjectionThunk.rejected, state => ({
+      ...state,
+      submitError: true
+    }));
   }
 });
 
