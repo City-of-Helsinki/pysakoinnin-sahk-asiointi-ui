@@ -19,6 +19,8 @@ import {
   ObjectionForm
 } from '../../interfaces/objectionInterfaces';
 import { saveObjection } from '../../services/objectionService';
+import { DueDateRequest } from '../../interfaces/dueDateInterfaces';
+import { extendDueDate } from '../../services/dueDateService';
 
 export enum FormId {
   NONE = '',
@@ -35,7 +37,9 @@ export type FormState = {
   foulData: FoulData | undefined;
   transferData: TransferData | undefined;
   formError: string | null;
+  submitError: boolean;
   emailConfirmation: boolean;
+  dueDate: string | undefined;
 };
 
 const initialState: FormState = {
@@ -45,7 +49,9 @@ const initialState: FormState = {
   foulData: undefined,
   transferData: undefined,
   formError: null,
+  submitError: false,
   emailConfirmation: false,
+  dueDate: undefined,
   formValues: {
     foulNumber: '',
     transferNumber: '',
@@ -109,6 +115,21 @@ export const getTransferDataThunk = createAsyncThunk(
       )
 );
 
+export const extendDueDateThunk = createAsyncThunk(
+  'formContent/extendDueDate',
+  async (req: DueDateRequest, thunkAPI) =>
+    await extendDueDate(req)
+      .then(res => {
+        const activeStep = (thunkAPI.getState() as RootState).formStepper
+          .activeStepIndex;
+        thunkAPI.dispatch(disablePreviousSteps(activeStep));
+        return res;
+      })
+      .catch((err: AxiosError) =>
+        thunkAPI.rejectWithValue(err.response?.status)
+      )
+);
+
 export const saveObjectionThunk = createAsyncThunk(
   'formContent/saveObjection',
   async (req: Objection, thunkAPI) =>
@@ -156,6 +177,9 @@ export const slice = createSlice({
     },
     setEmailConfirmation: (state, action) => {
       state.emailConfirmation = action.payload;
+    },
+    setSubmitError: (state, action) => {
+      state.submitError = action.payload;
     }
   },
   extraReducers: builder => {
@@ -185,6 +209,17 @@ export const slice = createSlice({
         FormId.MOVEDCAR
       )
     }));
+    // POST ExtendDueDate
+    builder.addCase(extendDueDateThunk.fulfilled, (state, action) => ({
+      ...state,
+      formSubmitted: true,
+      dueDate: action.payload.dueDate,
+      submitError: false
+    }));
+    builder.addCase(extendDueDateThunk.rejected, state => ({
+      ...state,
+      submitError: true
+    }));
     // POST SaveObjection
     builder.addCase(saveObjectionThunk.fulfilled, state => ({
       ...state,
@@ -192,9 +227,6 @@ export const slice = createSlice({
       submitError: false
     }));
     builder.addCase(saveObjectionThunk.rejected, state => ({
-      ...state,
-      submitError: true
-    }));
   }
 });
 
@@ -205,7 +237,8 @@ export const {
   setSubmitDisabled,
   setFormValues,
   setFormError,
-  setEmailConfirmation
+  setEmailConfirmation,
+  setSubmitError
 } = slice.actions;
 
 // Selectors

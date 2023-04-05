@@ -104,6 +104,10 @@
       "success": {
         "label": "Olemme vastaanottaneet oikaisuvaatimuksesi",
         "text": "Saat ilmoitukset oikaisuvaatimuksen käsittelyn eri vaiheista antamaasi sähköpostiosoitteeseen. Kun päätös on tehty, saat sen pysäköinnin asiointikansioosi."
+      },
+      "fail": {
+        "label": "Oikaisuvaatimuksen lähetys ei onnistunut",
+        "text": "Jokin meni pieleen oikaisuvaatimuksen lähetyksessä. Ole tarvittaessa yhteydessä asiakaspalveluun."
       }
     },
     "submit": "Lähetä",
@@ -136,6 +140,10 @@
       "success": {
         "label": "Eräpäivää on siirretty",
         "text": "Pysäköintivirhemaksun eräpäivää on siirretty 30 päivää. Uusi eräpäivä on {{newDueDate}}."
+      },
+      "fail": {
+        "label": "Eräpäivän siirto ei onnistunut",
+        "text": "Jokin meni pieleen eräpäivän siirron lähetyksessä. Ole tarvittaessa yhteydessä asiakaspalveluun."
       }
     },
     "submit": "Siirrä eräpäivää",
@@ -161,6 +169,10 @@
       "success": {
         "label": "Olemme vastaanottaneet oikaisuvaatimuksesi",
         "text": "Saat ilmoitukset oikaisuvaatimuksen käsittelyn eri vaiheista antamaasi sähköpostiosoitteeseen. Kun päätös on tehty, saat sen pysäköinnin asiointikansioosi."
+      },
+      "fail": {
+        "label": "Oikaisuvaatimuksen lähetys ei onnistunut",
+        "text": "Jokin meni pieleen oikaisuvaatimuksen lähetyksessä. Ole tarvittaessa yhteydessä asiakaspalveluun."
       }
     },
     "move-timestamp": "Siirron päivämäärä",

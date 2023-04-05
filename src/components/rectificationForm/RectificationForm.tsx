@@ -443,7 +443,7 @@ const RectificationForm: FC<Props> = ({ control, values }) => {
             render={({ field, fieldState }) => (
               <div className="rectification-delivery-decision radio-group-section">
                 <FieldLabel
-                  text={t(`rectificationForm:relation-info:relation`)}
+                  text={t(`rectificationForm:delivery-decision`)}
                   required={true}
                 />
                 <div className="radio-group-container">
