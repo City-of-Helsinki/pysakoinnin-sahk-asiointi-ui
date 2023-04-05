@@ -1,4 +1,4 @@
-import { FileItem } from '../formContent/formContentSlice';
+import { FileItem } from '../../interfaces/objectionInterfaces';
 
 export type RectificationListItem = {
   id: string;

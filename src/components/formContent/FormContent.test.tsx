@@ -5,7 +5,7 @@ import { renderHook } from '@testing-library/react-hooks';
 import { useForm } from 'react-hook-form';
 import { axe } from 'jest-axe';
 import FormContent from './FormContent';
-import { RectificationFormType } from './formContentSlice';
+import { ObjectionForm } from '../../interfaces/objectionInterfaces';
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 import { ClientContext } from '../../client/ClientProvider';
 import store from '../../store';
@@ -50,9 +50,10 @@ const userSliceMock = createSlice({
   name: 'user',
   initialState: {
     userProfile: {
-      name: 'Test User',
+      firstName: 'Test',
+      lastName: 'User',
       email: 'test.user@test.fi',
-      SSN: '123456-789A'
+      ssn: '123456-789A'
     },
     promptLogin: false
   },
@@ -60,11 +61,11 @@ const userSliceMock = createSlice({
 });
 
 const { result } = renderHook(() =>
-  useForm<RectificationFormType>({
+  useForm<ObjectionForm>({
     defaultValues: {
-      invoiceNumber: '',
-      refNumber: '',
-      regNumber: ''
+      transferNumber: '',
+      foulNumber: '',
+      registerNumber: ''
     }
   })
 );

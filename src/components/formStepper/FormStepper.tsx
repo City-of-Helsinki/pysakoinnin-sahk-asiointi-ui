@@ -15,7 +15,11 @@ import {
 } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import { ClientContext } from '../../client/ClientProvider';
-import { formatDate, getNewDueDate } from '../../utils/helpers';
+import {
+  createObjection,
+  formatDate,
+  getNewDueDate
+} from '../../utils/helpers';
 import { friendlyFormatIBAN } from 'ibantools';
 import useMobileWidth from '../../hooks/useMobileWidth';
 import useUserProfile from '../../hooks/useUserProfile';
@@ -25,27 +29,25 @@ import {
   selectStepperState,
   setActive,
   setSteps,
-  disablePreviousSteps,
   Step
 } from './formStepperSlice';
 import {
   selectFormContent,
-  setFormSubmitted,
   selectFormValues,
   setFormValues,
-  RectificationFormType,
   getFoulDataThunk,
   getTransferDataThunk,
-  FormId
+  FormId,
+  saveObjectionThunk
 } from '../formContent/formContentSlice';
-import { setUserProfile } from '../user/userSlice';
+import { ObjectionForm } from '../../interfaces/objectionInterfaces';
+import { selectUserProfile, setUserProfile } from '../user/userSlice';
 import ErrorLabel from '../errorLabel/ErrorLabel';
 import { ResponseCode } from '../../interfaces/foulInterfaces';
 import './FormStepper.css';
 
 interface Props {
   initialSteps: Step[];
-  onSubmit: () => void;
 }
 
 const useRectificationForm = () => {
@@ -57,7 +59,7 @@ const useRectificationForm = () => {
     reset,
     getValues,
     formState: { isSubmitSuccessful }
-  } = useForm<RectificationFormType>({
+  } = useForm<ObjectionForm>({
     mode: 'onTouched',
     defaultValues: formValues
   });
@@ -96,32 +98,37 @@ const FormStepper = (props: Props): React.ReactElement => {
   const [showSubmitNotification, setShowSubmitNotification] = useState(false);
   const mainPageButtonRef = useRef<null | HTMLDivElement>(null);
   const userProfile = useUserProfile();
+  const user = useSelector(selectUserProfile);
 
   const { control, handleSubmit, getValues } = useRectificationForm();
 
   const handleFormSubmit = () => {
-    dispatch(setFormSubmitted(true));
-    dispatch(disablePreviousSteps(activeStepIndex));
-    setShowSubmitNotification(true);
+    const objection = createObjection(formContent.formValues, user);
+    switch (selectedForm) {
+      case FormId.PARKINGFINE:
+        dispatch(saveObjectionThunk(objection)).then(() =>
+          setShowSubmitNotification(true)
+        );
+    }
   };
 
-  const handleNextClick = (form: RectificationFormType) => {
-    dispatch(setFormValues({ ...form, IBAN: friendlyFormatIBAN(form.IBAN) }));
+  const handleNextClick = (form: ObjectionForm) => {
+    dispatch(setFormValues({ ...form, iban: friendlyFormatIBAN(form.iban) }));
     if (activeStepIndex === 0) {
       switch (selectedForm) {
         case FormId.PARKINGFINE:
         case FormId.DUEDATE:
           return dispatch(
             getFoulDataThunk({
-              foul_number: form.refNumber,
-              register_number: form.regNumber
+              foul_number: form.foulNumber,
+              register_number: form.registerNumber
             })
           );
         case FormId.MOVEDCAR:
           return dispatch(
             getTransferDataThunk({
-              transfer_number: form.invoiceNumber,
-              register_number: form.regNumber
+              transfer_number: form.transferNumber,
+              register_number: form.registerNumber
             })
           );
       }

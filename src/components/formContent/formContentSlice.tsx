@@ -1,7 +1,6 @@
 /* eslint-disable no-magic-numbers */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../../store';
-import { Control } from 'react-hook-form';
 import { FoulData, FoulRequest } from '../../interfaces/foulInterfaces';
 import {
   TransferData,
@@ -10,7 +9,16 @@ import {
 import { getFoulData } from '../../services/foulService';
 import { getTransferData } from '../../services/transferService';
 import { AxiosError } from 'axios';
-import { completeStep } from '../formStepper/formStepperSlice';
+import {
+  completeStep,
+  disablePreviousSteps
+} from '../formStepper/formStepperSlice';
+import {
+  AuthorRole,
+  Objection,
+  ObjectionForm
+} from '../../interfaces/objectionInterfaces';
+import { saveObjection } from '../../services/objectionService';
 
 export enum FormId {
   NONE = '',
@@ -19,38 +27,11 @@ export enum FormId {
   MOVEDCAR = 'moved-car'
 }
 
-export type FileItem = {
-  name: string;
-  size: number;
-  type: string;
-};
-
-export type RectificationFormType = {
-  invoiceNumber: string;
-  refNumber: string;
-  regNumber: string;
-  relation: string;
-  poaFile: FileItem;
-  attachments: FileItem[];
-  toSeparateEmail: boolean;
-  newEmailAddress: string;
-  newEmailConfirm: string;
-  address: string;
-  zipCode: string;
-  city: string;
-  phone: string;
-  IBAN: string;
-  rectificationContent: string;
-  deliveryDecision: string;
-};
-
-export type RectificationControlType = Control<RectificationFormType>;
-
 export type FormState = {
   formSubmitted: boolean;
   selectedForm: FormId;
   submitDisabled: boolean;
-  formValues: RectificationFormType;
+  formValues: ObjectionForm;
   foulData: FoulData | undefined;
   transferData: TransferData | undefined;
   formError: string | null;
@@ -66,26 +47,35 @@ const initialState: FormState = {
   formError: null,
   emailConfirmation: false,
   formValues: {
-    invoiceNumber: '',
-    refNumber: '',
-    regNumber: '',
-    relation: '',
+    foulNumber: '',
+    transferNumber: '',
+    registerNumber: '',
+    ssn: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+    newEmail: '',
+    newEmailConfirm: '',
+    toSeparateEmail: false,
+    mobilePhone: '',
+    iban: '',
+    authorRole: AuthorRole.Undefined,
+    address: {
+      streetAddress: '',
+      postCode: '',
+      postOffice: ''
+    },
+    description: '',
     poaFile: {
-      name: '',
-      size: 0,
-      type: ''
+      fileName: '',
+      mimeType: '',
+      data: '',
+      size: 0
     },
     attachments: [],
-    toSeparateEmail: false,
-    newEmailAddress: '',
-    newEmailConfirm: '',
-    address: '',
-    zipCode: '',
-    city: '',
-    phone: '',
-    IBAN: '',
-    rectificationContent: '',
-    deliveryDecision: ''
+    type: 0,
+    deliveryDecision: '',
+    sendDecisionViaEService: true
   }
 };
 
@@ -112,6 +102,21 @@ export const getTransferDataThunk = createAsyncThunk(
         const activeStep = (thunkAPI.getState() as RootState).formStepper
           .activeStepIndex;
         thunkAPI.dispatch(completeStep(activeStep));
+        return res;
+      })
+      .catch((err: AxiosError) =>
+        thunkAPI.rejectWithValue(err.response?.status)
+      )
+);
+
+export const saveObjectionThunk = createAsyncThunk(
+  'formContent/saveObjection',
+  async (req: Objection, thunkAPI) =>
+    await saveObjection(req)
+      .then(res => {
+        const activeStep = (thunkAPI.getState() as RootState).formStepper
+          .activeStepIndex;
+        thunkAPI.dispatch(disablePreviousSteps(activeStep));
         return res;
       })
       .catch((err: AxiosError) =>
@@ -179,6 +184,16 @@ export const slice = createSlice({
         action.payload as number | undefined,
         FormId.MOVEDCAR
       )
+    }));
+    // POST SaveObjection
+    builder.addCase(saveObjectionThunk.fulfilled, state => ({
+      ...state,
+      formSubmitted: true,
+      submitError: false
+    }));
+    builder.addCase(saveObjectionThunk.rejected, state => ({
+      ...state,
+      submitError: true
     }));
   }
 });

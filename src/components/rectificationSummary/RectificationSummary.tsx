@@ -7,7 +7,6 @@ import { formatBytes } from '../../utils/helpers';
 import InfoContainer from '../infoContainer/InfoContainer';
 import CustomAccordion from '../customAccordion/CustomAccordion';
 import {
-  FileItem,
   selectFormContent,
   selectFormValues
 } from '../formContent/formContentSlice';
@@ -16,6 +15,7 @@ import ExtendedTextField from '../extendedTextField/ExtendedTextField';
 import useMobileWidth from '../../hooks/useMobileWidth';
 import styles from '../styles.module.css';
 import './RectificationSummary.css';
+import { FileItem } from '../../interfaces/objectionInterfaces';
 
 const RectificationSummary = () => {
   const { t } = useTranslation();
@@ -33,61 +33,59 @@ const RectificationSummary = () => {
           <TextInput
             id="relation"
             label={t(`rectificationForm:relation-info:relation`)}
-            value={t(`rectificationForm:relation-info:${formValues?.relation}`)}
+            value={t(
+              `rectificationForm:relation-info:${formValues?.authorRole}`
+            )}
             readOnly
           />
           <TextInput
             id="name"
             label={t('common:name')}
-            value={user?.name}
+            value={`${user?.firstName} ${user?.lastName}`}
             readOnly
           />
           <TextInput
             id="ssn"
             label={t('common:ssn')}
-            value={user?.SSN}
+            value={user?.ssn}
             readOnly
           />
           <TextInput
             id="rectification-address"
             label={t('rectificationForm:address')}
-            value={formValues?.address}
+            value={formValues?.address?.streetAddress}
             readOnly
           />
           <div className="rectification-summary-subgrid">
             <TextInput
               id="zipcode"
               label={t('rectificationForm:zipcode')}
-              value={formValues?.zipCode}
+              value={formValues?.address?.postCode}
               readOnly
             />
             <TextInput
               id="city"
               label={t('rectificationForm:city')}
-              value={formValues?.city}
+              value={formValues?.address?.postOffice}
               readOnly
             />
           </div>
           <TextInput
             id="email"
             label={t('common:email')}
-            value={
-              formValues?.newEmailAddress
-                ? formValues?.newEmailAddress
-                : user?.email
-            }
+            value={formValues?.newEmail ? formValues?.newEmail : user?.email}
             readOnly
           />
           <TextInput
             id="phone"
             label={t('common:phone')}
-            value={`${formValues?.phone}`}
+            value={`${formValues?.mobilePhone}`}
             readOnly
           />
           <TextInput
             id="IBAN"
             label={t('rectificationForm:IBAN')}
-            value={formValues?.IBAN}
+            value={formValues?.iban}
             readOnly
           />
           <TextInput
@@ -105,9 +103,9 @@ const RectificationSummary = () => {
               {t('rectificationForm:rectification-content')}
             </label>
             {useMobileWidth() ? (
-              <ExtendedTextField content={formValues?.rectificationContent} />
+              <ExtendedTextField content={formValues?.description} />
             ) : (
-              <p>{formValues?.rectificationContent}</p>
+              <p>{formValues?.description}</p>
             )}
           </div>
           {formValues?.attachments.length > 0 && (
@@ -117,14 +115,16 @@ const RectificationSummary = () => {
               </label>
               <ul className="file-list">
                 {formValues?.attachments.map((item: FileItem) => (
-                  <li key={item.name} className="file-list-item">
-                    {item.type.startsWith('image') ? (
+                  <li key={item.fileName} className="file-list-item">
+                    {item.mimeType.startsWith('image') ? (
                       <IconPhoto aria-hidden />
                     ) : (
                       <IconDocument aria-hidden />
                     )}
                     <div className="file-list-item-title">
-                      <span className="file-list-item-name">{item.name}</span>
+                      <span className="file-list-item-name">
+                        {item.fileName}
+                      </span>
                       <span className="file-list-item-size">
                         ({formatBytes(item.size)})
                       </span>
@@ -134,20 +134,20 @@ const RectificationSummary = () => {
               </ul>
             </div>
           )}
-          {formValues?.poaFile.name && (
+          {formValues?.poaFile?.fileName && (
             <div>
               <label className={styles['text-label']}>
                 {t('rectificationForm:poa')}
               </label>
               <div className="file-list-item">
-                {formValues?.poaFile.type.startsWith('image') ? (
+                {formValues?.poaFile.mimeType.startsWith('image') ? (
                   <IconPhoto aria-hidden />
                 ) : (
                   <IconDocument aria-hidden />
                 )}
                 <div className="file-list-item-title">
                   <span className="file-list-item-name">
-                    {formValues?.poaFile.name}
+                    {formValues?.poaFile.fileName}
                   </span>
                   <span className="file-list-item-size">
                     ({formatBytes(formValues?.poaFile.size)})

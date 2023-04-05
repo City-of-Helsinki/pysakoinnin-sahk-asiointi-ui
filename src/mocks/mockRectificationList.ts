@@ -26,19 +26,22 @@ const mockRectificationList: RectificationListItem[] = [
     ],
     attachments: [
       {
-        name: 'long-file-name-for-testing-abcd-efgh-ijkl.png',
+        fileName: 'long-file-name-for-testing-abcd-efgh-ijkl.png',
         size: 5600,
-        type: 'png'
+        mimeType: 'image/png',
+        data: ''
       },
       {
-        name: 'test-image2.jpg',
+        fileName: 'test-image2.jpg',
         size: 65040,
-        type: 'jpg'
+        mimeType: 'image/jpg',
+        data: ''
       },
       {
-        name: 'test-file1.pdf',
+        fileName: 'test-file1.pdf',
         size: 70500,
-        type: 'pdf'
+        mimeType: 'application/pdf',
+        data: ''
       }
     ]
   },
@@ -59,14 +62,16 @@ const mockRectificationList: RectificationListItem[] = [
     ],
     attachments: [
       {
-        name: 'test-image1.png',
+        fileName: 'test-image1.png',
         size: 5600,
-        type: 'png'
+        mimeType: 'image/png',
+        data: ''
       },
       {
-        name: 'test-image2.jpg',
+        fileName: 'test-image2.jpg',
         size: 65040,
-        type: 'jpg'
+        mimeType: 'image/jpg',
+        data: ''
       }
     ]
   },
@@ -116,19 +121,22 @@ const mockRectificationList: RectificationListItem[] = [
     ],
     attachments: [
       {
-        name: 'test-image1.png',
+        fileName: 'test-image1.png',
         size: 5600,
-        type: 'png'
+        mimeType: 'image/png',
+        data: ''
       },
       {
-        name: 'test-image2.jpg',
+        fileName: 'test-image2.jpg',
         size: 65040,
-        type: 'jpg'
+        mimeType: 'image/jpg',
+        data: ''
       },
       {
-        name: 'test-file1.pdf',
+        fileName: 'test-file1.pdf',
         size: 70500,
-        type: 'pdf'
+        mimeType: 'application/pdf',
+        data: ''
       }
     ]
   },

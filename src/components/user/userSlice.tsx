@@ -1,20 +1,23 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../../store';
 
+export type UserProfile = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  ssn: string;
+};
 export type SliceState = {
-  userProfile: {
-    name: string;
-    email: string;
-    SSN: string;
-  };
+  userProfile: UserProfile;
   promptLogin: boolean;
 };
 
 const initialState: SliceState = {
   userProfile: {
-    name: '',
+    firstName: '',
+    lastName: '',
     email: '',
-    SSN: ''
+    ssn: ''
   },
   promptLogin: false
 };
@@ -26,9 +29,10 @@ export const slice = createSlice({
     setUserProfile: (state, action) => {
       const { lastName, firstName } = action.payload;
       const parsedUserInfo = {
-        name: `${firstName} ${lastName}`,
+        firstName: firstName,
+        lastName: lastName,
         email: action.payload.primaryEmail.email,
-        SSN:
+        ssn:
           action.payload.verifiedPersonalInformation
             .nationalIdentificationNumber
       };

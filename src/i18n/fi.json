@@ -179,9 +179,9 @@
   "rectificationForm": {
     "relation-info": {
       "relation": "Teen oikaisuvaatimuksen",
-      "driver": "Ajoneuvon kuljettajana",
-      "owner": "Ajoneuvon omistajana/haltijana",
-      "poa-holder": "Valtakirjalla (toisen puolesta)"
+      "1": "Ajoneuvon kuljettajana",
+      "2": "Ajoneuvon omistajana/haltijana",
+      "3": "Valtakirjalla (toisen puolesta)"
     },
     "rectification-info": "Oikaisuvaatimuksen tiedot",
     "rectification-content": "Oikaisuvaatimuksen sisältö",

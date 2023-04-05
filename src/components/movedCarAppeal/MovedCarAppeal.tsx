@@ -28,17 +28,13 @@ const MovedCarAppeal = (): React.ReactElement => {
     }
   ];
 
-  const handleSubmit = () => {
-    //console.log('submit moved car appeal form');
-  };
-
   useEffect(() => {
     dispatch(setSelectedForm(FormId.MOVEDCAR));
   }, [dispatch]);
 
   return (
     <PageContent>
-      <FormStepper initialSteps={steps} onSubmit={handleSubmit} />
+      <FormStepper initialSteps={steps} />
     </PageContent>
   );
 };

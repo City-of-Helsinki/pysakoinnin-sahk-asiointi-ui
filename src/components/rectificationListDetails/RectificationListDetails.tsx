@@ -16,7 +16,7 @@ import {
   setFormValues,
   setSelectedForm
 } from '../formContent/formContentSlice';
-import mockRectificationForm from '../../mocks/mockRectficationForm';
+import mockRectificationForm from '../../mocks/mockRectificationForm';
 import { setUserProfile } from '../user/userSlice';
 import mockUserData from '../../mocks/mockUserData';
 import './RectificationListDetails.css';
@@ -70,7 +70,7 @@ const RectificationListDetails: FC<Props> = ({ form }): React.ReactElement => {
               {t('landing-page:list:details:attachments')}
             </span>
             {form.attachments.map((attachment, i) => (
-              <p key={i}>{attachment.name}</p>
+              <p key={i}>{attachment.fileName}</p>
             ))}
           </div>
         )}

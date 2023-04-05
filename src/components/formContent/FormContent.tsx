@@ -2,12 +2,11 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { UseFormGetValues } from 'react-hook-form';
 import SearchForm from '../searchForm/SearchForm';
+import { FormId, selectFormContent } from './formContentSlice';
 import {
-  FormId,
-  selectFormContent,
-  RectificationControlType,
-  RectificationFormType
-} from './formContentSlice';
+  ObjectionControlType,
+  ObjectionForm
+} from '../../interfaces/objectionInterfaces';
 import ExtendDueDateForm from '../extendDueDate/ExtendDueDateForm';
 import InfoContainer from '../infoContainer/InfoContainer';
 import RectificationForm from '../rectificationForm/RectificationForm';
@@ -16,8 +15,8 @@ import './FormContent.css';
 
 interface Props {
   activeStep: number;
-  control: RectificationControlType;
-  values: UseFormGetValues<RectificationFormType>;
+  control: ObjectionControlType;
+  values: UseFormGetValues<ObjectionForm>;
 }
 
 const FormContent = (props: Props): React.ReactElement => {

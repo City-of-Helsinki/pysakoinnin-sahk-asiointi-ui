@@ -1,5 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { addDays, format, formatISO } from 'date-fns';
 import { FoulAttachment } from '../interfaces/foulInterfaces';
+import { UserProfile } from '../components/user/userSlice';
+import { ObjectionForm } from '../interfaces/objectionInterfaces';
 
 const EXTENDEDDAYS = 30;
 const BYTES_IN_KB = 1024;
@@ -49,3 +52,33 @@ export const formatBase64String = (attachment: FoulAttachment) =>
   attachment.data.startsWith('data')
     ? attachment.data
     : `data:${attachment.mimeType};base64,${attachment.data}`;
+
+/* modifies objection/rectification form to align with the Objection type,
+  so it can be sent to PASI */
+export const createObjection = (form: ObjectionForm, user: UserProfile) => {
+  // remove unnecessary properties
+  const {
+    transferNumber,
+    deliveryDecision,
+    newEmail,
+    newEmailConfirm,
+    poaFile,
+    toSeparateEmail,
+    ...objection
+  } = { ...form };
+  // add POA file to attachments
+  if (form.poaFile.fileName !== '') {
+    const attachmentsWithPoaFile = [...objection.attachments];
+    attachmentsWithPoaFile.push(form.poaFile);
+    objection.attachments = attachmentsWithPoaFile;
+  }
+  // append with user info
+  objection.firstName = user.firstName;
+  objection.lastName = user.lastName;
+  objection.ssn = user.ssn;
+  objection.email = user.email;
+  // add missing property
+  objection.sendDecisionViaEService =
+    form.deliveryDecision === 'toParkingService';
+  return objection;
+};

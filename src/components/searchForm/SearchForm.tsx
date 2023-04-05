@@ -8,13 +8,13 @@ import { useTranslation } from 'react-i18next';
 import {
   FormId,
   selectFormContent,
-  setFormError,
-  RectificationControlType
+  setFormError
 } from '../formContent/formContentSlice';
+import { ObjectionControlType } from '../../interfaces/objectionInterfaces';
 import './SearchForm.css';
 
 interface Props {
-  control: RectificationControlType;
+  control: ObjectionControlType;
 }
 
 const SearchForm = (props: Props): React.ReactElement => {
@@ -29,7 +29,7 @@ const SearchForm = (props: Props): React.ReactElement => {
       <p className="small-text">{t('common:required-fields')}</p>
       {movedCarForm ? (
         <Controller
-          name="invoiceNumber"
+          name="transferNumber"
           control={props.control}
           rules={{
             required: t('common:required-field') as string
@@ -56,7 +56,7 @@ const SearchForm = (props: Props): React.ReactElement => {
         />
       ) : (
         <Controller
-          name="refNumber"
+          name="foulNumber"
           control={props.control}
           rules={{
             required: t('common:required-field') as string
@@ -82,7 +82,7 @@ const SearchForm = (props: Props): React.ReactElement => {
         />
       )}
       <Controller
-        name="regNumber"
+        name="registerNumber"
         control={props.control}
         rules={{
           required: t('common:required-field') as string

@@ -6,6 +6,7 @@ import store from '../../store';
 import { Provider } from 'react-redux';
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 import mockFoulData from '../../mocks/mockFoulData';
+import mockRectificationForm from '../../mocks/mockRectificationForm';
 
 describe('Component', () => {
   it('matches snapshot', async () => {
@@ -16,25 +17,7 @@ describe('Component', () => {
         selectedForm: 'parking-fine',
         submitDisabled: true,
         foulData: mockFoulData,
-        formValues: {
-          invoiceNumber: '',
-          refNumber: '',
-          regNumber: '',
-          relation: 'driver',
-          poaFile: { name: 'test.pdf', size: 12345, type: 'application/pdf' },
-          attachments: [{ name: 'test2.jpg', size: 50100, type: 'image/jpeg' }],
-          toSeparateEmail: false,
-          newEmailAddress: '',
-          newEmailConfirm: '',
-          address: 'Elimäenkatu 5',
-          zipCode: '00100',
-          city: 'Helsinki',
-          phone: '+358401234567',
-          IBAN: 'FI9780001700903330',
-          rectificationContent:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse bibendum condimentum mi, vitae efficitur mi vulputate at. Aliquam porttitor tincidunt ex non fermentum. Fusce consequat imperdiet augue ut pulvinar. Praesent sollicitudin nulla non lacus tristique, sed faucibus urna viverra. Nullam pretium velit lorem. Maecenas porttitor molestie.',
-          deliveryDecision: 'toParkingService'
-        }
+        formValues: mockRectificationForm
       },
       reducers: {}
     });
@@ -43,9 +26,10 @@ describe('Component', () => {
       name: 'user',
       initialState: {
         userProfile: {
-          name: 'Test User',
+          firstName: 'Test',
+          lastName: 'User',
           email: 'test.user@test.fi',
-          SSN: '123456-789A'
+          ssn: '123456-789A'
         },
         promptLogin: false
       },

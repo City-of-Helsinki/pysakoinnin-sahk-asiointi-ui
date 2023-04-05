@@ -16,12 +16,12 @@ import {
 } from 'hds-react';
 import { extractIBAN } from 'ibantools';
 import useMobileWidth from '../../hooks/useMobileWidth';
+import { FormId, selectFormContent } from '../formContent/formContentSlice';
 import {
-  FormId,
-  selectFormContent,
-  RectificationControlType,
-  RectificationFormType
-} from '../formContent/formContentSlice';
+  AuthorRole,
+  ObjectionForm,
+  ObjectionControlType
+} from '../../interfaces/objectionInterfaces';
 import { selectUserProfile } from '../user/userSlice';
 import FieldLabel from '../fieldLabel/FieldLabel';
 import ErrorLabel from '../errorLabel/ErrorLabel';
@@ -30,8 +30,8 @@ import './RectificationForm.css';
 type Language = 'fi' | 'en' | 'sv';
 
 interface Props {
-  control: RectificationControlType;
-  values: UseFormGetValues<RectificationFormType>;
+  control: ObjectionControlType;
+  values: UseFormGetValues<ObjectionForm>;
 }
 
 const RectificationForm: FC<Props> = ({ control, values }) => {
@@ -44,20 +44,18 @@ const RectificationForm: FC<Props> = ({ control, values }) => {
     window._env_.REACT_APP_RECTIFICATION_CHAR_LIMIT;
 
   const relations = movedCarFormSelected
-    ? ['owner', 'poa-holder']
-    : ['driver', 'owner', 'poa-holder'];
+    ? [AuthorRole.Owner, AuthorRole.Possessor]
+    : [AuthorRole.Driver, AuthorRole.Owner, AuthorRole.Possessor];
 
   const setFiles = (files: File[], type: string, field: FieldValues) => {
     const fileList = files.map(({ name, size, type }) => ({
-      name,
-      size,
-      type
+      fileName: name,
+      size: size,
+      mimeType: type
     }));
     switch (type) {
       case 'poa':
-        return field.onChange(
-          fileList.length > 0 ? fileList[0] : { name: '', size: 0, type: '' }
-        );
+        return field.onChange(fileList.length > 0 ? fileList[0] : {});
       case 'attachments':
         return field.onChange(fileList);
     }
@@ -65,8 +63,8 @@ const RectificationForm: FC<Props> = ({ control, values }) => {
 
   // Required if POA holder selected as the role
   const isValidPOAFile = (field: FieldValues) =>
-    values().relation !== 'poa-holder' ||
-    (field && field.name && field.name !== '');
+    values().authorRole !== AuthorRole.Possessor ||
+    (field && field.fileName && field.fileName !== '');
 
   // Required if toSeparateEmail checkbox selected
   const isValidEmail = (field: string) =>
@@ -74,7 +72,7 @@ const RectificationForm: FC<Props> = ({ control, values }) => {
 
   // Required if email field is not empty, and if so, emails have to match
   const isValidEmailConfirmation = (field: string) =>
-    values().newEmailAddress === '' || field === values().newEmailAddress;
+    values().newEmail === '' || field === values().newEmail;
 
   const numberOfAttachmentsIsValid = (field: FieldValues) => field.length <= 3;
 
@@ -89,7 +87,7 @@ const RectificationForm: FC<Props> = ({ control, values }) => {
       <div>
         <div className="rectification-info-container">
           <Controller
-            name="relation"
+            name="authorRole"
             control={control}
             rules={{ required: t('common:required-field') as string }}
             render={({ field, fieldState }) => {
@@ -128,7 +126,7 @@ const RectificationForm: FC<Props> = ({ control, values }) => {
                           color={'var(--color-info)'}
                         />
                       </div>
-                      <p>{user?.name}</p>
+                      <p>{`${user?.firstName} ${user?.lastName}`}</p>
                       <div>
                         <FieldLabel text={t('common:ssn')} required={true} />
                         <IconCheckCircle
@@ -136,7 +134,7 @@ const RectificationForm: FC<Props> = ({ control, values }) => {
                           color={'var(--color-info)'}
                         />
                       </div>
-                      <p>{user?.SSN}</p>
+                      <p>{user?.ssn}</p>
                       <div>
                         <FieldLabel text={t('common:email')} required={true} />
                         <IconCheckCircle
@@ -169,8 +167,8 @@ const RectificationForm: FC<Props> = ({ control, values }) => {
                               'rectificationForm:attach-poa:helper-text'
                             )}
                           />
-                          {relationField.value === 'poa-holder' &&
-                            field.value?.name === '' && (
+                          {relationField.value === AuthorRole.Possessor &&
+                            field.value?.fileName === '' && (
                               <ErrorLabel
                                 text={t(
                                   'rectificationForm:errors:poa-required'
@@ -217,7 +215,7 @@ const RectificationForm: FC<Props> = ({ control, values }) => {
                     checked={checkboxField.value}
                   />
                   <Controller
-                    name="newEmailAddress"
+                    name="newEmail"
                     control={control}
                     rules={{
                       validate: isValidEmail,
@@ -274,7 +272,7 @@ const RectificationForm: FC<Props> = ({ control, values }) => {
           />
 
           <Controller
-            name="address"
+            name="address.streetAddress"
             control={control}
             rules={{ required: t('common:required-field') as string }}
             render={({ field, fieldState }) => (
@@ -291,7 +289,7 @@ const RectificationForm: FC<Props> = ({ control, values }) => {
           />
           <div className="rectification-subgrid">
             <Controller
-              name="zipCode"
+              name="address.postCode"
               control={control}
               rules={{ required: t('common:required-field') as string }}
               render={({ field, fieldState }) => (
@@ -307,7 +305,7 @@ const RectificationForm: FC<Props> = ({ control, values }) => {
               )}
             />
             <Controller
-              name="city"
+              name="address.postOffice"
               control={control}
               rules={{ required: t('common:required-field') as string }}
               render={({ field, fieldState }) => (
@@ -325,7 +323,7 @@ const RectificationForm: FC<Props> = ({ control, values }) => {
           </div>
 
           <Controller
-            name="phone"
+            name="mobilePhone"
             control={control}
             rules={{
               required: t('common:required-field') as string
@@ -344,7 +342,7 @@ const RectificationForm: FC<Props> = ({ control, values }) => {
           />
 
           <Controller
-            name="IBAN"
+            name="iban"
             control={control}
             rules={{
               required: t('common:required-field') as string,
@@ -370,7 +368,7 @@ const RectificationForm: FC<Props> = ({ control, values }) => {
           />
 
           <Controller
-            name="rectificationContent"
+            name="description"
             control={control}
             rules={{
               required: t('common:required-field') as string,
