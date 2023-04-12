@@ -17,8 +17,6 @@ import {
   setSelectedForm
 } from '../formContent/formContentSlice';
 import mockRectificationForm from '../../mocks/mockRectificationForm';
-import { setUserProfile } from '../user/userSlice';
-import mockUserData from '../../mocks/mockUserData';
 import './RectificationListDetails.css';
 
 interface Props {
@@ -44,7 +42,6 @@ const RectificationListDetails: FC<Props> = ({ form }): React.ReactElement => {
   useEffect(() => {
     dispatch(setSelectedForm(form.type));
     dispatch(setFormValues(mockRectificationForm));
-    dispatch(setUserProfile(mockUserData));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

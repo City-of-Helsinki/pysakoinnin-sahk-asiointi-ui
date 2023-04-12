@@ -6,6 +6,8 @@ import axios, {
 } from 'axios';
 import { clearLoading, setLoading } from '../components/loader/loadingSlice';
 import { ResponseCode } from '../interfaces/foulInterfaces';
+import { getClient } from '../client/oidc-react';
+import { setPromptLogin } from '../components/user/userSlice';
 
 let store: AppStore;
 
@@ -32,11 +34,30 @@ axios.interceptors.response.use(
   error => handleError(error)
 );
 
-const handleRequest = (req: InternalAxiosRequestConfig) => {
+const handleRequest = async (req: InternalAxiosRequestConfig) => {
+  const client = getClient();
+
   if (!store.getState().loading.isLoading) {
     store.dispatch(setLoading());
   }
-  return req;
+
+  // Check that api token is valid before sending the request
+  const apiTokenExists = async () => {
+    try {
+      await client.getApiAccessToken({
+        audience: window._env_.REACT_APP_PROFILE_AUDIENCE,
+        permission: window._env_.REACT_APP_API_BACKEND_PERMISSION,
+        grantType: window._env_.REACT_APP_API_BACKEND_GRANT_TYPE
+      });
+      return true;
+    } catch (e) {
+      store.dispatch(setPromptLogin(true));
+      return false;
+    }
+  };
+  return apiTokenExists().then(isSuccess =>
+    isSuccess ? Promise.resolve(req) : Promise.reject(null)
+  );
 };
 
 const handleResponse = (res: AxiosResponse) => {
