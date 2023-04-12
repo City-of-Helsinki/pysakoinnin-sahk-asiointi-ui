@@ -26,7 +26,7 @@ export interface Objection {
   email: string;
   mobilePhone: string;
   iban: string;
-  authorRole: AuthorRole;
+  authorRole: AuthorRole | number;
   address: {
     streetAddress: string;
     postCode: string;
@@ -51,7 +51,7 @@ export interface ObjectionForm {
   toSeparateEmail: boolean;
   mobilePhone: string;
   iban: string;
-  authorRole: AuthorRole;
+  authorRole: AuthorRole | number;
   address: {
     streetAddress: string;
     postCode: string;

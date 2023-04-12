@@ -80,5 +80,7 @@ export const createObjection = (form: ObjectionForm, user: UserProfile) => {
   // add missing property
   objection.sendDecisionViaEService =
     form.deliveryDecision === 'toParkingService';
+  // make sure authorRole is in correct format
+  objection.authorRole = Number(objection.authorRole);
   return objection;
 };
