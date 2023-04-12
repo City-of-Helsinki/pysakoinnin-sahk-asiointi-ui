@@ -22,9 +22,9 @@ const Barcode = (props: BarcodeProps) => {
   return (
     <>
       <div className={`barcode-container ${className ? className : ''}`}>
-        <label className="barcode-label">{t('common:barcode:label')}</label>
         {barcode && (
           <>
+            <label className="barcode-label">{t('common:barcode:label')}</label>
             <p className="barcode">{barcode}</p>
             <Button
               data-testid="copy-to-clipboard"
