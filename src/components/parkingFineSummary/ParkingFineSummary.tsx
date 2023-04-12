@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { setSubmitDisabled } from '../formContent/formContentSlice';
 import { formatDate, formatDateTime } from '../../utils/helpers';
-import { FoulData, Foul } from '../../interfaces/foulInterfaces';
+import { FoulData, Foul, ResponseCode } from '../../interfaces/foulInterfaces';
 import Barcode from '../barcode/Barcode';
 import '../infoContainer/InfoContainer.css';
 
@@ -91,8 +91,12 @@ const ParkingFineSummary: FC<Props> = ({ foulData }) => {
         </div>
 
         <div className="info-field">
-          <label>{t('common:fine-info:due-date')}</label>
-          <p>{foulData?.dueDate && formatDate(foulData.dueDate)}</p>
+          {foulData?.responseCode !== ResponseCode.FoulIsANote && (
+            <>
+              <label>{t('common:fine-info:due-date')}</label>
+              <p>{foulData?.dueDate && formatDate(foulData.dueDate)}</p>
+            </>
+          )}
         </div>
 
         <hr />
