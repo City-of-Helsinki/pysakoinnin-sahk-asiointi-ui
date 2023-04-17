@@ -241,15 +241,15 @@
           "default": "Vastaanotettu",
           "conjugated": "vastaanotettua"
         },
-        "processing": {
+        "handling": {
           "default": "Käsittelyssä",
           "conjugated": "käsittelyssä"
         },
-        "solved-online": {
+        "resolvedViaEService": {
           "default": "Päätös asioinnissa",
           "conjugated": "ratkaistua"
         },
-        "solved-mailed": {
+        "resolvedViaMail": {
           "default": "Päätös postitettu",
           "conjugated": "ratkaistua"
         },
@@ -268,7 +268,7 @@
             "label": "Eräpäivää on siirretty",
             "text": "Eräpäivää on siirretty 30 päivällä. Uusi eräpäivä on {{timestamp}}."
           },
-          "solved-mailed": {
+          "resolvedViaMail": {
             "label": "Päätös on postitettu",
             "text": "Päätös on postitettu sinulle kirjeitse antamaasi osoitteeseen."
           }

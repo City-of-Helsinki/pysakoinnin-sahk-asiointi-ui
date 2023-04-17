@@ -1,9 +1,10 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Button, IconSort, Linkbox, Pagination, Select } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import { sortByDate } from '../../utils/helpers';
 import RectificationListRow from '../rectificationListRow/RectificationListRow';
-import mockRectificationList from '../../mocks/mockRectificationList'; /* use mock data for now */
+import { getDocuments } from '../../services/objectionService';
+import { ObjectionDocument } from '../../interfaces/objectionInterfaces';
 import './LandingPage.css';
 
 type StatusFilter = {
@@ -21,10 +22,13 @@ const LandingPage = (): React.ReactElement => {
     value: 'show-all',
     label: t('landing-page:list.status:show-all:default')
   });
-  const isEmptyList = mockRectificationList.length === 0;
-  const filteredRectifications = mockRectificationList.filter(a =>
-    filter.value !== 'show-all' ? a.status === filter.value : a
+  const [documents, setDocuments] = useState<Array<ObjectionDocument>>([]);
+  const filteredDocuments = documents.filter(a =>
+    filter.value !== 'show-all' ? a.status.value === filter.value : a
   );
+  const documentListLength = filteredDocuments.length;
+  const isEmptyList = documents.length === 0;
+  const isEmptyFilteredList = documentListLength === 0;
   const links = [
     { name: 'due-date', value: '/erapaivansiirto' },
     { name: 'parking-fine', value: '/virhemaksu' },
@@ -34,9 +38,9 @@ const LandingPage = (): React.ReactElement => {
     'show-all',
     'sent',
     'received',
-    'processing',
-    'solved-online',
-    'solved-mailed'
+    'handling',
+    'resolvedViaEService',
+    'resolvedViaMail'
   ];
   const options = statuses.map(status => ({
     value: status,
@@ -47,6 +51,10 @@ const LandingPage = (): React.ReactElement => {
     setPageIndex(index);
     titleRef.current?.scrollIntoView();
   };
+
+  useEffect(() => {
+    getDocuments().then(res => setDocuments(res.results));
+  }, []);
 
   return (
     <>
@@ -67,7 +75,7 @@ const LandingPage = (): React.ReactElement => {
       <h2 ref={titleRef}>{t('landing-page:list:title')}</h2>
       <div className="rectification-list-filters">
         <p className="rectification-list-sent-count">
-          <b>{filteredRectifications.length}</b>{' '}
+          <b>{documentListLength}</b>{' '}
           {t(`landing-page:list:status:${filter.value}:conjugated`)}
         </p>
         <Button
@@ -76,7 +84,7 @@ const LandingPage = (): React.ReactElement => {
           variant="supplementary"
           size="small"
           iconRight={<IconSort />}
-          disabled={isEmptyList}
+          disabled={isEmptyFilteredList}
           onClick={() => setSortByNewest(!sortByNewest)}>
           {sortByNewest
             ? t('landing-page:newest-first')
@@ -102,8 +110,8 @@ const LandingPage = (): React.ReactElement => {
       </div>
       <div className="rectification-list">
         <hr />
-        {filteredRectifications
-          .sort((a, b) => sortByDate(a.edited, b.edited, sortByNewest))
+        {filteredDocuments
+          .sort((a, b) => sortByDate(a.updated_at, b.updated_at, sortByNewest))
           .slice(
             pageIndex * elementsOnPage,
             pageIndex * elementsOnPage + elementsOnPage
@@ -115,7 +123,7 @@ const LandingPage = (): React.ReactElement => {
             </div>
           ))}
       </div>
-      {isEmptyList && (
+      {isEmptyFilteredList && (
         <p className="disabled-text">{t('landing-page:list:no-forms')}</p>
       )}
       <Pagination
@@ -124,7 +132,7 @@ const LandingPage = (): React.ReactElement => {
           event.preventDefault();
           handlePageChange(index);
         }}
-        pageCount={Math.ceil(filteredRectifications.length / elementsOnPage)}
+        pageCount={Math.ceil(documentListLength / elementsOnPage)}
         pageHref={() => '#'}
         pageIndex={pageIndex}
         paginationAriaLabel="pagination"

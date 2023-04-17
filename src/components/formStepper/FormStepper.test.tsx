@@ -78,7 +78,6 @@ describe('form stepper', () => {
         <Provider store={store}>
           <FormStepper
             initialSteps={formStepperSliceMock.getInitialState().steps}
-            onSubmit={mockAction}
           />
         </Provider>
       </BrowserRouter>
@@ -102,7 +101,6 @@ describe('form stepper', () => {
           <I18nextProvider i18n={i18n}>
             <FormStepper
               initialSteps={formStepperSliceMock.getInitialState().steps}
-              onSubmit={mockAction}
             />
           </I18nextProvider>
         </Provider>
@@ -184,7 +182,6 @@ describe('form stepper', () => {
           <I18nextProvider i18n={i18n}>
             <FormStepper
               initialSteps={formStepperSliceMock.getInitialState().steps}
-              onSubmit={mockAction}
             />
           </I18nextProvider>
         </Provider>

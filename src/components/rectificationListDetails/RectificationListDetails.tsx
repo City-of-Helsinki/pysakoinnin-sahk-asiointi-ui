@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unnecessary-type-assertion */
-import React, { FC, useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { FC, useState } from 'react';
 import {
   Button,
   Dialog,
@@ -9,29 +8,23 @@ import {
   Notification
 } from 'hds-react';
 import { useTranslation } from 'react-i18next';
-import { RectificationListItem } from '../rectificationListRow/rectificationListRowSlice';
-import { formatDate, formatDateTime, sortByDate } from '../../utils/helpers';
+import { formatDateTime, sortByDate } from '../../utils/helpers';
 import RectificationSummary from '../rectificationSummary/RectificationSummary';
-import {
-  setFormValues,
-  setSelectedForm
-} from '../formContent/formContentSlice';
-import mockRectificationForm from '../../mocks/mockRectficationForm';
-import { setUserProfile } from '../user/userSlice';
-import mockUserData from '../../mocks/mockUserData';
+import { ObjectionDocument } from '../../interfaces/objectionInterfaces';
 import './RectificationListDetails.css';
 
 interface Props {
-  form: RectificationListItem;
+  form: ObjectionDocument;
 }
 
 const RectificationListDetails: FC<Props> = ({ form }): React.ReactElement => {
   const { t } = useTranslation();
-  const dispatch = useDispatch();
-  const isDueDateForm = form.type === 'due-date';
-  const notificationType = isDueDateForm ? form.type : form.status;
+  const formTypes = ['parking-fine', 'moved-car', 'due-date'];
+  const formType = formTypes[form.content.type];
+  const isDueDateForm = form.content.type === 2; /* check if correct */
+  const notificationType = isDueDateForm ? formType : form.status.value;
   const [notificationOpen, setNotificationOpen] = useState(
-    isDueDateForm || form.status === 'solved-mailed'
+    isDueDateForm || form.status.value === 'resolvedViaMail'
   );
   const [formDialogOpen, setFormDialogOpen] = useState(false);
 
@@ -40,14 +33,6 @@ const RectificationListDetails: FC<Props> = ({ form }): React.ReactElement => {
     document.body.classList.remove('modal-open');
   };
 
-  // Populate redux with mock data (for testing)
-  useEffect(() => {
-    dispatch(setSelectedForm(form.type));
-    dispatch(setFormValues(mockRectificationForm));
-    dispatch(setUserProfile(mockUserData));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   return (
     <div className="rectification-details">
       <div className="rectification-details-log">
@@ -55,12 +40,12 @@ const RectificationListDetails: FC<Props> = ({ form }): React.ReactElement => {
           <span className="rectification-details-title">
             {t('landing-page:list:details:events')}
           </span>
-          {form.events
+          {form?.status_histories
             .sort((a, b) => sortByDate(a.timestamp, b.timestamp, true))
             .map((event, i) => (
               <p key={i}>
                 {formatDateTime(event.timestamp)}{' '}
-                {t(`landing-page:list:status:${event.status}:default`)}
+                {t(`landing-page:list:status:${event.value}:default`)}
               </p>
             ))}
         </div>
@@ -69,8 +54,8 @@ const RectificationListDetails: FC<Props> = ({ form }): React.ReactElement => {
             <span className="rectification-details-title">
               {t('landing-page:list:details:attachments')}
             </span>
-            {form.attachments.map((attachment, i) => (
-              <p key={i}>{attachment.name}</p>
+            {form?.attachments.map((attachment, i) => (
+              <p key={i}>{attachment.fileName}</p>
             ))}
           </div>
         )}
@@ -86,16 +71,11 @@ const RectificationListDetails: FC<Props> = ({ form }): React.ReactElement => {
             closeButtonLabelText={t('common:close-notification') as string}
             onClose={() => setNotificationOpen(false)}>
             {t(
-              `landing-page:list:details:notification:${notificationType}:text`,
-              {
-                timestamp: formatDate(
-                  '2022-01-02T13:20:00Z'
-                ) /* TODO: Get the real date */
-              }
+              `landing-page:list:details:notification:${notificationType}:text` /* TODO: add dueDate */
             )}
           </Notification>
         )}
-        {form.status === 'solved-online' && (
+        {form?.status.value === 'resolvedViaEService' && form.attachments && (
           <Button iconRight={<IconDocument />}>
             {t('landing-page:list:details:open-decision')}
           </Button>
@@ -112,7 +92,7 @@ const RectificationListDetails: FC<Props> = ({ form }): React.ReactElement => {
             </Button>
             <Dialog
               id="form-summary-dialog"
-              aria-labelledby={t(`${form.type}:title`)}
+              aria-labelledby={t(`${formType}:title`)}
               isOpen={formDialogOpen}
               close={closeFormDialog}
               closeButtonLabelText={
@@ -121,7 +101,7 @@ const RectificationListDetails: FC<Props> = ({ form }): React.ReactElement => {
               scrollable>
               <Dialog.Header
                 id="form-summary-dialog-header"
-                title={t(`${form.type}:title`)}
+                title={t(`${formType}:title`)}
               />
               <Dialog.Content>
                 <div id="form-summary-dialog-content">
