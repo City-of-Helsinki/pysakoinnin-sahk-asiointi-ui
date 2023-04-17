@@ -32,10 +32,16 @@ axios.interceptors.response.use(
   error => handleError(error)
 );
 
-const handleRequest = (req: InternalAxiosRequestConfig) => {
+const handleRequest = async (req: InternalAxiosRequestConfig) => {
   if (!store.getState().loading.isLoading) {
     store.dispatch(setLoading());
   }
+
+  const token = window.localStorage.getItem('apiToken');
+  if (token) {
+    req.headers.Authorization = `Bearer ${token}`;
+  }
+
   return req;
 };
 
