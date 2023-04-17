@@ -36,6 +36,12 @@ const handleRequest = (req: InternalAxiosRequestConfig) => {
   if (!store.getState().loading.isLoading) {
     store.dispatch(setLoading());
   }
+
+  const token = window.localStorage.getItem('apiToken');
+  if (token) {
+    req.headers.Authorization = `Bearer ${token}`;
+  }
+
   return req;
 };
 
