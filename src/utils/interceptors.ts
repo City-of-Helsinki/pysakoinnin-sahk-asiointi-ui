@@ -32,7 +32,7 @@ axios.interceptors.response.use(
   error => handleError(error)
 );
 
-const handleRequest = async (req: InternalAxiosRequestConfig) => {
+const handleRequest = (req: InternalAxiosRequestConfig) => {
   if (!store.getState().loading.isLoading) {
     store.dispatch(setLoading());
   }
