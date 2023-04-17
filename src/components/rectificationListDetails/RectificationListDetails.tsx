@@ -54,7 +54,7 @@ const RectificationListDetails: FC<Props> = ({ form }): React.ReactElement => {
             <span className="rectification-details-title">
               {t('landing-page:list:details:attachments')}
             </span>
-            {form?.attachments.map((attachment, i) => (
+            {form?.content.attachments.map((attachment, i) => (
               <p key={i}>{attachment.fileName}</p>
             ))}
           </div>
@@ -75,7 +75,7 @@ const RectificationListDetails: FC<Props> = ({ form }): React.ReactElement => {
             )}
           </Notification>
         )}
-        {form?.status.value === 'resolvedViaEService' && form.attachments && (
+        {form?.status.value === 'resolvedViaEService' && (
           <Button iconRight={<IconDocument />}>
             {t('landing-page:list:details:open-decision')}
           </Button>

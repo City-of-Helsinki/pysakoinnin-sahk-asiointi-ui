@@ -38,30 +38,34 @@ const mockObjectionDocumentList: ObjectionDocument[] = [
     business_id: '13579124',
     tos_function_id: '123',
     tos_record_id: '123',
-    content: { ...mockRectificationForm, foulNumber: '12345678' },
+    content: {
+      ...mockRectificationForm,
+      foulNumber: '12345678',
+      attachments: [
+        {
+          fileName: 'long-file-name-for-testing-abcd-efgh-ijkl.png',
+          size: 5600,
+          mimeType: 'image/png',
+          data: ''
+        },
+        {
+          fileName: 'test-image2.jpg',
+          size: 65040,
+          mimeType: 'image/jpg',
+          data: ''
+        },
+        {
+          fileName: 'test-file1.pdf',
+          size: 70500,
+          mimeType: 'application/pdf',
+          data: ''
+        }
+      ]
+    },
     draft: false,
     locked_after: '',
     deletable: true,
-    attachments: [
-      {
-        fileName: 'long-file-name-for-testing-abcd-efgh-ijkl.png',
-        size: 5600,
-        mimeType: 'image/png',
-        data: ''
-      },
-      {
-        fileName: 'test-image2.jpg',
-        size: 65040,
-        mimeType: 'image/jpg',
-        data: ''
-      },
-      {
-        fileName: 'test-file1.pdf',
-        size: 70500,
-        mimeType: 'application/pdf',
-        data: ''
-      }
-    ]
+    attachments: []
   },
   {
     id: '22324567',
@@ -181,18 +185,13 @@ const mockObjectionDocumentList: ObjectionDocument[] = [
     business_id: '13579124',
     tos_function_id: '123',
     tos_record_id: '123',
-    content: mockTransferDocument,
+    content: {
+      ...mockTransferDocument
+    },
     draft: false,
     locked_after: '',
     deletable: true,
-    attachments: [
-      {
-        fileName: 'decision.jpg',
-        size: 65040,
-        mimeType: 'application/pdf',
-        data: ''
-      }
-    ]
+    attachments: []
   },
   {
     id: '2222222',
