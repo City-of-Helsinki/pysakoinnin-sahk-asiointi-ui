@@ -8,20 +8,22 @@ import {
   Notification
 } from 'hds-react';
 import { useTranslation } from 'react-i18next';
-import { formatDateTime, sortByDate } from '../../utils/helpers';
+import { formatDate, formatDateTime, sortByDate } from '../../utils/helpers';
 import RectificationSummary from '../rectificationSummary/RectificationSummary';
 import { ObjectionDocument } from '../../interfaces/objectionInterfaces';
 import './RectificationListDetails.css';
 
 interface Props {
   form: ObjectionDocument;
+  formType: string;
 }
 
-const RectificationListDetails: FC<Props> = ({ form }): React.ReactElement => {
+const RectificationListDetails: FC<Props> = ({
+  form,
+  formType
+}): React.ReactElement => {
   const { t } = useTranslation();
-  const formTypes = ['parking-fine', 'moved-car', 'due-date'];
-  const formType = formTypes[form.content.type];
-  const isDueDateForm = form.content.type === 2; /* check if correct */
+  const isDueDateForm = form.content?.dueDate;
   const notificationType = isDueDateForm ? formType : form.status.value;
   const [notificationOpen, setNotificationOpen] = useState(
     isDueDateForm || form.status.value === 'resolvedViaMail'
@@ -54,7 +56,7 @@ const RectificationListDetails: FC<Props> = ({ form }): React.ReactElement => {
             <span className="rectification-details-title">
               {t('landing-page:list:details:attachments')}
             </span>
-            {form?.content.attachments.map((attachment, i) => (
+            {form?.content.attachments?.map((attachment, i) => (
               <p key={i}>{attachment.fileName}</p>
             ))}
           </div>
@@ -71,7 +73,11 @@ const RectificationListDetails: FC<Props> = ({ form }): React.ReactElement => {
             closeButtonLabelText={t('common:close-notification') as string}
             onClose={() => setNotificationOpen(false)}>
             {t(
-              `landing-page:list:details:notification:${notificationType}:text` /* TODO: add dueDate */
+              `landing-page:list:details:notification:${notificationType}:text`,
+              {
+                dueDate:
+                  form.content.dueDate && formatDate(form.content.dueDate)
+              }
             )}
           </Notification>
         )}
@@ -105,7 +111,10 @@ const RectificationListDetails: FC<Props> = ({ form }): React.ReactElement => {
               />
               <Dialog.Content>
                 <div id="form-summary-dialog-content">
-                  <RectificationSummary />
+                  <RectificationSummary
+                    form={form.content}
+                    formType={formType}
+                  />
                 </div>
               </Dialog.Content>
               <Dialog.ActionButtons className="form-summary-dialog-buttons">
@@ -125,7 +134,7 @@ const RectificationListDetails: FC<Props> = ({ form }): React.ReactElement => {
         )}
       </div>
       <div id="rectification-summary-print" aria-hidden="true">
-        <RectificationSummary />
+        <RectificationSummary form={form.content} formType={formType} />
       </div>
     </div>
   );

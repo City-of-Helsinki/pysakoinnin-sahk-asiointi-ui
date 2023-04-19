@@ -5,9 +5,12 @@ import SearchForm from '../searchForm/SearchForm';
 import {
   FormId,
   selectFormContent,
-  RectificationControlType,
-  RectificationFormType
+  selectFormValues
 } from './formContentSlice';
+import {
+  ObjectionForm,
+  ObjectionControlType
+} from '../../interfaces/objectionInterfaces';
 import ExtendDueDateForm from '../extendDueDate/ExtendDueDateForm';
 import InfoContainer from '../infoContainer/InfoContainer';
 import RectificationForm from '../rectificationForm/RectificationForm';
@@ -16,21 +19,32 @@ import './FormContent.css';
 
 interface Props {
   activeStep: number;
-  control: RectificationControlType;
-  values: UseFormGetValues<RectificationFormType>;
+  control: ObjectionControlType;
+  values: UseFormGetValues<ObjectionForm>;
 }
 
 const FormContent = (props: Props): React.ReactElement => {
   const formContent = useSelector(selectFormContent);
+  const formValues = useSelector(selectFormValues);
 
   const selectForm = (selectedForm: FormId) => {
     switch (selectedForm) {
       case 'due-date':
         return <ExtendDueDateForm />;
       case 'parking-fine':
-        return <InfoContainer />;
+        return (
+          <InfoContainer
+            selectedForm={formContent.selectedForm}
+            foulData={formContent.foulData}
+          />
+        );
       case 'moved-car':
-        return <InfoContainer />;
+        return (
+          <InfoContainer
+            selectedForm={formContent.selectedForm}
+            transferData={formContent.transferData}
+          />
+        );
     }
   };
 
@@ -43,7 +57,12 @@ const FormContent = (props: Props): React.ReactElement => {
           2: (
             <RectificationForm control={props.control} values={props.values} />
           ),
-          3: <RectificationSummary />
+          3: (
+            <RectificationSummary
+              form={formValues}
+              formType={formContent.selectedForm}
+            />
+          )
         }[props.activeStep]
       }
     </div>

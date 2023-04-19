@@ -25,12 +25,18 @@ const useUserProfile = () => {
       })) as JWTPayload;
       const profileToken =
         apiAccessToken[window._env_.REACT_APP_PROFILE_AUDIENCE];
+      const apiToken =
+        apiAccessToken[window._env_.REACT_APP_API_BACKEND_TOKEN_URL];
       const result = await getProfileData(profileToken);
       if ((result as GraphQLClientError).error) {
         dispatch(setPromptLogin(true));
+        window.localStorage.removeItem('profileToken');
+        window.localStorage.removeItem('apiToken');
       } else {
         dispatch(setPromptLogin(false));
         setProfile((result as ProfileQueryResult).data.myProfile);
+        window.localStorage.setItem('profileToken', profileToken);
+        window.localStorage.setItem('apiToken', apiToken);
       }
     };
 

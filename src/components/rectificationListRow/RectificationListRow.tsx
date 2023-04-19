@@ -4,6 +4,7 @@ import { ObjectionDocument } from '../../interfaces/objectionInterfaces';
 import RectificationListDetails from '../rectificationListDetails/RectificationListDetails';
 import CustomTag from '../customTag/CustomTag';
 import { formatDateTime } from '../../utils/helpers';
+import { FormId } from '../formContent/formContentSlice';
 import { t } from 'i18next';
 import './RectificationListRow.css';
 
@@ -13,7 +14,10 @@ interface Props {
 
 const RectificationListRow: FC<Props> = ({ form }): React.ReactElement => {
   const [extended, setExtended] = useState(false);
-  const formTypes = ['parking-fine', 'moved-car', 'due-date'];
+  const formTypes = [FormId.PARKINGFINE, FormId.MOVEDCAR, FormId.DUEDATE];
+  const formType = form.content.dueDate
+    ? FormId.DUEDATE
+    : formTypes[form.content.type as number];
   const tagColor = (status: string) => {
     switch (status) {
       case 'resolvedViaEService':
@@ -33,9 +37,7 @@ const RectificationListRow: FC<Props> = ({ form }): React.ReactElement => {
           {formatDateTime(form.updated_at)}
         </div>
         <div className="rectification-list-row-title">
-          {`${t(`${formTypes[form.content.type]}:title`)} (${
-            form.transaction_id
-          })`}
+          {`${t(`${formType}:title`)} (${form.transaction_id})`}
         </div>
         <div className="rectification-list-row-status">
           {form.status.value && (
@@ -57,7 +59,7 @@ const RectificationListRow: FC<Props> = ({ form }): React.ReactElement => {
             : t('landing-page:list:show-more')}
         </Button>
       </div>
-      {extended && <RectificationListDetails form={form} />}
+      {extended && <RectificationListDetails form={form} formType={formType} />}
     </>
   );
 };

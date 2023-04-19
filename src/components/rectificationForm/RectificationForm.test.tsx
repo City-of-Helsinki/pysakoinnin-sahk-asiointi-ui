@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { render, waitFor } from '@testing-library/react';
 import RectificationForm from './RectificationForm';
-import { RectificationFormType } from '../formContent/formContentSlice';
+import { ObjectionForm } from '../../interfaces/objectionInterfaces';
 import { Provider } from 'react-redux';
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 import { axe } from 'jest-axe';
@@ -11,7 +11,7 @@ import { ClientContext } from '../../client/ClientProvider';
 
 // ClientContext needs to be added here since the tests don't get it from FormStepper
 renderHook(() => useContext(ClientContext));
-const { result } = renderHook(() => useForm<RectificationFormType>());
+const { result } = renderHook(() => useForm<ObjectionForm>());
 const control = result.current.control;
 const values = result.current.getValues;
 

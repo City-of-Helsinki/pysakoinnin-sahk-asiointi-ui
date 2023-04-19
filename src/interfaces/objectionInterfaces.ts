@@ -1,3 +1,5 @@
+import { Control } from 'react-hook-form';
+
 // data is base64 string
 export type FileItem = {
   fileName: string;
@@ -14,54 +16,40 @@ export enum AuthorRole {
   Other = '4'
 }
 
-export interface Objection {
+export interface ObjectionForm {
   foulNumber?: string;
   transferNumber?: string;
-  registerNumber: string;
-  ssn: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  mobilePhone: string;
-  iban: string;
-  authorRole: AuthorRole | number;
-  address: {
+  registerNumber?: string;
+  ssn?: string;
+  firstName?: string;
+  lastName?: string;
+  email?: string;
+  newEmail?: string;
+  newEmailConfirm?: string;
+  toSeparateEmail?: boolean;
+  mobilePhone?: string;
+  iban?: string;
+  authorRole?: AuthorRole | number;
+  address?: {
     streetAddress: string;
     postCode: string;
     postOffice: string;
   };
-  description: string;
-  attachments: FileItem[];
-  type: number;
-  sendDecisionViaEService: boolean;
+  description?: string;
+  poaFile?: FileItem;
+  attachments?: FileItem[];
+  type?: number;
+  deliveryDecision?: string;
+  sendDecisionViaEService?: boolean;
+  dueDate?: string;
+  success?: boolean;
+  errorcode?: string | null;
+  internalErrorDescription?: string | null;
+  dueDateExtendableReason?: number;
+  responseCode?: number;
 }
 
-export interface ObjectionForm {
-  foulNumber: string;
-  transferNumber: string;
-  registerNumber: string;
-  ssn: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  newEmail: string;
-  newEmailConfirm: string;
-  toSeparateEmail: boolean;
-  mobilePhone: string;
-  iban: string;
-  authorRole: AuthorRole | number;
-  address: {
-    streetAddress: string;
-    postCode: string;
-    postOffice: string;
-  };
-  description: string;
-  poaFile: FileItem;
-  attachments: FileItem[];
-  type: number;
-  deliveryDecision: string;
-  sendDecisionViaEService: boolean;
-}
+export type ObjectionControlType = Control<ObjectionForm>;
 
 export interface ObjectionDocumentResponse {
   count: number;
@@ -88,7 +76,7 @@ export interface ObjectionDocument {
   business_id: string;
   tos_function_id: string;
   tos_record_id: string;
-  content: Objection;
+  content: ObjectionForm;
   draft: boolean;
   locked_after: string;
   deletable: boolean;

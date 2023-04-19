@@ -1,24 +1,10 @@
-import { Objection } from '../interfaces/objectionInterfaces';
-
-const mockDueDateObject: Objection = {
-  foulNumber: '7777777',
-  registerNumber: '',
-  ssn: '',
-  firstName: '',
-  lastName: '',
-  email: '',
-  mobilePhone: '',
-  iban: '',
-  authorRole: 0,
-  address: {
-    streetAddress: '',
-    postCode: '',
-    postOffice: ''
-  },
-  description: '',
-  attachments: [],
-  sendDecisionViaEService: false,
-  type: 2
+const mockDueDateObject = {
+  success: true,
+  errorcode: null,
+  internalErrorDescription: null,
+  dueDate: '2023-01-01T00:00:00',
+  dueDateExtendableReason: 4,
+  responseCode: 0
 };
 
 export default mockDueDateObject;

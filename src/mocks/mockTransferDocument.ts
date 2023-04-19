@@ -1,6 +1,6 @@
-import { AuthorRole, Objection } from '../interfaces/objectionInterfaces';
+import { AuthorRole, ObjectionForm } from '../interfaces/objectionInterfaces';
 
-const mockTransferDocument: Objection = {
+const mockTransferDocument: ObjectionForm = {
   transferNumber: '123456',
   foulNumber: '',
   registerNumber: 'ABC-123',

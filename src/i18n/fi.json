@@ -191,9 +191,11 @@
   "rectificationForm": {
     "relation-info": {
       "relation": "Teen oikaisuvaatimuksen",
-      "driver": "Ajoneuvon kuljettajana",
-      "owner": "Ajoneuvon omistajana/haltijana",
-      "poa-holder": "Valtakirjalla (toisen puolesta)"
+      "0": "Tuntemattomana henkilönä",
+      "1": "Ajoneuvon kuljettajana",
+      "2": "Ajoneuvon omistajana/haltijana",
+      "3": "Valtakirjalla (toisen puolesta)",
+      "4": "Muuna henkilönä"
     },
     "rectification-info": "Oikaisuvaatimuksen tiedot",
     "rectification-content": "Oikaisuvaatimuksen sisältö",
@@ -266,7 +268,7 @@
         "notification": {
           "due-date": {
             "label": "Eräpäivää on siirretty",
-            "text": "Eräpäivää on siirretty 30 päivällä. Uusi eräpäivä on {{timestamp}}."
+            "text": "Eräpäivää on siirretty 30 päivällä. Uusi eräpäivä on {{dueDate}}."
           },
           "resolvedViaMail": {
             "label": "Päätös on postitettu",

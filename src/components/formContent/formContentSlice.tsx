@@ -1,7 +1,6 @@
 /* eslint-disable no-magic-numbers */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../../store';
-import { Control } from 'react-hook-form';
 import { FoulData, FoulRequest } from '../../interfaces/foulInterfaces';
 import {
   TransferData,
@@ -16,6 +15,7 @@ import {
 } from '../formStepper/formStepperSlice';
 import { DueDateRequest } from '../../interfaces/dueDateInterfaces';
 import { extendDueDate } from '../../services/dueDateService';
+import { ObjectionForm } from '../../interfaces/objectionInterfaces';
 
 export enum FormId {
   NONE = '',
@@ -30,32 +30,11 @@ export type FileItem = {
   type: string;
 };
 
-export type RectificationFormType = {
-  invoiceNumber: string;
-  refNumber: string;
-  regNumber: string;
-  relation: string;
-  poaFile: FileItem;
-  attachments: FileItem[];
-  toSeparateEmail: boolean;
-  newEmailAddress: string;
-  newEmailConfirm: string;
-  address: string;
-  zipCode: string;
-  city: string;
-  phone: string;
-  IBAN: string;
-  rectificationContent: string;
-  deliveryDecision: string;
-};
-
-export type RectificationControlType = Control<RectificationFormType>;
-
 export type FormState = {
   formSubmitted: boolean;
   selectedForm: FormId;
   submitDisabled: boolean;
-  formValues: RectificationFormType;
+  formValues: ObjectionForm;
   foulData: FoulData | undefined;
   transferData: TransferData | undefined;
   formError: string | null;
@@ -75,25 +54,28 @@ const initialState: FormState = {
   emailConfirmation: false,
   dueDate: undefined,
   formValues: {
-    invoiceNumber: '',
-    refNumber: '',
-    regNumber: '',
-    relation: '',
+    transferNumber: '',
+    foulNumber: '',
+    registerNumber: '',
+    authorRole: 0,
     poaFile: {
-      name: '',
+      fileName: '',
       size: 0,
-      type: ''
+      mimeType: '',
+      data: ''
     },
     attachments: [],
     toSeparateEmail: false,
-    newEmailAddress: '',
+    newEmail: '',
     newEmailConfirm: '',
-    address: '',
-    zipCode: '',
-    city: '',
-    phone: '',
-    IBAN: '',
-    rectificationContent: '',
+    address: {
+      streetAddress: '',
+      postCode: '',
+      postOffice: ''
+    },
+    mobilePhone: '',
+    iban: '',
+    description: '',
     deliveryDecision: ''
   }
 };

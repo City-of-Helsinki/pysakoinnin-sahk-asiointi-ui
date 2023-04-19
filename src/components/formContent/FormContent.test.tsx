@@ -5,12 +5,13 @@ import { renderHook } from '@testing-library/react-hooks';
 import { useForm } from 'react-hook-form';
 import { axe } from 'jest-axe';
 import FormContent from './FormContent';
-import { RectificationFormType } from './formContentSlice';
+import { ObjectionForm } from '../../interfaces/objectionInterfaces';
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 import { ClientContext } from '../../client/ClientProvider';
 import store from '../../store';
 import '@testing-library/jest-dom';
 import mockFoulData from '../../mocks/mockFoulData';
+import mockTransferData from '../../mocks/mockTransferData';
 
 // ClientContext needs to be added here since the tests don't get it from FormStepper
 renderHook(() => useContext(ClientContext));
@@ -31,7 +32,8 @@ const parkingFineFormContentSliceMock = createSlice({
   initialState: {
     formSubmitted: false,
     selectedForm: 'parking-fine',
-    submitDisabled: true
+    submitDisabled: true,
+    foulData: mockFoulData
   },
   reducers: {}
 });
@@ -41,7 +43,8 @@ const movedCarFormContentSliceMock = createSlice({
   initialState: {
     formSubmitted: false,
     selectedForm: 'moved-car',
-    submitDisabled: true
+    submitDisabled: true,
+    transferData: mockTransferData
   },
   reducers: {}
 });
@@ -60,11 +63,11 @@ const userSliceMock = createSlice({
 });
 
 const { result } = renderHook(() =>
-  useForm<RectificationFormType>({
+  useForm<ObjectionForm>({
     defaultValues: {
-      invoiceNumber: '',
-      refNumber: '',
-      regNumber: ''
+      transferNumber: '',
+      foulNumber: '',
+      registerNumber: ''
     }
   })
 );

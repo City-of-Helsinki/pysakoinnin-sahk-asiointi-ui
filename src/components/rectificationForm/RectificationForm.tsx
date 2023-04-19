@@ -16,12 +16,12 @@ import {
 } from 'hds-react';
 import { extractIBAN } from 'ibantools';
 import useMobileWidth from '../../hooks/useMobileWidth';
+import { FormId, selectFormContent } from '../formContent/formContentSlice';
 import {
-  FormId,
-  selectFormContent,
-  RectificationControlType,
-  RectificationFormType
-} from '../formContent/formContentSlice';
+  ObjectionForm,
+  ObjectionControlType,
+  AuthorRole
+} from '../../interfaces/objectionInterfaces';
 import { selectUserProfile } from '../user/userSlice';
 import FieldLabel from '../fieldLabel/FieldLabel';
 import ErrorLabel from '../errorLabel/ErrorLabel';
@@ -30,8 +30,8 @@ import './RectificationForm.css';
 type Language = 'fi' | 'en' | 'sv';
 
 interface Props {
-  control: RectificationControlType;
-  values: UseFormGetValues<RectificationFormType>;
+  control: ObjectionControlType;
+  values: UseFormGetValues<ObjectionForm>;
 }
 
 const RectificationForm: FC<Props> = ({ control, values }) => {
@@ -44,43 +44,45 @@ const RectificationForm: FC<Props> = ({ control, values }) => {
     window._env_.REACT_APP_RECTIFICATION_CHAR_LIMIT;
 
   const relations = movedCarFormSelected
-    ? ['owner', 'poa-holder']
-    : ['driver', 'owner', 'poa-holder'];
+    ? [AuthorRole.Owner, AuthorRole.Possessor]
+    : [AuthorRole.Driver, AuthorRole.Owner, AuthorRole.Possessor];
 
   const setFiles = (files: File[], type: string, field: FieldValues) => {
     const fileList = files.map(({ name, size, type }) => ({
-      name,
-      size,
-      type
+      fileName: name,
+      size: size,
+      mimeType: type
     }));
     switch (type) {
       case 'poa':
-        return field.onChange(
-          fileList.length > 0 ? fileList[0] : { name: '', size: 0, type: '' }
-        );
+        return field.onChange(fileList.length > 0 ? fileList[0] : {});
       case 'attachments':
         return field.onChange(fileList);
     }
   };
 
   // Required if POA holder selected as the role
-  const isValidPOAFile = (field: FieldValues) =>
-    values().relation !== 'poa-holder' ||
-    (field && field.name && field.name !== '');
+  const isValidPOAFile = (field?: FieldValues) =>
+    values().authorRole !== AuthorRole.Possessor ||
+    (field && field.name && field.fileName !== '');
 
   // Required if toSeparateEmail checkbox selected
-  const isValidEmail = (field: string) =>
+  const isValidEmail = (field?: string) =>
     !values().toSeparateEmail || field !== '';
 
   // Required if email field is not empty, and if so, emails have to match
-  const isValidEmailConfirmation = (field: string) =>
-    values().newEmailAddress === '' || field === values().newEmailAddress;
+  const isValidEmailConfirmation = (field?: string) =>
+    values().newEmail === '' || field === values().newEmail;
 
-  const numberOfAttachmentsIsValid = (field: FieldValues) => field.length <= 3;
+  const numberOfAttachmentsIsValid = (field?: FieldValues) =>
+    field && field.length <= 3;
 
-  const isValidIBAN = (field: string) => {
-    const iban = extractIBAN(field);
-    return iban.valid && iban.countryCode === 'FI';
+  const isValidIBAN = (field?: string) => {
+    if (field) {
+      const iban = extractIBAN(field);
+      return iban.valid && iban.countryCode === 'FI';
+    }
+    return true;
   };
 
   return (
@@ -89,7 +91,7 @@ const RectificationForm: FC<Props> = ({ control, values }) => {
       <div>
         <div className="rectification-info-container">
           <Controller
-            name="relation"
+            name="authorRole"
             control={control}
             rules={{ required: t('common:required-field') as string }}
             render={({ field, fieldState }) => {
@@ -169,8 +171,8 @@ const RectificationForm: FC<Props> = ({ control, values }) => {
                               'rectificationForm:attach-poa:helper-text'
                             )}
                           />
-                          {relationField.value === 'poa-holder' &&
-                            field.value?.name === '' && (
+                          {relationField.value === AuthorRole.Possessor &&
+                            field.value?.fileName === '' && (
                               <ErrorLabel
                                 text={t(
                                   'rectificationForm:errors:poa-required'
@@ -217,7 +219,7 @@ const RectificationForm: FC<Props> = ({ control, values }) => {
                     checked={checkboxField.value}
                   />
                   <Controller
-                    name="newEmailAddress"
+                    name="newEmail"
                     control={control}
                     rules={{
                       validate: isValidEmail,
@@ -274,7 +276,7 @@ const RectificationForm: FC<Props> = ({ control, values }) => {
           />
 
           <Controller
-            name="address"
+            name="address.streetAddress"
             control={control}
             rules={{ required: t('common:required-field') as string }}
             render={({ field, fieldState }) => (
@@ -291,7 +293,7 @@ const RectificationForm: FC<Props> = ({ control, values }) => {
           />
           <div className="rectification-subgrid">
             <Controller
-              name="zipCode"
+              name="address.postCode"
               control={control}
               rules={{ required: t('common:required-field') as string }}
               render={({ field, fieldState }) => (
@@ -307,7 +309,7 @@ const RectificationForm: FC<Props> = ({ control, values }) => {
               )}
             />
             <Controller
-              name="city"
+              name="address.postOffice"
               control={control}
               rules={{ required: t('common:required-field') as string }}
               render={({ field, fieldState }) => (
@@ -325,7 +327,7 @@ const RectificationForm: FC<Props> = ({ control, values }) => {
           </div>
 
           <Controller
-            name="phone"
+            name="mobilePhone"
             control={control}
             rules={{
               required: t('common:required-field') as string
@@ -344,7 +346,7 @@ const RectificationForm: FC<Props> = ({ control, values }) => {
           />
 
           <Controller
-            name="IBAN"
+            name="iban"
             control={control}
             rules={{
               required: t('common:required-field') as string,
@@ -370,7 +372,7 @@ const RectificationForm: FC<Props> = ({ control, values }) => {
           />
 
           <Controller
-            name="rectificationContent"
+            name="description"
             control={control}
             rules={{
               required: t('common:required-field') as string,
@@ -388,7 +390,7 @@ const RectificationForm: FC<Props> = ({ control, values }) => {
                     field.value?.length
                   }/${rectificationMaxLength} ${t('common:characters')}`}
                   errorText={
-                    field.value?.length > rectificationMaxLength
+                    field.value && field.value.length > rectificationMaxLength
                       ? t('rectificationForm:errors:description-over-limit')
                       : fieldState.error
                       ? t('common:required-field')
@@ -396,7 +398,9 @@ const RectificationForm: FC<Props> = ({ control, values }) => {
                   }
                   invalid={
                     !!fieldState.error ||
-                    field.value?.length > rectificationMaxLength
+                    (field.value
+                      ? field.value.length > rectificationMaxLength
+                      : false)
                   }
                 />
               </>
@@ -424,7 +428,7 @@ const RectificationForm: FC<Props> = ({ control, values }) => {
                     maxSize={5 * 1024 * 1024}
                     helperText={t('rectificationForm:attachments:helper-text')}
                   />
-                  {field.value?.length > 3 && (
+                  {field.value && field.value.length > 3 && (
                     <div className="rectification-attachments-error">
                       <ErrorLabel
                         text={t(
