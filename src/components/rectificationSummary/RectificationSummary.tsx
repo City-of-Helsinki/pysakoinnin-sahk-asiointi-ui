@@ -1,27 +1,38 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 import React, { FC } from 'react';
-import { useSelector } from 'react-redux';
 import { IconDocument, IconPhoto, TextInput } from 'hds-react';
 import { useTranslation } from 'react-i18next';
-import { selectFormContent } from '../formContent/formContentSlice';
 import { formatBytes } from '../../utils/helpers';
 import InfoContainer from '../infoContainer/InfoContainer';
 import CustomAccordion from '../customAccordion/CustomAccordion';
 import { FileItem, ObjectionForm } from '../../interfaces/objectionInterfaces';
 import ExtendedTextField from '../extendedTextField/ExtendedTextField';
 import useMobileWidth from '../../hooks/useMobileWidth';
+import { FoulData } from '../../interfaces/foulInterfaces';
+import { TransferData } from '../../interfaces/transferInterfaces';
 import styles from '../styles.module.css';
 import './RectificationSummary.css';
 
 interface Props {
   form: ObjectionForm | undefined;
   formType: string;
+  foulData?: FoulData;
+  transferData?: TransferData;
 }
 
-const RectificationSummary: FC<Props> = ({ form, formType }) => {
+const RectificationSummary: FC<Props> = ({
+  form,
+  formType,
+  foulData,
+  transferData
+}) => {
   const { t } = useTranslation();
   const formValues = form;
-  const formContent = useSelector(selectFormContent); /* FIXME */
+  const deliveryDecision = formValues?.deliveryDecision
+    ? formValues.deliveryDecision
+    : formValues?.sendDecisionViaEService
+    ? 'toParkingService'
+    : 'byMail';
 
   return (
     <>
@@ -93,7 +104,7 @@ const RectificationSummary: FC<Props> = ({ form, formType }) => {
           <TextInput
             id="deliveryDecision"
             label={t('rectificationForm:delivery-decision')}
-            value={t(`rectificationForm:${formValues?.deliveryDecision}`)}
+            value={t(`rectificationForm:${deliveryDecision}`)}
             readOnly
           />
         </div>
@@ -164,16 +175,16 @@ const RectificationSummary: FC<Props> = ({ form, formType }) => {
         <CustomAccordion heading={t(`${formType}:stepper:step2`)}>
           <InfoContainer
             selectedForm={formType}
-            foulData={formContent.foulData}
-            transferData={formContent.transferData}
+            foulData={foulData}
+            transferData={transferData}
           />
         </CustomAccordion>
       </div>
       <div className="show-on-print" aria-hidden="true">
         <InfoContainer
           selectedForm={formType}
-          foulData={formContent.foulData}
-          transferData={formContent.transferData}
+          foulData={foulData}
+          transferData={transferData}
         />
       </div>
     </>

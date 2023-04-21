@@ -61,6 +61,8 @@ const FormContent = (props: Props): React.ReactElement => {
             <RectificationSummary
               form={formValues}
               formType={formContent.selectedForm}
+              foulData={formContent.foulData}
+              transferData={formContent.transferData}
             />
           )
         }[props.activeStep]

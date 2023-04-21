@@ -44,25 +44,35 @@ const InfoContainer: FC<Props> = ({
       <h2 className="show-on-print" aria-hidden="true">
         {t(`${selectedForm}:stepper:step2`)}
       </h2>
-      {errorNotificationOpen && (
+      {foulData || transferData ? (
+        <>
+          {errorNotificationOpen && (
+            <Notification
+              label={t('common:errors:notification-title')}
+              type="error"
+              dismissible
+              className="error-notification"
+              closeButtonLabelText={t('common:close-notification') as string}
+              onClose={() => setErrorNotificationOpen(false)}>
+              {t(getErrorMessage(data?.responseCode))}
+            </Notification>
+          )}
+          <div className="info-container">
+            {foulData ? (
+              <ParkingFineSummary foulData={foulData} />
+            ) : (
+              <ReimbursementSummary transferData={transferData} />
+            )}
+            <CarInfoCard data={data} />
+          </div>
+        </>
+      ) : (
         <Notification
-          label={t('common:errors:notification-title')}
-          type="error"
-          dismissible
-          className="error-notification"
-          closeButtonLabelText={t('common:close-notification') as string}
-          onClose={() => setErrorNotificationOpen(false)}>
-          {t(getErrorMessage(data?.responseCode))}
+          label={t(`${selectedForm}:notifications:data-not-found:label`)}
+          type="error">
+          {t(`${selectedForm}:notifications:data-not-found:text`)}
         </Notification>
       )}
-      <div className="info-container">
-        {foulData ? (
-          <ParkingFineSummary foulData={foulData} />
-        ) : (
-          <ReimbursementSummary transferData={transferData} />
-        )}
-        <CarInfoCard data={data} />
-      </div>
     </>
   );
 };
