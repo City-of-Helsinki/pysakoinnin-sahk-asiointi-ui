@@ -32,13 +32,13 @@ import {
   selectFormContent,
   selectFormValues,
   setFormValues,
-  RectificationFormType,
   getFoulDataThunk,
   getTransferDataThunk,
   extendDueDateThunk,
   setSubmitError,
   FormId
 } from '../formContent/formContentSlice';
+import { ObjectionForm } from '../../interfaces/objectionInterfaces';
 import { setUserProfile } from '../user/userSlice';
 import ErrorLabel from '../errorLabel/ErrorLabel';
 import { ResponseCode } from '../../interfaces/foulInterfaces';
@@ -57,7 +57,7 @@ const useRectificationForm = () => {
     reset,
     getValues,
     formState: { isSubmitSuccessful }
-  } = useForm<RectificationFormType>({
+  } = useForm<ObjectionForm>({
     mode: 'onTouched',
     defaultValues: formValues
   });
@@ -98,35 +98,35 @@ const FormStepper = (props: Props): React.ReactElement => {
 
   const { control, handleSubmit, getValues } = useRectificationForm();
 
-  const handleFormSubmit = (form: RectificationFormType) => {
+  const handleFormSubmit = (form: ObjectionForm) => {
     switch (selectedForm) {
       case FormId.DUEDATE:
         dispatch(
           extendDueDateThunk({
-            foul_number: form.refNumber,
-            register_number: form.regNumber
+            foul_number: form.foulNumber ? form.foulNumber : '',
+            register_number: form.registerNumber ? form.registerNumber : ''
           })
         ).then(() => setShowSubmitNotification(true));
     }
   };
 
-  const handleNextClick = (form: RectificationFormType) => {
-    dispatch(setFormValues({ ...form, IBAN: friendlyFormatIBAN(form.IBAN) }));
+  const handleNextClick = (form: ObjectionForm) => {
+    dispatch(setFormValues({ ...form, iban: friendlyFormatIBAN(form.iban) }));
     if (activeStepIndex === 0) {
       switch (selectedForm) {
         case FormId.PARKINGFINE:
         case FormId.DUEDATE:
           return dispatch(
             getFoulDataThunk({
-              foul_number: form.refNumber,
-              register_number: form.regNumber
+              foul_number: form.foulNumber ? form.foulNumber : '',
+              register_number: form.registerNumber ? form.registerNumber : ''
             })
           );
         case FormId.MOVEDCAR:
           return dispatch(
             getTransferDataThunk({
-              transfer_number: form.invoiceNumber,
-              register_number: form.regNumber
+              transfer_number: form.transferNumber ? form.transferNumber : '',
+              register_number: form.registerNumber ? form.registerNumber : ''
             })
           );
       }

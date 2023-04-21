@@ -3,38 +3,29 @@ import { render, waitFor } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import InfoContainer from './InfoContainer';
 import { Provider } from 'react-redux';
-import { configureStore, createSlice } from '@reduxjs/toolkit';
 import store from '../../store';
 import '@testing-library/jest-dom';
+import mockFoulData from '../../mocks/mockFoulData';
+import mockTransferData from '../../mocks/mockTransferData';
+import { FormId } from '../formContent/formContentSlice';
 
 describe('info container', () => {
   test('passes a11y validation', async () => {
     const { container } = render(
       <Provider store={store}>
-        <InfoContainer />
+        <InfoContainer selectedForm={FormId.PARKINGFINE} />
       </Provider>
     );
     expect(await axe(container)).toHaveNoViolations();
   });
 
   test('renders parking fine summary correctly', async () => {
-    const parkingFineFormContentSliceMock = createSlice({
-      name: 'formContent',
-      initialState: {
-        formSubmitted: false,
-        selectedForm: 'parking-fine',
-        submitDisabled: true
-      },
-      reducers: {}
-    });
-    const store = configureStore({
-      reducer: {
-        formContent: parkingFineFormContentSliceMock.reducer
-      }
-    });
     const { getByTestId } = render(
       <Provider store={store}>
-        <InfoContainer />
+        <InfoContainer
+          selectedForm={FormId.PARKINGFINE}
+          foulData={mockFoulData}
+        />
       </Provider>
     );
 
@@ -48,23 +39,12 @@ describe('info container', () => {
   });
 
   test('renders reimbursement summary correctly', async () => {
-    const movedCarFormContentSliceMock = createSlice({
-      name: 'formContent',
-      initialState: {
-        formSubmitted: false,
-        selectedForm: 'moved-car',
-        submitDisabled: true
-      },
-      reducers: {}
-    });
-    const store = configureStore({
-      reducer: {
-        formContent: movedCarFormContentSliceMock.reducer
-      }
-    });
     const { getByTestId } = render(
       <Provider store={store}>
-        <InfoContainer />
+        <InfoContainer
+          selectedForm={FormId.MOVEDCAR}
+          transferData={mockTransferData}
+        />
       </Provider>
     );
 

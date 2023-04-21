@@ -30,13 +30,13 @@ exports[`Component in moved car form matches snapshot 1`] = `
           >
             <input
               class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
-              id="owner"
+              id="2"
               type="radio"
-              value="owner"
+              value="2"
             />
             <label
               class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
-              for="owner"
+              for="2"
             >
               Ajoneuvon omistajana/haltijana
             </label>
@@ -46,13 +46,13 @@ exports[`Component in moved car form matches snapshot 1`] = `
           >
             <input
               class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
-              id="poa-holder"
+              id="3"
               type="radio"
-              value="poa-holder"
+              value="3"
             />
             <label
               class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
-              for="poa-holder"
+              for="3"
             >
               Valtakirjalla (toisen puolesta)
             </label>
@@ -400,7 +400,7 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
             class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
             disabled=""
             id="newEmailAddress"
-            name="newEmailAddress"
+            name="newEmail"
             type="text"
             value=""
           />
@@ -449,7 +449,7 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
           <input
             class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
             id="address"
-            name="address"
+            name="address.streetAddress"
             placeholder="Esim. Elimäenkatu 5"
             required=""
             type="text"
@@ -481,7 +481,7 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
             <input
               class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
               id="zipCode"
-              name="zipCode"
+              name="address.postCode"
               placeholder="Esim. 00100"
               required=""
               type="text"
@@ -510,7 +510,7 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
             <input
               class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
               id="city"
-              name="city"
+              name="address.postOffice"
               placeholder="Esim. Helsinki"
               required=""
               type="text"
@@ -540,7 +540,7 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
           <input
             class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
             id="phone"
-            name="phone"
+            name="mobilePhone"
             placeholder="Esim. +358401234567"
             required=""
             type="text"
@@ -569,7 +569,7 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
           <input
             class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
             id="IBAN"
-            name="IBAN"
+            name="iban"
             placeholder="Esim. FI97 8000 1700 9033 30"
             required=""
             type="text"
@@ -599,7 +599,7 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
             aria-describedby="rectification-content-helper"
             class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
             id="rectification-content"
-            name="rectificationContent"
+            name="description"
             required=""
           />
         </div>
@@ -826,13 +826,13 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
           >
             <input
               class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
-              id="driver"
+              id="1"
               type="radio"
-              value="driver"
+              value="1"
             />
             <label
               class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
-              for="driver"
+              for="1"
             >
               Ajoneuvon kuljettajana
             </label>
@@ -842,13 +842,13 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
           >
             <input
               class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
-              id="owner"
+              id="2"
               type="radio"
-              value="owner"
+              value="2"
             />
             <label
               class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
-              for="owner"
+              for="2"
             >
               Ajoneuvon omistajana/haltijana
             </label>
@@ -858,13 +858,13 @@ exports[`Component in parking fine appeal form matches snapshot 1`] = `
           >
             <input
               class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
-              id="poa-holder"
+              id="3"
               type="radio"
-              value="poa-holder"
+              value="3"
             />
             <label
               class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
-              for="poa-holder"
+              for="3"
             >
               Valtakirjalla (toisen puolesta)
             </label>
@@ -1212,7 +1212,7 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
             class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
             disabled=""
             id="newEmailAddress"
-            name="newEmailAddress"
+            name="newEmail"
             type="text"
             value=""
           />
@@ -1261,7 +1261,7 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
           <input
             class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
             id="address"
-            name="address"
+            name="address.streetAddress"
             placeholder="Esim. Elimäenkatu 5"
             required=""
             type="text"
@@ -1293,7 +1293,7 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
             <input
               class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
               id="zipCode"
-              name="zipCode"
+              name="address.postCode"
               placeholder="Esim. 00100"
               required=""
               type="text"
@@ -1322,7 +1322,7 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
             <input
               class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
               id="city"
-              name="city"
+              name="address.postOffice"
               placeholder="Esim. Helsinki"
               required=""
               type="text"
@@ -1352,7 +1352,7 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
           <input
             class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
             id="phone"
-            name="phone"
+            name="mobilePhone"
             placeholder="Esim. +358401234567"
             required=""
             type="text"
@@ -1381,7 +1381,7 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
           <input
             class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
             id="IBAN"
-            name="IBAN"
+            name="iban"
             placeholder="Esim. FI97 8000 1700 9033 30"
             required=""
             type="text"
@@ -1411,7 +1411,7 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
             aria-describedby="rectification-content-helper"
             class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
             id="rectification-content"
-            name="rectificationContent"
+            name="description"
             required=""
           />
         </div>

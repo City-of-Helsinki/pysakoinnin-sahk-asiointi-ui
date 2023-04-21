@@ -1,27 +1,38 @@
 /* eslint-disable sonarjs/no-duplicate-string */
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { FC } from 'react';
 import { IconDocument, IconPhoto, TextInput } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import { formatBytes } from '../../utils/helpers';
 import InfoContainer from '../infoContainer/InfoContainer';
 import CustomAccordion from '../customAccordion/CustomAccordion';
-import {
-  FileItem,
-  selectFormContent,
-  selectFormValues
-} from '../formContent/formContentSlice';
-import { selectUserProfile } from '../user/userSlice';
+import { FileItem, ObjectionForm } from '../../interfaces/objectionInterfaces';
 import ExtendedTextField from '../extendedTextField/ExtendedTextField';
 import useMobileWidth from '../../hooks/useMobileWidth';
+import { FoulData } from '../../interfaces/foulInterfaces';
+import { TransferData } from '../../interfaces/transferInterfaces';
 import styles from '../styles.module.css';
 import './RectificationSummary.css';
 
-const RectificationSummary = () => {
+interface Props {
+  form?: ObjectionForm;
+  formType: string;
+  foulData?: FoulData;
+  transferData?: TransferData;
+}
+
+const RectificationSummary: FC<Props> = ({
+  form,
+  formType,
+  foulData,
+  transferData
+}) => {
   const { t } = useTranslation();
-  const selectedForm = useSelector(selectFormContent).selectedForm;
-  const formValues = useSelector(selectFormValues);
-  const user = useSelector(selectUserProfile);
+  const formValues = form;
+  const deliveryDecision = formValues?.deliveryDecision
+    ? formValues.deliveryDecision
+    : formValues?.sendDecisionViaEService
+    ? 'toParkingService'
+    : 'byMail';
 
   return (
     <>
@@ -33,38 +44,40 @@ const RectificationSummary = () => {
           <TextInput
             id="relation"
             label={t(`rectificationForm:relation-info:relation`)}
-            value={t(`rectificationForm:relation-info:${formValues?.relation}`)}
+            value={t(
+              `rectificationForm:relation-info:${formValues?.authorRole}`
+            )}
             readOnly
           />
           <TextInput
             id="name"
             label={t('common:name')}
-            value={user?.name}
+            value={`${formValues?.firstName} ${formValues?.lastName}`}
             readOnly
           />
           <TextInput
             id="ssn"
             label={t('common:ssn')}
-            value={user?.SSN}
+            value={formValues?.ssn}
             readOnly
           />
           <TextInput
             id="rectification-address"
             label={t('rectificationForm:address')}
-            value={formValues?.address}
+            value={formValues?.address?.streetAddress}
             readOnly
           />
           <div className="rectification-summary-subgrid">
             <TextInput
               id="zipcode"
               label={t('rectificationForm:zipcode')}
-              value={formValues?.zipCode}
+              value={formValues?.address?.postCode}
               readOnly
             />
             <TextInput
               id="city"
               label={t('rectificationForm:city')}
-              value={formValues?.city}
+              value={formValues?.address?.postOffice}
               readOnly
             />
           </div>
@@ -72,28 +85,26 @@ const RectificationSummary = () => {
             id="email"
             label={t('common:email')}
             value={
-              formValues?.newEmailAddress
-                ? formValues?.newEmailAddress
-                : user?.email
+              formValues?.newEmail ? formValues?.newEmail : formValues?.email
             }
             readOnly
           />
           <TextInput
             id="phone"
             label={t('common:phone')}
-            value={`${formValues?.phone}`}
+            value={`${formValues?.mobilePhone}`}
             readOnly
           />
           <TextInput
             id="IBAN"
             label={t('rectificationForm:IBAN')}
-            value={formValues?.IBAN}
+            value={formValues?.iban}
             readOnly
           />
           <TextInput
             id="deliveryDecision"
             label={t('rectificationForm:delivery-decision')}
-            value={t(`rectificationForm:${formValues?.deliveryDecision}`)}
+            value={t(`rectificationForm:${deliveryDecision}`)}
             readOnly
           />
         </div>
@@ -104,50 +115,54 @@ const RectificationSummary = () => {
               className={styles['text-label']}>
               {t('rectificationForm:rectification-content')}
             </label>
-            {useMobileWidth() ? (
-              <ExtendedTextField content={formValues?.rectificationContent} />
+            {useMobileWidth() && formValues?.description ? (
+              <ExtendedTextField content={formValues?.description} />
             ) : (
-              <p>{formValues?.rectificationContent}</p>
+              <p>{formValues?.description}</p>
             )}
           </div>
-          {formValues?.attachments.length > 0 && (
+          {formValues?.attachments && formValues?.attachments.length > 0 && (
             <div>
               <label className={styles['text-label']}>
                 {t('rectificationForm:attachments:label')}
               </label>
               <ul className="file-list">
                 {formValues?.attachments.map((item: FileItem) => (
-                  <li key={item.name} className="file-list-item">
-                    {item.type.startsWith('image') ? (
+                  <li key={item.fileName} className="file-list-item">
+                    {item.mimeType.startsWith('image') ? (
                       <IconPhoto aria-hidden />
                     ) : (
                       <IconDocument aria-hidden />
                     )}
                     <div className="file-list-item-title">
-                      <span className="file-list-item-name">{item.name}</span>
-                      <span className="file-list-item-size">
-                        ({formatBytes(item.size)})
+                      <span className="file-list-item-name">
+                        {item.fileName}
                       </span>
+                      {item.size && (
+                        <span className="file-list-item-size">
+                          ({formatBytes(item.size)})
+                        </span>
+                      )}
                     </div>
                   </li>
                 ))}
               </ul>
             </div>
           )}
-          {formValues?.poaFile.name && (
+          {formValues?.poaFile && formValues?.poaFile.fileName && (
             <div>
               <label className={styles['text-label']}>
                 {t('rectificationForm:poa')}
               </label>
               <div className="file-list-item">
-                {formValues?.poaFile.type.startsWith('image') ? (
+                {formValues?.poaFile.mimeType.startsWith('image') ? (
                   <IconPhoto aria-hidden />
                 ) : (
                   <IconDocument aria-hidden />
                 )}
                 <div className="file-list-item-title">
                   <span className="file-list-item-name">
-                    {formValues?.poaFile.name}
+                    {formValues?.poaFile.fileName}
                   </span>
                   <span className="file-list-item-size">
                     ({formatBytes(formValues?.poaFile.size)})
@@ -159,12 +174,20 @@ const RectificationSummary = () => {
         </div>
       </div>
       <div className="hide-on-print">
-        <CustomAccordion heading={t(`${selectedForm}:stepper:step2`)}>
-          <InfoContainer />
+        <CustomAccordion heading={t(`${formType}:stepper:step2`)}>
+          <InfoContainer
+            selectedForm={formType}
+            foulData={foulData}
+            transferData={transferData}
+          />
         </CustomAccordion>
       </div>
       <div className="show-on-print" aria-hidden="true">
-        <InfoContainer />
+        <InfoContainer
+          selectedForm={formType}
+          foulData={foulData}
+          transferData={transferData}
+        />
       </div>
     </>
   );

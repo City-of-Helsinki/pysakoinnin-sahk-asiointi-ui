@@ -1,5 +1,6 @@
+import axios from 'axios';
 import React from 'react';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import { I18nextProvider } from 'react-i18next';
 import i18n from '../../utils/i18n';
@@ -8,29 +9,43 @@ import { Provider } from 'react-redux';
 import store from '../../store';
 import '@testing-library/jest-dom';
 import { t } from 'i18next';
+import { mockObjectionDocumentResponse } from '../../mocks/mockObjectionDocumentList';
 /* eslint-disable sonarjs/no-duplicate-string */
 /* eslint-disable @typescript-eslint/no-unnecessary-type-assertion */
 
+jest.mock('axios');
+
+const mockedAxios = axios as jest.Mocked<typeof axios>;
+
 describe('landing page', () => {
+  beforeEach(async () => {
+    mockedAxios.get.mockResolvedValueOnce({
+      data: mockObjectionDocumentResponse
+    });
+  });
+
   test('passes a11y validation', async () => {
-    const { container } = render(
-      <Provider store={store}>
-        <LandingPage />
-      </Provider>
+    const { container } = await waitFor(async () =>
+      render(
+        <Provider store={store}>
+          <LandingPage />
+        </Provider>
+      )
     );
     expect(await axe(container)).toHaveNoViolations();
   });
 
   describe('renders ', () => {
     test('links correctly', async () => {
-      render(
-        <Provider store={store}>
-          <I18nextProvider i18n={i18n}>
-            <LandingPage />
-          </I18nextProvider>
-        </Provider>
+      await waitFor(() =>
+        render(
+          <Provider store={store}>
+            <I18nextProvider i18n={i18n}>
+              <LandingPage />
+            </I18nextProvider>
+          </Provider>
+        )
       );
-
       // Linkboxes are visible
       expect(
         screen.getByRole('heading', {
@@ -70,12 +85,14 @@ describe('landing page', () => {
       const scrollIntoViewMock = jest.fn();
       window.HTMLElement.prototype.scrollIntoView = scrollIntoViewMock;
 
-      const { container } = render(
-        <Provider store={store}>
-          <I18nextProvider i18n={i18n}>
-            <LandingPage />
-          </I18nextProvider>
-        </Provider>
+      const { container } = await waitFor(() =>
+        render(
+          <Provider store={store}>
+            <I18nextProvider i18n={i18n}>
+              <LandingPage />
+            </I18nextProvider>
+          </Provider>
+        )
       );
       // Title
       expect(
@@ -110,12 +127,14 @@ describe('landing page', () => {
   });
 
   test('sorts results correctly by date', async () => {
-    const { container } = render(
-      <Provider store={store}>
-        <I18nextProvider i18n={i18n}>
-          <LandingPage />
-        </I18nextProvider>
-      </Provider>
+    const { container } = await waitFor(() =>
+      render(
+        <Provider store={store}>
+          <I18nextProvider i18n={i18n}>
+            <LandingPage />
+          </I18nextProvider>
+        </Provider>
+      )
     );
 
     // Get all rectification forms
@@ -139,12 +158,14 @@ describe('landing page', () => {
   });
 
   test('filters results correctly by status', async () => {
-    const { container } = render(
-      <Provider store={store}>
-        <I18nextProvider i18n={i18n}>
-          <LandingPage />
-        </I18nextProvider>
-      </Provider>
+    const { container } = await waitFor(() =>
+      render(
+        <Provider store={store}>
+          <I18nextProvider i18n={i18n}>
+            <LandingPage />
+          </I18nextProvider>
+        </Provider>
+      )
     );
 
     // Get all rectification forms
@@ -167,10 +188,11 @@ describe('landing page', () => {
     fireEvent.click(filterButton);
 
     // Filter by 'sent' status
-    const receivedOption = screen.getAllByText(
+    const sentOption = screen.getAllByText(
       t('landing-page:list:status:sent:default') as string
     )[0];
-    fireEvent.click(receivedOption);
+
+    fireEvent.click(sentOption);
 
     expect(rectificationList.length).toBe(2);
     expect(rectificationList[0]).toHaveTextContent(
@@ -180,33 +202,35 @@ describe('landing page', () => {
       `2 ${t('landing-page:list:status:sent:conjugated')}`
     );
 
-    const receivedFilterButton = screen.getByRole('button', {
+    const sentFilterButton = screen.getByRole('button', {
       name: t('landing-page:list:status:sent:default')
     });
-    fireEvent.click(receivedFilterButton);
+    fireEvent.click(sentFilterButton);
 
-    // Filter by 'processing' status
-    const processingOption = screen.getAllByText(
-      t('landing-page:list:status:processing:default') as string
+    // Filter by 'handling' status
+    const handlingOption = screen.getAllByText(
+      t('landing-page:list:status:handling:default') as string
     )[0];
-    fireEvent.click(processingOption);
+    fireEvent.click(handlingOption);
 
     expect(rectificationList.length).toBe(1);
     expect(rectificationList[0]).toHaveTextContent(
-      t('landing-page:list:status:processing:default')
+      t('landing-page:list:status:handling:default')
     );
     expect(rectificationCounter).toHaveTextContent(
-      `1 ${t('landing-page:list:status:processing:conjugated')}`
+      `1 ${t('landing-page:list:status:handling:conjugated')}`
     );
   });
 
   test('filters results correctly by status after page is changed', async () => {
-    const { container } = render(
-      <Provider store={store}>
-        <I18nextProvider i18n={i18n}>
-          <LandingPage />
-        </I18nextProvider>
-      </Provider>
+    const { container } = await waitFor(() =>
+      render(
+        <Provider store={store}>
+          <I18nextProvider i18n={i18n}>
+            <LandingPage />
+          </I18nextProvider>
+        </Provider>
+      )
     );
 
     // Get all rectification forms
@@ -230,7 +254,7 @@ describe('landing page', () => {
 
     // Filter by 'solved (mailed)' status
     const solvedMailedOption = screen.getAllByText(
-      t('landing-page:list:status:solved-mailed:default') as string
+      t('landing-page:list:status:resolvedViaMail:default') as string
     )[0];
     fireEvent.click(solvedMailedOption);
 
@@ -241,7 +265,7 @@ describe('landing page', () => {
       'rectification-list-sent-count'
     )[0];
     expect(rectificationCounter).toHaveTextContent(
-      `1 ${t('landing-page:list:status:solved-mailed:conjugated')}`
+      `1 ${t('landing-page:list:status:resolvedViaMail:conjugated')}`
     );
   });
 });

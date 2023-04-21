@@ -3,18 +3,20 @@ import { RootState } from '../../store';
 
 export type SliceState = {
   userProfile: {
-    name: string;
+    firstName: string;
+    lastName: string;
     email: string;
-    SSN: string;
+    ssn: string;
   };
   promptLogin: boolean;
 };
 
 const initialState: SliceState = {
   userProfile: {
-    name: '',
+    firstName: '',
+    lastName: '',
     email: '',
-    SSN: ''
+    ssn: ''
   },
   promptLogin: false
 };
@@ -26,9 +28,10 @@ export const slice = createSlice({
     setUserProfile: (state, action) => {
       const { lastName, firstName } = action.payload;
       const parsedUserInfo = {
-        name: `${firstName} ${lastName}`,
+        firstName: firstName,
+        lastName: lastName,
         email: action.payload.primaryEmail.email,
-        SSN:
+        ssn:
           action.payload.verifiedPersonalInformation
             .nationalIdentificationNumber
       };

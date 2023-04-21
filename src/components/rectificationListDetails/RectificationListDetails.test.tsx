@@ -5,17 +5,21 @@ import { axe } from 'jest-axe';
 import { I18nextProvider } from 'react-i18next';
 import i18n from '../../utils/i18n';
 import RectificationListDetails from './RectificationListDetails';
-import mockRectificationList from '../../mocks/mockRectificationList';
+import mockObjectionDocumentList from '../../mocks/mockObjectionDocumentList';
 import { Provider } from 'react-redux';
 import store from '../../store';
 import '@testing-library/jest-dom';
 import { t } from 'i18next';
+import { FormId } from '../formContent/formContentSlice';
 
 describe('rectification list details', () => {
   test('passes a11y validation', async () => {
     const { container } = render(
       <Provider store={store}>
-        <RectificationListDetails form={mockRectificationList[0]} />
+        <RectificationListDetails
+          form={mockObjectionDocumentList[0]}
+          formType={FormId.PARKINGFINE}
+        />
       </Provider>
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -24,7 +28,10 @@ describe('rectification list details', () => {
     const { container } = render(
       <Provider store={store}>
         <I18nextProvider i18n={i18n}>
-          <RectificationListDetails form={mockRectificationList[0]} />
+          <RectificationListDetails
+            form={mockObjectionDocumentList[0]}
+            formType={FormId.PARKINGFINE}
+          />
         </I18nextProvider>
       </Provider>
     );

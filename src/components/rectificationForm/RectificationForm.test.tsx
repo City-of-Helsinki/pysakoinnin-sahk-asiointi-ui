@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { render, waitFor } from '@testing-library/react';
 import RectificationForm from './RectificationForm';
-import { RectificationFormType } from '../formContent/formContentSlice';
+import { ObjectionForm } from '../../interfaces/objectionInterfaces';
 import { Provider } from 'react-redux';
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 import { axe } from 'jest-axe';
@@ -11,7 +11,7 @@ import { ClientContext } from '../../client/ClientProvider';
 
 // ClientContext needs to be added here since the tests don't get it from FormStepper
 renderHook(() => useContext(ClientContext));
-const { result } = renderHook(() => useForm<RectificationFormType>());
+const { result } = renderHook(() => useForm<ObjectionForm>());
 const control = result.current.control;
 const values = result.current.getValues;
 
@@ -30,9 +30,10 @@ describe('Component in parking fine appeal form', () => {
     name: 'user',
     initialState: {
       userProfile: {
-        name: 'Test User',
+        firstName: 'Test',
+        lastName: 'User',
         email: 'test.user@test.fi',
-        SSN: '123456-789A'
+        ssn: '123456-789A'
       },
       promptLogin: false
     },
@@ -82,9 +83,10 @@ describe('Component in moved car form', () => {
     name: 'user',
     initialState: {
       userProfile: {
-        name: 'Test User',
+        firstName: 'Test',
+        lastName: 'User',
         email: 'test.user@test.fi',
-        SSN: '123456-789A'
+        ssn: '123456-789A'
       },
       promptLogin: false
     },

@@ -1,24 +1,29 @@
 import React, { FC, useState } from 'react';
 import { Button, IconAngleDown, IconAngleUp } from 'hds-react';
-import { RectificationListItem } from './rectificationListRowSlice';
+import { ObjectionDocument } from '../../interfaces/objectionInterfaces';
 import RectificationListDetails from '../rectificationListDetails/RectificationListDetails';
 import CustomTag from '../customTag/CustomTag';
 import { formatDateTime } from '../../utils/helpers';
-import './RectificationListRow.css';
+import { FormId } from '../formContent/formContentSlice';
 import { t } from 'i18next';
+import './RectificationListRow.css';
 
 interface Props {
-  form: RectificationListItem;
+  form: ObjectionDocument;
 }
 
 const RectificationListRow: FC<Props> = ({ form }): React.ReactElement => {
   const [extended, setExtended] = useState(false);
+  const formTypes = [FormId.PARKINGFINE, FormId.MOVEDCAR, FormId.DUEDATE];
+  const formType = form.content.dueDate
+    ? FormId.DUEDATE
+    : formTypes[form.content.type as number];
   const tagColor = (status: string) => {
     switch (status) {
-      case 'solved-online':
-      case 'solved-mailed':
+      case 'resolvedViaEService':
+      case 'resolvedViaMail':
         return 'var(--color-success)';
-      case 'processing':
+      case 'handling':
         return 'var(--color-alert)';
       default:
         return 'var(--color-info)';
@@ -29,17 +34,19 @@ const RectificationListRow: FC<Props> = ({ form }): React.ReactElement => {
     <>
       <div className="rectification-list-row">
         <div className="rectification-list-row-date">
-          {formatDateTime(form.edited)}
+          {formatDateTime(form.updated_at)}
         </div>
         <div className="rectification-list-row-title">
-          {`${t(`${form.type}:title`)} (${form.id})`}
+          {`${t(`${formType}:title`)} (${form.transaction_id})`}
         </div>
         <div className="rectification-list-row-status">
-          <CustomTag
-            text={t(`landing-page:list:status:${form.status}:default`)}
-            color={tagColor(form.status)}
-            textColor={form.status !== 'processing' ? 'white' : undefined}
-          />
+          {form.status.value && (
+            <CustomTag
+              text={t(`landing-page:list:status:${form.status.value}:default`)}
+              color={tagColor(form.status.value)}
+              textColor={form.status.value !== 'handling' ? 'white' : undefined}
+            />
+          )}
         </div>
         <Button
           className="rectification-list-row-button"
@@ -52,7 +59,7 @@ const RectificationListRow: FC<Props> = ({ form }): React.ReactElement => {
             : t('landing-page:list:show-more')}
         </Button>
       </div>
-      {extended && <RectificationListDetails form={form} />}
+      {extended && <RectificationListDetails form={form} formType={formType} />}
     </>
   );
 };

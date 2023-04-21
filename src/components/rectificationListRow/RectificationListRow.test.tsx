@@ -5,7 +5,7 @@ import { axe } from 'jest-axe';
 import { I18nextProvider } from 'react-i18next';
 import i18n from '../../utils/i18n';
 import RectificationListRow from './RectificationListRow';
-import mockRectificationList from '../../mocks/mockRectificationList';
+import mockObjectionDocumentList from '../../mocks/mockObjectionDocumentList';
 import { Provider } from 'react-redux';
 import store from '../../store';
 import '@testing-library/jest-dom';
@@ -15,7 +15,7 @@ describe('rectification list row', () => {
   test('passes a11y validation', async () => {
     const { container } = render(
       <Provider store={store}>
-        <RectificationListRow form={mockRectificationList[0]} />
+        <RectificationListRow form={mockObjectionDocumentList[0]} />
       </Provider>
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -26,7 +26,7 @@ describe('rectification list row', () => {
       const { container } = render(
         <Provider store={store}>
           <I18nextProvider i18n={i18n}>
-            <RectificationListRow form={mockRectificationList[0]} />
+            <RectificationListRow form={mockObjectionDocumentList[0]} />
           </I18nextProvider>
         </Provider>
       );
@@ -35,7 +35,7 @@ describe('rectification list row', () => {
         'rectification-list-row-status'
       )[0];
       expect(status).toHaveTextContent(
-        t('landing-page:list:status:solved-mailed:default')
+        t('landing-page:list:status:resolvedViaMail:default')
       );
 
       const showMoreButton = screen.getByRole('button', {
@@ -68,13 +68,13 @@ describe('rectification list row', () => {
         t('landing-page:list:status:sent:default')
       );
       expect(events[0]).toHaveTextContent(
-        t('landing-page:list:status:processing:default')
+        t('landing-page:list:status:handling:default')
       );
       expect(events[0]).toHaveTextContent(
         t('landing-page:list:status:received:default')
       );
       expect(events[0]).toHaveTextContent(
-        t('landing-page:list:status:solved-mailed:default')
+        t('landing-page:list:status:resolvedViaMail:default')
       );
 
       // Attachments
@@ -91,7 +91,7 @@ describe('rectification list row', () => {
       });
       expect(mailNotification).toBeVisible();
       expect(mailNotification).toHaveTextContent(
-        t('landing-page:list:details:notification:solved-mailed:text')
+        t('landing-page:list:details:notification:resolvedViaMail:text')
       );
 
       // 'Show form' button is visible but 'open decision' button is not
@@ -110,7 +110,7 @@ describe('rectification list row', () => {
       render(
         <Provider store={store}>
           <I18nextProvider i18n={i18n}>
-            <RectificationListRow form={mockRectificationList[4]} />
+            <RectificationListRow form={mockObjectionDocumentList[4]} />
           </I18nextProvider>
         </Provider>
       );
@@ -144,7 +144,7 @@ describe('rectification list row', () => {
       const { container } = render(
         <Provider store={store}>
           <I18nextProvider i18n={i18n}>
-            <RectificationListRow form={mockRectificationList[5]} />
+            <RectificationListRow form={mockObjectionDocumentList[5]} />
           </I18nextProvider>
         </Provider>
       );
@@ -194,7 +194,7 @@ describe('rectification list row', () => {
       const { container } = render(
         <Provider store={store}>
           <I18nextProvider i18n={i18n}>
-            <RectificationListRow form={mockRectificationList[2]} />
+            <RectificationListRow form={mockObjectionDocumentList[2]} />
           </I18nextProvider>
         </Provider>
       );
