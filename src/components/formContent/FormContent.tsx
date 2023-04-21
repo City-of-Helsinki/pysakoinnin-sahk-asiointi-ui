@@ -31,6 +31,9 @@ const FormContent = (props: Props): React.ReactElement => {
   const formValues = useSelector(selectFormValues);
   const userProfile = useSelector(selectUserProfile);
 
+  /* Add user info to formValues so it can be easily
+   * displayed on RectificationSummary and
+   * sent to PASI when form is submitted */
   useEffect(() => {
     const formValuesWithUserData = {
       ...formValues,
