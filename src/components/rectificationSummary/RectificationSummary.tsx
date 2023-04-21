@@ -14,7 +14,7 @@ import styles from '../styles.module.css';
 import './RectificationSummary.css';
 
 interface Props {
-  form: ObjectionForm | undefined;
+  form?: ObjectionForm;
   formType: string;
   foulData?: FoulData;
   transferData?: TransferData;

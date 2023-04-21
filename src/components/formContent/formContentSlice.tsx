@@ -35,12 +35,12 @@ export type FormState = {
   selectedForm: FormId;
   submitDisabled: boolean;
   formValues: ObjectionForm;
-  foulData: FoulData | undefined;
-  transferData: TransferData | undefined;
+  foulData?: FoulData;
+  transferData?: TransferData;
   formError: string | null;
   submitError: boolean;
   emailConfirmation: boolean;
-  dueDate: string | undefined;
+  dueDate?: string;
 };
 
 const initialState: FormState = {
