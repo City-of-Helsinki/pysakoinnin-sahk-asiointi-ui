@@ -82,3 +82,15 @@ export interface ObjectionDocument {
   deletable: boolean;
   attachments: FileItem[];
 }
+
+export type ObjectionResponse = {
+  ObjectionNumber: number;
+  ObjectionStatusText: string;
+  FoulRegisterNumber: string;
+  TransferRegisterNumber: string;
+};
+
+export enum ObjectionType {
+  Foul,
+  Transfer
+}

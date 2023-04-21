@@ -15,7 +15,11 @@ import {
 } from '../formStepper/formStepperSlice';
 import { DueDateRequest } from '../../interfaces/dueDateInterfaces';
 import { extendDueDate } from '../../services/dueDateService';
-import { ObjectionForm } from '../../interfaces/objectionInterfaces';
+import {
+  AuthorRole,
+  ObjectionForm
+} from '../../interfaces/objectionInterfaces';
+import { saveObjection } from '../../services/objectionService';
 
 export enum FormId {
   NONE = '',
@@ -61,7 +65,7 @@ const initialState: FormState = {
     transferNumber: '',
     foulNumber: '',
     registerNumber: '',
-    authorRole: 0,
+    authorRole: AuthorRole.Undefined,
     poaFile: {
       fileName: '',
       size: 0,
@@ -118,6 +122,21 @@ export const extendDueDateThunk = createAsyncThunk(
   'formContent/extendDueDate',
   async (req: DueDateRequest, thunkAPI) =>
     await extendDueDate(req)
+      .then(res => {
+        const activeStep = (thunkAPI.getState() as RootState).formStepper
+          .activeStepIndex;
+        thunkAPI.dispatch(disablePreviousSteps(activeStep));
+        return res;
+      })
+      .catch((err: AxiosError) =>
+        thunkAPI.rejectWithValue(err.response?.status)
+      )
+);
+
+export const saveObjectionThunk = createAsyncThunk(
+  'formContent/saveObjection',
+  async (req: ObjectionForm, thunkAPI) =>
+    await saveObjection(req)
       .then(res => {
         const activeStep = (thunkAPI.getState() as RootState).formStepper
           .activeStepIndex;
@@ -201,6 +220,16 @@ export const slice = createSlice({
       submitError: false
     }));
     builder.addCase(extendDueDateThunk.rejected, state => ({
+      ...state,
+      submitError: true
+    }));
+    // POST SaveObjection
+    builder.addCase(saveObjectionThunk.fulfilled, state => ({
+      ...state,
+      formSubmitted: true,
+      submitError: false
+    }));
+    builder.addCase(saveObjectionThunk.rejected, state => ({
       ...state,
       submitError: true
     }));

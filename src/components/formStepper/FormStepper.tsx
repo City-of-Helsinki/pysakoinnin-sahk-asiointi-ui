@@ -20,7 +20,7 @@ import { friendlyFormatIBAN } from 'ibantools';
 import useMobileWidth from '../../hooks/useMobileWidth';
 import useUserProfile from '../../hooks/useUserProfile';
 import FormContent from '../formContent/FormContent';
-import { formatDate } from '../../utils/helpers';
+import { createObjection, formatDate } from '../../utils/helpers';
 import {
   completeStep,
   selectStepperState,
@@ -35,6 +35,7 @@ import {
   getFoulDataThunk,
   getTransferDataThunk,
   extendDueDateThunk,
+  saveObjectionThunk,
   setSubmitError,
   FormId
 } from '../formContent/formContentSlice';
@@ -99,7 +100,12 @@ const FormStepper = (props: Props): React.ReactElement => {
   const { control, handleSubmit, getValues } = useRectificationForm();
 
   const handleFormSubmit = (form: ObjectionForm) => {
+    const objection = createObjection(formContent.formValues);
     switch (selectedForm) {
+      case FormId.PARKINGFINE:
+        return dispatch(saveObjectionThunk(objection)).then(() =>
+          setShowSubmitNotification(true)
+        );
       case FormId.DUEDATE:
         dispatch(
           extendDueDateThunk({
