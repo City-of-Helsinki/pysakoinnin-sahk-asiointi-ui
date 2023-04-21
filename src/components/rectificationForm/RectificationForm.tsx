@@ -130,7 +130,7 @@ const RectificationForm: FC<Props> = ({ control, values }) => {
                           color={'var(--color-info)'}
                         />
                       </div>
-                      <p>{user?.name}</p>
+                      <p>{`${user?.firstName} ${user?.lastName}`}</p>
                       <div>
                         <FieldLabel text={t('common:ssn')} required={true} />
                         <IconCheckCircle
@@ -138,7 +138,7 @@ const RectificationForm: FC<Props> = ({ control, values }) => {
                           color={'var(--color-info)'}
                         />
                       </div>
-                      <p>{user?.SSN}</p>
+                      <p>{user?.ssn}</p>
                       <div>
                         <FieldLabel text={t('common:email')} required={true} />
                         <IconCheckCircle

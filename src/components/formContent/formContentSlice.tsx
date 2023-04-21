@@ -54,6 +54,10 @@ const initialState: FormState = {
   emailConfirmation: false,
   dueDate: undefined,
   formValues: {
+    firstName: '',
+    lastName: '',
+    email: '',
+    ssn: '',
     transferNumber: '',
     foulNumber: '',
     registerNumber: '',

@@ -26,9 +26,10 @@ describe('Component', () => {
       name: 'user',
       initialState: {
         userProfile: {
-          name: 'Test User',
+          firstName: 'Test',
+          lastName: 'User',
           email: 'test.user@test.fi',
-          SSN: '123456-789A'
+          ssn: '123456-789A'
         },
         promptLogin: false
       },

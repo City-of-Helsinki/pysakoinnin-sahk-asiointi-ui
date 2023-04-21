@@ -30,9 +30,10 @@ describe('Component in parking fine appeal form', () => {
     name: 'user',
     initialState: {
       userProfile: {
-        name: 'Test User',
+        firstName: 'Test',
+        lastName: 'User',
         email: 'test.user@test.fi',
-        SSN: '123456-789A'
+        ssn: '123456-789A'
       },
       promptLogin: false
     },
@@ -82,9 +83,10 @@ describe('Component in moved car form', () => {
     name: 'user',
     initialState: {
       userProfile: {
-        name: 'Test User',
+        firstName: 'Test',
+        lastName: 'User',
         email: 'test.user@test.fi',
-        SSN: '123456-789A'
+        ssn: '123456-789A'
       },
       promptLogin: false
     },

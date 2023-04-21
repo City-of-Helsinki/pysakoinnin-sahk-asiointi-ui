@@ -1,12 +1,14 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { UseFormGetValues } from 'react-hook-form';
 import SearchForm from '../searchForm/SearchForm';
 import {
   FormId,
   selectFormContent,
-  selectFormValues
+  selectFormValues,
+  setFormValues
 } from './formContentSlice';
+import { selectUserProfile } from '../user/userSlice';
 import {
   ObjectionForm,
   ObjectionControlType
@@ -24,8 +26,19 @@ interface Props {
 }
 
 const FormContent = (props: Props): React.ReactElement => {
+  const dispatch = useDispatch();
   const formContent = useSelector(selectFormContent);
   const formValues = useSelector(selectFormValues);
+  const userProfile = useSelector(selectUserProfile);
+
+  useEffect(() => {
+    const formValuesWithUserData = {
+      ...formValues,
+      ...userProfile
+    };
+    dispatch(setFormValues(formValuesWithUserData));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userProfile]);
 
   const selectForm = (selectedForm: FormId) => {
     switch (selectedForm) {
