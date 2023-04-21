@@ -138,9 +138,11 @@ const RectificationSummary: FC<Props> = ({
                       <span className="file-list-item-name">
                         {item.fileName}
                       </span>
-                      <span className="file-list-item-size">
-                        ({formatBytes(item.size)})
-                      </span>
+                      {item.size && (
+                        <span className="file-list-item-size">
+                          ({formatBytes(item.size)})
+                        </span>
+                      )}
                     </div>
                   </li>
                 ))}
