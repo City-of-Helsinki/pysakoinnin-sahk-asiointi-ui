@@ -5,11 +5,12 @@ import { useTranslation } from 'react-i18next';
 import { formatBytes } from '../../utils/helpers';
 import InfoContainer from '../infoContainer/InfoContainer';
 import CustomAccordion from '../customAccordion/CustomAccordion';
-import { FileItem, ObjectionForm } from '../../interfaces/objectionInterfaces';
+import { ObjectionForm } from '../../interfaces/objectionInterfaces';
 import ExtendedTextField from '../extendedTextField/ExtendedTextField';
 import useMobileWidth from '../../hooks/useMobileWidth';
 import { FoulData } from '../../interfaces/foulInterfaces';
 import { TransferData } from '../../interfaces/transferInterfaces';
+import { FormFiles } from '../formStepper/FormStepper';
 import styles from '../styles.module.css';
 import './RectificationSummary.css';
 
@@ -18,13 +19,15 @@ interface Props {
   formType: string;
   foulData?: FoulData;
   transferData?: TransferData;
+  formFiles?: FormFiles;
 }
 
 const RectificationSummary: FC<Props> = ({
   form,
   formType,
   foulData,
-  transferData
+  transferData,
+  formFiles
 }) => {
   const { t } = useTranslation();
   const formValues = form;
@@ -33,6 +36,8 @@ const RectificationSummary: FC<Props> = ({
     : formValues?.sendDecisionViaEService
     ? 'toParkingService'
     : 'byMail';
+  const poaFile = formFiles?.poaFile;
+  const attachments = formFiles?.attachments;
 
   return (
     <>
@@ -121,23 +126,21 @@ const RectificationSummary: FC<Props> = ({
               <p>{formValues?.description}</p>
             )}
           </div>
-          {formValues?.attachments && formValues?.attachments.length > 0 && (
+          {attachments && attachments.length > 0 && (
             <div>
               <label className={styles['text-label']}>
                 {t('rectificationForm:attachments:label')}
               </label>
               <ul className="file-list">
-                {formValues?.attachments.map((item: FileItem) => (
-                  <li key={item.fileName} className="file-list-item">
-                    {item.mimeType.startsWith('image') ? (
+                {attachments.map((item: File) => (
+                  <li key={item.name} className="file-list-item">
+                    {item.type.startsWith('image') ? (
                       <IconPhoto aria-hidden />
                     ) : (
                       <IconDocument aria-hidden />
                     )}
                     <div className="file-list-item-title">
-                      <span className="file-list-item-name">
-                        {item.fileName}
-                      </span>
+                      <span className="file-list-item-name">{item.name}</span>
                       {item.size && (
                         <span className="file-list-item-size">
                           ({formatBytes(item.size)})
@@ -149,24 +152,24 @@ const RectificationSummary: FC<Props> = ({
               </ul>
             </div>
           )}
-          {formValues?.poaFile && formValues?.poaFile.fileName && (
+          {poaFile && poaFile.length > 0 && (
             <div>
               <label className={styles['text-label']}>
                 {t('rectificationForm:poa')}
               </label>
               <div className="file-list-item">
-                {formValues?.poaFile.mimeType.startsWith('image') ? (
+                {poaFile[0].type.startsWith('image') ? (
                   <IconPhoto aria-hidden />
                 ) : (
                   <IconDocument aria-hidden />
                 )}
                 <div className="file-list-item-title">
-                  <span className="file-list-item-name">
-                    {formValues?.poaFile.fileName}
-                  </span>
-                  <span className="file-list-item-size">
-                    ({formatBytes(formValues?.poaFile.size)})
-                  </span>
+                  <span className="file-list-item-name">{poaFile[0].name}</span>
+                  {poaFile[0].size && (
+                    <span className="file-list-item-size">
+                      ({formatBytes(poaFile[0].size)})
+                    </span>
+                  )}
                 </div>
               </div>
             </div>

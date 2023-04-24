@@ -17,12 +17,15 @@ import ExtendDueDateForm from '../extendDueDate/ExtendDueDateForm';
 import InfoContainer from '../infoContainer/InfoContainer';
 import RectificationForm from '../rectificationForm/RectificationForm';
 import RectificationSummary from '../rectificationSummary/RectificationSummary';
+import { FormFiles } from '../formStepper/FormStepper';
 import './FormContent.css';
-
 interface Props {
   activeStep: number;
   control: ObjectionControlType;
   values: UseFormGetValues<ObjectionForm>;
+  onSubmitPoaFile: (files: File[]) => void;
+  onSubmitAttachmentFiles: (files: File[]) => void;
+  formFiles: FormFiles;
 }
 
 const FormContent = (props: Props): React.ReactElement => {
@@ -71,7 +74,13 @@ const FormContent = (props: Props): React.ReactElement => {
           0: <SearchForm control={props.control} />,
           1: selectForm(formContent.selectedForm),
           2: (
-            <RectificationForm control={props.control} values={props.values} />
+            <RectificationForm
+              control={props.control}
+              values={props.values}
+              onSubmitPoaFile={props.onSubmitPoaFile}
+              onSubmitAttachmentFiles={props.onSubmitAttachmentFiles}
+              formFiles={props.formFiles}
+            />
           ),
           3: (
             <RectificationSummary
@@ -79,6 +88,7 @@ const FormContent = (props: Props): React.ReactElement => {
               formType={formContent.selectedForm}
               foulData={formContent.foulData}
               transferData={formContent.transferData}
+              formFiles={props.formFiles}
             />
           )
         }[props.activeStep]

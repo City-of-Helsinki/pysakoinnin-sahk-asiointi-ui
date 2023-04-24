@@ -15,6 +15,10 @@ const { result } = renderHook(() => useForm<ObjectionForm>());
 const control = result.current.control;
 const values = result.current.getValues;
 
+const mockAction = jest.fn(() => {
+  // Mock function
+});
+
 describe('Component in parking fine appeal form', () => {
   const formContentSliceMock = createSlice({
     name: 'formContent',
@@ -50,7 +54,13 @@ describe('Component in parking fine appeal form', () => {
   it('matches snapshot', async () => {
     const { container } = render(
       <Provider store={store}>
-        <RectificationForm control={control} values={values} />
+        <RectificationForm
+          control={control}
+          values={values}
+          onSubmitPoaFile={mockAction}
+          onSubmitAttachmentFiles={mockAction}
+          formFiles={{ poaFile: [], attachments: [] }}
+        />
       </Provider>
     );
 
@@ -60,7 +70,13 @@ describe('Component in parking fine appeal form', () => {
   it('passes A11y checks', async () => {
     const { container } = render(
       <Provider store={store}>
-        <RectificationForm control={control} values={values} />
+        <RectificationForm
+          control={control}
+          values={values}
+          onSubmitPoaFile={mockAction}
+          onSubmitAttachmentFiles={mockAction}
+          formFiles={{ poaFile: [], attachments: [] }}
+        />
       </Provider>
     );
 
@@ -103,7 +119,13 @@ describe('Component in moved car form', () => {
   it('matches snapshot', async () => {
     const { container } = render(
       <Provider store={store}>
-        <RectificationForm control={control} values={values} />
+        <RectificationForm
+          control={control}
+          values={values}
+          onSubmitPoaFile={mockAction}
+          onSubmitAttachmentFiles={mockAction}
+          formFiles={{ poaFile: [], attachments: [] }}
+        />
       </Provider>
     );
 
@@ -113,7 +135,13 @@ describe('Component in moved car form', () => {
   it('passes A11y checks', async () => {
     const { container } = render(
       <Provider store={store}>
-        <RectificationForm control={control} values={values} />
+        <RectificationForm
+          control={control}
+          values={values}
+          onSubmitPoaFile={mockAction}
+          onSubmitAttachmentFiles={mockAction}
+          formFiles={{ poaFile: [], attachments: [] }}
+        />
       </Provider>
     );
 

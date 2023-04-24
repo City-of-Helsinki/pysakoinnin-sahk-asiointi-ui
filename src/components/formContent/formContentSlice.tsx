@@ -66,12 +66,6 @@ const initialState: FormState = {
     foulNumber: '',
     registerNumber: '',
     authorRole: AuthorRole.Undefined,
-    poaFile: {
-      fileName: '',
-      size: 0,
-      mimeType: '',
-      data: ''
-    },
     attachments: [],
     toSeparateEmail: false,
     newEmail: '',

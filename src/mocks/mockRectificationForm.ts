@@ -5,15 +5,6 @@ const mockRectificationForm: ObjectionForm = {
   foulNumber: '123456',
   registerNumber: '',
   authorRole: AuthorRole.Driver,
-  poaFile: {
-    fileName: 'test.pdf',
-    size: 12345,
-    mimeType: 'application/pdf',
-    data: ''
-  },
-  attachments: [
-    { fileName: 'test2.jpg', size: 50100, mimeType: 'image/jpeg', data: '' }
-  ],
   toSeparateEmail: false,
   email: 'test.user@test.fi',
   firstName: 'Test',

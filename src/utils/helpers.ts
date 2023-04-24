@@ -1,7 +1,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-magic-numbers */
+
 import { addDays, format, formatISO } from 'date-fns';
 import { FoulAttachment } from '../interfaces/foulInterfaces';
 import {
+  FileItem,
   ObjectionForm,
   ObjectionType
 } from '../interfaces/objectionInterfaces';
@@ -55,9 +58,22 @@ export const formatBase64String = (attachment: FoulAttachment) =>
     ? attachment.data
     : `data:${attachment.mimeType};base64,${attachment.data}`;
 
-/* modifies objection/rectification form to align with the Objection type,
+/* convert File to base64 string that can be sent to PASI as an attachment
+ of objection form */
+export const fileToBase64 = (file: File): Promise<string> =>
+  new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result as string);
+    reader.onerror = reject;
+  });
+
+/* modifies objection form to align with the Objection type,
   so it can be sent to PASI */
-export const createObjection = (form: ObjectionForm) => {
+export const createObjection = (
+  form: ObjectionForm,
+  attachments: Array<FileItem>
+) => {
   // remove unnecessary properties
   const {
     transferNumber,
@@ -68,16 +84,13 @@ export const createObjection = (form: ObjectionForm) => {
     toSeparateEmail,
     ...objection
   } = { ...form };
-  // add POA file to attachments
-  if (form.poaFile && form.poaFile.fileName !== '' && objection.attachments) {
-    objection.attachments.push(form.poaFile);
-  }
   // add missing properties
   objection.sendDecisionViaEService =
     form.deliveryDecision === 'toParkingService';
   objection.type = form.foulNumber
     ? ObjectionType.Foul
     : ObjectionType.Transfer;
+  objection.attachments = attachments;
   // make sure authorRole is in correct format
   objection.authorRole = Number(objection.authorRole);
   return objection;

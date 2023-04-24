@@ -77,6 +77,11 @@ const useRectificationForm = () => {
   return { control, handleSubmit, getValues };
 };
 
+export interface FormFiles {
+  poaFile: File[];
+  attachments: File[];
+}
+
 const FormStepper = (props: Props): React.ReactElement => {
   // ClientContext is needed to get user profile
   useContext(ClientContext);
@@ -96,11 +101,43 @@ const FormStepper = (props: Props): React.ReactElement => {
   const [showErrorNotification, setShowErrorNotification] = useState(false);
   const mainPageButtonRef = useRef<null | HTMLDivElement>(null);
   const userProfile = useUserProfile();
+  const [files, setFiles] = useState<FormFiles>({
+    poaFile: [],
+    attachments: []
+  });
 
   const { control, handleSubmit, getValues } = useRectificationForm();
 
-  const handleFormSubmit = (form: ObjectionForm) => {
-    const objection = createObjection(formContent.formValues);
+  const fileToBase64 = (file: File): Promise<string> =>
+    new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result as string);
+      reader.onerror = reject;
+    });
+
+  const handleFormSubmit = async (form: ObjectionForm) => {
+    const filesAsBase64 = await Promise.all([
+      ...files.attachments.map(async file => {
+        const fileData = await fileToBase64(file);
+        return {
+          fileName: file.name,
+          size: file.size,
+          mimeType: file.type,
+          data: fileData
+        };
+      }),
+      ...files.poaFile.map(async file => {
+        const fileData = await fileToBase64(file);
+        return {
+          fileName: file.name,
+          size: file.size,
+          mimeType: file.type,
+          data: fileData
+        };
+      })
+    ]);
+    const objection = createObjection(formContent.formValues, filesAsBase64);
     switch (selectedForm) {
       case FormId.PARKINGFINE:
         return dispatch(saveObjectionThunk(objection)).then(() =>
@@ -178,6 +215,17 @@ const FormStepper = (props: Props): React.ReactElement => {
     });
   }, [showSubmitNotification]);
 
+  const onSubmitPoaFile = (files: File[]) => {
+    setFiles((current: FormFiles) => ({ ...current, poaFile: files }));
+  };
+
+  const onSubmitAttachmentFiles = (files: File[]) => {
+    setFiles((current: FormFiles) => ({
+      ...current,
+      attachments: files
+    }));
+  };
+
   return (
     <div>
       <form>
@@ -197,6 +245,9 @@ const FormStepper = (props: Props): React.ReactElement => {
           activeStep={activeStepIndex}
           control={control}
           values={getValues}
+          onSubmitPoaFile={onSubmitPoaFile}
+          onSubmitAttachmentFiles={onSubmitAttachmentFiles}
+          formFiles={files}
         />
         <div className="form-error-label">
           {formError && <ErrorLabel text={t(formError)} />}

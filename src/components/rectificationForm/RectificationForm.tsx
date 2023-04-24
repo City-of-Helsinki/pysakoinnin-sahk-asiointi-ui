@@ -4,7 +4,7 @@
 import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { Controller, FieldValues, UseFormGetValues } from 'react-hook-form';
+import { Controller, UseFormGetValues } from 'react-hook-form';
 import {
   Checkbox,
   FileInput,
@@ -25,6 +25,7 @@ import {
 import { selectUserProfile } from '../user/userSlice';
 import FieldLabel from '../fieldLabel/FieldLabel';
 import ErrorLabel from '../errorLabel/ErrorLabel';
+import { FormFiles } from '../formStepper/FormStepper';
 import './RectificationForm.css';
 
 type Language = 'fi' | 'en' | 'sv';
@@ -32,9 +33,18 @@ type Language = 'fi' | 'en' | 'sv';
 interface Props {
   control: ObjectionControlType;
   values: UseFormGetValues<ObjectionForm>;
+  onSubmitPoaFile: (files: File[]) => void;
+  onSubmitAttachmentFiles: (files: File[]) => void;
+  formFiles: FormFiles;
 }
 
-const RectificationForm: FC<Props> = ({ control, values }) => {
+const RectificationForm: FC<Props> = ({
+  control,
+  values,
+  onSubmitPoaFile,
+  onSubmitAttachmentFiles,
+  formFiles
+}) => {
   const { t, i18n } = useTranslation();
   const user = useSelector(selectUserProfile);
   const selectedForm = useSelector(selectFormContent).selectedForm;
@@ -47,24 +57,10 @@ const RectificationForm: FC<Props> = ({ control, values }) => {
     ? [AuthorRole.Owner, AuthorRole.Possessor]
     : [AuthorRole.Driver, AuthorRole.Owner, AuthorRole.Possessor];
 
-  const setFiles = (files: File[], type: string, field: FieldValues) => {
-    const fileList = files.map(({ name, size, type }) => ({
-      fileName: name,
-      size: size,
-      mimeType: type
-    }));
-    switch (type) {
-      case 'poa':
-        return field.onChange(fileList.length > 0 ? fileList[0] : {});
-      case 'attachments':
-        return field.onChange(fileList);
-    }
-  };
-
   // Required if POA holder selected as the role
-  const isValidPOAFile = (field?: FieldValues) =>
+  const isValidPOAFile = () =>
     values().authorRole !== AuthorRole.Possessor ||
-    (field && field.name && field.fileName !== '');
+    formFiles.poaFile.length > 0;
 
   // Required if toSeparateEmail checkbox selected
   const isValidEmail = (field?: string) =>
@@ -74,8 +70,7 @@ const RectificationForm: FC<Props> = ({ control, values }) => {
   const isValidEmailConfirmation = (field?: string) =>
     values().newEmail === '' || field === values().newEmail;
 
-  const numberOfAttachmentsIsValid = (field?: FieldValues) =>
-    field && field.length <= 3;
+  const numberOfAttachmentsIsValid = () => formFiles.attachments.length <= 3;
 
   const isValidIBAN = (field?: string) => {
     if (field) {
@@ -163,16 +158,19 @@ const RectificationForm: FC<Props> = ({ control, values }) => {
                             language={i18n.language as Language}
                             label={t('rectificationForm:attach-poa:label')}
                             id="rectificationPOAFile"
-                            onChange={e => setFiles(e, 'poa', field)}
+                            onChange={e => field.onChange(onSubmitPoaFile(e))}
                             dragAndDrop={!isMobileWidth}
                             accept={'.jpg, .pdf'}
                             maxSize={5 * 1024 * 1024}
                             helperText={t(
                               'rectificationForm:attach-poa:helper-text'
                             )}
+                            {...(formFiles.poaFile.length > 0 && {
+                              defaultValue: formFiles.poaFile
+                            })}
                           />
                           {relationField.value === AuthorRole.Possessor &&
-                            field.value?.fileName === '' && (
+                            formFiles.poaFile.length === 0 && (
                               <ErrorLabel
                                 text={t(
                                   'rectificationForm:errors:poa-required'
@@ -422,13 +420,16 @@ const RectificationForm: FC<Props> = ({ control, values }) => {
                     className="rectification-fileinput"
                     label={t('rectificationForm:attachments:label')}
                     id="rectificationAttachments"
-                    onChange={e => setFiles(e, 'attachments', field)}
+                    onChange={e => field.onChange(onSubmitAttachmentFiles(e))}
+                    {...(formFiles.attachments.length > 0 && {
+                      defaultValue: formFiles.attachments
+                    })}
                     dragAndDrop={!isMobileWidth}
                     accept={'.jpg, .pdf'}
                     maxSize={5 * 1024 * 1024}
                     helperText={t('rectificationForm:attachments:helper-text')}
                   />
-                  {field.value && field.value.length > 3 && (
+                  {formFiles.attachments.length > 3 && (
                     <div className="rectification-attachments-error">
                       <ErrorLabel
                         text={t(
