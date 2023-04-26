@@ -11,7 +11,8 @@ import {
 import { selectUserProfile } from '../user/userSlice';
 import {
   ObjectionForm,
-  ObjectionControlType
+  ObjectionControlType,
+  ObjectionFormFiles
 } from '../../interfaces/objectionInterfaces';
 import ExtendDueDateForm from '../extendDueDate/ExtendDueDateForm';
 import InfoContainer from '../infoContainer/InfoContainer';
@@ -23,6 +24,9 @@ interface Props {
   activeStep: number;
   control: ObjectionControlType;
   values: UseFormGetValues<ObjectionForm>;
+  onSubmitPoaFile: (files: File[]) => void;
+  onSubmitAttachmentFiles: (files: File[]) => void;
+  formFiles: ObjectionFormFiles;
 }
 
 const FormContent = (props: Props): React.ReactElement => {
@@ -71,7 +75,13 @@ const FormContent = (props: Props): React.ReactElement => {
           0: <SearchForm control={props.control} />,
           1: selectForm(formContent.selectedForm),
           2: (
-            <RectificationForm control={props.control} values={props.values} />
+            <RectificationForm
+              control={props.control}
+              values={props.values}
+              onSubmitPoaFile={props.onSubmitPoaFile}
+              onSubmitAttachmentFiles={props.onSubmitAttachmentFiles}
+              formFiles={props.formFiles}
+            />
           ),
           3: (
             <RectificationSummary
@@ -79,6 +89,7 @@ const FormContent = (props: Props): React.ReactElement => {
               formType={formContent.selectedForm}
               foulData={formContent.foulData}
               transferData={formContent.transferData}
+              formFiles={props.formFiles}
             />
           )
         }[props.activeStep]

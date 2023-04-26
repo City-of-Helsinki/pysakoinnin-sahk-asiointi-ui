@@ -20,7 +20,7 @@ import { friendlyFormatIBAN } from 'ibantools';
 import useMobileWidth from '../../hooks/useMobileWidth';
 import useUserProfile from '../../hooks/useUserProfile';
 import FormContent from '../formContent/FormContent';
-import { formatDate } from '../../utils/helpers';
+import { createObjection, fileToBase64, formatDate } from '../../utils/helpers';
 import {
   completeStep,
   selectStepperState,
@@ -35,10 +35,14 @@ import {
   getFoulDataThunk,
   getTransferDataThunk,
   extendDueDateThunk,
+  saveObjectionThunk,
   setSubmitError,
   FormId
 } from '../formContent/formContentSlice';
-import { ObjectionForm } from '../../interfaces/objectionInterfaces';
+import {
+  ObjectionForm,
+  ObjectionFormFiles
+} from '../../interfaces/objectionInterfaces';
 import { setUserProfile } from '../user/userSlice';
 import ErrorLabel from '../errorLabel/ErrorLabel';
 import { ResponseCode } from '../../interfaces/foulInterfaces';
@@ -95,11 +99,45 @@ const FormStepper = (props: Props): React.ReactElement => {
   const [showErrorNotification, setShowErrorNotification] = useState(false);
   const mainPageButtonRef = useRef<null | HTMLDivElement>(null);
   const userProfile = useUserProfile();
+  const [files, setFiles] = useState<ObjectionFormFiles>({
+    poaFile: [],
+    attachments: []
+  });
 
   const { control, handleSubmit, getValues } = useRectificationForm();
 
-  const handleFormSubmit = (form: ObjectionForm) => {
+  const handleFormSubmit = async (form: ObjectionForm) => {
+    const filesAsBase64 = await Promise.all([
+      ...files.attachments.map(async file => {
+        const fileData = await fileToBase64(file);
+        return {
+          fileName: file.name,
+          size: file.size,
+          mimeType: file.type,
+          data: fileData
+        };
+      }),
+      ...files.poaFile.map(async file => {
+        const fileData = await fileToBase64(file);
+        return {
+          fileName: file.name,
+          size: file.size,
+          mimeType: file.type,
+          data: fileData
+        };
+      })
+    ]);
+    const objection = createObjection(
+      formContent.formValues,
+      selectedForm,
+      filesAsBase64
+    );
     switch (selectedForm) {
+      case FormId.PARKINGFINE:
+      case FormId.MOVEDCAR:
+        return dispatch(saveObjectionThunk(objection)).then(() =>
+          setShowSubmitNotification(true)
+        );
       case FormId.DUEDATE:
         dispatch(
           extendDueDateThunk({
@@ -172,6 +210,17 @@ const FormStepper = (props: Props): React.ReactElement => {
     });
   }, [showSubmitNotification]);
 
+  const onSubmitPoaFile = (files: File[]) => {
+    setFiles((current: ObjectionFormFiles) => ({ ...current, poaFile: files }));
+  };
+
+  const onSubmitAttachmentFiles = (files: File[]) => {
+    setFiles((current: ObjectionFormFiles) => ({
+      ...current,
+      attachments: files
+    }));
+  };
+
   return (
     <div>
       <form>
@@ -191,6 +240,9 @@ const FormStepper = (props: Props): React.ReactElement => {
           activeStep={activeStepIndex}
           control={control}
           values={getValues}
+          onSubmitPoaFile={onSubmitPoaFile}
+          onSubmitAttachmentFiles={onSubmitAttachmentFiles}
+          formFiles={files}
         />
         <div className="form-error-label">
           {formError && <ErrorLabel text={t(formError)} />}

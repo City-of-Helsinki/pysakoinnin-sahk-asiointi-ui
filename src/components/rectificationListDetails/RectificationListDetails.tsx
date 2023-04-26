@@ -114,6 +114,17 @@ const RectificationListDetails: FC<Props> = ({
                   <RectificationSummary
                     form={form.content}
                     formType={formType}
+                    formFiles={{
+                      attachments: form.content.attachments
+                        ? form.content.attachments.map(
+                            file =>
+                              new File([file.data], file.fileName, {
+                                type: file.mimeType
+                              })
+                          )
+                        : [],
+                      poaFile: []
+                    }}
                   />
                 </div>
               </Dialog.Content>
@@ -134,7 +145,21 @@ const RectificationListDetails: FC<Props> = ({
         )}
       </div>
       <div id="rectification-summary-print" aria-hidden="true">
-        <RectificationSummary form={form.content} formType={formType} />
+        <RectificationSummary
+          form={form.content}
+          formType={formType}
+          formFiles={{
+            attachments: form.content.attachments
+              ? form.content.attachments.map(
+                  file =>
+                    new File([file.data], file.fileName, {
+                      type: file.mimeType
+                    })
+                )
+              : [],
+            poaFile: []
+          }}
+        />
       </div>
     </div>
   );

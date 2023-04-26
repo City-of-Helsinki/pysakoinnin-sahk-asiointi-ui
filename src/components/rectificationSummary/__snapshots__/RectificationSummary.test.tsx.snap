@@ -284,13 +284,7 @@ exports[`Component matches snapshot 1`] = `
               >
                 test2.jpg
               </span>
-              <span
-                class="file-list-item-size"
-              >
-                (
-                49 KB
-                )
-              </span>
+              0
             </div>
           </li>
         </ul>
@@ -333,13 +327,7 @@ exports[`Component matches snapshot 1`] = `
             >
               test.pdf
             </span>
-            <span
-              class="file-list-item-size"
-            >
-              (
-              12 KB
-              )
-            </span>
+            0
           </div>
         </div>
       </div>

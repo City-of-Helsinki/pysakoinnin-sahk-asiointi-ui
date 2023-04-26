@@ -9,6 +9,10 @@ import mockFoulData from '../../mocks/mockFoulData';
 import mockRectificationForm from '../../mocks/mockRectificationForm';
 
 describe('Component', () => {
+  const attachmentMock = {
+    poaFile: [new File([''], 'test.pdf', { type: 'application/pdf' })],
+    attachments: [new File([''], 'test2.jpg', { type: 'image/jpeg' })]
+  };
   it('matches snapshot', async () => {
     const formContentSliceMock = createSlice({
       name: 'formContent',
@@ -47,6 +51,7 @@ describe('Component', () => {
         <RectificationSummary
           form={mockRectificationForm}
           formType="parking-fine"
+          formFiles={attachmentMock}
         />
       </Provider>
     );
@@ -59,6 +64,7 @@ describe('Component', () => {
         <RectificationSummary
           form={mockRectificationForm}
           formType="parking-fine"
+          formFiles={attachmentMock}
         />
       </Provider>
     );
