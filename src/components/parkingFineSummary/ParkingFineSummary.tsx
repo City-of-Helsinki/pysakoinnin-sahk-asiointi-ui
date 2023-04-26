@@ -38,6 +38,13 @@ interface Props {
 const ParkingFineSummary: FC<Props> = ({ foulData }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
+  const foulTime: string = foulData
+    ? foulData?.monitoringStart
+      ? `${formatDateTime(foulData.monitoringStart)} - ${formatDateTime(
+          foulData.foulDate
+        )}`
+      : `${formatDateTime(foulData.foulDate)}`
+    : '';
 
   useEffect(() => {
     dispatch(setSubmitDisabled(false));
@@ -48,7 +55,7 @@ const ParkingFineSummary: FC<Props> = ({ foulData }) => {
       <div data-testid="parkingFineSummary" className="summary-container">
         <div className="info-field">
           <label>{t('common:fine-info:fine-timestamp')}</label>
-          <p>{foulData?.foulDate && formatDateTime(foulData.foulDate)}</p>
+          <p>{foulTime}</p>
         </div>
         <div className="info-field">
           <label>{t('common:fine-info:ref-number:label')}</label>
