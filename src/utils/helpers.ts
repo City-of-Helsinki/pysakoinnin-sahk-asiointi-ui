@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable no-magic-numbers */
 
 import { addDays, format, formatISO } from 'date-fns';
 import { FormId } from '../components/formContent/formContentSlice';
@@ -94,7 +93,8 @@ export const createObjection = (
   objection.type = form.foulNumber
     ? ObjectionType.Foul
     : ObjectionType.Transfer;
-  objection.email = form.toSeparateEmail ? form.newEmail : form.email;
+  objection.email =
+    form.toSeparateEmail && form.newEmail ? form.newEmail : form.email;
   objection.attachments = attachments;
   // make sure authorRole is in correct format
   objection.authorRole = Number(objection.authorRole);
