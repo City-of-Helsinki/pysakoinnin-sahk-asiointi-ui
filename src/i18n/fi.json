@@ -179,8 +179,8 @@
         "text": "Jokin meni pieleen oikaisuvaatimuksen lähetyksessä. Ole tarvittaessa yhteydessä asiakaspalveluun."
       },
       "data-not-found": {
-        "label": "Ajoneuvon siirron tietoja ei löytynyt",
-        "text": "Tähän oikaisuvaatimukseen liittyvän ajoneuvon siirron tietoja ei löytynyt. Ole tarvittaessa yhteydessä asiakaspalveluun."
+        "label": "Korvauspäätöksen tietoja ei löytynyt",
+        "text": "Tähän oikaisuvaatimukseen liittyvän ajoneuvon siirron korvauspäätöksen tietoja ei löytynyt. Ole tarvittaessa yhteydessä asiakaspalveluun."
       }
     },
     "move-timestamp": "Siirron päivämäärä",

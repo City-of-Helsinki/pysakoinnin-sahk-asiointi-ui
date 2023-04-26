@@ -152,7 +152,7 @@ const RectificationForm: FC<Props> = ({
                     rules={{
                       validate: isValidPOAFile
                     }}
-                    render={({ field, fieldState }) => (
+                    render={({ field }) => (
                       <>
                         <FileInput
                           language={i18n.language as Language}
@@ -169,11 +169,12 @@ const RectificationForm: FC<Props> = ({
                             defaultValue: formFiles.poaFile
                           })}
                         />
-                        {fieldState.error && (
-                          <ErrorLabel
-                            text={t('rectificationForm:errors:poa-required')}
-                          />
-                        )}
+                        {values().authorRole === AuthorRole.Possessor &&
+                          formFiles.poaFile.length === 0 && (
+                            <ErrorLabel
+                              text={t('rectificationForm:errors:poa-required')}
+                            />
+                          )}
                       </>
                     )}
                   />
@@ -408,7 +409,7 @@ const RectificationForm: FC<Props> = ({
               rules={{
                 validate: numberOfAttachmentsIsValid
               }}
-              render={({ field, fieldState }) => (
+              render={({ field }) => (
                 <>
                   <FileInput
                     language={i18n.language as Language}
@@ -425,7 +426,7 @@ const RectificationForm: FC<Props> = ({
                     maxSize={5 * 1024 * 1024}
                     helperText={t('rectificationForm:attachments:helper-text')}
                   />
-                  {fieldState.error && (
+                  {formFiles.attachments.length > 3 && (
                     <div className="rectification-attachments-error">
                       <ErrorLabel
                         text={t(
