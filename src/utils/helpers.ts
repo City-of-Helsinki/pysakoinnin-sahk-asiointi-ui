@@ -90,6 +90,7 @@ export const createObjection = (
   objection.type = form.foulNumber
     ? ObjectionType.Foul
     : ObjectionType.Transfer;
+  objection.email = form.toSeparateEmail ? form.newEmail : form.email;
   objection.attachments = attachments;
   // make sure authorRole is in correct format
   objection.authorRole = Number(objection.authorRole);

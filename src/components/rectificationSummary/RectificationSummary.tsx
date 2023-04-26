@@ -90,7 +90,9 @@ const RectificationSummary: FC<Props> = ({
             id="email"
             label={t('common:email')}
             value={
-              formValues?.newEmail ? formValues?.newEmail : formValues?.email
+              formValues?.toSeparateEmail
+                ? formValues?.newEmail
+                : formValues?.email
             }
             readOnly
           />
