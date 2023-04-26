@@ -5,12 +5,14 @@ import { useTranslation } from 'react-i18next';
 import { formatBytes } from '../../utils/helpers';
 import InfoContainer from '../infoContainer/InfoContainer';
 import CustomAccordion from '../customAccordion/CustomAccordion';
-import { ObjectionForm } from '../../interfaces/objectionInterfaces';
+import {
+  ObjectionForm,
+  ObjectionFormFiles
+} from '../../interfaces/objectionInterfaces';
 import ExtendedTextField from '../extendedTextField/ExtendedTextField';
 import useMobileWidth from '../../hooks/useMobileWidth';
 import { FoulData } from '../../interfaces/foulInterfaces';
 import { TransferData } from '../../interfaces/transferInterfaces';
-import { FormFiles } from '../formStepper/FormStepper';
 import styles from '../styles.module.css';
 import './RectificationSummary.css';
 
@@ -19,7 +21,7 @@ interface Props {
   formType: string;
   foulData?: FoulData;
   transferData?: TransferData;
-  formFiles?: FormFiles;
+  formFiles?: ObjectionFormFiles;
 }
 
 const RectificationSummary: FC<Props> = ({

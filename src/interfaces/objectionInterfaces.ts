@@ -94,3 +94,8 @@ export enum ObjectionType {
   Foul,
   Transfer
 }
+
+export interface ObjectionFormFiles {
+  poaFile: File[];
+  attachments: File[];
+}

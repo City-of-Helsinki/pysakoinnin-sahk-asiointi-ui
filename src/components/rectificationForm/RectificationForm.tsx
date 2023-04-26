@@ -19,13 +19,13 @@ import useMobileWidth from '../../hooks/useMobileWidth';
 import { FormId, selectFormContent } from '../formContent/formContentSlice';
 import {
   ObjectionForm,
+  ObjectionFormFiles,
   ObjectionControlType,
   AuthorRole
 } from '../../interfaces/objectionInterfaces';
 import { selectUserProfile } from '../user/userSlice';
 import FieldLabel from '../fieldLabel/FieldLabel';
 import ErrorLabel from '../errorLabel/ErrorLabel';
-import { FormFiles } from '../formStepper/FormStepper';
 import './RectificationForm.css';
 
 type Language = 'fi' | 'en' | 'sv';
@@ -35,7 +35,7 @@ interface Props {
   values: UseFormGetValues<ObjectionForm>;
   onSubmitPoaFile: (files: File[]) => void;
   onSubmitAttachmentFiles: (files: File[]) => void;
-  formFiles: FormFiles;
+  formFiles: ObjectionFormFiles;
 }
 
 const RectificationForm: FC<Props> = ({

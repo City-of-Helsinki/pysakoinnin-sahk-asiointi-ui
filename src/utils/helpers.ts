@@ -2,6 +2,7 @@
 /* eslint-disable no-magic-numbers */
 
 import { addDays, format, formatISO } from 'date-fns';
+import { FormId } from '../components/formContent/formContentSlice';
 import { FoulAttachment } from '../interfaces/foulInterfaces';
 import {
   FileItem,
@@ -72,11 +73,11 @@ export const fileToBase64 = (file: File): Promise<string> =>
   so it can be sent to PASI */
 export const createObjection = (
   form: ObjectionForm,
+  selectedForm: FormId,
   attachments: Array<FileItem>
 ) => {
   // remove unnecessary properties
   const {
-    transferNumber,
     deliveryDecision,
     newEmail,
     newEmailConfirm,
@@ -84,6 +85,9 @@ export const createObjection = (
     toSeparateEmail,
     ...objection
   } = { ...form };
+  selectedForm === FormId.MOVEDCAR
+    ? delete objection.foulNumber
+    : delete objection.transferNumber;
   // add missing properties
   objection.sendDecisionViaEService =
     form.deliveryDecision === 'toParkingService';

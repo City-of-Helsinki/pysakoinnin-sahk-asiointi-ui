@@ -20,7 +20,7 @@ import { friendlyFormatIBAN } from 'ibantools';
 import useMobileWidth from '../../hooks/useMobileWidth';
 import useUserProfile from '../../hooks/useUserProfile';
 import FormContent from '../formContent/FormContent';
-import { createObjection, formatDate } from '../../utils/helpers';
+import { createObjection, fileToBase64, formatDate } from '../../utils/helpers';
 import {
   completeStep,
   selectStepperState,
@@ -39,7 +39,10 @@ import {
   setSubmitError,
   FormId
 } from '../formContent/formContentSlice';
-import { ObjectionForm } from '../../interfaces/objectionInterfaces';
+import {
+  ObjectionForm,
+  ObjectionFormFiles
+} from '../../interfaces/objectionInterfaces';
 import { setUserProfile } from '../user/userSlice';
 import ErrorLabel from '../errorLabel/ErrorLabel';
 import { ResponseCode } from '../../interfaces/foulInterfaces';
@@ -77,11 +80,6 @@ const useRectificationForm = () => {
   return { control, handleSubmit, getValues };
 };
 
-export interface FormFiles {
-  poaFile: File[];
-  attachments: File[];
-}
-
 const FormStepper = (props: Props): React.ReactElement => {
   // ClientContext is needed to get user profile
   useContext(ClientContext);
@@ -101,20 +99,12 @@ const FormStepper = (props: Props): React.ReactElement => {
   const [showErrorNotification, setShowErrorNotification] = useState(false);
   const mainPageButtonRef = useRef<null | HTMLDivElement>(null);
   const userProfile = useUserProfile();
-  const [files, setFiles] = useState<FormFiles>({
+  const [files, setFiles] = useState<ObjectionFormFiles>({
     poaFile: [],
     attachments: []
   });
 
   const { control, handleSubmit, getValues } = useRectificationForm();
-
-  const fileToBase64 = (file: File): Promise<string> =>
-    new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => resolve(reader.result as string);
-      reader.onerror = reject;
-    });
 
   const handleFormSubmit = async (form: ObjectionForm) => {
     const filesAsBase64 = await Promise.all([
@@ -137,9 +127,14 @@ const FormStepper = (props: Props): React.ReactElement => {
         };
       })
     ]);
-    const objection = createObjection(formContent.formValues, filesAsBase64);
+    const objection = createObjection(
+      formContent.formValues,
+      selectedForm,
+      filesAsBase64
+    );
     switch (selectedForm) {
       case FormId.PARKINGFINE:
+      case FormId.MOVEDCAR:
         return dispatch(saveObjectionThunk(objection)).then(() =>
           setShowSubmitNotification(true)
         );
@@ -216,11 +211,11 @@ const FormStepper = (props: Props): React.ReactElement => {
   }, [showSubmitNotification]);
 
   const onSubmitPoaFile = (files: File[]) => {
-    setFiles((current: FormFiles) => ({ ...current, poaFile: files }));
+    setFiles((current: ObjectionFormFiles) => ({ ...current, poaFile: files }));
   };
 
   const onSubmitAttachmentFiles = (files: File[]) => {
-    setFiles((current: FormFiles) => ({
+    setFiles((current: ObjectionFormFiles) => ({
       ...current,
       attachments: files
     }));

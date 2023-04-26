@@ -11,21 +11,22 @@ import {
 import { selectUserProfile } from '../user/userSlice';
 import {
   ObjectionForm,
-  ObjectionControlType
+  ObjectionControlType,
+  ObjectionFormFiles
 } from '../../interfaces/objectionInterfaces';
 import ExtendDueDateForm from '../extendDueDate/ExtendDueDateForm';
 import InfoContainer from '../infoContainer/InfoContainer';
 import RectificationForm from '../rectificationForm/RectificationForm';
 import RectificationSummary from '../rectificationSummary/RectificationSummary';
-import { FormFiles } from '../formStepper/FormStepper';
 import './FormContent.css';
+
 interface Props {
   activeStep: number;
   control: ObjectionControlType;
   values: UseFormGetValues<ObjectionForm>;
   onSubmitPoaFile: (files: File[]) => void;
   onSubmitAttachmentFiles: (files: File[]) => void;
-  formFiles: FormFiles;
+  formFiles: ObjectionFormFiles;
 }
 
 const FormContent = (props: Props): React.ReactElement => {
