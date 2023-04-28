@@ -32,7 +32,12 @@ const SearchForm = (props: Props): React.ReactElement => {
           name="transferNumber"
           control={props.control}
           rules={{
-            required: t('common:required-field') as string
+            required: t('common:required-field') as string,
+            pattern: {
+              /* only numbers and max 10 characters */
+              value: /^([ ]*[0-9]{1,10}[ ]*)$/i,
+              message: t('rectificationForm:errors:invalid-refnumber')
+            }
           }}
           render={({ field, fieldState }) => (
             <TextInput
@@ -59,7 +64,12 @@ const SearchForm = (props: Props): React.ReactElement => {
           name="foulNumber"
           control={props.control}
           rules={{
-            required: t('common:required-field') as string
+            required: t('common:required-field') as string,
+            pattern: {
+              /* only numbers and max 10 characters */
+              value: /^([ ]*[0-9]{1,10}[ ]*)$/i,
+              message: t('rectificationForm:errors:invalid-refnumber')
+            }
           }}
           render={({ field, fieldState }) => (
             <TextInput

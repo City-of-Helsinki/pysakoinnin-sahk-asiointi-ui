@@ -219,6 +219,7 @@ const RectificationForm: FC<Props> = ({
                     rules={{
                       validate: isValidEmail,
                       pattern: {
+                        /* has to contain @ character and no spaces */
                         value: /^\S+@\S+$/i,
                         message: t('rectificationForm:errors:invalid-email')
                       }
@@ -325,7 +326,12 @@ const RectificationForm: FC<Props> = ({
             name="mobilePhone"
             control={control}
             rules={{
-              required: t('common:required-field') as string
+              required: t('common:required-field') as string,
+              pattern: {
+                /* only numbers, + character (at the start) and spaces allowed */
+                value: /^[ ]*[+]?[ ]*[0-9]+[0-9 ]*$/i,
+                message: t('rectificationForm:errors:invalid-phone')
+              }
             }}
             render={({ field, fieldState }) => (
               <TextInput

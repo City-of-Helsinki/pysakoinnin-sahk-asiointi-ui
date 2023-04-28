@@ -231,7 +231,8 @@
       "invalid-email": "Tarkista sähköpostiosoite",
       "invalid-phone": "Tarkista puhelinnumero",
       "invalid-iban": "Tarkista pankkitilinumero",
-      "too-many-attachments": "Voit liittää enintään kolme liitettä"
+      "too-many-attachments": "Voit liittää enintään kolme liitettä",
+      "invalid-refnumber": "Tarkista asianumero"
     }
   },
   "landing-page": {
