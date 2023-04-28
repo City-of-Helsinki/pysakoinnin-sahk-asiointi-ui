@@ -13,7 +13,7 @@ describe('info container', () => {
   test('passes a11y validation', async () => {
     const { container } = render(
       <Provider store={store}>
-        <InfoContainer selectedForm={FormId.PARKINGFINE} />
+        <InfoContainer selectedForm={FormId.PARKINGFINE} editMode={true} />
       </Provider>
     );
     expect(await axe(container)).toHaveNoViolations();
@@ -25,6 +25,7 @@ describe('info container', () => {
         <InfoContainer
           selectedForm={FormId.PARKINGFINE}
           foulData={mockFoulData}
+          editMode={true}
         />
       </Provider>
     );
@@ -44,6 +45,7 @@ describe('info container', () => {
         <InfoContainer
           selectedForm={FormId.MOVEDCAR}
           transferData={mockTransferData}
+          editMode={true}
         />
       </Provider>
     );

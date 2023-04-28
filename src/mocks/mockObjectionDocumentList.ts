@@ -178,6 +178,10 @@ const mockObjectionDocumentList: ObjectionDocument[] = [
         timestamp: '2022-03-29T19:24:04.060481+03:00'
       }
     ],
+    metadata: {
+      foulNumber: '123456789',
+      registerNumber: 'ABC-123'
+    },
     type: '',
     service: 'Pysäköinnin Sähköinen Asiointi',
     user_id: '234567',

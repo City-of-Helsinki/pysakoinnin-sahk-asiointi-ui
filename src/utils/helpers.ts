@@ -98,5 +98,16 @@ export const createObjection = (
   objection.attachments = attachments;
   // make sure authorRole is in correct format
   objection.authorRole = Number(objection.authorRole);
+  // add metadata
+  objection.metadata =
+    selectedForm === FormId.MOVEDCAR
+      ? {
+          transferNumber: form.transferNumber,
+          registerNumber: form.registerNumber
+        }
+      : {
+          foulNumber: form.foulNumber,
+          registerNumber: form.registerNumber
+        };
   return objection;
 };

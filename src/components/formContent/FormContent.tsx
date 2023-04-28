@@ -49,20 +49,22 @@ const FormContent = (props: Props): React.ReactElement => {
 
   const selectForm = (selectedForm: FormId) => {
     switch (selectedForm) {
-      case 'due-date':
+      case FormId.DUEDATE:
         return <ExtendDueDateForm />;
-      case 'parking-fine':
+      case FormId.PARKINGFINE:
         return (
           <InfoContainer
             selectedForm={formContent.selectedForm}
             foulData={formContent.foulData}
+            editMode={true}
           />
         );
-      case 'moved-car':
+      case FormId.MOVEDCAR:
         return (
           <InfoContainer
             selectedForm={formContent.selectedForm}
             transferData={formContent.transferData}
+            editMode={true}
           />
         );
     }
@@ -90,6 +92,7 @@ const FormContent = (props: Props): React.ReactElement => {
               foulData={formContent.foulData}
               transferData={formContent.transferData}
               formFiles={props.formFiles}
+              editMode={true}
             />
           )
         }[props.activeStep]

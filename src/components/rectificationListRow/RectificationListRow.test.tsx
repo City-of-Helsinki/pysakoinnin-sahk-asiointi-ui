@@ -1,34 +1,50 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 import React from 'react';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import { I18nextProvider } from 'react-i18next';
 import i18n from '../../utils/i18n';
 import RectificationListRow from './RectificationListRow';
 import mockObjectionDocumentList from '../../mocks/mockObjectionDocumentList';
+import mockFoulDataWithDecision from '../../mocks/mockFoulDataWithDecision';
 import { Provider } from 'react-redux';
 import store from '../../store';
 import '@testing-library/jest-dom';
 import { t } from 'i18next';
+import axios from 'axios';
+
+jest.mock('axios');
+
+const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 describe('rectification list row', () => {
+  beforeEach(async () => {
+    mockedAxios.get.mockResolvedValueOnce({
+      data: mockFoulDataWithDecision
+    });
+  });
+
   test('passes a11y validation', async () => {
-    const { container } = render(
-      <Provider store={store}>
-        <RectificationListRow form={mockObjectionDocumentList[0]} />
-      </Provider>
+    const { container } = await waitFor(async () =>
+      render(
+        <Provider store={store}>
+          <RectificationListRow form={mockObjectionDocumentList[0]} />
+        </Provider>
+      )
     );
     expect(await axe(container)).toHaveNoViolations();
   });
 
   describe('renders', () => {
     test('solved (mailed) rectification form details correctly', async () => {
-      const { container } = render(
-        <Provider store={store}>
-          <I18nextProvider i18n={i18n}>
-            <RectificationListRow form={mockObjectionDocumentList[0]} />
-          </I18nextProvider>
-        </Provider>
+      const { container } = await waitFor(async () =>
+        render(
+          <Provider store={store}>
+            <I18nextProvider i18n={i18n}>
+              <RectificationListRow form={mockObjectionDocumentList[0]} />
+            </I18nextProvider>
+          </Provider>
+        )
       );
 
       const status = container.getElementsByClassName(
@@ -57,7 +73,7 @@ describe('rectification list row', () => {
       );
       expect(attachments.length).toBe(0);
 
-      fireEvent.click(showMoreButton);
+      await waitFor(async () => fireEvent.click(showMoreButton));
 
       // Details visible and contain right content
       expect(details.length).toBe(1);
@@ -107,12 +123,14 @@ describe('rectification list row', () => {
     });
 
     test('solved (online) rectification form details correctly', async () => {
-      render(
-        <Provider store={store}>
-          <I18nextProvider i18n={i18n}>
-            <RectificationListRow form={mockObjectionDocumentList[4]} />
-          </I18nextProvider>
-        </Provider>
+      await waitFor(async () =>
+        render(
+          <Provider store={store}>
+            <I18nextProvider i18n={i18n}>
+              <RectificationListRow form={mockObjectionDocumentList[4]} />
+            </I18nextProvider>
+          </Provider>
+        )
       );
 
       const showMoreButton = screen.getByRole('button', {
@@ -120,7 +138,7 @@ describe('rectification list row', () => {
       });
       expect(showMoreButton).toBeVisible();
 
-      fireEvent.click(showMoreButton);
+      await waitFor(async () => fireEvent.click(showMoreButton));
 
       // No notifications visible
       const notification = screen.queryByRole('region', {
@@ -141,19 +159,22 @@ describe('rectification list row', () => {
     });
 
     test('rectification form that is being processed correctly', async () => {
-      const { container } = render(
-        <Provider store={store}>
-          <I18nextProvider i18n={i18n}>
-            <RectificationListRow form={mockObjectionDocumentList[5]} />
-          </I18nextProvider>
-        </Provider>
+      const { container } = await waitFor(async () =>
+        render(
+          <Provider store={store}>
+            <I18nextProvider i18n={i18n}>
+              <RectificationListRow form={mockObjectionDocumentList[5]} />
+            </I18nextProvider>
+          </Provider>
+        )
       );
+
       const showMoreButton = screen.getByRole('button', {
         name: t('landing-page:list:show-more')
       });
       expect(showMoreButton).toBeVisible();
 
-      fireEvent.click(showMoreButton);
+      await waitFor(async () => fireEvent.click(showMoreButton));
 
       // No notifications visible
       const notification = screen.queryByRole('region', {
@@ -191,12 +212,14 @@ describe('rectification list row', () => {
     });
 
     test('due date form details correctly', async () => {
-      const { container } = render(
-        <Provider store={store}>
-          <I18nextProvider i18n={i18n}>
-            <RectificationListRow form={mockObjectionDocumentList[2]} />
-          </I18nextProvider>
-        </Provider>
+      const { container } = await waitFor(async () =>
+        render(
+          <Provider store={store}>
+            <I18nextProvider i18n={i18n}>
+              <RectificationListRow form={mockObjectionDocumentList[2]} />
+            </I18nextProvider>
+          </Provider>
+        )
       );
 
       const status = container.getElementsByClassName(
@@ -225,7 +248,7 @@ describe('rectification list row', () => {
       );
       expect(attachments.length).toBe(0);
 
-      fireEvent.click(showMoreButton);
+      await waitFor(async () => fireEvent.click(showMoreButton));
 
       // Details visible and contain right content
       expect(details.length).toBe(1);
