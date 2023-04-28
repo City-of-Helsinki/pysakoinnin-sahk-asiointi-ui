@@ -52,6 +52,7 @@ describe('Component', () => {
           form={mockRectificationForm}
           formType="parking-fine"
           formFiles={attachmentMock}
+          editMode={true}
         />
       </Provider>
     );
@@ -65,6 +66,7 @@ describe('Component', () => {
           form={mockRectificationForm}
           formType="parking-fine"
           formFiles={attachmentMock}
+          editMode={true}
         />
       </Provider>
     );

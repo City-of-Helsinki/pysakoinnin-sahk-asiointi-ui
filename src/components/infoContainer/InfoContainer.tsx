@@ -13,20 +13,22 @@ interface Props {
   selectedForm: string;
   foulData?: FoulData;
   transferData?: TransferData;
+  editMode: boolean;
 }
 
 const InfoContainer: FC<Props> = ({
   selectedForm,
   foulData,
-  transferData
+  transferData,
+  editMode
 }): React.ReactElement => {
   const { t } = useTranslation();
   const data = transferData ? transferData : foulData;
   const [errorNotificationOpen, setErrorNotificationOpen] = useState(false);
 
   useEffect(() => {
-    data && setErrorNotificationOpen(data?.responseCode !== 0);
-  }, [data]);
+    data && editMode && setErrorNotificationOpen(data?.responseCode !== 0);
+  }, [data, editMode]);
 
   const getErrorMessage = (error: ResponseCode | undefined) => {
     switch (error) {

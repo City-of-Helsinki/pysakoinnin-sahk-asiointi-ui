@@ -14,8 +14,10 @@ const CarInfoCard: FC<Props> = ({ data }) => {
   const { t } = useTranslation();
 
   // Attachments can also contain pdf file(s), so extract only images here
-  const images = data?.attachments?.filter(attachment =>
-    attachment.mimeType?.startsWith('image')
+  const images = data?.attachments?.filter(
+    attachment =>
+      attachment.attachmentType === 0 &&
+      attachment.mimeType?.startsWith('image')
   );
 
   return (

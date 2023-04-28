@@ -11,16 +11,22 @@ import { useTranslation } from 'react-i18next';
 import { formatDate, formatDateTime, sortByDate } from '../../utils/helpers';
 import RectificationSummary from '../rectificationSummary/RectificationSummary';
 import { ObjectionDocument } from '../../interfaces/objectionInterfaces';
+import { FoulData } from '../../interfaces/foulInterfaces';
+import { TransferData } from '../../interfaces/transferInterfaces';
 import './RectificationListDetails.css';
 
 interface Props {
   form: ObjectionDocument;
   formType: string;
+  foulData?: FoulData;
+  transferData?: TransferData;
 }
 
 const RectificationListDetails: FC<Props> = ({
   form,
-  formType
+  formType,
+  foulData,
+  transferData
 }): React.ReactElement => {
   const { t } = useTranslation();
   const isDueDateForm = form.content?.dueDate;
@@ -29,10 +35,30 @@ const RectificationListDetails: FC<Props> = ({
     isDueDateForm || form.status.value === 'resolvedViaMail'
   );
   const [formDialogOpen, setFormDialogOpen] = useState(false);
+  const decision = foulData
+    ? foulData.attachments.find(attachment => attachment.attachmentType === 1)
+    : transferData?.attachments.find(
+        attachment => attachment.attachmentType === 1
+      );
 
   const closeFormDialog = () => {
     setFormDialogOpen(false);
     document.body.classList.remove('modal-open');
+  };
+
+  // Opens a decision pdf in a new window
+  const openDecisionDocument = async () => {
+    if (decision) {
+      const byteCharacters = atob(decision.data);
+      const byteNumbers = new Array(byteCharacters.length);
+      for (let i = 0; i < byteCharacters.length; i++) {
+        byteNumbers[i] = byteCharacters.charCodeAt(i);
+      }
+      const byteArray = new Uint8Array(byteNumbers);
+      const file = new Blob([byteArray], { type: 'application/pdf' });
+      const fileURL = URL.createObjectURL(file);
+      window.open(fileURL);
+    }
   };
 
   return (
@@ -81,8 +107,10 @@ const RectificationListDetails: FC<Props> = ({
             )}
           </Notification>
         )}
-        {form?.status.value === 'resolvedViaEService' && (
-          <Button iconRight={<IconDocument />}>
+        {decision && (
+          <Button
+            iconRight={<IconDocument />}
+            onClick={() => openDecisionDocument()}>
             {t('landing-page:list:details:open-decision')}
           </Button>
         )}
@@ -114,6 +142,9 @@ const RectificationListDetails: FC<Props> = ({
                   <RectificationSummary
                     form={form.content}
                     formType={formType}
+                    foulData={foulData}
+                    transferData={transferData}
+                    editMode={false}
                     formFiles={{
                       attachments: form.content.attachments
                         ? form.content.attachments.map(
@@ -148,6 +179,9 @@ const RectificationListDetails: FC<Props> = ({
         <RectificationSummary
           form={form.content}
           formType={formType}
+          foulData={foulData}
+          transferData={transferData}
+          editMode={false}
           formFiles={{
             attachments: form.content.attachments
               ? form.content.attachments.map(

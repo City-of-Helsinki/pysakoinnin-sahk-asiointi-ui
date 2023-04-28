@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Control } from 'react-hook-form';
 
 // data is base64 string
@@ -47,6 +48,7 @@ export interface ObjectionForm {
   internalErrorDescription?: string | null;
   dueDateExtendableReason?: number;
   responseCode?: number;
+  metadata?: ObjectionMetadata;
 }
 
 export type ObjectionControlType = Control<ObjectionForm>;
@@ -81,6 +83,7 @@ export interface ObjectionDocument {
   locked_after: string;
   deletable: boolean;
   attachments: FileItem[];
+  metadata?: ObjectionMetadata;
 }
 
 export type ObjectionResponse = {
@@ -98,4 +101,13 @@ export enum ObjectionType {
 export interface ObjectionFormFiles {
   poaFile: File[];
   attachments: File[];
+}
+
+/* Metadata that is sent with the objection and saved to ATV,
+* Foul/transfer number and register number used to fetch corresponding
+data from PASI to landing page */
+interface ObjectionMetadata {
+  foulNumber?: string;
+  transferNumber?: string;
+  registerNumber?: string;
 }

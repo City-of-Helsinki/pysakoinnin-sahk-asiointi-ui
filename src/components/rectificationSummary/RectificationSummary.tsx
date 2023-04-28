@@ -22,6 +22,7 @@ interface Props {
   foulData?: FoulData;
   transferData?: TransferData;
   formFiles?: ObjectionFormFiles;
+  editMode: boolean;
 }
 
 const RectificationSummary: FC<Props> = ({
@@ -29,7 +30,8 @@ const RectificationSummary: FC<Props> = ({
   formType,
   foulData,
   transferData,
-  formFiles
+  formFiles,
+  editMode
 }) => {
   const { t } = useTranslation();
   const formValues = form;
@@ -136,8 +138,8 @@ const RectificationSummary: FC<Props> = ({
                 {t('rectificationForm:attachments:label')}
               </label>
               <ul className="file-list">
-                {attachments.map((item: File) => (
-                  <li key={item.name} className="file-list-item">
+                {attachments.map((item: File, i: number) => (
+                  <li key={i} className="file-list-item">
                     {item.type.startsWith('image') ? (
                       <IconPhoto aria-hidden />
                     ) : (
@@ -186,6 +188,7 @@ const RectificationSummary: FC<Props> = ({
             selectedForm={formType}
             foulData={foulData}
             transferData={transferData}
+            editMode={editMode}
           />
         </CustomAccordion>
       </div>
@@ -194,6 +197,7 @@ const RectificationSummary: FC<Props> = ({
           selectedForm={formType}
           foulData={foulData}
           transferData={transferData}
+          editMode={editMode}
         />
       </div>
     </>

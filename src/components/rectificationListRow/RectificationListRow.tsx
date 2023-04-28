@@ -6,6 +6,10 @@ import CustomTag from '../customTag/CustomTag';
 import { formatDateTime } from '../../utils/helpers';
 import { FormId } from '../formContent/formContentSlice';
 import { t } from 'i18next';
+import { FoulData } from '../../interfaces/foulInterfaces';
+import { TransferData } from '../../interfaces/transferInterfaces';
+import { getFoulData } from '../../services/foulService';
+import { getTransferData } from '../../services/transferService';
 import './RectificationListRow.css';
 
 interface Props {
@@ -18,6 +22,9 @@ const RectificationListRow: FC<Props> = ({ form }): React.ReactElement => {
   const formType = form.content.dueDate
     ? FormId.DUEDATE
     : formTypes[form.content.type as number];
+  const [foulData, setFoulData] = useState<FoulData>();
+  const [transferData, setTransferData] = useState<TransferData>();
+
   const tagColor = (status: string) => {
     switch (status) {
       case 'resolvedViaEService':
@@ -28,6 +35,32 @@ const RectificationListRow: FC<Props> = ({ form }): React.ReactElement => {
       default:
         return 'var(--color-info)';
     }
+  };
+
+  /* Gets foul/transfer data and possible decision from PASI to be shown
+  with the objection form. If data can't be fetched from PASI for some
+  reason, the objection form can still be shown */
+  const fetchDataAndSetExtended = async () => {
+    if (!extended) {
+      if (form.metadata && form.metadata.registerNumber) {
+        if (form.metadata.foulNumber) {
+          await getFoulData({
+            foul_number: form.metadata.foulNumber,
+            register_number: form.metadata.registerNumber
+          }).then(res => {
+            setFoulData(res);
+          });
+        } else if (form.metadata.transferNumber) {
+          await getTransferData({
+            transfer_number: form.metadata.transferNumber,
+            register_number: form.metadata.registerNumber
+          }).then(res => {
+            setTransferData(res);
+          });
+        }
+      }
+    }
+    setExtended(!extended);
   };
 
   return (
@@ -53,13 +86,20 @@ const RectificationListRow: FC<Props> = ({ form }): React.ReactElement => {
           variant="supplementary"
           size="small"
           iconRight={extended ? <IconAngleUp /> : <IconAngleDown />}
-          onClick={() => setExtended(!extended)}>
+          onClick={() => fetchDataAndSetExtended()}>
           {extended
             ? t('landing-page:list:show-less')
             : t('landing-page:list:show-more')}
         </Button>
       </div>
-      {extended && <RectificationListDetails form={form} formType={formType} />}
+      {extended && (
+        <RectificationListDetails
+          form={form}
+          formType={formType}
+          foulData={foulData}
+          transferData={transferData}
+        />
+      )}
     </>
   );
 };

@@ -35,7 +35,7 @@ jest.mock('./config', () => {
 });
 
 window._env_ = {
-  REACT_APP_API_URL: 'localhost:8000',
-  REACT_APP_API_BACKEND_TOKEN_URL: 'localhost:8000',
-  REACT_APP_PROFILE_AUDIENCE: 'localhost:8000'
+  REACT_APP_API_URL: 'http://localhost:8000',
+  REACT_APP_API_BACKEND_TOKEN_URL: 'http://localhost:8000',
+  REACT_APP_PROFILE_AUDIENCE: 'http://localhost:8000'
 };
