@@ -5,6 +5,7 @@ import { useClient } from '../client/hooks';
 import styles from './styles.module.css';
 import config from '../config';
 import { useTranslation } from 'react-i18next';
+import i18n from '../utils/i18n';
 
 type Page =
   | 'frontpage'
@@ -32,6 +33,10 @@ const Header = (): React.ReactElement => {
   const title = t('common:title');
   const userName = user ? `${user.given_name} ${user.family_name}` : '';
 
+  const changeLanguage = (lang: string) => {
+    i18n.changeLanguage(lang);
+    localStorage.setItem('lang', lang);
+  };
   return (
     <Navigation
       className="hide-on-print"
@@ -46,7 +51,7 @@ const Header = (): React.ReactElement => {
       <Navigation.Row variant="inline">
         <Navigation.Item
           active={active === 'frontpage'}
-          label="Etusivu"
+          label={t('common:frontpage')}
           key="frontpage"
           tabIndex={0}
           onClick={(): void => {
@@ -72,13 +77,25 @@ const Header = (): React.ReactElement => {
             <Navigation.Item
               onClick={(): void => client.logout()}
               variant="supplementary"
-              label="Kirjaudu ulos"
+              label={t('common:log-out')}
               href="/logout"
               className={styles.navigationButton}
               icon={<IconSignout aria-hidden />}
             />
           </Navigation.User>
         )}
+        <Navigation.LanguageSelector label={i18n.language.toUpperCase()}>
+          <Navigation.Item
+            onClick={() => changeLanguage('fi')}
+            label="Suomeksi"
+            lang="fi"
+          />
+          <Navigation.Item
+            onClick={() => changeLanguage('en')}
+            label="In English"
+            lang="en"
+          />
+        </Navigation.LanguageSelector>
       </Navigation.Actions>
     </Navigation>
   );

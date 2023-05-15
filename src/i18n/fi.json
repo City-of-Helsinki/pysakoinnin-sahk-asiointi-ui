@@ -1,6 +1,7 @@
 {
   "common": {
     "title": "Pysäköinnin asiointi",
+    "frontpage": "Etusivu",
     "name": "Nimi",
     "ssn": "Henkilötunnus",
     "email": "Sähköpostiosoite",
@@ -25,6 +26,7 @@
     "close-rectification-dialog": "Sulje oikaisuvaatimus",
     "loading": "Sisältöä ladataan",
     "log-in": "Kirjaudu sisään",
+    "log-out": "Kirjaudu ulos",
     "not-logged-in": "Et ole kirjautunut sisään",
     "login-prompt": {
       "title": "Istunto on päättynyt",
