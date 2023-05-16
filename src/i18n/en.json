@@ -1,0 +1,305 @@
+{
+  "common": {
+    "title": "Parking e-services",
+    "frontpage": "Home",
+    "name": "Name",
+    "ssn": "Social security number",
+    "email": "Email",
+    "phone": "Phone",
+    "verify-email": "Please type your email address again",
+    "fetched-from-profile": "The marked information are shown from your Helsinki Profile.",
+    "fetched-from-profile-aria": "The information shown is from your Helsinki Profile",
+    "previous": "Previous",
+    "next": "Next",
+    "close": "Close",
+    "make-rectification": "Contest a parking fine",
+    "print": "Print",
+    "required-field": "Required field",
+    "required-fields": "Required fields are indicated with a star *",
+    "email-confirmation": "Send confirmation to my email",
+    "helsinki-profile-link": "Go to your Helsinki Profile to edit your information.",
+    "to-mainpage": "Go to parking e-services",
+    "show-more": "Show more",
+    "show-less": "Show less",
+    "characters": "characters",
+    "close-notification": "Close notification",
+    "close-rectification-dialog": "Close rectification claim",
+    "loading": "Loading",
+    "log-in": "Log in",
+    "not-logged-in": "You are not logged in",
+    "login-prompt": {
+      "title": "The session has ended",
+      "body": "Log in to continue.",
+      "button-label": "Log in again"
+    },
+    "barcode": {
+      "label": "Virtual barcode",
+      "copy-barcode": "Copy the virtual barcode",
+      "toast-label": "Copied to clipboard!",
+      "toast-body": "Virtual barcode has been copied to clipboard"
+    },
+    "notifications": {
+      "draft-saved": {
+        "label": "Draft is saved",
+        "text": "Draft was saved successfully."
+      }
+    },
+    "aria": {
+      "open-external": "Opens a new web page.",
+      "open-new-tab": "Opens in a new tab."
+    },
+    "fine-info": {
+      "ref-number": {
+        "label": "Reference number",
+        "placeholder": "E.g. 12345678",
+        "tooltip-text": "You can find the reference number from your parking fine."
+      },
+      "invoice-number": {
+        "label": "The invoice number of the compensation decision",
+        "placeholder": "E.g. 12345678",
+        "tooltip-text": "You can find the invoice number in the compensation decision sent to you."
+      },
+      "reg-number": {
+        "label": "Vehicle's registration number",
+        "placeholder": "E.g. ABC-123",
+        "helper-text": {
+          "common": "Enter the registration number as in the parking fine.",
+          "moved-car": "Enter the registration number as in the compensation decision."
+        }
+      },
+      "fine-timestamp": "Date of offence",
+      "address": "Address",
+      "fine-title": "Offence",
+      "fine-details": "Additional details",
+      "additional-details": "Additional details",
+      "fine-additional-details": "Additional details about the parking fine",
+      "sum": "Amount",
+      "due-date": "Due date"
+    },
+    "errors": {
+      "notification-title": "It is not possible to make a rectification claim",
+      "unknown": "Something went wrong. Try again later.",
+      "default": "It is not possible to make a rectification claim in the parking e-services. Contact customer service if needed."
+    }
+  },
+  "parking-fine": {
+    "title": "Contest to parking fine",
+    "stepper": {
+      "step1": "Search",
+      "step2": "Parking fine",
+      "step3": "Rectification claim",
+      "step4": "Summary"
+    },
+    "make-rectification": "To make a rectification claim",
+    "pay-fine": "To pay the parking fine",
+    "to-payment": "To payment",
+    "submit-success": "Rectification claim has been sent successfully",
+    "vehicle-info": {
+      "header": "Vehicle information",
+      "type": "Vehicle type",
+      "brand": "Brand",
+      "model": "Model",
+      "color": "Colour"
+    },
+    "notifications": {
+      "success": {
+        "label": "We have received your rectification claim",
+        "text": "You will receive notifications about the different stages of processing the rectification claim to the email address you have provided. You will receive the decision to parking e-services."
+      },
+      "fail": {
+        "label": "Sending the rectification claim failed",
+        "text": "Something went wrong. Contact customer service if needed."
+      },
+      "data-not-found": {
+        "label": "Parking fine was not found",
+        "text": "Parking fine was not found. Contact customer service if needed."
+      }
+    },
+    "submit": "Send",
+    "errors": {
+      "not-found": "Parking fine was not found. Contact customer service if needed.",
+      "objection-exists": "Rectification claim has already been made to this parking fine. Contact customer service if needed.",
+      "note": "This is a notice for parking offence. There is no payment. You can not claim rectification to a notice."
+    }
+  },
+  "due-date": {
+    "title": "Extend the due date of a parking fine by 30 days",
+    "stepper": {
+      "step1": "Search",
+      "step2": "Extend the due date"
+    },
+    "new-due-date": "New due date",
+    "submit-success": "The extension was successful",
+    "notifications": {
+      "allowed": {
+        "label": "You are able to extend the due date",
+        "text": "Extending the due date is only possible when the due date has not expired."
+      },
+      "not-allowed": {
+        "label": "Extending the due date is not possible."
+      },
+      "email-confirmation": {
+        "label": "Email confirmation",
+        "text": "Confirmation will be sent to the email address you have provided to Helsinki Profile: {{email}}. "
+      },
+      "success": {
+        "label": "The due date has now been extended.",
+        "text": "The due date of the parking fine has now been extended by 30 days. The new due date is {{newDueDate}}."
+      },
+      "fail": {
+        "label": "Extending the due date has failed.",
+        "text": "Something went wrong. Contact customer service if needed."
+      }
+    },
+    "submit": "Extend the due date",
+    "errors": {
+      "not-found": "Parking fine was not found, check the information. Contact customer service if needed.",
+      "due-date-past": "The due date on the parking fine has expired. You can not extend the due date on the parking e-services. Contact customer service if needed. Parking fine needs to be paid in 30 days.",
+      "already-extended": "You have already extended the due date on the parking fine. You can extend the due date once on the parking e-service. Contact customer service if needed.",
+      "already-paid": "It is not possible to extend the due date. The parking fine is fully paid.",
+      "default": "It is not possible to extend the due date. Contact customer service if needed."
+    }
+  },
+  "moved-car": {
+    "title": "Claim for rectification for the decision on the reimbursement of vehicle removal costs",
+    "stepper": {
+      "step1": "Search",
+      "step2": "Compensation decision",
+      "step3": "Rectification claim",
+      "step4": "Summary"
+    },
+    "submit": "Send",
+    "submit-success": "Rectification claim has been sent successfully",
+    "notifications": {
+      "success": {
+        "label": "We have received your rectification claim.",
+        "text": "You will receive notifications about the different stages of processing the rectification claim to the email address you have provided. You will receive the decision in the parking e-services."
+      },
+      "fail": {
+        "label": "Sending the rectification claim failed.",
+        "text": "Something went wrong. Contact customer service if needed."
+      },
+      "data-not-found": {
+        "label": "Compensation decision was not found",
+        "text": "Compensation decision was not found. Contact customer service if needed."
+      }
+    },
+    "move-timestamp": "Date of transfer",
+    "move-reason": "Reason for transfer",
+    "move-type": "Type of transfer",
+    "start-address": "From",
+    "start-address-details": "Address details",
+    "end-address": "The vehicle has been moved to",
+    "end-address-details": "Address details",
+    "reimbursement-sum": "Amount",
+    "errors": {
+      "not-found": "Compensation decision not found, check the information. Contact customer service if needed.",
+      "objection-exists": "Rectification claim has already been made to this compensation decision. Contact customer service if needed."
+    }
+  },
+  "rectificationForm": {
+    "relation-info": {
+      "relation": "I am making the rectification claim",
+      "0": "anonymously",
+      "1": "as the driver",
+      "2": "as the owner of the vehicle",
+      "3": "with a power of attorney",
+      "4": "for someone else"
+    },
+    "rectification-info": "Details of the rectification claim",
+    "rectification-content": "Rectification claim content",
+    "to-separate-email": "I want the notifications to a different email address",
+    "address": "Address",
+    "zipcode": "Postal code",
+    "city": "City/town",
+    "phone": "Phone",
+    "IBAN": "Bank account number (IBAN)",
+    "delivery-decision": "I would like the decision to be sent",
+    "toParkingService": "to my Parking e-services",
+    "byMail": "by mail to the provided address",
+    "attachments": {
+      "label": "Attachments",
+      "helper-text": "You can attach only one file. \nAllowed file formats are JPG and PDF. \nThe maximum size of an attachment file is 5 megabytes."
+    },
+    "poa": "A power of attorney",
+    "attach-poa": {
+      "label": "Attach a power of attorney",
+      "helper-text": "You can attach only one file. \nAllowed file formats are JPG and PDF. \nThe maximum size of an attachment file is 5 megabytes."
+    },
+    "errors": {
+      "description-over-limit": "Description exceeds the character limit",
+      "poa-required": "Power of attorney is missing",
+      "invalid-email": "Check email address",
+      "invalid-phone": "Check phone number",
+      "invalid-iban": "Check bank account number",
+      "too-many-attachments": "You can attach up to three attachments",
+      "invalid-refnumber": "Check the reference number"
+    }
+  },
+  "landing-page": {
+    "links": {
+      "due-date": "Extend the due date of a parking fine by 30 days",
+      "parking-fine": "View the parking fine information and make a rectification claim",
+      "moved-car": "View the vehicle transfer information and make a rectification claim"
+    },
+    "list": {
+      "title": "Rectification claims and parking fine due date extensions",
+      "status": {
+        "sent": {
+          "default": "Sent",
+          "conjugated": "sent"
+        },
+        "received": {
+          "default": "Received",
+          "conjugated": "received"
+        },
+        "handling": {
+          "default": "In process",
+          "conjugated": "processing"
+        },
+        "resolvedViaEService": {
+          "default": "Decision in e-services",
+          "conjugated": "decision made"
+        },
+        "resolvedViaMail": {
+          "default": "Decision has been mailed",
+          "conjugated": "decision made"
+        },
+        "show-all": {
+          "default": "Show all",
+          "conjugated": "sent"
+        }
+      },
+      "details": {
+        "events": "Events",
+        "attachments": "Attachments",
+        "open-decision": "Open decision",
+        "show-form": "Show rectification claim",
+        "notification": {
+          "due-date": {
+            "label": "The due date has been extended",
+            "text": "The due date of the parking fine has been extended by 30 days. The new due date is {{dueDate}}."
+          },
+          "resolvedViaMail": {
+            "label": "Decision has been mailed",
+            "text": "The decision has been mailed to the address provided in the rectification claim."
+          }
+        }
+      },
+      "show-more": "Show more",
+      "show-less": "Show less",
+      "no-forms": "You have not made any rectification claims nor made any extensions to parking fine due dates."
+    },
+    "sent": "Sent",
+    "newest-first": "Newest first",
+    "oldest-first": "Oldest first"
+  },
+  "imageViewer": {
+    "header": "Photos of the offence",
+    "closebutton-text": "Close the image viewer",
+    "image": "Photo",
+    "previous-image": "Previous photo",
+    "next-image": "Next photo",
+    "image-input-alt": "Open the image viewer"
+  }
+}
