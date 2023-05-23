@@ -130,7 +130,8 @@ const FormStepper = (props: Props): React.ReactElement => {
     const objection = createObjection(
       formContent.formValues,
       selectedForm,
-      filesAsBase64
+      filesAsBase64,
+      formContent.transferData
     );
     switch (selectedForm) {
       case FormId.PARKINGFINE:
