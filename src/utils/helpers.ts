@@ -8,6 +8,7 @@ import {
   ObjectionForm,
   ObjectionType
 } from '../interfaces/objectionInterfaces';
+import { TransferData } from '../interfaces/transferInterfaces';
 
 const EXTENDEDDAYS = 30;
 const BYTES_IN_KB = 1024;
@@ -73,7 +74,8 @@ export const fileToBase64 = (file: File): Promise<string> =>
 export const createObjection = (
   form: ObjectionForm,
   selectedForm: FormId,
-  attachments: Array<FileItem>
+  attachments: Array<FileItem>,
+  formContent: TransferData | undefined
 ) => {
   // remove unnecessary properties
   const {
@@ -96,6 +98,10 @@ export const createObjection = (
   objection.email =
     form.toSeparateEmail && form.newEmail ? form.newEmail : form.email;
   objection.attachments = attachments;
+  // change transferNumber to that coming from PASI
+  if (selectedForm == FormId.MOVEDCAR && formContent) {
+    objection.transferNumber = formContent.transferNumber.toString();
+  }
   // make sure authorRole is in correct format
   objection.authorRole = Number(objection.authorRole);
   // add metadata
