@@ -2,8 +2,9 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import fi from '../i18n/fi.json';
 import en from '../i18n/en.json';
+import sv from '../i18n/sv.json';
 
-const resources = { fi, en };
+const resources = { fi, en, sv };
 
 const lng = localStorage.getItem('lang');
 
