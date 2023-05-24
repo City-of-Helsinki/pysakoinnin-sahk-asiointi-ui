@@ -26,6 +26,7 @@
     "close-rectification-dialog": "Close rectification claim",
     "loading": "Loading",
     "log-in": "Log in",
+    "log-out": "Log out",
     "not-logged-in": "You are not logged in",
     "login-prompt": {
       "title": "The session has ended",

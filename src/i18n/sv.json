@@ -1,0 +1,306 @@
+{
+  "common": {
+    "title": "Parkering e-tjänster",
+    "frontpage": "Hem",
+    "name": "Namn",
+    "ssn": "Personbeteckning",
+    "email": "E-postadress",
+    "phone": "Telefonnummer tjänstetid",
+    "verify-email": "Skriv in e-postadressen igen",
+    "fetched-from-profile": "Den markerade informationen har hämtats från din Helsingfors-profil.",
+    "fetched-from-profile-aria": "Uppgift hämtad från profilen Helsingfors",
+    "previous": "Tidigare",
+    "next": "Nästa",
+    "close": "Stänga",
+    "make-rectification": "Gör rättelseyrkan",
+    "print": "Skriv ut",
+    "required-field": "Obligatoriskt fält",
+    "required-fields": "Obligatoriska fält har märkts ut med en stjärna *",
+    "email-confirmation": "Jag vill ha bekräftelse till min e-post",
+    "helsinki-profile-link": "Gå till Helsinki-profilen för att redigera informationen.",
+    "to-mainpage": "Gå till parkerings e-tjänster",
+    "show-more": "Visa mer",
+    "show-less": "Visa mindre",
+    "characters": "tecken",
+    "close-notification": "Stäng meddelande",
+    "close-rectification-dialog": "Stäng rättelseyrkande",
+    "loading": "Hämtar innehåll",
+    "log-in": "Logga in",
+    "log-out": "Logga ut",
+    "not-logged-in": "Du är inte inloggad",
+    "login-prompt": {
+      "title": "Sessionen har avslutats",
+      "body": "Logga in på nytt för att fortsätta använda tjänsten.",
+      "button-label": "Logga in igen"
+    },
+    "barcode": {
+      "label": "Virtuell streckkod",
+      "copy-barcode": "Kopiera den virtuella streckkoden",
+      "toast-label": "Kopieras till urklipp!",
+      "toast-body": "Virtuell streckkod har kopierats till urklipp"
+    },
+    "notifications": {
+      "draft-saved": {
+        "label": "Lomake tallennettu",
+        "text": "Lomake tallennettu keskeneräisenä onnistuneesti."
+      }
+    },
+    "aria": {
+      "open-external": "Öppnar en annan webbsida.",
+      "open-new-tab": "Öppnas i en ny flik."
+    },
+    "fine-info": {
+      "ref-number": {
+        "label": "Ärendenummer",
+        "placeholder": "T.ex. 12345678",
+        "tooltip-text": "Ärendenumret finns på felparkeringsavgiften"
+      },
+      "invoice-number": {
+        "label": "Fakturanummer för ersättningsbeslut",
+        "placeholder": "T.ex. 12345678",
+        "tooltip-text": "Du hittar fakturanumret i det ersättningsbeslut som skickas till dig."
+      },
+      "reg-number": {
+        "label": "Fordonets registernummer",
+        "placeholder": "T.ex. ABC-123",
+        "helper-text": {
+          "common": "Ange registreringsnumret som finns på felparkeringsavgiften.",
+          "moved-car": "Ange registreringsnumret som det står i fordonets flyttningskostnad."
+        }
+      },
+      "fine-timestamp": "Tidpunkt för felet",
+      "address": "Adress",
+      "fine-title": "Fel",
+      "fine-details": "Ytterligare information",
+      "additional-details": "Ytterligare information",
+      "fine-additional-details": "Ytterligare information om felparkeringsavgift",
+      "sum": "Felparkeringsavgiftens belopp",
+      "due-date": "Förfallodag"
+    },
+    "errors": {
+      "notification-title": "Du kan inte begära omprövning",
+      "unknown": "Något gick fel. Prova på nytt om en stund.",
+      "default": "Begäran om omprövning kan inte göras i e-tjänsten. Vid behov, kontakta kundtjänst."
+    }
+  },
+  "parking-fine": {
+    "title": "Begäran om omprövning av felparkeringsavgift",
+    "stepper": {
+      "step1": "Sök",
+      "step2": "Felparkeringsavgift",
+      "step3": "Rättelseyrkande",
+      "step4": "Sammandrag"
+    },
+    "make-rectification": "Göra begäran om omprövning",
+    "pay-fine": "Betala en parkeringsbot",
+    "to-payment": "Till betalning",
+    "submit-success": "Sändningen var framgångsrik",
+    "vehicle-info": {
+      "header": "Fordonsinformation",
+      "type": "Fordonstyp",
+      "brand": "Märke",
+      "model": "Modell",
+      "color": "Färg"
+    },
+    "notifications": {
+      "success": {
+        "label": "Vi har fått din begäran on omprövning av felparkeringsavgift",
+        "text": "Du få meddelanden om de olika stegen till den e-postadress du angett. När beslutet är fattat får du det i din parkerings ärendemapp."
+      },
+      "fail": {
+        "label": "Det gick inte att skicka begäran om omprövning",
+        "text": "Det inträffade ett fel när begäran om omprövning skulle skickas. Vid behov, kontakta kundtjänst."
+      },
+      "data-not-found": {
+        "label": "Informationen hittades inte",
+        "text": "Informationen hittades inte. Vid behov, kontakta kundtjänst."
+      }
+    },
+    "submit": "Skicka",
+    "errors": {
+      "not-found": "Informationen hittades inte, kontrollera informationen du angav. Vid behov, kontakta kundtjänst.",
+      "objection-exists": "Begäran om omprövning av felparkeringsavgift har redan gjorts. Vid behov, kontakta kundtjänst.",
+      "note": "Anmärkningen om felparkering medför ingen avgift och kan inte överklagas."
+    }
+  },
+  "due-date": {
+    "title": "Uppskjutning av parkeringsavgiften färfallodag med 30 dagar",
+    "stepper": {
+      "step1": "Sök",
+      "step2": "Förflyttning av förfallodatum"
+    },
+    "new-due-date": "Nytt förfallodag",
+    "submit-success": "Förfallodatumsöverföringen lyckades",
+    "notifications": {
+      "allowed": {
+        "label": "Du kan skjuta upp förfallodagen",
+        "text": "Att flytta förfallodagen är endast möjlig om förfallodagen för felparkeringavgift har inte löpt ut."
+      },
+      "not-allowed": {
+        "label": "Du kan inte skjuta upp förfallodagen"
+      },
+      "email-confirmation": {
+        "label": "E-post bekräftelse",
+        "text": "Bekräftelsen skickas till e-postadressen i din Helsingfors-profil: {{email}}. "
+      },
+      "success": {
+        "label": "Förfallodagen har skjutits upp",
+        "text": "Förfallodagen för felparkeringsavgift har skjutits upp med 30 dagar. Nytt förfallodag är {{newDueDate}}."
+      },
+      "fail": {
+        "label": "Det gick inte att ändra förfallodagen",
+        "text": "Det inträffade ett fel när ändringen av förfallodagen skulle skickas. Vid behov, kontakta kundtjänst."
+      }
+    },
+    "submit": "Flytta förfallodagen",
+    "errors": {
+      "not-found": "Informationen hittades inte, kontrollera informationen du angav. Vid behov, kontakta kundtjänst.",
+      "due-date-past": "Felparkeringsavgiften förfallodatumet har redan passerat och kan inte skjutas upp i e-tjänster. Vid behov, kontakta kundtjänsten. Felparkeringsavgiften ska betalas inom 30 dagar från den dag beslutet om felparkeringsavgiften fattades.",
+      "already-extended": "Du kan inte skjuta upp förfallodagen. Vid behov, kontakta kundtjänst.",
+      "already-paid": "Du kan inte skjuta upp förfallodagen. Felparkeringsavgift är betald.",
+      "default": "Du kan inte skjuta upp förfallodagen. Vid behov, kontakta kundtjänst."
+    }
+  },
+  "moved-car": {
+    "title": "Rättelseyrkandet för flyttande av fordon",
+    "stepper": {
+      "step1": "Sök",
+      "step2": "Fordonets flyttningskostnader beslut",
+      "step3": "Rättelseyrkande",
+      "step4": "Sammandrag"
+    },
+    "submit": "Skicka",
+    "submit-success": "Sändningen var framgångsrik",
+    "notifications": {
+      "success": {
+        "label": "Vi har fått din begäran on omprövning av felparkeringsavgift",
+        "text": "Du få meddelanden om de olika stegen till den e-postadress du angett. När beslutet är fattat får du det i din parkerings ärendemapp."
+      },
+      "fail": {
+        "label": "Det gick inte att skicka begäran om omprövning",
+        "text": "Det inträffade ett fel när begäran om omprövning skulle skickas. Vid behov, kontakta kundtjänsten."
+      },
+      "data-not-found": {
+        "label": "Informationen hittades inte",
+        "text": "Informationen hittades inte. Vid behov, kontakta kundtjänsten."
+      }
+    },
+    "move-timestamp": "Datum för flyttningsdag",
+    "move-reason": "Anledning till flyttning",
+    "move-type": "Typ av flyttning",
+    "start-address": "Flyttats från",
+    "start-address-details": "Tilläggsinformation",
+    "end-address": "Fordonet har flyttats till",
+    "end-address-details": "Tilläggsinformation",
+    "reimbursement-sum": "Betalas",
+    "errors": {
+      "not-found": "Informationen hittades inte, kontrollera informationen du angav. Vid behov, kontakta kundtjänst.",
+      "objection-exists": "Det har redan gjorts begäran av omprövning angående förflyttning av fordon. Vid behov, kontakta kundtjänsten."
+    }
+  },
+  "rectificationForm": {
+    "relation-info": {
+      "relation": "Jag gör ett rättelsekrav",
+      "0": "Tuntemattomana henkilönä",
+      "1": "Föraren av fordonet",
+      "2": "Fordonsägare/ Fordonets innehavare",
+      "3": "Med fullmakt",
+      "4": "Muuna henkilönä"
+    },
+    "rectification-info": "Uppgifterna om begäran om omprövning",
+    "rectification-content": "Innehåll i omprövningsbegäran",
+    "to-separate-email": "Jag vill ha meddelanden om handläggningen av ärendet till en annan e-postadress",
+    "address": "Adress",
+    "zipcode": "Postnummer",
+    "city": "Postanstalt",
+    "phone": "Telefonnummer tjänstetid",
+    "IBAN": "Kontonummer (IBAN)",
+    "delivery-decision": "Jag vill ha beslutet till",
+    "toParkingService": "Mitt parkerings e-tjänst",
+    "byMail": "I ett brev till den adress jag givit",
+    "attachments": {
+      "label": "Bifogade filer",
+      "helper-text": "Du kan foga högst tre bilagor till rättelseyrkandet. \nTillåtna filformat är JPG, PDF. \nDen maximala storleken på en bifogad fil är 5 megabyte."
+    },
+    "poa": "Med fullmakt",
+    "attach-poa": {
+      "label": "Bifoga fullmakt",
+      "helper-text": "Du kan foga en bilaga. \nTillåtna filformat är JPG, PDF. \nDen maximala storleken på en bifogad fil är 5 megabyte."
+    },
+    "errors": {
+      "description-over-limit": "Beskrivningen överskrider det tillåtna antalet tecken",
+      "poa-required": "Fullmakt saknas",
+      "invalid-email": "Kontrollera e-postadress",
+      "invalid-phone": "Kontrollera telefonnummer",
+      "invalid-iban": "Kontrollera kontonummer",
+      "too-many-attachments": "Du kan foga högst tre bilagor",
+      "invalid-refnumber": "Kontrollera ärendenummer"
+    }
+  },
+  "landing-page": {
+    "links": {
+      "due-date": "Flytta förfallodagen för felparkeringsavgift med 30 dagar",
+      "parking-fine": "Kontrollera uppgifterna angånde felparkeringsavgiften, samt gör rättelseyrkan",
+      "moved-car": "Kontrollera uppgifterna angånde förflyttning av fordon, samt gör rättelseyrkan"
+    },
+    "list": {
+      "title": "Begäran om omprövning och ändring av förfallodag",
+      "status": {
+        "sent": {
+          "default": "Skickat",
+          "conjugated": "skickat"
+        },
+        "received": {
+          "default": "Mottaget",
+          "conjugated": "mottagen"
+        },
+        "handling": {
+          "default": "Bearbetning",
+          "conjugated": "bearbetning"
+        },
+        "resolvedViaEService": {
+          "default": "Beslut i e-tjänster",
+          "conjugated": "avgjorda"
+        },
+        "resolvedViaMail": {
+          "default": "Beslutsbrev postat",
+          "conjugated": "avgjorda"
+        },
+        "show-all": {
+          "default": "Visa allt",
+          "conjugated": "skickat"
+        }
+      },
+      "details": {
+        "events": "Evenemang",
+        "attachments": "Bifogade filer",
+        "open-decision": "Öppna beslutet",
+        "show-form": "Visa rättelseyrkan",
+        "notification": {
+          "due-date": {
+            "label": "Förfallodagen har skjutits upp",
+            "text": "Förfallodagen har skjutits upp med 30 dagar. Nytt förfallodag är {{dueDate}}."
+          },
+          "resolvedViaMail": {
+            "label": "Beslutsbrev har postats",
+            "text": "Beslutet har skickats per brev till den adress du givit."
+          }
+        }
+      },
+      "show-more": "Visa mer",
+      "show-less": "Visa mindre",
+      "no-forms": "Ni har inte gjort rättelseyrkan eller betalat felparkeringsavgiften."
+    },
+    "sent": "skickat",
+    "newest-first": "Den senaste först",
+    "oldest-first": "Äldst först"
+  },
+  "imageViewer": {
+    "header": "Bild på parkeringsbot",
+    "closebutton-text": "Stäng bildvisningen",
+    "image": "Bild",
+    "previous-image": "Tidigare bild",
+    "next-image": "Nästa bild",
+    "image-input-alt": "Öppna bildvisningen"
+  }
+}

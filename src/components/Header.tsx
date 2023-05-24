@@ -87,13 +87,18 @@ const Header = (): React.ReactElement => {
         <Navigation.LanguageSelector label={i18n.language.toUpperCase()}>
           <Navigation.Item
             onClick={() => changeLanguage('fi')}
-            label="Suomeksi"
+            label="Suomi"
             lang="fi"
           />
           <Navigation.Item
             onClick={() => changeLanguage('en')}
-            label="In English"
+            label="English"
             lang="en"
+          />
+          <Navigation.Item
+            onClick={() => changeLanguage('sv')}
+            label="Svenska"
+            lang="sv"
           />
         </Navigation.LanguageSelector>
       </Navigation.Actions>
