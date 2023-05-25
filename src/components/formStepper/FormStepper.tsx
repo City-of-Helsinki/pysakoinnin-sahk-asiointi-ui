@@ -114,7 +114,7 @@ const FormStepper = (props: Props): React.ReactElement => {
           fileName: file.name,
           size: file.size,
           mimeType: file.type,
-          data: fileData
+          data: fileData.split(',').pop() as string
         };
       }),
       ...files.poaFile.map(async file => {
@@ -123,7 +123,7 @@ const FormStepper = (props: Props): React.ReactElement => {
           fileName: file.name,
           size: file.size,
           mimeType: file.type,
-          data: fileData
+          data: fileData.split(',').pop() as string
         };
       })
     ]);
