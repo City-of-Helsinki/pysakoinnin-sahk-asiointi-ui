@@ -9,6 +9,7 @@ import {
   ObjectionType
 } from '../interfaces/objectionInterfaces';
 import { TransferData } from '../interfaces/transferInterfaces';
+import i18n from './i18n';
 
 const EXTENDEDDAYS = 30;
 const BYTES_IN_KB = 1024;
@@ -109,11 +110,13 @@ export const createObjection = (
     selectedForm === FormId.MOVEDCAR
       ? {
           transferNumber: form.transferNumber,
-          registerNumber: form.registerNumber
+          registerNumber: form.registerNumber,
+          lang: i18n.language
         }
       : {
           foulNumber: form.foulNumber,
-          registerNumber: form.registerNumber
+          registerNumber: form.registerNumber,
+          lang: i18n.language
         };
   return objection;
 };

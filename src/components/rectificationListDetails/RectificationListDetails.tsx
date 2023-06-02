@@ -68,10 +68,6 @@ const RectificationListDetails: FC<Props> = ({
           <span className="rectification-details-title">
             {t('landing-page:list:details:events')}
           </span>
-          <p>
-            {formatDateTime(form.status.timestamp)}{' '}
-            {t(`landing-page:list:status:${form.status.value}:default`)}
-          </p>
           {form?.status_histories
             .sort((a, b) => sortByDate(a.timestamp, b.timestamp, true))
             .map((event, i) => (

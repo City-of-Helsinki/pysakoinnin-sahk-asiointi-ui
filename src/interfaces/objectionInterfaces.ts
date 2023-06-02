@@ -110,4 +110,5 @@ interface ObjectionMetadata {
   foulNumber?: string;
   transferNumber?: string;
   registerNumber?: string;
+  lang?: string;
 }
