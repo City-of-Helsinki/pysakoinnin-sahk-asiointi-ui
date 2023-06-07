@@ -1,0 +1,96 @@
+.home-button-container {
+  scroll-margin: var(--spacing-s);
+}
+
+.button {
+  height: 56px;
+}
+
+.button.submit {
+  min-width: 137px;
+}
+
+.submit-notification {
+  margin-bottom: 24px;
+  z-index: 100;
+}
+
+.button.home {
+  width: 100%;
+}
+
+.button.link {
+  text-decoration: none;
+}
+
+.form-error-label {
+  max-width: 500px;
+}
+
+@media (max-width: 767px) {
+  #stepper div div:nth-child(2) {
+    font-size: 24px;
+  }
+
+  #stepper div div:nth-child(2) button {
+    font-size: 16px;
+  }
+
+  .button-container {
+    max-width: 500px;
+  }
+
+  .button-wrapper {
+    display: grid;
+    grid-gap: var(--spacing-xs);
+    margin-top: var(--spacing-l);
+  }
+
+  .submit-and-print-button-wrapper {
+    display: grid;
+    grid-gap: var(--spacing-xs);
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  #button-previous {
+    grid-row: 2;
+  }
+
+  #button-next {
+    grid-row: 1;
+  }
+
+  #button-home {
+    grid-row: 3;
+  }
+
+  #button-print {
+    grid-row: 2;
+  }
+
+  .button.home {
+    margin-top: var(--spacing-xs);
+  }
+}
+
+@media (min-width: 768px) {
+  .stepper {
+    transform: translateX(-36px);
+  }
+
+  .button-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    height: 96px;
+    justify-content: flex-start;
+    margin-top: var(--spacing-l);
+  }
+
+  .button-wrapper.submit {
+    justify-content: space-between;
+  }
+}

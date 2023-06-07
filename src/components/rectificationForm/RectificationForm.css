@@ -1,0 +1,168 @@
+.rectification-form-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 24px;
+}
+
+.rectification-info-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 130px);
+  gap: 24px;
+  margin: 24px 0 24px;
+}
+
+.rectification-poa-fileinput {
+  min-width: 300px;
+}
+
+.rectification-textarea {
+  grid-column: 2;
+  grid-row: 1 / 8;
+}
+
+.rectification-textarea div:first-of-type,
+.rectification-textarea textarea {
+  height: 100% !important;
+}
+
+.rectification-subgrid {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 12px;
+}
+
+.rectification-subgrid label {
+  white-space: nowrap;
+}
+
+.rectification-form-user-details {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  grid-row: 2;
+}
+
+/* 
+  sets the items inside rectification-form-user-details as inline flex and 
+  allows expanding of the checkmark icon if needed 
+*/
+.rectification-form-user-details > div {
+  display: inline-flex;
+  flex-direction: column;
+  min-width: 200px;
+  max-width: 350px;
+}
+
+.rectification-form-user-details div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rectification-form-user-details p {
+  overflow-wrap: break-word;
+  margin-bottom: var(--spacing-m);
+}
+
+.rectification-attachments {
+  grid-column: 1 / 3;
+  grid-row: 8;
+  margin-top: var(--spacing-l);
+}
+
+.rectification-fileinput div:first-of-type {
+  max-width: 100%;
+}
+
+.rectification-delivery-decision {
+  grid-row: 9;
+}
+
+.rectification-link-to-profile {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-m);
+}
+
+.rectification-link-to-profile svg {
+  margin-right: var(--spacing-xs);
+}
+
+.rectification-attachments-error {
+  margin-top: var(--spacing-s);
+}
+
+@media only screen and (max-width: 768px) {
+  .rectification-info-container {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: auto;
+  }
+
+  .rectification-form-user-details {
+    grid-row: 3;
+    margin-top: 0;
+  }
+
+  .rectification-poa-fileinput {
+    grid-row: 2;
+    margin-top: var(--spacing-s);
+  }
+
+  .rectification-form-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .rectification-textarea {
+    height: 50vh;
+    margin-bottom: var(--spacing-2-xl);
+  }
+
+  .rectification-link-to-profile {
+    display: block;
+  }
+
+  .rectification-link-to-profile span {
+    display: inline-block;
+    width: 70%;
+  }
+
+  .rectification-link-to-profile a {
+    display: block;
+    margin-top: var(--spacing-s);
+    margin-left: var(--spacing-layout-s);
+    font-size: var(--fontsize-body-m);
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .rectification-poa-fileinput {
+    flex: 1;
+    margin-top: 5px;
+  }
+}
+
+.radio-group-section .field-label {
+  margin-bottom: var(--spacing-s);
+}
+
+.radio-group-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.radio-group-container label {
+  font-weight: normal;
+}
+
+.small-text {
+  font-size: var(--fontsize-body-m);
+}
+
+@media (max-width: 450px) {
+  .rectification-form-user-details {
+    max-width: 90vw;
+  }
+}

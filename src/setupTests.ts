@@ -1,13 +1,16 @@
+/* eslint-disable sonarjs/no-duplicate-string */
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import { configure } from 'enzyme';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { GlobalWithFetchMock } from 'jest-fetch-mock';
-import { UserManager, UserManagerSettings } from 'oidc-client';
-import {
-  mockMutatorGetterOidc,
-  mockOidcUserManager
-} from './client/__mocks__/oidc-react-mock';
 import { AnyFunction } from './common';
+import { toHaveNoViolations } from 'jest-axe';
+import './utils/i18n.js';
+
+expect.extend(toHaveNoViolations);
+
+// eslint-disable-next-line no-magic-numbers
+jest.setTimeout(10000);
 
 const customGlobal: GlobalWithFetchMock = global as GlobalWithFetchMock;
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -31,21 +34,8 @@ jest.mock('./config', () => {
   return jest.requireActual('./config');
 });
 
-jest.mock('oidc-client', () => {
-  class MockUserManagerClass {
-    constructor(settings: UserManagerSettings) {
-      const mockMutator = mockMutatorGetterOidc();
-      const userManager = mockOidcUserManager(settings) as UserManager;
-      mockMutator.setInstance(userManager);
-      return userManager;
-    }
-  }
-  return {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore: expected ts type error
-    ...jest.requireActual('oidc-client'),
-    UserManager: MockUserManagerClass
-  };
-});
-
-jest.mock('./client/http-poller');
+window._env_ = {
+  REACT_APP_API_URL: 'http://localhost:8000',
+  REACT_APP_API_BACKEND_TOKEN_URL: 'http://localhost:8000',
+  REACT_APP_PROFILE_AUDIENCE: 'http://localhost:8000'
+};

@@ -1,0 +1,193 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component matches snapshot 1`] = `
+<div>
+  <div
+    class="summary-body"
+  >
+    <div
+      class="summary-container"
+      data-testid="parkingFineSummary"
+    >
+      <div
+        class="info-field"
+      >
+        <label>
+          Virheen ajankohta
+        </label>
+        <p>
+          20.2.2023 klo 9:27 - 20.2.2023 klo 9:32
+        </p>
+      </div>
+      <div
+        class="info-field"
+      >
+        <label>
+          Asianumero
+        </label>
+        <p>
+          113148427
+        </p>
+      </div>
+      <hr />
+      <div
+        class="info-field"
+      >
+        <label>
+          Lähiosoite
+        </label>
+        <p>
+          Bulevardi 15
+        </p>
+      </div>
+      <div
+        class="info-field"
+      >
+        <label>
+          Lisätietoja
+        </label>
+        <p>
+          Vastapäätä
+        </p>
+      </div>
+      <hr />
+      <div
+        class="info-field"
+      >
+        <label>
+          Virhe
+        </label>
+        <p>
+          Pysäköinti ajosuunnan vastaisesti taajaman ulkopuolella. TLL 36 § 2 mom
+        </p>
+      </div>
+      <div
+        class="info-field"
+      >
+        <label>
+          Lisätieto
+        </label>
+        <p>
+          12 metriä
+        </p>
+      </div>
+      <div
+        class="info-field"
+      >
+        <label>
+          Virhe
+        </label>
+        <p>
+          Pysäköinti kiinteistölle johtavan ajotien kohdalle / siten, että ajoneuvoliikenne kiinteistölle tai sieltä pois on oleellisesti vaikeutunut. TLL 38 § 1 mom
+        </p>
+      </div>
+      <div
+        class="info-field"
+      />
+      <div
+        class="info-field"
+      >
+        <label>
+          Virhe
+        </label>
+        <p>
+          Pysäköinti/Pysäyttäminen pysäkkialueelle. TLL 3 § 1 mom.,  75 §, Liikennemerkki E6
+        </p>
+      </div>
+      <div
+        class="info-field"
+      >
+        <label>
+          Lisätieto
+        </label>
+        <p>
+          Ajoratamaalauksesta n. 2,0 m
+        </p>
+      </div>
+      <hr />
+      <div
+        class="wide-field"
+      >
+        <label>
+          Pysäköintivirheen lisätiedot
+        </label>
+        <p>
+          lunta maasssa
+        </p>
+      </div>
+      <hr />
+      <div
+        class="info-field sum-field"
+      >
+        <label>
+          Pysäköintivirhemaksun summa
+        </label>
+        <p>
+          80,00 EUR
+        </p>
+      </div>
+      <div
+        class="info-field"
+      >
+        <label>
+          Eräpäivä
+        </label>
+        <p>
+          5.4.2023
+        </p>
+      </div>
+      <hr />
+      <div
+        class="barcode-container wide-field"
+      >
+        <label
+          class="barcode-label"
+        >
+          Virtuaaliviivakoodi
+        </label>
+        <p
+          class="barcode"
+        >
+          490166030011987070000800000000000000113148427759230405
+        </p>
+        <button
+          class="Button-module_button__1msFE button_hds-button__2A0je Button-module_secondary__1nABp button_hds-button--secondary__1NOWS barcode-button"
+          data-testid="copy-to-clipboard"
+          type="button"
+        >
+          <div
+            aria-hidden="true"
+            class="Button-module_icon__O-h7R button_hds-icon__17j8Z"
+          >
+            <svg
+              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+              role="img"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <rect
+                  height="24"
+                  width="24"
+                />
+                <path
+                  d="M6,10 L6,12 L5,12 L5,18 L12,18 L12,17 L14,17 L14,19 C14,19.5522847 13.5522847,20 13,20 L4,20 C3.44771525,20 3,19.5522847 3,19 L3,11 C3,10.4477153 3.44771525,10 4,10 L6,10 Z M20,4 C20.5522847,4 21,4.44771525 21,5 L21,15 C21,15.5522847 20.5522847,16 20,16 L8,16 C7.44771525,16 7,15.5522847 7,15 L7,5 C7,4.44771525 7.44771525,4 8,4 L20,4 Z M19,6 L9,6 L9,14 L19,14 L19,6 Z"
+                  fill="currentColor"
+                />
+              </g>
+            </svg>
+          </div>
+          <span
+            class="Button-module_label__a4np1 button_hds-button__label__2EQa-"
+          >
+            Kopioi virtuaaliviivakoodi
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

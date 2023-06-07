@@ -4,16 +4,16 @@ import { loader } from 'graphql.macro';
 import { useCallback } from 'react';
 import { ApolloError } from '@apollo/client';
 import {
-  GraphQLClient,
   createGraphQLClient,
+  GraphQLClient,
   GraphQLClientError,
   resetClient
 } from '../graphql/graphqlClient';
-import { AnyObject } from '../common';
+import { AnyObject, UserProfile } from '../common';
 
 import useAuthorizedApiRequests, {
-  AuthorizedRequest,
-  AuthorizedApiActions
+  AuthorizedApiActions,
+  AuthorizedRequest
 } from '../apiAccessTokens/useAuthorizedApiRequests';
 import { JWTPayload } from '../client';
 
@@ -24,7 +24,7 @@ export type ProfileErrorType = Error | GraphQLClientError | string | undefined;
 export type ProfileData = Record<string, ProfileDataType>;
 export type ProfileQueryResult = {
   data: {
-    myProfile: GraphQLProfile;
+    myProfile: UserProfile;
   };
   errors?: readonly GraphQLError[];
 };
@@ -56,17 +56,12 @@ export function convertQueryToData(
     return undefined;
   }
   const { id, firstName, lastName, nickname, language } = profile;
-  const getEmail = (data: GraphQLProfile): string | undefined => {
-    const list = data?.emails?.edges;
-    return list && list[0] && list[0].node?.email;
-  };
   return {
     id,
     firstName,
     lastName,
     nickname,
-    language,
-    email: getEmail(profile)
+    language
   };
 }
 

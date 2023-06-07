@@ -1,0 +1,11 @@
+.fieldset {
+  max-width: 500px;
+}
+
+.field {
+  margin-top: 24px;
+}
+
+.small-text {
+  font-size: var(--fontsize-body-m);
+}

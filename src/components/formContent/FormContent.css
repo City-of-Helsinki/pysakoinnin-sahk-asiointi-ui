@@ -1,0 +1,10 @@
+.form-container {
+  padding: 4px 0 12px;
+  margin-top: var(--spacing-m);
+}
+
+@media (min-width: 768px) {
+  .button.print {
+    margin-right: var(--spacing-m);
+  }
+}

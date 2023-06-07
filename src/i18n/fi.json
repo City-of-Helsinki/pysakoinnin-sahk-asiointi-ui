@@ -1,0 +1,306 @@
+{
+  "common": {
+    "title": "Pysäköinnin asiointi",
+    "frontpage": "Etusivu",
+    "name": "Nimi",
+    "ssn": "Henkilötunnus",
+    "email": "Sähköpostiosoite",
+    "phone": "Puhelinnumero",
+    "verify-email": "Kirjoita sähköpostiosoite uudelleen",
+    "fetched-from-profile": "Merkityt tiedot on haettu Helsinki-profiilistasi.",
+    "fetched-from-profile-aria": "Tieto haettu Helsinki-profiilista",
+    "previous": "Edellinen",
+    "next": "Seuraava",
+    "close": "Sulje",
+    "make-rectification": "Tee oikaisuvaatimus",
+    "print": "Tulosta",
+    "required-field": "Pakollinen kenttä",
+    "required-fields": "Pakolliset kentät on merkitty tähdellä *",
+    "email-confirmation": "Haluan vahvistuksen sähköpostiini",
+    "helsinki-profile-link": "Siirry Helsinki-profiiliin muokataksesi tietoja.",
+    "to-mainpage": "Siirry pysäköinnin asiointiin",
+    "show-more": "Näytä enemmän",
+    "show-less": "Näytä vähemmän",
+    "characters": "merkkiä",
+    "close-notification": "Sulje ilmoitus",
+    "close-rectification-dialog": "Sulje oikaisuvaatimus",
+    "loading": "Sisältöä ladataan",
+    "log-in": "Kirjaudu sisään",
+    "log-out": "Kirjaudu ulos",
+    "not-logged-in": "Et ole kirjautunut sisään",
+    "login-prompt": {
+      "title": "Istunto on päättynyt",
+      "body": "Kirjaudu uudelleen sisään jatkaaksesi palvelun käyttöä.",
+      "button-label": "Kirjaudu uudelleen"
+    },
+    "barcode": {
+      "label": "Virtuaaliviivakoodi",
+      "copy-barcode": "Kopioi virtuaaliviivakoodi",
+      "toast-label": "Kopioitu leikepöydälle!",
+      "toast-body": "Virtuaaliviivakoodi kopioitu leikepöydälle"
+    },
+    "notifications": {
+      "draft-saved": {
+        "label": "Lomake tallennettu",
+        "text": "Lomake tallennettu keskeneräisenä onnistuneesti."
+      }
+    },
+    "aria": {
+      "open-external": "Avaa toisen verkkosivun.",
+      "open-new-tab": "Avautuu uudessa välilehdessä."
+    },
+    "fine-info": {
+      "ref-number": {
+        "label": "Asianumero",
+        "placeholder": "Esim. 12345678",
+        "tooltip-text": "Asianumeron löydät pysäköintivirhemaksusta"
+      },
+      "invoice-number": {
+        "label": "Korvauspäätöksen laskun numero",
+        "placeholder": "Esim. 12345678",
+        "tooltip-text": "Laskun numeron löydät sinulle lähetetystä korvauspäätöksestä."
+      },
+      "reg-number": {
+        "label": "Ajoneuvon rekisteritunnus",
+        "placeholder": "Esim. ABC-123",
+        "helper-text": {
+          "common": "Kirjoita rekisteritunnus kuten se on pysäköintivirhemaksussa.",
+          "moved-car": "Kirjoita rekisteritunnus kuten se on korvauspäätöksessä."
+        }
+      },
+      "fine-timestamp": "Virheen ajankohta",
+      "address": "Lähiosoite",
+      "fine-title": "Virhe",
+      "fine-details": "Lisätieto",
+      "additional-details": "Lisätietoja",
+      "fine-additional-details": "Pysäköintivirheen lisätiedot",
+      "sum": "Pysäköintivirhemaksun summa",
+      "due-date": "Eräpäivä"
+    },
+    "errors": {
+      "notification-title": "Et voi tehdä oikaisuvaatimusta",
+      "unknown": "Jokin meni pieleen. Kokeile hetken kuluttua uudelleen.",
+      "default": "Oikaisuvaatimuksen teko ei ole mahdollista sähköisessä asioinnissa. Ole tarvittaessa yhteydessä asiakaspalveluun."
+    }
+  },
+  "parking-fine": {
+    "title": "Oikaisuvaatimus pysäköintivirhemaksuun",
+    "stepper": {
+      "step1": "Haku",
+      "step2": "Pysäköintivirhemaksun tiedot",
+      "step3": "Oikaisuvaatimus",
+      "step4": "Yhteenveto"
+    },
+    "make-rectification": "Tehdä oikaisuvaatimuksen",
+    "pay-fine": "Maksaa pysäköintivirhemaksun",
+    "to-payment": "Maksamaan",
+    "submit-success": "Lähetys onnistui",
+    "vehicle-info": {
+      "header": "Ajoneuvon tiedot",
+      "type": "Ajoneuvolaji",
+      "brand": "Merkki",
+      "model": "Malli",
+      "color": "Väri"
+    },
+    "notifications": {
+      "success": {
+        "label": "Olemme vastaanottaneet oikaisuvaatimuksesi",
+        "text": "Saat ilmoitukset oikaisuvaatimuksen käsittelyn eri vaiheista antamaasi sähköpostiosoitteeseen. Kun päätös on tehty, saat sen pysäköinnin asiointikansioosi."
+      },
+      "fail": {
+        "label": "Oikaisuvaatimuksen lähetys ei onnistunut",
+        "text": "Jokin meni pieleen oikaisuvaatimuksen lähetyksessä. Ole tarvittaessa yhteydessä asiakaspalveluun."
+      },
+      "data-not-found": {
+        "label": "Pysäköintivirhemaksun tietoja ei löytynyt",
+        "text": "Tähän oikaisuvaatimukseen liittyvän pysäköintivirhemaksun tietoja ei löytynyt. Ole tarvittaessa yhteydessä asiakaspalveluun."
+      }
+    },
+    "submit": "Lähetä",
+    "errors": {
+      "not-found": "Pysäköintivirhemaksun tietoja ei löydy, tarkista tiedot. Ole tarvittaessa yhteydessä asiakaspalveluun.",
+      "objection-exists": "Pysäköintivirhemaksuun on jo tehty oikaisuvaatimus. Ole tarvittaessa yhteydessä asiakaspalveluun.",
+      "note": "Huomautus pysäköintivirheestä on maksuton ja siihen ei voi tehdä oikaisuvaatimusta."
+    }
+  },
+  "due-date": {
+    "title": "Pysäköintivirhemaksun eräpäivän siirto 30 päivällä",
+    "stepper": {
+      "step1": "Haku",
+      "step2": "Eräpäivän siirto"
+    },
+    "new-due-date": "Uusi eräpäivä",
+    "submit-success": "Siirto onnistui",
+    "notifications": {
+      "allowed": {
+        "label": "Voit siirtää eräpäivää",
+        "text": "Eräpäivän siirto on mahdollista vain, jos pysäköintivirhemaksun eräpäivä ei ole mennyt umpeen."
+      },
+      "not-allowed": {
+        "label": "Et voi siirtää eräpäivää"
+      },
+      "email-confirmation": {
+        "label": "Sähköpostivahvistus",
+        "text": "Vahvistus lähetetään Helsinki-profiilissasi olevaan sähköpostiosoitteeseen: {{email}}. "
+      },
+      "success": {
+        "label": "Eräpäivää on siirretty",
+        "text": "Pysäköintivirhemaksun eräpäivää on siirretty 30 päivää. Uusi eräpäivä on {{newDueDate}}."
+      },
+      "fail": {
+        "label": "Eräpäivän siirto ei onnistunut",
+        "text": "Jokin meni pieleen eräpäivän siirron lähetyksessä. Ole tarvittaessa yhteydessä asiakaspalveluun."
+      }
+    },
+    "submit": "Siirrä eräpäivää",
+    "errors": {
+      "not-found": "Pysäköintivirhemaksun tietoja ei löydy, tarkista tiedot. Ole tarvittaessa yhteydessä asiakaspalveluun.",
+      "due-date-past": "Pysäköintivirhemaksun eräpäivä on jo mennyt, etkä voi hakea eräpäivälle lisäaikaa sähköisessä asioinnissa. Ole yhteydessä asiakaspalveluun. Virhemaksu on maksettava 30 päivän kuluessa.",
+      "already-extended": "Pysäköintivirhemaksun eräpäivää on jo siirretty eikä sitä voi enää siirtää sähköinen asioinnissa. Ole yhteydessä asiakaspalveluun.",
+      "already-paid": "Eräpäivän siirto ei ole mahdollista. Pysäköintivirhemaksu on maksettu.",
+      "default": "Eräpäivän siirto ei ole mahdollista. Ole yhteydessä asiakaspalveluun."
+    }
+  },
+  "moved-car": {
+    "title": "Ajoneuvon siirron oikaisuvaatimus",
+    "stepper": {
+      "step1": "Haku",
+      "step2": "Korvauspäätöksen tiedot",
+      "step3": "Oikaisuvaatimus",
+      "step4": "Yhteenveto"
+    },
+    "submit": "Lähetä",
+    "submit-success": "Lähetys onnistui",
+    "notifications": {
+      "success": {
+        "label": "Olemme vastaanottaneet oikaisuvaatimuksesi",
+        "text": "Saat ilmoitukset oikaisuvaatimuksen käsittelyn eri vaiheista antamaasi sähköpostiosoitteeseen. Kun päätös on tehty, saat sen pysäköinnin asiointikansioosi."
+      },
+      "fail": {
+        "label": "Oikaisuvaatimuksen lähetys ei onnistunut",
+        "text": "Jokin meni pieleen oikaisuvaatimuksen lähetyksessä. Ole tarvittaessa yhteydessä asiakaspalveluun."
+      },
+      "data-not-found": {
+        "label": "Korvauspäätöksen tietoja ei löytynyt",
+        "text": "Tähän oikaisuvaatimukseen liittyvän ajoneuvon siirron korvauspäätöksen tietoja ei löytynyt. Ole tarvittaessa yhteydessä asiakaspalveluun."
+      }
+    },
+    "move-timestamp": "Siirron päivämäärä",
+    "move-reason": "Siirron syy",
+    "move-type": "Siirron tyyppi",
+    "start-address": "Siirron lähtöosoite",
+    "start-address-details": "Lähtöosoitteen lisätiedot",
+    "end-address": "Siirron pääteosoite",
+    "end-address-details": "Päätesoitteen lisätiedot",
+    "reimbursement-sum": "Korvauspäätöksen summa",
+    "errors": {
+      "not-found": "Ajoneuvon siirron korvauspäätöksen tietoja ei löydy, tarkista tiedot. Ole tarvittaessa yhteydessä asiakaspalveluun.",
+      "objection-exists": "Ajoneuvon siirron korvauspäätökseen on jo tehty oikaisuvaatimus. Ole tarvittaessa yhteydessä asiakaspalveluun."
+    }
+  },
+  "rectificationForm": {
+    "relation-info": {
+      "relation": "Teen oikaisuvaatimuksen",
+      "0": "Tuntemattomana henkilönä",
+      "1": "Ajoneuvon kuljettajana",
+      "2": "Ajoneuvon omistajana/haltijana",
+      "3": "Valtakirjalla (toisen puolesta)",
+      "4": "Muuna henkilönä"
+    },
+    "rectification-info": "Oikaisuvaatimuksen tiedot",
+    "rectification-content": "Oikaisuvaatimuksen sisältö",
+    "to-separate-email": "Haluan ilmoitukset asian käsittelystä eri sähköpostiosoitteeseen",
+    "address": "Lähiosoite",
+    "zipcode": "Postinumero",
+    "city": "Postitoimipaikka",
+    "phone": "Puhelinnumero",
+    "IBAN": "Pankkitilinumero (IBAN)",
+    "delivery-decision": "Haluan päätöksen",
+    "toParkingService": "Pysäköinnin asiointikansiooni",
+    "byMail": "Kirjeitse antamaani osoitteeseen",
+    "attachments": {
+      "label": "Liitetiedostot",
+      "helper-text": "Voit liittää oikaisuvaatimukseen enintään kolme liitettä. \nSallitut tiedostomuodot ovat JPG ja PDF. \nLiitetiedoston suurin sallittu koko on 5 megatavua."
+    },
+    "poa": "Valtakirja",
+    "attach-poa": {
+      "label": "Liitä valtakirja",
+      "helper-text": "Voit liittää vain yhden tiedoston. \nSallitut tiedostomuodot ovat JPG ja PDF. \nLiitetiedoston suurin sallittu koko on 5 megatavua."
+    },
+    "errors": {
+      "description-over-limit": "Kuvaus ylittää merkkimäärän",
+      "poa-required": "Valtakirja puuttuu",
+      "invalid-email": "Tarkista sähköpostiosoite",
+      "invalid-phone": "Tarkista puhelinnumero",
+      "invalid-iban": "Tarkista pankkitilinumero",
+      "too-many-attachments": "Voit liittää enintään kolme liitettä",
+      "invalid-refnumber": "Tarkista asianumero"
+    }
+  },
+  "landing-page": {
+    "links": {
+      "due-date": "Siirrä pysäköintivirhemaksun eräpäivää 30 päivällä",
+      "parking-fine": "Tarkastele pysäköintivirheen tietoja ja tee oikaisuvaatimus",
+      "moved-car": "Tarkastele ajoneuvon siirron tietoja ja tee oikaisuvaatimus"
+    },
+    "list": {
+      "title": "Oikaisuvaatimukset ja eräpäivän siirrot",
+      "status": {
+        "sent": {
+          "default": "Lähetetty",
+          "conjugated": "lähetettyä"
+        },
+        "received": {
+          "default": "Vastaanotettu",
+          "conjugated": "vastaanotettua"
+        },
+        "handling": {
+          "default": "Käsittelyssä",
+          "conjugated": "käsittelyssä"
+        },
+        "resolvedViaEService": {
+          "default": "Päätös asioinnissa",
+          "conjugated": "ratkaistua"
+        },
+        "resolvedViaMail": {
+          "default": "Päätös postitettu",
+          "conjugated": "ratkaistua"
+        },
+        "show-all": {
+          "default": "Näytä kaikki",
+          "conjugated": "lähetettyä"
+        }
+      },
+      "details": {
+        "events": "Tapahtumat",
+        "attachments": "Liitteet",
+        "open-decision": "Avaa päätös",
+        "show-form": "Näytä oikaisuvaatimus",
+        "notification": {
+          "due-date": {
+            "label": "Eräpäivää on siirretty",
+            "text": "Eräpäivää on siirretty 30 päivällä. Uusi eräpäivä on {{dueDate}}."
+          },
+          "resolvedViaMail": {
+            "label": "Päätös on postitettu",
+            "text": "Päätös on postitettu sinulle kirjeitse antamaasi osoitteeseen."
+          }
+        }
+      },
+      "show-more": "Näytä lisää",
+      "show-less": "Näytä vähemmän",
+      "no-forms": "Et ole tehnyt yhtään oikaisuvaatimusta tai siirtänyt pysäköintivirhemaksun eräpäivää."
+    },
+    "sent": "lähetettyä",
+    "newest-first": "Uusimmat ensin",
+    "oldest-first": "Vanhimmat ensin"
+  },
+  "imageViewer": {
+    "header": "Pysäköintivirhemaksun kuvat",
+    "closebutton-text": "Sulje kuvankatselu",
+    "image": "Kuva",
+    "previous-image": "Edellinen kuva",
+    "next-image": "Seuraava kuva",
+    "image-input-alt": "Avaa kuvankatselu"
+  }
+}

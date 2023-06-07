@@ -1,15 +1,19 @@
 import React from 'react';
 
 import PageContent from '../components/PageContent';
-import AuthenticatingInfo from '../components/AuthenticatingInfo';
 import WithAuth from '../client/WithAuth';
-import LogoutInfo from '../components/LogoutInfo';
+import Loader from '../components/loader/Loader';
 import LoggedOutInfo from '../components/LoggedOutInfo';
+import { useTranslation } from 'react-i18next';
 
-const LogOut = (): React.ReactElement => (
-  <PageContent>
-    {WithAuth(LogoutInfo, LoggedOutInfo, AuthenticatingInfo)}
-  </PageContent>
-);
+const LogOut = (): React.ReactElement => {
+  const { t } = useTranslation();
+  return (
+    <PageContent>
+      <h1>{t('common:title')}</h1>
+      {WithAuth(Loader, LoggedOutInfo)}
+    </PageContent>
+  );
+};
 
 export default LogOut;

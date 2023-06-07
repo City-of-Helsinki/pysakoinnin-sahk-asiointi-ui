@@ -1,0 +1,37 @@
+.custom-accordion-container {
+  margin-bottom: var(--spacing-s);
+  border-bottom: 1px solid black;
+}
+
+.custom-accordion {
+  margin-top: var(--spacing-m);
+  color: black !important;
+  background-color: transparent !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
+
+.custom-accordion-header {
+  justify-content: space-between !important;
+  margin-bottom: var(--spacing-s) !important;
+}
+
+.custom-accordion-header > span {
+  font-size: var(--fontsize-heading-m);
+  padding: 0;
+  color: black;
+  text-align: start;
+}
+
+/* target icon inside custom-accordion */
+.custom-accordion > div {
+  height: 32px !important;
+  width: 32px !important;
+  margin: 0 !important;
+}
+
+.custom-accordion.close {
+  justify-content: flex-end !important;
+  height: 20px !important;
+  margin-top: var(--spacing-xs);
+}

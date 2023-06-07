@@ -1,0 +1,432 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component matches snapshot 1`] = `
+<div>
+  <h2
+    class="rectification-summary-title"
+  >
+    Oikaisuvaatimuksen tiedot
+  </h2>
+  <div
+    class="rectification-summary-container"
+  >
+    <div
+      class="rectification-summary-details"
+    >
+      <div
+        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+      >
+        <label
+          class="FieldLabel-module_label__1zrXK "
+          for="relation"
+        >
+          Teen oikaisuvaatimuksen
+        </label>
+        <div
+          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+        >
+          <input
+            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+            id="relation"
+            readonly=""
+            type="text"
+            value="Ajoneuvon kuljettajana"
+          />
+        </div>
+      </div>
+      <div
+        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+      >
+        <label
+          class="FieldLabel-module_label__1zrXK "
+          for="name"
+        >
+          Nimi
+        </label>
+        <div
+          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+        >
+          <input
+            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+            id="name"
+            readonly=""
+            type="text"
+            value="Test User"
+          />
+        </div>
+      </div>
+      <div
+        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+      >
+        <label
+          class="FieldLabel-module_label__1zrXK "
+          for="ssn"
+        >
+          Henkilötunnus
+        </label>
+        <div
+          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+        >
+          <input
+            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+            id="ssn"
+            readonly=""
+            type="text"
+            value="123456-789A"
+          />
+        </div>
+      </div>
+      <div
+        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+      >
+        <label
+          class="FieldLabel-module_label__1zrXK "
+          for="rectification-address"
+        >
+          Lähiosoite
+        </label>
+        <div
+          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+        >
+          <input
+            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+            id="rectification-address"
+            readonly=""
+            type="text"
+            value="Elimäenkatu 5"
+          />
+        </div>
+      </div>
+      <div
+        class="rectification-summary-subgrid"
+      >
+        <div
+          class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+        >
+          <label
+            class="FieldLabel-module_label__1zrXK "
+            for="zipcode"
+          >
+            Postinumero
+          </label>
+          <div
+            class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+          >
+            <input
+              class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+              id="zipcode"
+              readonly=""
+              type="text"
+              value="00100"
+            />
+          </div>
+        </div>
+        <div
+          class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+        >
+          <label
+            class="FieldLabel-module_label__1zrXK "
+            for="city"
+          >
+            Postitoimipaikka
+          </label>
+          <div
+            class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+          >
+            <input
+              class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+              id="city"
+              readonly=""
+              type="text"
+              value="Helsinki"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+      >
+        <label
+          class="FieldLabel-module_label__1zrXK "
+          for="email"
+        >
+          Sähköpostiosoite
+        </label>
+        <div
+          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+        >
+          <input
+            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+            id="email"
+            readonly=""
+            type="text"
+            value="test.user@test.fi"
+          />
+        </div>
+      </div>
+      <div
+        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+      >
+        <label
+          class="FieldLabel-module_label__1zrXK "
+          for="phone"
+        >
+          Puhelinnumero
+        </label>
+        <div
+          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+        >
+          <input
+            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+            id="phone"
+            readonly=""
+            type="text"
+            value="+358401234567"
+          />
+        </div>
+      </div>
+      <div
+        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+      >
+        <label
+          class="FieldLabel-module_label__1zrXK "
+          for="IBAN"
+        >
+          Pankkitilinumero (IBAN)
+        </label>
+        <div
+          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+        >
+          <input
+            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+            id="IBAN"
+            readonly=""
+            type="text"
+            value="FI9780001700903330"
+          />
+        </div>
+      </div>
+      <div
+        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+      >
+        <label
+          class="FieldLabel-module_label__1zrXK "
+          for="deliveryDecision"
+        >
+          Haluan päätöksen
+        </label>
+        <div
+          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+        >
+          <input
+            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+            id="deliveryDecision"
+            readonly=""
+            type="text"
+            value="Pysäköinnin asiointikansiooni"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      class="rectification-summary-contents"
+    >
+      <div
+        class="rectification-summary-rectification-content"
+      >
+        <label
+          class="text-label"
+          for="rectification-content"
+        >
+          Oikaisuvaatimuksen sisältö
+        </label>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse bibendum condimentum mi, vitae efficitur mi vulputate at. Aliquam porttitor tincidunt ex non fermentum. Fusce consequat imperdiet augue ut pulvinar. Praesent sollicitudin nulla non lacus tristique, sed faucibus urna viverra. Nullam pretium velit lorem. Maecenas porttitor molestie.
+        </p>
+      </div>
+      <div>
+        <label
+          class="text-label"
+        >
+          Liitetiedostot
+        </label>
+        <ul
+          class="file-list"
+        >
+          <li
+            class="file-list-item"
+          >
+            <svg
+              aria-hidden="true"
+              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+              role="img"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <path
+                  d="M0 0h24v24H0z"
+                />
+                <path
+                  d="M20 2v20H4V2h16zm-4 13c-.86 0-1.284.222-2.12 1.036l-.173.171C12.411 17.503 11.583 18 10 18c-1.5 0-2.322-.446-3.506-1.595L6 15.92V20h12v-4.078l-.042-.04C17.226 15.193 16.803 15 16 15zm2-11H6l.001 9.44c.502.243.928.59 1.51 1.159l.196.194C8.661 15.747 9.083 16 10 16c.86 0 1.284-.222 2.12-1.036l.173-.171C13.589 13.497 14.417 13 16 13c.81 0 1.422.13 2 .43V4zm-8 2a3 3 0 110 6 3 3 0 010-6zm0 2a1 1 0 100 2 1 1 0 000-2z"
+                  fill="currentColor"
+                />
+              </g>
+            </svg>
+            <div
+              class="file-list-item-title"
+            >
+              <span
+                class="file-list-item-name"
+              >
+                test2.jpg
+              </span>
+              0
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <label
+          class="text-label"
+        >
+          Valtakirja
+        </label>
+        <div
+          class="file-list-item"
+        >
+          <svg
+            aria-hidden="true"
+            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+            role="img"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              fill="none"
+              fill-rule="evenodd"
+            >
+              <rect
+                height="24"
+                width="24"
+              />
+              <path
+                d="M15,2 L20,7 L20,22 L4,22 L4,2 L15,2 Z M14,4 L14,8 L18,8 L14,4 Z M14.0082581,4 L18,8 L18,20 L6,20 L6,4 L14.0082581,4 Z M17,16 L7,16 L7,18 L17,18 L17,16 Z M17,12 L7,12 L7,14 L17,14 L17,12 Z M13,8 L7,8 L7,10 L13,10 L13,8 Z"
+                fill="currentColor"
+              />
+            </g>
+          </svg>
+          <div
+            class="file-list-item-title"
+          >
+            <span
+              class="file-list-item-name"
+            >
+              test.pdf
+            </span>
+            0
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="hide-on-print"
+  >
+    <div
+      class="custom-accordion-container"
+    >
+      <button
+        class="Button-module_button__1msFE button_hds-button__2A0je Button-module_supplementary__3YKiS button_hds-button--supplementary__GcHcV custom-accordion custom-accordion-header"
+        type="button"
+      >
+        <span
+          class="Button-module_label__a4np1 button_hds-button__label__2EQa-"
+        >
+          Pysäköintivirhemaksun tiedot
+        </span>
+        <div
+          aria-hidden="true"
+          class="Button-module_icon__O-h7R button_hds-icon__17j8Z"
+        >
+          <svg
+            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_xl__1M6cO icon_hds-icon--size-xl__1Jes8"
+            role="img"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              fill="none"
+              fill-rule="evenodd"
+            >
+              <path
+                d="M0 0h24v24H0z"
+              />
+              <path
+                d="M12 13.5l5-5 1.5 1.5-6.5 6.5L5.5 10 7 8.5z"
+                fill="currentColor"
+              />
+            </g>
+          </svg>
+        </div>
+      </button>
+    </div>
+  </div>
+  <div
+    aria-hidden="true"
+    class="show-on-print"
+  >
+    <h2
+      aria-hidden="true"
+      class="show-on-print"
+    >
+      Pysäköintivirhemaksun tiedot
+    </h2>
+    <section
+      aria-label="Notification"
+      class="Notification-module_notification__2hN3H notification_hds-notification__2DQPN Notification-module_error__2sn9y notification_hds-notification--error__3T1Of"
+    >
+      <div
+        class="Notification-module_content__ZZKvE notification_hds-notification__content__5ylSS"
+      >
+        <div
+          aria-level="2"
+          class="Notification-module_label__1bhNu notification_hds-notification__label__2t1lR"
+          role="heading"
+        >
+          <svg
+            aria-hidden="true"
+            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik Notification-module_icon__1ans7 notification_hds-icon__29HQM"
+            role="img"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              fill="none"
+              fill-rule="evenodd"
+            >
+              <rect
+                height="24"
+                width="24"
+              />
+              <path
+                d="M11.1749534,3.45608205 C11.5239234,2.86969084 12.3977071,2.8487483 12.7841638,3.39325442 L12.8250466,3.45608205 L21.8770534,18.6666084 C22.2201691,19.2431624 21.8055019,19.9510257 21.123493,19.997576 L21.0520068,20 L2.94799316,20 C2.24813009,20 1.7986969,19.3113552 2.09013491,18.7266878 L2.1229466,18.6666084 L11.1749534,3.45608205 Z M13,16 L13,18 L11,18 L11,16 L13,16 Z M13,8.5 L13,14.5 L11,14.5 L11,8.5 L13,8.5 Z"
+                fill="currentColor"
+              />
+            </g>
+          </svg>
+          Pysäköintivirhemaksun tietoja ei löytynyt
+        </div>
+        <div
+          class="Notification-module_body__9BSAD notification_hds-notification__body__3cobH"
+        >
+          Tähän oikaisuvaatimukseen liittyvän pysäköintivirhemaksun tietoja ei löytynyt. Ole tarvittaessa yhteydessä asiakaspalveluun.
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+`;

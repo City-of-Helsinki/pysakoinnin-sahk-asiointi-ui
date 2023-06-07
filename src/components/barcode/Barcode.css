@@ -1,0 +1,8 @@
+.barcode-container {
+  max-width: 90vw;
+  margin-bottom: var(--spacing-m);
+}
+
+.barcode {
+  overflow-wrap: break-word;
+}

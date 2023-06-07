@@ -2,38 +2,30 @@ import React, { useContext } from 'react';
 import { ClientContext } from '../client/ClientProvider';
 import LoginComponent from '../components/Login';
 import PageContent from '../components/PageContent';
-import ReduxConsumer from '../components/ReduxConsumer';
-import WithAuthDemo from '../components/WithAuthDemo';
-import ClientConsumer from '../components/ClientConsumer';
-import { getClientConfig } from '../client';
+import LandingPage from '../components/landingPage/LandingPage';
+import useUserProfile from '../hooks/useUserProfile';
+import { UserProfile } from '../common';
+import { GraphQLClientError } from '../graphql/graphqlClient';
+import { useTranslation } from 'react-i18next';
 
 const Index = (): React.ReactElement => {
-  const currentConfig = getClientConfig();
   const clientContext = useContext(ClientContext);
+  const { t } = useTranslation();
+  // No need to add the user to redux here, since all the links will redirect the user
+  // to a new page, thus refreshing the store. The user is re-fetched and added to redux in FormStepper.tsx
+  const userProfile = useUserProfile() as UserProfile | GraphQLClientError;
+
+  const isUser: boolean =
+    userProfile &&
+    Object.prototype.hasOwnProperty.call(userProfile, 'firstName');
+
   return (
     <PageContent>
-      {!!clientContext && clientContext.client ? (
-        <>
-          <h1>Client-demo </h1>
-          <p>
-            Kirjautumistapasi on <strong>{currentConfig.label}.</strong>
-          </p>
-          <p>
-            Tässä demossa näytetään kirjautumisikkuna ja komponentteja, jotka
-            kuuntelevat muutoksia kirjautumisessa.
-          </p>
-          <p>
-            Voit kirjautua sisään / ulos alla olevasta komponentista tai
-            headerista.
-          </p>
-          <p>Voit myös kirjatua ulos toisessa ikkunassa.</p>
-          <LoginComponent />
-          <ReduxConsumer />
-          <WithAuthDemo />
-          <ClientConsumer />
-        </>
+      <h1>{t('common:title')}</h1>
+      {!!clientContext && clientContext.client && isUser ? (
+        <LandingPage />
       ) : (
-        <div>Error:Clientia ei löydy contextista</div>
+        <LoginComponent />
       )}
     </PageContent>
   );

@@ -7,10 +7,11 @@
 .content {
   flex: 1;
   flex-direction: column;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px 0;
-  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto var(--spacing-xl);
+  padding: 12px;
+  width: 90%;
+  min-height: 70vh;
 }
 
 .content-element {
@@ -148,4 +149,13 @@
     display: block;
     color: var(--color-black);
   }
+}
+
+label {
+  font-size: var(--fontsize-body-m);
+  font-weight: 500;
+}
+
+p {
+  font-size: var(--fontsize-body-l);
 }
