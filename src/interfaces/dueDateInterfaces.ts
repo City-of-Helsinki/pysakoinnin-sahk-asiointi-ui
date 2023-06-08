@@ -13,6 +13,7 @@ export enum DueDateExtendableReason {
 export interface DueDateRequest {
   foul_number: string;
   register_number: string;
+  metadata?: Record<string, string>;
 }
 
 export interface DueDateResponse {
