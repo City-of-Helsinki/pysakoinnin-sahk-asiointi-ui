@@ -43,10 +43,11 @@ import {
   ObjectionForm,
   ObjectionFormFiles
 } from '../../interfaces/objectionInterfaces';
-import { setUserProfile } from '../user/userSlice';
+import { selectUserProfile, setUserProfile } from '../user/userSlice';
 import ErrorLabel from '../errorLabel/ErrorLabel';
 import { ResponseCode } from '../../interfaces/foulInterfaces';
 import './FormStepper.css';
+import i18n from 'i18next';
 
 interface Props {
   initialSteps: Step[];
@@ -105,6 +106,7 @@ const FormStepper = (props: Props): React.ReactElement => {
   });
 
   const { control, handleSubmit, getValues } = useRectificationForm();
+  const user = useSelector(selectUserProfile);
 
   const handleFormSubmit = async (form: ObjectionForm) => {
     const filesAsBase64 = await Promise.all([
@@ -143,7 +145,11 @@ const FormStepper = (props: Props): React.ReactElement => {
         dispatch(
           extendDueDateThunk({
             foul_number: form.foulNumber ? form.foulNumber : '',
-            register_number: form.registerNumber ? form.registerNumber : ''
+            register_number: form.registerNumber ? form.registerNumber : '',
+            metadata: {
+              lang: i18n.language,
+              email: user?.email
+            }
           })
         ).then(() => setShowSubmitNotification(true));
     }

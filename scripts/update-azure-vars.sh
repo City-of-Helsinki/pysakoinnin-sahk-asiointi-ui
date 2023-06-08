@@ -41,11 +41,8 @@ do
   value=${value%\"}
   value=${value#\"}
 
-  if ! az pipelines variable-group variable create --group-id "${groupID}" --name "${varname}" --value "${value}";
-  then
+  az pipelines variable-group variable create --group-id "${groupID}" --name "${varname}" --value "${value}" ||
      az pipelines variable-group variable update --group-id "${groupID}" --name "${varname}" --value "${value}";
-  else
-    az pipelines variable-group variable create --group-id "${groupID}" --name "${varname}" --value "${value}";
-  fi
+
 
 done < "${envFile}"
