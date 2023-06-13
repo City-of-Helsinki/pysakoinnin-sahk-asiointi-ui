@@ -94,7 +94,7 @@ const ParkingFineSummary: FC<Props> = ({ foulData }) => {
 
         <div className="info-field sum-field">
           <label>{t('common:fine-info:sum')}</label>
-          <p>{foulData?.invoiceSumText}</p>
+          <p>{foulData?.openAmountText}</p>
         </div>
 
         <div className="info-field">
