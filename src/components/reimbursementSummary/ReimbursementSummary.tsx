@@ -71,7 +71,7 @@ const ReimbursementSummary: FC<Props> = ({ transferData }) => {
         <hr />
         <div className="info-field">
           <label>{t('moved-car:reimbursement-sum')}</label>
-          <p>{transferData?.invoiceSumText}</p>
+          <p>{transferData?.openAmountText}</p>
         </div>
         <div className="info-field">
           <label>{t('common:fine-info:due-date')}</label>
