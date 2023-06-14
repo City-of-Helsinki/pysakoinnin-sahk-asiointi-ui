@@ -6,6 +6,7 @@ import RectificationListRow from '../rectificationListRow/RectificationListRow';
 import { getDocuments } from '../../services/objectionService';
 import { ObjectionDocument } from '../../interfaces/objectionInterfaces';
 import './LandingPage.css';
+import i18n from 'i18next';
 
 type StatusFilter = {
   value: string;
@@ -55,6 +56,8 @@ const LandingPage = (): React.ReactElement => {
   useEffect(() => {
     getDocuments().then(res => setDocuments(res.results));
   }, []);
+
+  type Language = 'en' | 'sv' | 'fi';
 
   return (
     <>
@@ -127,7 +130,7 @@ const LandingPage = (): React.ReactElement => {
         <p className="disabled-text">{t('landing-page:list:no-forms')}</p>
       )}
       <Pagination
-        language="fi"
+        language={i18n.language as Language}
         onChange={(event, index) => {
           event.preventDefault();
           handlePageChange(index);

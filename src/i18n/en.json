@@ -28,6 +28,9 @@
     "log-in": "Log in",
     "log-out": "Log out",
     "not-logged-in": "You are not logged in",
+    "back-to-top": "Back to top",
+    "contact-us": "Contact us",
+    "feedback": "Give feedback",
     "login-prompt": {
       "title": "The session has ended",
       "body": "Log in to continue.",
@@ -220,7 +223,7 @@
     "byMail": "by mail to the provided address",
     "attachments": {
       "label": "Attachments",
-      "helper-text": "You can attach only one file. \nAllowed file formats are JPG and PDF. \nThe maximum size of an attachment file is 5 megabytes."
+      "helper-text": "You can attach up to three files. \nAllowed file formats are JPG and PDF. \nThe maximum size of an attachment file is 5 megabytes."
     },
     "poa": "A power of attorney",
     "attach-poa": {
