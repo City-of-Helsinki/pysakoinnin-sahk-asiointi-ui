@@ -31,12 +31,15 @@ const Header = (): React.ReactElement => {
   const { t } = useTranslation();
 
   const title = t('common:title');
+  document.title = title;
   const userName = user ? `${user.given_name} ${user.family_name}` : '';
 
   const changeLanguage = (lang: string) => {
     i18n.changeLanguage(lang);
     localStorage.setItem('lang', lang);
+    window.location.reload();
   };
+
   return (
     <Navigation
       className="hide-on-print"

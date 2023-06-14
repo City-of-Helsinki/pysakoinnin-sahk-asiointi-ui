@@ -89,19 +89,24 @@ const ExtendDueDateForm = (): React.ReactElement => {
           value={foulData?.invoiceSumText}
           readOnly
         />
-        <TextInput
-          id="dueDate"
-          label={t('common:fine-info:due-date')}
-          value={foulData && formatDate(foulData?.dueDate)}
-          readOnly
-        />
-        {foulData?.dueDateExtendable && foulData?.dueDate && (
-          <TextInput
-            id="newDueDate"
-            label={t('due-date:new-due-date')}
-            value={formatDate(getNewDueDate(foulData?.dueDate))}
-            readOnly
-          />
+        {foulData?.dueDateExtendableReason !==
+          DueDateExtendableReason.HasNoChecks && (
+          <>
+            <TextInput
+              id="dueDate"
+              label={t('common:fine-info:due-date')}
+              value={foulData && formatDate(foulData?.dueDate)}
+              readOnly
+            />
+            {foulData?.dueDateExtendable && foulData?.dueDate && (
+              <TextInput
+                id="newDueDate"
+                label={t('due-date:new-due-date')}
+                value={formatDate(getNewDueDate(foulData?.dueDate))}
+                readOnly
+              />
+            )}
+          </>
         )}
       </div>
 

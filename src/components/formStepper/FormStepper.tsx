@@ -236,7 +236,7 @@ const FormStepper = (props: Props): React.ReactElement => {
           <Stepper
             className="stepper hide-on-print"
             small={useMobileWidth()}
-            language="fi"
+            language={i18n.language}
             onStepClick={(event, stepIndex) => dispatch(setActive(stepIndex))}
             selectedStep={activeStepIndex}
             stepHeading

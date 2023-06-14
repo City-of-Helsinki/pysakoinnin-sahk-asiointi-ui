@@ -28,6 +28,9 @@
     "log-in": "Kirjaudu sisään",
     "log-out": "Kirjaudu ulos",
     "not-logged-in": "Et ole kirjautunut sisään",
+    "back-to-top": "Takaisin ylös",
+    "contact-us": "Ota yhteyttä",
+    "feedback": "Anna palautetta",
     "login-prompt": {
       "title": "Istunto on päättynyt",
       "body": "Kirjaudu uudelleen sisään jatkaaksesi palvelun käyttöä.",
