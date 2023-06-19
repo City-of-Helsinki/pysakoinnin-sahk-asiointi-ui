@@ -1,19 +1,25 @@
 # Pysäköinnin asiointi React UI
 
+React UI for Pysäköinnin Asiointi e-services
+
+## Running
+
+### With hot reload
+
+- Install dependencies with `yarn`
+- Run app with default webpack server `yarn start`
+- App runs on `localhost:3000`
+
+### With Docker
+
+Requires Docker and docker-compose
+
+To start the app with compose
+- `docker-compose up`
+
+This will start the app on `localhost:3000`
+
 ## Config
-
-Configs are in .env -files. Default endpoint for Helsinki-Profiili is Tunnistamo. For Suomi.fi authentication, it is
-plain Keycloak.
-
-Tunnistamo does not support silent login checks (it uses only sessionStorage) so REACT_APP_OIDC_AUTO_SIGN_IN must be '
-false'. It renews access tokens so REACT_APP_OIDC_SILENT_AUTH_PATH must be changed to '/' to prevent errors for unknown
-redirect url.
-
-Config can also be overridden for command line:
-
-```bash
-REACT_APP_OIDC_URL=https://foo.bar yarn start
-```
 
 ### Environment variables
 
@@ -49,52 +55,6 @@ e.g. `"pysakoinnin-sahk-asiointi-ui-development"`
 this will return the four-digit identifier that you use in the update script.
 
 If a given variable key already exists, the command will instead update the existing value.
-
-### Config for Helsinki-Profiili MVP
-
-Settings when using Helsinki-Profiili MVP authentication:
-
-```bash
-REACT_APP_OIDC_URL="<SERVER_URL>/auth"
-REACT_APP_OIDC_REALM="helsinki-tunnistus"
-REACT_APP_OIDC_SCOPE="profile"
-REACT_APP_OIDC_CLIENT_ID="exampleapp-ui"
-```
-
-## Docker
-
-Docker image has ".env"-file baked in, so it uses production environment variables by default. To make the image work in
-other environments, env vars must be overridden.
-
-You can pass new env vars easily with '--env-file' argument. Of course '-e' works too.
-
-### Docker run
-
-```
-docker run --env-file=.env.development -p 3000:8080 helsinki/example-ui-profile
-```
-
-### Docker compose
-
-Note that the composed build will stop to the 'development' stage in Dockerfile and uses 'react-scripts start' command
-and not nginx.
-
-The env-file is fixed to '.env.development" in the 'docker-compose.yml'.
-
-```
-docker compose up
-```
-
-Env vars can be overridden in the yaml-file.
-
-Example:
-
-```yml
-services:
-  app:
-    environment:
-      - REACT_APP_OIDC_URL=https://foo.bar
-```
 
 ## Testing
 
