@@ -1,5 +1,5 @@
 # ===============================================
-FROM node:gallium-alpine3.18 as appbase
+FROM registry.access.redhat.com/ubi9/nodejs-18 as appbase
 # ===============================================
 # Offical image has npm log verbosity as info. More info - https://github.com/nodejs/docker-node#verbosity
 ENV NPM_CONFIG_LOGLEVEL warn
@@ -9,6 +9,9 @@ ENV NPM_CONFIG_LOGLEVEL warn
 ARG NODE_ENV=production
 ENV NODE_ENV $NODE_ENV
 
+USER root
+RUN useradd --uid 1000 --system --gid 0 --create-home --shell /bin/bash appuser
+
 WORKDIR /usr/src/app
 RUN chmod g+w /usr/src/app
 
@@ -16,15 +19,17 @@ RUN chmod g+w /usr/src/app
 ENV NPM_CONFIG_PREFIX=./.npm-global
 ENV PATH=$PATH:./.npm-global/bin
 
+# Install npm depepndencies
+ENV PATH ./node_modules/.bin:$PATH
+
 # Yarn
+USER root
+RUN npm install --global yarn
 ENV YARN_VERSION 1.19.1
 RUN yarn policies set-version $YARN_VERSION
 
 # Copy package.json and package-lock.json/yarn.lock files
-COPY package*.json *yarn* ./
-
-# Install npm depepndencies
-ENV PATH ./node_modules/.bin:$PATH
+COPY --chown=appuser:appuser package*.json *yarn* ./
 
 RUN yarn config set network-timeout 300000
 RUN yarn && yarn cache clean --force
@@ -34,29 +39,30 @@ RUN yarn && yarn cache clean --force
 FROM appbase as staticbuilder
 # ===================================
 
-COPY . .
+COPY --chown=appuser:appuser . .
 RUN yarn build
 
 # =============================
-FROM registry.access.redhat.com/ubi8/nginx-118 as production
+FROM registry.access.redhat.com/ubi8/nginx-122 as production
 # =============================
+USER root
+RUN useradd --uid 1000 --system --gid 0 --create-home --shell /bin/bash appuser
 
-COPY --from=staticbuilder /usr/src/app/build /usr/share/nginx/html
+COPY --chown=appuser:appuser --from=staticbuilder /usr/src/app/build /usr/share/nginx/html
 
 # Copy nginx config
-COPY .prod/nginx.conf /etc/nginx/
+COPY --chown=appuser:appuser .prod/nginx.conf /etc/nginx/
 
 # Copy default environment config and setup script
 # Copy package.json so env.sh can read it
-COPY ./scripts/env.sh /opt/env.sh
-COPY .env /opt/.env
-COPY package.json /opt/package.json
-USER root
-RUN chown -R nobody:root /opt/
+COPY --chown=appuser:appuser ./scripts/env.sh /opt/env.sh
+COPY --chown=appuser:appuser .env /opt/.env
+COPY --chown=appuser:appuser package.json /opt/package.json
+RUN chown -R appuser /opt/
 RUN chmod +x /opt/env.sh
 RUN chmod g+w /usr/share/nginx/html
 
 CMD ["/bin/bash", "-c", "/opt/env.sh /opt /usr/share/nginx/html && nginx -g \"daemon off;\""]
 
-USER nobody:0
+USER appuser
 EXPOSE 3000/tcp
