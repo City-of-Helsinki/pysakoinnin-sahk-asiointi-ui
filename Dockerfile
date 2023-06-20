@@ -29,7 +29,7 @@ ENV YARN_VERSION 1.19.1
 RUN yarn policies set-version $YARN_VERSION
 
 # Copy package.json and package-lock.json/yarn.lock files
-COPY --chown=appuser:appuser package*.json *yarn* ./
+COPY --chown=appuser:0 package*.json *yarn* ./
 
 RUN yarn config set network-timeout 300000
 RUN yarn && yarn cache clean --force
@@ -39,7 +39,7 @@ RUN yarn && yarn cache clean --force
 FROM appbase as staticbuilder
 # ===================================
 
-COPY --chown=appuser:appuser . .
+COPY --chown=appuser:0 . .
 RUN yarn build
 
 # =============================
@@ -48,21 +48,21 @@ FROM registry.access.redhat.com/ubi8/nginx-122 as production
 USER root
 RUN useradd --uid 1000 --system --gid 0 --create-home --shell /bin/bash appuser
 
-COPY --chown=appuser:appuser --from=staticbuilder /usr/src/app/build /usr/share/nginx/html
+COPY --chown=appuser:0 --from=staticbuilder /usr/src/app/build /usr/share/nginx/html
 
 # Copy nginx config
-COPY --chown=appuser:appuser .prod/nginx.conf /etc/nginx/
+COPY --chown=appuser:0 .prod/nginx.conf /etc/nginx/
 
 # Copy default environment config and setup script
 # Copy package.json so env.sh can read it
-COPY --chown=appuser:appuser ./scripts/env.sh /opt/env.sh
-COPY --chown=appuser:appuser .env /opt/.env
-COPY --chown=appuser:appuser package.json /opt/package.json
+COPY --chown=appuser:0 ./scripts/env.sh /opt/env.sh
+COPY --chown=appuser:0 .env /opt/.env
+COPY --chown=appuser:0 package.json /opt/package.json
 RUN chown -R appuser /opt/
 RUN chmod +x /opt/env.sh
 RUN chmod g+w /usr/share/nginx/html
 
 CMD ["/bin/bash", "-c", "/opt/env.sh /opt /usr/share/nginx/html && nginx -g \"daemon off;\""]
 
-USER appuser
+USER appuser:0
 EXPOSE 3000/tcp
