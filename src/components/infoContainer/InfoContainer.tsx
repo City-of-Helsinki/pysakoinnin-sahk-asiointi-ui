@@ -8,8 +8,10 @@ import ReimbursementSummary from '../reimbursementSummary/ReimbursementSummary';
 import { FoulData, ResponseCode } from '../../interfaces/foulInterfaces';
 import { TransferData } from '../../interfaces/transferInterfaces';
 import './InfoContainer.css';
+import { ObjectionForm } from '../../interfaces/objectionInterfaces';
 
 interface Props {
+  form?: ObjectionForm;
   selectedForm: string;
   foulData?: FoulData;
   transferData?: TransferData;
@@ -17,6 +19,7 @@ interface Props {
 }
 
 const InfoContainer: FC<Props> = ({
+  form,
   selectedForm,
   foulData,
   transferData,
@@ -63,7 +66,7 @@ const InfoContainer: FC<Props> = ({
             {foulData ? (
               <ParkingFineSummary foulData={foulData} />
             ) : (
-              <ReimbursementSummary transferData={transferData} />
+              <ReimbursementSummary form={form} transferData={transferData} />
             )}
             <CarInfoCard data={data} />
           </div>

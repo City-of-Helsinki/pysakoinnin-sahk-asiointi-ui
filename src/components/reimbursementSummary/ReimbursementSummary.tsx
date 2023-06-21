@@ -6,12 +6,14 @@ import { TransferData } from '../../interfaces/transferInterfaces';
 import Barcode from '../barcode/Barcode';
 import { formatDate } from '../../utils/helpers';
 import '../infoContainer/InfoContainer.css';
+import { ObjectionForm } from '../../interfaces/objectionInterfaces';
 
 interface Props {
+  form?: ObjectionForm;
   transferData: TransferData | undefined;
 }
 
-const ReimbursementSummary: FC<Props> = ({ transferData }) => {
+const ReimbursementSummary: FC<Props> = ({ form, transferData }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
@@ -31,7 +33,7 @@ const ReimbursementSummary: FC<Props> = ({ transferData }) => {
         </div>
         <div className="info-field">
           <label>{t('common:fine-info:ref-number:label')}</label>
-          <p>{transferData?.transferNumber}</p>
+          <p>{form?.metadata?.transferNumber}</p>
         </div>
         <hr />
         <div className="info-field">
