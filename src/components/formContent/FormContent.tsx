@@ -62,7 +62,7 @@ const FormContent = (props: Props): React.ReactElement => {
       case FormId.MOVEDCAR:
         return (
           <InfoContainer
-            transferNumber={formValues.transferNumber}
+            transferNumber={formValues?.transferNumber}
             selectedForm={formContent.selectedForm}
             transferData={formContent.transferData}
             editMode={true}
