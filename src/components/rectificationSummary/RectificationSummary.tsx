@@ -185,7 +185,7 @@ const RectificationSummary: FC<Props> = ({
       <div className="hide-on-print">
         <CustomAccordion heading={t(`${formType}:stepper:step2`)}>
           <InfoContainer
-            form={form}
+            transferNumber={form?.metadata?.transferNumber}
             selectedForm={formType}
             foulData={foulData}
             transferData={transferData}
@@ -195,7 +195,7 @@ const RectificationSummary: FC<Props> = ({
       </div>
       <div className="show-on-print" aria-hidden="true">
         <InfoContainer
-          form={form}
+          transferNumber={form?.metadata?.transferNumber}
           selectedForm={formType}
           foulData={foulData}
           transferData={transferData}
