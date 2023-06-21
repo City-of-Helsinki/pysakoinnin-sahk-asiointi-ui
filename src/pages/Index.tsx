@@ -8,7 +8,7 @@ import {
   HelsinkiProfileLanguages,
   UserProfile,
   changeLanguage,
-  HelsinkiProfileLangConverion
+  convertHelsinkiProfileLang
 } from '../common';
 import { GraphQLClientError } from '../graphql/graphqlClient';
 import { useTranslation } from 'react-i18next';
@@ -27,7 +27,7 @@ const Index = (): React.ReactElement => {
   const applyUserDefaultLang = () => {
     const user = userProfile as UserProfile;
     const userLang = user.language as HelsinkiProfileLanguages;
-    const convertedLang = HelsinkiProfileLangConverion(userLang);
+    const convertedLang = convertHelsinkiProfileLang(userLang);
 
     if (convertedLang) changeLanguage(convertedLang);
   };
