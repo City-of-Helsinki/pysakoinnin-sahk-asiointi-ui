@@ -19,6 +19,7 @@
     "email-confirmation": "Haluan vahvistuksen sähköpostiini",
     "helsinki-profile-link": "Siirry Helsinki-profiiliin muokataksesi tietoja.",
     "to-mainpage": "Siirry pysäköinnin asiointiin",
+    "skip-to-content-label": "Hyppää pääsisältöön",
     "show-more": "Näytä enemmän",
     "show-less": "Näytä vähemmän",
     "characters": "merkkiä",
@@ -51,6 +52,24 @@
     "aria": {
       "open-external": "Avaa toisen verkkosivun.",
       "open-new-tab": "Avautuu uudessa välilehdessä."
+    },
+    "legal": {
+      "terms-and-conditions": {
+        "title": "Henkilötietojen käsittely",
+        "link": "https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/tietoa-helsingista/tietosuoja/tietosuojasta-tarkemmin"
+      },
+      "registry-description": {
+        "title": "Rekisteriseloste",
+        "link": "https://hel.fi/helsinki/fi/kaupunki-ja-hallinto/hallinto/organisaatio/rekisteriselosteet"
+      },
+      "data-protection": {
+        "title": "Tietosuoja",
+        "link": "https://www.hel.fi/helsinki/fi/kaupunki-ja-hallinto/tietoa-helsingista/tietosuoja/"
+      },
+      "accessibility": {
+        "title": "Saavutettavuus",
+        "link": "https://www.hel.fi/static/liitteet/kaupunkiymparisto/saavutettavuusselosteet/fi/Saavutettavuusseloste_pys%C3%A4k%C3%B6innin_asiointi.pdf"
+      }
     },
     "fine-info": {
       "ref-number": {
