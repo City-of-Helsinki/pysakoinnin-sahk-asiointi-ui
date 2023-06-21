@@ -51,19 +51,13 @@ export enum Language {
   EN = 'en'
 }
 
-export enum HelsinkiProfileLanguages {
-  FINNISH = 'FINNISH',
-  SWEDISH = 'SWEDISH',
-  ENGLISH = 'ENGLISH'
-}
-
-export const convertHelsinkiProfileLang = (lang: HelsinkiProfileLanguages) => {
+export const convertHelsinkiProfileLang = (lang: string) => {
   switch (lang) {
-    case HelsinkiProfileLanguages.FINNISH:
+    case 'FINNISH':
       return Language.FI;
-    case HelsinkiProfileLanguages.SWEDISH:
+    case 'SWEDISH':
       return Language.SV;
-    case HelsinkiProfileLanguages.ENGLISH:
+    case 'ENGLISH':
       return Language.EN;
     default:
       return null;

@@ -5,7 +5,6 @@ import PageContent from '../components/PageContent';
 import LandingPage from '../components/landingPage/LandingPage';
 import useUserProfile from '../hooks/useUserProfile';
 import {
-  HelsinkiProfileLanguages,
   UserProfile,
   changeLanguage,
   convertHelsinkiProfileLang
@@ -26,7 +25,7 @@ const Index = (): React.ReactElement => {
 
   const applyUserDefaultLang = () => {
     const user = userProfile as UserProfile;
-    const userLang = user.language as HelsinkiProfileLanguages;
+    const userLang = user.language;
     const convertedLang = convertHelsinkiProfileLang(userLang);
 
     if (convertedLang) changeLanguage(convertedLang);
