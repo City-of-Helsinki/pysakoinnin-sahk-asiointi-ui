@@ -19,6 +19,7 @@
     "email-confirmation": "Jag vill ha bekräftelse till min e-post",
     "helsinki-profile-link": "Gå till Helsinki-profilen för att redigera informationen.",
     "to-mainpage": "Gå till parkerings e-tjänster",
+    "skip-to-content-label": "Hoppa till huvudinnehåll",
     "show-more": "Visa mer",
     "show-less": "Visa mindre",
     "characters": "tecken",
@@ -51,6 +52,24 @@
     "aria": {
       "open-external": "Öppnar en annan webbsida.",
       "open-new-tab": "Öppnas i en ny flik."
+    },
+    "legal": {
+      "terms-and-conditions": {
+        "title": "Behandling av persondata",
+        "link": "https://www.hel.fi/helsinki/sv/stad-och-forvaltning/information/dataskydd/noggrannare-om-rattigheter-dataskyddsforordning"
+      },
+      "registry-description": {
+        "title": "Registerbeskrivning",
+        "link": "https://hel.fi/helsinki/fi/kaupunki-ja-hallinto/hallinto/organisaatio/rekisteriselosteet"
+      },
+      "data-protection": {
+        "title": "Datasäkerhet",
+        "link": "https://www.hel.fi/helsinki/sv/stad-och-forvaltning/information/dataskydd"
+      },
+      "accessibility": {
+        "title": "Tillgänglighet",
+        "link": "https://www.hel.fi/static/liitteet/kaupunkiymparisto/saavutettavuusselosteet/fi/Saavutettavuusseloste_pys%C3%A4k%C3%B6innin_asiointi.pdf"
+      }
     },
     "fine-info": {
       "ref-number": {
