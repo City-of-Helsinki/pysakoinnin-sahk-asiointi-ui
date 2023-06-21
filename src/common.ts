@@ -1,3 +1,5 @@
+import i18n from './utils/i18n';
+
 export type AnyObject = Record<string, unknown>;
 // eslint-disable-next-line @typescript-eslint/ban-types
 export type AnyNonNullishValue = {};
@@ -41,4 +43,37 @@ export type UserProfile = {
     permanentForeignAddress: string | null;
     temporaryAddress: string | null;
   };
+};
+
+export enum Language {
+  FI = 'fi',
+  SV = 'sv',
+  EN = 'en'
+}
+
+export enum HelsinkiProfileLanguages {
+  FINNISH = 'FINNISH',
+  SWEDISH = 'SWEDISH',
+  ENGLISH = 'ENGLISH'
+}
+
+export const HelsinkiProfileLangConverion = (
+  lang: HelsinkiProfileLanguages
+) => {
+  switch (lang) {
+    case HelsinkiProfileLanguages.FINNISH:
+      return Language.FI;
+    case HelsinkiProfileLanguages.SWEDISH:
+      return Language.SV;
+    case HelsinkiProfileLanguages.ENGLISH:
+      return Language.EN;
+    default:
+      return null;
+  }
+};
+
+export const changeLanguage = (lang: Language) => {
+  i18n.changeLanguage(lang);
+  localStorage.setItem('lang', lang);
+  window.location.reload();
 };
