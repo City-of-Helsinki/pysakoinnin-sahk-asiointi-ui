@@ -10,6 +10,7 @@ import { TransferData } from '../../interfaces/transferInterfaces';
 import './InfoContainer.css';
 
 interface Props {
+  transferNumber?: string;
   selectedForm: string;
   foulData?: FoulData;
   transferData?: TransferData;
@@ -17,6 +18,7 @@ interface Props {
 }
 
 const InfoContainer: FC<Props> = ({
+  transferNumber,
   selectedForm,
   foulData,
   transferData,
@@ -63,7 +65,10 @@ const InfoContainer: FC<Props> = ({
             {foulData ? (
               <ParkingFineSummary foulData={foulData} />
             ) : (
-              <ReimbursementSummary transferData={transferData} />
+              <ReimbursementSummary
+                transferNumber={transferNumber}
+                transferData={transferData}
+              />
             )}
             <CarInfoCard data={data} />
           </div>

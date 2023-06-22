@@ -19,6 +19,7 @@
     "email-confirmation": "Send confirmation to my email",
     "helsinki-profile-link": "Go to your Helsinki Profile to edit your information.",
     "to-mainpage": "Go to parking e-services",
+    "skip-to-content-label": "Skip to main content",
     "show-more": "Show more",
     "show-less": "Show less",
     "characters": "characters",
@@ -51,6 +52,24 @@
     "aria": {
       "open-external": "Opens a new web page.",
       "open-new-tab": "Opens in a new tab."
+    },
+    "legal": {
+      "terms-and-conditions": {
+        "title": "Terms and conditions",
+        "link": "https://www.hel.fi/helsinki/en/administration/information/data-protection/rights-further-detail"
+      },
+      "registry-description": {
+        "title": "Registry description",
+        "link": "https://hel.fi/helsinki/fi/kaupunki-ja-hallinto/hallinto/organisaatio/rekisteriselosteet"
+      },
+      "data-protection": {
+        "title": "Data protection",
+        "link": "https://www.hel.fi/helsinki/en/administration/information/data-protection"
+      },
+      "accessibility": {
+        "title": "Accessibility",
+        "link": "https://www.hel.fi/static/liitteet/kaupunkiymparisto/saavutettavuusselosteet/fi/Saavutettavuusseloste_pys%C3%A4k%C3%B6innin_asiointi.pdf"
+      }
     },
     "fine-info": {
       "ref-number": {

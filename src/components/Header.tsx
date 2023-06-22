@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { IconSignout, Navigation } from 'hds-react';
+import { IconSignout, LogoLanguage, Navigation } from 'hds-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useClient } from '../client/hooks';
 import styles from './styles.module.css';
 import config from '../config';
 import { useTranslation } from 'react-i18next';
 import i18n from '../utils/i18n';
+import { Language, changeLanguage } from '../common';
 
 type Page =
   | 'frontpage'
@@ -34,23 +35,17 @@ const Header = (): React.ReactElement => {
   document.title = title;
   const userName = user ? `${user.given_name} ${user.family_name}` : '';
 
-  const changeLanguage = (lang: string) => {
-    i18n.changeLanguage(lang);
-    localStorage.setItem('lang', lang);
-    window.location.reload();
-  };
-
   return (
     <Navigation
       className="hide-on-print"
       fixed={false}
-      logoLanguage="fi"
+      logoLanguage={i18n.language as LogoLanguage}
       menuToggleAriaLabel="Close menu"
       theme="light"
       title={title}
       titleUrl="/"
       skipTo="#content"
-      skipToContentLabel="Skip to main content">
+      skipToContentLabel={t('common:skip-to-content-label')}>
       <Navigation.Row variant="inline">
         <Navigation.Item
           active={active === 'frontpage'}
@@ -68,7 +63,7 @@ const Header = (): React.ReactElement => {
         {initialized && (
           <Navigation.User
             authenticated={authenticated}
-            label="Kirjaudu sisään"
+            label={t('common:log-in')}
             onSignIn={(): void => client.login()}
             userName={userName}>
             <Navigation.Item
@@ -89,19 +84,22 @@ const Header = (): React.ReactElement => {
         )}
         <Navigation.LanguageSelector label={i18n.language.toUpperCase()}>
           <Navigation.Item
-            onClick={() => changeLanguage('fi')}
+            onClick={() => changeLanguage(Language.FI)}
+            href="#"
             label="Suomi"
-            lang="fi"
+            lang={Language.FI}
           />
           <Navigation.Item
-            onClick={() => changeLanguage('en')}
+            onClick={() => changeLanguage(Language.EN)}
+            href="#"
             label="English"
-            lang="en"
+            lang={Language.EN}
           />
           <Navigation.Item
-            onClick={() => changeLanguage('sv')}
+            onClick={() => changeLanguage(Language.SV)}
+            href="#"
             label="Svenska"
-            lang="sv"
+            lang={Language.SV}
           />
         </Navigation.LanguageSelector>
       </Navigation.Actions>
