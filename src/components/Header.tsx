@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IconSignout, Navigation } from 'hds-react';
+import { IconSignout, LogoLanguage, Navigation } from 'hds-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useClient } from '../client/hooks';
 import styles from './styles.module.css';
@@ -39,13 +39,13 @@ const Header = (): React.ReactElement => {
     <Navigation
       className="hide-on-print"
       fixed={false}
-      logoLanguage="fi"
+      logoLanguage={i18n.language as LogoLanguage}
       menuToggleAriaLabel="Close menu"
       theme="light"
       title={title}
       titleUrl="/"
       skipTo="#content"
-      skipToContentLabel="Skip to main content">
+      skipToContentLabel={t('common:skip-to-content-label')}>
       <Navigation.Row variant="inline">
         <Navigation.Item
           active={active === 'frontpage'}
@@ -63,7 +63,7 @@ const Header = (): React.ReactElement => {
         {initialized && (
           <Navigation.User
             authenticated={authenticated}
-            label="Kirjaudu sisään"
+            label={t('common:log-in')}
             onSignIn={(): void => client.login()}
             userName={userName}>
             <Navigation.Item
@@ -85,16 +85,19 @@ const Header = (): React.ReactElement => {
         <Navigation.LanguageSelector label={i18n.language.toUpperCase()}>
           <Navigation.Item
             onClick={() => changeLanguage(Language.FI)}
+            href="#"
             label="Suomi"
             lang={Language.FI}
           />
           <Navigation.Item
             onClick={() => changeLanguage(Language.EN)}
+            href="#"
             label="English"
             lang={Language.EN}
           />
           <Navigation.Item
             onClick={() => changeLanguage(Language.SV)}
+            href="#"
             label="Svenska"
             lang={Language.SV}
           />

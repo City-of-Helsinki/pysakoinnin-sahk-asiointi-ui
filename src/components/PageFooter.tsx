@@ -46,8 +46,24 @@ const PageFooter = () => {
       </Footer.Utilities>
       <Footer.Base
         copyrightHolder="Copyright"
-        copyrightText="All rights reserved"
-      />
+        copyrightText="All rights reserved">
+        <Footer.Item
+          label={t('common:legal:terms-and-conditions:title')}
+          href={t('common:legal:terms-and-conditions:link')}
+        />
+        <Footer.Item
+          label={t('common:legal:registry-description:title')}
+          href={t('common:legal:registry-description:link')}
+        />
+        <Footer.Item
+          label={t('common:legal:data-protection:title')}
+          href={t('common:legal:data-protection:link')}
+        />
+        <Footer.Item
+          label={t('common:legal:accessibility:title')}
+          href={t('common:legal:accessibility:link')}
+        />
+      </Footer.Base>
     </Footer>
   );
 };
