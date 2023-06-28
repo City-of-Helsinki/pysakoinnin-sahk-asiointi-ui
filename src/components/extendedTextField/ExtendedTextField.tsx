@@ -27,7 +27,9 @@ const ExtendedTextField = (props: ExtendedTextFieldProps) => {
     <>
       <p>{extended ? content : content.slice(0, CONTENT_SLICE)}</p>
       <Button
+        aria-label={extended ? t('common:show-less') : t('common:show-more')}
         variant="supplementary"
+        aria-expanded={extended}
         iconRight={extended ? <IconAngleUp /> : <IconAngleDown />}
         onClick={expandText}>
         {extended ? t('common:show-less') : t('common:show-more')}

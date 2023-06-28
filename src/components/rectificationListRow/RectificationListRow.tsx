@@ -40,7 +40,7 @@ const RectificationListRow: FC<Props> = ({ form }): React.ReactElement => {
   /* Gets foul/transfer data and possible decision from PASI to be shown
   with the objection form. If data can't be fetched from PASI for some
   reason, the objection form can still be shown */
-  const fetchDataAndSetExtended = async () => {
+  const fetchData = async () => {
     if (!extended) {
       if (form.metadata && form.metadata.registerNumber) {
         if (form.metadata.foulNumber) {
@@ -82,11 +82,19 @@ const RectificationListRow: FC<Props> = ({ form }): React.ReactElement => {
           )}
         </div>
         <Button
+          aria-label={
+            extended
+              ? t('landing-page:list:show-less')
+              : t('landing-page:list:show-more')
+          }
+          id={`rectification-list-row-button-${form.transaction_id}`}
           className="rectification-list-row-button"
           variant="supplementary"
           size="small"
+          aria-expanded={extended}
+          aria-controls={`rectification-details-${form.transaction_id}`}
           iconRight={extended ? <IconAngleUp /> : <IconAngleDown />}
-          onClick={() => fetchDataAndSetExtended()}>
+          onClick={() => fetchData()}>
           {extended
             ? t('landing-page:list:show-less')
             : t('landing-page:list:show-more')}
