@@ -70,7 +70,11 @@ const RectificationListRow: FC<Props> = ({ form }): React.ReactElement => {
           {formatDateTime(form.updated_at)}
         </div>
         <div className="rectification-list-row-title">
-          {`${t(`${formType}:title`)} (${form.transaction_id})`}
+          {`${t(`${formType}:title`)} (${
+            formType == FormId.MOVEDCAR
+              ? form.metadata?.transferNumber
+              : form.transaction_id
+          })`}
         </div>
         <div className="rectification-list-row-status">
           {form.status.value && (

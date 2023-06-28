@@ -6,6 +6,7 @@ import styles from './styles.module.css';
 import config from '../config';
 import { useTranslation } from 'react-i18next';
 import i18n from '../utils/i18n';
+import { Language, changeLanguage } from '../common';
 
 type Page =
   | 'frontpage'
@@ -33,12 +34,6 @@ const Header = (): React.ReactElement => {
   const title = t('common:title');
   document.title = title;
   const userName = user ? `${user.given_name} ${user.family_name}` : '';
-
-  const changeLanguage = (lang: string) => {
-    i18n.changeLanguage(lang);
-    localStorage.setItem('lang', lang);
-    window.location.reload();
-  };
 
   return (
     <Navigation
@@ -89,22 +84,22 @@ const Header = (): React.ReactElement => {
         )}
         <Navigation.LanguageSelector label={i18n.language.toUpperCase()}>
           <Navigation.Item
+            onClick={() => changeLanguage(Language.FI)}
             href="#"
-            onClick={() => changeLanguage('fi')}
             label="Suomi"
-            lang="fi"
+            lang={Language.FI}
           />
           <Navigation.Item
+            onClick={() => changeLanguage(Language.EN)}
             href="#"
-            onClick={() => changeLanguage('en')}
             label="English"
-            lang="en"
+            lang={Language.EN}
           />
           <Navigation.Item
+            onClick={() => changeLanguage(Language.SV)}
             href="#"
-            onClick={() => changeLanguage('sv')}
             label="Svenska"
-            lang="sv"
+            lang={Language.SV}
           />
         </Navigation.LanguageSelector>
       </Navigation.Actions>

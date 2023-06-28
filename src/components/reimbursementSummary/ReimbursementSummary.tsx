@@ -8,10 +8,11 @@ import { formatDate } from '../../utils/helpers';
 import '../infoContainer/InfoContainer.css';
 
 interface Props {
+  transferNumber?: string;
   transferData: TransferData | undefined;
 }
 
-const ReimbursementSummary: FC<Props> = ({ transferData }) => {
+const ReimbursementSummary: FC<Props> = ({ transferNumber, transferData }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
@@ -31,7 +32,7 @@ const ReimbursementSummary: FC<Props> = ({ transferData }) => {
         </div>
         <div className="info-field">
           <label>{t('common:fine-info:ref-number:label')}</label>
-          <p>{transferData?.transferNumber}</p>
+          <p>{transferNumber}</p>
         </div>
         <hr />
         <div className="info-field">

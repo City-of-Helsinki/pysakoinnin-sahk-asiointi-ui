@@ -1,10 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { ClientContext } from '../client/ClientProvider';
 import LoginComponent from '../components/Login';
 import PageContent from '../components/PageContent';
 import LandingPage from '../components/landingPage/LandingPage';
 import useUserProfile from '../hooks/useUserProfile';
-import { UserProfile } from '../common';
+import {
+  UserProfile,
+  changeLanguage,
+  convertHelsinkiProfileLang
+} from '../common';
 import { GraphQLClientError } from '../graphql/graphqlClient';
 import { useTranslation } from 'react-i18next';
 
@@ -18,6 +22,20 @@ const Index = (): React.ReactElement => {
   const isUser: boolean =
     userProfile &&
     Object.prototype.hasOwnProperty.call(userProfile, 'firstName');
+
+  const applyUserDefaultLang = () => {
+    const user = userProfile as UserProfile;
+    const userLang = user.language;
+    const convertedLang = convertHelsinkiProfileLang(userLang);
+
+    if (convertedLang) changeLanguage(convertedLang);
+  };
+
+  useEffect(() => {
+    if (localStorage.getItem('lang') == null && isUser) {
+      applyUserDefaultLang();
+    }
+  }, [isUser]);
 
   return (
     <PageContent>
