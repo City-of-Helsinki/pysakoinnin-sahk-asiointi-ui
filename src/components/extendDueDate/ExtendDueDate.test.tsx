@@ -120,32 +120,32 @@ describe('extend due date form', () => {
         );
 
         // Parking fine info is visible
-        const refNumberEl = screen.getByRole('textbox', {
-          name: t('common:fine-info:ref-number:label')
-        });
+
+        const refNumberEl = screen.getByTestId('refNumber');
         expect(refNumberEl).toBeInTheDocument();
+        expect(refNumberEl).toHaveTextContent(
+          t('common:fine-info:ref-number:label')
+        );
 
-        const regNumberEl = screen.getByRole('textbox', {
-          name: t('common:fine-info:reg-number:label')
-        });
+        const regNumberEl = screen.getByTestId('regNumber');
         expect(regNumberEl).toBeInTheDocument();
+        expect(regNumberEl).toHaveTextContent(
+          t('common:fine-info:reg-number:label')
+        );
 
-        const sumEl = screen.getByRole('textbox', {
-          name: t('common:fine-info:sum')
-        });
+        const sumEl = screen.getByTestId('sum');
         expect(sumEl).toBeInTheDocument();
+        expect(sumEl).toHaveTextContent(t('common:fine-info:sum'));
 
-        const dueDateEl = screen.getByRole('textbox', {
-          name: t('common:fine-info:due-date')
-        });
+        const dueDateEl = screen.getByTestId('dueDate');
         expect(dueDateEl).toBeInTheDocument();
-        expect(dueDateEl).toHaveValue(formatDate(dueDate));
+        expect(dueDateEl).toHaveTextContent(t('common:fine-info:due-date'));
+        expect(dueDateEl).toHaveTextContent(formatDate(dueDate));
 
-        const newDueDateEl = screen.getByRole('textbox', {
-          name: t('due-date:new-due-date')
-        });
+        const newDueDateEl = screen.getByTestId('newDueDate');
         expect(newDueDateEl).toBeInTheDocument();
-        expect(newDueDateEl).toHaveValue(formatDate(newDueDate));
+        expect(newDueDateEl).toHaveTextContent(t('due-date:new-due-date'));
+        expect(newDueDateEl).toHaveTextContent(formatDate(newDueDate));
 
         // Due date notification is visible
         const infoNotificationHeading = screen.queryByRole('heading', {
@@ -241,31 +241,30 @@ describe('extend due date form', () => {
           expect(infoNotificationBody).toBeVisible();
 
           // Parking fine info is visible
-          const refNumberEl = screen.getByRole('textbox', {
-            name: t('common:fine-info:ref-number:label')
-          });
+
+          const refNumberEl = screen.getByTestId('refNumber');
           expect(refNumberEl).toBeInTheDocument();
+          expect(refNumberEl).toHaveTextContent(
+            t('common:fine-info:ref-number:label')
+          );
 
-          const regNumberEl = screen.getByRole('textbox', {
-            name: t('common:fine-info:reg-number:label')
-          });
+          const regNumberEl = screen.getByTestId('regNumber');
           expect(regNumberEl).toBeInTheDocument();
+          expect(regNumberEl).toHaveTextContent(
+            t('common:fine-info:reg-number:label')
+          );
 
-          const sumEl = screen.getByRole('textbox', {
-            name: t('common:fine-info:sum')
-          });
+          const sumEl = screen.getByTestId('sum');
           expect(sumEl).toBeInTheDocument();
+          expect(sumEl).toHaveTextContent(t('common:fine-info:sum'));
 
-          const dueDateEl = screen.getByRole('textbox', {
-            name: t('common:fine-info:due-date')
-          });
+          const dueDateEl = screen.getByTestId('dueDate');
           expect(dueDateEl).toBeInTheDocument();
-          expect(dueDateEl).toHaveValue(formatDate(dueDate));
+          expect(dueDateEl).toHaveTextContent(t('common:fine-info:due-date'));
+          expect(dueDateEl).toHaveTextContent(formatDate(dueDate));
 
           // New due date field not visible when due date cannot be extended
-          const newDueDateEl = screen.queryByRole('textbox', {
-            name: t('due-date:new-due-date')
-          });
+          const newDueDateEl = screen.queryByTestId('newDueDate');
           expect(newDueDateEl).not.toBeInTheDocument();
 
           // Checkbox is visible but not clickable
