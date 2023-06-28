@@ -26,7 +26,7 @@ exports[`Component matches snapshot 1`] = `
       </div>
       <div
         class="info-field"
-        id="name"
+        data-testid="name"
       >
         <label>
           Nimi
@@ -37,7 +37,7 @@ exports[`Component matches snapshot 1`] = `
       </div>
       <div
         class="info-field"
-        id="ssn"
+        data-testid="ssn"
       >
         <label>
           Henkilötunnus
@@ -48,7 +48,7 @@ exports[`Component matches snapshot 1`] = `
       </div>
       <div
         class="info-field"
-        id="rectification-address"
+        data-testid="rectification-address"
       >
         <label>
           Lähiosoite
@@ -62,7 +62,7 @@ exports[`Component matches snapshot 1`] = `
       >
         <div
           class="info-field"
-          id="zipcode"
+          data-testid="zipcode"
         >
           <label>
             Postinumero
@@ -73,7 +73,7 @@ exports[`Component matches snapshot 1`] = `
         </div>
         <div
           class="info-field"
-          id="city"
+          data-testid="city"
         >
           <label>
             Postitoimipaikka
@@ -85,7 +85,7 @@ exports[`Component matches snapshot 1`] = `
       </div>
       <div
         class="info-field"
-        id="email"
+        data-testid="email"
       >
         <label>
           Sähköpostiosoite
@@ -96,7 +96,7 @@ exports[`Component matches snapshot 1`] = `
       </div>
       <div
         class="info-field"
-        id="phone"
+        data-testid="phone"
       >
         <label>
           Puhelinnumero
@@ -107,7 +107,7 @@ exports[`Component matches snapshot 1`] = `
       </div>
       <div
         class="info-field"
-        id="IBAN"
+        data-testid="IBAN"
       >
         <label>
           Pankkitilinumero (IBAN)
@@ -118,7 +118,7 @@ exports[`Component matches snapshot 1`] = `
       </div>
       <div
         class="info-field"
-        id="deliveryDecision"
+        data-testid="deliveryDecision"
       >
         <label>
           Haluan päätöksen

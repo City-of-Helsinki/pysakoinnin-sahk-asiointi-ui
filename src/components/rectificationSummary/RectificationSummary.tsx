@@ -56,29 +56,29 @@ const RectificationSummary: FC<Props> = ({
               {t(`rectificationForm:relation-info:${formValues?.authorRole}`)}
             </p>
           </div>
-          <div className="info-field" id="name">
+          <div className="info-field" data-testid="name">
             <label>{t('common:name')}</label>
             <p>{`${formValues?.firstName} ${formValues?.lastName}`}</p>
           </div>
-          <div className="info-field" id="ssn">
+          <div className="info-field" data-testid="ssn">
             <label>{t('common:ssn')}</label>
             <p>{formValues?.ssn}</p>
           </div>
-          <div className="info-field" id="rectification-address">
+          <div className="info-field" data-testid="rectification-address">
             <label>{t('rectificationForm:address')}</label>
             <p>{formValues?.address?.streetAddress}</p>
           </div>
           <div className="rectification-summary-subgrid">
-            <div className="info-field" id="zipcode">
+            <div className="info-field" data-testid="zipcode">
               <label>{t('rectificationForm:zipcode')}</label>
               <p>{formValues?.address?.postCode}</p>
             </div>
-            <div className="info-field" id="city">
+            <div className="info-field" data-testid="city">
               <label>{t('rectificationForm:city')}</label>
               <p>{formValues?.address?.postOffice}</p>
             </div>
           </div>
-          <div className="info-field" id="email">
+          <div className="info-field" data-testid="email">
             <label>{t('common:email')}</label>
             <p>
               {formValues?.toSeparateEmail
@@ -86,15 +86,15 @@ const RectificationSummary: FC<Props> = ({
                 : formValues?.email}
             </p>
           </div>
-          <div className="info-field" id="phone">
+          <div className="info-field" data-testid="phone">
             <label>{t('common:phone')}</label>
             <p>{formValues?.mobilePhone}</p>
           </div>
-          <div className="info-field" id="IBAN">
+          <div className="info-field" data-testid="IBAN">
             <label>{t('rectificationForm:IBAN')}</label>
             <p>{formValues?.iban}</p>
           </div>
-          <div className="info-field" id="deliveryDecision">
+          <div className="info-field" data-testid="deliveryDecision">
             <label>{t('rectificationForm:delivery-decision')}</label>
             <p>{t(`rectificationForm:${deliveryDecision}`)}</p>
           </div>
