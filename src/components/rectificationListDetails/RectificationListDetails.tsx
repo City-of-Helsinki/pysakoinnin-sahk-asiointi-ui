@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unnecessary-type-assertion */
-import React, { FC, useState } from 'react';
+import React, { FC, useRef, useState } from 'react';
 import {
   Button,
   Dialog,
@@ -35,15 +35,23 @@ const RectificationListDetails: FC<Props> = ({
     isDueDateForm || form.status.value === 'resolvedViaMail'
   );
   const [formDialogOpen, setFormDialogOpen] = useState(false);
+  const openDialogButtonRef = useRef<HTMLButtonElement | null>(null);
   const decision = foulData
     ? foulData.attachments.find(attachment => attachment.attachmentType === 1)
     : transferData?.attachments.find(
         attachment => attachment.attachmentType === 1
       );
 
+  const openFormDialog = () => {
+    setFormDialogOpen(true);
+    document.body.classList.add('modal-open');
+  };
+
   const closeFormDialog = () => {
     setFormDialogOpen(false);
     document.body.classList.remove('modal-open');
+    // move focus back to open dialog button when closing modal
+    if (openDialogButtonRef.current) openDialogButtonRef.current.focus();
   };
 
   // Opens a decision pdf in a new window
@@ -118,10 +126,8 @@ const RectificationListDetails: FC<Props> = ({
           <>
             <Button
               variant="secondary"
-              onClick={() => {
-                setFormDialogOpen(true);
-                document.body.classList.add('modal-open');
-              }}>
+              ref={openDialogButtonRef}
+              onClick={openFormDialog}>
               {t('landing-page:list:details:show-form')}
             </Button>
             <Dialog
