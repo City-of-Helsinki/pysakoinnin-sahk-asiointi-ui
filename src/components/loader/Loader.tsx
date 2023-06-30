@@ -12,7 +12,10 @@ const Loader = (): React.ReactElement => {
   const { t } = useTranslation();
   return (
     <div className="loading-spinner">
-      <LoadingSpinner loadingText={t('common:loading')} />
+      <LoadingSpinner
+        loadingText={t('common:loading')}
+        loadingFinishedText={t('common:loading-finished')}
+      />
     </div>
   );
 };

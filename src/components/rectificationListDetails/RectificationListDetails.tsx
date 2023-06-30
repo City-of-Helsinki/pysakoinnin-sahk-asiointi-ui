@@ -70,7 +70,9 @@ const RectificationListDetails: FC<Props> = ({
   };
 
   return (
-    <div className="rectification-details">
+    <div
+      className="rectification-details"
+      id={`rectification-details-${form.transaction_id}`}>
       <div className="rectification-details-log">
         <div className="rectification-details-events">
           <span className="rectification-details-title">
