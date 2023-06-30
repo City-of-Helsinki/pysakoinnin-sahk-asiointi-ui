@@ -1,6 +1,6 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 import React, { FC } from 'react';
-import { IconDocument, IconPhoto, TextInput } from 'hds-react';
+import { IconDocument, IconPhoto } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import { formatBytes } from '../../utils/helpers';
 import InfoContainer from '../infoContainer/InfoContainer';
@@ -50,74 +50,54 @@ const RectificationSummary: FC<Props> = ({
       </h2>
       <div className="rectification-summary-container">
         <div className="rectification-summary-details">
-          <TextInput
-            id="relation"
-            label={t(`rectificationForm:relation-info:relation`)}
-            value={t(
-              `rectificationForm:relation-info:${formValues?.authorRole}`
-            )}
-            readOnly
-          />
-          <TextInput
-            id="name"
-            label={t('common:name')}
-            value={`${formValues?.firstName} ${formValues?.lastName}`}
-            readOnly
-          />
-          <TextInput
-            id="ssn"
-            label={t('common:ssn')}
-            value={formValues?.ssn}
-            readOnly
-          />
-          <TextInput
-            id="rectification-address"
-            label={t('rectificationForm:address')}
-            value={formValues?.address?.streetAddress}
-            readOnly
-          />
-          <div className="rectification-summary-subgrid">
-            <TextInput
-              id="zipcode"
-              label={t('rectificationForm:zipcode')}
-              value={formValues?.address?.postCode}
-              readOnly
-            />
-            <TextInput
-              id="city"
-              label={t('rectificationForm:city')}
-              value={formValues?.address?.postOffice}
-              readOnly
-            />
+          <div className="info-field" id="relation">
+            <label>{t(`rectificationForm:relation-info:relation`)}</label>
+            <p>
+              {t(`rectificationForm:relation-info:${formValues?.authorRole}`)}
+            </p>
           </div>
-          <TextInput
-            id="email"
-            label={t('common:email')}
-            value={
-              formValues?.toSeparateEmail
+          <div className="info-field" data-testid="name">
+            <label>{t('common:name')}</label>
+            <p>{`${formValues?.firstName} ${formValues?.lastName}`}</p>
+          </div>
+          <div className="info-field" data-testid="ssn">
+            <label>{t('common:ssn')}</label>
+            <p>{formValues?.ssn}</p>
+          </div>
+          <div className="info-field" data-testid="rectification-address">
+            <label>{t('rectificationForm:address')}</label>
+            <p>{formValues?.address?.streetAddress}</p>
+          </div>
+          <div className="rectification-summary-subgrid">
+            <div className="info-field" data-testid="zipcode">
+              <label>{t('rectificationForm:zipcode')}</label>
+              <p>{formValues?.address?.postCode}</p>
+            </div>
+            <div className="info-field" data-testid="city">
+              <label>{t('rectificationForm:city')}</label>
+              <p>{formValues?.address?.postOffice}</p>
+            </div>
+          </div>
+          <div className="info-field" data-testid="email">
+            <label>{t('common:email')}</label>
+            <p>
+              {formValues?.toSeparateEmail
                 ? formValues?.newEmail
-                : formValues?.email
-            }
-            readOnly
-          />
-          <TextInput
-            id="phone"
-            label={t('common:phone')}
-            value={`${formValues?.mobilePhone}`}
-            readOnly
-          />
-          <TextInput
-            id="IBAN"
-            label={t('rectificationForm:IBAN')}
-            value={formValues?.iban}
-            readOnly
-          />
-          <TextInput
-            id="deliveryDecision"
-            label={t('rectificationForm:delivery-decision')}
-            value={t(`rectificationForm:${deliveryDecision}`)}
-            readOnly
-          />
+                : formValues?.email}
+            </p>
+          </div>
+          <div className="info-field" data-testid="phone">
+            <label>{t('common:phone')}</label>
+            <p>{formValues?.mobilePhone}</p>
+          </div>
+          <div className="info-field" data-testid="IBAN">
+            <label>{t('rectificationForm:IBAN')}</label>
+            <p>{formValues?.iban}</p>
+          </div>
+          <div className="info-field" data-testid="deliveryDecision">
+            <label>{t('rectificationForm:delivery-decision')}</label>
+            <p>{t(`rectificationForm:${deliveryDecision}`)}</p>
+          </div>
         </div>
         <div className="rectification-summary-contents">
           <div className="rectification-summary-rectification-content">

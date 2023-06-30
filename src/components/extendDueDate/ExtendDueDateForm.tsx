@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unnecessary-type-assertion */
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Checkbox, Link, Notification, TextInput } from 'hds-react';
+import { Checkbox, Link, Notification } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import { formatDate, getNewDueDate } from '../../utils/helpers';
 import { selectUserProfile } from '../user/userSlice';
@@ -69,42 +69,30 @@ const ExtendDueDateForm = (): React.ReactElement => {
         </Notification>
       )}
       <div className="text-container">
-        <TextInput
-          id="refNumber"
-          label={t('common:fine-info:ref-number:label')}
-          value={foulData?.foulNumber ? foulData?.foulNumber.toString() : ''}
-          readOnly
-        />
-        <div className="reg-number-field">
-          <TextInput
-            id="regNumber"
-            label={t('common:fine-info:reg-number:label')}
-            value={foulData?.registerNumber}
-            readOnly
-          />
+        <div className="info-field" data-testid={'refNumber'}>
+          <label>{t('common:fine-info:ref-number:label')}</label>
+          <p>{foulData?.foulNumber ? foulData?.foulNumber.toString() : ''}</p>
         </div>
-        <TextInput
-          id="sum"
-          label={t('common:fine-info:sum')}
-          value={foulData?.invoiceSumText}
-          readOnly
-        />
+        <div className="info-field reg-number-field" data-testid={'regNumber'}>
+          <label>{t('common:fine-info:reg-number:label')}</label>
+          <p>{foulData?.registerNumber}</p>
+        </div>
+        <div className="info-field" data-testid={'sum'}>
+          <label>{t('common:fine-info:sum')}</label>
+          <p>{foulData?.invoiceSumText}</p>
+        </div>
         {foulData?.dueDateExtendableReason !==
           DueDateExtendableReason.HasNoChecks && (
           <>
-            <TextInput
-              id="dueDate"
-              label={t('common:fine-info:due-date')}
-              value={foulData && formatDate(foulData?.dueDate)}
-              readOnly
-            />
+            <div className="info-field" data-testid={'dueDate'}>
+              <label>{t('common:fine-info:due-date')}</label>
+              <p>{foulData && formatDate(foulData?.dueDate)}</p>
+            </div>
             {foulData?.dueDateExtendable && foulData?.dueDate && (
-              <TextInput
-                id="newDueDate"
-                label={t('due-date:new-due-date')}
-                value={formatDate(getNewDueDate(foulData?.dueDate))}
-                readOnly
-              />
+              <div className="info-field" data-testid={'newDueDate'}>
+                <label>{t('due-date:new-due-date')}</label>
+                <p>{formatDate(getNewDueDate(foulData?.dueDate))}</p>
+              </div>
             )}
           </>
         )}

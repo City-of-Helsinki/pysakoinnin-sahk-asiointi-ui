@@ -14,218 +14,118 @@ exports[`Component matches snapshot 1`] = `
       class="rectification-summary-details"
     >
       <div
-        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+        class="info-field"
+        id="relation"
       >
-        <label
-          class="FieldLabel-module_label__1zrXK "
-          for="relation"
-        >
+        <label>
           Teen oikaisuvaatimuksen
         </label>
-        <div
-          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-        >
-          <input
-            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-            id="relation"
-            readonly=""
-            type="text"
-            value="Ajoneuvon kuljettajana"
-          />
-        </div>
+        <p>
+          Ajoneuvon kuljettajana
+        </p>
       </div>
       <div
-        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+        class="info-field"
+        data-testid="name"
       >
-        <label
-          class="FieldLabel-module_label__1zrXK "
-          for="name"
-        >
+        <label>
           Nimi
         </label>
-        <div
-          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-        >
-          <input
-            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-            id="name"
-            readonly=""
-            type="text"
-            value="Test User"
-          />
-        </div>
+        <p>
+          Test User
+        </p>
       </div>
       <div
-        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+        class="info-field"
+        data-testid="ssn"
       >
-        <label
-          class="FieldLabel-module_label__1zrXK "
-          for="ssn"
-        >
+        <label>
           Henkilötunnus
         </label>
-        <div
-          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-        >
-          <input
-            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-            id="ssn"
-            readonly=""
-            type="text"
-            value="123456-789A"
-          />
-        </div>
+        <p>
+          123456-789A
+        </p>
       </div>
       <div
-        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+        class="info-field"
+        data-testid="rectification-address"
       >
-        <label
-          class="FieldLabel-module_label__1zrXK "
-          for="rectification-address"
-        >
+        <label>
           Lähiosoite
         </label>
-        <div
-          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-        >
-          <input
-            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-            id="rectification-address"
-            readonly=""
-            type="text"
-            value="Elimäenkatu 5"
-          />
-        </div>
+        <p>
+          Elimäenkatu 5
+        </p>
       </div>
       <div
         class="rectification-summary-subgrid"
       >
         <div
-          class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+          class="info-field"
+          data-testid="zipcode"
         >
-          <label
-            class="FieldLabel-module_label__1zrXK "
-            for="zipcode"
-          >
+          <label>
             Postinumero
           </label>
-          <div
-            class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-          >
-            <input
-              class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-              id="zipcode"
-              readonly=""
-              type="text"
-              value="00100"
-            />
-          </div>
+          <p>
+            00100
+          </p>
         </div>
         <div
-          class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+          class="info-field"
+          data-testid="city"
         >
-          <label
-            class="FieldLabel-module_label__1zrXK "
-            for="city"
-          >
+          <label>
             Postitoimipaikka
           </label>
-          <div
-            class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-          >
-            <input
-              class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-              id="city"
-              readonly=""
-              type="text"
-              value="Helsinki"
-            />
-          </div>
+          <p>
+            Helsinki
+          </p>
         </div>
       </div>
       <div
-        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+        class="info-field"
+        data-testid="email"
       >
-        <label
-          class="FieldLabel-module_label__1zrXK "
-          for="email"
-        >
+        <label>
           Sähköpostiosoite
         </label>
-        <div
-          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-        >
-          <input
-            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-            id="email"
-            readonly=""
-            type="text"
-            value="test.user@test.fi"
-          />
-        </div>
+        <p>
+          test.user@test.fi
+        </p>
       </div>
       <div
-        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+        class="info-field"
+        data-testid="phone"
       >
-        <label
-          class="FieldLabel-module_label__1zrXK "
-          for="phone"
-        >
+        <label>
           Puhelinnumero
         </label>
-        <div
-          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-        >
-          <input
-            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-            id="phone"
-            readonly=""
-            type="text"
-            value="+358401234567"
-          />
-        </div>
+        <p>
+          +358401234567
+        </p>
       </div>
       <div
-        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+        class="info-field"
+        data-testid="IBAN"
       >
-        <label
-          class="FieldLabel-module_label__1zrXK "
-          for="IBAN"
-        >
+        <label>
           Pankkitilinumero (IBAN)
         </label>
-        <div
-          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-        >
-          <input
-            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-            id="IBAN"
-            readonly=""
-            type="text"
-            value="FI9780001700903330"
-          />
-        </div>
+        <p>
+          FI9780001700903330
+        </p>
       </div>
       <div
-        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+        class="info-field"
+        data-testid="deliveryDecision"
       >
-        <label
-          class="FieldLabel-module_label__1zrXK "
-          for="deliveryDecision"
-        >
+        <label>
           Haluan päätöksen
         </label>
-        <div
-          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-        >
-          <input
-            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-            id="deliveryDecision"
-            readonly=""
-            type="text"
-            value="Pysäköinnin asiointikansiooni"
-          />
-        </div>
+        <p>
+          Pysäköinnin asiointikansiooni
+        </p>
       </div>
     </div>
     <div
