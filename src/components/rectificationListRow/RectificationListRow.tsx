@@ -60,7 +60,6 @@ const RectificationListRow: FC<Props> = ({ form }): React.ReactElement => {
         }
       }
     }
-    setExtended(!extended);
   };
 
   return (
@@ -98,7 +97,10 @@ const RectificationListRow: FC<Props> = ({ form }): React.ReactElement => {
           aria-expanded={extended}
           aria-controls={`rectification-details-${form.transaction_id}`}
           iconRight={extended ? <IconAngleUp /> : <IconAngleDown />}
-          onClick={() => fetchData()}>
+          onClick={async () => {
+            await fetchData();
+            setExtended(!extended);
+          }}>
           {extended
             ? t('landing-page:list:show-less')
             : t('landing-page:list:show-more')}
