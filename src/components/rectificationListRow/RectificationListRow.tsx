@@ -90,7 +90,6 @@ const RectificationListRow: FC<Props> = ({ form }): React.ReactElement => {
               ? t('landing-page:list:show-less')
               : t('landing-page:list:show-more')
           }
-          id={`rectification-list-row-button-${form.transaction_id}`}
           className="rectification-list-row-button"
           variant="supplementary"
           size="small"
