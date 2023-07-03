@@ -53,14 +53,19 @@ const ImageViewer = (props: ImageViewerProps) => {
   const { t } = useTranslation();
   const [currentImage, setCurrentImage] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
+  const focusElement = useRef<HTMLInputElement | null>(null);
 
   const handleImageClick = (e: React.MouseEvent<HTMLInputElement>) => {
     e.preventDefault();
     setModalOpen(true);
     setCurrentImage(Number(e.currentTarget.value));
+    focusElement.current = e.currentTarget;
   };
 
-  const closeDialog = () => setModalOpen(false);
+  const closeDialog = () => {
+    setModalOpen(false);
+    focusElement.current?.focus();
+  };
 
   const nextImage = () => {
     if (currentImage !== images.length) {
