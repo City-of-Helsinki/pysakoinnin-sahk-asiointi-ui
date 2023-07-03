@@ -64,7 +64,6 @@ const ImageViewer = (props: ImageViewerProps) => {
 
   const closeDialog = () => {
     setModalOpen(false);
-    focusElement.current?.focus();
   };
 
   const nextImage = () => {
@@ -87,6 +86,7 @@ const ImageViewer = (props: ImageViewerProps) => {
         aria-labelledby={t('imageViewer:header')}
         isOpen={modalOpen}
         close={closeDialog}
+        focusAfterCloseRef={focusElement}
         closeButtonLabelText={t('imageViewer:closebutton-text')}
         className="imageViewer-dialog">
         <Dialog.Header
