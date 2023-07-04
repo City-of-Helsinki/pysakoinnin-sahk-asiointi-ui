@@ -53,14 +53,18 @@ const ImageViewer = (props: ImageViewerProps) => {
   const { t } = useTranslation();
   const [currentImage, setCurrentImage] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
+  const focusElement = useRef<HTMLInputElement | null>(null);
 
   const handleImageClick = (e: React.MouseEvent<HTMLInputElement>) => {
     e.preventDefault();
     setModalOpen(true);
     setCurrentImage(Number(e.currentTarget.value));
+    focusElement.current = e.currentTarget;
   };
 
-  const closeDialog = () => setModalOpen(false);
+  const closeDialog = () => {
+    setModalOpen(false);
+  };
 
   const nextImage = () => {
     if (currentImage !== images.length) {
@@ -82,6 +86,7 @@ const ImageViewer = (props: ImageViewerProps) => {
         aria-labelledby={t('imageViewer:header')}
         isOpen={modalOpen}
         close={closeDialog}
+        focusAfterCloseRef={focusElement}
         closeButtonLabelText={t('imageViewer:closebutton-text')}
         className="imageViewer-dialog">
         <Dialog.Header

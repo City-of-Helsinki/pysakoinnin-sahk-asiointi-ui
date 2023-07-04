@@ -50,8 +50,6 @@ const RectificationListDetails: FC<Props> = ({
   const closeFormDialog = () => {
     setFormDialogOpen(false);
     document.body.classList.remove('modal-open');
-    // move focus back to open dialog button when closing modal
-    if (openDialogButtonRef.current) openDialogButtonRef.current.focus();
   };
 
   // Opens a decision pdf in a new window
@@ -137,6 +135,7 @@ const RectificationListDetails: FC<Props> = ({
               aria-labelledby={t(`${formType}:title`)}
               isOpen={formDialogOpen}
               close={closeFormDialog}
+              focusAfterCloseRef={openDialogButtonRef}
               closeButtonLabelText={
                 t('common:close-rectification-dialog') as string
               }
