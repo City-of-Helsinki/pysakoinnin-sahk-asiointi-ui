@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unnecessary-type-assertion */
-import React, { FC, useState } from 'react';
+import React, { FC, useRef, useState } from 'react';
 import {
   Button,
   Dialog,
@@ -35,11 +35,17 @@ const RectificationListDetails: FC<Props> = ({
     isDueDateForm || form.status.value === 'resolvedViaMail'
   );
   const [formDialogOpen, setFormDialogOpen] = useState(false);
+  const openDialogButtonRef = useRef<HTMLButtonElement | null>(null);
   const decision = foulData
     ? foulData.attachments.find(attachment => attachment.attachmentType === 1)
     : transferData?.attachments.find(
         attachment => attachment.attachmentType === 1
       );
+
+  const openFormDialog = () => {
+    setFormDialogOpen(true);
+    document.body.classList.add('modal-open');
+  };
 
   const closeFormDialog = () => {
     setFormDialogOpen(false);
@@ -62,7 +68,9 @@ const RectificationListDetails: FC<Props> = ({
   };
 
   return (
-    <div className="rectification-details">
+    <div
+      className="rectification-details"
+      id={`rectification-details-${form.transaction_id}`}>
       <div className="rectification-details-log">
         <div className="rectification-details-events">
           <span className="rectification-details-title">
@@ -118,10 +126,8 @@ const RectificationListDetails: FC<Props> = ({
           <>
             <Button
               variant="secondary"
-              onClick={() => {
-                setFormDialogOpen(true);
-                document.body.classList.add('modal-open');
-              }}>
+              ref={openDialogButtonRef}
+              onClick={openFormDialog}>
               {t('landing-page:list:details:show-form')}
             </Button>
             <Dialog
@@ -129,6 +135,7 @@ const RectificationListDetails: FC<Props> = ({
               aria-labelledby={t(`${formType}:title`)}
               isOpen={formDialogOpen}
               close={closeFormDialog}
+              focusAfterCloseRef={openDialogButtonRef}
               closeButtonLabelText={
                 t('common:close-rectification-dialog') as string
               }
