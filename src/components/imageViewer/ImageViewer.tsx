@@ -53,6 +53,8 @@ const ImageViewer = (props: ImageViewerProps) => {
   const { t } = useTranslation();
   const [currentImage, setCurrentImage] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
+  const [width, setWidth] = React.useState(window.innerWidth);
+  const screenSizeXs = 576;
   const focusElement = useRef<HTMLInputElement | null>(null);
 
   const handleImageClick = (e: React.MouseEvent<HTMLInputElement>) => {
@@ -78,6 +80,13 @@ const ImageViewer = (props: ImageViewerProps) => {
     }
   };
 
+  React.useEffect(() => {
+    const handleWindowResize = () => setWidth(window.innerWidth);
+    window.addEventListener('resize', handleWindowResize);
+    console.log(window.innerWidth);
+    return () => window.removeEventListener('resize', handleWindowResize);
+  }, []);
+
   return (
     <>
       <Dialog
@@ -99,9 +108,11 @@ const ImageViewer = (props: ImageViewerProps) => {
             src={formatBase64String(images[currentImage])}
             className="imageViewer-dialog-image"
           />
-          <span className="imageViewer-dialog-text">
-            {t('imageViewer:image')} {currentImage + 1} / {images.length}
-          </span>
+          {width > screenSizeXs && (
+            <span className="imageViewer-dialog-text">
+              {t('imageViewer:image')} {currentImage + 1} / {images.length}
+            </span>
+          )}
         </Dialog.Content>
         <Dialog.ActionButtons className="imageViewer-button-container">
           <Button
@@ -110,6 +121,11 @@ const ImageViewer = (props: ImageViewerProps) => {
             className="imageViewer-button-previous">
             {t('imageViewer:previous-image')}
           </Button>
+          {width <= screenSizeXs && (
+            <span className="imageViewer-dialog-text">
+              {t('imageViewer:image')} {currentImage + 1} / {images.length}
+            </span>
+          )}
           <Button
             onClick={nextImage}
             disabled={currentImage === images.length - 1}
