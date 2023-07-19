@@ -47,6 +47,7 @@
 
 #form-summary-dialog {
   width: 50%;
+  margin: 0 0;
 }
 
 .form-summary-dialog-buttons {
@@ -64,6 +65,20 @@
   #form-summary-dialog {
     width: 95vw !important;
     height: 95vh !important;
+    max-height: 100%;
+  }
+
+  .form-summary-dialog-buttons {
+    align-items: center;
+    max-height: 10vh;
+  }
+
+  .button-close, .button-print{
+    max-height: 10vh !important;
+  }
+
+  #form-summary-dialog-header {
+    max-height: 10vh !important;
   }
 }
 
