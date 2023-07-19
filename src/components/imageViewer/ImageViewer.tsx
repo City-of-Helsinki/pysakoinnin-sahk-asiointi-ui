@@ -104,12 +104,16 @@ const ImageViewer = (props: ImageViewerProps) => {
           </span>
         </Dialog.Content>
         <Dialog.ActionButtons className="imageViewer-button-container">
-          <Button onClick={previousImage} disabled={currentImage === 0}>
+          <Button
+            onClick={previousImage}
+            disabled={currentImage === 0}
+            className="imageViewer-button-previous">
             {t('imageViewer:previous-image')}
           </Button>
           <Button
             onClick={nextImage}
-            disabled={currentImage === images.length - 1}>
+            disabled={currentImage === images.length - 1}
+            className="imageViewer-button-next">
             {t('imageViewer:next-image')}
           </Button>
         </Dialog.ActionButtons>
