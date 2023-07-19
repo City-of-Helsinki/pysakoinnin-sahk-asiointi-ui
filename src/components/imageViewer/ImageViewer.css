@@ -14,7 +14,6 @@
   height: 100%;
   width: 80%;
   margin: 0 auto;
-  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,9 +22,12 @@
   overflow-y: auto;
 }
 
-.imageViewer-dialog img {
-  max-height: 90%;
-  max-width: 100%;
+.imageViewer-button-container {
+  justify-content: center;
+}
+
+.imageViewer-dialog-image {
+  overflow: auto;
 }
 
 .imageViewer-preview-image {
@@ -37,6 +39,42 @@
 
 .imageViewer-dialog-text {
   display: block;
+  align-self: center;
+}
+
+@media (max-width: 576px) {
+  .imageViewer-button-container {
+    max-height: 3vh !important;
+    width: 90%;
+    align-self: center;
+    overflow: hidden;
+    margin: var(--spacing-xs);
+    display: flex;
+    text-align: center;
+    align-items: center;
+  }
+
+  .imageViewer-button-next, 
+  .imageViewer-button-previous, 
+  .imageViewer-dialog-text {
+    min-height: 0px;
+    margin: 0px;
+  }
+
+  .imageViewer-dialog > div {
+    padding: var(--spacing-xs) !important;
+  }
+
+  .imageViewer-dialog div:nth-child(2) {
+    width: 90%;
+    display: inline-block;
+    padding: 0 !important;
+  }
+
+  .imageViewer-dialog-image {
+    width: 100%;
+    object-fit: contain;
+  }
 }
 
 @media (max-width: 768px) {
@@ -46,9 +84,13 @@
 
   .imageViewer-button-container {
     display: flex;
-    flex-direction: column-reverse;
     gap: var(--spacing-xs);
-    padding-top: 0;
+    padding-top: 0 !important;
+    font-size: var(--);
+  }
+
+  .imageViewer-button-next {
+    margin-top: 0;
   }
 }
 
