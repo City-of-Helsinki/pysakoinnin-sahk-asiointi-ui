@@ -83,7 +83,6 @@ const ImageViewer = (props: ImageViewerProps) => {
   React.useEffect(() => {
     const handleWindowResize = () => setWidth(window.innerWidth);
     window.addEventListener('resize', handleWindowResize);
-    console.log(window.innerWidth);
     return () => window.removeEventListener('resize', handleWindowResize);
   }, []);
 
