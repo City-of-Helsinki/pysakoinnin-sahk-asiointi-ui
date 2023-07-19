@@ -119,7 +119,9 @@ const ImageViewer = (props: ImageViewerProps) => {
             onClick={previousImage}
             disabled={currentImage === 0}
             className="imageViewer-button-previous">
-            {t('imageViewer:previous-image')}
+            {width > screenSizeXs
+              ? t('imageViewer:previous-image')
+              : t('common:previous')}
           </Button>
           {width <= screenSizeXs && (
             <span className="imageViewer-dialog-text">
@@ -130,7 +132,9 @@ const ImageViewer = (props: ImageViewerProps) => {
             onClick={nextImage}
             disabled={currentImage === images.length - 1}
             className="imageViewer-button-next">
-            {t('imageViewer:next-image')}
+            {width > screenSizeXs
+              ? t('imageViewer:next-image')
+              : t('common:next')}
           </Button>
         </Dialog.ActionButtons>
       </Dialog>

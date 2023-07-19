@@ -48,8 +48,17 @@
     width: 90%;
     align-self: center;
     overflow: hidden;
-    margin-bottom: var(--spacing-xs);
+    margin: var(--spacing-xs);
+    display: flex;
     text-align: center;
+    align-items: center;
+  }
+
+  .imageViewer-button-next, 
+  .imageViewer-button-previous, 
+  .imageViewer-dialog-text {
+    min-height: 0px;
+    margin: 0px;
   }
 
   .imageViewer-dialog > div {
