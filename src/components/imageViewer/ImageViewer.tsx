@@ -5,6 +5,7 @@ import { FoulAttachment } from '../../interfaces/foulInterfaces';
 import { useTranslation } from 'react-i18next';
 import { formatBase64String } from '../../utils/helpers';
 import './ImageViewer.css';
+import useViewport from '../../hooks/useViewport';
 
 type PreviewImageProps = {
   image: FoulAttachment;
@@ -51,9 +52,9 @@ type ImageViewerProps = {
 const ImageViewer = (props: ImageViewerProps) => {
   const { images } = props;
   const { t } = useTranslation();
+  const { width } = useViewport();
   const [currentImage, setCurrentImage] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
-  const [width, setWidth] = React.useState(window.innerWidth);
   const screenSizeXs = 576;
   const focusElement = useRef<HTMLInputElement | null>(null);
 
@@ -79,12 +80,6 @@ const ImageViewer = (props: ImageViewerProps) => {
       setCurrentImage(currentImage - 1);
     }
   };
-
-  React.useEffect(() => {
-    const handleWindowResize = () => setWidth(window.innerWidth);
-    window.addEventListener('resize', handleWindowResize);
-    return () => window.removeEventListener('resize', handleWindowResize);
-  }, []);
 
   return (
     <>
