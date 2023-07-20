@@ -10,11 +10,11 @@ import {
   ObjectionFormFiles
 } from '../../interfaces/objectionInterfaces';
 import ExtendedTextField from '../extendedTextField/ExtendedTextField';
-import useMobileWidth from '../../hooks/useMobileWidth';
 import { FoulData } from '../../interfaces/foulInterfaces';
 import { TransferData } from '../../interfaces/transferInterfaces';
 import styles from '../styles.module.css';
 import './RectificationSummary.css';
+import { useMediaQueryLessThan } from '../../hooks/useMediaQuery';
 
 interface Props {
   form?: ObjectionForm;
@@ -106,7 +106,7 @@ const RectificationSummary: FC<Props> = ({
               className={styles['text-label']}>
               {t('rectificationForm:rectification-content')}
             </label>
-            {useMobileWidth() && formValues?.description ? (
+            {useMediaQueryLessThan('m') && formValues?.description ? (
               <ExtendedTextField content={formValues?.description} />
             ) : (
               <p>{formValues?.description}</p>

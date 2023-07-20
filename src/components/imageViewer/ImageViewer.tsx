@@ -5,7 +5,7 @@ import { FoulAttachment } from '../../interfaces/foulInterfaces';
 import { useTranslation } from 'react-i18next';
 import { formatBase64String } from '../../utils/helpers';
 import './ImageViewer.css';
-import useViewport from '../../hooks/useViewport';
+import { useMediaQueryLessThan } from '../../hooks/useMediaQuery';
 
 type PreviewImageProps = {
   image: FoulAttachment;
@@ -52,10 +52,9 @@ type ImageViewerProps = {
 const ImageViewer = (props: ImageViewerProps) => {
   const { images } = props;
   const { t } = useTranslation();
-  const { width } = useViewport();
+  const isLessThanS = useMediaQueryLessThan('s');
   const [currentImage, setCurrentImage] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
-  const screenSizeXs = 576;
   const focusElement = useRef<HTMLInputElement | null>(null);
 
   const handleImageClick = (e: React.MouseEvent<HTMLInputElement>) => {
@@ -102,7 +101,7 @@ const ImageViewer = (props: ImageViewerProps) => {
             src={formatBase64String(images[currentImage])}
             className="imageViewer-dialog-image"
           />
-          {width > screenSizeXs && (
+          {!isLessThanS && (
             <span className="imageViewer-dialog-text">
               {t('imageViewer:image')} {currentImage + 1} / {images.length}
             </span>
@@ -113,11 +112,11 @@ const ImageViewer = (props: ImageViewerProps) => {
             onClick={previousImage}
             disabled={currentImage === 0}
             className="imageViewer-button-previous">
-            {width > screenSizeXs
-              ? t('imageViewer:previous-image')
-              : t('common:previous')}
+            {isLessThanS
+              ? t('common:previous')
+              : t('imageViewer:previous-image')}
           </Button>
-          {width <= screenSizeXs && (
+          {isLessThanS && (
             <span className="imageViewer-dialog-text">
               {t('imageViewer:image')} {currentImage + 1} / {images.length}
             </span>
@@ -126,9 +125,7 @@ const ImageViewer = (props: ImageViewerProps) => {
             onClick={nextImage}
             disabled={currentImage === images.length - 1}
             className="imageViewer-button-next">
-            {width > screenSizeXs
-              ? t('imageViewer:next-image')
-              : t('common:next')}
+            {isLessThanS ? t('common:next') : t('imageViewer:next-image')}
           </Button>
         </Dialog.ActionButtons>
       </Dialog>

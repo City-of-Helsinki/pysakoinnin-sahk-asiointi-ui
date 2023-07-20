@@ -15,7 +15,6 @@ import {
   TextInput
 } from 'hds-react';
 import { extractIBAN } from 'ibantools';
-import useMobileWidth from '../../hooks/useMobileWidth';
 import { FormId, selectFormContent } from '../formContent/formContentSlice';
 import {
   ObjectionForm,
@@ -27,6 +26,7 @@ import { selectUserProfile } from '../user/userSlice';
 import FieldLabel from '../fieldLabel/FieldLabel';
 import ErrorLabel from '../errorLabel/ErrorLabel';
 import './RectificationForm.css';
+import { useMediaQueryLessThan } from '../../hooks/useMediaQuery';
 
 type Language = 'fi' | 'en' | 'sv';
 
@@ -49,7 +49,7 @@ const RectificationForm: FC<Props> = ({
   const user = useSelector(selectUserProfile);
   const selectedForm = useSelector(selectFormContent).selectedForm;
   const movedCarFormSelected = selectedForm === FormId.MOVEDCAR;
-  const isMobileWidth = useMobileWidth();
+  const isMobileWidth = useMediaQueryLessThan('m');
   const rectificationMaxLength =
     window._env_.REACT_APP_RECTIFICATION_CHAR_LIMIT;
 
