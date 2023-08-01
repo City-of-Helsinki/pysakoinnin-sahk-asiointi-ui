@@ -6,18 +6,18 @@
 }
 
 .imageViewer-dialog {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
   height: 95vh !important;
   width: 95vw !important;
+  
 }
 
 .imageViewer-dialog div:nth-child(2) {
-  height: 100%;
-  width: 80%;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: var(--spacing-xs);
   overflow-y: auto;
 }
@@ -38,60 +38,41 @@
 }
 
 .imageViewer-dialog-text {
-  display: block;
   align-self: center;
 }
 
-@media (max-width: 576px) {
-  .imageViewer-button-container {
-    max-height: 3vh !important;
-    width: 90%;
-    align-self: center;
-    overflow: hidden;
-    margin: var(--spacing-xs);
-    display: flex;
-    text-align: center;
-    align-items: center;
+@media (max-width: 768px) {
+  .imageViewer-dialog > div { /* All containers*/
+    padding: var(--spacing-xs);
   }
-
+  .imageViewer-dialog div:nth-child(1)  { /* Header container */ 
+    padding-bottom: 0;
+  }
+  .imageViewer-dialog div:nth-child(2) { /* Image container */
+    display: inline-block;
+    align-self: center;
+  }
+  .imageViewer-dialog-image {
+    width: 100%;
+  }
+  .imageViewer-dialog div:nth-child(3) { /* Buttons container */
+    display: flex;
+    height: 10%;
+    max-height: 52px; /* Same size as desktop version of HDS button */
+    align-content: center;
+    gap: var(--spacing-xs);
+  }
+  
   .imageViewer-button-next, 
   .imageViewer-button-previous, 
   .imageViewer-dialog-text {
-    min-height: 0px;
     margin: 0px;
+    padding: 0px;
+    justify-content: center;
+    text-align: center;
+    --min-size: 20px; /* Overwrites HDS 44px*/
   }
-
-  .imageViewer-dialog > div {
-    padding: var(--spacing-xs) !important;
-  }
-
-  .imageViewer-dialog div:nth-child(2) {
-    width: 90%;
-    display: inline-block;
-    padding: 0 !important;
-  }
-
-  .imageViewer-dialog-image {
-    width: 100%;
-    object-fit: contain;
-  }
-}
-
-@media (max-width: 768px) {
-  .imageViewer-dialog > div {
-    padding: var(--spacing-s);
-  }
-
-  .imageViewer-button-container {
-    display: flex;
-    gap: var(--spacing-xs);
-    padding-top: 0 !important;
-    font-size: var(--);
-  }
-
-  .imageViewer-button-next {
-    margin-top: 0;
-  }
+ 
 }
 
 @media print {
