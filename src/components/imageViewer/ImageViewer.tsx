@@ -118,7 +118,7 @@ const ImageViewer = (props: ImageViewerProps) => {
           </Button>
           {isLessThanS && (
             <span className="imageViewer-dialog-text">
-              {t('imageViewer:image')} {currentImage + 1} / {images.length}
+              {currentImage + 1} / {images.length}
             </span>
           )}
           <Button
