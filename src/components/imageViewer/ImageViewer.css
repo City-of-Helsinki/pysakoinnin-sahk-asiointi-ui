@@ -42,6 +42,9 @@
 }
 
 @media (max-width: 768px) {
+  .imageViewer-dialog {
+    margin: 0!important;
+}
   .imageViewer-dialog > div { /* All containers*/
     padding: var(--spacing-xs);
   }
@@ -66,11 +69,11 @@
   .imageViewer-button-next, 
   .imageViewer-button-previous, 
   .imageViewer-dialog-text {
-    margin: 0px;
-    padding: 0px;
+    margin: 0px!important;
+    padding: 0px!important;
     justify-content: center;
     text-align: center;
-    --min-size: 20px; /* Overwrites HDS 44px*/
+    --min-size: 20px!important; /* Overwrites HDS 44px*/
   }
  
 }
