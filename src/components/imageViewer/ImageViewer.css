@@ -6,26 +6,28 @@
 }
 
 .imageViewer-dialog {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
   height: 95vh !important;
   width: 95vw !important;
+  
 }
 
 .imageViewer-dialog div:nth-child(2) {
-  height: 100%;
-  width: 80%;
-  margin: 0 auto;
-  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: var(--spacing-xs);
   overflow-y: auto;
 }
 
-.imageViewer-dialog img {
-  max-height: 90%;
-  max-width: 100%;
+.imageViewer-button-container {
+  justify-content: center;
+}
+
+.imageViewer-dialog-image {
+  overflow: auto;
 }
 
 .imageViewer-preview-image {
@@ -36,20 +38,44 @@
 }
 
 .imageViewer-dialog-text {
-  display: block;
+  align-self: center;
 }
 
 @media (max-width: 768px) {
-  .imageViewer-dialog > div {
-    padding: var(--spacing-s);
+  .imageViewer-dialog {
+    margin: 0!important;
+}
+  .imageViewer-dialog > div { /* All containers*/
+    padding: var(--spacing-xs);
   }
-
-  .imageViewer-button-container {
+  .imageViewer-dialog div:nth-child(1)  { /* Header container */ 
+    padding-bottom: 0;
+  }
+  .imageViewer-dialog div:nth-child(2) { /* Image container */
+    display: inline-block;
+    align-self: center;
+  }
+  .imageViewer-dialog-image {
+    width: 100%;
+  }
+  .imageViewer-dialog div:nth-child(3) { /* Buttons container */
     display: flex;
-    flex-direction: column-reverse;
+    height: 10%;
+    max-height: 52px; /* Same size as desktop version of HDS button */
+    align-content: center;
     gap: var(--spacing-xs);
-    padding-top: 0;
   }
+  
+  .imageViewer-button-next, 
+  .imageViewer-button-previous, 
+  .imageViewer-dialog-text {
+    margin: 0px!important;
+    padding: 0px!important;
+    justify-content: center;
+    text-align: center;
+    --min-size: 20px!important; /* Overwrites HDS 44px*/
+  }
+ 
 }
 
 @media print {

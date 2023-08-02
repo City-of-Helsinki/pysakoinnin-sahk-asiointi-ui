@@ -5,6 +5,7 @@ import { FoulAttachment } from '../../interfaces/foulInterfaces';
 import { useTranslation } from 'react-i18next';
 import { formatBase64String } from '../../utils/helpers';
 import './ImageViewer.css';
+import { useMediaQueryLessThan } from '../../hooks/useMediaQuery';
 
 type PreviewImageProps = {
   image: FoulAttachment;
@@ -51,6 +52,7 @@ type ImageViewerProps = {
 const ImageViewer = (props: ImageViewerProps) => {
   const { images } = props;
   const { t } = useTranslation();
+  const isLessThanM = useMediaQueryLessThan('m');
   const [currentImage, setCurrentImage] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
   const focusElement = useRef<HTMLInputElement | null>(null);
@@ -99,18 +101,31 @@ const ImageViewer = (props: ImageViewerProps) => {
             src={formatBase64String(images[currentImage])}
             className="imageViewer-dialog-image"
           />
-          <span className="imageViewer-dialog-text">
-            {t('imageViewer:image')} {currentImage + 1} / {images.length}
-          </span>
+          {!isLessThanM && (
+            <span className="imageViewer-dialog-text">
+              {t('imageViewer:image')} {currentImage + 1} / {images.length}
+            </span>
+          )}
         </Dialog.Content>
         <Dialog.ActionButtons className="imageViewer-button-container">
-          <Button onClick={previousImage} disabled={currentImage === 0}>
-            {t('imageViewer:previous-image')}
+          <Button
+            onClick={previousImage}
+            disabled={currentImage === 0}
+            className="imageViewer-button-previous">
+            {isLessThanM
+              ? t('common:previous')
+              : t('imageViewer:previous-image')}
           </Button>
+          {isLessThanM && (
+            <span className="imageViewer-dialog-text">
+              {currentImage + 1} / {images.length}
+            </span>
+          )}
           <Button
             onClick={nextImage}
-            disabled={currentImage === images.length - 1}>
-            {t('imageViewer:next-image')}
+            disabled={currentImage === images.length - 1}
+            className="imageViewer-button-next">
+            {isLessThanM ? t('common:next') : t('imageViewer:next-image')}
           </Button>
         </Dialog.ActionButtons>
       </Dialog>

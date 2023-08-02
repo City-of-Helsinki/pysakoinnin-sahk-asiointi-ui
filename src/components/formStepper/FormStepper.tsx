@@ -17,7 +17,6 @@ import {
 import { useTranslation } from 'react-i18next';
 import { ClientContext } from '../../client/ClientProvider';
 import { friendlyFormatIBAN } from 'ibantools';
-import useMobileWidth from '../../hooks/useMobileWidth';
 import useUserProfile from '../../hooks/useUserProfile';
 import FormContent from '../formContent/FormContent';
 import { createObjection, fileToBase64, formatDate } from '../../utils/helpers';
@@ -48,6 +47,7 @@ import ErrorLabel from '../errorLabel/ErrorLabel';
 import { ResponseCode } from '../../interfaces/foulInterfaces';
 import './FormStepper.css';
 import i18n from 'i18next';
+import { useMediaQueryLessThan } from '../../hooks/useMediaQuery';
 
 interface Props {
   initialSteps: Step[];
@@ -235,7 +235,7 @@ const FormStepper = (props: Props): React.ReactElement => {
         <div id="stepper">
           <Stepper
             className="stepper hide-on-print"
-            small={useMobileWidth()}
+            small={useMediaQueryLessThan('m')}
             language={i18n.language}
             onStepClick={(event, stepIndex) => dispatch(setActive(stepIndex))}
             selectedStep={activeStepIndex}
