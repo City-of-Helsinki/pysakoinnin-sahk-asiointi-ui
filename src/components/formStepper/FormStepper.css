@@ -55,22 +55,6 @@
     width: 100%;
   }
 
-  #button-previous {
-    grid-row: 2;
-  }
-
-  #button-next {
-    grid-row: 1;
-  }
-
-  #button-home {
-    grid-row: 3;
-  }
-
-  #button-print {
-    grid-row: 2;
-  }
-
   .button.home {
     margin-top: var(--spacing-xs);
   }
