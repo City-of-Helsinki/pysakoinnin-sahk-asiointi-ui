@@ -89,6 +89,7 @@ const FormStepper = (props: Props): React.ReactElement => {
   const dispatch = useAppDispatch();
   const { activeStepIndex, steps } = useSelector(selectStepperState);
   const formContent = useSelector(selectFormContent);
+  const isLessThanM = useMediaQueryLessThan('m');
   const selectedForm = formContent.selectedForm;
   const formError = formContent.formError;
   const responseCode =
@@ -256,6 +257,53 @@ const FormStepper = (props: Props): React.ReactElement => {
         </div>
         <div className="button-container">
           <div className={`button-wrapper ${lastStep ? 'submit' : ''}`}>
+            {isLessThanM && (
+              <div className="submit-and-print-button-wrapper">
+                {!lastStep ? (
+                  <Button
+                    id="button-next"
+                    className="button"
+                    iconRight={<IconArrowRight />}
+                    onClick={handleSubmit(handleNextClick)}
+                    variant="primary"
+                    disabled={
+                      activeStepIndex === 1 &&
+                      responseCode !== ResponseCode.Success
+                    }>
+                    {activeStepIndex === 1
+                      ? t('common:make-rectification')
+                      : t('common:next')}
+                  </Button>
+                ) : formContent.formSubmitted ? (
+                  <Button
+                    id="button-submitted"
+                    className="button"
+                    iconLeft={<IconThumbsUp />}
+                    variant="success">
+                    {t(`${formContent.selectedForm}:submit-success`)}
+                  </Button>
+                ) : (
+                  <Button
+                    id="button-submit"
+                    className="button submit"
+                    onClick={handleSubmit(handleFormSubmit)}
+                    variant="primary"
+                    disabled={formContent.submitDisabled}>
+                    {t(`${formContent.selectedForm}:submit`)}
+                  </Button>
+                )}
+                {lastStep && formContent.selectedForm !== 'due-date' && (
+                  <Button
+                    id="button-print"
+                    iconLeft={<IconPrinter />}
+                    onClick={handlePrint}
+                    variant="secondary"
+                    className="button print">
+                    {t('common:print')}
+                  </Button>
+                )}
+              </div>
+            )}
             <Button
               id="button-previous"
               className="button"
@@ -281,51 +329,53 @@ const FormStepper = (props: Props): React.ReactElement => {
                 {t('common:to-mainpage')}
               </Button>
             )}
-            <div className="submit-and-print-button-wrapper">
-              {lastStep && formContent.selectedForm !== 'due-date' && (
-                <Button
-                  id="button-print"
-                  iconLeft={<IconPrinter />}
-                  onClick={handlePrint}
-                  variant="secondary"
-                  className="button print">
-                  {t('common:print')}
-                </Button>
-              )}
-              {!lastStep ? (
-                <Button
-                  id="button-next"
-                  className="button"
-                  iconRight={<IconArrowRight />}
-                  onClick={handleSubmit(handleNextClick)}
-                  variant="primary"
-                  disabled={
-                    activeStepIndex === 1 &&
-                    responseCode !== ResponseCode.Success
-                  }>
-                  {activeStepIndex === 1
-                    ? t('common:make-rectification')
-                    : t('common:next')}
-                </Button>
-              ) : formContent.formSubmitted ? (
-                <Button
-                  id="button-submitted"
-                  className="button"
-                  iconLeft={<IconThumbsUp />}
-                  variant="success">
-                  {t(`${formContent.selectedForm}:submit-success`)}
-                </Button>
-              ) : (
-                <Button
-                  id="button-submit"
-                  className="button submit"
-                  onClick={handleSubmit(handleFormSubmit)}
-                  variant="primary"
-                  disabled={formContent.submitDisabled}>
-                  {t(`${formContent.selectedForm}:submit`)}
-                </Button>
-              )}
-            </div>
+            {!isLessThanM && (
+              <div className="submit-and-print-button-wrapper">
+                {lastStep && formContent.selectedForm !== 'due-date' && (
+                  <Button
+                    id="button-print"
+                    iconLeft={<IconPrinter />}
+                    onClick={handlePrint}
+                    variant="secondary"
+                    className="button print">
+                    {t('common:print')}
+                  </Button>
+                )}
+                {!lastStep ? (
+                  <Button
+                    id="button-next"
+                    className="button"
+                    iconRight={<IconArrowRight />}
+                    onClick={handleSubmit(handleNextClick)}
+                    variant="primary"
+                    disabled={
+                      activeStepIndex === 1 &&
+                      responseCode !== ResponseCode.Success
+                    }>
+                    {activeStepIndex === 1
+                      ? t('common:make-rectification')
+                      : t('common:next')}
+                  </Button>
+                ) : formContent.formSubmitted ? (
+                  <Button
+                    id="button-submitted"
+                    className="button"
+                    iconLeft={<IconThumbsUp />}
+                    variant="success">
+                    {t(`${formContent.selectedForm}:submit-success`)}
+                  </Button>
+                ) : (
+                  <Button
+                    id="button-submit"
+                    className="button submit"
+                    onClick={handleSubmit(handleFormSubmit)}
+                    variant="primary"
+                    disabled={formContent.submitDisabled}>
+                    {t(`${formContent.selectedForm}:submit`)}
+                  </Button>
+                )}
+              </div>
+            )}
           </div>
           {lastStep && formContent.formSubmitted && showSubmitNotification && (
             <Notification
