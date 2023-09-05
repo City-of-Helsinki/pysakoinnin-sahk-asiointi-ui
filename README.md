@@ -14,7 +14,7 @@ React UI for Pysäköinnin Asiointi e-services
 ### With Docker
 
 1. Install Docker if you don't already have it
-    - you can install [Docker Desktop](https://www.docker.com) from [here](https://www.docker.com)
+    - you can install Docker Desktop from [here](https://www.docker.com)
 2. start Docker Desktop in the background
 3. run `docker-compose up` in terminal
 4. App runs on `localhost:3000`
