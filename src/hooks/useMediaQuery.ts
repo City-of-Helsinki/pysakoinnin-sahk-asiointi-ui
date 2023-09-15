@@ -41,7 +41,7 @@ const useMediaQuery = (breakpointCheck: () => boolean): boolean => {
     window.addEventListener('resize', updateState);
     updateState();
     return () => window.removeEventListener('resize', updateState);
-  }, []);
+  }, [breakpointCheck]);
   return matches;
 };
 
