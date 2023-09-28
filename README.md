@@ -2,22 +2,22 @@
 
 React UI for Pysäköinnin Asiointi e-services
 
-## Running
+## Running locally
 
 ### With hot reload
 
-- Install dependencies with `yarn`
-- Run app with default webpack server `yarn start`
-- App runs on `localhost:3000`
+1. If you don't have Yarn installed, you can install it by following [these instructions](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable)
+2. Install dependencies by running the command `yarn install`
+3. Run app with default webpack server `yarn start`
+4. App runs on `localhost:3000`
 
 ### With Docker
 
-Requires Docker and docker-compose
-
-To start the app with compose
-- `docker-compose up`
-
-This will start the app on `localhost:3000`
+1. Install Docker if you don't already have it
+    - you can install Docker Desktop from [here](https://www.docker.com)
+2. start Docker Desktop in the background
+3. run `docker-compose up` in terminal
+4. App runs on `localhost:3000`
 
 ## Config
 

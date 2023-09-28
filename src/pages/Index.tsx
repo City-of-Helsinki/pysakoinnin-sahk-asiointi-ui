@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useCallback, useContext, useEffect } from 'react';
 import { ClientContext } from '../client/ClientProvider';
 import LoginComponent from '../components/Login';
 import PageContent from '../components/PageContent';
@@ -23,19 +23,19 @@ const Index = (): React.ReactElement => {
     userProfile &&
     Object.prototype.hasOwnProperty.call(userProfile, 'firstName');
 
-  const applyUserDefaultLang = () => {
+  const applyUserDefaultLang = useCallback(() => {
     const user = userProfile as UserProfile;
     const userLang = user.language;
     const convertedLang = convertHelsinkiProfileLang(userLang);
 
     if (convertedLang) changeLanguage(convertedLang);
-  };
+  }, [userProfile]);
 
   useEffect(() => {
     if (localStorage.getItem('lang') == null && isUser) {
       applyUserDefaultLang();
     }
-  }, [isUser]);
+  }, [isUser, applyUserDefaultLang]);
 
   return (
     <PageContent>
