@@ -1835,7 +1835,7 @@
     "@sentry/utils" "7.116.0"
     localforage "^1.8.1"
 
-"@sentry/react@^7.17.3":
+"@sentry/react@^7.75.1":
   version "7.116.0"
   resolved "https://registry.yarnpkg.com/@sentry/react/-/react-7.116.0.tgz#7157200c66675949b126feaa5de155fe83510dd8"
   integrity sha512-b7sYSIewK/h3dGzm7Rx6tBUzA6w7zw6m5rVIO3fWCy7T3xEUDggUaqklrFVHXUYx2yjzEgTFPg/Dd2NrSzua4w==

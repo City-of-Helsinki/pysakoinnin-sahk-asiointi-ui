@@ -6,7 +6,7 @@
   "dependencies": {
     "@apollo/client": "3.8.6",
     "@reduxjs/toolkit": "^1.9.5",
-    "@sentry/react": "^7.17.3",
+    "@sentry/react": "^7.75.1",
     "@sentry/tracing": "^7.75.1",
     "@testing-library/jest-dom": "^6.4.5",
     "@testing-library/react": "^12.1.5",
