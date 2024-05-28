@@ -115,6 +115,20 @@
   word-break: break-all;
 }
 
+.action-bar-item-list {
+  display: flex;
+  flex-direction: column;
+
+  a {
+    display: flex;
+    align-items: center;
+
+    &:not(:last-of-type) {
+      margin-bottom: var(--spacing-xs);
+    }
+  }
+}
+
 .navigationButton {
   background: none;
   border: 0;

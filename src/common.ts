@@ -66,6 +66,7 @@ export const convertHelsinkiProfileLang = (lang: string) => {
 
 export const changeLanguage = (lang: Language) => {
   i18n.changeLanguage(lang);
+
   localStorage.setItem('lang', lang);
   window.location.reload();
 };

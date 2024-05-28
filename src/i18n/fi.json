@@ -33,6 +33,10 @@
     "back-to-top": "Takaisin ylös",
     "contact-us": "Ota yhteyttä",
     "feedback": "Anna palautetta",
+    "navigation": {
+      "logo": "Helsingin kaupunki - logo",
+      "menuToggleAriaLabel": "Valikko"
+    },
     "login-prompt": {
       "title": "Istunto on päättynyt",
       "body": "Kirjaudu uudelleen sisään jatkaaksesi palvelun käyttöä.",
