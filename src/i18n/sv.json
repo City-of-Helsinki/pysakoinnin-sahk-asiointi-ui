@@ -33,6 +33,10 @@
     "back-to-top": "Tillbaka till toppen",
     "contact-us": "Kontakta",
     "feedback": "Ge respons",
+    "navigation": {
+      "logo": "Helsingfors stad - logo",
+      "menuToggleAriaLabel": "Menyn"
+    },
     "login-prompt": {
       "title": "Sessionen har avslutats",
       "body": "Logga in på nytt för att fortsätta använda tjänsten.",

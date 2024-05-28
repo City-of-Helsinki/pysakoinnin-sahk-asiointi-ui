@@ -1,5 +1,14 @@
 import React, { useState } from 'react';
-import { IconSignout, LogoLanguage, Navigation } from 'hds-react';
+import {
+  IconSignout,
+  Logo,
+  logoFi,
+  logoSv,
+  Header as HDSHeader,
+  IconUser,
+  IconCross,
+  Link
+} from 'hds-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useClient } from '../client/hooks';
 import styles from './styles.module.css';
@@ -35,22 +44,75 @@ const Header = (): React.ReactElement => {
   document.title = title;
   const userName = user ? `${user.given_name} ${user.family_name}` : '';
 
+  const languageOptions = React.useMemo(() => {
+    const languageLabels = {
+      fi: 'Suomi',
+      en: 'English',
+      sv: 'Svenska'
+    };
+
+    return Object.values(Language).map(language => ({
+      label: languageLabels[language],
+      value: language
+    }));
+  }, []);
+
   return (
-    <Navigation
+    <HDSHeader
       className="hide-on-print"
-      fixed={false}
-      logoLanguage={i18n.language as LogoLanguage}
-      menuToggleAriaLabel="Close menu"
-      theme="light"
-      title={title}
-      titleUrl="/"
-      skipTo="#content"
-      skipToContentLabel={t('common:skip-to-content-label')}>
-      <Navigation.Row variant="inline">
-        <Navigation.Item
+      theme={'light'}
+      onDidChangeLanguage={lang => changeLanguage(lang as Language)}
+      languages={languageOptions}
+      defaultLanguage={i18n.language}>
+      <HDSHeader.SkipLink
+        skipTo="#content"
+        label={t('common:skip-to-content-label')}
+      />
+      <HDSHeader.ActionBar
+        title={title}
+        titleHref="/"
+        logoHref="/"
+        frontPageLabel={t('common:frontpage')}
+        logo={
+          <Logo
+            src={i18n.language === 'sv' ? logoSv : logoFi}
+            alt={t('navigation.logo')}
+            size="full"
+          />
+        }
+        menuButtonAriaLabel={t('navigation.menuToggleAriaLabel')}>
+        <HDSHeader.LanguageSelector ariaLabel={i18n.language.toUpperCase()} />
+        {initialized && authenticated && (
+          <HDSHeader.ActionBarItem
+            fixedRightPosition
+            id="action-bar-user"
+            icon={<IconUser ariaHidden />}
+            closeIcon={<IconCross ariaHidden />}
+            closeLabel={t('common:close')}
+            label={userName}>
+            <div className={styles['action-bar-item-list']}>
+              <Link
+                external
+                href={`${config.ui.profileUIUrl}/loginsso`}
+                className={styles['link-to-profile']}>
+                Helsinki-profiili
+              </Link>
+              <Link
+                href="/logout"
+                onClick={(): void => client.logout()}
+                className={styles.navigationButton}
+                iconLeft={<IconSignout ariaHidden />}>
+                {t('common:log-out')}
+              </Link>
+            </div>
+          </HDSHeader.ActionBarItem>
+        )}
+      </HDSHeader.ActionBar>
+      <HDSHeader.NavigationMenu>
+        <HDSHeader.Link
+          key="frontpage"
           active={active === 'frontpage'}
           label={t('common:frontpage')}
-          key="frontpage"
           tabIndex={0}
           onClick={(): void => {
             setActive('frontpage');
@@ -58,52 +120,8 @@ const Header = (): React.ReactElement => {
           }}
           data-test-id="header-link-frontpage"
         />
-      </Navigation.Row>
-      <Navigation.Actions>
-        {initialized && (
-          <Navigation.User
-            authenticated={authenticated}
-            label={t('common:log-in')}
-            onSignIn={(): void => client.login()}
-            userName={userName}>
-            <Navigation.Item
-              href={`${config.ui.profileUIUrl}/loginsso`}
-              label="Helsinki-profiili"
-              target="_blank"
-              className={styles['link-to-profile']}
-            />
-            <Navigation.Item
-              onClick={(): void => client.logout()}
-              variant="supplementary"
-              label={t('common:log-out')}
-              href="/logout"
-              className={styles.navigationButton}
-              icon={<IconSignout aria-hidden />}
-            />
-          </Navigation.User>
-        )}
-        <Navigation.LanguageSelector label={i18n.language.toUpperCase()}>
-          <Navigation.Item
-            onClick={() => changeLanguage(Language.FI)}
-            href="#"
-            label="Suomi"
-            lang={Language.FI}
-          />
-          <Navigation.Item
-            onClick={() => changeLanguage(Language.EN)}
-            href="#"
-            label="English"
-            lang={Language.EN}
-          />
-          <Navigation.Item
-            onClick={() => changeLanguage(Language.SV)}
-            href="#"
-            label="Svenska"
-            lang={Language.SV}
-          />
-        </Navigation.LanguageSelector>
-      </Navigation.Actions>
-    </Navigation>
+      </HDSHeader.NavigationMenu>
+    </HDSHeader>
   );
 };
 

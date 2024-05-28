@@ -33,6 +33,10 @@
     "back-to-top": "Back to top",
     "contact-us": "Contact us",
     "feedback": "Give feedback",
+    "navigation": {
+      "logo": "City of Helsinki - logo",
+      "menuToggleAriaLabel": "Menu"
+    },
     "login-prompt": {
       "title": "The session has ended",
       "body": "Log in to continue.",
