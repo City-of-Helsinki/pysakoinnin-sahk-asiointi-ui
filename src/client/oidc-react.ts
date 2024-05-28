@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
-import Oidc, {
+import {
+  Log,
   User,
   UserManager,
   UserManagerSettings,
   WebStorageStateStore
-} from 'oidc-client';
+} from 'oidc-client-ts';
 import config from '../config';
 
 import {
@@ -41,9 +42,15 @@ function bindEvents(
   manager.events.addUserLoaded((): void =>
     eventTrigger(ClientEvent.CLIENT_AUTH_SUCCESS)
   );
-  manager.events.addUserUnloaded((): boolean => onAuthChange(false));
-  manager.events.addUserSignedOut((): boolean => onAuthChange(false));
-  manager.events.addUserSessionChanged((): boolean => onAuthChange(false));
+  manager.events.addUserUnloaded(() => {
+    onAuthChange(false);
+  });
+  manager.events.addUserSignedOut(() => {
+    onAuthChange(false);
+  });
+  manager.events.addUserSessionChanged(() => {
+    onAuthChange(false);
+  });
   manager.events.addSilentRenewError((renewError?: Error): void => {
     const errorObj = renewError || undefined;
     const message = errorObj ? errorObj.message : '';
@@ -75,8 +82,11 @@ export function createOidcClient(): Client {
     userStore: new WebStorageStateStore({ store: window.sessionStorage }),
     authority: config.config.authority,
     automaticSilentRenew: config.config.automaticSilentRenew,
+    validateSubOnSilentRenew: false,
+    includeIdTokenInSilentRenew: false,
+    monitorSession: true,
     client_id: config.config.clientId,
-    redirect_uri: getLocationBasedUri(config.config.callbackPath),
+    redirect_uri: `${getLocationBasedUri(config.config.callbackPath)}`,
     response_type: config.config.responseType,
     scope: config.config.scope,
     silent_redirect_uri: getLocationBasedUri(config.config.silentAuthPath),
@@ -99,8 +109,8 @@ export function createOidcClient(): Client {
     setError
   } = clientFunctions;
   if (config.config.enableLogging) {
-    Oidc.Log.logger = console;
-    Oidc.Log.level = Oidc.Log.DEBUG;
+    Log.setLogger(console);
+    Log.setLevel(Log.DEBUG);
   }
 
   const getSessionStorageData = (): AnyObject | undefined => {
