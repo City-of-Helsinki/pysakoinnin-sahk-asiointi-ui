@@ -92,7 +92,8 @@
   },
   "resolutions": {
     "@babel/traverse": "7.23.2",
-    "braces": "3.0.3"
+    "braces": "3.0.3",
+    "micromatch": "4.0.6"
   },
   "jest": {
     "transformIgnorePatterns": [
