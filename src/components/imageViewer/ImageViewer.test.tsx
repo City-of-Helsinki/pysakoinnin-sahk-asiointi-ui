@@ -1,8 +1,7 @@
 import React from 'react';
 import ImageViewer from './ImageViewer';
 import { fireEvent, render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
-import { axe } from 'jest-axe';
+import { axe } from 'vitest-axe';
 import { formatBase64String } from '../../utils/helpers';
 import mockFoulData from '../../mocks/mockFoulData';
 

@@ -1,11 +1,10 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { axe } from 'jest-axe';
+import { axe } from 'vitest-axe';
 import ReimbursementSummary from './ReimbursementSummary';
 import mockTransferData from '../../mocks/mockTransferData';
 import { Provider } from 'react-redux';
 import store from '../../store';
-import '@testing-library/jest-dom';
 
 describe('reimbursement summary', () => {
   test('passes a11y validation', async () => {

@@ -71,7 +71,7 @@ const LandingPage = (): React.ReactElement => {
             )}`}
             linkAriaLabel={t(`landing-page:links:${link.name}`)}
             href={link.value}
-            heading={t(`landing-page:links:${link.name}`)}
+            heading={t<string>(`landing-page:links:${link.name}`)}
           />
         ))}
       </div>
@@ -79,7 +79,7 @@ const LandingPage = (): React.ReactElement => {
       <div className="rectification-list-filters">
         <p className="rectification-list-sent-count">
           <b>{documentListLength}</b>{' '}
-          {t(`landing-page:list:status:${filter.value}:conjugated`)}
+          {t<string>(`landing-page:list:status:${filter.value}:conjugated`)}
         </p>
         <Button
           className="rectification-list-sort-button"

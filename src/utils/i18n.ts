@@ -6,7 +6,7 @@ import sv from '../i18n/sv.json';
 
 const resources = { fi, en, sv };
 
-const lng = localStorage.getItem('lang');
+const lng = localStorage.getItem('lang') || undefined;
 
 // eslint-disable-next-line import/no-named-as-default-member
 i18n.use(initReactI18next).init({

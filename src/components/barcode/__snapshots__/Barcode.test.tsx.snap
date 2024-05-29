@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Component matches snapshot 1`] = `
+exports[`Component > matches snapshot 1`] = `
 <div>
   <div
     class="barcode-container "
@@ -25,24 +25,19 @@ exports[`Component matches snapshot 1`] = `
         class="Button-module_icon__O-h7R button_hds-icon__17j8Z"
       >
         <svg
+          aria-hidden="true"
+          aria-label="copy"
           class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
           role="img"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <g
-            fill="none"
+          <path
+            clip-rule="evenodd"
+            d="M6 10V12H5V18H12V17H14V19C14 19.5523 13.5523 20 13 20H4C3.44772 20 3 19.5523 3 19V11C3 10.4477 3.44772 10 4 10H6ZM20 4C20.5523 4 21 4.44772 21 5V15C21 15.5523 20.5523 16 20 16H8C7.44772 16 7 15.5523 7 15V5C7 4.44772 7.44772 4 8 4H20ZM19 6H9V14H19V6Z"
+            fill="currentColor"
             fill-rule="evenodd"
-          >
-            <rect
-              height="24"
-              width="24"
-            />
-            <path
-              d="M6,10 L6,12 L5,12 L5,18 L12,18 L12,17 L14,17 L14,19 C14,19.5522847 13.5522847,20 13,20 L4,20 C3.44771525,20 3,19.5522847 3,19 L3,11 C3,10.4477153 3.44771525,10 4,10 L6,10 Z M20,4 C20.5522847,4 21,4.44771525 21,5 L21,15 C21,15.5522847 20.5522847,16 20,16 L8,16 C7.44771525,16 7,15.5522847 7,15 L7,5 C7,4.44771525 7.44771525,4 8,4 L20,4 Z M19,6 L9,6 L9,14 L19,14 L19,6 Z"
-              fill="currentColor"
-            />
-          </g>
+          />
         </svg>
       </div>
       <span

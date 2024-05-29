@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Component in moved car form matches snapshot 1`] = `
+exports[`Component in moved car form > matches snapshot 1`] = `
 <div>
   <p>
     Pakolliset kentät on merkitty tähdellä *
@@ -741,7 +741,7 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
 </div>
 `;
 
-exports[`Component in parking fine appeal form matches snapshot 1`] = `
+exports[`Component in parking fine appeal form > matches snapshot 1`] = `
 <div>
   <p>
     Pakolliset kentät on merkitty tähdellä *

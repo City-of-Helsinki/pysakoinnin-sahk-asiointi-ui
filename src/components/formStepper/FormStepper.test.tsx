@@ -1,18 +1,17 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
-import { axe } from 'jest-axe';
+import { axe } from 'vitest-axe';
 import { I18nextProvider } from 'react-i18next';
 import i18n from '../../utils/i18n';
 import FormStepper from './FormStepper';
 import { Provider } from 'react-redux';
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 import store from '../../store';
-import '@testing-library/jest-dom';
 import { t } from 'i18next';
 import { BrowserRouter } from 'react-router-dom';
 
-const mockAction = jest.fn(() => {
+const mockAction = vi.fn(() => {
   // Mock function
 });
 
@@ -124,17 +123,19 @@ describe('form stepper', () => {
     // 'previous' button should have role 'link' instead of 'button'
     // since it takes user to the landing page
     const previousButton = screen.queryByRole('button', {
-      name: t('common:previous')
+      name: t<string>('common:previous')
     });
     expect(previousButton).not.toBeInTheDocument();
 
     const previousButtonLink = screen.queryByRole('link', {
-      name: t('common:previous')
+      name: t<string>('common:previous')
     });
     expect(previousButtonLink).toBeInTheDocument();
     expect(previousButtonLink).toBeEnabled();
 
-    const nextButton = screen.getByRole('button', { name: t('common:next') });
+    const nextButton = screen.getByRole('button', {
+      name: t<string>('common:next')
+    });
     expect(nextButton).toBeInTheDocument();
     expect(nextButton).toBeEnabled();
 
@@ -202,12 +203,12 @@ describe('form stepper', () => {
 
     // Check that both buttons are visible but submit button is disabled by default
     const previousButton = screen.getByRole('button', {
-      name: t('common:previous')
+      name: t<string>('common:previous')
     });
     expect(previousButton).toBeInTheDocument();
 
     const submitButton = screen.getByRole('button', {
-      name: t('due-date:submit')
+      name: t<string>('due-date:submit')
     });
     expect(submitButton).toBeInTheDocument();
     expect(submitButton).toBeDisabled();

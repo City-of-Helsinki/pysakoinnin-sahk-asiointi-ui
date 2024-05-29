@@ -3,7 +3,7 @@
 import React, { useContext } from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import { renderHook } from '@testing-library/react-hooks';
-import { axe } from 'jest-axe';
+import { axe } from 'vitest-axe';
 import { I18nextProvider } from 'react-i18next';
 import i18n from '../../utils/i18n';
 import ExtendDueDate from './ExtendDueDate';
@@ -11,7 +11,6 @@ import ExtendDueDateForm from './ExtendDueDateForm';
 import { Provider } from 'react-redux';
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 import store from '../../store';
-import '@testing-library/jest-dom';
 import { t } from 'i18next';
 import { formatDate } from '../../utils/helpers';
 import { ClientContext } from '../../client/ClientProvider';
@@ -47,7 +46,7 @@ describe('extend due date form', () => {
 
       // Form title is visible
       const formTitle = screen.getByRole('heading', {
-        name: t('due-date:title')
+        name: t<string>('due-date:title')
       });
       expect(formTitle).toBeInTheDocument();
 
@@ -124,32 +123,36 @@ describe('extend due date form', () => {
         const refNumberEl = screen.getByTestId('refNumber');
         expect(refNumberEl).toBeInTheDocument();
         expect(refNumberEl).toHaveTextContent(
-          t('common:fine-info:ref-number:label')
+          t<string>('common:fine-info:ref-number:label')
         );
 
         const regNumberEl = screen.getByTestId('regNumber');
         expect(regNumberEl).toBeInTheDocument();
         expect(regNumberEl).toHaveTextContent(
-          t('common:fine-info:reg-number:label')
+          t<string>('common:fine-info:reg-number:label')
         );
 
         const sumEl = screen.getByTestId('sum');
         expect(sumEl).toBeInTheDocument();
-        expect(sumEl).toHaveTextContent(t('common:fine-info:sum'));
+        expect(sumEl).toHaveTextContent(t<string>('common:fine-info:sum'));
 
         const dueDateEl = screen.getByTestId('dueDate');
         expect(dueDateEl).toBeInTheDocument();
-        expect(dueDateEl).toHaveTextContent(t('common:fine-info:due-date'));
+        expect(dueDateEl).toHaveTextContent(
+          t<string>('common:fine-info:due-date')
+        );
         expect(dueDateEl).toHaveTextContent(formatDate(dueDate));
 
         const newDueDateEl = screen.getByTestId('newDueDate');
         expect(newDueDateEl).toBeInTheDocument();
-        expect(newDueDateEl).toHaveTextContent(t('due-date:new-due-date'));
+        expect(newDueDateEl).toHaveTextContent(
+          t<string>('due-date:new-due-date')
+        );
         expect(newDueDateEl).toHaveTextContent(formatDate(newDueDate));
 
         // Due date notification is visible
         const infoNotificationHeading = screen.queryByRole('heading', {
-          name: t('due-date:notifications:allowed:label')
+          name: t<string>('due-date:notifications:allowed:label')
         });
         const infoNotificationBody = screen.getByText(
           t('due-date:notifications:allowed:text') as string
@@ -158,7 +161,7 @@ describe('extend due date form', () => {
         expect(infoNotificationBody).toBeVisible();
 
         const closeNotificationButton = screen.getByRole('button', {
-          name: t('common:close-notification')
+          name: t<string>('common:close-notification')
         });
         expect(closeNotificationButton).toBeVisible();
 
@@ -173,7 +176,7 @@ describe('extend due date form', () => {
 
         // Checkbox is visible and clickable
         const checkbox = screen.getByRole('checkbox', {
-          name: t('common:email-confirmation')
+          name: t<string>('common:email-confirmation')
         });
         expect(checkbox).toBeInTheDocument();
         expect(checkbox).not.toBeChecked();
@@ -231,7 +234,7 @@ describe('extend due date form', () => {
 
           // Due date notification is visible
           const infoNotificationHeading = screen.getByRole('heading', {
-            name: t('due-date:notifications:not-allowed:label')
+            name: t<string>('due-date:notifications:not-allowed:label')
           });
           const infoNotificationBody = screen.getByText(
             t('due-date:errors:due-date-past') as string
@@ -245,22 +248,24 @@ describe('extend due date form', () => {
           const refNumberEl = screen.getByTestId('refNumber');
           expect(refNumberEl).toBeInTheDocument();
           expect(refNumberEl).toHaveTextContent(
-            t('common:fine-info:ref-number:label')
+            t<string>('common:fine-info:ref-number:label')
           );
 
           const regNumberEl = screen.getByTestId('regNumber');
           expect(regNumberEl).toBeInTheDocument();
           expect(regNumberEl).toHaveTextContent(
-            t('common:fine-info:reg-number:label')
+            t<string>('common:fine-info:reg-number:label')
           );
 
           const sumEl = screen.getByTestId('sum');
           expect(sumEl).toBeInTheDocument();
-          expect(sumEl).toHaveTextContent(t('common:fine-info:sum'));
+          expect(sumEl).toHaveTextContent(t<string>('common:fine-info:sum'));
 
           const dueDateEl = screen.getByTestId('dueDate');
           expect(dueDateEl).toBeInTheDocument();
-          expect(dueDateEl).toHaveTextContent(t('common:fine-info:due-date'));
+          expect(dueDateEl).toHaveTextContent(
+            t<string>('common:fine-info:due-date')
+          );
           expect(dueDateEl).toHaveTextContent(formatDate(dueDate));
 
           // New due date field not visible when due date cannot be extended
@@ -269,7 +274,7 @@ describe('extend due date form', () => {
 
           // Checkbox is visible but not clickable
           const checkbox = screen.getByRole('checkbox', {
-            name: t('common:email-confirmation')
+            name: t<string>('common:email-confirmation')
           });
           expect(checkbox).toBeInTheDocument();
           expect(checkbox).toBeDisabled();
@@ -305,7 +310,7 @@ describe('extend due date form', () => {
 
           // Due date notification is visible
           const infoNotificationHeading = screen.getByRole('heading', {
-            name: t('due-date:notifications:not-allowed:label')
+            name: t<string>('due-date:notifications:not-allowed:label')
           });
           const infoNotificationBody = screen.getByText(
             t('due-date:errors:already-extended') as string
@@ -345,7 +350,7 @@ describe('extend due date form', () => {
 
           // Due date notification is visible
           const infoNotificationHeading = screen.getByRole('heading', {
-            name: t('due-date:notifications:not-allowed:label')
+            name: t<string>('due-date:notifications:not-allowed:label')
           });
           const infoNotificationBody = screen.getByText(
             t('due-date:errors:default') as string

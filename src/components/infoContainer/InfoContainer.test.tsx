@@ -1,10 +1,9 @@
 import React from 'react';
 import { render, waitFor } from '@testing-library/react';
-import { axe } from 'jest-axe';
+import { axe } from 'vitest-axe';
 import InfoContainer from './InfoContainer';
 import { Provider } from 'react-redux';
 import store from '../../store';
-import '@testing-library/jest-dom';
 import mockFoulData from '../../mocks/mockFoulData';
 import mockTransferData from '../../mocks/mockTransferData';
 import { FormId } from '../formContent/formContentSlice';

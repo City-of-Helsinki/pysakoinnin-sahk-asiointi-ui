@@ -4,7 +4,7 @@ import RectificationForm from './RectificationForm';
 import { ObjectionForm } from '../../interfaces/objectionInterfaces';
 import { Provider } from 'react-redux';
 import { configureStore, createSlice } from '@reduxjs/toolkit';
-import { axe } from 'jest-axe';
+import { axe } from 'vitest-axe';
 import { renderHook } from '@testing-library/react-hooks';
 import { useForm } from 'react-hook-form';
 import { ClientContext } from '../../client/ClientProvider';
@@ -15,7 +15,7 @@ const { result } = renderHook(() => useForm<ObjectionForm>());
 const control = result.current.control;
 const values = result.current.getValues;
 
-const mockAction = jest.fn(() => {
+const mockAction = vi.fn(() => {
   // Mock function
 });
 

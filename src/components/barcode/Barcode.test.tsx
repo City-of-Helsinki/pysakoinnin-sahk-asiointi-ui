@@ -1,7 +1,7 @@
 import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import Barcode from './Barcode';
-import { axe } from 'jest-axe';
+import { axe } from 'vitest-axe';
 
 describe('Component', () => {
   it('matches snapshot', () => {
@@ -11,13 +11,14 @@ describe('Component', () => {
 
   it('passes a11y validation', async () => {
     const { container } = render(<Barcode barcode="test-123" />);
+
     expect(await axe(container)).toHaveNoViolations();
   });
 
   it('copies barcode to clipboard', async () => {
     Object.assign(window.navigator, {
       clipboard: {
-        writeText: jest.fn().mockImplementation(() => Promise.resolve())
+        writeText: vi.fn().mockImplementation(() => Promise.resolve())
       }
     });
 

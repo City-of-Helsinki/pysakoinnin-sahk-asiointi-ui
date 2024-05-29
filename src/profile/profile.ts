@@ -1,6 +1,5 @@
 import to from 'await-to-js';
 import { GraphQLError } from 'graphql';
-import { loader } from 'graphql.macro';
 import { useCallback } from 'react';
 import { ApolloError } from '@apollo/client';
 import {
@@ -16,6 +15,8 @@ import useAuthorizedApiRequests, {
   AuthorizedRequest
 } from '../apiAccessTokens/useAuthorizedApiRequests';
 import { JWTPayload } from '../client';
+
+import { MY_PROFILE_QUERY } from '../graphql/MyProfileQuery';
 
 let profileGqlClient: GraphQLClient;
 
@@ -76,7 +77,6 @@ export async function getProfileData(
       )
     };
   }
-  const MY_PROFILE_QUERY = loader('../graphql/MyProfileQuery.graphql');
   const [error, result]: [
     Error | ApolloError | null,
     ProfileQueryResult | undefined

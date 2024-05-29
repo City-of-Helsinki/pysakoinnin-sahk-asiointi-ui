@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, waitFor } from '@testing-library/react';
-import { axe } from 'jest-axe';
+import { axe } from 'vitest-axe';
 import RectificationSummary from './RectificationSummary';
 import store from '../../store';
 import { Provider } from 'react-redux';

@@ -46,7 +46,7 @@ const Barcode = (props: BarcodeProps) => {
           onClose={() => setCopySuccess(false)}
           type="success"
           position="top-right"
-          notificationAriaLabel={t('common:barcode:toast-body')}>
+          notificationAriaLabel={t<string>('common:barcode:toast-body')}>
           {t('common:barcode:toast-body')}
         </Notification>
       )}

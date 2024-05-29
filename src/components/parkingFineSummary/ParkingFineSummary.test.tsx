@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { axe } from 'jest-axe';
+import { axe } from 'vitest-axe';
 import ParkingFineSummary from './ParkingFineSummary';
 import mockFoulData from '../../mocks/mockFoulData';
 import { Provider } from 'react-redux';

@@ -8,11 +8,11 @@
     "plugin:import/errors",
     "plugin:import/warnings",
     "plugin:import/typescript",
-    "plugin:jest/recommended",
     "plugin:import/errors",
     "plugin:import/warnings",
     "plugin:import/typescript",
     "plugin:jsx-a11y/recommended",
+    "plugin:vitest-globals/recommended",
     "plugin:prettier/recommended"
     // this should always be the last item on this array
   ],
@@ -20,7 +20,6 @@
     "react",
     "@typescript-eslint",
     "prettier",
-    "jest",
     "import",
     "sonarjs",
     "jsx-a11y"
@@ -85,12 +84,6 @@
         ]
       }
     ],
-    "jest/expect-expect": "off",
-    "jest/valid-expect": "off",
-    "jest/no-standalone-expect": "off",
-    "jest/no-mocks-import": "off",
-    "jest/no-conditional-expect": "off",
-    "jest/valid-title": "off",
     "import/no-named-as-default": "off"
   },
   "settings": {
@@ -113,13 +106,10 @@
   },
   "env": {
     "browser": true,
-    "jest": true,
-    "node": true
+    "node": true,
+    "vitest-globals/env": true
   },
   "parserOptions": {
-    "project": [
-      "./tsconfig.json",
-      "./tsconfig.eslint.json"
-    ]
+    "project": "./tsconfig.json"
   }
 }

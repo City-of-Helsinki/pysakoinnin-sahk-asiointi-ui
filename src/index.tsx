@@ -5,7 +5,7 @@ import * as Sentry from '@sentry/react';
 import { Integrations } from '@sentry/tracing';
 
 import './index.css';
-import './utils/i18n.js';
+import './utils/i18n';
 import BrowserApp from './BrowserApp';
 // eslint-disable-next-line import/no-namespace
 import * as serviceWorker from './serviceWorker';

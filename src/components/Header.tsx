@@ -80,7 +80,7 @@ const Header = (): React.ReactElement => {
             size="full"
           />
         }
-        menuButtonAriaLabel={t('navigation.menuToggleAriaLabel')}>
+        menuButtonAriaLabel={t<string>('navigation.menuToggleAriaLabel')}>
         <HDSHeader.LanguageSelector ariaLabel={i18n.language.toUpperCase()} />
         {initialized && authenticated && (
           <HDSHeader.ActionBarItem
@@ -88,7 +88,7 @@ const Header = (): React.ReactElement => {
             id="action-bar-user"
             icon={<IconUser ariaHidden />}
             closeIcon={<IconCross ariaHidden />}
-            closeLabel={t('common:close')}
+            closeLabel={t<string>('common:close')}
             label={userName}>
             <div className={styles['action-bar-item-list']}>
               <Link
