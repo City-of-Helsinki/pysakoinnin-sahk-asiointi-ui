@@ -197,7 +197,13 @@ export function createOidcClient(): Client {
               type: ClientError.AUTH_ERROR,
               message: reason
             });
-            reject(errorData);
+
+            if (errorData) {
+              reject(errorData);
+            }
+
+            reject(new Error(reason));
+
             return;
           }
           resolve(undefined);
@@ -240,7 +246,7 @@ export function createOidcClient(): Client {
           onAuthChange(true);
           resolve(oidcUserAsClientUser);
         })
-        .catch(e => {
+        .catch((e: Error) => {
           setError({
             type: ClientError.AUTH_ERROR,
             message: e && e.toString()
@@ -263,7 +269,7 @@ export function createOidcClient(): Client {
           setStoredUser(oidcUserAsClientUser);
           resolve(oidcUserAsClientUser as ClientUser);
         })
-        .catch(e => {
+        .catch((e: Error) => {
           setStoredUser(undefined);
           setError({
             type: ClientError.LOAD_ERROR,

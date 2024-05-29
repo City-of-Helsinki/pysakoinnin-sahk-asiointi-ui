@@ -392,33 +392,31 @@ const RectificationForm: FC<Props> = ({
               maxLength: rectificationMaxLength
             }}
             render={({ field, fieldState }) => (
-              <>
-                <TextArea
-                  {...field}
-                  label={t('rectificationForm:rectification-content')}
-                  required
-                  id="rectification-content"
-                  className="rectification-textarea"
-                  helperText={`${
-                    field.value?.length
-                  }/${rectificationMaxLength} ${t('common:characters')}`}
-                  errorText={
-                    field.value && field.value.length > rectificationMaxLength
-                      ? t<string>(
-                          'rectificationForm:errors:description-over-limit'
-                        )
-                      : fieldState.error
-                      ? t<string>('common:required-field')
-                      : ''
-                  }
-                  invalid={
-                    !!fieldState.error ||
-                    (field.value
-                      ? field.value.length > rectificationMaxLength
-                      : false)
-                  }
-                />
-              </>
+              <TextArea
+                {...field}
+                label={t('rectificationForm:rectification-content')}
+                required
+                id="rectification-content"
+                className="rectification-textarea"
+                helperText={`${
+                  field.value?.length
+                }/${rectificationMaxLength} ${t('common:characters')}`}
+                errorText={
+                  field.value && field.value.length > rectificationMaxLength
+                    ? t<string>(
+                        'rectificationForm:errors:description-over-limit'
+                      )
+                    : fieldState.error
+                    ? t<string>('common:required-field')
+                    : ''
+                }
+                invalid={
+                  !!fieldState.error ||
+                  (field.value
+                    ? field.value.length > rectificationMaxLength
+                    : false)
+                }
+              />
             )}
           />
 
