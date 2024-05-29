@@ -112,8 +112,8 @@ const ExtendDueDateForm = (): React.ReactElement => {
           size="M"
           external
           openInNewTab
-          openInExternalDomainAriaLabel={t('common:aria:open-external')}
-          openInNewTabAriaLabel={t('common:aria:open-new-tab')}>
+          openInExternalDomainAriaLabel={t<string>('common:aria:open-external')}
+          openInNewTabAriaLabel={t<string>('common:aria:open-new-tab')}>
           {t('common:helsinki-profile-link')}
         </Link>
       </p>

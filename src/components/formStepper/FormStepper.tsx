@@ -253,7 +253,7 @@ const FormStepper = (props: Props): React.ReactElement => {
           formFiles={files}
         />
         <div className="form-error-label">
-          {formError && <ErrorLabel text={t(formError)} />}
+          {formError && <ErrorLabel text={t<string>(formError)} />}
         </div>
         <div className="button-container">
           <div className={`button-wrapper ${lastStep ? 'submit' : ''}`}>

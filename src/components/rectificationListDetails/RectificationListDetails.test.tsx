@@ -1,14 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unnecessary-type-assertion */
 import React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
-import { axe } from 'jest-axe';
+import { axe } from 'vitest-axe';
 import { I18nextProvider } from 'react-i18next';
 import i18n from '../../utils/i18n';
 import RectificationListDetails from './RectificationListDetails';
 import mockObjectionDocumentList from '../../mocks/mockObjectionDocumentList';
 import { Provider } from 'react-redux';
 import store from '../../store';
-import '@testing-library/jest-dom';
 import { t } from 'i18next';
 import { FormId } from '../formContent/formContentSlice';
 
@@ -41,7 +40,7 @@ describe('rectification list details', () => {
     expect(rectificationSummaryDialog).not.toBeInTheDocument();
 
     const showFormButton = screen.getByRole('button', {
-      name: t('landing-page:list:details:show-form')
+      name: t<string>('landing-page:list:details:show-form')
     });
     expect(showFormButton).toBeVisible();
     fireEvent.click(showFormButton);
@@ -56,8 +55,12 @@ describe('rectification list details', () => {
     expect(rectificationSummaryContent).toBeVisible();
 
     // Dialog buttons visible
-    let closeButton = screen.getByRole('button', { name: t('common:close') });
-    const printButton = screen.getByRole('button', { name: t('common:print') });
+    let closeButton = screen.getByRole('button', {
+      name: t<string>('common:close')
+    });
+    const printButton = screen.getByRole('button', {
+      name: t<string>('common:print')
+    });
     expect(closeButton).toBeVisible();
     expect(printButton).toBeVisible();
 
@@ -76,7 +79,9 @@ describe('rectification list details', () => {
     rectificationSummaryDialog = screen.getByRole('dialog');
     expect(rectificationSummaryDialog).toBeVisible();
 
-    closeButton = screen.getByRole('button', { name: t('common:close') });
+    closeButton = screen.getByRole('button', {
+      name: t<string>('common:close')
+    });
     fireEvent.click(closeButton);
 
     rectificationSummaryDialog = screen.queryByRole('dialog');

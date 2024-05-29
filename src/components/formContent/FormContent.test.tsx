@@ -3,20 +3,19 @@ import { Provider } from 'react-redux';
 import { render, waitFor } from '@testing-library/react';
 import { renderHook } from '@testing-library/react-hooks';
 import { useForm } from 'react-hook-form';
-import { axe } from 'jest-axe';
+import { axe } from 'vitest-axe';
 import FormContent from './FormContent';
 import { ObjectionForm } from '../../interfaces/objectionInterfaces';
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 import { ClientContext } from '../../client/ClientProvider';
 import store from '../../store';
-import '@testing-library/jest-dom';
 import mockFoulData from '../../mocks/mockFoulData';
 import mockTransferData from '../../mocks/mockTransferData';
 
 // ClientContext needs to be added here since the tests don't get it from FormStepper
 renderHook(() => useContext(ClientContext));
 
-const mockAction = jest.fn(() => {
+const mockAction = vi.fn(() => {
   // Mock function
 });
 

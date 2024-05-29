@@ -1,37 +1,30 @@
-/* eslint-disable sonarjs/no-duplicate-string */
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { GlobalWithFetchMock } from 'jest-fetch-mock';
+import createFetchMock from 'vitest-fetch-mock';
 import { AnyFunction } from './common';
-import { toHaveNoViolations } from 'jest-axe';
-import './utils/i18n.js';
+import '@testing-library/jest-dom/vitest';
+import 'vitest-axe/extend-expect';
+import './utils/i18n';
+// eslint-disable-next-line import/no-namespace
+import * as matchers from 'vitest-axe/matchers';
 
-expect.extend(toHaveNoViolations);
+import { expect, vi } from 'vitest';
+expect.extend(matchers);
 
-// eslint-disable-next-line no-magic-numbers
-jest.setTimeout(10000);
+// Load generated runtime configuration to be available in tests
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+require('../public/test-env-config');
 
-const customGlobal: GlobalWithFetchMock = global as GlobalWithFetchMock;
-// eslint-disable-next-line import/no-extraneous-dependencies
-customGlobal.fetch = require('jest-fetch-mock');
+const fetchMocker = createFetchMock(vi);
+fetchMocker.enableMocks();
 
-customGlobal.fetchMock = customGlobal.fetch;
+vi.mock('react-router', async importActual => {
+  const mod = await importActual();
 
-jest.mock('react-router', () => ({
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore: expected ts type error
-  ...jest.requireActual('react-router'),
-  useHistory: (): Record<string, AnyFunction> => ({
-    push: jest.fn()
-  })
-}));
-
-jest.mock('./config', () => {
-  jest.requireActual('../public/test-env-config');
-  return jest.requireActual('./config');
+  return {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore: expected ts type error
+    ...mod,
+    useHistory: (): Record<string, AnyFunction> => ({
+      push: vi.fn()
+    })
+  };
 });
-
-window._env_ = {
-  REACT_APP_API_URL: 'http://localhost:8000',
-  REACT_APP_API_BACKEND_TOKEN_URL: 'http://localhost:8000',
-  REACT_APP_PROFILE_AUDIENCE: 'http://localhost:8000'
-};

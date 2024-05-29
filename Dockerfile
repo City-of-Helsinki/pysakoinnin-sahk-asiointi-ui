@@ -30,6 +30,8 @@ RUN yarn policies set-version $YARN_VERSION
 
 # Copy package.json and package-lock.json/yarn.lock files
 COPY --chown=appuser:0 package*.json *yarn* ./
+COPY --chown=appuser:0 ./scripts ./scripts
+COPY --chown=appuser:0 ./public ./public
 
 RUN yarn config set network-timeout 300000
 RUN yarn && yarn cache clean --force

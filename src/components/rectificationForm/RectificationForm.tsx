@@ -112,7 +112,7 @@ const RectificationForm: FC<Props> = ({
                       />
                     ))}
                     {fieldState.error && (
-                      <ErrorLabel text={t('common:required-field')} />
+                      <ErrorLabel text={t<string>('common:required-field')} />
                     )}
                   </div>
                 </div>
@@ -121,7 +121,9 @@ const RectificationForm: FC<Props> = ({
                     <div>
                       <FieldLabel text={t('common:name')} required={true} />
                       <IconCheckCircle
-                        aria-label={t('common:fetched-from-profile-aria')}
+                        aria-label={t<string>(
+                          'common:fetched-from-profile-aria'
+                        )}
                         color={'var(--color-info)'}
                       />
                     </div>
@@ -129,7 +131,9 @@ const RectificationForm: FC<Props> = ({
                     <div>
                       <FieldLabel text={t('common:ssn')} required={true} />
                       <IconCheckCircle
-                        aria-label={t('common:fetched-from-profile-aria')}
+                        aria-label={t<string>(
+                          'common:fetched-from-profile-aria'
+                        )}
                         color={'var(--color-info)'}
                       />
                     </div>
@@ -137,7 +141,9 @@ const RectificationForm: FC<Props> = ({
                     <div>
                       <FieldLabel text={t('common:email')} required={true} />
                       <IconCheckCircle
-                        aria-label={t('common:fetched-from-profile-aria')}
+                        aria-label={t<string>(
+                          'common:fetched-from-profile-aria'
+                        )}
                         color={'var(--color-info)'}
                       />
                     </div>
@@ -162,7 +168,7 @@ const RectificationForm: FC<Props> = ({
                           dragAndDrop={!isMobileWidth}
                           accept={'.jpg, .pdf'}
                           maxSize={5 * 1024 * 1024}
-                          helperText={t(
+                          helperText={t<string>(
                             'rectificationForm:attach-poa:helper-text'
                           )}
                           {...(formFiles.poaFile.length > 0 && {
@@ -172,7 +178,9 @@ const RectificationForm: FC<Props> = ({
                         {values().authorRole === AuthorRole.Possessor &&
                           formFiles.poaFile.length === 0 && (
                             <ErrorLabel
-                              text={t('rectificationForm:errors:poa-required')}
+                              text={t<string>(
+                                'rectificationForm:errors:poa-required'
+                              )}
                             />
                           )}
                       </>
@@ -193,8 +201,10 @@ const RectificationForm: FC<Props> = ({
             size="M"
             external
             openInNewTab
-            openInExternalDomainAriaLabel={t('common:aria:open-external')}
-            openInNewTabAriaLabel={t('common:aria:open-new-tab')}>
+            openInExternalDomainAriaLabel={t<string>(
+              'common:aria:open-external'
+            )}
+            openInNewTabAriaLabel={t<string>('common:aria:open-new-tab')}>
             {t('common:helsinki-profile-link')}
           </Link>
         </div>
@@ -235,7 +245,7 @@ const RectificationForm: FC<Props> = ({
                         errorText={
                           checkboxField.value &&
                           fieldState.error?.type === 'validate'
-                            ? t('common:required-field')
+                            ? t<string>('common:required-field')
                             : fieldState.error
                             ? fieldState.error?.message
                             : undefined
@@ -260,7 +270,9 @@ const RectificationForm: FC<Props> = ({
                         invalid={checkboxField.value && !!fieldState.error}
                         errorText={
                           checkboxField.value && fieldState.error
-                            ? t('rectificationForm:errors:invalid-email')
+                            ? t<string>(
+                                'rectificationForm:errors:invalid-email'
+                              )
                             : undefined
                         }
                       />
@@ -365,7 +377,7 @@ const RectificationForm: FC<Props> = ({
                   fieldState.error?.type === 'required'
                     ? fieldState.error?.message
                     : fieldState.error
-                    ? t('rectificationForm:errors:invalid-iban')
+                    ? t<string>('rectificationForm:errors:invalid-iban')
                     : undefined
                 }
               />
@@ -392,9 +404,11 @@ const RectificationForm: FC<Props> = ({
                   }/${rectificationMaxLength} ${t('common:characters')}`}
                   errorText={
                     field.value && field.value.length > rectificationMaxLength
-                      ? t('rectificationForm:errors:description-over-limit')
+                      ? t<string>(
+                          'rectificationForm:errors:description-over-limit'
+                        )
                       : fieldState.error
-                      ? t('common:required-field')
+                      ? t<string>('common:required-field')
                       : ''
                   }
                   invalid={
@@ -430,12 +444,14 @@ const RectificationForm: FC<Props> = ({
                     dragAndDrop={!isMobileWidth}
                     accept={'.jpg, .pdf'}
                     maxSize={5 * 1024 * 1024}
-                    helperText={t('rectificationForm:attachments:helper-text')}
+                    helperText={t<string>(
+                      'rectificationForm:attachments:helper-text'
+                    )}
                   />
                   {formFiles.attachments.length > 3 && (
                     <div className="rectification-attachments-error">
                       <ErrorLabel
-                        text={t(
+                        text={t<string>(
                           'rectificationForm:errors:too-many-attachments'
                         )}
                       />

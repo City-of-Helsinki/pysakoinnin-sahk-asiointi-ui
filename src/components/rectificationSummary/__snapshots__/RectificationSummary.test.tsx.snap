@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Component matches snapshot 1`] = `
+exports[`Component > matches snapshot 1`] = `
 <div>
   <h2
     class="rectification-summary-title"
@@ -135,7 +135,7 @@ exports[`Component matches snapshot 1`] = `
         class="rectification-summary-rectification-content"
       >
         <label
-          class="text-label"
+          class="_text-label_ccaf0b"
           for="rectification-content"
         >
           Oikaisuvaatimuksen sisältö
@@ -146,7 +146,7 @@ exports[`Component matches snapshot 1`] = `
       </div>
       <div>
         <label
-          class="text-label"
+          class="_text-label_ccaf0b"
         >
           Liitetiedostot
         </label>
@@ -186,7 +186,7 @@ exports[`Component matches snapshot 1`] = `
       </div>
       <div>
         <label
-          class="text-label"
+          class="_text-label_ccaf0b"
         >
           Valtakirja
         </label>
