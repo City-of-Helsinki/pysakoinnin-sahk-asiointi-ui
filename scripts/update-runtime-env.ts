@@ -15,7 +15,7 @@ import.meta.env.NODE_ENV = process.env.NODE_ENV || defaultNodeEnv;
 dotenv.config({
   processEnv: import.meta.env,
   ...(USE_TEST_ENV
-    ? { path: ['.env', '.env.test'] }
+    ? { path: ['.env', '.env.test.local'] }
     : { path: ['.env', `.env.${import.meta.env.NODE_ENV}`, '.env.local'] }),
   override: true,
 });
