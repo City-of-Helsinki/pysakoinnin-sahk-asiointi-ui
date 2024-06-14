@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   IconSignout,
   Logo,
@@ -7,9 +7,9 @@ import {
   Header as HDSHeader,
   IconUser,
   IconCross,
-  Link
+  Link,
+  IconSignin
 } from 'hds-react';
-import { useLocation, useNavigate } from 'react-router-dom';
 import { useClient } from '../client/hooks';
 import styles from './styles.module.css';
 import config from '../config';
@@ -17,27 +17,11 @@ import { useTranslation } from 'react-i18next';
 import i18n from '../utils/i18n';
 import { Language, changeLanguage } from '../common';
 
-type Page =
-  | 'frontpage'
-  | 'apiAccessTokens'
-  | 'userTokens'
-  | 'profile'
-  | 'userinfo'
-  | 'backend';
-
 const Header = (): React.ReactElement => {
-  const currentConfig = config.config;
-  const pathPrefix = currentConfig.path;
   const client = useClient();
   const authenticated = client.isAuthenticated();
   const initialized = client.isInitialized();
   const user = client.getUser();
-  const navigate = useNavigate();
-  const location = useLocation();
-  const path = location.pathname.replace(pathPrefix, '');
-  const currentPageFromPath: Page =
-    path && path.length > 1 ? (path.substr(1) as Page) : 'frontpage';
-  const [active, setActive] = useState<Page>(currentPageFromPath);
   const { t } = useTranslation();
 
   const title = t('common:title');
@@ -82,7 +66,7 @@ const Header = (): React.ReactElement => {
         }
         menuButtonAriaLabel={t<string>('navigation.menuToggleAriaLabel')}>
         <HDSHeader.LanguageSelector ariaLabel={i18n.language.toUpperCase()} />
-        {initialized && authenticated && (
+        {initialized && authenticated ? (
           <HDSHeader.ActionBarItem
             fixedRightPosition
             id="action-bar-user"
@@ -106,21 +90,18 @@ const Header = (): React.ReactElement => {
               </Link>
             </div>
           </HDSHeader.ActionBarItem>
+        ) : (
+          <HDSHeader.ActionBarItem
+            fixedRightPosition
+            icon={<IconSignin ariaHidden />}
+            label={t<string>('common:log-in')}
+            closeIcon={<IconSignin ariaHidden />}
+            closeLabel={t<string>('common:log-in')}
+            id="action-bar-sign-in"
+            onClick={(): void => client.login()}
+          />
         )}
       </HDSHeader.ActionBar>
-      <HDSHeader.NavigationMenu>
-        <HDSHeader.Link
-          key="frontpage"
-          active={active === 'frontpage'}
-          label={t('common:frontpage')}
-          tabIndex={0}
-          onClick={(): void => {
-            setActive('frontpage');
-            navigate('/');
-          }}
-          data-test-id="header-link-frontpage"
-        />
-      </HDSHeader.NavigationMenu>
     </HDSHeader>
   );
 };
