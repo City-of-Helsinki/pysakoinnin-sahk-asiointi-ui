@@ -66,11 +66,6 @@ const PageFooter = () => {
           />
         }>
         <Footer.Link
-          label={t<string>('common:legal:terms-and-conditions:title')}
-          href={t('common:legal:terms-and-conditions:link')}
-          target="_blank"
-        />
-        <Footer.Link
           label={t<string>('common:legal:registry-description:title')}
           href={t('common:legal:registry-description:link')}
           target="_blank"

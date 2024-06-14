@@ -59,17 +59,13 @@
       "open-new-tab": "Opens in a new tab."
     },
     "legal": {
-      "terms-and-conditions": {
-        "title": "Terms and conditions",
-        "link": "https://www.hel.fi/helsinki/en/administration/information/data-protection/rights-further-detail"
-      },
       "registry-description": {
         "title": "Registry description",
-        "link": "https://hel.fi/helsinki/fi/kaupunki-ja-hallinto/hallinto/organisaatio/rekisteriselosteet"
+        "link": "https://www.hel.fi/static/liitteet-2019/Kaupunginkanslia/Rekisteriselosteet/Kymp/pyva_rekisteriseloste_fi.pdf"
       },
       "data-protection": {
         "title": "Data protection",
-        "link": "https://www.hel.fi/helsinki/en/administration/information/data-protection"
+        "link": "https://www.hel.fi/en/decision-making/information-on-helsinki/data-protection-and-information-management/data-protection"
       },
       "accessibility": {
         "title": "Accessibility",
