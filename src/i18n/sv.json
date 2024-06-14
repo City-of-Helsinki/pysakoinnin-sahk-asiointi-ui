@@ -59,17 +59,13 @@
       "open-new-tab": "Öppnas i en ny flik."
     },
     "legal": {
-      "terms-and-conditions": {
-        "title": "Behandling av persondata",
-        "link": "https://www.hel.fi/helsinki/sv/stad-och-forvaltning/information/dataskydd/noggrannare-om-rattigheter-dataskyddsforordning"
-      },
       "registry-description": {
         "title": "Registerbeskrivning",
-        "link": "https://hel.fi/helsinki/fi/kaupunki-ja-hallinto/hallinto/organisaatio/rekisteriselosteet"
+        "link": "https://www.hel.fi/static/liitteet-2019/Kaupunginkanslia/Rekisteriselosteet/Kymp/pyva_rekisteriseloste_sv.pdf"
       },
       "data-protection": {
         "title": "Datasäkerhet",
-        "link": "https://www.hel.fi/helsinki/sv/stad-och-forvaltning/information/dataskydd"
+        "link": "https://www.hel.fi/sv/beslutsfattande-och-forvaltning/information-om-helsingfors/dataskydd-och-informationshantering/dataskydd"
       },
       "accessibility": {
         "title": "Tillgänglighet",
