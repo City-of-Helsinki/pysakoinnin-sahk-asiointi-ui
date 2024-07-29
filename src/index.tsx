@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // eslint-disable-next-line import/no-namespace
 import * as Sentry from '@sentry/react';
-import { Integrations } from '@sentry/tracing';
 
 import './index.css';
 import './utils/i18n';
@@ -21,7 +20,7 @@ const isLocalhost = window.location.hostname === 'localhost';
 
 Sentry.init({
   dsn: window._env_.REACT_APP_SENTRY_DSN,
-  integrations: [new Integrations.BrowserTracing()],
+  integrations: [Sentry.browserTracingIntegration()],
   environment: window._env_.REACT_APP_ENVIRONMENT,
   tracesSampleRate: isLocalhost ? 0.0 : window._env_.REACT_APP_SENTRY_TRACE_RATE
 });
