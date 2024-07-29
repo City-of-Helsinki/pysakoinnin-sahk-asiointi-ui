@@ -1,5 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Button, IconSort, Linkbox, Pagination, Select } from 'hds-react';
+import {
+  Button,
+  IconSort,
+  Linkbox,
+  Notification,
+  Pagination,
+  Select
+} from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import { sortByDate } from '../../utils/helpers';
 import RectificationListRow from '../rectificationListRow/RectificationListRow';
@@ -24,6 +31,7 @@ const LandingPage = (): React.ReactElement => {
     label: t('landing-page:list.status:show-all:default')
   });
   const [documents, setDocuments] = useState<Array<ObjectionDocument>>([]);
+  const [hasError, setHasError] = useState(false);
   const filteredDocuments = documents.filter(a =>
     filter.value !== 'show-all' ? a.status.value === filter.value : a
   );
@@ -54,7 +62,12 @@ const LandingPage = (): React.ReactElement => {
   };
 
   useEffect(() => {
-    getDocuments().then(res => setDocuments(res.results));
+    getDocuments()
+      .then(res => setDocuments(res.results))
+      .catch(() => {
+        setHasError(true);
+        setDocuments([]);
+      });
   }, []);
 
   type Language = 'en' | 'sv' | 'fi';
@@ -76,6 +89,15 @@ const LandingPage = (): React.ReactElement => {
         ))}
       </div>
       <h2 ref={titleRef}>{t('landing-page:list:title')}</h2>
+
+      {hasError && (
+        <Notification
+          label={t<string>('landing-page:errors:label')}
+          type="error">
+          {t<string>('landing-page:errors:default')}
+        </Notification>
+      )}
+
       <div className="rectification-list-filters">
         <p className="rectification-list-sent-count">
           <b>{documentListLength}</b>{' '}

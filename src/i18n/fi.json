@@ -316,7 +316,11 @@
     },
     "sent": "lähetettyä",
     "newest-first": "Uusimmat ensin",
-    "oldest-first": "Vanhimmat ensin"
+    "oldest-first": "Vanhimmat ensin",
+    "errors": {
+      "label": "Tietojen lataaminen epäonnistui",
+      "default": "Jokin meni pieleen. Kokeile hetken kuluttua uudelleen."
+    }
   },
   "imageViewer": {
     "header": "Pysäköintivirhemaksun kuvat",

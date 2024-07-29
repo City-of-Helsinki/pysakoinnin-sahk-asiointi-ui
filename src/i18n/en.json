@@ -316,7 +316,11 @@
     },
     "sent": "Sent",
     "newest-first": "Newest first",
-    "oldest-first": "Oldest first"
+    "oldest-first": "Oldest first",
+    "errors": {
+      "label": "Failed to load data",
+      "default": "Something went wrong. Try again later."
+    }
   },
   "imageViewer": {
     "header": "Photos of the offence",
