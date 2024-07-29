@@ -316,7 +316,11 @@
     },
     "sent": "skickat",
     "newest-first": "Den senaste först",
-    "oldest-first": "Äldst först"
+    "oldest-first": "Äldst först",
+    "errors": {
+      "label": "Data kunde inte laddas",
+      "default": "Något gick fel. Prova på nytt om en stund."
+    }
   },
   "imageViewer": {
     "header": "Bild på parkeringsbot",

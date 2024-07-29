@@ -13,7 +13,8 @@ export default defineConfig({
   plugins: [react(), eslint()] as UserConfig['plugins'],
   build: {
     outDir: './build',
-    emptyOutDir: true
+    emptyOutDir: true,
+    sourcemap: true
   },
   server: {
     host: true,
