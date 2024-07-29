@@ -272,4 +272,22 @@ describe('landing page', () => {
       `1 ${t('landing-page:list:status:resolvedViaMail:conjugated')}`
     );
   });
+
+  test('shows error message', async () => {
+    vi.resetAllMocks();
+
+    mockedAxios.get.mockRejectedValue(new Error('Mock Error!'));
+
+    render(
+      <Provider store={store}>
+        <I18nextProvider i18n={i18n}>
+          <LandingPage />
+        </I18nextProvider>
+      </Provider>
+    );
+
+    expect(
+      await screen.findByText('Tietojen lataaminen epäonnistui')
+    ).toBeInTheDocument();
+  });
 });
