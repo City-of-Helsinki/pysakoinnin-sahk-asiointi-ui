@@ -47,16 +47,24 @@ const RectificationListRow: FC<Props> = ({ form }): React.ReactElement => {
           await getFoulData({
             foul_number: form.metadata.foulNumber,
             register_number: form.metadata.registerNumber
-          }).then(res => {
-            setFoulData(res);
-          });
+          })
+            .then(res => {
+              setFoulData(res);
+            })
+            .catch(() => {
+              /* Fails silently */
+            });
         } else if (form.metadata.transferNumber) {
           await getTransferData({
             transfer_number: form.metadata.transferNumber,
             register_number: form.metadata.registerNumber
-          }).then(res => {
-            setTransferData(res);
-          });
+          })
+            .then(res => {
+              setTransferData(res);
+            })
+            .catch(() => {
+              /* Fails silently */
+            });
         }
       }
     }
