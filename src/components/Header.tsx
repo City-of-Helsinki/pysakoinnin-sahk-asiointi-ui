@@ -22,10 +22,13 @@ const Header = (): React.ReactElement => {
   const authenticated = client.isAuthenticated();
   const initialized = client.isInitialized();
   const user = client.getUser();
+
   const { t } = useTranslation();
 
   const title = t('common:title');
+
   document.title = title;
+
   const userName = user ? `${user.given_name} ${user.family_name}` : '';
 
   const languageOptions = React.useMemo(() => {
@@ -83,7 +86,11 @@ const Header = (): React.ReactElement => {
               </Link>
               <Link
                 href="/logout"
-                onClick={(): void => client.logout()}
+                onClick={(e): void => {
+                  e.preventDefault();
+
+                  client.logout();
+                }}
                 className={styles.navigationButton}
                 iconLeft={<IconSignout ariaHidden />}>
                 {t('common:log-out')}
