@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.11.0](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.10.0...pysakoinnin-sahk-asiointi-ui-v0.11.0) (2024-07-30)
+
+
+### Features
+
+* Landig page catch getDocument error PSA-11 ([417310d](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/417310d6891f599cf69a3a817086fa57cdf01d5d))
+* Landing page text error message PSA-11 ([eb34a31](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/eb34a31b703d069ac750061c77fc696d672bcf9c))
+* Rectification fetch transfer or foul fails silently PSA-11 ([5a90ff4](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/5a90ff458f71d2a3407d0148266ef43071d82566))
+
 ## [0.10.0](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.9.0...pysakoinnin-sahk-asiointi-ui-v0.10.0) (2024-06-14)
 
 
