@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.12.0](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.11.0...pysakoinnin-sahk-asiointi-ui-v0.12.0) (2024-07-31)
+
+
+### Features
+
+* Prevent default action on logout PSA-11 ([2cb7669](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/2cb766984449d46f57ce3cfa31b8f6dba57432ed))
+
 ## [0.11.0](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.10.0...pysakoinnin-sahk-asiointi-ui-v0.11.0) (2024-07-30)
 
 
