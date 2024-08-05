@@ -8,6 +8,7 @@ import './utils/i18n';
 import BrowserApp from './BrowserApp';
 // eslint-disable-next-line import/no-namespace
 import * as serviceWorker from './serviceWorker';
+import { beforeSend, beforeSendTransaction } from './utils/sentry';
 
 declare global {
   interface Window {
@@ -22,7 +23,11 @@ Sentry.init({
   dsn: window._env_.REACT_APP_SENTRY_DSN,
   integrations: [Sentry.browserTracingIntegration()],
   environment: window._env_.REACT_APP_ENVIRONMENT,
-  tracesSampleRate: isLocalhost ? 0.0 : window._env_.REACT_APP_SENTRY_TRACE_RATE
+  tracesSampleRate: isLocalhost
+    ? 0.0
+    : window._env_.REACT_APP_SENTRY_TRACE_RATE,
+  beforeSend,
+  beforeSendTransaction
 });
 
 ReactDOM.render(<BrowserApp />, document.getElementById('root'));
