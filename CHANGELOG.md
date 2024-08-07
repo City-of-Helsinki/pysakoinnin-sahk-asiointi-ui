@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.13.0](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.12.0...pysakoinnin-sahk-asiointi-ui-v0.13.0) (2024-08-07)
+
+
+### Features
+
+* Sentry clear sensitive data PSA-7 ([4911f6c](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/4911f6c170116c7f669893980e048fc62ab1b909))
+
 ## [0.12.0](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.11.0...pysakoinnin-sahk-asiointi-ui-v0.12.0) (2024-07-31)
 
 
