@@ -21,7 +21,7 @@
     "@types/react-router-dom": "^5.1.0",
     "@vitejs/plugin-react-swc": "^3.7.0",
     "await-to-js": "^3.0.0",
-    "axios": "^1.7.2",
+    "axios": "^1.7.4",
     "date-fns": "^2.29.3",
     "dotenv": "^16.4.5",
     "eslint": "^8.57.0",
