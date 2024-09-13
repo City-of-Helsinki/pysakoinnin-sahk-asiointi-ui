@@ -72,7 +72,11 @@
     "ci": "cross-env CI=true yarn test --coverage",
     "lint": "eslint --ext js,ts,tsx src",
     "update-runtime-env": "esrun --tsconfig=./scripts/tsconfig.json scripts/update-runtime-env.ts",
-    "postinstall": "yarn update-runtime-env"
+    "postinstall": "yarn update-runtime-env",
+    "test:e2e:install": "yarn playwright install",
+    "test:e2e:ci": "npx playwright test",
+    "test:e2e:start": "npx playwright test",
+    "test:e2e:record": "npx playwright codegen https://pysakoinnin-sahk-asiointi-ui.dev.hel.ninja/"
   },
   "browserslist": {
     "production": [
@@ -87,6 +91,7 @@
     ]
   },
   "devDependencies": {
+    "@playwright/test": "^1.40.1",
     "@vitest/coverage-istanbul": "^1.6.0",
     "cross-env": "^7.0.3",
     "husky": "^8.0.2",
