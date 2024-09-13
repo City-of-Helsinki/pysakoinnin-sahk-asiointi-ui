@@ -20,7 +20,7 @@ export default defineConfig({
   use: {
     actionTimeout: 30 * 1000,
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: process.env.E2E_TESTS_ENV_URL ?? "https://https://pysakoinnin-sahk-asiointi-ui.dev.hel.ninja/",
+    baseURL: process.env.E2E_TESTS_ENV_URL ?? "https://pysakoinnin-sahk-asiointi-ui.dev.hel.ninja/",
     ignoreHTTPSErrors: true,
     screenshot: {
       fullPage: true,
