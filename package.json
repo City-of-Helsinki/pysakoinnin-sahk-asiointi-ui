@@ -74,7 +74,7 @@
     "lint": "eslint --ext js,ts,tsx src",
     "update-runtime-env": "esrun --tsconfig=./scripts/tsconfig.json scripts/update-runtime-env.ts",
     "postinstall": "yarn update-runtime-env",
-    "test:e2e:inst": "yarn workspace e2e inst",
+    "test:e2e:install": "yarn workspace e2e inst",
     "test:e2e:ci": "yarn workspace e2e ci"
   },
   "browserslist": {
