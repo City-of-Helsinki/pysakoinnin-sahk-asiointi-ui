@@ -3,6 +3,7 @@
   "version": "0.13.0",
   "license": "MIT",
   "private": true,
+  "workspaces": [ "e2e" ],
   "dependencies": {
     "@apollo/client": "3.8.6",
     "@reduxjs/toolkit": "^1.9.5",
