@@ -103,7 +103,8 @@
     "errors": {
       "notification-title": "Et voi tehdä oikaisuvaatimusta",
       "unknown": "Jokin meni pieleen. Kokeile hetken kuluttua uudelleen.",
-      "default": "Oikaisuvaatimuksen teko ei ole mahdollista sähköisessä asioinnissa. Ole tarvittaessa yhteydessä asiakaspalveluun."
+      "default": "Oikaisuvaatimuksen teko ei ole mahdollista sähköisessä asioinnissa. Ole tarvittaessa yhteydessä asiakaspalveluun.",
+      "login": "Kirjautuminen epäonnistui"
     }
   },
   "parking-fine": {

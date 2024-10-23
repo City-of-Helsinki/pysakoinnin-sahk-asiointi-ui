@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Provider } from 'react-redux';
 import { render, waitFor } from '@testing-library/react';
 import { renderHook } from '@testing-library/react-hooks';
@@ -7,13 +7,9 @@ import { axe } from 'vitest-axe';
 import FormContent from './FormContent';
 import { ObjectionForm } from '../../interfaces/objectionInterfaces';
 import { configureStore, createSlice } from '@reduxjs/toolkit';
-import { ClientContext } from '../../client/ClientProvider';
 import store from '../../store';
 import mockFoulData from '../../mocks/mockFoulData';
 import mockTransferData from '../../mocks/mockTransferData';
-
-// ClientContext needs to be added here since the tests don't get it from FormStepper
-renderHook(() => useContext(ClientContext));
 
 const mockAction = vi.fn(() => {
   // Mock function

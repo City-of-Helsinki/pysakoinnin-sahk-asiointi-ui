@@ -14,6 +14,15 @@ import { getDocuments } from '../../services/objectionService';
 import { ObjectionDocument } from '../../interfaces/objectionInterfaces';
 import './LandingPage.css';
 import i18n from 'i18next';
+import useApiToken from '../../hooks/useApiToken';
+import {
+  getRequestData,
+  isRequestFailure,
+  isRequestLoading,
+  isRequestNotAsked,
+  isRequestSuccess,
+  useRequestState
+} from '../../hooks/useRequestState';
 
 type StatusFilter = {
   value: string;
@@ -30,8 +39,36 @@ const LandingPage = (): React.ReactElement => {
     value: 'show-all',
     label: t('landing-page:list.status:show-all:default')
   });
-  const [documents, setDocuments] = useState<Array<ObjectionDocument>>([]);
-  const [hasError, setHasError] = useState(false);
+  const [
+    requestDocuments,
+    ,
+    setDocumentsLoading,
+    setDocumentsFailure,
+    setDocumentsSuccess
+  ] = useRequestState<Array<ObjectionDocument>, undefined>();
+
+  const apiToken = useApiToken();
+  const requestNotAsked = isRequestNotAsked(requestDocuments);
+
+  useEffect(() => {
+    if (requestNotAsked && apiToken) {
+      setDocumentsLoading();
+      getDocuments()
+        .then(res => setDocumentsSuccess(res.results))
+        .catch(() => setDocumentsFailure(undefined));
+    }
+  }, [
+    requestNotAsked,
+    apiToken,
+    setDocumentsLoading,
+    setDocumentsSuccess,
+    setDocumentsFailure
+  ]);
+
+  type Language = 'en' | 'sv' | 'fi';
+
+  const documents = getRequestData(requestDocuments) || [];
+
   const filteredDocuments = documents.filter(a =>
     filter.value !== 'show-all' ? a.status.value === filter.value : a
   );
@@ -61,17 +98,6 @@ const LandingPage = (): React.ReactElement => {
     titleRef.current?.scrollIntoView();
   };
 
-  useEffect(() => {
-    getDocuments()
-      .then(res => setDocuments(res.results))
-      .catch(() => {
-        setHasError(true);
-        setDocuments([]);
-      });
-  }, []);
-
-  type Language = 'en' | 'sv' | 'fi';
-
   return (
     <>
       <div className="landing-page-link-list">
@@ -90,7 +116,7 @@ const LandingPage = (): React.ReactElement => {
       </div>
       <h2 ref={titleRef}>{t('landing-page:list:title')}</h2>
 
-      {hasError && (
+      {isRequestFailure(requestDocuments) && (
         <Notification
           label={t<string>('landing-page:errors:label')}
           type="error">
@@ -148,7 +174,10 @@ const LandingPage = (): React.ReactElement => {
             </div>
           ))}
       </div>
-      {isEmptyFilteredList && (
+      {isRequestLoading(requestDocuments) && (
+        <p className="disabled-text">{t('common:loading')}</p>
+      )}
+      {isRequestSuccess(requestDocuments) && isEmptyFilteredList && (
         <p className="disabled-text">{t('landing-page:list:no-forms')}</p>
       )}
       <Pagination

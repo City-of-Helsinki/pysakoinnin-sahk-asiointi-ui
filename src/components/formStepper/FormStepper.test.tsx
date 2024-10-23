@@ -10,6 +10,9 @@ import { configureStore, createSlice } from '@reduxjs/toolkit';
 import store from '../../store';
 import { t } from 'i18next';
 import { BrowserRouter } from 'react-router-dom';
+import loadingSlice from '../loader/loadingSlice';
+import { FormId } from '../formContent/formContentSlice';
+import { mockAuthenticatedLoginState } from '../../utils/mockLoginHooks';
 
 const mockAction = vi.fn(() => {
   // Mock function
@@ -19,8 +22,12 @@ const formContentSliceMock = createSlice({
   name: 'formContent',
   initialState: {
     formSubmitted: false,
-    selectedForm: 'due-date',
-    submitDisabled: true
+    selectedForm: FormId.DUEDATE,
+    submitDisabled: true,
+    formValues: {},
+    formError: null,
+    submitError: false,
+    emailConfirmation: false
   },
   reducers: {}
 });
@@ -72,6 +79,9 @@ const userSliceMock = createSlice({
 });
 
 describe('form stepper', () => {
+  beforeEach(async () => {
+    mockAuthenticatedLoginState();
+  });
   test('passes a11y validation', async () => {
     const { container } = render(
       <BrowserRouter>
@@ -91,7 +101,8 @@ describe('form stepper', () => {
         formContent: formContentSliceMock.reducer,
         formStepper: formStepperSliceMock.reducer,
         extendDueDateForm: extendDueDateFormSliceMock.reducer,
-        user: userSliceMock.reducer
+        user: userSliceMock.reducer,
+        loading: loadingSlice
       }
     });
 

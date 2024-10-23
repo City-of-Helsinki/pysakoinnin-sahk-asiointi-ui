@@ -10,6 +10,7 @@ import store from '../../store';
 import { t } from 'i18next';
 import { mockObjectionDocumentResponse } from '../../mocks/mockObjectionDocumentList';
 import { Mocked } from 'vitest';
+import { mockAuthenticatedLoginState } from '../../utils/mockLoginHooks';
 /* eslint-disable sonarjs/no-duplicate-string */
 /* eslint-disable @typescript-eslint/no-unnecessary-type-assertion */
 
@@ -19,6 +20,7 @@ const mockedAxios = axios as Mocked<typeof axios>;
 
 describe('landing page', () => {
   beforeEach(async () => {
+    mockAuthenticatedLoginState();
     mockedAxios.get.mockResolvedValueOnce({
       data: mockObjectionDocumentResponse
     });
@@ -275,7 +277,7 @@ describe('landing page', () => {
 
   test('shows error message', async () => {
     vi.resetAllMocks();
-
+    mockAuthenticatedLoginState();
     mockedAxios.get.mockRejectedValue(new Error('Mock Error!'));
 
     render(

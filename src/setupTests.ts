@@ -28,3 +28,5 @@ vi.mock('react-router', async importActual => {
     })
   };
 });
+
+HTMLCanvasElement.prototype.getContext = () => null;

@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unnecessary-type-assertion */
 /* eslint-disable sonarjs/no-duplicate-string */
-import React, { useContext } from 'react';
+import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
-import { renderHook } from '@testing-library/react-hooks';
 import { axe } from 'vitest-axe';
 import { I18nextProvider } from 'react-i18next';
 import i18n from '../../utils/i18n';
@@ -13,14 +12,15 @@ import { configureStore, createSlice } from '@reduxjs/toolkit';
 import store from '../../store';
 import { t } from 'i18next';
 import { formatDate } from '../../utils/helpers';
-import { ClientContext } from '../../client/ClientProvider';
 import { BrowserRouter } from 'react-router-dom';
 import mockFoulData from '../../mocks/mockFoulData';
-
-// ClientContext needs to be added here since the tests don't get it from FormStepper
-renderHook(() => useContext(ClientContext));
+import { mockAuthenticatedLoginState } from '../../utils/mockLoginHooks';
 
 describe('extend due date form', () => {
+  beforeEach(async () => {
+    mockAuthenticatedLoginState();
+  });
+
   test('passes a11y validation', async () => {
     const { container } = render(
       <BrowserRouter>

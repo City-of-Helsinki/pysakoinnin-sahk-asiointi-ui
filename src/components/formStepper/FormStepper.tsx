@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '../../store';
@@ -12,12 +12,11 @@ import {
   IconPrinter,
   IconThumbsUp,
   Notification,
-  Stepper
+  Stepper,
+  useGraphQL
 } from 'hds-react';
 import { useTranslation } from 'react-i18next';
-import { ClientContext } from '../../client/ClientProvider';
 import { friendlyFormatIBAN } from 'ibantools';
-import useUserProfile from '../../hooks/useUserProfile';
 import FormContent from '../formContent/FormContent';
 import { createObjection, fileToBase64, formatDate } from '../../utils/helpers';
 import {
@@ -42,12 +41,15 @@ import {
   ObjectionForm,
   ObjectionFormFiles
 } from '../../interfaces/objectionInterfaces';
-import { selectUserProfile, setUserProfile } from '../user/userSlice';
 import ErrorLabel from '../errorLabel/ErrorLabel';
 import { ResponseCode } from '../../interfaces/foulInterfaces';
 import './FormStepper.css';
 import i18n from 'i18next';
 import { useMediaQueryLessThan } from '../../hooks/useMediaQuery';
+import { NormalizedCacheObject } from '@apollo/client';
+import { ProfileQueryResult } from '../../common';
+import { setUserProfile } from '../user/userSlice';
+import Loader from '../loader/Loader';
 
 interface Props {
   initialSteps: Step[];
@@ -82,8 +84,6 @@ const useRectificationForm = () => {
 };
 
 const FormStepper = (props: Props): React.ReactElement => {
-  // ClientContext is needed to get user profile
-  useContext(ClientContext);
   const navigate = useNavigate();
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
@@ -100,14 +100,70 @@ const FormStepper = (props: Props): React.ReactElement => {
   const [showSubmitNotification, setShowSubmitNotification] = useState(false);
   const [showErrorNotification, setShowErrorNotification] = useState(false);
   const mainPageButtonRef = useRef<null | HTMLDivElement>(null);
-  const userProfile = useUserProfile();
   const [files, setFiles] = useState<ObjectionFormFiles>({
     poaFile: [],
     attachments: []
   });
 
   const { control, handleSubmit, getValues } = useRectificationForm();
-  const user = useSelector(selectUserProfile);
+  const [, { data, error, loading }] = useGraphQL<
+    NormalizedCacheObject,
+    ProfileQueryResult
+  >();
+
+  const userProfile = data?.myProfile;
+
+  useEffect(() => {
+    userProfile && dispatch(setUserProfile(userProfile));
+  }, [userProfile]);
+
+  // set initial steps when the form is opened
+  useEffect(() => {
+    dispatch(setSteps(props.initialSteps));
+  }, [dispatch, props.initialSteps]);
+
+  // show error notification if submitError = true in redux
+  useEffect(() => {
+    setShowErrorNotification(formContent.submitError);
+  }, [formContent.submitError]);
+
+  // clear submit error when form step is changed
+  useEffect(() => {
+    dispatch(setSubmitError(false));
+  }, [activeStepIndex]);
+
+  // scroll down to ensure submit notification and button to home page are visible
+  useEffect(() => {
+    mainPageButtonRef.current?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest'
+    });
+  }, [showSubmitNotification]);
+
+  const onSubmitPoaFile = (files: File[]) => {
+    setFiles((current: ObjectionFormFiles) => ({ ...current, poaFile: files }));
+  };
+
+  const onSubmitAttachmentFiles = (files: File[]) => {
+    setFiles((current: ObjectionFormFiles) => ({
+      ...current,
+      attachments: files
+    }));
+  };
+
+  const useMediaQueryLessThanM = useMediaQueryLessThan('m');
+
+  if (loading) {
+    return <Loader />;
+  } else if (error || !data) {
+    return (
+      <Notification label={t<string>('landing-page:errors:label')} type="error">
+        {t<string>('landing-page:errors:default')}
+      </Notification>
+    );
+  }
+
+  const myProfile = data.myProfile;
 
   const handleFormSubmit = async (form: ObjectionForm) => {
     const filesAsBase64 = await Promise.all([
@@ -149,7 +205,7 @@ const FormStepper = (props: Props): React.ReactElement => {
             register_number: form.registerNumber ? form.registerNumber : '',
             metadata: {
               lang: i18n.language,
-              email: user?.email
+              email: myProfile.primaryEmail.email
             }
           })
         ).then(() => setShowSubmitNotification(true));
@@ -190,44 +246,36 @@ const FormStepper = (props: Props): React.ReactElement => {
     window.scrollTo(0, 0);
   };
 
-  // if user profile is found, add it to redux
-  useEffect(() => {
-    userProfile && dispatch(setUserProfile(userProfile));
-  }, [userProfile]);
-
-  // set initial steps when the form is opened
-  useEffect(() => {
-    dispatch(setSteps(props.initialSteps));
-  }, [dispatch, props.initialSteps]);
-
-  // show error notification if submitError = true in redux
-  useEffect(() => {
-    setShowErrorNotification(formContent.submitError);
-  }, [formContent.submitError]);
-
-  // clear submit error when form step is changed
-  useEffect(() => {
-    dispatch(setSubmitError(false));
-  }, [activeStepIndex]);
-
-  // scroll down to ensure submit notification and button to home page are visible
-  useEffect(() => {
-    mainPageButtonRef.current?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'nearest'
-    });
-  }, [showSubmitNotification]);
-
-  const onSubmitPoaFile = (files: File[]) => {
-    setFiles((current: ObjectionFormFiles) => ({ ...current, poaFile: files }));
-  };
-
-  const onSubmitAttachmentFiles = (files: File[]) => {
-    setFiles((current: ObjectionFormFiles) => ({
-      ...current,
-      attachments: files
-    }));
-  };
+  const submitAndPrintButton = !lastStep ? (
+    <Button
+      id="button-next"
+      className="button"
+      iconRight={<IconArrowRight />}
+      onClick={handleSubmit(handleNextClick)}
+      variant="primary"
+      disabled={activeStepIndex === 1 && responseCode !== ResponseCode.Success}>
+      {activeStepIndex === 1
+        ? t('common:make-rectification')
+        : t('common:next')}
+    </Button>
+  ) : formContent.formSubmitted ? (
+    <Button
+      id="button-submitted"
+      className="button"
+      iconLeft={<IconThumbsUp />}
+      variant="success">
+      {t(`${formContent.selectedForm}:submit-success`)}
+    </Button>
+  ) : (
+    <Button
+      id="button-submit"
+      className="button submit"
+      onClick={handleSubmit(handleFormSubmit)}
+      variant="primary"
+      disabled={formContent.submitDisabled}>
+      {t(`${formContent.selectedForm}:submit`)}
+    </Button>
+  );
 
   return (
     <div>
@@ -236,7 +284,7 @@ const FormStepper = (props: Props): React.ReactElement => {
         <div id="stepper">
           <Stepper
             className="stepper hide-on-print"
-            small={useMediaQueryLessThan('m')}
+            small={useMediaQueryLessThanM}
             language={i18n.language}
             onStepClick={(event, stepIndex) => dispatch(setActive(stepIndex))}
             selectedStep={activeStepIndex}
@@ -259,39 +307,7 @@ const FormStepper = (props: Props): React.ReactElement => {
           <div className={`button-wrapper ${lastStep ? 'submit' : ''}`}>
             {isLessThanM && (
               <div className="submit-and-print-button-wrapper">
-                {!lastStep ? (
-                  <Button
-                    id="button-next"
-                    className="button"
-                    iconRight={<IconArrowRight />}
-                    onClick={handleSubmit(handleNextClick)}
-                    variant="primary"
-                    disabled={
-                      activeStepIndex === 1 &&
-                      responseCode !== ResponseCode.Success
-                    }>
-                    {activeStepIndex === 1
-                      ? t('common:make-rectification')
-                      : t('common:next')}
-                  </Button>
-                ) : formContent.formSubmitted ? (
-                  <Button
-                    id="button-submitted"
-                    className="button"
-                    iconLeft={<IconThumbsUp />}
-                    variant="success">
-                    {t(`${formContent.selectedForm}:submit-success`)}
-                  </Button>
-                ) : (
-                  <Button
-                    id="button-submit"
-                    className="button submit"
-                    onClick={handleSubmit(handleFormSubmit)}
-                    variant="primary"
-                    disabled={formContent.submitDisabled}>
-                    {t(`${formContent.selectedForm}:submit`)}
-                  </Button>
-                )}
+                {submitAndPrintButton}
                 {lastStep && formContent.selectedForm !== 'due-date' && (
                   <Button
                     id="button-print"
@@ -341,39 +357,7 @@ const FormStepper = (props: Props): React.ReactElement => {
                     {t('common:print')}
                   </Button>
                 )}
-                {!lastStep ? (
-                  <Button
-                    id="button-next"
-                    className="button"
-                    iconRight={<IconArrowRight />}
-                    onClick={handleSubmit(handleNextClick)}
-                    variant="primary"
-                    disabled={
-                      activeStepIndex === 1 &&
-                      responseCode !== ResponseCode.Success
-                    }>
-                    {activeStepIndex === 1
-                      ? t('common:make-rectification')
-                      : t('common:next')}
-                  </Button>
-                ) : formContent.formSubmitted ? (
-                  <Button
-                    id="button-submitted"
-                    className="button"
-                    iconLeft={<IconThumbsUp />}
-                    variant="success">
-                    {t(`${formContent.selectedForm}:submit-success`)}
-                  </Button>
-                ) : (
-                  <Button
-                    id="button-submit"
-                    className="button submit"
-                    onClick={handleSubmit(handleFormSubmit)}
-                    variant="primary"
-                    disabled={formContent.submitDisabled}>
-                    {t(`${formContent.selectedForm}:submit`)}
-                  </Button>
-                )}
+                {submitAndPrintButton}
               </div>
             )}
           </div>

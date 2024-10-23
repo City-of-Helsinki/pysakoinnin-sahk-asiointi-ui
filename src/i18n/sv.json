@@ -103,7 +103,8 @@
     "errors": {
       "notification-title": "Du kan inte begära omprövning",
       "unknown": "Något gick fel. Prova på nytt om en stund.",
-      "default": "Begäran om omprövning kan inte göras i e-tjänsten. Vid behov, kontakta kundtjänst."
+      "default": "Begäran om omprövning kan inte göras i e-tjänsten. Vid behov, kontakta kundtjänst.",
+      "login": "Inloggningen misslyckades"
     }
   },
   "parking-fine": {
