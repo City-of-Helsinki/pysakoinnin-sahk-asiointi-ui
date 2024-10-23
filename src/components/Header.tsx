@@ -8,28 +8,80 @@ import {
   IconUser,
   IconCross,
   Link,
-  IconSignin
+  IconSignin,
+  useOidcClient,
+  WithAuthentication,
+  useOidcClientTracking,
+  useGraphQL
 } from 'hds-react';
-import { useClient } from '../client/hooks';
 import styles from './styles.module.css';
 import config from '../config';
 import { useTranslation } from 'react-i18next';
 import i18n from '../utils/i18n';
-import { Language, changeLanguage } from '../common';
+import { Language, changeLanguage, ProfileQueryResult } from '../common';
+import { NormalizedCacheObject } from '@apollo/client';
+
+const LoggedInActionBarItem = () => {
+  const { t } = useTranslation();
+  const client = useOidcClient();
+  const [, { data }] = useGraphQL<NormalizedCacheObject, ProfileQueryResult>();
+  const profile = data?.myProfile;
+  const userName = profile ? `${profile.firstName} ${profile.lastName}` : '';
+
+  return (
+    <HDSHeader.ActionBarItem
+      fixedRightPosition
+      id="action-bar-user"
+      icon={<IconUser aria-hidden />}
+      closeIcon={<IconCross aria-hidden />}
+      closeLabel={t<string>('common:close')}
+      label={userName}>
+      <div className={styles['action-bar-item-list']}>
+        <Link
+          external
+          href={`${config.ui.profileUIUrl}/loginsso`}
+          className={styles['link-to-profile']}>
+          Helsinki-profiili
+        </Link>
+        <Link
+          href="/logout"
+          onClick={(e): void => {
+            e.preventDefault();
+
+            client.logout();
+          }}
+          className={styles.navigationButton}
+          iconLeft={<IconSignout aria-hidden />}>
+          {t('common:log-out')}
+        </Link>
+      </div>
+    </HDSHeader.ActionBarItem>
+  );
+};
+
+const UnauthorisedActionBarItem = () => {
+  const { t } = useTranslation();
+  const client = useOidcClient();
+  return (
+    <HDSHeader.ActionBarItem
+      fixedRightPosition
+      icon={<IconSignin aria-hidden />}
+      label={t<string>('common:log-in')}
+      closeIcon={<IconSignin aria-hidden />}
+      closeLabel={t<string>('common:log-in')}
+      id="action-bar-sign-in"
+      onClick={() => client.login()}
+    />
+  );
+};
 
 const Header = (): React.ReactElement => {
-  const client = useClient();
-  const authenticated = client.isAuthenticated();
-  const initialized = client.isInitialized();
-  const user = client.getUser();
-
   const { t } = useTranslation();
 
   const title = t('common:title');
 
   document.title = title;
-
-  const userName = user ? `${user.given_name} ${user.family_name}` : '';
+  useOidcClientTracking();
 
   const languageOptions = React.useMemo(() => {
     const languageLabels = {
@@ -69,45 +121,11 @@ const Header = (): React.ReactElement => {
         }
         menuButtonAriaLabel={t<string>('navigation.menuToggleAriaLabel')}>
         <HDSHeader.LanguageSelector ariaLabel={i18n.language.toUpperCase()} />
-        {initialized && authenticated ? (
-          <HDSHeader.ActionBarItem
-            fixedRightPosition
-            id="action-bar-user"
-            icon={<IconUser ariaHidden />}
-            closeIcon={<IconCross ariaHidden />}
-            closeLabel={t<string>('common:close')}
-            label={userName}>
-            <div className={styles['action-bar-item-list']}>
-              <Link
-                external
-                href={`${config.ui.profileUIUrl}/loginsso`}
-                className={styles['link-to-profile']}>
-                Helsinki-profiili
-              </Link>
-              <Link
-                href="/logout"
-                onClick={(e): void => {
-                  e.preventDefault();
-
-                  client.logout();
-                }}
-                className={styles.navigationButton}
-                iconLeft={<IconSignout ariaHidden />}>
-                {t('common:log-out')}
-              </Link>
-            </div>
-          </HDSHeader.ActionBarItem>
-        ) : (
-          <HDSHeader.ActionBarItem
-            fixedRightPosition
-            icon={<IconSignin ariaHidden />}
-            label={t<string>('common:log-in')}
-            closeIcon={<IconSignin ariaHidden />}
-            closeLabel={t<string>('common:log-in')}
-            id="action-bar-sign-in"
-            onClick={(): void => client.login()}
-          />
-        )}
+        <hr aria-hidden="true" />
+        <WithAuthentication
+          AuthorisedComponent={LoggedInActionBarItem}
+          UnauthorisedComponent={UnauthorisedActionBarItem}
+        />
       </HDSHeader.ActionBar>
     </HDSHeader>
   );

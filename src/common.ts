@@ -1,9 +1,7 @@
 import i18n from './utils/i18n';
 
-export type AnyObject = Record<string, unknown>;
 // eslint-disable-next-line @typescript-eslint/ban-types
 export type AnyNonNullishValue = {};
-export type AnyValue = AnyNonNullishValue | undefined | null;
 export type AnyFunction = (props?: unknown) => unknown;
 
 export type UserAddress = {
@@ -26,7 +24,7 @@ export type UserProfile = {
   nickname: string;
   phones: Record<string, { edges: { node: { phone: string } } }[]>;
   primaryAddress: UserAddress;
-  primaryEmail: Record<string, { email: string }>;
+  primaryEmail: { email: string };
   primaryPhone: Record<string, { phone: string }>;
   verifiedPersonalInformation: {
     firstName: string;
@@ -43,6 +41,10 @@ export type UserProfile = {
     permanentForeignAddress: string | null;
     temporaryAddress: string | null;
   };
+};
+
+export type ProfileQueryResult = {
+  myProfile: UserProfile;
 };
 
 export enum Language {

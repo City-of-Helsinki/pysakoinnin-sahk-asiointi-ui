@@ -1,15 +1,9 @@
 import React from 'react';
 
 import styles from './styles.module.css';
-import ErrorPrompt from './ErrorPrompt';
 
 const PageContainer = (
   props: React.PropsWithChildren<unknown>
-): React.ReactElement => (
-  <div className={styles.wrapper}>
-    {props.children}
-    <ErrorPrompt />
-  </div>
-);
+): React.ReactElement => <div className={styles.wrapper}>{props.children}</div>;
 
 export default PageContainer;

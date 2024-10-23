@@ -1,50 +1,44 @@
-import React, { useCallback, useContext, useEffect } from 'react';
-import { ClientContext } from '../client/ClientProvider';
-import LoginComponent from '../components/Login';
+import React, { useEffect } from 'react';
 import PageContent from '../components/PageContent';
 import LandingPage from '../components/landingPage/LandingPage';
-import useUserProfile from '../hooks/useUserProfile';
-import {
-  UserProfile,
-  changeLanguage,
-  convertHelsinkiProfileLang
-} from '../common';
-import { GraphQLClientError } from '../graphql/graphqlClient';
+
 import { useTranslation } from 'react-i18next';
+import {
+  useGraphQL,
+  useOidcClientTracking,
+  WithAuthentication
+} from 'hds-react';
+import { NormalizedCacheObject } from '@apollo/client';
+import {
+  changeLanguage,
+  convertHelsinkiProfileLang,
+  ProfileQueryResult
+} from '../common';
+import LoginInfo from '../components/LoginInfo';
 
 const Index = (): React.ReactElement => {
-  const clientContext = useContext(ClientContext);
   const { t } = useTranslation();
-  // No need to add the user to redux here, since all the links will redirect the user
-  // to a new page, thus refreshing the store. The user is re-fetched and added to redux in FormStepper.tsx
-  const userProfile = useUserProfile() as UserProfile | GraphQLClientError;
+  useOidcClientTracking();
+  const [, { data }] = useGraphQL<NormalizedCacheObject, ProfileQueryResult>();
 
-  const isUser: boolean =
-    userProfile &&
-    Object.prototype.hasOwnProperty.call(userProfile, 'firstName');
-
-  const applyUserDefaultLang = useCallback(() => {
-    const user = userProfile as UserProfile;
-    const userLang = user.language;
-    const convertedLang = convertHelsinkiProfileLang(userLang);
-
-    if (convertedLang) changeLanguage(convertedLang);
-  }, [userProfile]);
+  const profile = data?.myProfile;
+  const language = profile?.language;
 
   useEffect(() => {
-    if (localStorage.getItem('lang') == null && isUser) {
-      applyUserDefaultLang();
+    if (localStorage.getItem('lang') == null && language) {
+      const convertedLang = convertHelsinkiProfileLang(language);
+      if (convertedLang) {
+        changeLanguage(convertedLang);
+      }
     }
-  }, [isUser, applyUserDefaultLang]);
-
+  }, [language]);
   return (
     <PageContent>
       <h1>{t('common:title')}</h1>
-      {!!clientContext && clientContext.client && isUser ? (
-        <LandingPage />
-      ) : (
-        <LoginComponent />
-      )}
+      <WithAuthentication
+        AuthorisedComponent={LandingPage}
+        UnauthorisedComponent={LoginInfo}
+      />
     </PageContent>
   );
 };

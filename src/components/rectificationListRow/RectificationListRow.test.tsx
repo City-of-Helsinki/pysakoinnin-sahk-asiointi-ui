@@ -12,6 +12,7 @@ import store from '../../store';
 import { t } from 'i18next';
 import axios from 'axios';
 import { Mocked } from 'vitest';
+import { mockAuthenticatedLoginState } from '../../utils/mockLoginHooks';
 
 vi.mock('axios');
 
@@ -19,6 +20,7 @@ const mockedAxios = axios as Mocked<typeof axios>;
 
 describe('rectification list row', () => {
   beforeEach(async () => {
+    mockAuthenticatedLoginState();
     mockedAxios.get.mockResolvedValueOnce({
       data: mockFoulDataWithDecision
     });

@@ -103,7 +103,8 @@
     "errors": {
       "notification-title": "It is not possible to make a rectification claim",
       "unknown": "Something went wrong. Try again later.",
-      "default": "It is not possible to make a rectification claim in the parking e-services. Contact customer service if needed."
+      "default": "It is not possible to make a rectification claim in the parking e-services. Contact customer service if needed.",
+      "errors": "Login failed"
     }
   },
   "parking-fine": {

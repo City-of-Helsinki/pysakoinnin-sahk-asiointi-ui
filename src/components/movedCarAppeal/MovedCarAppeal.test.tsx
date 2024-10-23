@@ -8,8 +8,13 @@ import { Provider } from 'react-redux';
 import store from '../../store';
 import { t } from 'i18next';
 import { BrowserRouter } from 'react-router-dom';
+import { mockAuthenticatedLoginState } from '../../utils/mockLoginHooks';
 
 describe('moved car appeal form', () => {
+  beforeEach(async () => {
+    mockAuthenticatedLoginState();
+  });
+
   test('passes a11y validation', async () => {
     const { container } = render(
       <BrowserRouter>

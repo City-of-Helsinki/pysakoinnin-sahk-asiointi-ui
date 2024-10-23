@@ -1,5 +1,3 @@
-import { ClientConfig } from './client/index';
-
 function envValueToBoolean(
   value: string | undefined | boolean,
   defaultValue: boolean
@@ -19,40 +17,102 @@ function envValueToBoolean(
   return defaultValue;
 }
 
-function createConfigFromEnv(source: 'OIDC'): Partial<ClientConfig> {
-  const url = String(window._env_[`REACT_APP_${source}_URL`]);
-  const realm = String(window._env_[`REACT_APP_${source}_REALM`]);
-  const tokenExchangePath =
-    window._env_[`REACT_APP_${source}_TOKEN_EXCHANGE_PATH`];
-  return {
-    realm,
-    url,
-    authority: realm ? `${url}/realms/${realm}` : url,
-    clientId: String(window._env_[`REACT_APP_OIDC_CLIENT_ID`]),
-    callbackPath: String(window._env_[`REACT_APP_OIDC_CALLBACK_PATH`]),
-    logoutPath: window._env_[`REACT_APP_OIDC_LOGOUT_PATH`] || '/',
-    silentAuthPath: window._env_[`REACT_APP_OIDC_SILENT_AUTH_PATH`],
-    responseType: window._env_[`REACT_APP_OIDC_RESPONSE_TYPE`],
-    scope: window._env_[`REACT_APP_OIDC_SCOPE`],
-    autoSignIn: envValueToBoolean(
-      window._env_[`REACT_APP_OIDC_AUTO_SIGN_IN`],
-      true
-    ),
-    automaticSilentRenew: envValueToBoolean(
-      window._env_[`REACT_APP_OIDC_AUTO_SILENT_RENEW`],
-      true
-    ),
-    enableLogging: envValueToBoolean(
-      window._env_[`REACT_APP_OIDC_LOGGING`],
-      false
-    ),
-    tokenExchangePath,
-    hasApiTokenSupport: Boolean(tokenExchangePath)
-  };
+export interface ClientConfig {
+  /**
+   * realm for the OIDC/OAuth2 endpoint
+   */
+  realm: string;
+  /**
+   * The URL of the OIDC/OAuth2 endpoint
+   */
+  url: string;
+  /**
+   * authority for the OIDC/OAuth2. Not configurable, value is props.url+'/realms/'+props.realm
+   */
+  authority: string;
+  /**
+   * Your client application's identifier as registered with the OIDC/OAuth2 provider.
+   */
+  clientId: string;
+  /**
+   * The redirect URI of your client application to receive a response from the OIDC/OAuth2 provider.
+   */
+  callbackPath: string;
+  /**
+   * The redirect URI of your client application after logout
+   * Default: '/'
+   */
+  logoutPath?: string;
+  /**
+   * The path for silent authentication checks
+   * Default '/silent-renew.html'
+   */
+  silentAuthPath?: string;
+  /**
+   * The type of response desired from the OIDC/OAuth2 provider.
+   */
+  responseType?: string;
+  /**
+   * The scope being requested from the OIDC/OAuth2 provider.
+   */
+  scope?: string;
+  /**
+   * Default: true
+   */
+  autoSignIn?: boolean;
+  /**
+   * Default: true
+   */
+  automaticSilentRenew?: boolean;
+  /**
+   * Default: false
+   */
+  enableLogging?: boolean;
+  /**
+   * Path for exchanging tokens. Leave blank to use default keycloak path realms/<realm>/protocol/openid-connect/token
+   */
+  tokenExchangePath?: string;
+  /**
+   * path prefix for this config type
+   */
+  path: string;
+  /**
+   * does the server, this config is for, provide api tokens
+   */
+  hasApiTokenSupport: boolean;
+  /**
+   * label of this config shown in the UI
+   */
+  label: string;
+  /**
+   * Where HDS can get api tokens
+   */
+  apiTokensUrl: string;
+  /**
+   * API Client ID for backend
+   */
+  apiClientId: string;
+  /**
+   * API Client ID for Profile backend
+   */
+  profileApiClientId: string;
 }
 
 const config = {
-  ...createConfigFromEnv('OIDC'),
+  authority: String(window._env_[`REACT_APP_OIDC_AUTHORITY`]),
+  clientId: String(window._env_[`REACT_APP_OIDC_CLIENT_ID`]),
+  callbackPath: String(window._env_[`REACT_APP_OIDC_CALLBACK_PATH`]),
+  logoutPath: window._env_[`REACT_APP_OIDC_LOGOUT_PATH`] || '/',
+  silentAuthPath: window._env_[`REACT_APP_OIDC_SILENT_AUTH_PATH`],
+  responseType: window._env_[`REACT_APP_OIDC_RESPONSE_TYPE`],
+  scope: window._env_[`REACT_APP_OIDC_SCOPE`],
+  enableLogging: envValueToBoolean(
+    window._env_[`REACT_APP_OIDC_LOGGING`],
+    false
+  ),
+  apiTokensUrl: window._env_[`REACT_APP_OIDC_TOKEN_EXCHANGE_PATH`],
+  apiClientId: window._env_[`REACT_APP_API_BACKEND_TOKEN_URL`],
+  profileApiClientId: window._env_[`REACT_APP_API_BACKEND_PERMISSION`],
   path: '/callback',
   label: 'Helsinki-profiili MVP'
 } as ClientConfig;

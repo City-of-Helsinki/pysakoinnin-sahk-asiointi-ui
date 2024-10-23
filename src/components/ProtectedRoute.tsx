@@ -1,16 +1,11 @@
 import React from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
-
-const getTokenFromStorage = Object.entries(sessionStorage).filter(entry =>
-  entry[0].includes('oidc.user:')
-);
-
-const tokenParsed =
-  getTokenFromStorage[0] &&
-  JSON.parse(sessionStorage.getItem(getTokenFromStorage[0][0]) as string);
+import { useAuthenticatedUser, useOidcClientTracking } from 'hds-react';
 
 const ProtectedRoute = () => {
-  if (!tokenParsed || !tokenParsed.id_token) {
+  useOidcClientTracking();
+  const user = useAuthenticatedUser();
+  if (!user) {
     return <Navigate to="/" />;
   }
   return <Outlet />;
