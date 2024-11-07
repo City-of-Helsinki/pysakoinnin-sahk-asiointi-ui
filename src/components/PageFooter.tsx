@@ -80,6 +80,10 @@ const PageFooter = () => {
           href={t('common:legal:accessibility:link')}
           target="_blank"
         />
+        <Footer.Link
+          label={t<string>('common:legal:cookies:title')}
+          href="/cookies"
+        />
       </Footer.Base>
     </Footer>
   );

@@ -70,6 +70,9 @@
       "accessibility": {
         "title": "Accessibility",
         "link": "https://www.hel.fi/static/liitteet/kaupunkiymparisto/saavutettavuusselosteet/fi/Saavutettavuusseloste_pys%C3%A4k%C3%B6innin_asiointi.pdf"
+      },
+      "cookies": {
+        "title": "Cookie settings"
       }
     },
     "fine-info": {
