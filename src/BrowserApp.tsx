@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -19,6 +19,9 @@ import {
 } from '@apollo/client';
 import { MY_PROFILE_QUERY } from './graphql/MyProfileQuery';
 import { ProfileQueryResult } from './common';
+import MatomoTracker from './components/matomo/MatomoTracker';
+import MatomoContext from './components/matomo/matomo-context';
+import CookieConsent from './components/cookieConsent/CookieConsent';
 
 const loginProviderProps: LoginProviderProps = {
   userManagerSettings: {
@@ -62,14 +65,31 @@ const store = setupStore();
 
 injectStore(store);
 function BrowserApp(): React.ReactElement {
+  const matomoTracker = useMemo(
+    () =>
+      new MatomoTracker({
+        urlBase: window._env_.REACT_APP_MATOMO_URL_BASE,
+        siteId: window._env_.REACT_APP_MATOMO_SITE_ID,
+        srcUrl: window._env_.REACT_APP_MATOMO_SRC_URL,
+        enabled: window._env_.REACT_APP_MATOMO_ENABLED === 'true',
+        configurations: {
+          setDoNotTrack: true
+        }
+      }),
+    []
+  );
+
   return (
-    <BrowserRouter>
-      <LoginProvider {...loginProviderProps} modules={[profileGraphQL]}>
-        <Provider store={store}>
-          <App />
-        </Provider>
-      </LoginProvider>
-    </BrowserRouter>
+    <MatomoContext.Provider value={matomoTracker}>
+      <CookieConsent />
+      <BrowserRouter>
+        <LoginProvider {...loginProviderProps} modules={[profileGraphQL]}>
+          <Provider store={store}>
+            <App />
+          </Provider>
+        </LoginProvider>
+      </BrowserRouter>
+    </MatomoContext.Provider>
   );
 }
 
