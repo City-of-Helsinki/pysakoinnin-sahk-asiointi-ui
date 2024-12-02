@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.14.0](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.13.0...pysakoinnin-sahk-asiointi-ui-v0.14.0) (2024-12-02)
+
+
+### Features
+
+* HDS Login ([1bb109b](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/1bb109b2f6738f0acbc093c663ee7b20245b600e))
+
 ## [0.13.0](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.12.0...pysakoinnin-sahk-asiointi-ui-v0.13.0) (2024-08-07)
 
 
