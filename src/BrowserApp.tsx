@@ -30,7 +30,12 @@ const loginProviderProps: LoginProviderProps = {
     post_logout_redirect_uri: `${window.location.origin}${config.config.logoutPath}`
   },
   apiTokensClientSettings: {
-    url: config.config.apiTokensUrl
+    url: config.config.apiTokensUrl,
+    queryProps: {
+      grantType: 'urn:ietf:params:oauth:grant-type:uma-ticket',
+      permission: '#access'
+    },
+    audiences: [config.config.apiClientId, config.config.profileApiClientId]
   },
   sessionPollerSettings: { pollIntervalInMs: 10000 }
 };
@@ -45,11 +50,11 @@ const profileGraphQL: GraphQLModule<
     errorPolicy: 'all'
   },
   graphQLClient: new ApolloClient({
-    uri: 'https://profile-api.test.hel.ninja/graphql/',
+    uri: config.config.profileApiUrl,
     cache: new InMemoryCache()
   }),
   options: {
-    apiTokenKey: 'https://api.hel.fi/auth/helsinkiprofile'
+    apiTokenKey: config.config.profileApiClientId
   }
 });
 
