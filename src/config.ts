@@ -96,6 +96,11 @@ export interface ClientConfig {
    * API Client ID for Profile backend
    */
   profileApiClientId: string;
+
+  /**
+   * Profile GraphQL API url
+   */
+  profileApiUrl: string;
 }
 
 const config = {
@@ -111,8 +116,9 @@ const config = {
     false
   ),
   apiTokensUrl: window._env_[`REACT_APP_OIDC_TOKEN_EXCHANGE_PATH`],
-  apiClientId: window._env_[`REACT_APP_API_BACKEND_TOKEN_URL`],
-  profileApiClientId: window._env_[`REACT_APP_API_BACKEND_PERMISSION`],
+  apiClientId: window._env_[`REACT_APP_API_CLIENT_ID`],
+  profileApiClientId: window._env_[`REACT_APP_PROFILE_API_CLIENT_ID`],
+  profileApiUrl: window._env_[`REACT_APP_PROFILE_API_URL`],
   path: '/callback',
   label: 'Helsinki-profiili MVP'
 } as ClientConfig;
