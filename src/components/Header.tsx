@@ -70,7 +70,11 @@ const UnauthorisedActionBarItem = () => {
       closeIcon={<IconSignin aria-hidden />}
       closeLabel={t<string>('common:log-in')}
       id="action-bar-sign-in"
-      onClick={() => client.login()}
+      onClick={() =>
+        client.login({
+          language: localStorage.getItem('lang') ?? i18n.language
+        })
+      }
     />
   );
 };
