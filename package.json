@@ -1,6 +1,6 @@
 {
   "name": "pysakoinnin-sahk-asiointi-ui",
-  "version": "0.14.0",
+  "version": "0.14.1",
   "license": "MIT",
   "private": true,
   "dependencies": {

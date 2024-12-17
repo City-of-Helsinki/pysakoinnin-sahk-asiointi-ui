@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.14.1](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.14.0...pysakoinnin-sahk-asiointi-ui-v0.14.1) (2024-12-17)
+
+
+### Bug Fixes
+
+* Migrate to tunnistus and fix hardcoded profile settings ([624b826](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/624b82693bad8505595cd58f80e9b34b717a28eb))
+* Supply language to HDS Login ([b39b039](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/b39b03970d06c101600baff6463281926c8b6af7))
+
 ## [0.14.0](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.13.0...pysakoinnin-sahk-asiointi-ui-v0.14.0) (2024-12-02)
 
 
