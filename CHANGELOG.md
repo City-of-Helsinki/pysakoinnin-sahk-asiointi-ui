@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.15.0](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.14.1...pysakoinnin-sahk-asiointi-ui-v0.15.0) (2024-12-18)
+
+
+### Features
+
+* Add matomo tracking, cookie consent PSA-32 ([39932ba](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/39932baac7b1d694af3b93d6702a3f017b4860d2))
+
 ## [0.14.1](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.14.0...pysakoinnin-sahk-asiointi-ui-v0.14.1) (2024-12-17)
 
 
