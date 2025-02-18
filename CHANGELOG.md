@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.15.1](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.15.0...pysakoinnin-sahk-asiointi-ui-v0.15.1) (2025-02-18)
+
+
+### Dependencies
+
+* Bump vite from 5.2.13 to 5.4.11 ([ad65aa8](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/ad65aa83a99a9e734cda7270e314fbb201e75eb8))
+* Bump vitest and coverage-istanbul to 2.1.9 ([5cef268](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/5cef268c4d6dc35658833641a97a27680b464e9e))
+
 ## [0.15.0](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.14.1...pysakoinnin-sahk-asiointi-ui-v0.15.0) (2024-12-18)
 
 
