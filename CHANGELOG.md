@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.15.2](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.15.1...pysakoinnin-sahk-asiointi-ui-v0.15.2) (2025-02-19)
+
+
+### Dependencies
+
+* Bump cross-spawn from 7.0.3 to 7.0.6 ([6d26f46](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/6d26f461f3fabfc888ceb32a3af0c65d4b7cdad0))
+* Bump path-to-regexp from 1.8.0 to 1.9.0 ([9ef16c4](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/9ef16c43e1a7fe7838c6285c290fc7a54a2aedb3))
+* Bump vite from 5.4.11 to 5.4.12 ([7054012](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/70540127d5c366131d4034d870b17077b656b50d))
+* Remove unnecessary react-router ([f1a014e](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/f1a014e33370ca170bd9163a014f0fe146f3fc40))
+* Set cross-spawn 7.0.6 resolution ([6ce45ca](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/6ce45ca7a8dc3d12b9eb2cd1385e6d2815c01dbf))
+
 ## [0.15.1](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.15.0...pysakoinnin-sahk-asiointi-ui-v0.15.1) (2025-02-18)
 
 
