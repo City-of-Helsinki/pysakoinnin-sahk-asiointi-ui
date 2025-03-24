@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.15.3](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.15.2...pysakoinnin-sahk-asiointi-ui-v0.15.3) (2025-03-24)
+
+
+### Dependencies
+
+* Bump @babel/helpers from 7.24.7 to 7.26.10 ([#186](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/issues/186)) ([bde91a9](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/bde91a96a8c4631c8d752964d7ccbbbb5d04a808))
+* Bump axios from 1.7.7 to 1.8.2 ([#185](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/issues/185)) ([0980208](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/0980208111c7584058a998e89d3e8e8479444baf))
+* Rollup resolution ^4.24.0 ([9d2bcb5](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/9d2bcb51f61566ebf8afd73ab5fe68f18e708ad2))
+
 ## [0.15.2](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.15.1...pysakoinnin-sahk-asiointi-ui-v0.15.2) (2025-02-19)
 
 
