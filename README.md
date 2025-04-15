@@ -4,7 +4,7 @@ React UI for Pysäköinnin Asiointi e-services
 
 ## Prerequisites
 
-1. Node 18 (`nvm use`)
+1. Node 22.14.0 (`nvm use`)
 1. Yarn
 
 ## Running locally
