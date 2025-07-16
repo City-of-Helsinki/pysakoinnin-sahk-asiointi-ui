@@ -112,7 +112,7 @@ const RectificationForm: FC<Props> = ({
                       />
                     ))}
                     {fieldState.error && (
-                      <ErrorLabel text={t<string>('common:required-field')} />
+                      <ErrorLabel text={t('common:required-field')} />
                     )}
                   </div>
                 </div>
@@ -121,9 +121,7 @@ const RectificationForm: FC<Props> = ({
                     <div>
                       <FieldLabel text={t('common:name')} required={true} />
                       <IconCheckCircle
-                        aria-label={t<string>(
-                          'common:fetched-from-profile-aria'
-                        )}
+                        aria-label={t('common:fetched-from-profile-aria')}
                         color={'var(--color-info)'}
                       />
                     </div>
@@ -131,9 +129,7 @@ const RectificationForm: FC<Props> = ({
                     <div>
                       <FieldLabel text={t('common:ssn')} required={true} />
                       <IconCheckCircle
-                        aria-label={t<string>(
-                          'common:fetched-from-profile-aria'
-                        )}
+                        aria-label={t('common:fetched-from-profile-aria')}
                         color={'var(--color-info)'}
                       />
                     </div>
@@ -141,9 +137,7 @@ const RectificationForm: FC<Props> = ({
                     <div>
                       <FieldLabel text={t('common:email')} required={true} />
                       <IconCheckCircle
-                        aria-label={t<string>(
-                          'common:fetched-from-profile-aria'
-                        )}
+                        aria-label={t('common:fetched-from-profile-aria')}
                         color={'var(--color-info)'}
                       />
                     </div>
@@ -171,7 +165,7 @@ const RectificationForm: FC<Props> = ({
                           dragAndDrop={!isMobileWidth}
                           accept={'.jpg, .pdf'}
                           maxSize={5 * 1024 * 1024}
-                          helperText={t<string>(
+                          helperText={t(
                             'rectificationForm:attach-poa:helper-text'
                           )}
                           {...(formFiles.poaFile.length > 0 && {
@@ -181,9 +175,7 @@ const RectificationForm: FC<Props> = ({
                         {values().authorRole === AuthorRole.Possessor &&
                           formFiles.poaFile.length === 0 && (
                             <ErrorLabel
-                              text={t<string>(
-                                'rectificationForm:errors:poa-required'
-                              )}
+                              text={t('rectificationForm:errors:poa-required')}
                             />
                           )}
                       </>
@@ -204,10 +196,8 @@ const RectificationForm: FC<Props> = ({
             size="M"
             external
             openInNewTab
-            openInExternalDomainAriaLabel={t<string>(
-              'common:aria:open-external'
-            )}
-            openInNewTabAriaLabel={t<string>('common:aria:open-new-tab')}>
+            openInExternalDomainAriaLabel={t('common:aria:open-external')}
+            openInNewTabAriaLabel={t('common:aria:open-new-tab')}>
             {t('common:helsinki-profile-link')}
           </Link>
         </div>
@@ -238,6 +228,8 @@ const RectificationForm: FC<Props> = ({
                       }
                     }}
                     render={({ field, fieldState }) => (
+                      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                      // @ts-ignore - React 18 compatibility with HDS components
                       <TextInput
                         {...field}
                         id="newEmailAddress"
@@ -248,7 +240,7 @@ const RectificationForm: FC<Props> = ({
                         errorText={
                           checkboxField.value &&
                           fieldState.error?.type === 'validate'
-                            ? t<string>('common:required-field')
+                            ? t('common:required-field')
                             : fieldState.error
                             ? fieldState.error?.message
                             : undefined
@@ -264,6 +256,8 @@ const RectificationForm: FC<Props> = ({
                       pattern: /^\S+@\S+$/i
                     }}
                     render={({ field, fieldState }) => (
+                      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                      // @ts-ignore - React 18 compatibility with HDS components
                       <TextInput
                         {...field}
                         id="newEmailConfirm"
@@ -273,9 +267,7 @@ const RectificationForm: FC<Props> = ({
                         invalid={checkboxField.value && !!fieldState.error}
                         errorText={
                           checkboxField.value && fieldState.error
-                            ? t<string>(
-                                'rectificationForm:errors:invalid-email'
-                              )
+                            ? t('rectificationForm:errors:invalid-email')
                             : undefined
                         }
                       />
@@ -291,6 +283,8 @@ const RectificationForm: FC<Props> = ({
             control={control}
             rules={{ required: t('common:required-field') as string }}
             render={({ field, fieldState }) => (
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore - React 18 compatibility with HDS components
               <TextInput
                 {...field}
                 id="address"
@@ -308,6 +302,8 @@ const RectificationForm: FC<Props> = ({
               control={control}
               rules={{ required: t('common:required-field') as string }}
               render={({ field, fieldState }) => (
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore - React 18 compatibility with HDS components
                 <TextInput
                   {...field}
                   id="zipCode"
@@ -324,6 +320,8 @@ const RectificationForm: FC<Props> = ({
               control={control}
               rules={{ required: t('common:required-field') as string }}
               render={({ field, fieldState }) => (
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore - React 18 compatibility with HDS components
                 <TextInput
                   {...field}
                   id="city"
@@ -349,6 +347,8 @@ const RectificationForm: FC<Props> = ({
               }
             }}
             render={({ field, fieldState }) => (
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore - React 18 compatibility with HDS components
               <TextInput
                 {...field}
                 id="phone"
@@ -369,6 +369,8 @@ const RectificationForm: FC<Props> = ({
               validate: isValidIBAN
             }}
             render={({ field, fieldState }) => (
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore - React 18 compatibility with HDS components
               <TextInput
                 {...field}
                 id="IBAN"
@@ -380,7 +382,7 @@ const RectificationForm: FC<Props> = ({
                   fieldState.error?.type === 'required'
                     ? fieldState.error?.message
                     : fieldState.error
-                    ? t<string>('rectificationForm:errors:invalid-iban')
+                    ? t('rectificationForm:errors:invalid-iban')
                     : undefined
                 }
               />
@@ -395,6 +397,8 @@ const RectificationForm: FC<Props> = ({
               maxLength: rectificationMaxLength
             }}
             render={({ field, fieldState }) => (
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore - React 18 compatibility with HDS components
               <TextArea
                 {...field}
                 label={t('rectificationForm:rectification-content')}
@@ -406,11 +410,9 @@ const RectificationForm: FC<Props> = ({
                 }/${rectificationMaxLength} ${t('common:characters')}`}
                 errorText={
                   field.value && field.value.length > rectificationMaxLength
-                    ? t<string>(
-                        'rectificationForm:errors:description-over-limit'
-                      )
+                    ? t('rectificationForm:errors:description-over-limit')
                     : fieldState.error
-                    ? t<string>('common:required-field')
+                    ? t('common:required-field')
                     : ''
                 }
                 invalid={
@@ -448,14 +450,12 @@ const RectificationForm: FC<Props> = ({
                     dragAndDrop={!isMobileWidth}
                     accept={'.jpg, .pdf'}
                     maxSize={5 * 1024 * 1024}
-                    helperText={t<string>(
-                      'rectificationForm:attachments:helper-text'
-                    )}
+                    helperText={t('rectificationForm:attachments:helper-text')}
                   />
                   {formFiles.attachments.length > 3 && (
                     <div className="rectification-attachments-error">
                       <ErrorLabel
-                        text={t<string>(
+                        text={t(
                           'rectificationForm:errors:too-many-attachments'
                         )}
                       />

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable line-comment-position */
-import { TransactionEvent, ErrorEvent, Event } from '@sentry/types';
+import { TransactionEvent, ErrorEvent, EventHint } from '@sentry/types';
 import { isObject, snakeCase } from 'lodash';
 
 // https://github.com/getsentry/sentry-python/blob/8094c9e4462c7af4d73bfe3b6382791f9949e7f0/sentry_sdk/scrubber.py#L14
@@ -70,14 +70,18 @@ export const cleanSensitiveData = (data: Record<string, unknown>) => {
   return data;
 };
 
-export const beforeSend = (event: ErrorEvent): Event =>
+export const beforeSend = (
+  event: ErrorEvent,
+  hint: EventHint
+): ErrorEvent | null =>
   (cleanSensitiveData(
     (event as unknown) as Record<string, unknown>
   ) as unknown) as ErrorEvent;
 
 export const beforeSendTransaction = (
-  event: TransactionEvent
-): TransactionEvent =>
+  event: TransactionEvent,
+  hint: EventHint
+): TransactionEvent | null =>
   (cleanSensitiveData(
     (event as unknown) as Record<string, unknown>
   ) as unknown) as TransactionEvent;

@@ -135,7 +135,7 @@ exports[`Component > matches snapshot 1`] = `
         class="rectification-summary-rectification-content"
       >
         <label
-          class="_text-label_ccaf0b"
+          class="_text-label_abddaf"
           for="rectification-content"
         >
           Oikaisuvaatimuksen sisältö
@@ -146,7 +146,7 @@ exports[`Component > matches snapshot 1`] = `
       </div>
       <div>
         <label
-          class="_text-label_ccaf0b"
+          class="_text-label_abddaf"
         >
           Liitetiedostot
         </label>
@@ -186,7 +186,7 @@ exports[`Component > matches snapshot 1`] = `
       </div>
       <div>
         <label
-          class="_text-label_ccaf0b"
+          class="_text-label_abddaf"
         >
           Valtakirja
         </label>

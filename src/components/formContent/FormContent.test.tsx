@@ -1,7 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { render, waitFor } from '@testing-library/react';
-import { renderHook } from '@testing-library/react-hooks';
+import { render, waitFor, renderHook } from '@testing-library/react';
 import { useForm } from 'react-hook-form';
 import { axe } from 'vitest-axe';
 import FormContent from './FormContent';

@@ -26,7 +26,7 @@ const cleanedData = {
 describe('beforeSend', () => {
   it('should clear sensitive data', () => {
     expect(
-      beforeSend({ extra: { data: originalData }, type: undefined })
+      beforeSend({ extra: { data: originalData }, type: undefined }, {})
     ).toEqual({ extra: { data: cleanedData } });
   });
 });
@@ -34,10 +34,13 @@ describe('beforeSend', () => {
 describe('beforeSendTransaction', () => {
   it('should clear sensitive data', () => {
     expect(
-      beforeSendTransaction({
-        extra: { data: originalData },
-        type: 'transaction'
-      })
+      beforeSendTransaction(
+        {
+          extra: { data: originalData },
+          type: 'transaction'
+        },
+        {}
+      )
     ).toEqual({ extra: { data: cleanedData }, type: 'transaction' });
   });
 });

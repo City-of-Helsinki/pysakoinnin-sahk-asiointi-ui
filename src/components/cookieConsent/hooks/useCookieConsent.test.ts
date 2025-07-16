@@ -1,10 +1,9 @@
 /* eslint-disable no-underscore-dangle */
-import { renderHook } from '@testing-library/react-hooks';
+import { act, renderHook } from '@testing-library/react';
 import { useTranslation } from 'react-i18next';
 import useCookieConsent from './useCookieConsent';
 import { Language } from '../../../common';
 import { Mock } from 'vitest';
-import { act } from '@testing-library/react';
 
 vi.mock('react-i18next', () => ({
   useTranslation: vi.fn()

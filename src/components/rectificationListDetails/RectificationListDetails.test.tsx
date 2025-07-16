@@ -40,7 +40,7 @@ describe('rectification list details', () => {
     expect(rectificationSummaryDialog).not.toBeInTheDocument();
 
     const showFormButton = screen.getByRole('button', {
-      name: t<string>('landing-page:list:details:show-form')
+      name: t('landing-page:list:details:show-form')
     });
     expect(showFormButton).toBeVisible();
     fireEvent.click(showFormButton);
@@ -56,10 +56,10 @@ describe('rectification list details', () => {
 
     // Dialog buttons visible
     let closeButton = screen.getByRole('button', {
-      name: t<string>('common:close')
+      name: t('common:close')
     });
     const printButton = screen.getByRole('button', {
-      name: t<string>('common:print')
+      name: t('common:print')
     });
     expect(closeButton).toBeVisible();
     expect(printButton).toBeVisible();
@@ -80,7 +80,7 @@ describe('rectification list details', () => {
     expect(rectificationSummaryDialog).toBeVisible();
 
     closeButton = screen.getByRole('button', {
-      name: t<string>('common:close')
+      name: t('common:close')
     });
     fireEvent.click(closeButton);
 

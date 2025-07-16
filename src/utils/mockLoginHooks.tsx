@@ -72,7 +72,7 @@ const mockLoginState = ({
 
   const useOidcClientTracking = vi
     .spyOn(hdsReact, 'useOidcClientTracking')
-    .mockReturnValue([undefined, undefined as any, oidcClient as any]);
+    .mockReturnValue([undefined, null as any, oidcClient as any]);
 
   const tokenMap: any = {};
   if (apiToken) {
