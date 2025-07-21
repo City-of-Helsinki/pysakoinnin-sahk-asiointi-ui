@@ -32,6 +32,20 @@
     }
   },
   "include": [
-    "src",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.d.ts",
   ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "build",
+    "coverage",
+    "cypress",
+    "cypress.config.ts",
+    "cypress/support/index.ts",
+    "src/**/*.test.ts",
+    "src/**/*.test.tsx",
+    "src/utils/renderWithProviders.tsx",
+  ]
 }
