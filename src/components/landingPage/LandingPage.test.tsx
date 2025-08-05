@@ -51,7 +51,7 @@ describe('landing page', () => {
       // Linkboxes are visible
       expect(
         screen.getByRole('heading', {
-          name: t<string>('landing-page:links:due-date')
+          name: t('landing-page:links:due-date')
         })
       ).toBeVisible();
       expect(
@@ -62,7 +62,7 @@ describe('landing page', () => {
 
       expect(
         screen.getByRole('heading', {
-          name: t<string>('landing-page:links:parking-fine')
+          name: t('landing-page:links:parking-fine')
         })
       ).toBeVisible();
       expect(
@@ -73,7 +73,7 @@ describe('landing page', () => {
 
       expect(
         screen.getByRole('heading', {
-          name: t<string>('landing-page:links:moved-car')
+          name: t('landing-page:links:moved-car')
         })
       ).toBeVisible();
       expect(
@@ -99,7 +99,7 @@ describe('landing page', () => {
       // Title
       expect(
         screen.getByRole('heading', {
-          name: t<string>('landing-page:list:title')
+          name: t('landing-page:list:title')
         })
       ).toBeVisible();
 
@@ -147,18 +147,14 @@ describe('landing page', () => {
     // Sorting results by date
     const sortButton = screen.getByTestId('rectification-list-sort-button');
     expect(sortButton).toBeVisible();
-    expect(sortButton).toHaveTextContent(
-      t<string>('landing-page:newest-first')
-    );
+    expect(sortButton).toHaveTextContent(t('landing-page:newest-first'));
 
     expect(rectificationList[0]).toHaveTextContent(/11.2.2023/);
 
     // 'Sort by date' button is clicked
     fireEvent.click(sortButton);
 
-    expect(sortButton).toHaveTextContent(
-      t<string>('landing-page:oldest-first')
-    );
+    expect(sortButton).toHaveTextContent(t('landing-page:oldest-first'));
     expect(rectificationList.length).toBe(5);
     expect(rectificationList[0]).toHaveTextContent(/20.11.2021/);
   });
@@ -188,7 +184,7 @@ describe('landing page', () => {
 
     // Open dropdown menu
     const filterButton = screen.getByRole('button', {
-      name: t<string>('landing-page:list:status:show-all:default')
+      name: t('landing-page:list:status:show-all:default')
     });
     expect(filterButton).toBeVisible();
     fireEvent.click(filterButton);
@@ -202,14 +198,14 @@ describe('landing page', () => {
 
     expect(rectificationList.length).toBe(2);
     expect(rectificationList[0]).toHaveTextContent(
-      t<string>('landing-page:list:status:sent:default')
+      t('landing-page:list:status:sent:default')
     );
     expect(rectificationCounter).toHaveTextContent(
       `2 ${t('landing-page:list:status:sent:conjugated')}`
     );
 
     const sentFilterButton = screen.getByRole('button', {
-      name: t<string>('landing-page:list:status:sent:default')
+      name: t('landing-page:list:status:sent:default')
     });
     fireEvent.click(sentFilterButton);
 
@@ -221,7 +217,7 @@ describe('landing page', () => {
 
     expect(rectificationList.length).toBe(1);
     expect(rectificationList[0]).toHaveTextContent(
-      t<string>('landing-page:list:status:handling:default')
+      t('landing-page:list:status:handling:default')
     );
     expect(rectificationCounter).toHaveTextContent(
       `1 ${t('landing-page:list:status:handling:conjugated')}`
@@ -253,7 +249,7 @@ describe('landing page', () => {
 
     // Open dropdown menu
     const filterButton = screen.getByRole('button', {
-      name: t<string>('landing-page:list:status:show-all:default')
+      name: t('landing-page:list:status:show-all:default')
     });
     expect(filterButton).toBeVisible();
     fireEvent.click(filterButton);

@@ -134,18 +134,18 @@ describe('form stepper', () => {
     // 'previous' button should have role 'link' instead of 'button'
     // since it takes user to the landing page
     const previousButton = screen.queryByRole('button', {
-      name: t<string>('common:previous')
+      name: t('common:previous')
     });
     expect(previousButton).not.toBeInTheDocument();
 
     const previousButtonLink = screen.queryByRole('link', {
-      name: t<string>('common:previous')
+      name: t('common:previous')
     });
     expect(previousButtonLink).toBeInTheDocument();
     expect(previousButtonLink).toBeEnabled();
 
     const nextButton = screen.getByRole('button', {
-      name: t<string>('common:next')
+      name: t('common:next')
     });
     expect(nextButton).toBeInTheDocument();
     expect(nextButton).toBeEnabled();
@@ -214,12 +214,12 @@ describe('form stepper', () => {
 
     // Check that both buttons are visible but submit button is disabled by default
     const previousButton = screen.getByRole('button', {
-      name: t<string>('common:previous')
+      name: t('common:previous')
     });
     expect(previousButton).toBeInTheDocument();
 
     const submitButton = screen.getByRole('button', {
-      name: t<string>('due-date:submit')
+      name: t('due-date:submit')
     });
     expect(submitButton).toBeInTheDocument();
     expect(submitButton).toBeDisabled();

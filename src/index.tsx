@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 // eslint-disable-next-line import/no-namespace
 import * as Sentry from '@sentry/react';
 
@@ -26,11 +26,17 @@ Sentry.init({
   tracesSampleRate: isLocalhost
     ? 0.0
     : window._env_.REACT_APP_SENTRY_TRACE_RATE,
-  beforeSend,
-  beforeSendTransaction
+  beforeSend: beforeSend as Sentry.BrowserOptions['beforeSend'],
+  beforeSendTransaction: beforeSendTransaction as Sentry.BrowserOptions['beforeSendTransaction']
 });
 
-ReactDOM.render(<BrowserApp />, document.getElementById('root'));
+// Create a root instance
+const rootElement = document.getElementById('root');
+if (!rootElement) throw new Error('Failed to find the root element');
+const root = createRoot(rootElement);
+
+// Render the app through the root
+root.render(<BrowserApp />);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

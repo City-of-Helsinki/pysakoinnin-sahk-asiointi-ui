@@ -13,8 +13,8 @@ const Loader = (): React.ReactElement => {
   return (
     <div className="loading-spinner">
       <LoadingSpinner
-        loadingText={t<string>('common:loading')}
-        loadingFinishedText={t<string>('common:loading-finished')}
+        loadingText={t('common:loading')}
+        loadingFinishedText={t('common:loading-finished')}
       />
     </div>
   );

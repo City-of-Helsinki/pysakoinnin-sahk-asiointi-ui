@@ -157,8 +157,8 @@ const FormStepper = (props: Props): React.ReactElement => {
     return <Loader />;
   } else if (error || !data) {
     return (
-      <Notification label={t<string>('landing-page:errors:label')} type="error">
-        {t<string>('landing-page:errors:default')}
+      <Notification label={t('landing-page:errors:label')} type="error">
+        {t('landing-page:errors:default')}
       </Notification>
     );
   }
@@ -301,7 +301,7 @@ const FormStepper = (props: Props): React.ReactElement => {
           formFiles={files}
         />
         <div className="form-error-label">
-          {formError && <ErrorLabel text={t<string>(formError)} />}
+          {formError && <ErrorLabel text={t(formError)} />}
         </div>
         <div className="button-container">
           <div className={`button-wrapper ${lastStep ? 'submit' : ''}`}>

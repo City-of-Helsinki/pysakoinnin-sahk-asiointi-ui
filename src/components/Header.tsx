@@ -34,7 +34,7 @@ const LoggedInActionBarItem = () => {
       id="action-bar-user"
       icon={<IconUser aria-hidden />}
       closeIcon={<IconCross aria-hidden />}
-      closeLabel={t<string>('common:close')}
+      closeLabel={t('common:close')}
       label={userName}>
       <div className={styles['action-bar-item-list']}>
         <Link
@@ -66,9 +66,9 @@ const UnauthorisedActionBarItem = () => {
     <HDSHeader.ActionBarItem
       fixedRightPosition
       icon={<IconSignin aria-hidden />}
-      label={t<string>('common:log-in')}
+      label={t('common:log-in')}
       closeIcon={<IconSignin aria-hidden />}
-      closeLabel={t<string>('common:log-in')}
+      closeLabel={t('common:log-in')}
       id="action-bar-sign-in"
       onClick={() =>
         client.login({
@@ -123,7 +123,7 @@ const Header = (): React.ReactElement => {
             size="full"
           />
         }
-        menuButtonAriaLabel={t<string>('navigation.menuToggleAriaLabel')}>
+        menuButtonAriaLabel={t('navigation.menuToggleAriaLabel')}>
         <HDSHeader.LanguageSelector ariaLabel={i18n.language.toUpperCase()} />
         <hr aria-hidden="true" />
         <WithAuthentication

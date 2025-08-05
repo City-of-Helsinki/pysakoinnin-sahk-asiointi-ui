@@ -33,7 +33,7 @@ const PreviewImage: FC<PreviewImageProps> = ({
   return (
     <input
       ref={imageRef}
-      alt={t<string>('imageViewer:image-input-alt')}
+      alt={t('imageViewer:image-input-alt')}
       formMethod="dialog"
       data-testid="clickable-image"
       type="image"

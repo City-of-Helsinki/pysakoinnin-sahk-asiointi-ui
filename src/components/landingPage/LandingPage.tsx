@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect, useRef, useState } from 'react';
 import {
   Button,
@@ -110,24 +111,22 @@ const LandingPage = (): React.ReactElement => {
             )}`}
             linkAriaLabel={t(`landing-page:links:${link.name}`)}
             href={link.value}
-            heading={t<string>(`landing-page:links:${link.name}`)}
+            heading={t(`landing-page:links:${link.name}`)}
           />
         ))}
       </div>
       <h2 ref={titleRef}>{t('landing-page:list:title')}</h2>
 
       {isRequestFailure(requestDocuments) && (
-        <Notification
-          label={t<string>('landing-page:errors:label')}
-          type="error">
-          {t<string>('landing-page:errors:default')}
+        <Notification label={t('landing-page:errors:label')} type="error">
+          {t('landing-page:errors:default')}
         </Notification>
       )}
 
       <div className="rectification-list-filters">
         <p className="rectification-list-sent-count">
           <b>{documentListLength}</b>{' '}
-          {t<string>(`landing-page:list:status:${filter.value}:conjugated`)}
+          {t(`landing-page:list:status:${filter.value}:conjugated`)}
         </p>
         <Button
           className="rectification-list-sort-button"

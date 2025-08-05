@@ -9,7 +9,8 @@ import config from '../config';
 
 const useApiToken = () => {
   const signalListener = useCallback(
-    signal =>
+    /* eslint-disable-next-line  @typescript-eslint/no-explicit-any */
+    (signal: any) =>
       isApiTokensUpdatedSignal(signal) || isApiTokensRemovedSignal(signal),
     []
   );

@@ -110,6 +110,6 @@
     "vitest-globals/env": true
   },
   "parserOptions": {
-    "project": "./tsconfig.json"
+    "project": "./tsconfig.lint.json"
   }
 }

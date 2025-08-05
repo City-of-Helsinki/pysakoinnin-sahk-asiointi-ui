@@ -41,7 +41,7 @@ RUN yarn && yarn cache clean --force
 FROM appbase as staticbuilder
 # ===================================
 
-COPY --chown=appuser:0 . .
+COPY --chown=appuser:0 . tsconfig.json ./ 
 RUN yarn build
 
 # =============================

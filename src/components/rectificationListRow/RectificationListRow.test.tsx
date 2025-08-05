@@ -53,11 +53,11 @@ describe('rectification list row', () => {
         'rectification-list-row-status'
       )[0];
       expect(status).toHaveTextContent(
-        t<string>('landing-page:list:status:resolvedViaMail:default')
+        t('landing-page:list:status:resolvedViaMail:default')
       );
 
       const showMoreButton = screen.getByRole('button', {
-        name: t<string>('landing-page:list:show-more')
+        name: t('landing-page:list:show-more')
       });
       expect(showMoreButton).toBeVisible();
 
@@ -83,16 +83,16 @@ describe('rectification list row', () => {
       // Events
       expect(events.length).toBe(1);
       expect(events[0]).toHaveTextContent(
-        t<string>('landing-page:list:status:sent:default')
+        t('landing-page:list:status:sent:default')
       );
       expect(events[0]).toHaveTextContent(
-        t<string>('landing-page:list:status:handling:default')
+        t('landing-page:list:status:handling:default')
       );
       expect(events[0]).toHaveTextContent(
-        t<string>('landing-page:list:status:received:default')
+        t('landing-page:list:status:received:default')
       );
       expect(events[0]).toHaveTextContent(
-        t<string>('landing-page:list:status:resolvedViaMail:default')
+        t('landing-page:list:status:resolvedViaMail:default')
       );
 
       // Attachments
@@ -109,17 +109,17 @@ describe('rectification list row', () => {
       });
       expect(mailNotification).toBeVisible();
       expect(mailNotification).toHaveTextContent(
-        t<string>('landing-page:list:details:notification:resolvedViaMail:text')
+        t('landing-page:list:details:notification:resolvedViaMail:text')
       );
 
       // 'Show form' button is visible but 'open decision' button is not
       const showFormButton = screen.getByRole('button', {
-        name: t<string>('landing-page:list:details:show-form')
+        name: t('landing-page:list:details:show-form')
       });
       expect(showFormButton).toBeVisible();
 
       const openDecisionButton = screen.queryByRole('button', {
-        name: t<string>('landing-page:list:details:open-decision')
+        name: t('landing-page:list:details:open-decision')
       });
       expect(openDecisionButton).not.toBeInTheDocument();
     });
@@ -136,7 +136,7 @@ describe('rectification list row', () => {
       );
 
       const showMoreButton = screen.getByRole('button', {
-        name: t<string>('landing-page:list:show-more')
+        name: t('landing-page:list:show-more')
       });
       expect(showMoreButton).toBeVisible();
 
@@ -150,12 +150,12 @@ describe('rectification list row', () => {
 
       // Both buttons visible
       const showFormButton = screen.getByRole('button', {
-        name: t<string>('landing-page:list:details:show-form')
+        name: t('landing-page:list:details:show-form')
       });
       expect(showFormButton).toBeVisible();
 
       const openDecisionButton = screen.getByRole('button', {
-        name: t<string>('landing-page:list:details:open-decision')
+        name: t('landing-page:list:details:open-decision')
       });
       expect(openDecisionButton).toBeVisible();
     });
@@ -172,7 +172,7 @@ describe('rectification list row', () => {
       );
 
       const showMoreButton = screen.getByRole('button', {
-        name: t<string>('landing-page:list:show-more')
+        name: t('landing-page:list:show-more')
       });
       expect(showMoreButton).toBeVisible();
 
@@ -186,12 +186,12 @@ describe('rectification list row', () => {
 
       // 'Show form' button is visible but 'open decision' button is not
       const showFormButton = screen.getByRole('button', {
-        name: t<string>('landing-page:list:details:show-form')
+        name: t('landing-page:list:details:show-form')
       });
       expect(showFormButton).toBeVisible();
 
       const openDecisionButton = screen.queryByRole('button', {
-        name: t<string>('landing-page:list:details:open-decision')
+        name: t('landing-page:list:details:open-decision')
       });
       expect(openDecisionButton).not.toBeInTheDocument();
 
@@ -201,7 +201,7 @@ describe('rectification list row', () => {
       );
       expect(events.length).toBe(1);
       expect(events[0]).toHaveTextContent(
-        t<string>('landing-page:list:details:events')
+        t('landing-page:list:details:events')
       );
 
       const attachments = container.getElementsByClassName(
@@ -209,7 +209,7 @@ describe('rectification list row', () => {
       );
       expect(attachments.length).toBe(1);
       expect(attachments[0]).toHaveTextContent(
-        t<string>('landing-page:list:details:attachments')
+        t('landing-page:list:details:attachments')
       );
     });
 
@@ -228,11 +228,11 @@ describe('rectification list row', () => {
         'rectification-list-row-status'
       )[0];
       expect(status).toHaveTextContent(
-        t<string>('landing-page:list:status:sent:default')
+        t('landing-page:list:status:sent:default')
       );
 
       const showMoreButton = screen.getByRole('button', {
-        name: t<string>('landing-page:list:show-more')
+        name: t('landing-page:list:show-more')
       });
       expect(showMoreButton).toBeVisible();
 
@@ -258,7 +258,7 @@ describe('rectification list row', () => {
       // Events
       expect(events.length).toBe(1);
       expect(events[0]).toHaveTextContent(
-        t<string>('landing-page:list:status:sent:default')
+        t('landing-page:list:status:sent:default')
       );
 
       // Attachments should be empty and title not visible
@@ -275,12 +275,12 @@ describe('rectification list row', () => {
 
       // Buttons not visible
       const showFormButton = screen.queryByRole('button', {
-        name: t<string>('landing-page:list:details:show-form')
+        name: t('landing-page:list:details:show-form')
       });
       expect(showFormButton).not.toBeInTheDocument();
 
       const openDecisionButton = screen.queryByRole('button', {
-        name: t<string>('landing-page:list:details:open-decision')
+        name: t('landing-page:list:details:open-decision')
       });
       expect(openDecisionButton).not.toBeInTheDocument();
     });

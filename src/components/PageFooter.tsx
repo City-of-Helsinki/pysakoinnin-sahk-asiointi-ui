@@ -44,12 +44,12 @@ const PageFooter = () => {
           />
         ]}>
         <Footer.Link
-          label={t<string>('common:contact-us')}
+          label={t('common:contact-us')}
           href="https://www.hel.fi/fi/kaupunkiymparisto-ja-liikenne/kaupunkiympariston-asiakaspalvelu"
           target="_blank"
         />
         <Footer.Link
-          label={t<string>('common:feedback')}
+          label={t('common:feedback')}
           href="https://palautteet.hel.fi/"
           target="_blank"
         />
@@ -66,24 +66,21 @@ const PageFooter = () => {
           />
         }>
         <Footer.Link
-          label={t<string>('common:legal:registry-description:title')}
+          label={t('common:legal:registry-description:title')}
           href={t('common:legal:registry-description:link')}
           target="_blank"
         />
         <Footer.Link
-          label={t<string>('common:legal:data-protection:title')}
+          label={t('common:legal:data-protection:title')}
           href={t('common:legal:data-protection:link')}
           target="_blank"
         />
         <Footer.Link
-          label={t<string>('common:legal:accessibility:title')}
+          label={t('common:legal:accessibility:title')}
           href={t('common:legal:accessibility:link')}
           target="_blank"
         />
-        <Footer.Link
-          label={t<string>('common:legal:cookies:title')}
-          href="/cookies"
-        />
+        <Footer.Link label={t('common:legal:cookies:title')} href="/cookies" />
       </Footer.Base>
     </Footer>
   );

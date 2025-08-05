@@ -95,8 +95,8 @@ const RectificationListRow: FC<Props> = ({ form }): React.ReactElement => {
         <Button
           aria-label={
             extended
-              ? t<string>('landing-page:list:show-less')
-              : t<string>('landing-page:list:show-more')
+              ? t('landing-page:list:show-less')
+              : t('landing-page:list:show-more')
           }
           className="rectification-list-row-button"
           variant="supplementary"

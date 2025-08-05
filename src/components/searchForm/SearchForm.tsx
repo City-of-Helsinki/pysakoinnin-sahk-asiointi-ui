@@ -40,18 +40,16 @@ const SearchForm = (props: Props): React.ReactElement => {
             }
           }}
           render={({ field, fieldState }) => (
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore - React 18 compatibility with HDS components
             <TextInput
               {...field}
               className="field"
               id="invoiceNumber"
               label={t('common:fine-info:invoice-number:label')}
-              placeholder={t<string>(
-                'common:fine-info:invoice-number:placeholder'
-              )}
-              tooltipLabel={t<string>('common:fine-info:invoice-number:label')}
-              tooltipText={t<string>(
-                'common:fine-info:invoice-number:tooltip-text'
-              )}
+              placeholder={t('common:fine-info:invoice-number:placeholder')}
+              tooltipLabel={t('common:fine-info:invoice-number:label')}
+              tooltipText={t('common:fine-info:invoice-number:tooltip-text')}
               required
               onChange={e => {
                 field.onChange(e);
@@ -76,16 +74,16 @@ const SearchForm = (props: Props): React.ReactElement => {
             }
           }}
           render={({ field, fieldState }) => (
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore - React 18 compatibility with HDS components
             <TextInput
               {...field}
               className="field"
               id="refNumber"
               label={t('common:fine-info:ref-number:label')}
-              placeholder={t<string>('common:fine-info:ref-number:placeholder')}
-              tooltipLabel={t<string>('common:fine-info:ref-number:label')}
-              tooltipText={t<string>(
-                'common:fine-info:ref-number:tooltip-text'
-              )}
+              placeholder={t('common:fine-info:ref-number:placeholder')}
+              tooltipLabel={t('common:fine-info:ref-number:label')}
+              tooltipText={t('common:fine-info:ref-number:tooltip-text')}
               required
               onChange={e => {
                 field.onChange(e);
@@ -104,16 +102,18 @@ const SearchForm = (props: Props): React.ReactElement => {
           required: t('common:required-field') as string
         }}
         render={({ field, fieldState }) => (
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore - React 18 compatibility with HDS components
           <TextInput
             {...field}
             className="field"
             id="regNumber"
             label={t('common:fine-info:reg-number:label')}
-            placeholder={t<string>('common:fine-info:reg-number:placeholder')}
+            placeholder={t('common:fine-info:reg-number:placeholder')}
             helperText={
               movedCarForm
-                ? t<string>('common:fine-info:reg-number:helper-text:moved-car')
-                : t<string>('common:fine-info:reg-number:helper-text:common')
+                ? t('common:fine-info:reg-number:helper-text:moved-car')
+                : t('common:fine-info:reg-number:helper-text:common')
             }
             required
             onChange={e => {

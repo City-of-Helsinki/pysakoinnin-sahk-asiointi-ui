@@ -16,8 +16,8 @@ describe('ExtendedTextField', () => {
     );
 
     expect(getByText(content)).toBeInTheDocument();
-    expect(queryByText(t<string>('common:show-more'))).toBeNull();
-    expect(queryByText(t<string>('common:show-less'))).toBeNull();
+    expect(queryByText(t('common:show-more'))).toBeNull();
+    expect(queryByText(t('common:show-less'))).toBeNull();
   });
 
   test('expands content when "Show more" button is clicked', () => {
@@ -26,14 +26,14 @@ describe('ExtendedTextField', () => {
     );
 
     expect(getByText(longContent.slice(0, maxLength))).toBeInTheDocument();
-    expect(getByText(t<string>('common:show-more'))).toBeInTheDocument();
-    expect(queryByText(t<string>('common:show-less'))).toBeNull();
+    expect(getByText(t('common:show-more'))).toBeInTheDocument();
+    expect(queryByText(t('common:show-less'))).toBeNull();
 
-    fireEvent.click(getByText(t<string>('common:show-more')));
+    fireEvent.click(getByText(t('common:show-more')));
 
     expect(getByText(longContent)).toBeInTheDocument();
-    expect(queryByText(t<string>('common:show-more'))).toBeNull();
-    expect(getByText(t<string>('common:show-less'))).toBeInTheDocument();
+    expect(queryByText(t('common:show-more'))).toBeNull();
+    expect(getByText(t('common:show-less'))).toBeInTheDocument();
   });
 
   test('collapses content when "Show less" button is clicked', () => {
@@ -41,16 +41,16 @@ describe('ExtendedTextField', () => {
       <ExtendedTextField content={longContent} />
     );
 
-    fireEvent.click(getByText(t<string>('common:show-more')));
+    fireEvent.click(getByText(t('common:show-more')));
 
     expect(getByText(longContent)).toBeInTheDocument();
-    expect(queryByText(t<string>('common:show-more'))).toBeNull();
-    expect(getByText(t<string>('common:show-less'))).toBeInTheDocument();
+    expect(queryByText(t('common:show-more'))).toBeNull();
+    expect(getByText(t('common:show-less'))).toBeInTheDocument();
 
-    fireEvent.click(getByText(t<string>('common:show-less')));
+    fireEvent.click(getByText(t('common:show-less')));
 
     expect(getByText(longContent.slice(0, maxLength))).toBeInTheDocument();
-    expect(getByText(t<string>('common:show-more'))).toBeInTheDocument();
-    expect(queryByText(t<string>('common:show-less'))).toBeNull();
+    expect(getByText(t('common:show-more'))).toBeInTheDocument();
+    expect(queryByText(t('common:show-less'))).toBeNull();
   });
 });

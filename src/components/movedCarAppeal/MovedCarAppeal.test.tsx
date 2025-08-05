@@ -40,7 +40,7 @@ describe('moved car appeal form', () => {
 
       // Form title is visible
       const formTitle = screen.getByRole('heading', {
-        name: t<string>('moved-car:title')
+        name: t('moved-car:title')
       });
       expect(formTitle).toBeInTheDocument();
 
