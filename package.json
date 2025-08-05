@@ -55,17 +55,14 @@
     "typescript": "^4.9.5",
     "vite": "^5.4.19",
     "vite-plugin-eslint": "^1.8.1",
-    "vite-plugin-svgr": "^4.2.0",
-    "vitest": "^3.2.4",
-    "vitest-axe": "^0.1.0",
-    "vitest-fetch-mock": "^0.2.2"
+    "vite-plugin-svgr": "^4.2.0"
   },
   "scripts": {
     "start": "yarn run update-runtime-env && vite",
     "typecheck": "tsc --skipLibCheck --noEmit --project tsconfig.json",
     "build": "yarn typecheck && vite build",
     "preview": "yarn clear-babel-cache && yarn update-runtime-env && vite preview",
-    "test": "NODE_ENV=test yarn run update-runtime-env && vitest",
+    "test": "NODE_ENV=test yarn run update-runtime-env && vitest --config ./vitest.config.ts",
     "test:coverage": "CI=true yarn test --coverage",
     "ci": "CI=true yarn test --coverage",
     "lint": "eslint --ext js,ts,tsx src",
@@ -94,10 +91,13 @@
     "@testing-library/jest-dom": "^6.6.2",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.6.1",
-    "@vitest/coverage-istanbul": "^2.1.9",
+    "@vitest/coverage-istanbul": "^3.2.4",
     "husky": "^8.0.3",
     "jsdom": "^26.1.0",
-    "vitest-canvas-mock": "^0.3.3"
+    "vitest-canvas-mock": "^0.3.3",
+    "vitest": "^3.2.4",
+    "vitest-axe": "^0.1.0",
+    "vitest-fetch-mock": "^0.2.2"
   },
   "resolutions": {
     "@babel/traverse": "7.23.2",
