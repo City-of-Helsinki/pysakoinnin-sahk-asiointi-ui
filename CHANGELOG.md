@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.17.0](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.16.1...pysakoinnin-sahk-asiointi-ui-v0.17.0) (2025-08-08)
+
+
+### Features
+
+* Upgrade to React 18 ([#196](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/issues/196)) ([e6a7d6e](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/e6a7d6e167df5377c3ad11d7437a38bcbe480dc8))
+
+
+### Bug Fixes
+
+* Upgrade axios ([bbc1931](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/bbc1931adea8def653179edce7394ac62cb680e9))
+
+
+### Dependencies
+
+* Bump vite from 5.4.18 to 5.4.19 ([#192](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/issues/192)) ([a27ad05](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/a27ad05a76e8ca0c74ad0544eae7549435e725b1))
+
 ## [0.16.1](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.16.0...pysakoinnin-sahk-asiointi-ui-v0.16.1) (2025-05-30)
 
 
