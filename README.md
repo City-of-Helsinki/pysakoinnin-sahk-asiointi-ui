@@ -19,7 +19,7 @@ React UI for Pysäköinnin Asiointi e-services
 ### With Docker
 
 1. Install Docker if you don't already have it
-    - you can install Docker Desktop from [here](https://www.docker.com)
+   - you can install Docker Desktop from [here](https://www.docker.com)
 2. start Docker Desktop in the background
 3. run `docker-compose up` in terminal
 4. App runs on `localhost:3000`
@@ -81,3 +81,10 @@ Remove this to get visually clearer results (with colors!).
 
 Generates variable object used when app is running. Generated object is stored at `public/env-config.js` and available
 as `window._env_` object.
+
+## Commit message format
+
+New commit messages must adhere to the [Conventional Commits](https://www.conventionalcommits.org/)
+specification, and line length is limited to 72 characters.
+
+[`commitlint`](https://github.com/conventional-changelog/commitlint) checks new commit messages for the correct format.
