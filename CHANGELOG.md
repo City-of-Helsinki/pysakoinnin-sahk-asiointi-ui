@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.17.2](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.17.1...pysakoinnin-sahk-asiointi-ui-v0.17.2) (2025-09-15)
+
+
+### Dependencies
+
+* Bump vite from 5.4.19 to 5.4.20 ([0213587](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/021358786d4be88fc0a81716be33ede77451f4e3))
+
 ## [0.17.1](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.17.0...pysakoinnin-sahk-asiointi-ui-v0.17.1) (2025-09-15)
 
 
