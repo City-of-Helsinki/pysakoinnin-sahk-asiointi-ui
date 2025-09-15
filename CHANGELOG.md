@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.17.1](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.17.0...pysakoinnin-sahk-asiointi-ui-v0.17.1) (2025-09-15)
+
+
+### Dependencies
+
+* Bump axios from 1.11.0 to 1.12.0 ([4e84a3a](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/4e84a3a66af5f07396ff78196ae1ace7ce97b92f))
+
 ## [0.17.0](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.16.1...pysakoinnin-sahk-asiointi-ui-v0.17.0) (2025-08-08)
 
 
