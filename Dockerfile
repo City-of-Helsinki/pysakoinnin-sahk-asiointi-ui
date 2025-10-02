@@ -54,6 +54,7 @@ COPY --chown=appuser:0 --from=staticbuilder /usr/src/app/build /usr/share/nginx/
 
 # Copy nginx config
 COPY --chown=appuser:0 .prod/nginx.conf /etc/nginx/
+COPY --chown=appuser:0 .prod/includes /etc/nginx/includes
 
 # Copy default environment config and setup script
 # Copy package.json so env.sh can read it
