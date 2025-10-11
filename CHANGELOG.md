@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.18.0](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.17.2...pysakoinnin-sahk-asiointi-ui-v0.18.0) (2025-10-11)
+
+
+### Features
+
+* Add support for injecting security policy headers to nginx ([1f441a5](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/1f441a5020c26054a1e1eaffcecf1b9459431697))
+
 ## [0.17.2](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.17.1...pysakoinnin-sahk-asiointi-ui-v0.17.2) (2025-09-15)
 
 
