@@ -14,7 +14,8 @@ export default defineConfig({
   ] as UserConfig['plugins'],
   build: {
     outDir: './build',
-    emptyOutDir: true
+    emptyOutDir: true,
+    sourcemap: true,
   },
   server: {
     host: true,

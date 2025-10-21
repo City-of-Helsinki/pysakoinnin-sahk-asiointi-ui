@@ -17,18 +17,31 @@ declare global {
   }
 }
 
-const isLocalhost = window.location.hostname === 'localhost';
-
-Sentry.init({
-  dsn: window._env_.REACT_APP_SENTRY_DSN,
-  integrations: [Sentry.browserTracingIntegration()],
-  environment: window._env_.REACT_APP_ENVIRONMENT,
-  tracesSampleRate: isLocalhost
-    ? 0.0
-    : window._env_.REACT_APP_SENTRY_TRACE_RATE,
-  beforeSend: beforeSend as Sentry.BrowserOptions['beforeSend'],
-  beforeSendTransaction: beforeSendTransaction as Sentry.BrowserOptions['beforeSendTransaction']
-});
+if (window._env_.REACT_APP_SENTRY_DSN) {
+  Sentry.init({
+    dsn: window._env_.REACT_APP_SENTRY_DSN,
+    environment: window._env_.REACT_APP_SENTRY_ENVIRONMENT,
+    release: window._env_.REACT_APP_SENTRY_RELEASE,
+    integrations: [
+      Sentry.browserTracingIntegration(),
+      Sentry.replayIntegration()
+    ],
+    tracesSampleRate: parseFloat(
+      window._env_.REACT_APP_SENTRY_TRACES_SAMPLE_RATE || '0'
+    ),
+    tracePropagationTargets: (
+      window._env_.REACT_APP_SENTRY_TRACE_PROPAGATION_TARGETS || ''
+    ).split(','),
+    replaysSessionSampleRate: parseFloat(
+      window._env_.REACT_APP_SENTRY_REPLAYS_SESSION_SAMPLE_RATE || '0'
+    ),
+    replaysOnErrorSampleRate: parseFloat(
+      window._env_.REACT_APP_SENTRY_REPLAYS_ON_ERROR_SAMPLE_RATE || '0'
+    ),
+    beforeSend: beforeSend as Sentry.BrowserOptions['beforeSend'],
+    beforeSendTransaction: beforeSendTransaction as Sentry.BrowserOptions['beforeSendTransaction']
+  });
+}
 
 // Create a root instance
 const rootElement = document.getElementById('root');
