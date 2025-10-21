@@ -1,13 +1,13 @@
 # ===============================================
-FROM registry.access.redhat.com/ubi9/nodejs-22 as appbase
+FROM registry.access.redhat.com/ubi9/nodejs-22 AS appbase
 # ===============================================
 # Offical image has npm log verbosity as info. More info - https://github.com/nodejs/docker-node#verbosity
-ENV NPM_CONFIG_LOGLEVEL warn
+ENV NPM_CONFIG_LOGLEVEL=warn
 
 # set our node environment, either development or production
 # defaults to production, compose overrides this to development on build and run
 ARG NODE_ENV=production
-ENV NODE_ENV $NODE_ENV
+ENV NODE_ENV=$NODE_ENV
 
 USER root
 RUN useradd --uid 1000 --system --gid 0 --create-home --shell /bin/bash appuser
@@ -20,12 +20,12 @@ ENV NPM_CONFIG_PREFIX=./.npm-global
 ENV PATH=$PATH:./.npm-global/bin
 
 # Install npm depepndencies
-ENV PATH ./node_modules/.bin:$PATH
+ENV PATH=./node_modules/.bin:$PATH
 
 # Yarn
 USER root
 RUN npm install --global yarn
-ENV YARN_VERSION 1.19.1
+ENV YARN_VERSION=1.19.1
 RUN yarn policies set-version $YARN_VERSION
 
 # Copy package.json and package-lock.json/yarn.lock files
@@ -38,14 +38,18 @@ RUN yarn && yarn cache clean --force
 
 
 # ===================================
-FROM appbase as staticbuilder
+FROM appbase AS staticbuilder
 # ===================================
 
-COPY --chown=appuser:0 . tsconfig.json ./ 
-RUN yarn build
+COPY --chown=appuser:0 . tsconfig.json ./
+
+# When building locally with Docker Compose, the auth token can be provided using SENTRY_AUTH_TOKEN environment variable.
+# Our AzDO pipeline uses /secrets/SENTRY_AUTH_TOKEN to pass the auth token so this works there too.
+RUN --mount=type=secret,id=SENTRY_AUTH_TOKEN,gid=0,target=/secrets/SENTRY_AUTH_TOKEN \
+    SENTRY_AUTH_TOKEN="$(cat /secrets/SENTRY_AUTH_TOKEN 2>/dev/null)" yarn build
 
 # =============================
-FROM registry.access.redhat.com/ubi8/nginx-122 as production
+FROM registry.access.redhat.com/ubi8/nginx-122 AS production
 # =============================
 USER root
 RUN useradd --uid 1000 --system --gid 0 --create-home --shell /bin/bash appuser
