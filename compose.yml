@@ -1,10 +1,10 @@
-version: '3.7'
-
 services:
   app:
     container_name: pysakoinnin-sahk-asiointi-ui
     build:
       context: .
+      secrets:
+        - SENTRY_AUTH_TOKEN
     volumes:
       - '.:/app'
     ports:
@@ -12,3 +12,6 @@ services:
     stdin_open: true
     env_file:
       - .env
+secrets:
+  SENTRY_AUTH_TOKEN:
+    environment: SENTRY_AUTH_TOKEN
