@@ -43,10 +43,7 @@ FROM appbase AS staticbuilder
 
 COPY --chown=appuser:0 . tsconfig.json ./
 
-# When building locally with Docker Compose, the auth token can be provided using SENTRY_AUTH_TOKEN environment variable.
-# Our AzDO pipeline uses /secrets/SENTRY_AUTH_TOKEN to pass the auth token so this works there too.
-RUN --mount=type=secret,id=SENTRY_AUTH_TOKEN,gid=0,target=/secrets/SENTRY_AUTH_TOKEN \
-    SENTRY_AUTH_TOKEN="$(cat /secrets/SENTRY_AUTH_TOKEN 2>/dev/null)" yarn build
+RUN yarn build
 
 # =============================
 FROM registry.access.redhat.com/ubi8/nginx-122 AS production
