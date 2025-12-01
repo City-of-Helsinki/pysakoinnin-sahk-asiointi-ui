@@ -1,5 +1,24 @@
 # Changelog
 
+## [0.18.0](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.17.2...pysakoinnin-sahk-asiointi-ui-v0.18.0) (2025-12-01)
+
+
+### Features
+
+* Add support for injecting security policy headers to nginx ([1f441a5](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/1f441a5020c26054a1e1eaffcecf1b9459431697))
+* **sentry:** Update sentry configuration ([71071d0](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/71071d01e6fed8bb500836521afa708c9440830a))
+
+
+### Bug Fixes
+
+* Update privacy statement links ([7b70704](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/7b707049bfdcf1c341801dc2477656f46674536b))
+
+
+### Dependencies
+
+* Bump js-yaml from 4.1.0 to 4.1.1 ([#208](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/issues/208)) ([29935b2](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/29935b2122fb41293e7b81a64ddc9a810500df27))
+* Update Sentry to version 10.20.0 ([e79d8e2](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/e79d8e237a237d814e85cc0feeae229f05bc344c))
+
 ## [0.17.2](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.17.1...pysakoinnin-sahk-asiointi-ui-v0.17.2) (2025-09-15)
 
 
