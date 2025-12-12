@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.18.1](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.18.0...pysakoinnin-sahk-asiointi-ui-v0.18.1) (2025-12-12)
+
+
+### Bug Fixes
+
+* Sentry cleanSensitiveData infinite recursion Ref: PSA-120 ([907ac09](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/907ac099a60d4039f2a1c8676315902e22732c4a))
+
 ## [0.18.0](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.17.2...pysakoinnin-sahk-asiointi-ui-v0.18.0) (2025-12-01)
 
 
