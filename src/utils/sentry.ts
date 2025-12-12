@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable line-comment-position */
-import { TransactionEvent, ErrorEvent, EventHint } from '@sentry/types';
-import { isObject, snakeCase } from 'lodash';
+import { ErrorEvent, TransactionEvent } from '@sentry/core';
+import { snakeCase } from 'lodash';
 
 // https://github.com/getsentry/sentry-python/blob/8094c9e4462c7af4d73bfe3b6382791f9949e7f0/sentry_sdk/scrubber.py#L14
 const DEFAULT_DENYLIST = [
@@ -48,40 +48,55 @@ const DEFAULT_DENYLIST = [
 ];
 
 const SENTRY_DENYLIST = [...DEFAULT_DENYLIST, 'register_number'];
+const MAX_CLEAN_DEPTH = 32;
 
-export const cleanSensitiveData = (data: Record<string, unknown>) => {
-  Object.entries(data).forEach(([key, value]) => {
+export const cleanSensitiveData = (
+  data: unknown,
+  visited = new WeakMap<object, unknown>(),
+  depth = 0,
+  maxDepth = MAX_CLEAN_DEPTH
+): unknown => {
+  if (depth > maxDepth) {
+    return '[MaxDepthExceeded]';
+  }
+
+  if (typeof data !== 'object' || data === null) {
+    return data;
+  }
+
+  // To avoid infinite recursion for circular references
+  if (visited.has(data)) {
+    return visited.get(data);
+  }
+
+  if (Array.isArray(data)) {
+    const result: unknown[] = [];
+    visited.set(data, result);
+    for (const item of data) {
+      result.push(cleanSensitiveData(item, visited, depth + 1, maxDepth));
+    }
+    return result;
+  }
+
+  const result: Record<string, unknown> = {};
+  visited.set(data, result);
+
+  for (const [key, value] of Object.entries(data)) {
     if (
       SENTRY_DENYLIST.includes(key) ||
       SENTRY_DENYLIST.includes(snakeCase(key))
     ) {
-      delete data[key];
-    } else if (Array.isArray(value)) {
-      data[key] = value.map(item =>
-        isObject(item)
-          ? cleanSensitiveData(item as Record<string, unknown>)
-          : item
-      );
-    } else if (isObject(value)) {
-      data[key] = cleanSensitiveData(value as Record<string, unknown>);
+      continue; // omit sensitive key
     }
-  });
+    result[key] = cleanSensitiveData(value, visited, depth + 1, maxDepth);
+  }
 
-  return data;
+  return result;
 };
 
-export const beforeSend = (
-  event: ErrorEvent,
-  hint: EventHint
-): ErrorEvent | null =>
-  (cleanSensitiveData(
-    (event as unknown) as Record<string, unknown>
-  ) as unknown) as ErrorEvent;
+export const beforeSend = (event: ErrorEvent): ErrorEvent =>
+  cleanSensitiveData(event) as ErrorEvent;
 
 export const beforeSendTransaction = (
-  event: TransactionEvent,
-  hint: EventHint
-): TransactionEvent | null =>
-  (cleanSensitiveData(
-    (event as unknown) as Record<string, unknown>
-  ) as unknown) as TransactionEvent;
+  event: TransactionEvent
+): TransactionEvent => cleanSensitiveData(event) as TransactionEvent;
