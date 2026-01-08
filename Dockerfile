@@ -34,7 +34,8 @@ COPY --chown=appuser:0 ./scripts ./scripts
 COPY --chown=appuser:0 ./public ./public
 
 RUN yarn config set network-timeout 300000
-RUN yarn && yarn cache clean --force
+RUN yarn install --frozen-lockfile --ignore-scripts && yarn cache clean --force
+RUN yarn update-runtime-env
 
 
 # ===================================
