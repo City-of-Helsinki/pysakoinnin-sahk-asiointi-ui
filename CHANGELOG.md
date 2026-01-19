@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.19.0](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.18.1...pysakoinnin-sahk-asiointi-ui-v0.19.0) (2026-01-19)
+
+
+### Features
+
+* Hardening yarn install RATY-280 ([bd2f033](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/bd2f033f4a2a9fe4be7c7ccc714861315b616d16))
+
+
+### Bug Fixes
+
+* Refactor pipelines ([#212](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/issues/212)) ([5442a89](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/5442a8935af790f9c1efb4462320cd46fce1312f))
+
 ## [0.18.1](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.18.0...pysakoinnin-sahk-asiointi-ui-v0.18.1) (2025-12-12)
 
 
