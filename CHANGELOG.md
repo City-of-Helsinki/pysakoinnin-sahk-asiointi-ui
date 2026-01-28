@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.19.1](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.19.0...pysakoinnin-sahk-asiointi-ui-v0.19.1) (2026-01-28)
+
+
+### Dependencies
+
+* Bump lodash from 4.17.21 to 4.17.23 ([c543cb4](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/c543cb4bcf049090b65094447d59f6f60c92d362))
+* Bump lodash-es from 4.17.21 to 4.17.23 ([f2367f5](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/f2367f5a52972ba38a7e17bec92edb9ea24f083a))
+
 ## [0.19.0](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.18.1...pysakoinnin-sahk-asiointi-ui-v0.19.0) (2026-01-19)
 
 
