@@ -231,3 +231,259 @@ describe('form stepper', () => {
     expect(mockAction).toHaveBeenCalled();
   });
 });
+
+describe('FormStepper questionnaire link', () => {
+  const questionnaireHref = 'https://my.roidu.com/a/dJMQHPmAGfs7DhUv';
+
+  beforeEach(async () => {
+    mockAuthenticatedLoginState();
+    // jsdom does not implement scrollIntoView; FormStepper calls it when form is submitted
+    Element.prototype.scrollIntoView = vi.fn();
+  });
+
+  test('shows questionnaire link after rectification submit on parking-fine form', () => {
+    const parkingFineFormContentMock = createSlice({
+      name: 'formContent',
+      initialState: {
+        formSubmitted: true,
+        selectedForm: FormId.PARKINGFINE,
+        submitDisabled: false,
+        formValues: {},
+        formError: null,
+        submitError: false,
+        emailConfirmation: false
+      },
+      reducers: {}
+    });
+
+    const lastStepStepperMock = createSlice({
+      name: 'formStepper',
+      initialState: {
+        activeStepIndex: 3,
+        steps: [
+          { label: 'Haku', state: 0 },
+          { label: 'Pysäköintivirhemaksun tiedot', state: 0 },
+          { label: 'Oikaisuvaatimus', state: 0 },
+          { label: 'Yhteenveto', state: 0 }
+        ]
+      },
+      reducers: {
+        completeStep: mockAction,
+        setActive: mockAction,
+        setSteps: mockAction
+      }
+    });
+
+    const testStore = configureStore({
+      reducer: {
+        formContent: parkingFineFormContentMock.reducer,
+        formStepper: lastStepStepperMock.reducer,
+        extendDueDateForm: extendDueDateFormSliceMock.reducer,
+        user: userSliceMock.reducer,
+        loading: loadingSlice
+      }
+    });
+
+    render(
+      <BrowserRouter>
+        <Provider store={testStore}>
+          <I18nextProvider i18n={i18n}>
+            <FormStepper
+              initialSteps={lastStepStepperMock.getInitialState().steps}
+            />
+          </I18nextProvider>
+        </Provider>
+      </BrowserRouter>
+    );
+
+    const questionnaireLink = screen.getByRole('link', {
+      name: content => content.includes(t('common:questionnaire-link'))
+    });
+    expect(questionnaireLink).toBeInTheDocument();
+    expect(questionnaireLink).toHaveAttribute('href', questionnaireHref);
+    expect(questionnaireLink).toHaveAttribute('target', '_blank');
+    expect(questionnaireLink.getAttribute('rel')).toContain('noopener');
+  });
+
+  test('shows questionnaire link after rectification submit on moved-car form', () => {
+    const movedCarFormContentMock = createSlice({
+      name: 'formContent',
+      initialState: {
+        formSubmitted: true,
+        selectedForm: FormId.MOVEDCAR,
+        submitDisabled: false,
+        formValues: {},
+        formError: null,
+        submitError: false,
+        emailConfirmation: false
+      },
+      reducers: {}
+    });
+
+    const lastStepStepperMock = createSlice({
+      name: 'formStepper',
+      initialState: {
+        activeStepIndex: 3,
+        steps: [
+          { label: 'Haku', state: 0 },
+          { label: 'Korvauspäätös', state: 0 },
+          { label: 'Oikaisuvaatimus', state: 0 },
+          { label: 'Yhteenveto', state: 0 }
+        ]
+      },
+      reducers: {
+        completeStep: mockAction,
+        setActive: mockAction,
+        setSteps: mockAction
+      }
+    });
+
+    const testStore = configureStore({
+      reducer: {
+        formContent: movedCarFormContentMock.reducer,
+        formStepper: lastStepStepperMock.reducer,
+        extendDueDateForm: extendDueDateFormSliceMock.reducer,
+        user: userSliceMock.reducer,
+        loading: loadingSlice
+      }
+    });
+
+    render(
+      <BrowserRouter>
+        <Provider store={testStore}>
+          <I18nextProvider i18n={i18n}>
+            <FormStepper
+              initialSteps={lastStepStepperMock.getInitialState().steps}
+            />
+          </I18nextProvider>
+        </Provider>
+      </BrowserRouter>
+    );
+
+    const questionnaireLink = screen.getByRole('link', {
+      name: content => content.includes(t('common:questionnaire-link'))
+    });
+    expect(questionnaireLink).toBeInTheDocument();
+    expect(questionnaireLink).toHaveAttribute('href', questionnaireHref);
+  });
+
+  test('does not show questionnaire link after due-date form submit', () => {
+    const dueDateFormContentMock = createSlice({
+      name: 'formContent',
+      initialState: {
+        formSubmitted: true,
+        selectedForm: FormId.DUEDATE,
+        submitDisabled: false,
+        formValues: {},
+        formError: null,
+        submitError: false,
+        emailConfirmation: false
+      },
+      reducers: {}
+    });
+
+    const lastStepStepperMock = createSlice({
+      name: 'formStepper',
+      initialState: {
+        activeStepIndex: 1,
+        steps: [
+          { label: 'Haku', state: 1 },
+          { label: 'Eräpäivän siirto', state: 0 }
+        ]
+      },
+      reducers: {
+        completeStep: mockAction,
+        setActive: mockAction,
+        setSteps: mockAction
+      }
+    });
+
+    const testStore = configureStore({
+      reducer: {
+        formContent: dueDateFormContentMock.reducer,
+        formStepper: lastStepStepperMock.reducer,
+        extendDueDateForm: extendDueDateFormSliceMock.reducer,
+        user: userSliceMock.reducer,
+        loading: loadingSlice
+      }
+    });
+
+    render(
+      <BrowserRouter>
+        <Provider store={testStore}>
+          <I18nextProvider i18n={i18n}>
+            <FormStepper
+              initialSteps={lastStepStepperMock.getInitialState().steps}
+            />
+          </I18nextProvider>
+        </Provider>
+      </BrowserRouter>
+    );
+
+    const questionnaireLink = screen.queryByRole('link', {
+      name: content => content.includes(t('common:questionnaire-link'))
+    });
+    expect(questionnaireLink).not.toBeInTheDocument();
+  });
+
+  test('does not show questionnaire link before form is submitted', () => {
+    const parkingFineFormContentMock = createSlice({
+      name: 'formContent',
+      initialState: {
+        formSubmitted: false,
+        selectedForm: FormId.PARKINGFINE,
+        submitDisabled: false,
+        formValues: {},
+        formError: null,
+        submitError: false,
+        emailConfirmation: false
+      },
+      reducers: {}
+    });
+
+    const lastStepStepperMock = createSlice({
+      name: 'formStepper',
+      initialState: {
+        activeStepIndex: 3,
+        steps: [
+          { label: 'Haku', state: 0 },
+          { label: 'Pysäköintivirhemaksun tiedot', state: 0 },
+          { label: 'Oikaisuvaatimus', state: 0 },
+          { label: 'Yhteenveto', state: 0 }
+        ]
+      },
+      reducers: {
+        completeStep: mockAction,
+        setActive: mockAction,
+        setSteps: mockAction
+      }
+    });
+
+    const testStore = configureStore({
+      reducer: {
+        formContent: parkingFineFormContentMock.reducer,
+        formStepper: lastStepStepperMock.reducer,
+        extendDueDateForm: extendDueDateFormSliceMock.reducer,
+        user: userSliceMock.reducer,
+        loading: loadingSlice
+      }
+    });
+
+    render(
+      <BrowserRouter>
+        <Provider store={testStore}>
+          <I18nextProvider i18n={i18n}>
+            <FormStepper
+              initialSteps={lastStepStepperMock.getInitialState().steps}
+            />
+          </I18nextProvider>
+        </Provider>
+      </BrowserRouter>
+    );
+
+    const questionnaireLink = screen.queryByRole('link', {
+      name: content => content.includes(t('common:questionnaire-link'))
+    });
+    expect(questionnaireLink).not.toBeInTheDocument();
+  });
+});

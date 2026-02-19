@@ -9,6 +9,7 @@ import {
   IconArrowLeft,
   IconArrowRight,
   IconHome,
+  Link,
   IconPrinter,
   IconThumbsUp,
   Notification,
@@ -259,13 +260,27 @@ const FormStepper = (props: Props): React.ReactElement => {
         : t('common:next')}
     </Button>
   ) : formContent.formSubmitted ? (
-    <Button
-      id="button-submitted"
-      className="button"
-      iconLeft={<IconThumbsUp />}
-      variant="success">
-      {t(`${formContent.selectedForm}:submit-success`)}
-    </Button>
+    <div className="submit-success-wrapper">
+      <Button
+        id="button-submitted"
+        className="button"
+        iconLeft={<IconThumbsUp />}
+        variant="success">
+        {t(`${formContent.selectedForm}:submit-success`)}
+      </Button>
+      {(formContent.selectedForm === FormId.PARKINGFINE ||
+        formContent.selectedForm === FormId.MOVEDCAR) && (
+        <Link
+          className="questionnaire link"
+          href="https://my.roidu.com/a/dJMQHPmAGfs7DhUv"
+          disableVisitedStyles
+          external
+          openInNewTab
+          openInNewTabAriaLabel={t('common:aria:open-new-tab')}>
+          {t('common:questionnaire-link')}
+        </Link>
+      )}
+    </div>
   ) : (
     <Button
       id="button-submit"
@@ -394,20 +409,18 @@ const FormStepper = (props: Props): React.ReactElement => {
               {t(`${formContent.selectedForm}:notifications:fail:text`)}
             </Notification>
           )}
-          <div>
-            {lastStep && formContent.formSubmitted && (
-              <div ref={mainPageButtonRef} className="home-button-container">
-                <Button
-                  className="button home link"
-                  iconRight={<IconHome />}
-                  role="link"
-                  variant="primary"
-                  onClick={goToHomePage}>
-                  {t('common:to-mainpage')}
-                </Button>
-              </div>
-            )}
-          </div>
+          {lastStep && formContent.formSubmitted && (
+            <div ref={mainPageButtonRef} className="home-button-container">
+              <Button
+                className="button home link"
+                iconRight={<IconHome />}
+                role="link"
+                variant="primary"
+                onClick={goToHomePage}>
+                {t('common:to-mainpage')}
+              </Button>
+            </div>
+          )}
         </div>
       </form>
     </div>

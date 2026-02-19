@@ -1,3 +1,9 @@
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-s);
+}
+
 .home-button-container {
   scroll-margin: var(--spacing-s);
 }
@@ -25,6 +31,19 @@
 
 .form-error-label {
   max-width: 500px;
+}
+
+/* Success button with questionnaire link directly below it */
+.submit-success-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--spacing-xs) * 0.5);
+  align-items: flex-start;
+}
+
+.submit-success-wrapper .questionnaire.link {
+  width: auto;
+  align-self: flex-end;
 }
 
 @media (max-width: 767px) {
@@ -76,5 +95,11 @@
 
   .button-wrapper.submit {
     justify-content: space-between;
+  }
+
+  /* Success+questionnaire column next to Print in same row */
+  .submit-and-print-button-wrapper {
+    display: flex;
+    align-items: flex-start;
   }
 }
