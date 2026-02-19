@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.20.0](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.19.1...pysakoinnin-sahk-asiointi-ui-v0.20.0) (2026-02-19)
+
+
+### Features
+
+* Add questionnare link to end of submit ([#222](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/issues/222)) ([02c5c9a](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/02c5c9afb1458a21c9180addaf4b99aa642802bc))
+
+
+### Dependencies
+
+* Bump axios from 1.12.2 to 1.13.5 ([47ee571](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/47ee57173a672b392d76984f0c307d431d739812))
+
 ## [0.19.1](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.19.0...pysakoinnin-sahk-asiointi-ui-v0.19.1) (2026-01-28)
 
 
