@@ -58,6 +58,7 @@
     "vite-plugin-svgr": "^4.2.0"
   },
   "scripts": {
+    "app:version": "echo \"$npm_package_version\"",
     "start": "yarn run update-runtime-env && vite",
     "typecheck": "tsc --skipLibCheck --noEmit --project tsconfig.json",
     "build": "yarn typecheck && vite build",

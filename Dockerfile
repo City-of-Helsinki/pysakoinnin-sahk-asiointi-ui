@@ -44,7 +44,16 @@ FROM appbase AS staticbuilder
 
 COPY --chown=appuser:0 . tsconfig.json ./
 
+ARG REACT_APP_SENTRY_RELEASE
+
+ENV REACT_APP_RELEASE=${REACT_APP_SENTRY_RELEASE:-""}
+
 RUN yarn build
+
+# Process nginx configuration with APP_VERSION substitution
+COPY .prod/nginx.conf /app/nginx.conf.template
+RUN export APP_VERSION=$(yarn --silent app:version | tr -d '\n') && \
+    envsubst '${APP_VERSION},${REACT_APP_RELEASE}' < /app/nginx.conf.template > /app/nginx.conf
 
 # =============================
 FROM registry.access.redhat.com/ubi8/nginx-122 AS production
@@ -55,7 +64,7 @@ RUN useradd --uid 1000 --system --gid 0 --create-home --shell /bin/bash appuser
 COPY --chown=appuser:0 --from=staticbuilder /usr/src/app/build /usr/share/nginx/html
 
 # Copy nginx config
-COPY --chown=appuser:0 .prod/nginx.conf /etc/nginx/
+COPY --from=staticbuilder --chown=appuser:0 /app/nginx.conf /etc/nginx/
 COPY --chown=appuser:0 .prod/includes /etc/nginx/includes
 
 # Copy default environment config and setup script
