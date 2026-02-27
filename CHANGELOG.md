@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.21.0](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.20.0...pysakoinnin-sahk-asiointi-ui-v0.21.0) (2026-02-27)
+
+
+### Features
+
+* Readiness endpoint KEH-228 ([c8e2dd3](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/c8e2dd3ef9d328700b893065804698a2df025a34))
+
+
+### Dependencies
+
+* Upgrade react-router-dom to latest Refs: RATY-299 ([017d0ff](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/017d0ffcf7f9516b45340dff33438d1711f8986c))
+
 ## [0.20.0](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.19.1...pysakoinnin-sahk-asiointi-ui-v0.20.0) (2026-02-19)
 
 
