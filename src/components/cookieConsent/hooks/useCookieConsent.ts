@@ -48,6 +48,21 @@ const useCookieConsent = ({
   const config: ContentSource = {
     siteName: title,
     currentLanguage,
+    requiredCookies: {
+      groups: [
+        {
+          commonGroup: 'login',
+          cookies: [
+            { commonCookie: 'keycloak' },
+            { commonCookie: 'keycloak-generic' },
+            { commonCookie: 'keycloak-language' },
+            { commonCookie: 'oidc-ts-storage' },
+            { commonCookie: 'hds-api-token-storage' },
+            { commonCookie: 'hds-api-token-user-reference' }
+          ]
+        }
+      ]
+    },
     optionalCookies: {
       groups: [
         {
