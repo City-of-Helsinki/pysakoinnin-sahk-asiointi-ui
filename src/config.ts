@@ -127,10 +127,33 @@ const uiConfig: { profileUIUrl: string } = {
   profileUIUrl: String(window._env_.REACT_APP_PROFILE_UI_URL)
 };
 
+const matomo: {
+  urlBase: string;
+  siteId: string;
+  srcUrl: string;
+  enabled: boolean;
+} = {
+  urlBase: String(window._env_.REACT_APP_MATOMO_URL_BASE),
+  siteId: String(window._env_.REACT_APP_MATOMO_SITE_ID),
+  srcUrl: String(window._env_.REACT_APP_MATOMO_SRC_URL),
+  enabled: envValueToBoolean(window._env_.REACT_APP_MATOMO_ENABLED, false)
+};
+
+const useMockData = envValueToBoolean(
+  window._env_.REACT_APP_USE_MOCK_DATA,
+  false
+);
+
+const mockData = {
+  enabled: useMockData
+};
+
 const isCallbackUrl = (route: string): boolean => route === config.callbackPath;
 
 export default {
   config,
   ui: uiConfig,
+  matomo,
+  mockData,
   isCallbackUrl
 };

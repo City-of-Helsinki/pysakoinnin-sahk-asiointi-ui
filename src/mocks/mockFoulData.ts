@@ -1,5 +1,7 @@
+import { MOCK_FOUL_NUMBER } from './mockConstants';
+
 const mockFoulData = {
-  foulNumber: 113148427,
+  foulNumber: MOCK_FOUL_NUMBER,
   foulDate: '2023-02-20T09:32:14.243',
   monitoringStart: '2023-02-20T09:27:39.46',
   registerNumber: 'HKR-999',

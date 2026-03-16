@@ -68,10 +68,10 @@ function BrowserApp(): React.ReactElement {
   const matomoTracker = useMemo(
     () =>
       new MatomoTracker({
-        urlBase: window._env_.REACT_APP_MATOMO_URL_BASE,
-        siteId: window._env_.REACT_APP_MATOMO_SITE_ID,
-        srcUrl: window._env_.REACT_APP_MATOMO_SRC_URL,
-        enabled: window._env_.REACT_APP_MATOMO_ENABLED === 'true',
+        urlBase: config.matomo.urlBase,
+        siteId: config.matomo.siteId,
+        srcUrl: config.matomo.srcUrl,
+        enabled: config.matomo.enabled,
         configurations: {
           setDoNotTrack: true
         }

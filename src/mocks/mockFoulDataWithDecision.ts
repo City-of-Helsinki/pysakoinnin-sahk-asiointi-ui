@@ -1,5 +1,7 @@
+import { MOCK_FOUL_NUMBER_WITH_DECISION } from './mockConstants';
+
 const mockFoulDataWithDecision = {
-  foulNumber: 123456789,
+  foulNumber: MOCK_FOUL_NUMBER_WITH_DECISION,
   foulDate: '2023-02-20T09:32:14.243',
   monitoringStart: '2023-02-20T09:27:39.46',
   registerNumber: 'ABC-123',
