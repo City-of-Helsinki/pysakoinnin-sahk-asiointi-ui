@@ -11,6 +11,7 @@ import {
   setFormError
 } from '../formContent/formContentSlice';
 import { ObjectionControlType } from '../../interfaces/objectionInterfaces';
+import config from '../../config';
 import './SearchForm.css';
 
 interface Props {
@@ -23,6 +24,7 @@ const SearchForm = (props: Props): React.ReactElement => {
   const formContent = useSelector(selectFormContent);
   const movedCarForm = formContent.selectedForm == FormId.MOVEDCAR;
   const formError = formContent.formError;
+  const mockDataEnabled = config.mockData.enabled;
 
   return (
     <div data-testid="searchForm" className="fieldset">
@@ -50,6 +52,11 @@ const SearchForm = (props: Props): React.ReactElement => {
               placeholder={t('common:fine-info:invoice-number:placeholder')}
               tooltipLabel={t('common:fine-info:invoice-number:label')}
               tooltipText={t('common:fine-info:invoice-number:tooltip-text')}
+              helperText={
+                mockDataEnabled
+                  ? t('common:fine-info:ref-number:helper-text:mock')
+                  : undefined
+              }
               required
               onChange={e => {
                 field.onChange(e);
@@ -81,6 +88,11 @@ const SearchForm = (props: Props): React.ReactElement => {
               className="field"
               id="refNumber"
               label={t('common:fine-info:ref-number:label')}
+              helperText={
+                mockDataEnabled
+                  ? t('common:fine-info:ref-number:helper-text:mock')
+                  : undefined
+              }
               placeholder={t('common:fine-info:ref-number:placeholder')}
               tooltipLabel={t('common:fine-info:ref-number:label')}
               tooltipText={t('common:fine-info:ref-number:tooltip-text')}

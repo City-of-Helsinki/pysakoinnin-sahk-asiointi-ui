@@ -80,7 +80,10 @@
       "ref-number": {
         "label": "Reference number",
         "placeholder": "E.g. 12345678",
-        "tooltip-text": "You can find the reference number from your parking fine."
+        "tooltip-text": "You can find the reference number from your parking fine.",
+        "helper-text": {
+          "mock": "Mock data enabled: use reference number 113148427 or 123456789."
+        }
       },
       "invoice-number": {
         "label": "The invoice number of the compensation decision",

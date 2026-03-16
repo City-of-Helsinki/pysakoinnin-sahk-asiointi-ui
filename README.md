@@ -36,6 +36,10 @@ actual used variables when running the app. App is not using CRA's default `proc
 Note that running built application locally you need to generate also `public/env-config.js` file. It can be done with
 `yarn update-runtime-env`. By default it's generated for development environment if no `NODE_ENV` is set.
 
+To use local mock data instead of backend API calls, set `REACT_APP_USE_MOCK_DATA="true"` in `.env`.
+
+Mock data is for local development only and must never be enabled in production.
+
 ### Adding Azure library variables
 
 This requires the installation and setup

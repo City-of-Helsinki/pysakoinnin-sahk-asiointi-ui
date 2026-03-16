@@ -80,7 +80,10 @@
       "ref-number": {
         "label": "Asianumero",
         "placeholder": "Esim. 12345678",
-        "tooltip-text": "Asianumeron löydät pysäköintivirhemaksusta"
+        "tooltip-text": "Asianumeron löydät pysäköintivirhemaksusta",
+        "helper-text": {
+          "mock": "Testidata käytössä: käytä asianumeroa 113148427 tai 123456789."
+        }
       },
       "invoice-number": {
         "label": "Korvauspäätöksen laskun numero",

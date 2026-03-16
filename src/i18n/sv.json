@@ -80,7 +80,10 @@
       "ref-number": {
         "label": "Ärendenummer",
         "placeholder": "T.ex. 12345678",
-        "tooltip-text": "Ärendenumret finns på felparkeringsavgiften"
+        "tooltip-text": "Ärendenumret finns på felparkeringsavgiften",
+        "helper-text": {
+          "mock": "Testdata används: använd ärendenummer 113148427 eller 123456789."
+        }
       },
       "invoice-number": {
         "label": "Fakturanummer för ersättningsbeslut",
