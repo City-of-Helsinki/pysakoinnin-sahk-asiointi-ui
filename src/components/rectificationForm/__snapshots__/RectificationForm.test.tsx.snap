@@ -330,66 +330,6 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
       class="rectification-form-container"
     >
       <div
-        class="Checkbox-module_checkbox__3L0GR checkbox_hds-checkbox__9HMCz"
-      >
-        <input
-          class="Checkbox-module_input__3VZvy checkbox_hds-checkbox__input__1w0pu"
-          id="toSeparateEmail"
-          type="checkbox"
-          value=""
-        />
-        <label
-          class="Checkbox-module_label__L5AN1 checkbox_hds-checkbox__label__3HoD3"
-          for="toSeparateEmail"
-        >
-          Haluan ilmoitukset asian käsittelystä eri sähköpostiosoitteeseen
-        </label>
-      </div>
-      <div
-        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
-      >
-        <label
-          class="FieldLabel-module_label__1zrXK "
-          for="newEmailAddress"
-        >
-          Sähköpostiosoite
-        </label>
-        <div
-          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-        >
-          <input
-            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-            disabled=""
-            id="newEmailAddress"
-            name="newEmail"
-            type="text"
-            value=""
-          />
-        </div>
-      </div>
-      <div
-        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
-      >
-        <label
-          class="FieldLabel-module_label__1zrXK "
-          for="newEmailConfirm"
-        >
-          Kirjoita sähköpostiosoite uudelleen
-        </label>
-        <div
-          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-        >
-          <input
-            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-            disabled=""
-            id="newEmailConfirm"
-            name="newEmailConfirm"
-            type="text"
-            value=""
-          />
-        </div>
-      </div>
-      <div
         class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
       >
         <label
@@ -1085,66 +1025,6 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
     <div
       class="rectification-form-container"
     >
-      <div
-        class="Checkbox-module_checkbox__3L0GR checkbox_hds-checkbox__9HMCz"
-      >
-        <input
-          class="Checkbox-module_input__3VZvy checkbox_hds-checkbox__input__1w0pu"
-          id="toSeparateEmail"
-          type="checkbox"
-          value=""
-        />
-        <label
-          class="Checkbox-module_label__L5AN1 checkbox_hds-checkbox__label__3HoD3"
-          for="toSeparateEmail"
-        >
-          Haluan ilmoitukset asian käsittelystä eri sähköpostiosoitteeseen
-        </label>
-      </div>
-      <div
-        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
-      >
-        <label
-          class="FieldLabel-module_label__1zrXK "
-          for="newEmailAddress"
-        >
-          Sähköpostiosoite
-        </label>
-        <div
-          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-        >
-          <input
-            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-            disabled=""
-            id="newEmailAddress"
-            name="newEmail"
-            type="text"
-            value=""
-          />
-        </div>
-      </div>
-      <div
-        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
-      >
-        <label
-          class="FieldLabel-module_label__1zrXK "
-          for="newEmailConfirm"
-        >
-          Kirjoita sähköpostiosoite uudelleen
-        </label>
-        <div
-          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
-        >
-          <input
-            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
-            disabled=""
-            id="newEmailConfirm"
-            name="newEmailConfirm"
-            type="text"
-            value=""
-          />
-        </div>
-      </div>
       <div
         class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
       >

@@ -1,4 +1,8 @@
 .rectification-form-container {
+  --rectification-textarea-grid-row: 1 / 5;
+  --rectification-attachments-grid-row: 5;
+  --rectification-delivery-decision-grid-row: 6;
+
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 24px;
@@ -18,7 +22,8 @@
 
 .rectification-textarea {
   grid-column: 2;
-  grid-row: 1 / 8;
+  grid-row: var(--rectification-textarea-grid-row);
+  padding-bottom: 24px;
 }
 
 .rectification-textarea div:first-of-type,
@@ -67,7 +72,7 @@
 
 .rectification-attachments {
   grid-column: 1 / 3;
-  grid-row: 8;
+  grid-row: var(--rectification-attachments-grid-row);
   margin-top: var(--spacing-l);
 }
 
@@ -76,7 +81,7 @@
 }
 
 .rectification-delivery-decision {
-  grid-row: 9;
+  grid-row: var(--rectification-delivery-decision-grid-row);
 }
 
 .rectification-link-to-profile {

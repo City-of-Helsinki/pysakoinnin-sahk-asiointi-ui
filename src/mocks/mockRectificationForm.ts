@@ -5,13 +5,10 @@ const mockRectificationForm: ObjectionForm = {
   foulNumber: '123456',
   registerNumber: '',
   authorRole: AuthorRole.Driver,
-  toSeparateEmail: false,
   email: 'test.user@test.fi',
   firstName: 'Test',
   lastName: 'User',
   ssn: '123456-789A',
-  newEmail: '',
-  newEmailConfirm: '',
   address: {
     streetAddress: 'Elimäenkatu 5',
     postCode: '00100',

@@ -67,9 +67,6 @@ const initialState: FormState = {
     registerNumber: '',
     authorRole: AuthorRole.Undefined,
     attachments: [],
-    toSeparateEmail: false,
-    newEmail: '',
-    newEmailConfirm: '',
     address: {
       streetAddress: '',
       postCode: '',

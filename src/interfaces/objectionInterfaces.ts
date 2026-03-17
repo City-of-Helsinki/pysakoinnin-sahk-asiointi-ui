@@ -25,9 +25,6 @@ export interface ObjectionForm {
   firstName?: string;
   lastName?: string;
   email?: string;
-  newEmail?: string;
-  newEmailConfirm?: string;
-  toSeparateEmail?: boolean;
   mobilePhone?: string;
   iban?: string;
   authorRole?: AuthorRole | number;

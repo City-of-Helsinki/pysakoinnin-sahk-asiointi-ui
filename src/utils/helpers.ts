@@ -79,14 +79,7 @@ export const createObjection = (
   formContent: TransferData | undefined
 ) => {
   // remove unnecessary properties
-  const {
-    deliveryDecision,
-    newEmail,
-    newEmailConfirm,
-    poaFile,
-    toSeparateEmail,
-    ...objection
-  } = { ...form };
+  const { deliveryDecision, poaFile, ...objection } = { ...form };
   selectedForm === FormId.MOVEDCAR
     ? delete objection.foulNumber
     : delete objection.transferNumber;
@@ -96,8 +89,7 @@ export const createObjection = (
   objection.type = form.foulNumber
     ? ObjectionType.Foul
     : ObjectionType.Transfer;
-  objection.email =
-    form.toSeparateEmail && form.newEmail ? form.newEmail : form.email;
+  objection.email = form.email;
   objection.attachments = attachments;
   // change transferNumber to that coming from PASI
   if (selectedForm == FormId.MOVEDCAR && formContent) {
