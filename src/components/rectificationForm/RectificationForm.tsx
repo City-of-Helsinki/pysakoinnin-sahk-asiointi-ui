@@ -6,7 +6,6 @@ import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { Controller, UseFormGetValues } from 'react-hook-form';
 import {
-  Checkbox,
   FileInput,
   IconCheckCircle,
   Link,
@@ -65,14 +64,6 @@ const RectificationForm: FC<Props> = ({
   const isValidPOAFile = () =>
     values().authorRole !== AuthorRole.Possessor ||
     formFiles.poaFile.length > 0;
-
-  // Required if toSeparateEmail checkbox selected
-  const isValidEmail = (field?: string) =>
-    !values().toSeparateEmail || field !== '';
-
-  // Required if email field is not empty, and if so, emails have to match
-  const isValidEmailConfirmation = (field?: string) =>
-    values().newEmail === '' || field === values().newEmail;
 
   const numberOfAttachmentsIsValid = () => formFiles.attachments.length <= 3;
 
@@ -203,81 +194,6 @@ const RectificationForm: FC<Props> = ({
         </div>
 
         <div className="rectification-form-container">
-          <Controller
-            name="toSeparateEmail"
-            control={control}
-            render={({ field }) => {
-              const checkboxField = field;
-              return (
-                <>
-                  <Checkbox
-                    label={t('rectificationForm:to-separate-email')}
-                    id="toSeparateEmail"
-                    onChange={checkboxField.onChange}
-                    checked={checkboxField.value}
-                  />
-                  <Controller
-                    name="newEmail"
-                    control={control}
-                    rules={{
-                      validate: isValidEmail,
-                      pattern: {
-                        /* has to contain @ character and no spaces */
-                        value: /^\S+@\S+$/i,
-                        message: t('rectificationForm:errors:invalid-email')
-                      }
-                    }}
-                    render={({ field, fieldState }) => (
-                      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                      // @ts-ignore - React 18 compatibility with HDS components
-                      <TextInput
-                        {...field}
-                        id="newEmailAddress"
-                        disabled={!checkboxField.value}
-                        label={t('common:email')}
-                        required={checkboxField.value}
-                        invalid={checkboxField.value && !!fieldState.error}
-                        errorText={
-                          checkboxField.value &&
-                          fieldState.error?.type === 'validate'
-                            ? t('common:required-field')
-                            : fieldState.error
-                            ? fieldState.error?.message
-                            : undefined
-                        }
-                      />
-                    )}
-                  />
-                  <Controller
-                    name="newEmailConfirm"
-                    control={control}
-                    rules={{
-                      validate: isValidEmailConfirmation,
-                      pattern: /^\S+@\S+$/i
-                    }}
-                    render={({ field, fieldState }) => (
-                      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                      // @ts-ignore - React 18 compatibility with HDS components
-                      <TextInput
-                        {...field}
-                        id="newEmailConfirm"
-                        disabled={!checkboxField.value}
-                        label={t('common:verify-email')}
-                        required={checkboxField.value}
-                        invalid={checkboxField.value && !!fieldState.error}
-                        errorText={
-                          checkboxField.value && fieldState.error
-                            ? t('rectificationForm:errors:invalid-email')
-                            : undefined
-                        }
-                      />
-                    )}
-                  />
-                </>
-              );
-            }}
-          />
-
           <Controller
             name="address.streetAddress"
             control={control}

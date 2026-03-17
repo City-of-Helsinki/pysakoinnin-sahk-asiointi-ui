@@ -80,11 +80,7 @@ const RectificationSummary: FC<Props> = ({
           </div>
           <div className="info-field" data-testid="email">
             <label>{t('common:email')}</label>
-            <p>
-              {formValues?.toSeparateEmail
-                ? formValues?.newEmail
-                : formValues?.email}
-            </p>
+            <p>{formValues?.email}</p>
           </div>
           <div className="info-field" data-testid="phone">
             <label>{t('common:phone')}</label>
