@@ -88,6 +88,16 @@ const mockLoginState = ({
     isRenewing: () => false
   } as any);
 
+  const useApiTokensClient = vi
+    .spyOn(hdsReact, 'useApiTokensClient')
+    .mockReturnValue({
+      fetch: vi.fn()
+    } as any);
+
+  const useAuthenticatedUser = vi
+    .spyOn(hdsReact, 'useAuthenticatedUser')
+    .mockReturnValue((authenticated ? user : null) as any);
+
   const getApiTokensFromStorage = vi
     .spyOn(hdsReact, 'getApiTokensFromStorage')
     .mockReturnValue(tokens);
@@ -135,6 +145,8 @@ const mockLoginState = ({
 
   return {
     useApiTokens,
+    useApiTokensClient,
+    useAuthenticatedUser,
     getApiTokensFromStorage,
     useOidcClient,
     useOidcClientTracking,
