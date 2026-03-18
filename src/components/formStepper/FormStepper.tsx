@@ -13,8 +13,7 @@ import {
   IconPrinter,
   IconThumbsUp,
   Notification,
-  Stepper,
-  useGraphQL
+  Stepper
 } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import { friendlyFormatIBAN } from 'ibantools';
@@ -47,9 +46,7 @@ import { ResponseCode } from '../../interfaces/foulInterfaces';
 import './FormStepper.css';
 import i18n from 'i18next';
 import { useMediaQueryLessThan } from '../../hooks/useMediaQuery';
-import { NormalizedCacheObject } from '@apollo/client';
-import { ProfileQueryResult } from '../../common';
-import { setUserProfile } from '../user/userSlice';
+import useProfileSync from '../../hooks/useProfileSync';
 import Loader from '../loader/Loader';
 
 interface Props {
@@ -107,16 +104,7 @@ const FormStepper = (props: Props): React.ReactElement => {
   });
 
   const { control, handleSubmit, getValues } = useRectificationForm();
-  const [, { data, error, loading }] = useGraphQL<
-    NormalizedCacheObject,
-    ProfileQueryResult
-  >();
-
-  const userProfile = data?.myProfile;
-
-  useEffect(() => {
-    userProfile && dispatch(setUserProfile(userProfile));
-  }, [userProfile]);
+  const { loading, userProfile } = useProfileSync();
 
   // set initial steps when the form is opened
   useEffect(() => {
@@ -154,17 +142,15 @@ const FormStepper = (props: Props): React.ReactElement => {
 
   const useMediaQueryLessThanM = useMediaQueryLessThan('m');
 
-  if (loading) {
+  if (loading && !userProfile) {
     return <Loader />;
-  } else if (error || !data) {
+  } else if (!userProfile) {
     return (
       <Notification label={t('landing-page:errors:label')} type="error">
         {t('landing-page:errors:default')}
       </Notification>
     );
   }
-
-  const myProfile = data.myProfile;
 
   const handleFormSubmit = async (form: ObjectionForm) => {
     const filesAsBase64 = await Promise.all([
@@ -206,7 +192,7 @@ const FormStepper = (props: Props): React.ReactElement => {
             register_number: form.registerNumber ? form.registerNumber : '',
             metadata: {
               lang: i18n.language,
-              email: myProfile.primaryEmail.email
+              email: userProfile.primaryEmail.email
             }
           })
         ).then(() => setShowSubmitNotification(true));
