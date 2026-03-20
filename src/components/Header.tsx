@@ -12,7 +12,8 @@ import {
   useOidcClient,
   WithAuthentication,
   useOidcClientTracking,
-  useGraphQL
+  useGraphQL,
+  LogoSize
 } from 'hds-react';
 import styles from './styles.module.css';
 import config from '../config';
@@ -51,7 +52,7 @@ const LoggedInActionBarItem = () => {
             client.logout();
           }}
           className={styles.navigationButton}
-          iconLeft={<IconSignout aria-hidden />}>
+          iconStart={<IconSignout aria-hidden />}>
           {t('common:log-out')}
         </Link>
       </div>
@@ -120,11 +121,11 @@ const Header = (): React.ReactElement => {
           <Logo
             src={i18n.language === 'sv' ? logoSv : logoFi}
             alt={t('navigation.logo')}
-            size="full"
+            size={LogoSize.Full}
           />
         }
         menuButtonAriaLabel={t('navigation.menuToggleAriaLabel')}>
-        <HDSHeader.LanguageSelector ariaLabel={i18n.language.toUpperCase()} />
+        <HDSHeader.LanguageSelector aria-label={i18n.language.toUpperCase()} />
         <hr aria-hidden="true" />
         <WithAuthentication
           AuthorisedComponent={LoggedInActionBarItem}

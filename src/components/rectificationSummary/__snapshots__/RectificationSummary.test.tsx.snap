@@ -159,7 +159,7 @@ exports[`Component > matches snapshot 1`] = `
             <svg
               aria-hidden="true"
               aria-label="photo"
-              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_small__gTGkU icon_hds-icon--size-s__2Lkik"
               role="img"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
@@ -196,7 +196,7 @@ exports[`Component > matches snapshot 1`] = `
           <svg
             aria-hidden="true"
             aria-label="document"
-            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_small__gTGkU icon_hds-icon--size-s__2Lkik"
             role="img"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
@@ -229,22 +229,20 @@ exports[`Component > matches snapshot 1`] = `
       class="custom-accordion-container"
     >
       <button
-        class="Button-module_button__1msFE button_hds-button__2A0je Button-module_supplementary__3YKiS button_hds-button--supplementary__GcHcV custom-accordion custom-accordion-header"
+        class="Button-module_button__1msFE Button-module_supplementary__3YKiS custom-accordion custom-accordion-header"
         type="button"
       >
-        <span
-          class="Button-module_label__a4np1 button_hds-button__label__2EQa-"
-        >
+        <span>
           Pysäköintivirhemaksun tiedot
         </span>
         <div
           aria-hidden="true"
-          class="Button-module_icon__O-h7R button_hds-icon__17j8Z"
+          class="Button-module_icon__O-h7R"
         >
           <svg
             aria-hidden="true"
             aria-label="angle-down"
-            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_xl__1M6cO icon_hds-icon--size-xl__1Jes8"
+            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_extraLarge__27rtn icon_hds-icon--size-xl__1Jes8"
             role="img"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
@@ -272,20 +270,20 @@ exports[`Component > matches snapshot 1`] = `
     </h2>
     <section
       aria-label="Notification"
-      class="Notification-module_notification__2hN3H notification_hds-notification__2DQPN Notification-module_error__2sn9y notification_hds-notification--error__3T1Of"
+      class="Notification-module_notification__3eUBu notification_hds-notification__2DQPN Notification-module_error___-koD notification_hds-notification--error__3T1Of"
     >
       <div
-        class="Notification-module_content__ZZKvE notification_hds-notification__content__5ylSS"
+        class="Notification-module_content__2E8Z_ notification_hds-notification__content__5ylSS"
       >
         <div
           aria-level="2"
-          class="Notification-module_label__1bhNu notification_hds-notification__label__2t1lR"
+          class="Notification-module_label__2OUcx notification_hds-notification__label__2t1lR"
           role="heading"
         >
           <svg
             aria-hidden="true"
             aria-label="error-fill"
-            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik Notification-module_icon__1ans7 notification_hds-icon__29HQM"
+            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_small__gTGkU icon_hds-icon--size-s__2Lkik Notification-module_icon__3xieh notification_hds-icon__29HQM"
             role="img"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
@@ -300,7 +298,7 @@ exports[`Component > matches snapshot 1`] = `
           Pysäköintivirhemaksun tietoja ei löytynyt
         </div>
         <div
-          class="Notification-module_body__9BSAD notification_hds-notification__body__3cobH"
+          class="Notification-module_body__2lrYE notification_hds-notification__body__3cobH"
         >
           Tähän oikaisuvaatimukseen liittyvän pysäköintivirhemaksun tietoja ei löytynyt. Ole tarvittaessa yhteydessä asiakaspalveluun.
         </div>

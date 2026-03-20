@@ -4,7 +4,7 @@ import React from 'react';
 import * as hdsReact from 'hds-react';
 import merge from 'lodash/merge';
 import { User, UserProfile } from 'oidc-client-ts';
-import { Mock } from 'vitest';
+import { Mock, vi } from 'vitest';
 import config from '../config';
 
 const TEST_USER_ID = 'a0fe844d-ec11-475a-aa1d-39d15fa019cd';

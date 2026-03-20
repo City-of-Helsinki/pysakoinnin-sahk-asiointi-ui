@@ -7,6 +7,7 @@ import {
   IconYoutube,
   Logo,
   logoFi,
+  LogoSize,
   logoSv
 } from 'hds-react';
 import { useTranslation } from 'react-i18next';
@@ -62,7 +63,7 @@ const PageFooter = () => {
           <Logo
             src={i18n.language === 'sv' ? logoSv : logoFi}
             alt={t('navigation.logo')}
-            size="medium"
+            size={LogoSize.Medium}
           />
         }>
         <Footer.Link

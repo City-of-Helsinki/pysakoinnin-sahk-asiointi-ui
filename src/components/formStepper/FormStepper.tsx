@@ -13,7 +13,8 @@ import {
   IconPrinter,
   IconThumbsUp,
   Notification,
-  Stepper
+  Stepper,
+  ButtonVariant
 } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import { friendlyFormatIBAN } from 'ibantools';
@@ -237,9 +238,9 @@ const FormStepper = (props: Props): React.ReactElement => {
     <Button
       id="button-next"
       className="button"
-      iconRight={<IconArrowRight />}
+      iconEnd={<IconArrowRight aria-hidden />}
       onClick={handleSubmit(handleNextClick)}
-      variant="primary"
+      variant={ButtonVariant.Primary}
       disabled={activeStepIndex === 1 && responseCode !== ResponseCode.Success}>
       {activeStepIndex === 1
         ? t('common:make-rectification')
@@ -250,8 +251,8 @@ const FormStepper = (props: Props): React.ReactElement => {
       <Button
         id="button-submitted"
         className="button"
-        iconLeft={<IconThumbsUp />}
-        variant="success">
+        iconStart={<IconThumbsUp aria-hidden />}
+        variant={ButtonVariant.Success}>
         {t(`${formContent.selectedForm}:submit-success`)}
       </Button>
       {(formContent.selectedForm === FormId.PARKINGFINE ||
@@ -262,7 +263,7 @@ const FormStepper = (props: Props): React.ReactElement => {
           disableVisitedStyles
           external
           openInNewTab
-          openInNewTabAriaLabel={t('common:aria:open-new-tab')}>
+          openInNewTabLabel={t('common:aria:open-new-tab')}>
           {t('common:questionnaire-link')}
         </Link>
       )}
@@ -272,7 +273,7 @@ const FormStepper = (props: Props): React.ReactElement => {
       id="button-submit"
       className="button submit"
       onClick={handleSubmit(handleFormSubmit)}
-      variant="primary"
+      variant={ButtonVariant.Primary}
       disabled={formContent.submitDisabled}>
       {t(`${formContent.selectedForm}:submit`)}
     </Button>
@@ -312,9 +313,9 @@ const FormStepper = (props: Props): React.ReactElement => {
                 {lastStep && formContent.selectedForm !== 'due-date' && (
                   <Button
                     id="button-print"
-                    iconLeft={<IconPrinter />}
+                    iconStart={<IconPrinter aria-hidden />}
                     onClick={handlePrint}
-                    variant="secondary"
+                    variant={ButtonVariant.Secondary}
                     className="button print">
                     {t('common:print')}
                   </Button>
@@ -326,22 +327,22 @@ const FormStepper = (props: Props): React.ReactElement => {
               className="button"
               role={activeStepIndex === 0 ? 'link' : 'button'}
               disabled={formContent.formSubmitted}
-              iconLeft={<IconArrowLeft />}
+              iconStart={<IconArrowLeft aria-hidden />}
               onClick={() =>
                 activeStepIndex === 0
                   ? goToHomePage()
                   : dispatch(setActive(activeStepIndex - 1))
               }
-              variant="secondary">
+              variant={ButtonVariant.Secondary}>
               {t('common:previous')}
             </Button>
             {activeStepIndex === 1 && !lastStep && (
               <Button
                 id="button-home"
                 className="button link"
-                iconRight={<IconHome />}
+                iconEnd={<IconHome aria-hidden />}
                 role="link"
-                variant="secondary"
+                variant={ButtonVariant.Secondary}
                 onClick={goToHomePage}>
                 {t('common:to-mainpage')}
               </Button>
@@ -351,9 +352,9 @@ const FormStepper = (props: Props): React.ReactElement => {
                 {lastStep && formContent.selectedForm !== 'due-date' && (
                   <Button
                     id="button-print"
-                    iconLeft={<IconPrinter />}
+                    iconStart={<IconPrinter aria-hidden />}
                     onClick={handlePrint}
-                    variant="secondary"
+                    variant={ButtonVariant.Secondary}
                     className="button print">
                     {t('common:print')}
                   </Button>
@@ -399,9 +400,9 @@ const FormStepper = (props: Props): React.ReactElement => {
             <div ref={mainPageButtonRef} className="home-button-container">
               <Button
                 className="button home link"
-                iconRight={<IconHome />}
+                iconEnd={<IconHome aria-hidden />}
                 role="link"
-                variant="primary"
+                variant={ButtonVariant.Primary}
                 onClick={goToHomePage}>
                 {t('common:to-mainpage')}
               </Button>

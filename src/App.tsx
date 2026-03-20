@@ -8,32 +8,56 @@ import MovedCarAppeal from './components/movedCarAppeal/MovedCarAppeal';
 import ExtendDueDate from './components/extendDueDate/ExtendDueDate';
 import PageFooter from './components/PageFooter';
 import ProtectedRoute from '../src/components/ProtectedRoute';
-import { SessionEndedHandler, useCookies } from 'hds-react';
+import { SessionEndedHandler, useCookieConsents } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import LoginCallbackHandlerWrapper from './components/LoginCallbackHandlerWrapper';
 import RequestLoader from './components/loader/RequestLoader';
 import { AuthError } from './pages/authError';
 import useMatomo from './components/matomo/hooks/useMatomo';
 import CookieManagement from './pages/CookieManagement';
+import CookieConsent from './components/cookieConsent/CookieConsent';
 
 function App(): React.ReactElement {
   const { t } = useTranslation();
   const { trackPageView } = useMatomo();
-  const { getAllConsents } = useCookies();
+  const consents = useCookieConsents();
   const location = useLocation();
+  const statisticsConsent =
+    consents.find(consent => consent.group === 'statistics')?.consented ??
+    false;
 
   useEffect(() => {
-    if (getAllConsents().matomo) {
+    // eslint-disable-next-line no-underscore-dangle
+    window._paq = window._paq || [];
+
+    if (statisticsConsent) {
+      // eslint-disable-next-line no-underscore-dangle
+      window._paq.push(['setConsentGiven']);
+      // eslint-disable-next-line no-underscore-dangle
+      window._paq.push(['setCookieConsentGiven']);
+      return;
+    }
+
+    // eslint-disable-next-line no-underscore-dangle
+    window._paq.push(['requireConsent']);
+    // eslint-disable-next-line no-underscore-dangle
+    window._paq.push(['requireCookieConsent']);
+    // eslint-disable-next-line no-underscore-dangle
+    window._paq.push(['forgetConsentGiven']);
+  }, [statisticsConsent]);
+
+  useEffect(() => {
+    if (statisticsConsent) {
       trackPageView({
         href: window.location.href
       });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [getAllConsents, location.pathname, location.search]);
+  }, [location.pathname, location.search, statisticsConsent, trackPageView]);
 
   return (
     <PageContainer>
       <RequestLoader />
+      <CookieConsent />
       <SessionEndedHandler
         content={{
           title: t('common:login-prompt:title'),

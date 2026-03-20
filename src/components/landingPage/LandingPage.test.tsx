@@ -119,7 +119,9 @@ describe('landing page', () => {
       // 7 results in total, 5 results shown on the main page
       expect(rectificationList.length).toBe(5);
 
-      const nextPageButton = screen.getByTestId('hds-pagination-next-button');
+      const nextPageButton = screen.getByRole('button', {
+        name: t('common:next')
+      });
       expect(nextPageButton).toBeVisible();
       fireEvent.click(nextPageButton);
 
@@ -183,11 +185,11 @@ describe('landing page', () => {
     );
 
     // Open dropdown menu
-    const filterButton = screen.getByRole('button', {
-      name: t('landing-page:list:status:show-all:default')
+    const filterCombobox = screen.getByRole('combobox', {
+      name: new RegExp(t('landing-page:list:status:show-all:default'))
     });
-    expect(filterButton).toBeVisible();
-    fireEvent.click(filterButton);
+    expect(filterCombobox).toBeVisible();
+    fireEvent.click(filterCombobox);
 
     // Filter by 'sent' status
     const sentOption = screen.getAllByText(
@@ -204,10 +206,10 @@ describe('landing page', () => {
       `2 ${t('landing-page:list:status:sent:conjugated')}`
     );
 
-    const sentFilterButton = screen.getByRole('button', {
+    const sentFilterOption = screen.getByRole('option', {
       name: t('landing-page:list:status:sent:default')
     });
-    fireEvent.click(sentFilterButton);
+    fireEvent.click(sentFilterOption);
 
     // Filter by 'handling' status
     const handlingOption = screen.getAllByText(
@@ -241,18 +243,20 @@ describe('landing page', () => {
     );
 
     // Click the 'next page' button
-    const nextPageButton = screen.getByTestId('hds-pagination-next-button');
+    const nextPageButton = screen.getByRole('button', {
+      name: t('common:next')
+    });
     expect(nextPageButton).toBeVisible();
     fireEvent.click(nextPageButton);
 
     // Filter results
 
     // Open dropdown menu
-    const filterButton = screen.getByRole('button', {
-      name: t('landing-page:list:status:show-all:default')
+    const filterCombobox = screen.getByRole('combobox', {
+      name: new RegExp(t('landing-page:list:status:show-all:default'))
     });
-    expect(filterButton).toBeVisible();
-    fireEvent.click(filterButton);
+    expect(filterCombobox).toBeVisible();
+    fireEvent.click(filterCombobox);
 
     // Filter by 'solved (mailed)' status
     const solvedMailedOption = screen.getAllByText(

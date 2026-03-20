@@ -10,6 +10,24 @@ import * as matchers from 'vitest-axe/matchers';
 import { expect, vi } from 'vitest';
 expect.extend(matchers);
 
+const originalConsoleError = console.error;
+console.error = (...args: unknown[]) => {
+  const joinedMessage = args
+    .map(arg => {
+      if (arg instanceof Error) {
+        return `${arg.name}: ${arg.message}`;
+      }
+      return String(arg);
+    })
+    .join(' ');
+
+  if (joinedMessage.includes('Could not parse CSS stylesheet')) {
+    return;
+  }
+
+  originalConsoleError(...args);
+};
+
 // Set up React 18 test environment
 // TypeScript declaration for IS_REACT_ACT_ENVIRONMENT
 declare global {
@@ -77,6 +95,16 @@ if (typeof window !== 'undefined') {
     }
   };
 }
+
+// Mock the ResizeObserver
+const ResizeObserverMock = vi.fn(() => ({
+  observe: vi.fn(),
+  unobserve: vi.fn(),
+  disconnect: vi.fn()
+}));
+
+// Stub the global ResizeObserver
+vi.stubGlobal('ResizeObserver', ResizeObserverMock);
 
 // Load generated runtime configuration to be available in tests
 // eslint-disable-next-line @typescript-eslint/no-require-imports

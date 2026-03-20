@@ -9,6 +9,7 @@ import {
   FileInput,
   IconCheckCircle,
   Link,
+  LinkSize,
   RadioButton,
   TextArea,
   TextInput
@@ -145,7 +146,6 @@ const RectificationForm: FC<Props> = ({
                     }}
                     render={({ field }) => (
                       <>
-                        {/* @ts-expect-error defaultValue incompatible */}
                         <FileInput
                           language={i18n.language as Language}
                           label={t('rectificationForm:attach-poa:label')}
@@ -182,11 +182,11 @@ const RectificationForm: FC<Props> = ({
           <span>{t('common:fetched-from-profile')}</span>
           <Link
             href={window._env_.REACT_APP_PROFILE_UI_URL}
-            size="M"
+            size={LinkSize.Medium}
             external
             openInNewTab
             openInExternalDomainAriaLabel={t('common:aria:open-external')}
-            openInNewTabAriaLabel={t('common:aria:open-new-tab')}>
+            openInNewTabLabel={t('common:aria:open-new-tab')}>
             {t('common:helsinki-profile-link')}
           </Link>
         </div>
@@ -348,7 +348,6 @@ const RectificationForm: FC<Props> = ({
               }}
               render={({ field }) => (
                 <>
-                  {/* @ts-expect-error defaultValue incompatible */}
                   <FileInput
                     language={i18n.language as Language}
                     multiple

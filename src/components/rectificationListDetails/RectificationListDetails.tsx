@@ -2,10 +2,12 @@
 import React, { FC, useRef, useState } from 'react';
 import {
   Button,
+  ButtonVariant,
   Dialog,
   IconDocument,
   IconPrinter,
-  Notification
+  Notification,
+  NotificationSize
 } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import { formatDate, formatDateTime, sortByDate } from '../../utils/helpers';
@@ -99,7 +101,7 @@ const RectificationListDetails: FC<Props> = ({
       <div className="rectification-details-button-container">
         {notificationOpen && (
           <Notification
-            size="small"
+            size={NotificationSize.Small}
             label={t(
               `landing-page:list:details:notification:${notificationType}:label`
             )}
@@ -117,7 +119,7 @@ const RectificationListDetails: FC<Props> = ({
         )}
         {decision && (
           <Button
-            iconRight={<IconDocument />}
+            iconEnd={<IconDocument aria-hidden />}
             onClick={() => openDecisionDocument()}>
             {t('landing-page:list:details:open-decision')}
           </Button>
@@ -125,7 +127,7 @@ const RectificationListDetails: FC<Props> = ({
         {!isDueDateForm && (
           <>
             <Button
-              variant="secondary"
+              variant={ButtonVariant.Secondary}
               ref={openDialogButtonRef}
               onClick={openFormDialog}>
               {t('landing-page:list:details:show-form')}
@@ -173,8 +175,8 @@ const RectificationListDetails: FC<Props> = ({
                 <Button
                   className="button-print"
                   onClick={() => window.print()}
-                  iconLeft={<IconPrinter />}
-                  variant="secondary">
+                  iconStart={<IconPrinter aria-hidden />}
+                  variant={ButtonVariant.Secondary}>
                   {t('common:print')}
                 </Button>
               </Dialog.ActionButtons>
