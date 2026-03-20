@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.21.1](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.21.0...pysakoinnin-sahk-asiointi-ui-v0.21.1) (2026-03-20)
+
+
+### Bug Fixes
+
+* Add required cookies group for login ([520f51e](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/520f51ee3aaf229c3fd1d52f08ef6053dcb2e739))
+
+
+### Dependencies
+
+* Bump flatted from 3.3.3 to 3.4.1 ([b1ab6d2](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/b1ab6d2d22ced175dbbfd8e942446611d476babe))
+
 ## [0.21.0](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.20.0...pysakoinnin-sahk-asiointi-ui-v0.21.0) (2026-02-27)
 
 
