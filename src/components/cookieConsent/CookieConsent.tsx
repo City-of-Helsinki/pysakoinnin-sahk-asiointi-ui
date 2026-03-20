@@ -1,17 +1,15 @@
-import { CookieModal } from 'hds-react';
+import { CookieBanner } from 'hds-react';
 import React, { FC } from 'react';
-import useCookieConsent from './hooks/useCookieConsent';
-
-import i18n from '../../utils/i18n';
-import { changeLanguage, Language } from '../../common';
+import { useLocation } from 'react-router-dom';
 
 const CookieConsent: FC = () => {
-  const { config } = useCookieConsent({
-    language: i18n.language as Language,
-    setLanguage: changeLanguage
-  });
+  const location = useLocation();
 
-  return <CookieModal contentSource={config} />;
+  if (location.pathname === '/cookies') {
+    return null;
+  }
+
+  return <CookieBanner />;
 };
 
 export default CookieConsent;

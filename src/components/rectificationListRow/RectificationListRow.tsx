@@ -1,5 +1,11 @@
 import React, { FC, useState } from 'react';
-import { Button, IconAngleDown, IconAngleUp } from 'hds-react';
+import {
+  Button,
+  ButtonSize,
+  ButtonVariant,
+  IconAngleDown,
+  IconAngleUp
+} from 'hds-react';
 import { ObjectionDocument } from '../../interfaces/objectionInterfaces';
 import RectificationListDetails from '../rectificationListDetails/RectificationListDetails';
 import CustomTag from '../customTag/CustomTag';
@@ -99,11 +105,17 @@ const RectificationListRow: FC<Props> = ({ form }): React.ReactElement => {
               : t('landing-page:list:show-more')
           }
           className="rectification-list-row-button"
-          variant="supplementary"
-          size="small"
+          variant={ButtonVariant.Supplementary}
+          size={ButtonSize.Small}
           aria-expanded={extended}
           aria-controls={`rectification-details-${form.transaction_id}`}
-          iconRight={extended ? <IconAngleUp /> : <IconAngleDown />}
+          iconEnd={
+            extended ? (
+              <IconAngleUp aria-hidden />
+            ) : (
+              <IconAngleDown aria-hidden />
+            )
+          }
           onClick={async () => {
             await fetchData();
             setExtended(!extended);

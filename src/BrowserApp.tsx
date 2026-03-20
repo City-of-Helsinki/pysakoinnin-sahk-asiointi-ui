@@ -6,6 +6,7 @@ import App from './App';
 import { setupStore } from './store';
 import { injectStore } from './utils/interceptors';
 import {
+  CookieConsentContextProvider,
   createGraphQLModule,
   GraphQLModule,
   LoginProvider,
@@ -18,10 +19,11 @@ import {
   NormalizedCacheObject
 } from '@apollo/client';
 import { MY_PROFILE_QUERY } from './graphql/MyProfileQuery';
-import { ProfileQueryResult } from './common';
+import { Language, ProfileQueryResult } from './common';
 import MatomoTracker from './components/matomo/MatomoTracker';
 import MatomoContext from './components/matomo/matomo-context';
-import CookieConsent from './components/cookieConsent/CookieConsent';
+import useCookieConsent from './components/cookieConsent/hooks/useCookieConsent';
+import i18n from './utils/i18n';
 
 const loginProviderProps: LoginProviderProps = {
   userManagerSettings: {
@@ -65,6 +67,10 @@ const store = setupStore();
 
 injectStore(store);
 function BrowserApp(): React.ReactElement {
+  const cookieConsentProps = useCookieConsent({
+    language: i18n.language as Language
+  });
+
   const matomoTracker = useMemo(
     () =>
       new MatomoTracker({
@@ -73,7 +79,9 @@ function BrowserApp(): React.ReactElement {
         srcUrl: config.matomo.srcUrl,
         enabled: config.matomo.enabled,
         configurations: {
-          setDoNotTrack: true
+          setDoNotTrack: true,
+          requireConsent: undefined,
+          requireCookieConsent: undefined
         }
       }),
     []
@@ -81,14 +89,15 @@ function BrowserApp(): React.ReactElement {
 
   return (
     <MatomoContext.Provider value={matomoTracker}>
-      <CookieConsent />
-      <BrowserRouter>
-        <LoginProvider {...loginProviderProps} modules={[profileGraphQL]}>
-          <Provider store={store}>
-            <App />
-          </Provider>
-        </LoginProvider>
-      </BrowserRouter>
+      <CookieConsentContextProvider {...cookieConsentProps}>
+        <BrowserRouter>
+          <LoginProvider {...loginProviderProps} modules={[profileGraphQL]}>
+            <Provider store={store}>
+              <App />
+            </Provider>
+          </LoginProvider>
+        </BrowserRouter>
+      </CookieConsentContextProvider>
     </MatomoContext.Provider>
   );
 }

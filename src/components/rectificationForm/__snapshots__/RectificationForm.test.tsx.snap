@@ -76,8 +76,8 @@ exports[`Component in moved car form > matches snapshot 1`] = `
             </legend>
             <svg
               aria-hidden="true"
-              aria-label="check-circle"
-              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+              aria-label="Tieto haettu Helsinki-profiilista"
+              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_small__gTGkU icon_hds-icon--size-s__2Lkik"
               color="var(--color-info)"
               role="img"
               viewBox="0 0 24 24"
@@ -107,8 +107,8 @@ exports[`Component in moved car form > matches snapshot 1`] = `
             </legend>
             <svg
               aria-hidden="true"
-              aria-label="check-circle"
-              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+              aria-label="Tieto haettu Helsinki-profiilista"
+              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_small__gTGkU icon_hds-icon--size-s__2Lkik"
               color="var(--color-info)"
               role="img"
               viewBox="0 0 24 24"
@@ -138,8 +138,8 @@ exports[`Component in moved car form > matches snapshot 1`] = `
             </legend>
             <svg
               aria-hidden="true"
-              aria-label="check-circle"
-              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+              aria-label="Tieto haettu Helsinki-profiilista"
+              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_small__gTGkU icon_hds-icon--size-s__2Lkik"
               color="var(--color-info)"
               role="img"
               viewBox="0 0 24 24"
@@ -186,7 +186,7 @@ exports[`Component in moved car form > matches snapshot 1`] = `
                   <svg
                     aria-hidden="true"
                     aria-label="upload"
-                    class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+                    class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_small__gTGkU icon_hds-icon--size-s__2Lkik"
                     role="img"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
@@ -215,18 +215,18 @@ exports[`Component in moved car form > matches snapshot 1`] = `
               >
                 <button
                   aria-hidden="true"
-                  class="Button-module_button__1msFE button_hds-button__2A0je Button-module_secondary__1nABp button_hds-button--secondary__1NOWS"
+                  class="Button-module_button__1msFE Button-module_secondary__1nABp"
                   tabindex="-1"
                   type="button"
                 >
                   <div
                     aria-hidden="true"
-                    class="Button-module_icon__O-h7R button_hds-icon__17j8Z"
+                    class="Button-module_icon__O-h7R"
                   >
                     <svg
                       aria-hidden="true"
                       aria-label="plus"
-                      class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+                      class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_small__gTGkU icon_hds-icon--size-s__2Lkik"
                       role="img"
                       viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
@@ -239,27 +239,19 @@ exports[`Component in moved car form > matches snapshot 1`] = `
                       />
                     </svg>
                   </div>
-                  <span
-                    class="Button-module_label__a4np1 button_hds-button__label__2EQa-"
-                  >
+                  <span>
                     Lisää tiedosto
                   </span>
                 </button>
                 <input
                   accept=".jpg, .pdf"
-                  aria-describedby="rectificationPOAFile-helper rectificationPOAFile-info"
+                  aria-describedby="rectificationPOAFile-helper"
                   class="FileInput-module_fileInput__hClRc"
                   id="rectificationPOAFile"
                   type="file"
                 />
               </div>
             </div>
-          </div>
-          <div
-            class="TextInput-module_infoText__zHOGs text-input_hds-text-input__info-text__3bqzy"
-            id="rectificationPOAFile-info"
-          >
-            Yhtään tiedostoa ei ole valittu.
           </div>
           <div
             class="TextInput-module_helperText__2dLR6 text-input_hds-text-input__helper-text__3V2KM"
@@ -285,7 +277,7 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
       <svg
         aria-hidden="true"
         aria-label="check-circle"
-        class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+        class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_small__gTGkU icon_hds-icon--size-s__2Lkik"
         color="var(--color-info)"
         role="img"
         viewBox="0 0 24 24"
@@ -302,28 +294,39 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
         Merkityt tiedot on haettu Helsinki-profiilistasi.
       </span>
       <a
-        aria-label="Siirry Helsinki-profiiliin muokataksesi tietoja. Avautuu uudessa välilehdessä. Avaa toisen verkkosivun."
-        class="Link-module_link__TeBQo link_hds-link__5Oxo- Link-module_linkM__30gsY link_hds-link--medium__xEU_F"
+        aria-label="Siirry Helsinki-profiiliin muokataksesi tietoja. Avaa toisen verkkosivun."
+        class="Link-module_link__TeBQo link_hds-link__5Oxo- Link-module_link-medium__3gvla link_hds-link--medium__xEU_F Link-module_hasIconEnd__DjzHz"
         href="https://profiili.test.hel.ninja"
         rel="noopener"
         target="_blank"
       >
         Siirry Helsinki-profiiliin muokataksesi tietoja.
-        <svg
-          aria-hidden="true"
-          aria-label="link-external"
-          class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik Link-module_icon__3ReCc link_icon__i_HqN Link-module_verticalAlignMediumIcon__12PVa link_vertical-align-medium-icon__3IWi1"
-          role="img"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
+        <span
+          style="white-space: pre;"
         >
-          <path
-            clip-rule="evenodd"
-            d="M5 3V19H21V21H3V3H5ZM21 3V12H19V6.413L9.91421 15.5L8.5 14.0858L17.585 5H12V3H21Z"
-            fill="currentColor"
-            fill-rule="evenodd"
-          />
-        </svg>
+           
+          (Avautuu uudessa välilehdessä.)
+        </span>
+        <div
+          aria-hidden="true"
+          style="display: contents;"
+        >
+          <svg
+            aria-hidden="true"
+            aria-label="link-external"
+            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_small__gTGkU icon_hds-icon--size-s__2Lkik"
+            role="img"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M5 3V19H21V21H3V3H5ZM21 3V12H19V6.413L9.91421 15.5L8.5 14.0858L17.585 5H12V3H21Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
       </a>
     </div>
     <div
@@ -533,7 +536,7 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
                   <svg
                     aria-hidden="true"
                     aria-label="upload"
-                    class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+                    class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_small__gTGkU icon_hds-icon--size-s__2Lkik"
                     role="img"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
@@ -562,18 +565,18 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
               >
                 <button
                   aria-hidden="true"
-                  class="Button-module_button__1msFE button_hds-button__2A0je Button-module_secondary__1nABp button_hds-button--secondary__1NOWS"
+                  class="Button-module_button__1msFE Button-module_secondary__1nABp"
                   tabindex="-1"
                   type="button"
                 >
                   <div
                     aria-hidden="true"
-                    class="Button-module_icon__O-h7R button_hds-icon__17j8Z"
+                    class="Button-module_icon__O-h7R"
                   >
                     <svg
                       aria-hidden="true"
                       aria-label="plus"
-                      class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+                      class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_small__gTGkU icon_hds-icon--size-s__2Lkik"
                       role="img"
                       viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
@@ -586,15 +589,13 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
                       />
                     </svg>
                   </div>
-                  <span
-                    class="Button-module_label__a4np1 button_hds-button__label__2EQa-"
-                  >
+                  <span>
                     Lisää tiedostoja
                   </span>
                 </button>
                 <input
                   accept=".jpg, .pdf"
-                  aria-describedby="rectificationAttachments-helper rectificationAttachments-info"
+                  aria-describedby="rectificationAttachments-helper"
                   class="FileInput-module_fileInput__hClRc"
                   id="rectificationAttachments"
                   multiple=""
@@ -602,12 +603,6 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
                 />
               </div>
             </div>
-          </div>
-          <div
-            class="TextInput-module_infoText__zHOGs text-input_hds-text-input__info-text__3bqzy"
-            id="rectificationAttachments-info"
-          >
-            Yhtään tiedostoa ei ole valittu.
           </div>
           <div
             class="TextInput-module_helperText__2dLR6 text-input_hds-text-input__helper-text__3V2KM"
@@ -772,8 +767,8 @@ exports[`Component in parking fine appeal form > matches snapshot 1`] = `
             </legend>
             <svg
               aria-hidden="true"
-              aria-label="check-circle"
-              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+              aria-label="Tieto haettu Helsinki-profiilista"
+              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_small__gTGkU icon_hds-icon--size-s__2Lkik"
               color="var(--color-info)"
               role="img"
               viewBox="0 0 24 24"
@@ -803,8 +798,8 @@ exports[`Component in parking fine appeal form > matches snapshot 1`] = `
             </legend>
             <svg
               aria-hidden="true"
-              aria-label="check-circle"
-              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+              aria-label="Tieto haettu Helsinki-profiilista"
+              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_small__gTGkU icon_hds-icon--size-s__2Lkik"
               color="var(--color-info)"
               role="img"
               viewBox="0 0 24 24"
@@ -834,8 +829,8 @@ exports[`Component in parking fine appeal form > matches snapshot 1`] = `
             </legend>
             <svg
               aria-hidden="true"
-              aria-label="check-circle"
-              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+              aria-label="Tieto haettu Helsinki-profiilista"
+              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_small__gTGkU icon_hds-icon--size-s__2Lkik"
               color="var(--color-info)"
               role="img"
               viewBox="0 0 24 24"
@@ -882,7 +877,7 @@ exports[`Component in parking fine appeal form > matches snapshot 1`] = `
                   <svg
                     aria-hidden="true"
                     aria-label="upload"
-                    class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+                    class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_small__gTGkU icon_hds-icon--size-s__2Lkik"
                     role="img"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
@@ -911,18 +906,18 @@ exports[`Component in parking fine appeal form > matches snapshot 1`] = `
               >
                 <button
                   aria-hidden="true"
-                  class="Button-module_button__1msFE button_hds-button__2A0je Button-module_secondary__1nABp button_hds-button--secondary__1NOWS"
+                  class="Button-module_button__1msFE Button-module_secondary__1nABp"
                   tabindex="-1"
                   type="button"
                 >
                   <div
                     aria-hidden="true"
-                    class="Button-module_icon__O-h7R button_hds-icon__17j8Z"
+                    class="Button-module_icon__O-h7R"
                   >
                     <svg
                       aria-hidden="true"
                       aria-label="plus"
-                      class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+                      class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_small__gTGkU icon_hds-icon--size-s__2Lkik"
                       role="img"
                       viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
@@ -935,27 +930,19 @@ exports[`Component in parking fine appeal form > matches snapshot 1`] = `
                       />
                     </svg>
                   </div>
-                  <span
-                    class="Button-module_label__a4np1 button_hds-button__label__2EQa-"
-                  >
+                  <span>
                     Lisää tiedosto
                   </span>
                 </button>
                 <input
                   accept=".jpg, .pdf"
-                  aria-describedby="rectificationPOAFile-helper rectificationPOAFile-info"
+                  aria-describedby="rectificationPOAFile-helper"
                   class="FileInput-module_fileInput__hClRc"
                   id="rectificationPOAFile"
                   type="file"
                 />
               </div>
             </div>
-          </div>
-          <div
-            class="TextInput-module_infoText__zHOGs text-input_hds-text-input__info-text__3bqzy"
-            id="rectificationPOAFile-info"
-          >
-            Yhtään tiedostoa ei ole valittu.
           </div>
           <div
             class="TextInput-module_helperText__2dLR6 text-input_hds-text-input__helper-text__3V2KM"
@@ -981,7 +968,7 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
       <svg
         aria-hidden="true"
         aria-label="check-circle"
-        class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+        class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_small__gTGkU icon_hds-icon--size-s__2Lkik"
         color="var(--color-info)"
         role="img"
         viewBox="0 0 24 24"
@@ -998,28 +985,39 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
         Merkityt tiedot on haettu Helsinki-profiilistasi.
       </span>
       <a
-        aria-label="Siirry Helsinki-profiiliin muokataksesi tietoja. Avautuu uudessa välilehdessä. Avaa toisen verkkosivun."
-        class="Link-module_link__TeBQo link_hds-link__5Oxo- Link-module_linkM__30gsY link_hds-link--medium__xEU_F"
+        aria-label="Siirry Helsinki-profiiliin muokataksesi tietoja. Avaa toisen verkkosivun."
+        class="Link-module_link__TeBQo link_hds-link__5Oxo- Link-module_link-medium__3gvla link_hds-link--medium__xEU_F Link-module_hasIconEnd__DjzHz"
         href="https://profiili.test.hel.ninja"
         rel="noopener"
         target="_blank"
       >
         Siirry Helsinki-profiiliin muokataksesi tietoja.
-        <svg
-          aria-hidden="true"
-          aria-label="link-external"
-          class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik Link-module_icon__3ReCc link_icon__i_HqN Link-module_verticalAlignMediumIcon__12PVa link_vertical-align-medium-icon__3IWi1"
-          role="img"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
+        <span
+          style="white-space: pre;"
         >
-          <path
-            clip-rule="evenodd"
-            d="M5 3V19H21V21H3V3H5ZM21 3V12H19V6.413L9.91421 15.5L8.5 14.0858L17.585 5H12V3H21Z"
-            fill="currentColor"
-            fill-rule="evenodd"
-          />
-        </svg>
+           
+          (Avautuu uudessa välilehdessä.)
+        </span>
+        <div
+          aria-hidden="true"
+          style="display: contents;"
+        >
+          <svg
+            aria-hidden="true"
+            aria-label="link-external"
+            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_small__gTGkU icon_hds-icon--size-s__2Lkik"
+            role="img"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M5 3V19H21V21H3V3H5ZM21 3V12H19V6.413L9.91421 15.5L8.5 14.0858L17.585 5H12V3H21Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
       </a>
     </div>
     <div
@@ -1229,7 +1227,7 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
                   <svg
                     aria-hidden="true"
                     aria-label="upload"
-                    class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+                    class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_small__gTGkU icon_hds-icon--size-s__2Lkik"
                     role="img"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1258,18 +1256,18 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
               >
                 <button
                   aria-hidden="true"
-                  class="Button-module_button__1msFE button_hds-button__2A0je Button-module_secondary__1nABp button_hds-button--secondary__1NOWS"
+                  class="Button-module_button__1msFE Button-module_secondary__1nABp"
                   tabindex="-1"
                   type="button"
                 >
                   <div
                     aria-hidden="true"
-                    class="Button-module_icon__O-h7R button_hds-icon__17j8Z"
+                    class="Button-module_icon__O-h7R"
                   >
                     <svg
                       aria-hidden="true"
                       aria-label="plus"
-                      class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+                      class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_small__gTGkU icon_hds-icon--size-s__2Lkik"
                       role="img"
                       viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
@@ -1282,15 +1280,13 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
                       />
                     </svg>
                   </div>
-                  <span
-                    class="Button-module_label__a4np1 button_hds-button__label__2EQa-"
-                  >
+                  <span>
                     Lisää tiedostoja
                   </span>
                 </button>
                 <input
                   accept=".jpg, .pdf"
-                  aria-describedby="rectificationAttachments-helper rectificationAttachments-info"
+                  aria-describedby="rectificationAttachments-helper"
                   class="FileInput-module_fileInput__hClRc"
                   id="rectificationAttachments"
                   multiple=""
@@ -1298,12 +1294,6 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
                 />
               </div>
             </div>
-          </div>
-          <div
-            class="TextInput-module_infoText__zHOGs text-input_hds-text-input__info-text__3bqzy"
-            id="rectificationAttachments-info"
-          >
-            Yhtään tiedostoa ei ole valittu.
           </div>
           <div
             class="TextInput-module_helperText__2dLR6 text-input_hds-text-input__helper-text__3V2KM"

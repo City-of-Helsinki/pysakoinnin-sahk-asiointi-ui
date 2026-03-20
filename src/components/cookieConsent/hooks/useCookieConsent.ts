@@ -1,99 +1,59 @@
 /* eslint-disable no-underscore-dangle */
-import { useEffect, useState } from 'react';
-import { ContentSource } from 'hds-react';
+import { useEffect, useMemo, useState } from 'react';
 import { Language } from '../../../common';
-import { useTranslation } from 'react-i18next';
+import { CookieConsentChangeEvent, CookieConsentReactProps } from 'hds-react';
+import siteSettings from '../../../assets/cookieSiteSettings.json';
+
+const COOKIE_CONSENT_GROUP = {
+  Tunnistamo: 'tunnistamo',
+  Essential: 'essential',
+  Shared: 'shared',
+  Statistics: 'statistics'
+} as const;
 
 type Props = {
-  language: Language | undefined;
-  setLanguage: ((language: Language) => void) | undefined;
+  language?: Language;
+  setLanguage?: (language: Language) => void;
   isModal?: boolean;
 };
 
 const useCookieConsent = ({
   language,
-  setLanguage,
   isModal = true
-}: Props): { config: ContentSource } => {
-  const { t } = useTranslation();
-
-  const [currentLanguage, setCurrentLanguage] = useState<Language>(
-    language ?? Language.FI
-  );
+}: Props): CookieConsentReactProps => {
+  const [currentLang, setCurrentLang] = useState(language ?? Language.FI);
 
   useEffect(() => {
     if (language) {
-      const newLanguage =
-        Language[language.toUpperCase() as keyof typeof Language];
-
-      if (newLanguage !== currentLanguage) {
-        setCurrentLanguage(newLanguage);
-      }
+      setCurrentLang(language);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [language]);
 
-  const onLanguageChange = (lang: string) => {
-    const newLanguage = Language[lang.toUpperCase() as keyof typeof Language];
+  return useMemo(
+    () => ({
+      siteSettings,
+      onChange: (changeEvent: CookieConsentChangeEvent) => {
+        const { acceptedGroups } = changeEvent;
 
-    setCurrentLanguage(newLanguage);
+        const hasStatisticsConsent =
+          acceptedGroups.indexOf(COOKIE_CONSENT_GROUP.Statistics) > -1;
 
-    if (setLanguage) {
-      setLanguage(newLanguage);
-    }
-  };
-
-  const title = t('common:title');
-
-  const config: ContentSource = {
-    siteName: title,
-    currentLanguage,
-    requiredCookies: {
-      groups: [
-        {
-          commonGroup: 'login',
-          cookies: [
-            { commonCookie: 'keycloak' },
-            { commonCookie: 'keycloak-generic' },
-            { commonCookie: 'keycloak-language' },
-            { commonCookie: 'oidc-ts-storage' },
-            { commonCookie: 'hds-api-token-storage' },
-            { commonCookie: 'hds-api-token-user-reference' }
-          ]
+        if (hasStatisticsConsent) {
+          //  start tracking
+          window._paq.push(['setConsentGiven']);
+          window._paq.push(['setCookieConsentGiven']);
+        } else {
+          // tell matomo to forget conset
+          window._paq.push(['forgetConsentGiven']);
         }
-      ]
-    },
-    optionalCookies: {
-      groups: [
-        {
-          commonGroup: 'statistics',
-          cookies: [{ commonCookie: 'matomo' }]
-        }
-      ]
-    },
-    language: { onLanguageChange },
-    onAllConsentsGiven: consents => {
-      if (consents.matomo) {
-        //  start tracking
-        window._paq.push(['setConsentGiven']);
-        window._paq.push(['setCookieConsentGiven']);
+      },
+      options: {
+        focusTargetSelector: isModal ? '#content' : undefined,
+        language: currentLang
       }
-    },
-    onConsentsParsed: consents => {
-      /* istanbul ignore next */
-      if (consents.matomo === undefined) {
-        // tell matomo to wait for consent:
-        window._paq.push(['requireConsent']);
-        window._paq.push(['requireCookieConsent']);
-      } else if (consents.matomo === false) {
-        // tell matomo to forget conset
-        window._paq.push(['forgetConsentGiven']);
-      }
-    },
-    focusTargetSelector: isModal ? `#content` : undefined
-  };
-
-  return { config };
+    }),
+    [currentLang, isModal]
+  );
 };
 
 export default useCookieConsent;

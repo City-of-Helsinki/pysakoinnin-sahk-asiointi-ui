@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, IconCopy, Notification } from 'hds-react';
+import { Button, ButtonVariant, IconCopy, Notification } from 'hds-react';
 
 import './Barcode.css';
 import { useTranslation } from 'react-i18next';
@@ -29,9 +29,9 @@ const Barcode = (props: BarcodeProps) => {
             <Button
               data-testid="copy-to-clipboard"
               className="barcode-button"
-              iconLeft={<IconCopy />}
+              iconStart={<IconCopy aria-hidden />}
               onClick={copyToClipboard}
-              variant="secondary">
+              variant={ButtonVariant.Secondary}>
               {t('common:barcode:copy-barcode')}
             </Button>
           </>

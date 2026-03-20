@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unnecessary-type-assertion */
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Checkbox, Link, Notification } from 'hds-react';
+import { Checkbox, Link, LinkSize, Notification } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import { formatDate, getNewDueDate } from '../../utils/helpers';
 import { selectUserProfile } from '../user/userSlice';
@@ -109,11 +109,11 @@ const ExtendDueDateForm = (): React.ReactElement => {
         })}{' '}
         <Link
           href={window._env_.REACT_APP_PROFILE_UI_URL}
-          size="M"
+          size={LinkSize.Medium}
           external
           openInNewTab
           openInExternalDomainAriaLabel={t('common:aria:open-external')}
-          openInNewTabAriaLabel={t('common:aria:open-new-tab')}>
+          openInNewTabLabel={t('common:aria:open-new-tab')}>
           {t('common:helsinki-profile-link')}
         </Link>
       </p>

@@ -1,5 +1,11 @@
 import React, { ReactNode, useState } from 'react';
-import { Button, IconAngleDown, IconAngleUp } from 'hds-react';
+import {
+  Button,
+  ButtonVariant,
+  IconAngleDown,
+  IconAngleUp,
+  IconSize
+} from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import './CustomAccordion.css';
 
@@ -16,15 +22,15 @@ const CustomAccordion = ({
     <div className="custom-accordion-container">
       <Button
         onClick={() => setAccordionOpen(!accordionOpen)}
-        iconRight={
+        iconEnd={
           accordionOpen ? (
-            <IconAngleUp size="xl" />
+            <IconAngleUp size={IconSize.ExtraLarge} aria-hidden />
           ) : (
-            <IconAngleDown size="xl" />
+            <IconAngleDown size={IconSize.ExtraLarge} aria-hidden />
           )
         }
         className="custom-accordion custom-accordion-header"
-        variant="supplementary">
+        variant={ButtonVariant.Supplementary}>
         {heading}
       </Button>
       {accordionOpen && (
@@ -32,9 +38,9 @@ const CustomAccordion = ({
           {children}
           <Button
             onClick={() => setAccordionOpen(!accordionOpen)}
-            iconRight={<IconAngleUp />}
+            iconEnd={<IconAngleUp size={IconSize.ExtraLarge} aria-hidden />}
             className="custom-accordion close"
-            variant="supplementary">
+            variant={ButtonVariant.Supplementary}>
             {t('common:close')}
           </Button>
         </>

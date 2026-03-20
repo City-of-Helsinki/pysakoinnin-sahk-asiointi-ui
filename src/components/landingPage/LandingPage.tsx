@@ -1,10 +1,12 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect, useRef, useState } from 'react';
 import {
   Button,
+  ButtonSize,
+  ButtonVariant,
   IconSort,
   Linkbox,
   Notification,
+  Option,
   Pagination,
   Select
 } from 'hds-react';
@@ -24,11 +26,6 @@ import {
   isRequestSuccess,
   useRequestState
 } from '../../hooks/useRequestState';
-
-type StatusFilter = {
-  value: string;
-  label: string;
-};
 
 const LandingPage = (): React.ReactElement => {
   const { t } = useTranslation();
@@ -96,7 +93,7 @@ const LandingPage = (): React.ReactElement => {
 
   const handlePageChange = (index: number) => {
     setPageIndex(index);
-    titleRef.current?.scrollIntoView();
+    titleRef.current?.scrollIntoView?.();
   };
 
   return (
@@ -131,9 +128,9 @@ const LandingPage = (): React.ReactElement => {
         <Button
           className="rectification-list-sort-button"
           data-testid="rectification-list-sort-button"
-          variant="supplementary"
-          size="small"
-          iconRight={<IconSort />}
+          variant={ButtonVariant.Supplementary}
+          size={ButtonSize.Small}
+          iconEnd={<IconSort />}
           disabled={isEmptyFilteredList}
           onClick={() => setSortByNewest(!sortByNewest)}>
           {sortByNewest
@@ -144,17 +141,16 @@ const LandingPage = (): React.ReactElement => {
           className={`rectification-list-filter-selector ${
             isEmptyList ? 'disabled' : ''
           }`}
-          label=""
           options={options}
-          value={{
-            label: filter.label,
-            value: filter.value
-          }}
+          value={filter.value}
           disabled={isEmptyList}
-          onChange={(option: StatusFilter) => {
-            setFilter(option);
-            // Reset the pagination when filtering
-            handlePageChange(0);
+          onChange={(selectedOptions: Option[]) => {
+            const option = selectedOptions[0];
+            if (option) {
+              setFilter({ value: option.value, label: option.label });
+              // Reset the pagination when filtering
+              handlePageChange(0);
+            }
           }}
         />
       </div>

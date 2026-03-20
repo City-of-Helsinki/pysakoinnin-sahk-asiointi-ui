@@ -151,18 +151,18 @@ exports[`Component > matches snapshot 1`] = `
           490166030011987070000800000000000000113148427759230405
         </p>
         <button
-          class="Button-module_button__1msFE button_hds-button__2A0je Button-module_secondary__1nABp button_hds-button--secondary__1NOWS barcode-button"
+          class="Button-module_button__1msFE Button-module_secondary__1nABp barcode-button"
           data-testid="copy-to-clipboard"
           type="button"
         >
           <div
             aria-hidden="true"
-            class="Button-module_icon__O-h7R button_hds-icon__17j8Z"
+            class="Button-module_icon__O-h7R"
           >
             <svg
               aria-hidden="true"
               aria-label="copy"
-              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_s__2WGWe icon_hds-icon--size-s__2Lkik"
+              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_small__gTGkU icon_hds-icon--size-s__2Lkik"
               role="img"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
@@ -175,9 +175,7 @@ exports[`Component > matches snapshot 1`] = `
               />
             </svg>
           </div>
-          <span
-            class="Button-module_label__a4np1 button_hds-button__label__2EQa-"
-          >
+          <span>
             Kopioi virtuaaliviivakoodi
           </span>
         </button>
