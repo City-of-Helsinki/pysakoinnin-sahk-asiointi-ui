@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.22.0](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.21.1...pysakoinnin-sahk-asiointi-ui-v0.22.0) (2026-03-23)
+
+
+### Features
+
+* Add mock mode for easier UI development ([788b251](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/788b2516cfe9bc38477aa913b57d3ca11e66ce2b))
+* Remove separate notification email fields ([189950e](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/189950e4627e78ccd8eaf97edeb6f4904f4e4aee))
+* Sync profile email and refresh API token on change ([04c5522](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/04c5522f91f2a25e3339c0d97c56c280d8a9b0d6))
+
+
+### Dependencies
+
+* Bump flatted from 3.4.1 to 3.4.2 ([256c733](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/256c7338347b20e705e929f0238cc754c65fd139))
+
 ## [0.21.1](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.21.0...pysakoinnin-sahk-asiointi-ui-v0.21.1) (2026-03-20)
 
 
