@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.22.1](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.22.0...pysakoinnin-sahk-asiointi-ui-v0.22.1) (2026-03-27)
+
+
+### Dependencies
+
+* Add missing eslint plugins Refs: RATY-299 ([f6c0068](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/f6c00682c445f1a9a3fb0cb9c416f103188a7640))
+* Bump yaml from 1.10.2 to 1.10.3 ([7b2cc0f](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/7b2cc0f91b549708328328a84dab248a4679a35a))
+* Remove reduntant eslint-config-react-app Refs: RATY-299 ([f6c0068](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/f6c00682c445f1a9a3fb0cb9c416f103188a7640))
+
 ## [0.22.0](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.21.1...pysakoinnin-sahk-asiointi-ui-v0.22.0) (2026-03-23)
 
 
