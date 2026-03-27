@@ -145,9 +145,7 @@ const RectificationForm: FC<Props> = ({
                     }}
                     render={({ field }) => (
                       <>
-                        {/*
-                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                        // @ts-ignore */}
+                        {/* @ts-expect-error defaultValue incompatible */}
                         <FileInput
                           language={i18n.language as Language}
                           label={t('rectificationForm:attach-poa:label')}
@@ -350,9 +348,7 @@ const RectificationForm: FC<Props> = ({
               }}
               render={({ field }) => (
                 <>
-                  {/*
-                  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                  // @ts-ignore */}
+                  {/* @ts-expect-error defaultValue incompatible */}
                   <FileInput
                     language={i18n.language as Language}
                     multiple

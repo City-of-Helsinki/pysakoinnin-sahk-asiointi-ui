@@ -1,6 +1,6 @@
 import i18n from './utils/i18n';
 
-// eslint-disable-next-line @typescript-eslint/ban-types
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export type AnyNonNullishValue = {};
 export type AnyFunction = (props?: unknown) => unknown;
 

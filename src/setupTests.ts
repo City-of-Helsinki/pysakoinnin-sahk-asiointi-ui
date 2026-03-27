@@ -70,6 +70,7 @@ if (typeof window !== 'undefined') {
       }
       // For regular elements, try the original implementation
       return originalGetComputedStyle(element);
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (e) {
       // If anything fails, return our mock
       return createMockCSSStyleDeclaration();
