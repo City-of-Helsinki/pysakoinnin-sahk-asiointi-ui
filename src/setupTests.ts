@@ -1,4 +1,18 @@
 import createFetchMock from 'vitest-fetch-mock';
+import { VirtualConsole } from 'jsdom';
+
+// Suppress jsdom CSS parse errors at the VirtualConsole level
+const originalEmit = VirtualConsole.prototype.emit;
+VirtualConsole.prototype.emit = function (event: string, ...args: unknown[]) {
+  if (
+    event === 'jsdomError' &&
+    args[0] instanceof Error &&
+    args[0].message.includes('Could not parse CSS stylesheet')
+  ) {
+    return false;
+  }
+  return originalEmit.call(this, event, ...args);
+};
 
 import '@testing-library/jest-dom/vitest';
 import 'vitest-axe/extend-expect';
@@ -96,11 +110,11 @@ if (typeof window !== 'undefined') {
 }
 
 // Mock the ResizeObserver
-const ResizeObserverMock = vi.fn(() => ({
-  observe: vi.fn(),
-  unobserve: vi.fn(),
-  disconnect: vi.fn()
-}));
+class ResizeObserverMock {
+  observe = vi.fn();
+  unobserve = vi.fn();
+  disconnect = vi.fn();
+}
 
 // Stub the global ResizeObserver
 vi.stubGlobal('ResizeObserver', ResizeObserverMock);
