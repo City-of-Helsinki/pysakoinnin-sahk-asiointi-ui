@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable line-comment-position */
 import { ErrorEvent, TransactionEvent } from '@sentry/core';
 import { snakeCase } from 'lodash';

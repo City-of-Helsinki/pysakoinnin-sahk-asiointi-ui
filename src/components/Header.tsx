@@ -85,7 +85,10 @@ const Header = (): React.ReactElement => {
 
   const title = t('common:title');
 
-  document.title = title;
+  React.useEffect(() => {
+    document.title = title;
+  }, [title]);
+
   useOidcClientTracking();
 
   const languageOptions = React.useMemo(() => {
