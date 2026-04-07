@@ -3,16 +3,16 @@
 import React from 'react';
 import * as hdsReact from 'hds-react';
 import merge from 'lodash/merge';
-import { User, UserProfile } from 'oidc-client-ts';
+import { User, Profile } from 'hds-react';
 import { Mock, vi } from 'vitest';
 import config from '../config';
 
 const TEST_USER_ID = 'a0fe844d-ec11-475a-aa1d-39d15fa019cd';
 
 export const fakeOidcUserProfileState = (
-  overrides?: Partial<UserProfile>
-): UserProfile =>
-  merge<UserProfile, typeof overrides>(
+  overrides?: Partial<Profile>
+): Profile =>
+  merge<Profile, typeof overrides>(
     {
       aud: '',
       exp: 0,
