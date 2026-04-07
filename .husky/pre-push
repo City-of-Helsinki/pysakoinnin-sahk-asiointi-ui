@@ -1,1 +1,1 @@
-yarn test --watchAll=false
+yarn test --run
