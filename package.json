@@ -84,6 +84,7 @@
     ]
   },
   "resolutions": {
+    "**/@typescript-eslint/typescript-estree/minimatch": ">=9.0.7",
     "**/esbuild": ">=0.25.0"
   },
   "devDependencies": {
