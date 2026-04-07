@@ -1,7 +1,6 @@
 import {
   combineReducers,
-  configureStore,
-  PreloadedState
+  configureStore
 } from '@reduxjs/toolkit';
 import formContentReducer from './components/formContent/formContentSlice';
 import formStepperReducer from './components/formStepper/formStepperSlice';
@@ -18,7 +17,7 @@ export const storeItems = {
 
 const rootReducer = combineReducers(storeItems);
 
-export const setupStore = (preloadedState?: PreloadedState<RootState>) =>
+export const setupStore = (preloadedState?: Partial<RootState>) =>
   configureStore({
     reducer: rootReducer,
     preloadedState
