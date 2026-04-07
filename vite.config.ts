@@ -1,6 +1,6 @@
 import { UserConfig, defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
-import eslint from 'vite-plugin-eslint';
+import eslint from '@nabla/vite-plugin-eslint';
 
 export default defineConfig({
   base: '/',
