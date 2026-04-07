@@ -33,7 +33,7 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-sonarjs": "^4.0.2",
     "eslint-plugin-vitest-globals": "^1.6.1",
-    "esrun": "^3.2.26",
+    "esrun": "^3.2.30",
     "graphql": "^15.9.0",
     "graphql-tag": "^2.12.6",
     "hds-core": "^5.0.0",
@@ -82,6 +82,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "resolutions": {
+    "**/esbuild": ">=0.25.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.5.0",
