@@ -1,5 +1,5 @@
 #!/usr/bin/env ts-node-script
-import * as path from 'path';
+import * as path from 'node:path';
 import fs from 'fs';
 import util from 'util';
 import dotenv from 'dotenv';
