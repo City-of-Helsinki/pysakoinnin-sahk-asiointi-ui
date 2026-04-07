@@ -28,7 +28,6 @@ describe('useMatomo', () => {
         } as unknown) as MatomoTracker.default)
     );
 
-    // eslint-disable-next-line new-cap
     const instance = new MatomoTracker.default({
       urlBase: MOCK_URL,
       siteId: 'test123',

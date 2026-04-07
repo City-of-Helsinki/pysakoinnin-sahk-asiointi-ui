@@ -31,7 +31,6 @@ console.error = (...args: unknown[]) => {
 // Set up React 18 test environment
 // TypeScript declaration for IS_REACT_ACT_ENVIRONMENT
 declare global {
-  /* eslint-disable no-var */
   var IS_REACT_ACT_ENVIRONMENT: boolean;
 }
 

@@ -29,7 +29,10 @@ const InfoContainer: FC<Props> = ({
   const [errorNotificationOpen, setErrorNotificationOpen] = useState(false);
 
   useEffect(() => {
-    data && editMode && setErrorNotificationOpen(data?.responseCode !== 0);
+    if (data && editMode) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setErrorNotificationOpen(data?.responseCode !== 0);
+    }
   }, [data, editMode]);
 
   const getErrorMessage = (error: ResponseCode | undefined) => {

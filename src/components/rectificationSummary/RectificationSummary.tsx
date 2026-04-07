@@ -1,4 +1,3 @@
-/* eslint-disable sonarjs/no-duplicate-string */
 import React, { FC } from 'react';
 import { IconDocument, IconPhoto } from 'hds-react';
 import { useTranslation } from 'react-i18next';
