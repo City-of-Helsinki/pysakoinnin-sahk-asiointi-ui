@@ -3576,11 +3576,6 @@ http-proxy-agent@^7.0.2:
     agent-base "^7.1.0"
     debug "^4.3.4"
 
-http-status-typed@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/http-status-typed/-/http-status-typed-1.0.2.tgz#d3da6aa224727964a0d4f383bdd78a2f8eea4bfc"
-  integrity sha512-61FPm9Ke6DAdlEW69YqL+4koFsYGB3TaqYI63G9PkgfjWJL4+6tC75ZMHfWkb7IgqEPxs1DwN5YW9jdpXmF68A==
-
 https-proxy-agent@^7.0.6:
   version "7.0.6"
   resolved "https://registry.yarnpkg.com/https-proxy-agent/-/https-proxy-agent-7.0.6.tgz#da8dfeac7da130b05c2ba4b59c9b6cd66611a6b9"

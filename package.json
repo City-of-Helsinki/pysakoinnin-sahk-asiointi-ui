@@ -38,7 +38,6 @@
     "hds-core": "^5.0.0",
     "hds-design-tokens": "^5.0.0",
     "hds-react": "^5.0.0",
-    "http-status-typed": "^1.0.2",
     "i18next": "^23.7.15",
     "ibantools": "^4.5.1",
     "lodash": "^4.18.1",
