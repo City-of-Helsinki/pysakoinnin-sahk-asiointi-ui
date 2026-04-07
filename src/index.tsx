@@ -6,8 +6,6 @@ import * as Sentry from '@sentry/react';
 import './index.css';
 import './utils/i18n';
 import BrowserApp from './BrowserApp';
-// eslint-disable-next-line import/no-namespace
-import * as serviceWorker from './serviceWorker';
 import { beforeSend, beforeSendTransaction } from './utils/sentry';
 
 declare global {
@@ -50,8 +48,3 @@ const root = createRoot(rootElement);
 
 // Render the app through the root
 root.render(<BrowserApp />);
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
