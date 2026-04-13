@@ -1,5 +1,45 @@
 # Changelog
 
+## [0.22.2](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.22.1...pysakoinnin-sahk-asiointi-ui-v0.22.2) (2026-04-13)
+
+
+### Bug Fixes
+
+* Fix husky and commitlint setup ([6bd8e85](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/6bd8e85d885f23f784df2f0949107afc7b0fdf32))
+* Update pre-push hook to run tests without watch mode ([9cf59c0](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/9cf59c06b614b661d83160bd2e58634b185aa5a2))
+* Update service worker to use window._env_.PUBLIC_URL for production ([dae663e](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/dae663eaf0b5d0c366b5ad0feb69ec73d2c4ba03))
+
+
+### Dependencies
+
+* Bump axios from 1.14.0 to 1.15.0 ([5f5a200](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/5f5a20068f50d84d542fba2b812f5010dc56bc59))
+* Bump esrun and enforce patched esbuild version ([be96297](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/be96297905c8b62540fef21080612553eb4cae2a))
+* Bump lodash from 4.17.23 to 4.18.1 ([5e769b7](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/5e769b760dd672e9023dab1152f717bfec1eec05))
+* Bump lodash-es from 4.17.23 to 4.18.1 ([42d0592](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/42d059209a063822b1eb81787c5ad1a96804f7cb))
+* Bump plugin-react-swc to ^4.3.0 and vite-plugin-svgr to ^5.2.0 ([208f818](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/208f8184c62f8901b80353795611954d6b31cbe5))
+* Migrate linting setup to ESLint flat config and modernize tooling ([8b5dd27](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/8b5dd27c83e45ab4fa92fd5b5ecfef63d301eafa))
+* Pin cookie to &gt;=0.7.0 to fix low severity vuln ([7b2974f](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/7b2974f7f36597c5f6988aefa640f234aff33d2f))
+* Pin minimatch to &gt;=9.0.7 to fix high severity ReDoS vulns ([4b21055](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/4b210559866ccd97e51c48c23dbfb4ca7d86ff3c))
+* Remove unused @sentry/types ([504d9cc](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/504d9ccc25add9193c3315c3a9c8552c2e99432b))
+* Remove unused await-to-js dependency ([5873b3e](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/5873b3ec92d9cdd9686a7f8de35f6c25281f71b9))
+* Remove unused http-status-typed dependency ([219c15f](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/219c15f5fadea9b3c40692ab59cbaada0a558c36))
+* Remove unused jwt-decode deps and ignore Yarn artifacts ([7f52146](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/7f52146a9373da3259b02637f5387b7977b48255))
+* Remove unused oidc-client-ts ([b098e85](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/b098e85af6d7e578d03c83e7fa9db5cf9a08b7f0))
+* Remove unused redux dependency ([8062b69](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/8062b69c6ada56a24b0ae28d45e65f307b001167))
+* Replace path polyfill with node:path and remove path dependency ([8c05b75](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/8c05b75998b905d0faf31225d0ad93d46cde4a84))
+* Update @reduxjs/toolkit and react-redux to latest versions ([2ca0933](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/2ca093341b0a0172e8470ca67533eb55f61a5466))
+* Update @types/react and @types/react-dom to latest versions ([dec0749](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/dec07491d0282b4823e4b8a7a8a9a7236d4c9020))
+* Update date-fns to version 4.1.0 ([989b066](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/989b0664b70e4c815a71f116378d487abab8045d))
+* Update dotenv to version 17.4.1 ([290ed13](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/290ed13e6ffa74dcd1d2437e6e6f9f83c2f8b58c))
+* Update eslint plugin to @nabla/vite-plugin-eslint ([b291063](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/b291063f42a739b5d9baf25533d9f443bdb895c1))
+* Update i18next and react-i18next to latest versions ([7158ec2](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/7158ec2f6a8d7eff3fbcf8e3d79c5a520d00fe66))
+* Update react-router-dom to version 7.14.0 ([0361409](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/03614092694e74a9d49a0139d47aca003b54ec5e))
+* Update test setup and mocks for Vitest 4 compatibility ([5431a18](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/5431a1842d7aef2e5c528b55866f62d9714dc96c))
+* Update testing-library packages to latest versions ([72de678](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/72de678a02304a1ab0e28f6906642192c881ed38))
+* Upgrade HDS to 5.0.0 and migrate v5 API changes ([2179507](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/217950759238c4dac47c4d4284f649dc5ba581ea))
+* Upgrade typescript from ^4.9.5 to ^5.9.3 ([7c6e6b9](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/7c6e6b93571ee0e734822a309c0fe27e5711b6e2))
+* Upgrade vite from ^5.4.20 to ^8.0.6 ([020c132](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/020c132feee0cd488d697c4476fa4a3df622c00e))
+
 ## [0.22.1](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.22.0...pysakoinnin-sahk-asiointi-ui-v0.22.1) (2026-03-27)
 
 
