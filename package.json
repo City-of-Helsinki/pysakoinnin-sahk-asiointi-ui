@@ -1,6 +1,6 @@
 {
   "name": "pysakoinnin-sahk-asiointi-ui",
-  "version": "0.22.2",
+  "version": "0.22.3",
   "packageManager": "yarn@1.22.22",
   "license": "MIT",
   "private": true,

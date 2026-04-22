@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.22.3](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.22.2...pysakoinnin-sahk-asiointi-ui-v0.22.3) (2026-04-22)
+
+
+### Dependencies
+
+* Bump follow-redirects from 1.15.11 to 1.16.0 ([2d05e97](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/2d05e97e9f26fc3bb1fb76321397bd8902788a22))
+
 ## [0.22.2](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.22.1...pysakoinnin-sahk-asiointi-ui-v0.22.2) (2026-04-13)
 
 
