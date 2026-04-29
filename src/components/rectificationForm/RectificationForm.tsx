@@ -256,8 +256,7 @@ const RectificationForm: FC<Props> = ({
               required: t('common:required-field') as string,
               pattern: {
                 /* only numbers, + character (at the start) and spaces allowed */
-                // NOSONAR
-                value: /^[ ]*[+]?[ ]*[0-9]+[0-9 ]*$/i,
+                value: /^[ ]*[+]?[ ]*[0-9][0-9 ]*$/,
                 message: t('rectificationForm:errors:invalid-phone')
               }
             }}
