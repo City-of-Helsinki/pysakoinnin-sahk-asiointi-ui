@@ -144,3 +144,29 @@ describe('Component in moved car form', () => {
     expect(await axe(container)).toHaveNoViolations();
   });
 });
+
+describe('Phone number validation regex', () => {
+  // NOSONAR
+  const phoneRegex = /^[ ]*[+]?[ ]*[0-9][0-9 ]*$/;
+
+  it.each([
+    '0401234567',
+    '+358401234567',
+    '+358 40 123 4567',
+    '040 123 4567',
+    '00 358 40 1234567'
+  ])('accepts valid phone number: %s', phone => {
+    expect(phoneRegex.test(phone)).toBe(true);
+  });
+
+  it.each([
+    '',
+    '   ',
+    'abc',
+    '040abc1234',
+    '+',
+    '040+1234567'
+  ])('rejects invalid phone number: %s', phone => {
+    expect(phoneRegex.test(phone)).toBe(false);
+  });
+});
