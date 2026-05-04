@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.22.4](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.22.3...pysakoinnin-sahk-asiointi-ui-v0.22.4) (2026-05-04)
+
+
+### Bug Fixes
+
+* Fix regex KEH-191 ([#244](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/issues/244)) ([7d99e65](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/7d99e659da95ea0d13c0aa1cbfebba59001dac33))
+* Regexp KEH-191 ([#246](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/issues/246)) ([d734c30](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/d734c300627c9310cd28d4d31b9fd6bc5f43cc4b))
+
 ## [0.22.3](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.22.2...pysakoinnin-sahk-asiointi-ui-v0.22.3) (2026-04-22)
 
 
