@@ -28,6 +28,9 @@ import ErrorLabel from '../errorLabel/ErrorLabel';
 import './RectificationForm.css';
 import { useMediaQueryLessThan } from '../../hooks/useMediaQuery';
 
+// eslint-disable-next-line line-comment-position
+export const phoneNumberRegex = /^[ ]*[+]?[ ]*[0-9][0-9 ]*$/; // NOSONAR
+
 type Language = 'fi' | 'en' | 'sv';
 
 interface Props {
@@ -255,8 +258,7 @@ const RectificationForm: FC<Props> = ({
             rules={{
               required: t('common:required-field') as string,
               pattern: {
-                /* only numbers, + character (at the start) and spaces allowed */
-                value: /^[ ]*[+]?[ ]*[0-9][0-9 ]*$/,
+                value: phoneNumberRegex,
                 message: t('rectificationForm:errors:invalid-phone')
               }
             }}

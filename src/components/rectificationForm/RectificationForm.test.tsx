@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, waitFor, renderHook } from '@testing-library/react';
-import RectificationForm from './RectificationForm';
+import RectificationForm, { phoneNumberRegex } from './RectificationForm';
 import { ObjectionForm } from '../../interfaces/objectionInterfaces';
 import { Provider } from 'react-redux';
 import { configureStore, createSlice } from '@reduxjs/toolkit';
@@ -142,5 +142,28 @@ describe('Component in moved car form', () => {
     );
 
     expect(await axe(container)).toHaveNoViolations();
+  });
+});
+
+describe('Phone number validation regex', () => {
+  it.each([
+    '0401234567',
+    '+358401234567',
+    '+358 40 123 4567',
+    '040 123 4567',
+    '00 358 40 1234567'
+  ])('accepts valid phone number: %s', phone => {
+    expect(phoneNumberRegex.test(phone)).toBe(true);
+  });
+
+  it.each([
+    '',
+    '   ',
+    'abc',
+    '040abc1234',
+    '+',
+    '040+1234567'
+  ])('rejects invalid phone number: %s', phone => {
+    expect(phoneNumberRegex.test(phone)).toBe(false);
   });
 });
