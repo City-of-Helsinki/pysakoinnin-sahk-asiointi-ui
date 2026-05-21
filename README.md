@@ -5,15 +5,16 @@ React UI for Pysäköinnin Asiointi e-services
 ## Prerequisites
 
 1. Node 22.14.0 (`nvm use`)
-1. Yarn
+1. pnpm
 
 ## Running locally
 
 ### With hot reload
 
-1. If you don't have Yarn installed, you can install it by following [these instructions](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable)
-2. Install dependencies by running the command `yarn install`
-3. Run app with default webpack server `yarn start`
+1. If you don't have pnpm installed, you can install it by running:
+   npm install -g pnpm
+2. Install dependencies by running the command `pnpm install`
+3. Run app with default webpack server `pnpm start`
 4. App runs on `localhost:3000`
 
 ### With Docker
@@ -34,7 +35,7 @@ actual used variables when running the app. App is not using CRA's default `proc
 `window._env_` object.
 
 Note that running built application locally you need to generate also `public/env-config.js` file. It can be done with
-`yarn update-runtime-env`. By default it's generated for development environment if no `NODE_ENV` is set.
+`pnpm update-runtime-env`. By default it's generated for development environment if no `NODE_ENV` is set.
 
 To use local mock data instead of backend API calls, set `REACT_APP_USE_MOCK_DATA="true"` in `.env`.
 
@@ -67,7 +68,7 @@ If a given variable key already exists, the command will instead update the exis
 
 ## Testing
 
-### yarn test
+### pnpm test
 
 Runs tests in watch mode.
 
@@ -76,7 +77,7 @@ contains the
 actual used variables when running the app. App is not using CRA's default `process.env` way to refer of variables but
 `window._env_` object.
 
-### yarn test-coverage
+### pnpm test-coverage
 
 Runs tests with coverage outputted to console. Results are saved to /coverage Note: command is run with "CI=true".
 Remove this to get visually clearer results (with colors!).

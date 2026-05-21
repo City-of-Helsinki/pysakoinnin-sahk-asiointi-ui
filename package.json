@@ -1,11 +1,12 @@
 {
   "name": "pysakoinnin-sahk-asiointi-ui",
   "version": "0.22.4",
-  "packageManager": "yarn@1.22.22",
+  "packageManager": "pnpm@10.28.2",
   "license": "MIT",
   "private": true,
   "engines": {
-    "node": ">=22"
+    "node": ">=22",
+    "pnpm": ">=10.28.2"
   },
   "dependencies": {
     "@apollo/client": "^3.11.8",
@@ -34,7 +35,7 @@
     "eslint-plugin-sonarjs": "^4.0.2",
     "eslint-plugin-vitest-globals": "^1.6.1",
     "esrun": "^3.2.30",
-    "graphql": "^15.9.0",
+    "graphql": "^16.13.2",
     "graphql-tag": "^2.12.6",
     "hds-core": "^5.0.0",
     "hds-design-tokens": "^5.0.0",
@@ -55,21 +56,21 @@
   },
   "scripts": {
     "app:version": "echo \"$npm_package_version\"",
-    "start": "yarn run update-runtime-env && vite",
+    "start": "pnpm run update-runtime-env && vite",
     "typecheck": "tsc --skipLibCheck --noEmit --project tsconfig.json",
-    "build": "yarn typecheck && vite build",
-    "preview": "yarn clear-babel-cache && yarn update-runtime-env && vite preview",
-    "test": "NODE_ENV=test yarn run update-runtime-env && vitest --config ./vitest.config.ts",
-    "test:coverage": "CI=true yarn test --coverage",
-    "ci": "CI=true yarn test --coverage",
+    "build": "pnpm typecheck && vite build",
+    "preview": "pnpm update-runtime-env && vite preview",
+    "test": "NODE_ENV=test pnpm run update-runtime-env && vitest --config ./vitest.config.ts",
+    "test:coverage": "CI=true pnpm test --coverage",
+    "ci": "CI=true pnpm test --coverage",
     "lint": "eslint --ext js,ts,tsx src",
     "update-runtime-env": "esrun --tsconfig=./scripts/tsconfig.json scripts/update-runtime-env.ts",
-    "postinstall": "yarn update-runtime-env",
+    "postinstall": "pnpm update-runtime-env",
     "prepare": "husky",
-    "test:e2e:install": "yarn playwright install",
-    "test:e2e:ci": "npx playwright test",
-    "test:e2e:start": "npx playwright test",
-    "test:e2e:record": "npx playwright codegen https://pysakoinnin-sahk-asiointi-ui.dev.hel.ninja/"
+    "test:e2e:install": "pnpm playwright install",
+    "test:e2e:ci": "pnpm playwright test",
+    "test:e2e:start": "pnpm playwright test",
+    "test:e2e:record": "pnpm playwright codegen https://pysakoinnin-sahk-asiointi-ui.dev.hel.ninja/"
   },
   "browserslist": {
     "production": [
@@ -82,11 +83,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "resolutions": {
-    "**/@typescript-eslint/typescript-estree/minimatch": ">=9.0.7",
-    "**/cookie": ">=0.7.0",
-    "**/esbuild": ">=0.25.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.5.0",
