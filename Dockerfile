@@ -1,7 +1,7 @@
 # ============================================================
 # STAGE 1: Build the Static Assets
 # ============================================================
-FROM helsinki.azurecr.io/ubi9/nodejs-22-pnpm-builder-base AS staticbuilder
+FROM helsinki.azurecr.io/ubi9/nodejs-24-pnpm-builder-base AS staticbuilder
 
 # 1. Copy needed files for build
 COPY --chown=default:root package.json pnpm-lock.yaml pnpm-workspace.yaml ./
