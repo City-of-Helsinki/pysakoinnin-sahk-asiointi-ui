@@ -1,82 +1,46 @@
-# ===============================================
-FROM registry.access.redhat.com/ubi9/nodejs-22 AS appbase
-# ===============================================
-# Offical image has npm log verbosity as info. More info - https://github.com/nodejs/docker-node#verbosity
-ENV NPM_CONFIG_LOGLEVEL=warn
+# ============================================================
+# STAGE 1: Build the Static Assets
+# ============================================================
+FROM helsinki.azurecr.io/ubi9/nodejs-22-pnpm-builder-base AS staticbuilder
 
-# set our node environment, either development or production
-# defaults to production, compose overrides this to development on build and run
-ARG NODE_ENV=production
-ENV NODE_ENV=$NODE_ENV
+# 1. Copy needed files for build
+COPY --chown=default:root package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY --chown=default:root ./scripts ./scripts
+COPY --chown=default:root ./public ./public
 
-USER root
-RUN useradd --uid 1000 --system --gid 0 --create-home --shell /bin/bash appuser
+# 2. Run the install and update-runtime-env script
+# corepack in the base image will automatically use the version of pnpm
+# defined in your package.json 'packageManager' field if present.
+RUN pnpm install --frozen-lockfile --ignore-scripts && pnpm store prune
+RUN pnpm update-runtime-env
 
-WORKDIR /usr/src/app
-RUN chmod g+w /usr/src/app
+COPY --chown=default:root index.html vite.config.ts eslint.config.cjs tsconfig.json .prettierrc .env* ./
+COPY --chown=default:root ./src ./src
 
-# Global npm deps in a non-root user directory
-ENV NPM_CONFIG_PREFIX=./.npm-global
-ENV PATH=$PATH:./.npm-global/bin
-
-# Install npm depepndencies
-ENV PATH=./node_modules/.bin:$PATH
-
-# Yarn
-USER root
-RUN npm install --global yarn
-ENV YARN_VERSION=1.19.1
-RUN yarn policies set-version $YARN_VERSION
-
-# Copy package.json and package-lock.json/yarn.lock files
-COPY --chown=appuser:0 package*.json *yarn* ./
-COPY --chown=appuser:0 ./scripts ./scripts
-COPY --chown=appuser:0 ./public ./public
-
-RUN yarn config set network-timeout 300000
-RUN yarn install --frozen-lockfile --ignore-scripts && yarn cache clean --force
-RUN yarn update-runtime-env
+# 4. Perform the build
+ARG REACT_APP_SENTRY_RELEASE
+RUN pnpm build
 
 
-# ===================================
-FROM appbase AS staticbuilder
-# ===================================
-
-COPY --chown=appuser:0 . tsconfig.json ./
+# ============================================================
+# STAGE 2: Production Runtime
+# ============================================================
+FROM helsinki.azurecr.io/ubi9/nginx-126-spa-standard AS production
 
 ARG REACT_APP_SENTRY_RELEASE
+ENV APP_RELEASE=${REACT_APP_SENTRY_RELEASE:-""}
+# 1. Copy the compiled assets
+COPY --from=staticbuilder /app/build /usr/share/nginx/html
 
-ENV REACT_APP_RELEASE=${REACT_APP_SENTRY_RELEASE:-""}
+# 2. Setup Runtime Env Injection
+# env.sh is provided by the base image
+WORKDIR /usr/share/nginx/html
+COPY .env .
 
-RUN yarn build
+# 3. Inject Versioning for the /readiness endpoint from package.json using base image
+COPY package.json .
 
-# Process nginx configuration with APP_VERSION substitution
-COPY .prod/nginx.conf /app/nginx.conf.template
-RUN export APP_VERSION=$(yarn --silent app:version | tr -d '\n') && \
-    envsubst '${APP_VERSION},${REACT_APP_RELEASE}' < /app/nginx.conf.template > /app/nginx.conf
-
-# =============================
-FROM registry.access.redhat.com/ubi8/nginx-122 AS production
-# =============================
-USER root
-RUN useradd --uid 1000 --system --gid 0 --create-home --shell /bin/bash appuser
-
-COPY --chown=appuser:0 --from=staticbuilder /usr/src/app/build /usr/share/nginx/html
-
-# Copy nginx config
-COPY --from=staticbuilder --chown=appuser:0 /app/nginx.conf /etc/nginx/
-COPY --chown=appuser:0 .prod/includes /etc/nginx/includes
-
-# Copy default environment config and setup script
-# Copy package.json so env.sh can read it
-COPY --chown=appuser:0 ./scripts/env.sh /opt/env.sh
-COPY --chown=appuser:0 .env /opt/.env
-COPY --chown=appuser:0 package.json /opt/package.json
-RUN chown -R appuser /opt/
-RUN chmod +x /opt/env.sh
-RUN chmod g+w /usr/share/nginx/html
-
-CMD ["/bin/bash", "-c", "/opt/env.sh /opt /usr/share/nginx/html && nginx -g \"daemon off;\""]
-
-USER appuser:0
-EXPOSE 3000/tcp
+# - env.sh      (Inherited from base image at /usr/share/nginx/html/env.sh)
+# - USER 1001   (Inherited from base image)
+# - EXPOSE 8080 (Inherited from base image)
+# - ENTRYPOINT/CMD (Inherited from base image)

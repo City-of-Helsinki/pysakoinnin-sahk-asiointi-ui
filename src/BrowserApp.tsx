@@ -57,7 +57,8 @@ const profileGraphQL: GraphQLModule<
   graphQLClient: new ApolloClient({
     uri: config.config.profileApiUrl,
     cache: new InMemoryCache()
-  }),
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  }) as any,
   options: {
     apiTokenKey: config.config.profileApiClientId
   }
