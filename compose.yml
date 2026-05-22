@@ -3,6 +3,9 @@ services:
     container_name: pysakoinnin-sahk-asiointi-ui
     build:
       context: .
+      target: ${DOCKER_TARGET:-development} # select the docker container from dockerFile
+    # Load environment variables from base .env and environment-specific files
+    # Files are processed in order, with later files overriding earlier ones
     volumes:
       - '.:/app'
     ports:
