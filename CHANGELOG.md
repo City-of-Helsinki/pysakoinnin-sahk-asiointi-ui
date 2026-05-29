@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.23.0](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.22.4...pysakoinnin-sahk-asiointi-ui-v0.23.0) (2026-05-29)
+
+
+### Features
+
+* **docker:** Support development mode with build target ([a7d9a2c](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/a7d9a2c43304b4b5081d26c737a097f6bd00e65d))
+* Migrate from Yarn to pnpm ([ab06e45](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/ab06e45f6d7bdc1401c1fcdefd2bd9654e4dedfd))
+* Upgrade to Node.js 24 and pnpm 11 ([6578d6a](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/6578d6a4862a0e4b2cffd34d7017ce3afd72da49))
+
 ## [0.22.4](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.22.3...pysakoinnin-sahk-asiointi-ui-v0.22.4) (2026-05-11)
 
 
