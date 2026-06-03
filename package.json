@@ -67,10 +67,10 @@
     "update-runtime-env": "esrun --tsconfig=./scripts/tsconfig.json scripts/update-runtime-env.ts",
     "postinstall": "pnpm update-runtime-env",
     "prepare": "husky",
-    "test:e2e:install": "pnpm playwright install",
-    "test:e2e:ci": "pnpm playwright test",
-    "test:e2e:start": "pnpm playwright test",
-    "test:e2e:record": "pnpm playwright codegen https://pysakoinnin-sahk-asiointi-ui.dev.hel.ninja/"
+    "test:e2e:install": "playwright install",
+    "test:e2e:ci": "playwright test",
+    "test:e2e:start": "playwright test",
+    "test:e2e:record": "playwright codegen https://pysakoinnin-sahk-asiointi-ui.dev.hel.ninja/"
   },
   "browserslist": {
     "production": [
@@ -87,7 +87,7 @@
   "devDependencies": {
     "@commitlint/cli": "^20.5.0",
     "@commitlint/config-conventional": "^20.5.0",
-    "@playwright/test": "^1.48.1",
+    "@playwright/test": "^1.60.0",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
