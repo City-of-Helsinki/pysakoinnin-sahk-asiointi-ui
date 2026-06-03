@@ -5,6 +5,7 @@ minimumReleaseAge: 10080
 minimumReleaseAgeExclude:
   - tinyexec@1.2.4
   - tinyglobby@0.2.17
+  - hasown@2.0.4
 
 # Hoist all dependencies to the root of node_modules because some packages
 # (e.g. the draft-js ecosystem) do not work correctly with pnpm's default isolation strategy
