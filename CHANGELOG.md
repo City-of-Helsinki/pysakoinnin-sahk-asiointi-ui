@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.23.1](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.23.0...pysakoinnin-sahk-asiointi-ui-v0.23.1) (2026-06-04)
+
+
+### Dependencies
+
+* Bump axios from 1.15.2 to 1.16.0 ([7ff201a](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/7ff201abb0921809a4fd29478fc535f52c2a9f38))
+* Bump playwright to 1.60.0 ([4b92ca7](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/4b92ca786c92a9025887213c5b4e289036e3d5ed))
+* Bump vitest from 4.0.18 to 4.1.0 ([c93538b](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/c93538bf1f7f2263729d54694833b7fcbe98e1c6))
+* Bump vitest/coverage-istanbul, add minimumReleaseAgeExclude rules ([6e08f61](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/6e08f61108cd3cee138a58ea5f58e8515b0d2b92))
+* MinimumReleaseAgeExclude hasown@2.0.4 ([5b56840](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/5b568406402ecd5ab6d82b450801c4649f1d8a9a))
+
 ## [0.23.0](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.22.4...pysakoinnin-sahk-asiointi-ui-v0.23.0) (2026-05-29)
 
 
