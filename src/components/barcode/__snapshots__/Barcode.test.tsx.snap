@@ -16,18 +16,18 @@ exports[`Component > matches snapshot 1`] = `
       test-123
     </p>
     <button
-      class="Button-module_button__1msFE Button-module_secondary__1nABp barcode-button"
+      class="Button-module_button__P7hTI Button-module_secondary__ieoHb barcode-button"
       data-testid="copy-to-clipboard"
       type="button"
     >
       <div
         aria-hidden="true"
-        class="Button-module_icon__O-h7R"
+        class="Button-module_icon__Di-Ga"
       >
         <svg
           aria-hidden="true"
           aria-label="copy"
-          class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_small__gTGkU icon_hds-icon--size-s__2Lkik"
+          class="Icon-module_icon__JQmVx icon_hds-icon__O6EV0 Icon-module_small__nAApk icon_hds-icon--size-s__SloSo"
           role="img"
           viewBox="0 0 24 24"
           xmlns="http://www.w3.org/2000/svg"

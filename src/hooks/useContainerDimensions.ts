@@ -6,7 +6,7 @@ import { RefObject, useEffect, useState } from 'react';
  * @param myRef any html ref object
  * @returns height and width of element
  */
-const useContainerDimensions = (myRef: RefObject<HTMLElement>) => {
+const useContainerDimensions = (myRef: RefObject<HTMLElement | null>) => {
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
   useEffect(() => {

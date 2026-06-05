@@ -37,7 +37,7 @@ const RectificationListDetails: FC<Props> = ({
     isDueDateForm || form.status.value === 'resolvedViaMail'
   );
   const [formDialogOpen, setFormDialogOpen] = useState(false);
-  const openDialogButtonRef = useRef<HTMLButtonElement | null>(null);
+  const openDialogButtonRef = useRef<HTMLButtonElement>(null!);
   const decision = foulData
     ? foulData.attachments.find(attachment => attachment.attachmentType === 1)
     : transferData?.attachments.find(

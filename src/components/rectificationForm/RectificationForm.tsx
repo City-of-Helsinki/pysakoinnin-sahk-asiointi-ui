@@ -200,8 +200,6 @@ const RectificationForm: FC<Props> = ({
             control={control}
             rules={{ required: t('common:required-field') as string }}
             render={({ field, fieldState }) => (
-              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-              // @ts-ignore - React 18 compatibility with HDS components
               <TextInput
                 {...field}
                 id="address"
@@ -219,8 +217,6 @@ const RectificationForm: FC<Props> = ({
               control={control}
               rules={{ required: t('common:required-field') as string }}
               render={({ field, fieldState }) => (
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore - React 18 compatibility with HDS components
                 <TextInput
                   {...field}
                   id="zipCode"
@@ -237,8 +233,6 @@ const RectificationForm: FC<Props> = ({
               control={control}
               rules={{ required: t('common:required-field') as string }}
               render={({ field, fieldState }) => (
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore - React 18 compatibility with HDS components
                 <TextInput
                   {...field}
                   id="city"
@@ -263,8 +257,6 @@ const RectificationForm: FC<Props> = ({
               }
             }}
             render={({ field, fieldState }) => (
-              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-              // @ts-ignore - React 18 compatibility with HDS components
               <TextInput
                 {...field}
                 id="phone"
@@ -285,8 +277,6 @@ const RectificationForm: FC<Props> = ({
               validate: isValidIBAN
             }}
             render={({ field, fieldState }) => (
-              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-              // @ts-ignore - React 18 compatibility with HDS components
               <TextInput
                 {...field}
                 id="IBAN"
@@ -313,8 +303,6 @@ const RectificationForm: FC<Props> = ({
               maxLength: rectificationMaxLength
             }}
             render={({ field, fieldState }) => (
-              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-              // @ts-ignore - React 18 compatibility with HDS components
               <TextArea
                 {...field}
                 label={t('rectificationForm:rectification-content')}

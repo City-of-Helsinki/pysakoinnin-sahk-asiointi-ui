@@ -3,7 +3,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Controller } from 'react-hook-form';
-import { TextInput } from 'hds-react';
+import { TextInput, Tooltip } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import {
   FormId,
@@ -42,16 +42,17 @@ const SearchForm = (props: Props): React.ReactElement => {
             }
           }}
           render={({ field, fieldState }) => (
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore - React 18 compatibility with HDS components
             <TextInput
               {...field}
               className="field"
               id="invoiceNumber"
               label={t('common:fine-info:invoice-number:label')}
               placeholder={t('common:fine-info:invoice-number:placeholder')}
-              tooltipLabel={t('common:fine-info:invoice-number:label')}
-              tooltipText={t('common:fine-info:invoice-number:tooltip-text')}
+              tooltip={
+                <Tooltip buttonLabel={t('common:fine-info:invoice-number:label')}>
+                  {t('common:fine-info:invoice-number:tooltip-text')}
+                </Tooltip>
+              }
               helperText={
                 mockDataEnabled
                   ? t('common:fine-info:ref-number:helper-text:mock')
@@ -81,8 +82,6 @@ const SearchForm = (props: Props): React.ReactElement => {
             }
           }}
           render={({ field, fieldState }) => (
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore - React 18 compatibility with HDS components
             <TextInput
               {...field}
               className="field"
@@ -94,8 +93,11 @@ const SearchForm = (props: Props): React.ReactElement => {
                   : undefined
               }
               placeholder={t('common:fine-info:ref-number:placeholder')}
-              tooltipLabel={t('common:fine-info:ref-number:label')}
-              tooltipText={t('common:fine-info:ref-number:tooltip-text')}
+              tooltip={
+                <Tooltip buttonLabel={t('common:fine-info:ref-number:label')}>
+                  {t('common:fine-info:ref-number:tooltip-text')}
+                </Tooltip>
+              }
               required
               onChange={e => {
                 field.onChange(e);
@@ -114,8 +116,6 @@ const SearchForm = (props: Props): React.ReactElement => {
           required: t('common:required-field') as string
         }}
         render={({ field, fieldState }) => (
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore - React 18 compatibility with HDS components
           <TextInput
             {...field}
             className="field"
