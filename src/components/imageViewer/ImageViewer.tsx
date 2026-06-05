@@ -55,7 +55,7 @@ const ImageViewer = (props: ImageViewerProps) => {
   const isLessThanM = useMediaQueryLessThan('m');
   const [currentImage, setCurrentImage] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
-  const focusElement = useRef<HTMLInputElement | null>(null);
+  const focusElement = useRef<HTMLElement>(null!);
 
   const handleImageClick = (e: React.MouseEvent<HTMLInputElement>) => {
     e.preventDefault();

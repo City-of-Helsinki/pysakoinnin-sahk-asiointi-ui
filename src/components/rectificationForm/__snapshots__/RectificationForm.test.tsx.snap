@@ -26,32 +26,32 @@ exports[`Component in moved car form > matches snapshot 1`] = `
           class="radio-group-container"
         >
           <div
-            class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+            class="RadioButton-module_radioButton__XQOVF radio-button_hds-radio-button__yVt-R"
           >
             <input
-              class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
+              class="RadioButton-module_input__fvkjJ radio-button_hds-radio-button__input__J6aiX"
               id="2"
               type="radio"
               value="2"
             />
             <label
-              class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
+              class="RadioButton-module_label__H5v8w radio-button_hds-radio-button__label__jPiEm"
               for="2"
             >
               Ajoneuvon omistajana/haltijana
             </label>
           </div>
           <div
-            class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+            class="RadioButton-module_radioButton__XQOVF radio-button_hds-radio-button__yVt-R"
           >
             <input
-              class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
+              class="RadioButton-module_input__fvkjJ radio-button_hds-radio-button__input__J6aiX"
               id="3"
               type="radio"
               value="3"
             />
             <label
-              class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
+              class="RadioButton-module_label__H5v8w radio-button_hds-radio-button__label__jPiEm"
               for="3"
             >
               Valtakirjalla (toisen puolesta)
@@ -77,7 +77,7 @@ exports[`Component in moved car form > matches snapshot 1`] = `
             <svg
               aria-hidden="true"
               aria-label="Tieto haettu Helsinki-profiilista"
-              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_small__gTGkU icon_hds-icon--size-s__2Lkik"
+              class="Icon-module_icon__JQmVx icon_hds-icon__O6EV0 Icon-module_small__nAApk icon_hds-icon--size-s__SloSo"
               color="var(--color-info)"
               role="img"
               viewBox="0 0 24 24"
@@ -108,7 +108,7 @@ exports[`Component in moved car form > matches snapshot 1`] = `
             <svg
               aria-hidden="true"
               aria-label="Tieto haettu Helsinki-profiilista"
-              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_small__gTGkU icon_hds-icon--size-s__2Lkik"
+              class="Icon-module_icon__JQmVx icon_hds-icon__O6EV0 Icon-module_small__nAApk icon_hds-icon--size-s__SloSo"
               color="var(--color-info)"
               role="img"
               viewBox="0 0 24 24"
@@ -139,7 +139,7 @@ exports[`Component in moved car form > matches snapshot 1`] = `
             <svg
               aria-hidden="true"
               aria-label="Tieto haettu Helsinki-profiilista"
-              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_small__gTGkU icon_hds-icon--size-s__2Lkik"
+              class="Icon-module_icon__JQmVx icon_hds-icon__O6EV0 Icon-module_small__nAApk icon_hds-icon--size-s__SloSo"
               color="var(--color-info)"
               role="img"
               viewBox="0 0 24 24"
@@ -162,31 +162,31 @@ exports[`Component in moved car form > matches snapshot 1`] = `
         class="rectification-poa-fileinput"
       >
         <div
-          class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+          class="TextInput-module_root__lPctx text-input_hds-text-input__mG8r6"
         >
           <label
-            class="FieldLabel-module_label__1zrXK "
+            class="FieldLabel-module_label__EyKsf "
             for="rectificationPOAFile"
           >
             Liitä valtakirja
           </label>
           <div
-            class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+            class="TextInput-module_inputWrapper__9kbLn text-input_hds-text-input__input-wrapper__1RzOg"
           >
             <div
-              class="FileInput-module_fileInputContainer__9N5TG"
+              class="FileInput-module_fileInputContainer__UGT7-"
             >
               <div
                 aria-hidden="true"
-                class="FileInput-module_dragAndDrop__3d3xe"
+                class="FileInput-module_dragAndDrop__b-IBm"
               >
                 <div
-                  class="FileInput-module_dragAndDropLabel__1pDQN"
+                  class="FileInput-module_dragAndDropLabel__cw2DM"
                 >
                   <svg
                     aria-hidden="true"
                     aria-label="upload"
-                    class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_small__gTGkU icon_hds-icon--size-s__2Lkik"
+                    class="Icon-module_icon__JQmVx icon_hds-icon__O6EV0 Icon-module_small__nAApk icon_hds-icon--size-s__SloSo"
                     role="img"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
@@ -199,34 +199,34 @@ exports[`Component in moved car form > matches snapshot 1`] = `
                     />
                   </svg>
                   <span
-                    class="FileInput-module_dragAndDropLabelText__3AJ4P"
+                    class="FileInput-module_dragAndDropLabelText__oF5De"
                   >
                     Raahaa tiedostot tähän
                   </span>
                 </div>
               </div>
               <div
-                class="FileInput-module_dragAndDropHelperText__31Ljw"
+                class="FileInput-module_dragAndDropHelperText__beM3B"
               >
                 tai valitse tiedostot laitteeltasi
               </div>
               <div
-                class="FileInput-module_fileInputWrapper__1E8Jf"
+                class="FileInput-module_fileInputWrapper__maC5l"
               >
                 <button
                   aria-hidden="true"
-                  class="Button-module_button__1msFE Button-module_secondary__1nABp"
+                  class="Button-module_button__P7hTI Button-module_secondary__ieoHb"
                   tabindex="-1"
                   type="button"
                 >
                   <div
                     aria-hidden="true"
-                    class="Button-module_icon__O-h7R"
+                    class="Button-module_icon__Di-Ga"
                   >
                     <svg
                       aria-hidden="true"
                       aria-label="plus"
-                      class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_small__gTGkU icon_hds-icon--size-s__2Lkik"
+                      class="Icon-module_icon__JQmVx icon_hds-icon__O6EV0 Icon-module_small__nAApk icon_hds-icon--size-s__SloSo"
                       role="img"
                       viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
@@ -246,7 +246,7 @@ exports[`Component in moved car form > matches snapshot 1`] = `
                 <input
                   accept=".jpg, .pdf"
                   aria-describedby="rectificationPOAFile-helper"
-                  class="FileInput-module_fileInput__hClRc"
+                  class="FileInput-module_fileInput__gPwX4"
                   id="rectificationPOAFile"
                   type="file"
                 />
@@ -254,7 +254,7 @@ exports[`Component in moved car form > matches snapshot 1`] = `
             </div>
           </div>
           <div
-            class="TextInput-module_helperText__2dLR6 text-input_hds-text-input__helper-text__3V2KM"
+            class="TextInput-module_helperText__B19Ty text-input_hds-text-input__helper-text__gaXd1"
             id="rectificationPOAFile-helper"
           >
             Voit liittää vain yhden tiedoston. 
@@ -264,7 +264,7 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
         </div>
         <ul
           aria-label="Yhtään tiedostoa ei ole valittu."
-          class="FileInput-module_fileList__drFD1"
+          class="FileInput-module_fileList__CaZYw"
           id="rectificationPOAFile-list"
           tabindex="-1"
         />
@@ -277,7 +277,7 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
       <svg
         aria-hidden="true"
         aria-label="check-circle"
-        class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_small__gTGkU icon_hds-icon--size-s__2Lkik"
+        class="Icon-module_icon__JQmVx icon_hds-icon__O6EV0 Icon-module_small__nAApk icon_hds-icon--size-s__SloSo"
         color="var(--color-info)"
         role="img"
         viewBox="0 0 24 24"
@@ -295,7 +295,7 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
       </span>
       <a
         aria-label="Siirry Helsinki-profiiliin muokataksesi tietoja. Avaa toisen verkkosivun."
-        class="Link-module_link__TeBQo link_hds-link__5Oxo- Link-module_link-medium__3gvla link_hds-link--medium__xEU_F Link-module_hasIconEnd__DjzHz"
+        class="Link-module_link__8XuKE link_hds-link__MZCD0 Link-module_link-medium__TmjYy link_hds-link--medium__I1qEo Link-module_hasIconEnd__-doNk"
         href="https://profiili.test.hel.ninja"
         rel="noopener"
         target="_blank"
@@ -314,7 +314,7 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
           <svg
             aria-hidden="true"
             aria-label="link-external"
-            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_small__gTGkU icon_hds-icon--size-s__2Lkik"
+            class="Icon-module_icon__JQmVx icon_hds-icon__O6EV0 Icon-module_small__nAApk icon_hds-icon--size-s__SloSo"
             role="img"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
@@ -333,30 +333,29 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
       class="rectification-form-container"
     >
       <div
-        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+        class="TextInput-module_root__lPctx text-input_hds-text-input__mG8r6"
       >
         <label
-          class="FieldLabel-module_label__1zrXK "
+          class="FieldLabel-module_label__EyKsf "
           for="address"
         >
           Lähiosoite
           <span
-            class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
+            class="RequiredIndicator-module_indicator__f1SnK text-input_hds-text-input__required__ZUnA2"
           >
             *
           </span>
         </label>
         <div
-          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+          class="TextInput-module_inputWrapper__9kbLn text-input_hds-text-input__input-wrapper__1RzOg"
         >
           <input
-            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+            class="TextInput-module_input__LLKkZ text-input_hds-text-input__input__Kglq3"
             id="address"
             name="address.streetAddress"
             placeholder="Esim. Elimäenkatu 5"
             required=""
             type="text"
-            value=""
           />
         </div>
       </div>
@@ -364,145 +363,141 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
         class="rectification-subgrid"
       >
         <div
-          class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+          class="TextInput-module_root__lPctx text-input_hds-text-input__mG8r6"
         >
           <label
-            class="FieldLabel-module_label__1zrXK "
+            class="FieldLabel-module_label__EyKsf "
             for="zipCode"
           >
             Postinumero
             <span
-              class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
+              class="RequiredIndicator-module_indicator__f1SnK text-input_hds-text-input__required__ZUnA2"
             >
               *
             </span>
           </label>
           <div
-            class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+            class="TextInput-module_inputWrapper__9kbLn text-input_hds-text-input__input-wrapper__1RzOg"
           >
             <input
-              class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+              class="TextInput-module_input__LLKkZ text-input_hds-text-input__input__Kglq3"
               id="zipCode"
               name="address.postCode"
               placeholder="Esim. 00100"
               required=""
               type="text"
-              value=""
             />
           </div>
         </div>
         <div
-          class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+          class="TextInput-module_root__lPctx text-input_hds-text-input__mG8r6"
         >
           <label
-            class="FieldLabel-module_label__1zrXK "
+            class="FieldLabel-module_label__EyKsf "
             for="city"
           >
             Postitoimipaikka
             <span
-              class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
+              class="RequiredIndicator-module_indicator__f1SnK text-input_hds-text-input__required__ZUnA2"
             >
               *
             </span>
           </label>
           <div
-            class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+            class="TextInput-module_inputWrapper__9kbLn text-input_hds-text-input__input-wrapper__1RzOg"
           >
             <input
-              class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+              class="TextInput-module_input__LLKkZ text-input_hds-text-input__input__Kglq3"
               id="city"
               name="address.postOffice"
               placeholder="Esim. Helsinki"
               required=""
               type="text"
-              value=""
             />
           </div>
         </div>
       </div>
       <div
-        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+        class="TextInput-module_root__lPctx text-input_hds-text-input__mG8r6"
       >
         <label
-          class="FieldLabel-module_label__1zrXK "
+          class="FieldLabel-module_label__EyKsf "
           for="phone"
         >
           Puhelinnumero
           <span
-            class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
+            class="RequiredIndicator-module_indicator__f1SnK text-input_hds-text-input__required__ZUnA2"
           >
             *
           </span>
         </label>
         <div
-          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+          class="TextInput-module_inputWrapper__9kbLn text-input_hds-text-input__input-wrapper__1RzOg"
         >
           <input
-            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+            class="TextInput-module_input__LLKkZ text-input_hds-text-input__input__Kglq3"
             id="phone"
             name="mobilePhone"
             placeholder="Esim. +358401234567"
             required=""
             type="text"
-            value=""
           />
         </div>
       </div>
       <div
-        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+        class="TextInput-module_root__lPctx text-input_hds-text-input__mG8r6"
       >
         <label
-          class="FieldLabel-module_label__1zrXK "
+          class="FieldLabel-module_label__EyKsf "
           for="IBAN"
         >
           Pankkitilinumero (IBAN)
           <span
-            class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
+            class="RequiredIndicator-module_indicator__f1SnK text-input_hds-text-input__required__ZUnA2"
           >
             *
           </span>
         </label>
         <div
-          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+          class="TextInput-module_inputWrapper__9kbLn text-input_hds-text-input__input-wrapper__1RzOg"
         >
           <input
-            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+            class="TextInput-module_input__LLKkZ text-input_hds-text-input__input__Kglq3"
             id="IBAN"
             name="iban"
             placeholder="Esim. FI97 8000 1700 9033 30"
             required=""
             type="text"
-            value=""
           />
         </div>
       </div>
       <div
-        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq rectification-textarea"
+        class="TextInput-module_root__lPctx text-input_hds-text-input__mG8r6 rectification-textarea"
       >
         <label
-          class="FieldLabel-module_label__1zrXK "
+          class="FieldLabel-module_label__EyKsf "
           for="rectification-content"
         >
           Oikaisuvaatimuksen sisältö
           <span
-            class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
+            class="RequiredIndicator-module_indicator__f1SnK text-input_hds-text-input__required__ZUnA2"
           >
             *
           </span>
         </label>
         <div
-          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+          class="TextInput-module_inputWrapper__9kbLn text-input_hds-text-input__input-wrapper__1RzOg"
         >
           <textarea
             aria-describedby="rectification-content-helper"
-            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+            class="TextInput-module_input__LLKkZ text-input_hds-text-input__input__Kglq3"
             id="rectification-content"
             name="description"
             required=""
           />
         </div>
         <div
-          class="TextInput-module_helperText__2dLR6 text-input_hds-text-input__helper-text__3V2KM"
+          class="TextInput-module_helperText__B19Ty text-input_hds-text-input__helper-text__gaXd1"
           id="rectification-content-helper"
         >
           undefined/2500 merkkiä
@@ -512,31 +507,31 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
         class="rectification-attachments"
       >
         <div
-          class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq rectification-fileinput"
+          class="TextInput-module_root__lPctx text-input_hds-text-input__mG8r6 rectification-fileinput"
         >
           <label
-            class="FieldLabel-module_label__1zrXK "
+            class="FieldLabel-module_label__EyKsf "
             for="rectificationAttachments"
           >
             Liitetiedostot
           </label>
           <div
-            class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+            class="TextInput-module_inputWrapper__9kbLn text-input_hds-text-input__input-wrapper__1RzOg"
           >
             <div
-              class="FileInput-module_fileInputContainer__9N5TG"
+              class="FileInput-module_fileInputContainer__UGT7-"
             >
               <div
                 aria-hidden="true"
-                class="FileInput-module_dragAndDrop__3d3xe"
+                class="FileInput-module_dragAndDrop__b-IBm"
               >
                 <div
-                  class="FileInput-module_dragAndDropLabel__1pDQN"
+                  class="FileInput-module_dragAndDropLabel__cw2DM"
                 >
                   <svg
                     aria-hidden="true"
                     aria-label="upload"
-                    class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_small__gTGkU icon_hds-icon--size-s__2Lkik"
+                    class="Icon-module_icon__JQmVx icon_hds-icon__O6EV0 Icon-module_small__nAApk icon_hds-icon--size-s__SloSo"
                     role="img"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
@@ -549,34 +544,34 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
                     />
                   </svg>
                   <span
-                    class="FileInput-module_dragAndDropLabelText__3AJ4P"
+                    class="FileInput-module_dragAndDropLabelText__oF5De"
                   >
                     Raahaa tiedostot tähän
                   </span>
                 </div>
               </div>
               <div
-                class="FileInput-module_dragAndDropHelperText__31Ljw"
+                class="FileInput-module_dragAndDropHelperText__beM3B"
               >
                 tai valitse tiedostot laitteeltasi
               </div>
               <div
-                class="FileInput-module_fileInputWrapper__1E8Jf"
+                class="FileInput-module_fileInputWrapper__maC5l"
               >
                 <button
                   aria-hidden="true"
-                  class="Button-module_button__1msFE Button-module_secondary__1nABp"
+                  class="Button-module_button__P7hTI Button-module_secondary__ieoHb"
                   tabindex="-1"
                   type="button"
                 >
                   <div
                     aria-hidden="true"
-                    class="Button-module_icon__O-h7R"
+                    class="Button-module_icon__Di-Ga"
                   >
                     <svg
                       aria-hidden="true"
                       aria-label="plus"
-                      class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_small__gTGkU icon_hds-icon--size-s__2Lkik"
+                      class="Icon-module_icon__JQmVx icon_hds-icon__O6EV0 Icon-module_small__nAApk icon_hds-icon--size-s__SloSo"
                       role="img"
                       viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
@@ -596,7 +591,7 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
                 <input
                   accept=".jpg, .pdf"
                   aria-describedby="rectificationAttachments-helper"
-                  class="FileInput-module_fileInput__hClRc"
+                  class="FileInput-module_fileInput__gPwX4"
                   id="rectificationAttachments"
                   multiple=""
                   type="file"
@@ -605,7 +600,7 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
             </div>
           </div>
           <div
-            class="TextInput-module_helperText__2dLR6 text-input_hds-text-input__helper-text__3V2KM"
+            class="TextInput-module_helperText__B19Ty text-input_hds-text-input__helper-text__gaXd1"
             id="rectificationAttachments-helper"
           >
             Voit liittää oikaisuvaatimukseen enintään kolme liitettä. 
@@ -615,7 +610,7 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
         </div>
         <ul
           aria-label="Yhtään tiedostoa ei ole valittu."
-          class="FileInput-module_fileList__drFD1"
+          class="FileInput-module_fileList__CaZYw"
           id="rectificationAttachments-list"
           tabindex="-1"
         />
@@ -637,32 +632,32 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
           class="radio-group-container"
         >
           <div
-            class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+            class="RadioButton-module_radioButton__XQOVF radio-button_hds-radio-button__yVt-R"
           >
             <input
-              class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
+              class="RadioButton-module_input__fvkjJ radio-button_hds-radio-button__input__J6aiX"
               id="toParkingService"
               type="radio"
               value="toParkingService"
             />
             <label
-              class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
+              class="RadioButton-module_label__H5v8w radio-button_hds-radio-button__label__jPiEm"
               for="toParkingService"
             >
               Pysäköinnin asiointikansiooni
             </label>
           </div>
           <div
-            class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+            class="RadioButton-module_radioButton__XQOVF radio-button_hds-radio-button__yVt-R"
           >
             <input
-              class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
+              class="RadioButton-module_input__fvkjJ radio-button_hds-radio-button__input__J6aiX"
               id="byMail"
               type="radio"
               value="byMail"
             />
             <label
-              class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
+              class="RadioButton-module_label__H5v8w radio-button_hds-radio-button__label__jPiEm"
               for="byMail"
             >
               Kirjeitse antamaani osoitteeseen
@@ -701,48 +696,48 @@ exports[`Component in parking fine appeal form > matches snapshot 1`] = `
           class="radio-group-container"
         >
           <div
-            class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+            class="RadioButton-module_radioButton__XQOVF radio-button_hds-radio-button__yVt-R"
           >
             <input
-              class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
+              class="RadioButton-module_input__fvkjJ radio-button_hds-radio-button__input__J6aiX"
               id="1"
               type="radio"
               value="1"
             />
             <label
-              class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
+              class="RadioButton-module_label__H5v8w radio-button_hds-radio-button__label__jPiEm"
               for="1"
             >
               Ajoneuvon kuljettajana
             </label>
           </div>
           <div
-            class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+            class="RadioButton-module_radioButton__XQOVF radio-button_hds-radio-button__yVt-R"
           >
             <input
-              class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
+              class="RadioButton-module_input__fvkjJ radio-button_hds-radio-button__input__J6aiX"
               id="2"
               type="radio"
               value="2"
             />
             <label
-              class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
+              class="RadioButton-module_label__H5v8w radio-button_hds-radio-button__label__jPiEm"
               for="2"
             >
               Ajoneuvon omistajana/haltijana
             </label>
           </div>
           <div
-            class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+            class="RadioButton-module_radioButton__XQOVF radio-button_hds-radio-button__yVt-R"
           >
             <input
-              class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
+              class="RadioButton-module_input__fvkjJ radio-button_hds-radio-button__input__J6aiX"
               id="3"
               type="radio"
               value="3"
             />
             <label
-              class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
+              class="RadioButton-module_label__H5v8w radio-button_hds-radio-button__label__jPiEm"
               for="3"
             >
               Valtakirjalla (toisen puolesta)
@@ -768,7 +763,7 @@ exports[`Component in parking fine appeal form > matches snapshot 1`] = `
             <svg
               aria-hidden="true"
               aria-label="Tieto haettu Helsinki-profiilista"
-              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_small__gTGkU icon_hds-icon--size-s__2Lkik"
+              class="Icon-module_icon__JQmVx icon_hds-icon__O6EV0 Icon-module_small__nAApk icon_hds-icon--size-s__SloSo"
               color="var(--color-info)"
               role="img"
               viewBox="0 0 24 24"
@@ -799,7 +794,7 @@ exports[`Component in parking fine appeal form > matches snapshot 1`] = `
             <svg
               aria-hidden="true"
               aria-label="Tieto haettu Helsinki-profiilista"
-              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_small__gTGkU icon_hds-icon--size-s__2Lkik"
+              class="Icon-module_icon__JQmVx icon_hds-icon__O6EV0 Icon-module_small__nAApk icon_hds-icon--size-s__SloSo"
               color="var(--color-info)"
               role="img"
               viewBox="0 0 24 24"
@@ -830,7 +825,7 @@ exports[`Component in parking fine appeal form > matches snapshot 1`] = `
             <svg
               aria-hidden="true"
               aria-label="Tieto haettu Helsinki-profiilista"
-              class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_small__gTGkU icon_hds-icon--size-s__2Lkik"
+              class="Icon-module_icon__JQmVx icon_hds-icon__O6EV0 Icon-module_small__nAApk icon_hds-icon--size-s__SloSo"
               color="var(--color-info)"
               role="img"
               viewBox="0 0 24 24"
@@ -853,31 +848,31 @@ exports[`Component in parking fine appeal form > matches snapshot 1`] = `
         class="rectification-poa-fileinput"
       >
         <div
-          class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+          class="TextInput-module_root__lPctx text-input_hds-text-input__mG8r6"
         >
           <label
-            class="FieldLabel-module_label__1zrXK "
+            class="FieldLabel-module_label__EyKsf "
             for="rectificationPOAFile"
           >
             Liitä valtakirja
           </label>
           <div
-            class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+            class="TextInput-module_inputWrapper__9kbLn text-input_hds-text-input__input-wrapper__1RzOg"
           >
             <div
-              class="FileInput-module_fileInputContainer__9N5TG"
+              class="FileInput-module_fileInputContainer__UGT7-"
             >
               <div
                 aria-hidden="true"
-                class="FileInput-module_dragAndDrop__3d3xe"
+                class="FileInput-module_dragAndDrop__b-IBm"
               >
                 <div
-                  class="FileInput-module_dragAndDropLabel__1pDQN"
+                  class="FileInput-module_dragAndDropLabel__cw2DM"
                 >
                   <svg
                     aria-hidden="true"
                     aria-label="upload"
-                    class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_small__gTGkU icon_hds-icon--size-s__2Lkik"
+                    class="Icon-module_icon__JQmVx icon_hds-icon__O6EV0 Icon-module_small__nAApk icon_hds-icon--size-s__SloSo"
                     role="img"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
@@ -890,34 +885,34 @@ exports[`Component in parking fine appeal form > matches snapshot 1`] = `
                     />
                   </svg>
                   <span
-                    class="FileInput-module_dragAndDropLabelText__3AJ4P"
+                    class="FileInput-module_dragAndDropLabelText__oF5De"
                   >
                     Raahaa tiedostot tähän
                   </span>
                 </div>
               </div>
               <div
-                class="FileInput-module_dragAndDropHelperText__31Ljw"
+                class="FileInput-module_dragAndDropHelperText__beM3B"
               >
                 tai valitse tiedostot laitteeltasi
               </div>
               <div
-                class="FileInput-module_fileInputWrapper__1E8Jf"
+                class="FileInput-module_fileInputWrapper__maC5l"
               >
                 <button
                   aria-hidden="true"
-                  class="Button-module_button__1msFE Button-module_secondary__1nABp"
+                  class="Button-module_button__P7hTI Button-module_secondary__ieoHb"
                   tabindex="-1"
                   type="button"
                 >
                   <div
                     aria-hidden="true"
-                    class="Button-module_icon__O-h7R"
+                    class="Button-module_icon__Di-Ga"
                   >
                     <svg
                       aria-hidden="true"
                       aria-label="plus"
-                      class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_small__gTGkU icon_hds-icon--size-s__2Lkik"
+                      class="Icon-module_icon__JQmVx icon_hds-icon__O6EV0 Icon-module_small__nAApk icon_hds-icon--size-s__SloSo"
                       role="img"
                       viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
@@ -937,7 +932,7 @@ exports[`Component in parking fine appeal form > matches snapshot 1`] = `
                 <input
                   accept=".jpg, .pdf"
                   aria-describedby="rectificationPOAFile-helper"
-                  class="FileInput-module_fileInput__hClRc"
+                  class="FileInput-module_fileInput__gPwX4"
                   id="rectificationPOAFile"
                   type="file"
                 />
@@ -945,7 +940,7 @@ exports[`Component in parking fine appeal form > matches snapshot 1`] = `
             </div>
           </div>
           <div
-            class="TextInput-module_helperText__2dLR6 text-input_hds-text-input__helper-text__3V2KM"
+            class="TextInput-module_helperText__B19Ty text-input_hds-text-input__helper-text__gaXd1"
             id="rectificationPOAFile-helper"
           >
             Voit liittää vain yhden tiedoston. 
@@ -955,7 +950,7 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
         </div>
         <ul
           aria-label="Yhtään tiedostoa ei ole valittu."
-          class="FileInput-module_fileList__drFD1"
+          class="FileInput-module_fileList__CaZYw"
           id="rectificationPOAFile-list"
           tabindex="-1"
         />
@@ -968,7 +963,7 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
       <svg
         aria-hidden="true"
         aria-label="check-circle"
-        class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_small__gTGkU icon_hds-icon--size-s__2Lkik"
+        class="Icon-module_icon__JQmVx icon_hds-icon__O6EV0 Icon-module_small__nAApk icon_hds-icon--size-s__SloSo"
         color="var(--color-info)"
         role="img"
         viewBox="0 0 24 24"
@@ -986,7 +981,7 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
       </span>
       <a
         aria-label="Siirry Helsinki-profiiliin muokataksesi tietoja. Avaa toisen verkkosivun."
-        class="Link-module_link__TeBQo link_hds-link__5Oxo- Link-module_link-medium__3gvla link_hds-link--medium__xEU_F Link-module_hasIconEnd__DjzHz"
+        class="Link-module_link__8XuKE link_hds-link__MZCD0 Link-module_link-medium__TmjYy link_hds-link--medium__I1qEo Link-module_hasIconEnd__-doNk"
         href="https://profiili.test.hel.ninja"
         rel="noopener"
         target="_blank"
@@ -1005,7 +1000,7 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
           <svg
             aria-hidden="true"
             aria-label="link-external"
-            class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_small__gTGkU icon_hds-icon--size-s__2Lkik"
+            class="Icon-module_icon__JQmVx icon_hds-icon__O6EV0 Icon-module_small__nAApk icon_hds-icon--size-s__SloSo"
             role="img"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
@@ -1024,30 +1019,29 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
       class="rectification-form-container"
     >
       <div
-        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+        class="TextInput-module_root__lPctx text-input_hds-text-input__mG8r6"
       >
         <label
-          class="FieldLabel-module_label__1zrXK "
+          class="FieldLabel-module_label__EyKsf "
           for="address"
         >
           Lähiosoite
           <span
-            class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
+            class="RequiredIndicator-module_indicator__f1SnK text-input_hds-text-input__required__ZUnA2"
           >
             *
           </span>
         </label>
         <div
-          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+          class="TextInput-module_inputWrapper__9kbLn text-input_hds-text-input__input-wrapper__1RzOg"
         >
           <input
-            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+            class="TextInput-module_input__LLKkZ text-input_hds-text-input__input__Kglq3"
             id="address"
             name="address.streetAddress"
             placeholder="Esim. Elimäenkatu 5"
             required=""
             type="text"
-            value=""
           />
         </div>
       </div>
@@ -1055,145 +1049,141 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
         class="rectification-subgrid"
       >
         <div
-          class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+          class="TextInput-module_root__lPctx text-input_hds-text-input__mG8r6"
         >
           <label
-            class="FieldLabel-module_label__1zrXK "
+            class="FieldLabel-module_label__EyKsf "
             for="zipCode"
           >
             Postinumero
             <span
-              class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
+              class="RequiredIndicator-module_indicator__f1SnK text-input_hds-text-input__required__ZUnA2"
             >
               *
             </span>
           </label>
           <div
-            class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+            class="TextInput-module_inputWrapper__9kbLn text-input_hds-text-input__input-wrapper__1RzOg"
           >
             <input
-              class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+              class="TextInput-module_input__LLKkZ text-input_hds-text-input__input__Kglq3"
               id="zipCode"
               name="address.postCode"
               placeholder="Esim. 00100"
               required=""
               type="text"
-              value=""
             />
           </div>
         </div>
         <div
-          class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+          class="TextInput-module_root__lPctx text-input_hds-text-input__mG8r6"
         >
           <label
-            class="FieldLabel-module_label__1zrXK "
+            class="FieldLabel-module_label__EyKsf "
             for="city"
           >
             Postitoimipaikka
             <span
-              class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
+              class="RequiredIndicator-module_indicator__f1SnK text-input_hds-text-input__required__ZUnA2"
             >
               *
             </span>
           </label>
           <div
-            class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+            class="TextInput-module_inputWrapper__9kbLn text-input_hds-text-input__input-wrapper__1RzOg"
           >
             <input
-              class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+              class="TextInput-module_input__LLKkZ text-input_hds-text-input__input__Kglq3"
               id="city"
               name="address.postOffice"
               placeholder="Esim. Helsinki"
               required=""
               type="text"
-              value=""
             />
           </div>
         </div>
       </div>
       <div
-        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+        class="TextInput-module_root__lPctx text-input_hds-text-input__mG8r6"
       >
         <label
-          class="FieldLabel-module_label__1zrXK "
+          class="FieldLabel-module_label__EyKsf "
           for="phone"
         >
           Puhelinnumero
           <span
-            class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
+            class="RequiredIndicator-module_indicator__f1SnK text-input_hds-text-input__required__ZUnA2"
           >
             *
           </span>
         </label>
         <div
-          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+          class="TextInput-module_inputWrapper__9kbLn text-input_hds-text-input__input-wrapper__1RzOg"
         >
           <input
-            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+            class="TextInput-module_input__LLKkZ text-input_hds-text-input__input__Kglq3"
             id="phone"
             name="mobilePhone"
             placeholder="Esim. +358401234567"
             required=""
             type="text"
-            value=""
           />
         </div>
       </div>
       <div
-        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq"
+        class="TextInput-module_root__lPctx text-input_hds-text-input__mG8r6"
       >
         <label
-          class="FieldLabel-module_label__1zrXK "
+          class="FieldLabel-module_label__EyKsf "
           for="IBAN"
         >
           Pankkitilinumero (IBAN)
           <span
-            class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
+            class="RequiredIndicator-module_indicator__f1SnK text-input_hds-text-input__required__ZUnA2"
           >
             *
           </span>
         </label>
         <div
-          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+          class="TextInput-module_inputWrapper__9kbLn text-input_hds-text-input__input-wrapper__1RzOg"
         >
           <input
-            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+            class="TextInput-module_input__LLKkZ text-input_hds-text-input__input__Kglq3"
             id="IBAN"
             name="iban"
             placeholder="Esim. FI97 8000 1700 9033 30"
             required=""
             type="text"
-            value=""
           />
         </div>
       </div>
       <div
-        class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq rectification-textarea"
+        class="TextInput-module_root__lPctx text-input_hds-text-input__mG8r6 rectification-textarea"
       >
         <label
-          class="FieldLabel-module_label__1zrXK "
+          class="FieldLabel-module_label__EyKsf "
           for="rectification-content"
         >
           Oikaisuvaatimuksen sisältö
           <span
-            class="RequiredIndicator-module_indicator__Pt7GX text-input_hds-text-input__required__2K-Bs"
+            class="RequiredIndicator-module_indicator__f1SnK text-input_hds-text-input__required__ZUnA2"
           >
             *
           </span>
         </label>
         <div
-          class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+          class="TextInput-module_inputWrapper__9kbLn text-input_hds-text-input__input-wrapper__1RzOg"
         >
           <textarea
             aria-describedby="rectification-content-helper"
-            class="TextInput-module_input__1BlHi text-input_hds-text-input__input__GJm5C"
+            class="TextInput-module_input__LLKkZ text-input_hds-text-input__input__Kglq3"
             id="rectification-content"
             name="description"
             required=""
           />
         </div>
         <div
-          class="TextInput-module_helperText__2dLR6 text-input_hds-text-input__helper-text__3V2KM"
+          class="TextInput-module_helperText__B19Ty text-input_hds-text-input__helper-text__gaXd1"
           id="rectification-content-helper"
         >
           undefined/2500 merkkiä
@@ -1203,31 +1193,31 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
         class="rectification-attachments"
       >
         <div
-          class="TextInput-module_root__2CMNr text-input_hds-text-input__2LODq rectification-fileinput"
+          class="TextInput-module_root__lPctx text-input_hds-text-input__mG8r6 rectification-fileinput"
         >
           <label
-            class="FieldLabel-module_label__1zrXK "
+            class="FieldLabel-module_label__EyKsf "
             for="rectificationAttachments"
           >
             Liitetiedostot
           </label>
           <div
-            class="TextInput-module_inputWrapper__3Rvel text-input_hds-text-input__input-wrapper__1OqYG"
+            class="TextInput-module_inputWrapper__9kbLn text-input_hds-text-input__input-wrapper__1RzOg"
           >
             <div
-              class="FileInput-module_fileInputContainer__9N5TG"
+              class="FileInput-module_fileInputContainer__UGT7-"
             >
               <div
                 aria-hidden="true"
-                class="FileInput-module_dragAndDrop__3d3xe"
+                class="FileInput-module_dragAndDrop__b-IBm"
               >
                 <div
-                  class="FileInput-module_dragAndDropLabel__1pDQN"
+                  class="FileInput-module_dragAndDropLabel__cw2DM"
                 >
                   <svg
                     aria-hidden="true"
                     aria-label="upload"
-                    class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_small__gTGkU icon_hds-icon--size-s__2Lkik"
+                    class="Icon-module_icon__JQmVx icon_hds-icon__O6EV0 Icon-module_small__nAApk icon_hds-icon--size-s__SloSo"
                     role="img"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
@@ -1240,34 +1230,34 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
                     />
                   </svg>
                   <span
-                    class="FileInput-module_dragAndDropLabelText__3AJ4P"
+                    class="FileInput-module_dragAndDropLabelText__oF5De"
                   >
                     Raahaa tiedostot tähän
                   </span>
                 </div>
               </div>
               <div
-                class="FileInput-module_dragAndDropHelperText__31Ljw"
+                class="FileInput-module_dragAndDropHelperText__beM3B"
               >
                 tai valitse tiedostot laitteeltasi
               </div>
               <div
-                class="FileInput-module_fileInputWrapper__1E8Jf"
+                class="FileInput-module_fileInputWrapper__maC5l"
               >
                 <button
                   aria-hidden="true"
-                  class="Button-module_button__1msFE Button-module_secondary__1nABp"
+                  class="Button-module_button__P7hTI Button-module_secondary__ieoHb"
                   tabindex="-1"
                   type="button"
                 >
                   <div
                     aria-hidden="true"
-                    class="Button-module_icon__O-h7R"
+                    class="Button-module_icon__Di-Ga"
                   >
                     <svg
                       aria-hidden="true"
                       aria-label="plus"
-                      class="Icon-module_icon__1Jtzj icon_hds-icon__1YqNC Icon-module_small__gTGkU icon_hds-icon--size-s__2Lkik"
+                      class="Icon-module_icon__JQmVx icon_hds-icon__O6EV0 Icon-module_small__nAApk icon_hds-icon--size-s__SloSo"
                       role="img"
                       viewBox="0 0 24 24"
                       xmlns="http://www.w3.org/2000/svg"
@@ -1287,7 +1277,7 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
                 <input
                   accept=".jpg, .pdf"
                   aria-describedby="rectificationAttachments-helper"
-                  class="FileInput-module_fileInput__hClRc"
+                  class="FileInput-module_fileInput__gPwX4"
                   id="rectificationAttachments"
                   multiple=""
                   type="file"
@@ -1296,7 +1286,7 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
             </div>
           </div>
           <div
-            class="TextInput-module_helperText__2dLR6 text-input_hds-text-input__helper-text__3V2KM"
+            class="TextInput-module_helperText__B19Ty text-input_hds-text-input__helper-text__gaXd1"
             id="rectificationAttachments-helper"
           >
             Voit liittää oikaisuvaatimukseen enintään kolme liitettä. 
@@ -1306,7 +1296,7 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
         </div>
         <ul
           aria-label="Yhtään tiedostoa ei ole valittu."
-          class="FileInput-module_fileList__drFD1"
+          class="FileInput-module_fileList__CaZYw"
           id="rectificationAttachments-list"
           tabindex="-1"
         />
@@ -1328,32 +1318,32 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
           class="radio-group-container"
         >
           <div
-            class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+            class="RadioButton-module_radioButton__XQOVF radio-button_hds-radio-button__yVt-R"
           >
             <input
-              class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
+              class="RadioButton-module_input__fvkjJ radio-button_hds-radio-button__input__J6aiX"
               id="toParkingService"
               type="radio"
               value="toParkingService"
             />
             <label
-              class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
+              class="RadioButton-module_label__H5v8w radio-button_hds-radio-button__label__jPiEm"
               for="toParkingService"
             >
               Pysäköinnin asiointikansiooni
             </label>
           </div>
           <div
-            class="RadioButton-module_radioButton__1xM1I radio-button_hds-radio-button__1kktv"
+            class="RadioButton-module_radioButton__XQOVF radio-button_hds-radio-button__yVt-R"
           >
             <input
-              class="RadioButton-module_input__1cTWc radio-button_hds-radio-button__input__27sH6"
+              class="RadioButton-module_input__fvkjJ radio-button_hds-radio-button__input__J6aiX"
               id="byMail"
               type="radio"
               value="byMail"
             />
             <label
-              class="RadioButton-module_label__3Zij9 radio-button_hds-radio-button__label__1XnIa"
+              class="RadioButton-module_label__H5v8w radio-button_hds-radio-button__label__jPiEm"
               for="byMail"
             >
               Kirjeitse antamaani osoitteeseen
