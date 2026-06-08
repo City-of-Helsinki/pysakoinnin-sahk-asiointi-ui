@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.24.0](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.23.1...pysakoinnin-sahk-asiointi-ui-v0.24.0) (2026-06-08)
+
+
+### Features
+
+* Update to react 19 ([d194c4d](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/d194c4d148e056bc4fcc1a87a77cef3392d4af31))
+
+
+### Bug Fixes
+
+* Switch to @vitejs/plugin-react ([e4371b4](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/e4371b4741fe17e1b3169e79de170aac306a6958))
+
 ## [0.23.1](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.23.0...pysakoinnin-sahk-asiointi-ui-v0.23.1) (2026-06-04)
 
 
