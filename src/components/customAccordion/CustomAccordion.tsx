@@ -24,9 +24,9 @@ const CustomAccordion = ({
         onClick={() => setAccordionOpen(!accordionOpen)}
         iconEnd={
           accordionOpen ? (
-            <IconAngleUp size={IconSize.ExtraLarge} aria-hidden />
+            <IconAngleUp size={IconSize.Medium} aria-hidden />
           ) : (
-            <IconAngleDown size={IconSize.ExtraLarge} aria-hidden />
+            <IconAngleDown size={IconSize.Medium} aria-hidden />
           )
         }
         className="custom-accordion custom-accordion-header"
@@ -38,7 +38,7 @@ const CustomAccordion = ({
           {children}
           <Button
             onClick={() => setAccordionOpen(!accordionOpen)}
-            iconEnd={<IconAngleUp size={IconSize.ExtraLarge} aria-hidden />}
+            iconEnd={<IconAngleUp size={IconSize.Medium} aria-hidden />}
             className="custom-accordion close"
             variant={ButtonVariant.Supplementary}>
             {t('common:close')}

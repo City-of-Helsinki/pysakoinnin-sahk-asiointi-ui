@@ -74,8 +74,7 @@ const initialState: FormState = {
     },
     mobilePhone: '',
     iban: '',
-    description: '',
-    deliveryDecision: ''
+    description: ''
   }
 };
 

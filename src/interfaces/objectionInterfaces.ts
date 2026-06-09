@@ -36,8 +36,6 @@ export interface ObjectionForm {
   poaFile?: FileItem;
   attachments?: FileItem[];
   type?: number;
-  deliveryDecision?: string;
-  sendDecisionViaEService?: boolean;
   dueDate?: string;
   success?: boolean;
   errorcode?: string | null;

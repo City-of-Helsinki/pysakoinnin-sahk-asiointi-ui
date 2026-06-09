@@ -15,13 +15,15 @@ const getApiToken = () => {
 };
 
 export const waitForApiToken = async () => {
-  const retryAttempts = 0;
-  while (retryAttempts <= MAX_RETRY_ATTEMPTS) {
+  for (let attempt = 0; attempt <= MAX_RETRY_ATTEMPTS; attempt++) {
     const apiToken = getApiToken();
     if (apiToken) {
       return apiToken;
     }
-    await wait(RETRY_TIME_MS);
+    // only wait if another attempt will follow
+    if (attempt < MAX_RETRY_ATTEMPTS) {
+      await wait(RETRY_TIME_MS);
+    }
   }
   throw new Error('Failed to get API token');
 };

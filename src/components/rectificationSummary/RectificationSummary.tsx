@@ -34,11 +34,6 @@ const RectificationSummary: FC<Props> = ({
 }) => {
   const { t } = useTranslation();
   const formValues = form;
-  const deliveryDecision = formValues?.deliveryDecision
-    ? formValues.deliveryDecision
-    : formValues?.sendDecisionViaEService
-    ? 'toParkingService'
-    : 'byMail';
   const poaFile = formFiles?.poaFile;
   const attachments = formFiles?.attachments;
 
@@ -88,10 +83,6 @@ const RectificationSummary: FC<Props> = ({
           <div className="info-field" data-testid="IBAN">
             <label>{t('rectificationForm:IBAN')}</label>
             <p>{formValues?.iban}</p>
-          </div>
-          <div className="info-field" data-testid="deliveryDecision">
-            <label>{t('rectificationForm:delivery-decision')}</label>
-            <p>{t(`rectificationForm:${deliveryDecision}`)}</p>
           </div>
         </div>
         <div className="rectification-summary-contents">

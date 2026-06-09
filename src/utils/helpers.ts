@@ -79,13 +79,11 @@ export const createObjection = (
   formContent: TransferData | undefined
 ) => {
   // remove unnecessary properties
-  const { deliveryDecision, poaFile, ...objection } = { ...form };
+  const { poaFile, ...objection } = { ...form };
   selectedForm === FormId.MOVEDCAR
     ? delete objection.foulNumber
     : delete objection.transferNumber;
   // add missing properties
-  objection.sendDecisionViaEService =
-    form.deliveryDecision === 'toParkingService';
   objection.type = form.foulNumber
     ? ObjectionType.Foul
     : ObjectionType.Transfer;

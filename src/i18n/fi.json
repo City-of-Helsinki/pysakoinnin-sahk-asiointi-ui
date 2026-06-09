@@ -246,9 +246,7 @@
     "city": "Postitoimipaikka",
     "phone": "Puhelinnumero",
     "IBAN": "Pankkitilinumero (IBAN)",
-    "delivery-decision": "Haluan päätöksen",
-    "toParkingService": "Pysäköinnin asiointikansiooni",
-    "byMail": "Kirjeitse antamaani osoitteeseen",
+    "delivery-decision-info": "Päätöksestä ilmoitetaan ensisijaisesti Suomi.fi-palvelun kautta. Jos palvelua ei ole käytössä, päätöksestä ilmoitetaan sähköpostiosoitteeseesi.",
     "attachments": {
       "label": "Liitetiedostot",
       "helper-text": "Voit liittää oikaisuvaatimukseen enintään kolme liitettä. \nSallitut tiedostomuodot ovat JPG ja PDF. \nLiitetiedoston suurin sallittu koko on 5 megatavua."

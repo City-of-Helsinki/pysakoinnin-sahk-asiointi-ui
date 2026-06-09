@@ -23,10 +23,11 @@
   text-align: start;
 }
 
-/* target icon inside custom-accordion */
+/* Let the icon wrapper size to the icon (IconSize.Medium = 32px). A fixed
+   clamp here clipped the icon when HDS 6 changed how icon size is applied. */
 .custom-accordion > div {
-  height: 32px !important;
-  width: 32px !important;
+  height: auto !important;
+  width: auto !important;
   margin: 0 !important;
 }
 
