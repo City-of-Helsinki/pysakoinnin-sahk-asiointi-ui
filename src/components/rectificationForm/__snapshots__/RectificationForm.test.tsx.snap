@@ -616,54 +616,13 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
         />
       </div>
       <div
-        class="rectification-delivery-decision radio-group-section"
+        class="rectification-delivery-decision"
       >
-        <legend
-          class="field-label"
+        <p
+          class="small-text"
         >
-          Haluan päätöksen
-          <span
-            class="required-icon"
-          >
-            *
-          </span>
-        </legend>
-        <div
-          class="radio-group-container"
-        >
-          <div
-            class="RadioButton-module_radioButton__XQOVF radio-button_hds-radio-button__yVt-R"
-          >
-            <input
-              class="RadioButton-module_input__fvkjJ radio-button_hds-radio-button__input__J6aiX"
-              id="toParkingService"
-              type="radio"
-              value="toParkingService"
-            />
-            <label
-              class="RadioButton-module_label__H5v8w radio-button_hds-radio-button__label__jPiEm"
-              for="toParkingService"
-            >
-              Pysäköinnin asiointikansiooni
-            </label>
-          </div>
-          <div
-            class="RadioButton-module_radioButton__XQOVF radio-button_hds-radio-button__yVt-R"
-          >
-            <input
-              class="RadioButton-module_input__fvkjJ radio-button_hds-radio-button__input__J6aiX"
-              id="byMail"
-              type="radio"
-              value="byMail"
-            />
-            <label
-              class="RadioButton-module_label__H5v8w radio-button_hds-radio-button__label__jPiEm"
-              for="byMail"
-            >
-              Kirjeitse antamaani osoitteeseen
-            </label>
-          </div>
-        </div>
+          Päätöksestä ilmoitetaan ensisijaisesti Suomi.fi-palvelun kautta. Jos palvelua ei ole käytössä, päätöksestä ilmoitetaan sähköpostiosoitteeseesi.
+        </p>
       </div>
     </div>
   </div>
@@ -1302,54 +1261,13 @@ Liitetiedoston suurin sallittu koko on 5 megatavua.
         />
       </div>
       <div
-        class="rectification-delivery-decision radio-group-section"
+        class="rectification-delivery-decision"
       >
-        <legend
-          class="field-label"
+        <p
+          class="small-text"
         >
-          Haluan päätöksen
-          <span
-            class="required-icon"
-          >
-            *
-          </span>
-        </legend>
-        <div
-          class="radio-group-container"
-        >
-          <div
-            class="RadioButton-module_radioButton__XQOVF radio-button_hds-radio-button__yVt-R"
-          >
-            <input
-              class="RadioButton-module_input__fvkjJ radio-button_hds-radio-button__input__J6aiX"
-              id="toParkingService"
-              type="radio"
-              value="toParkingService"
-            />
-            <label
-              class="RadioButton-module_label__H5v8w radio-button_hds-radio-button__label__jPiEm"
-              for="toParkingService"
-            >
-              Pysäköinnin asiointikansiooni
-            </label>
-          </div>
-          <div
-            class="RadioButton-module_radioButton__XQOVF radio-button_hds-radio-button__yVt-R"
-          >
-            <input
-              class="RadioButton-module_input__fvkjJ radio-button_hds-radio-button__input__J6aiX"
-              id="byMail"
-              type="radio"
-              value="byMail"
-            />
-            <label
-              class="RadioButton-module_label__H5v8w radio-button_hds-radio-button__label__jPiEm"
-              for="byMail"
-            >
-              Kirjeitse antamaani osoitteeseen
-            </label>
-          </div>
-        </div>
+          Päätöksestä ilmoitetaan ensisijaisesti Suomi.fi-palvelun kautta. Jos palvelua ei ole käytössä, päätöksestä ilmoitetaan sähköpostiosoitteeseesi.
+        </p>
       </div>
     </div>
   </div>

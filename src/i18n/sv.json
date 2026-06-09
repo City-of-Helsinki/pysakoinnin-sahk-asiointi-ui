@@ -246,9 +246,7 @@
     "city": "Postanstalt",
     "phone": "Telefonnummer tjänstetid",
     "IBAN": "Kontonummer (IBAN)",
-    "delivery-decision": "Jag vill ha beslutet till",
-    "toParkingService": "Mitt parkerings e-tjänst",
-    "byMail": "I ett brev till den adress jag givit",
+    "delivery-decision-info": "Beslutet meddelas i första hand via Suomi.fi-tjänsten. Om tjänsten inte används, skickas beslutet till din e-postadress.",
     "attachments": {
       "label": "Bifogade filer",
       "helper-text": "Du kan foga högst tre bilagor till rättelseyrkandet. \nTillåtna filformat är JPG, PDF. \nDen maximala storleken på en bifogad fil är 5 megabyte."

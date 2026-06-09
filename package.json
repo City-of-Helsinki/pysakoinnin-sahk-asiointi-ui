@@ -62,7 +62,7 @@
     "test": "NODE_ENV=test pnpm run update-runtime-env && vitest --config ./vitest.config.ts",
     "test:coverage": "CI=true pnpm test --coverage",
     "ci": "CI=true pnpm test --coverage",
-    "lint": "eslint --ext js,ts,tsx src",
+    "lint": "eslint src",
     "update-runtime-env": "esrun --tsconfig=./scripts/tsconfig.json scripts/update-runtime-env.ts",
     "postinstall": "pnpm update-runtime-env",
     "prepare": "husky",

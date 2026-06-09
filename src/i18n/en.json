@@ -246,9 +246,7 @@
     "city": "City/town",
     "phone": "Phone",
     "IBAN": "Bank account number (IBAN)",
-    "delivery-decision": "I would like the decision to be sent",
-    "toParkingService": "to my Parking e-services",
-    "byMail": "by mail to the provided address",
+    "delivery-decision-info": "The decision will primarily be delivered via the Suomi.fi service. If the service is not in use, the decision will be sent to your email address.",
     "attachments": {
       "label": "Attachments",
       "helper-text": "You can attach up to three files. \nAllowed file formats are JPG and PDF. \nThe maximum size of an attachment file is 5 megabytes."

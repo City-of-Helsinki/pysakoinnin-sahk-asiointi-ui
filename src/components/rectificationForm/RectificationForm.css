@@ -84,6 +84,10 @@
   grid-row: var(--rectification-delivery-decision-grid-row);
 }
 
+.rectification-delivery-decision p {
+  white-space: pre-line;
+}
+
 .rectification-link-to-profile {
   display: flex;
   align-items: center;

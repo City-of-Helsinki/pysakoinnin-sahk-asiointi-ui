@@ -367,38 +367,11 @@ const RectificationForm: FC<Props> = ({
             />
           </div>
 
-          <Controller
-            name="deliveryDecision"
-            control={control}
-            rules={{ required: t('common:required-field') as string }}
-            render={({ field, fieldState }) => (
-              <div className="rectification-delivery-decision radio-group-section">
-                <FieldLabel
-                  text={t(`rectificationForm:delivery-decision`)}
-                  required={true}
-                />
-                <div className="radio-group-container">
-                  <RadioButton
-                    label={t('rectificationForm:toParkingService')}
-                    id="toParkingService"
-                    value="toParkingService"
-                    checked={field.value === 'toParkingService'}
-                    onChange={e => field.onChange(e.target.value)}
-                  />
-                  <RadioButton
-                    label={t('rectificationForm:byMail')}
-                    id="byMail"
-                    value="byMail"
-                    checked={field.value === 'byMail'}
-                    onChange={e => field.onChange(e.target.value)}
-                  />
-                  {fieldState.error && (
-                    <ErrorLabel text={fieldState.error.message} />
-                  )}
-                </div>
-              </div>
-            )}
-          />
+          <div className="rectification-delivery-decision">
+            <p className="small-text">
+              {t('rectificationForm:delivery-decision-info')}
+            </p>
+          </div>
         </div>
       </div>
     </>
