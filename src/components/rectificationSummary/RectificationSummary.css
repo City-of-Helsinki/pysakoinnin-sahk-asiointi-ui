@@ -20,6 +20,10 @@
   margin-bottom: var(--spacing-m);
 }
 
+.delivery-decision-info {
+  white-space: pre-line;
+}
+
 .file-list {
   list-style: none;
   margin: var(--spacing-s) 0 0;

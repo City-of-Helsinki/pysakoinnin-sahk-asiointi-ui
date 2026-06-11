@@ -84,6 +84,9 @@ const RectificationSummary: FC<Props> = ({
             <label>{t('rectificationForm:IBAN')}</label>
             <p>{formValues?.iban}</p>
           </div>
+          <div className="delivery-decision-info" data-testid="deliveryDecision">
+            <p>{t('rectificationForm:delivery-decision-info')}</p>
+          </div>
         </div>
         <div className="rectification-summary-contents">
           <div className="rectification-summary-rectification-content">

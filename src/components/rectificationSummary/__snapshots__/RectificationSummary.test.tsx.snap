@@ -116,6 +116,14 @@ exports[`Component > matches snapshot 1`] = `
           FI9780001700903330
         </p>
       </div>
+      <div
+        class="delivery-decision-info"
+        data-testid="deliveryDecision"
+      >
+        <p>
+          Päätöksestä ilmoitetaan ensisijaisesti Suomi.fi-palvelun kautta. Jos palvelua ei ole käytössä, päätöksestä ilmoitetaan sähköpostiosoitteeseesi.
+        </p>
+      </div>
     </div>
     <div
       class="rectification-summary-contents"
