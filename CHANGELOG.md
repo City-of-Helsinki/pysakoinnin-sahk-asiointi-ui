@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.25.0](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.24.0...pysakoinnin-sahk-asiointi-ui-v0.25.0) (2026-06-11)
+
+
+### Features
+
+* Remove email vs letter decision ([a3e0269](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/a3e0269740817b216bd234ffc82d29bd56664ec4))
+
 ## [0.24.0](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.23.1...pysakoinnin-sahk-asiointi-ui-v0.24.0) (2026-06-08)
 
 
