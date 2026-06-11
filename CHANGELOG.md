@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.26.0](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.25.0...pysakoinnin-sahk-asiointi-ui-v0.26.0) (2026-06-11)
+
+
+### Features
+
+* Add info to summary page ([c90f995](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/c90f995d115b38dbdd72f93586bc34ab30132e7e))
+
 ## [0.25.0](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.24.0...pysakoinnin-sahk-asiointi-ui-v0.25.0) (2026-06-11)
 
 
