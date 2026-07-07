@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-// eslint-disable-next-line import/no-namespace
+// eslint-disable-next-line import-x/no-namespace
 import * as Sentry from '@sentry/react';
 
 import './index.css';
@@ -36,8 +36,8 @@ if (window._env_.REACT_APP_SENTRY_DSN) {
     replaysOnErrorSampleRate: parseFloat(
       window._env_.REACT_APP_SENTRY_REPLAYS_ON_ERROR_SAMPLE_RATE || '0'
     ),
-    beforeSend: beforeSend as Sentry.BrowserOptions['beforeSend'],
-    beforeSendTransaction: beforeSendTransaction as Sentry.BrowserOptions['beforeSendTransaction']
+    beforeSend: beforeSend,
+    beforeSendTransaction: beforeSendTransaction
   });
 }
 

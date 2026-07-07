@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable import/no-namespace */
+/* eslint-disable import-x/no-namespace */
 import React from 'react';
 import * as hdsReact from 'hds-react';
 import merge from 'lodash/merge';

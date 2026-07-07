@@ -18,7 +18,7 @@ import '@testing-library/jest-dom/vitest';
 import 'vitest-axe/extend-expect';
 import 'vitest-canvas-mock';
 import './utils/i18n';
-// eslint-disable-next-line import/no-namespace
+// eslint-disable-next-line import-x/no-namespace
 import * as matchers from 'vitest-axe/matchers';
 
 import { expect, vi } from 'vitest';

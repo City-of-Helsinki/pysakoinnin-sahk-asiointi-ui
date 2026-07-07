@@ -114,6 +114,7 @@ const FormStepper = (props: Props): React.ReactElement => {
 
   // show error notification if submitError = true in redux
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setShowErrorNotification(formContent.submitError);
   }, [formContent.submitError]);
 

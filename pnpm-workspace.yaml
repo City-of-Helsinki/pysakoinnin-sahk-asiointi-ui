@@ -17,6 +17,13 @@ shamefullyHoist: true
   '@typescript-eslint/typescript-estree>minimatch': '>=9.0.7'
   'esbuild': '>=0.25.0'
 
+peerDependencyRules:
+  allowedVersions:
+    'eslint-plugin-react>eslint': '^10.0.0'
+    'eslint-plugin-jsx-a11y>eslint': '^10.0.0'
+    'eslint-plugin-prettier>eslint': '^10.0.0'
+    '@nabla/vite-plugin-eslint>eslint': '^10.0.0'
+
 # pnpm 11 requires explicit opt-in for packages that run install scripts.
 # - @parcel/watcher: used by sass and vite for file system watching
 # - @swc/core: used by @vitejs/plugin-react-swc and other SWC-based tools, requires native build

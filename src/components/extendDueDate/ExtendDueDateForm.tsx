@@ -44,6 +44,7 @@ const ExtendDueDateForm = (): React.ReactElement => {
   // Set notification and submit disabled status when data is loaded
   useEffect(() => {
     if (foulData) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setInfoNotificationOpen(true);
       dispatch(setSubmitDisabled(!foulData.dueDateExtendable));
     }

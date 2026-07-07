@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { render } from '@testing-library/react';
-// eslint-disable-next-line import/no-namespace
+// eslint-disable-next-line import-x/no-namespace
 import * as MatomoTracker from '../MatomoTracker';
 import { MatomoProvider } from '../matomo-context';
 import useMatomo from './useMatomo';
@@ -24,7 +24,7 @@ describe('useMatomo', () => {
     vi.spyOn(MatomoTracker, 'default').mockImplementation(
       function () {
         return { trackPageView: trackPageViewMock } as unknown as MatomoTracker.default;
-      } as unknown as typeof MatomoTracker.default
+      }
     );
 
     const instance = new MatomoTracker.default({
