@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useMemo, useRef } from 'react';
 import {
   useGraphQL,
@@ -32,7 +31,6 @@ const useProfileSync = () => {
   // not on every auth state change.
   const user = useAuthenticatedUser();
   const userRef = useRef(user);
-  // eslint-disable-next-line react-hooks/refs
   userRef.current = user;
 
   const { fetch: fetchApiTokens } = useApiTokensClient();

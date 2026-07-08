@@ -1,6 +1,6 @@
+import eslintReact from '@eslint-react/eslint-plugin';
 import js from '@eslint/js';
 import tseslint from 'typescript-eslint';
-import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import importX, { createNodeResolver } from 'eslint-plugin-import-x';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
@@ -8,13 +8,25 @@ import prettierRecommended from 'eslint-plugin-prettier/recommended';
 import sonarjs from 'eslint-plugin-sonarjs';
 import globals from 'globals';
 
+const reactFiles = ['**/*.{js,jsx,ts,tsx}'];
+
 export default [
   { ignores: ['node_modules/**', 'build/**', 'coverage/**', 'reports/**', 'report/**', 'test-results/**'] },
 
   js.configs.recommended,
   ...tseslint.configs.recommended,
-  react.configs.flat.recommended,
+  { files: reactFiles, ...eslintReact.configs['recommended-typescript'] },
   reactHooks.configs.flat['recommended-latest'],
+  { files: reactFiles, ...eslintReact.configs['disable-conflict-eslint-plugin-react-hooks'] },
+  {
+    files: reactFiles,
+    rules: {
+      '@eslint-react/exhaustive-deps': 'off',
+      '@eslint-react/set-state-in-effect': 'off',
+      '@eslint-react/no-array-index-key': 'off',
+      '@eslint-react/no-context-provider': 'off',
+    },
+  },
   importX.flatConfigs.recommended,
   importX.flatConfigs.typescript,
   jsxA11y.flatConfigs.recommended,
@@ -33,7 +45,6 @@ export default [
       },
     },
     settings: {
-      react: { version: '19' },
       'import-x/resolver-next': [
         createNodeResolver({
           extensions: ['.ts', '.tsx', '.cts', '.mts', '.js', '.jsx', '.cjs', '.mjs'],
@@ -41,11 +52,7 @@ export default [
       ],
     },
     rules: {
-      'react/prop-types': 0,
-      'react/destructuring-assignment': 0,
-      'react/static-property-placement': 0,
       'jsx-a11y/alt-text': 0,
-      'react/jsx-props-no-spreading': 0,
       'no-unused-vars': 0,
       'no-magic-numbers': [
         'error',

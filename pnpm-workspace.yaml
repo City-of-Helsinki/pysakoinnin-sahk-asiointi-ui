@@ -17,12 +17,10 @@ shamefullyHoist: true
   '@typescript-eslint/typescript-estree>minimatch': '>=9.0.7'
   'esbuild': '>=0.25.0'
 
+# Allow plugins that lag on peer ranges to load under ESLint 10.
 peerDependencyRules:
   allowedVersions:
-    'eslint-plugin-react>eslint': '^10.0.0'
-    'eslint-plugin-jsx-a11y>eslint': '^10.0.0'
-    'eslint-plugin-prettier>eslint': '^10.0.0'
-    '@nabla/vite-plugin-eslint>eslint': '^10.0.0'
+    eslint: '10'
 
 # pnpm 11 requires explicit opt-in for packages that run install scripts.
 # - @parcel/watcher: used by sass and vite for file system watching

@@ -25,7 +25,6 @@ const useCookieConsent = ({
 
   useEffect(() => {
     if (language) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setCurrentLang(language);
     }
   }, [language]);

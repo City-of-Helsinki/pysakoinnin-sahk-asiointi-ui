@@ -30,7 +30,6 @@ const InfoContainer: FC<Props> = ({
 
   useEffect(() => {
     if (data && editMode) {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setErrorNotificationOpen(data?.responseCode !== 0);
     }
   }, [data, editMode]);
