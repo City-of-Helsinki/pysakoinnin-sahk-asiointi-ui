@@ -27,16 +27,16 @@ describe('waitForApiToken', () => {
   });
 
   it('returns the token immediately when it is already in storage', async () => {
-    tokensMock.mockReturnValue({ [CLIENT_ID]: TOKEN } as never);
+    tokensMock.mockReturnValue({ [CLIENT_ID]: TOKEN });
 
     await expect(waitForApiToken()).resolves.toBe(TOKEN);
   });
 
   it('retries and returns the token once it appears in storage', async () => {
     tokensMock
-      .mockReturnValueOnce(null as never)
-      .mockReturnValueOnce(null as never)
-      .mockReturnValue({ [CLIENT_ID]: TOKEN } as never);
+      .mockReturnValueOnce(null)
+      .mockReturnValueOnce(null)
+      .mockReturnValue({ [CLIENT_ID]: TOKEN });
 
     const promise = waitForApiToken();
     await vi.runAllTimersAsync();
@@ -45,7 +45,7 @@ describe('waitForApiToken', () => {
   });
 
   it('throws after the maximum number of retries when no token appears', async () => {
-    tokensMock.mockReturnValue(null as never);
+    tokensMock.mockReturnValue(null);
 
     const promise = waitForApiToken();
     const assertion = expect(promise).rejects.toThrow(ERROR_MESSAGE);

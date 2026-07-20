@@ -33,10 +33,10 @@ const LandingPage = (): React.ReactElement => {
   const [sortByNewest, setSortByNewest] = useState(true);
   const elementsOnPage = 5;
   const titleRef = useRef<null | HTMLDivElement>(null);
-  const [filter, setFilter] = useState({
+  const [filter, setFilter] = useState(() => ({
     value: 'show-all',
     label: t('landing-page:list.status:show-all:default')
-  });
+  }));
   const [
     requestDocuments,
     ,

@@ -15,7 +15,7 @@ RUN pnpm install --frozen-lockfile --ignore-scripts && pnpm store prune
 RUN pnpm update-runtime-env
 
 # 3. Copy remaining source files
-COPY --chown=default:root index.html vite.config.ts eslint.config.cjs tsconfig.json .prettierrc .env* ./
+COPY --chown=default:root index.html vite.config.ts eslint.config.mjs tsconfig.json .prettierrc .env* ./
 COPY --chown=default:root ./src ./src
 
 

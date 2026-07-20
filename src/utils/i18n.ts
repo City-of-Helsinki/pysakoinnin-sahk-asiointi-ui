@@ -8,7 +8,7 @@ const resources = { fi, en, sv };
 
 const lng = localStorage.getItem('lang') ?? undefined;
 
-// eslint-disable-next-line import/no-named-as-default-member
+// eslint-disable-next-line import-x/no-named-as-default-member
 i18n.use(initReactI18next).init({
   resources,
   fallbackLng: 'fi',

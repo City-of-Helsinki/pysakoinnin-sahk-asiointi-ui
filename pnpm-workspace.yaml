@@ -12,8 +12,15 @@ minimumReleaseAgeExclude:
 shamefullyHoist: true
 
 # The minimatch override fixes the version used by @typescript-eslint/typescript-estree.
-# The cookie and esbuild overrides ensure secure versions are used across all dependencies.
-"overrides": { "@typescript-eslint/typescript-estree>minimatch": ">=9.0.7", "cookie": ">=0.7.0", "esbuild": ">=0.25.0" }
+# The esbuild overrides ensure secure versions are used across all dependencies.
+'overrides':
+  '@typescript-eslint/typescript-estree>minimatch': '>=9.0.7'
+  'esbuild': '>=0.25.0'
+
+# Allow plugins that lag on peer ranges to load under ESLint 10.
+peerDependencyRules:
+  allowedVersions:
+    eslint: '10'
 
 # pnpm 11 requires explicit opt-in for packages that run install scripts.
 # - @parcel/watcher: used by sass and vite for file system watching
@@ -22,8 +29,8 @@ shamefullyHoist: true
 # - esbuild: downloads its native binary during installation
 # - unrs-resolver: Rust-based module resolver used by eslint-plugin-import-x
 allowBuilds:
-  "@parcel/watcher": true
-  "@swc/core": true
+  '@parcel/watcher': true
+  '@swc/core': true
   core-js: false
   esbuild: true
   unrs-resolver: true

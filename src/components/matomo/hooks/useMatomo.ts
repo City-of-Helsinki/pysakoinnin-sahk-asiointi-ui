@@ -1,10 +1,10 @@
-import { useCallback, useContext } from 'react';
+import { use, useCallback } from 'react';
 import MatomoContext from '../matomo-context';
 import { TrackPageViewParams } from '../MatomoTracker';
 import { MatomoTrackerInstance } from '../types';
 
 function useMatomo(): MatomoTrackerInstance {
-  const instance = useContext(MatomoContext);
+  const instance = use(MatomoContext);
 
   const trackPageView = useCallback(
     (params?: TrackPageViewParams) => instance?.trackPageView(params),

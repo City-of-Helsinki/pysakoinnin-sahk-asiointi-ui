@@ -47,7 +47,6 @@ const ExtendDueDateForm = (): React.ReactElement => {
       setInfoNotificationOpen(true);
       dispatch(setSubmitDisabled(!foulData.dueDateExtendable));
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [foulData]);
 
   return foulData ? (
