@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.26.1](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.26.0...pysakoinnin-sahk-asiointi-ui-v0.26.1) (2026-08-07)
+
+
+### Bug Fixes
+
+* Stuck Dependabot workflows ([#263](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/issues/263)) ([af24a21](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/af24a21b00d4d2fa643d984e454a7ee71c248ed6))
+
+
+### Dependencies
+
+* Bump vite from 8.0.6 to 8.0.16 ([c746ec6](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/c746ec6e908eb8eb1138905c7cd599c7909ed40e))
+
 ## [0.26.0](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.25.0...pysakoinnin-sahk-asiointi-ui-v0.26.0) (2026-06-11)
 
 
