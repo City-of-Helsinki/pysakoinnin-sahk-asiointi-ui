@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.26.2](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.26.1...pysakoinnin-sahk-asiointi-ui-v0.26.2) (2026-08-14)
+
+
+### Dependencies
+
+* Bump nanoid from 3.3.15 to 3.3.17 ([27b483f](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/27b483fbb97088be6d803797b3e934ca210e4153))
+* Nanoid minimumReleaseAgeExclude Refs: RATY-357 ([2f6c9f3](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/2f6c9f3072bf0d3b924644af80a592d9da664b2b))
+
 ## [0.26.1](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.26.0...pysakoinnin-sahk-asiointi-ui-v0.26.1) (2026-08-07)
 
 
