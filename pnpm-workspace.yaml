@@ -3,9 +3,12 @@ minimumReleaseAge: 10080
 
 # Use minimumReleaseAgeExclude temporarily for emergency security vulnerability fixes
 minimumReleaseAgeExclude:
-  - tinyexec@1.2.4
-  - tinyglobby@0.2.17
-  - hasown@2.0.4
+  - baseline-browser-mapping@2.11.14
+  - browserslist@4.28.8
+  - caniuse-lite@1.0.30001809
+  - electron-to-chromium@1.5.406
+  - nanoid@3.3.18
+  - update-browserslist-db@1.3.1
 
 # Hoist all dependencies to the root of node_modules because some packages
 # (e.g. the draft-js ecosystem) do not work correctly with pnpm's default isolation strategy
