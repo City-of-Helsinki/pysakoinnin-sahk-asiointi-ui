@@ -176,7 +176,6 @@ exports[`Component > matches snapshot 1`] = `
               >
                 test2.jpg
               </span>
-              0
             </div>
           </li>
         </ul>
