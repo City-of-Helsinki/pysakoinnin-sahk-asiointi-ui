@@ -21,7 +21,7 @@ const Barcode = (props: BarcodeProps) => {
 
   return (
     <>
-      <div className={`barcode-container ${className ? className : ''}`}>
+      <div className={`barcode-container ${className || ''}`}>
         {barcode && (
           <>
             <label className="barcode-label">{t('common:barcode:label')}</label>

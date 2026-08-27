@@ -46,7 +46,7 @@ const DEFAULT_DENYLIST = [
   'XSRF-TOKEN' // Angular, Laravel
 ];
 
-const SENTRY_DENYLIST = [...DEFAULT_DENYLIST, 'register_number'];
+const SENTRY_DENYLIST = new Set([...DEFAULT_DENYLIST, 'register_number']);
 const MAX_CLEAN_DEPTH = 32;
 
 export const cleanSensitiveData = (
@@ -82,8 +82,8 @@ export const cleanSensitiveData = (
 
   for (const [key, value] of Object.entries(data)) {
     if (
-      SENTRY_DENYLIST.includes(key) ||
-      SENTRY_DENYLIST.includes(snakeCase(key))
+      SENTRY_DENYLIST.has(key) ||
+      SENTRY_DENYLIST.has(snakeCase(key))
     ) {
       continue; // omit sensitive key
     }

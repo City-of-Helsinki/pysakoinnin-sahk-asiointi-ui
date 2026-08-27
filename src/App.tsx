@@ -32,18 +32,16 @@ function App(): React.ReactElement {
 
     if (statisticsConsent) {
       // eslint-disable-next-line no-underscore-dangle
-      window._paq.push(['setConsentGiven']);
-      // eslint-disable-next-line no-underscore-dangle
-      window._paq.push(['setCookieConsentGiven']);
+      window._paq.push(['setConsentGiven'], ['setCookieConsentGiven']);
       return;
     }
 
     // eslint-disable-next-line no-underscore-dangle
-    window._paq.push(['requireConsent']);
-    // eslint-disable-next-line no-underscore-dangle
-    window._paq.push(['requireCookieConsent']);
-    // eslint-disable-next-line no-underscore-dangle
-    window._paq.push(['forgetConsentGiven']);
+    window._paq.push(
+      ['requireConsent'],
+      ['requireCookieConsent'],
+      ['forgetConsentGiven']
+    );
   }, [statisticsConsent]);
 
   useEffect(() => {

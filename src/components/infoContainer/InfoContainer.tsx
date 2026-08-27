@@ -25,7 +25,7 @@ const InfoContainer: FC<Props> = ({
   editMode
 }): React.ReactElement => {
   const { t } = useTranslation();
-  const data = transferData ? transferData : foulData;
+  const data = transferData || foulData;
   const [errorNotificationOpen, setErrorNotificationOpen] = useState(false);
 
   useEffect(() => {

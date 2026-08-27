@@ -28,6 +28,11 @@ const RectificationListRow: FC<Props> = ({ form }): React.ReactElement => {
   const formType = form.content.dueDate
     ? FormId.DUEDATE
     : formTypes[form.content.type as number];
+  const formTitle = t(`${formType}:title`);
+  const formIdentifier =
+    formType == FormId.MOVEDCAR
+      ? form.metadata?.transferNumber
+      : form.transaction_id;
   const [foulData, setFoulData] = useState<FoulData>();
   const [transferData, setTransferData] = useState<TransferData>();
 
@@ -48,7 +53,7 @@ const RectificationListRow: FC<Props> = ({ form }): React.ReactElement => {
   reason, the objection form can still be shown */
   const fetchData = async () => {
     if (!extended) {
-      if (form.metadata && form.metadata.registerNumber) {
+      if (form.metadata?.registerNumber) {
         if (form.metadata.foulNumber) {
           await getFoulData({
             foul_number: form.metadata.foulNumber,
@@ -83,11 +88,7 @@ const RectificationListRow: FC<Props> = ({ form }): React.ReactElement => {
           {formatDateTime(form.updated_at)}
         </div>
         <div className="rectification-list-row-title">
-          {`${t(`${formType}:title`)} (${
-            formType == FormId.MOVEDCAR
-              ? form.metadata?.transferNumber
-              : form.transaction_id
-          })`}
+          {`${formTitle} (${formIdentifier})`}
         </div>
         <div className="rectification-list-row-status">
           {form.status.value && (

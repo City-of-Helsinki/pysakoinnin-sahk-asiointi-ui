@@ -52,7 +52,8 @@
 
 .file-list-item-name {
   hyphens: auto;
-  word-break: break-word;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 .file-list-item-size {

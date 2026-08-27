@@ -35,16 +35,22 @@ interface Props {
   foulData: FoulData | undefined;
 }
 
+const getFoulTime = (foulData?: FoulData): string => {
+  if (!foulData) {
+    return '';
+  }
+  if (!foulData.monitoringStart) {
+    return formatDateTime(foulData.foulDate);
+  }
+  return `${formatDateTime(foulData.monitoringStart)} - ${formatDateTime(
+    foulData.foulDate
+  )}`;
+};
+
 const ParkingFineSummary: FC<Props> = ({ foulData }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const foulTime: string = foulData
-    ? foulData?.monitoringStart
-      ? `${formatDateTime(foulData.monitoringStart)} - ${formatDateTime(
-          foulData.foulDate
-        )}`
-      : `${formatDateTime(foulData.foulDate)}`
-    : '';
+  const foulTime = getFoulTime(foulData);
 
   useEffect(() => {
     dispatch(setSubmitDisabled(false));

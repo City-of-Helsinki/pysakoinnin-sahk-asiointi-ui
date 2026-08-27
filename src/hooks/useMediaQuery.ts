@@ -13,7 +13,7 @@ const getWindowInnerWidth: () => undefined | number = () =>
     ? window.innerWidth
     : undefined;
 const isLesserThan = (a: number, b: number | undefined) =>
-  (typeof b !== 'undefined' && b <= a) || false;
+  (b !== undefined && b <= a) || false;
 
 /**
  * Hook for checking if a certain viewport breakpoint has been met.
