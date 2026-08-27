@@ -207,15 +207,15 @@ const FormStepper = (props: Props): React.ReactElement => {
         case FormId.DUEDATE:
           return dispatch(
             getFoulDataThunk({
-              foul_number: form.foulNumber ? form.foulNumber : '',
-              register_number: form.registerNumber ? form.registerNumber : ''
+              foul_number: form.foulNumber ?? '',
+              register_number: form.registerNumber ?? ''
             })
           );
         case FormId.MOVEDCAR:
           return dispatch(
             getTransferDataThunk({
-              transfer_number: form.transferNumber ? form.transferNumber : '',
-              register_number: form.registerNumber ? form.registerNumber : ''
+              transfer_number: form.transferNumber ?? '',
+              register_number: form.registerNumber ?? ''
             })
           );
       }
@@ -233,50 +233,60 @@ const FormStepper = (props: Props): React.ReactElement => {
     window.scrollTo(0, 0);
   };
 
-  const submitAndPrintButton = !lastStep ? (
-    <Button
-      id="button-next"
-      className="button"
-      iconEnd={<IconArrowRight aria-hidden />}
-      onClick={handleSubmit(handleNextClick)}
-      variant={ButtonVariant.Primary}
-      disabled={activeStepIndex === 1 && responseCode !== ResponseCode.Success}>
-      {activeStepIndex === 1
-        ? t('common:make-rectification')
-        : t('common:next')}
-    </Button>
-  ) : formContent.formSubmitted ? (
-    <div className="submit-success-wrapper">
+  let submitAndPrintButton: React.ReactElement;
+
+  if (!lastStep) {
+    submitAndPrintButton = (
       <Button
-        id="button-submitted"
+        id="button-next"
         className="button"
-        iconStart={<IconThumbsUp aria-hidden />}
-        variant={ButtonVariant.Success}>
-        {t(`${formContent.selectedForm}:submit-success`)}
+        iconEnd={<IconArrowRight aria-hidden />}
+        onClick={handleSubmit(handleNextClick)}
+        variant={ButtonVariant.Primary}
+        disabled={
+          activeStepIndex === 1 && responseCode !== ResponseCode.Success
+        }>
+        {activeStepIndex === 1
+          ? t('common:make-rectification')
+          : t('common:next')}
       </Button>
-      {(formContent.selectedForm === FormId.PARKINGFINE ||
-        formContent.selectedForm === FormId.MOVEDCAR) && (
-        <Link
-          className="questionnaire link"
-          href="https://my.roidu.com/a/dJMQHPmAGfs7DhUv"
-          disableVisitedStyles
-          external
-          openInNewTab
-          openInNewTabLabel={t('common:aria:open-new-tab')}>
-          {t('common:questionnaire-link')}
-        </Link>
-      )}
-    </div>
-  ) : (
-    <Button
-      id="button-submit"
-      className="button submit"
-      onClick={handleSubmit(handleFormSubmit)}
-      variant={ButtonVariant.Primary}
-      disabled={formContent.submitDisabled}>
-      {t(`${formContent.selectedForm}:submit`)}
-    </Button>
-  );
+    );
+  } else if (formContent.formSubmitted) {
+    submitAndPrintButton = (
+      <div className="submit-success-wrapper">
+        <Button
+          id="button-submitted"
+          className="button"
+          iconStart={<IconThumbsUp aria-hidden />}
+          variant={ButtonVariant.Success}>
+          {t(`${formContent.selectedForm}:submit-success`)}
+        </Button>
+        {(formContent.selectedForm === FormId.PARKINGFINE ||
+          formContent.selectedForm === FormId.MOVEDCAR) && (
+          <Link
+            className="questionnaire link"
+            href="https://my.roidu.com/a/dJMQHPmAGfs7DhUv"
+            disableVisitedStyles
+            external
+            openInNewTab
+            openInNewTabLabel={t('common:aria:open-new-tab')}>
+            {t('common:questionnaire-link')}
+          </Link>
+        )}
+      </div>
+    );
+  } else {
+    submitAndPrintButton = (
+      <Button
+        id="button-submit"
+        className="button submit"
+        onClick={handleSubmit(handleFormSubmit)}
+        variant={ButtonVariant.Primary}
+        disabled={formContent.submitDisabled}>
+        {t(`${formContent.selectedForm}:submit`)}
+      </Button>
+    );
+  }
 
   return (
     <div>

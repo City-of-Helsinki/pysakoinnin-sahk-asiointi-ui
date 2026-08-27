@@ -2,7 +2,7 @@ import {
   TransferData,
   TransferRequest
 } from '../interfaces/transferInterfaces';
-import axios, { AxiosError } from 'axios';
+import axios from 'axios';
 import { waitForApiToken } from './common';
 import config from '../config';
 
@@ -26,6 +26,5 @@ export const getTransferData = async (
           headers: { Authorization: `Bearer ${apiToken}` }
         })
         .then(res => res.data)
-    )
-    .catch((err: AxiosError) => Promise.reject(err));
+    );
 };

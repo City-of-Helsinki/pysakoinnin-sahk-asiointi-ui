@@ -37,7 +37,7 @@ const SearchForm = (props: Props): React.ReactElement => {
             required: t('common:required-field') as string,
             pattern: {
               /* only numbers and max 10 characters */
-              value: /^([ ]*[0-9]{1,10}[ ]*)$/i,
+              value: /^( *\d{1,10} *)$/i,
               message: t('rectificationForm:errors:invalid-refnumber')
             }
           }}
@@ -77,7 +77,7 @@ const SearchForm = (props: Props): React.ReactElement => {
             required: t('common:required-field') as string,
             pattern: {
               /* only numbers and max 10 characters */
-              value: /^([ ]*[0-9]{1,10}[ ]*)$/i,
+              value: /^( *\d{1,10} *)$/i,
               message: t('rectificationForm:errors:invalid-refnumber')
             }
           }}

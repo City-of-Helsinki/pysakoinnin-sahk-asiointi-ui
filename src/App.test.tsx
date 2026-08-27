@@ -2,6 +2,11 @@ import React, { act } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 
+vi.mock('hds-react', async importOriginal => ({
+  ...(await importOriginal<typeof import('hds-react')>()),
+  useCookieConsents: vi.fn()
+}));
+
 // Set up mocks for all required services before imports
 // This ensures vi.mock() hoisting doesn't cause issues
 vi.mock('./services/objectionService', () => ({
@@ -73,11 +78,15 @@ import {
   mockAuthenticatedLoginState,
   mockUnauthenticatedLoginState
 } from './utils/mockLoginHooks';
+import { useCookieConsents } from 'hds-react';
 
 describe('App', () => {
   // Reset all mocks before each test for proper isolation
   beforeEach(() => {
     vi.clearAllMocks();
+    vi.mocked(useCookieConsents).mockReturnValue([]);
+    // eslint-disable-next-line no-underscore-dangle
+    window._paq = [];
   });
 
   it('renders without crashing when user is unauthenticated', async () => {
@@ -100,5 +109,26 @@ describe('App', () => {
         </BrowserRouter>
       );
     });
+  });
+
+  it('grants Matomo consent when statistics cookies are accepted', async () => {
+    vi.mocked(useCookieConsents).mockReturnValue([
+      { group: 'statistics', consented: true }
+    ]);
+    mockAuthenticatedLoginState();
+
+    await act(async () => {
+      renderWithProvider(
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      );
+    });
+
+    // eslint-disable-next-line no-underscore-dangle
+    expect(window._paq).toEqual([
+      ['setConsentGiven'],
+      ['setCookieConsentGiven']
+    ]);
   });
 });

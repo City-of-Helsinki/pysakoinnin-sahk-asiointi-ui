@@ -2,7 +2,7 @@ import {
   DueDateResponse,
   DueDateRequest
 } from '../interfaces/dueDateInterfaces';
-import axios, { AxiosError } from 'axios';
+import axios from 'axios';
 import { waitForApiToken } from './common';
 
 const api_url = window._env_.REACT_APP_API_URL;
@@ -16,5 +16,4 @@ export const extendDueDate = async (
         headers: { Authorization: `Bearer ${apiToken}` }
       })
       .then(res => res.data)
-      .catch((err: AxiosError) => Promise.reject(err))
   );

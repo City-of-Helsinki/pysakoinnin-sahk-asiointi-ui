@@ -276,23 +276,26 @@ const RectificationForm: FC<Props> = ({
               required: t('common:required-field') as string,
               validate: isValidIBAN
             }}
-            render={({ field, fieldState }) => (
-              <TextInput
-                {...field}
-                id="IBAN"
-                label={t('rectificationForm:IBAN')}
-                required
-                placeholder="Esim. FI97 8000 1700 9033 30"
-                invalid={!!fieldState.error}
-                errorText={
-                  fieldState.error?.type === 'required'
-                    ? fieldState.error?.message
-                    : fieldState.error
-                    ? t('rectificationForm:errors:invalid-iban')
-                    : undefined
-                }
-              />
-            )}
+            render={({ field, fieldState }) => {
+              let errorText: string | undefined;
+              if (fieldState.error?.type === 'required') {
+                errorText = fieldState.error.message;
+              } else if (fieldState.error) {
+                errorText = t('rectificationForm:errors:invalid-iban');
+              }
+
+              return (
+                <TextInput
+                  {...field}
+                  id="IBAN"
+                  label={t('rectificationForm:IBAN')}
+                  required
+                  placeholder="Esim. FI97 8000 1700 9033 30"
+                  invalid={!!fieldState.error}
+                  errorText={errorText}
+                />
+              );
+            }}
           />
 
           <Controller
@@ -302,31 +305,39 @@ const RectificationForm: FC<Props> = ({
               required: t('common:required-field') as string,
               maxLength: rectificationMaxLength
             }}
-            render={({ field, fieldState }) => (
-              <TextArea
-                {...field}
-                label={t('rectificationForm:rectification-content')}
-                required
-                id="rectification-content"
-                className="rectification-textarea"
-                helperText={`${
-                  field.value?.length
-                }/${rectificationMaxLength} ${t('common:characters')}`}
-                errorText={
-                  field.value && field.value.length > rectificationMaxLength
-                    ? t('rectificationForm:errors:description-over-limit')
-                    : fieldState.error
-                    ? t('common:required-field')
-                    : ''
-                }
-                invalid={
-                  !!fieldState.error ||
-                  (field.value
-                    ? field.value.length > rectificationMaxLength
-                    : false)
-                }
-              />
-            )}
+            render={({ field, fieldState }) => {
+              let errorText = '';
+              if (
+                field.value &&
+                field.value.length > rectificationMaxLength
+              ) {
+                errorText = t(
+                  'rectificationForm:errors:description-over-limit'
+                );
+              } else if (fieldState.error) {
+                errorText = t('common:required-field');
+              }
+
+              return (
+                <TextArea
+                  {...field}
+                  label={t('rectificationForm:rectification-content')}
+                  required
+                  id="rectification-content"
+                  className="rectification-textarea"
+                  helperText={`${
+                    field.value?.length
+                  }/${rectificationMaxLength} ${t('common:characters')}`}
+                  errorText={errorText}
+                  invalid={
+                    !!fieldState.error ||
+                    (field.value
+                      ? field.value.length > rectificationMaxLength
+                      : false)
+                  }
+                />
+              );
+            }}
           />
 
           <div className="rectification-attachments">

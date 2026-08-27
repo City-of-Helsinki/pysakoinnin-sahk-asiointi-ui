@@ -58,6 +58,5 @@ export const getFoulData = async (params: FoulRequest): Promise<FoulData> => {
         headers: { Authorization: `Bearer ${apiToken}` }
       })
       .then(res => res.data)
-      .catch((err: AxiosError) => Promise.reject(err))
   );
 };
