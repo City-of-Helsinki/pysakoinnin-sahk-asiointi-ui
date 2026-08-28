@@ -23,5 +23,6 @@ describe('Component', () => {
 
     const image = screen.getAllByTestId('image')[0];
     expect(image).toHaveAttribute('src', formatBase64String(images[0]));
+    expect(image).toHaveAttribute('alt', '');
   });
 });
