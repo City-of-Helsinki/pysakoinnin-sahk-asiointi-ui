@@ -98,6 +98,7 @@ const ImageViewer = (props: ImageViewerProps) => {
         <Dialog.Content>
           <img
             data-testid="image"
+            alt=""
             src={formatBase64String(images[currentImage])}
             className="imageViewer-dialog-image"
           />
