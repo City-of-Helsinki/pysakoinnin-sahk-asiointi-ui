@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.26.3](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.26.2...pysakoinnin-sahk-asiointi-ui-v0.26.3) (2026-09-03)
+
+
+### Bug Fixes
+
+* Sonar maintainability issue ([158f9a7](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/158f9a7e043f3b57594b0b6dc83567cd96a755aa))
+* Sonar maintainability issues ([af14d9f](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/af14d9ff50a3b3e2b87b0fa98c6ea8ee5fc5c7aa))
+* Sonar reliability issues ([6a11361](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/6a113611282f81910eee9ace0d9ac6fef7ca2f24))
+
 ## [0.26.2](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.26.1...pysakoinnin-sahk-asiointi-ui-v0.26.2) (2026-08-14)
 
 
