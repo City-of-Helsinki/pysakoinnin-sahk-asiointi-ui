@@ -1,6 +1,6 @@
 import React from 'react';
 import { LoginCallbackHandler, OidcClientError } from 'hds-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import Loader from './loader/Loader';
 import { captureException } from '@sentry/react';
 

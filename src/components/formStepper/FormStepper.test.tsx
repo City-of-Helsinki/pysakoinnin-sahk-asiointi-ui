@@ -9,7 +9,7 @@ import { Provider } from 'react-redux';
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 import store from '../../store';
 import { t } from 'i18next';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router';
 import loadingSlice from '../loader/loadingSlice';
 import { FormId } from '../formContent/formContentSlice';
 import { mockAuthenticatedLoginState } from '../../utils/mockLoginHooks';

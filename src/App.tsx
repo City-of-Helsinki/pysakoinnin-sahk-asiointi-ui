@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router';
 import PageContainer from './components/PageContainer';
 import Header from './components/Header';
 import Index from './pages/Index';

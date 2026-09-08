@@ -7,7 +7,7 @@ import MovedCarAppeal from './MovedCarAppeal';
 import { Provider } from 'react-redux';
 import store from '../../store';
 import { t } from 'i18next';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router';
 import { mockAuthenticatedLoginState } from '../../utils/mockLoginHooks';
 
 describe('moved car appeal form', () => {

@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router';
 
 import App from './App';
 import { setupStore } from './store';

@@ -76,4 +76,10 @@ export default [
       'prettier/prettier': 'off',
     },
   },
+  {
+    files: ['vite.config.mts', 'vitest.config.mts'],
+    rules: {
+      'import-x/default': 'off',
+    },
+  },
 ];
