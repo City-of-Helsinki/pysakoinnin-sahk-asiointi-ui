@@ -1,10 +1,17 @@
+/// <reference types="vitest/globals" />
 import React, { act } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router';
 import App from './App';
+
+declare global {
+  interface Window {
+    _paq: (string | boolean)[][];
+  }
+}
 
 vi.mock('hds-react', async importOriginal => ({
   ...(await importOriginal<typeof import('hds-react')>()),
-  useCookieConsents: vi.fn()
+  useCookieConsents: vi.fn(),
 }));
 
 // Set up mocks for all required services before imports
@@ -23,7 +30,7 @@ vi.mock('./services/objectionService', () => ({
           name: 'Test Document 1',
           address: '123 Main St',
           license_plate: 'ABC-123',
-          objection_type: 'rectification'
+          objection_type: 'rectification',
         },
         content: {
           type: 0,
@@ -32,15 +39,15 @@ vi.mock('./services/objectionService', () => ({
           firstName: 'Test',
           lastName: 'User',
           email: 'test@example.com',
-          dueDate: null
+          dueDate: null,
         },
         created_at: '2023-01-01T00:00:00Z',
         updated_at: '2023-01-02T00:00:00Z',
-        status: { value: 'sent', label: 'Sent' }
-      }
-    ]
+        status: { value: 'sent', label: 'Sent' },
+      },
+    ],
   }),
-  saveObjection: vi.fn().mockResolvedValue({ status: 'success', id: '123' })
+  saveObjection: vi.fn().mockResolvedValue({ status: 'success', id: '123' }),
 }));
 
 vi.mock('./services/foulService', () => ({
@@ -51,8 +58,8 @@ vi.mock('./services/foulService', () => ({
     foulDate: '2023-01-01T12:00:00Z',
     foulLocation: 'Test Street 1',
     foulText: 'Parking violation',
-    foulAmount: 80
-  })
+    foulAmount: 80,
+  }),
 }));
 
 vi.mock('./services/transferService', () => ({
@@ -63,20 +70,20 @@ vi.mock('./services/transferService', () => ({
     transferDate: '2023-01-01T12:00:00Z',
     transferLocation: 'Test Street 1',
     transferReason: 'Illegally parked',
-    transferAmount: 150
-  })
+    transferAmount: 150,
+  }),
 }));
 
 vi.mock('./hooks/useApiToken', () => ({
   __esModule: true,
-  default: vi.fn().mockReturnValue('mock-api-token')
+  default: vi.fn().mockReturnValue('mock-api-token'),
 }));
 
 // Now import other dependencies
 import renderWithProvider from './utils/renderWithProviders';
 import {
   mockAuthenticatedLoginState,
-  mockUnauthenticatedLoginState
+  mockUnauthenticatedLoginState,
 } from './utils/mockLoginHooks';
 import { useCookieConsents } from 'hds-react';
 
@@ -113,7 +120,7 @@ describe('App', () => {
 
   it('grants Matomo consent when statistics cookies are accepted', async () => {
     vi.mocked(useCookieConsents).mockReturnValue([
-      { group: 'statistics', consented: true }
+      { group: 'statistics', consented: true },
     ]);
     mockAuthenticatedLoginState();
 
@@ -128,7 +135,7 @@ describe('App', () => {
     // eslint-disable-next-line no-underscore-dangle
     expect(window._paq).toEqual([
       ['setConsentGiven'],
-      ['setCookieConsentGiven']
+      ['setCookieConsentGiven'],
     ]);
   });
 });

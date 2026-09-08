@@ -1,5 +1,9 @@
-import { defineConfig, configDefaults, coverageConfigDefaults } from 'vitest/config';
-import viteConfig from './vite.config';
+import {
+  defineConfig,
+  configDefaults,
+  coverageConfigDefaults,
+} from 'vitest/config';
+import viteConfig from './vite.config.mts';
 import { mergeConfig } from 'vite';
 
 export default mergeConfig(

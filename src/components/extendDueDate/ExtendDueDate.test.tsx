@@ -12,7 +12,7 @@ import { configureStore, createSlice } from '@reduxjs/toolkit';
 import store from '../../store';
 import { t } from 'i18next';
 import { formatDate } from '../../utils/helpers';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router';
 import mockFoulData from '../../mocks/mockFoulData';
 import { mockAuthenticatedLoginState } from '../../utils/mockLoginHooks';
 

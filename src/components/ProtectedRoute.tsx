@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigate, Outlet } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router';
 import { useAuthenticatedUser, useOidcClientTracking } from 'hds-react';
 
 const ProtectedRoute = () => {
