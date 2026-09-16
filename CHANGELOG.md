@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.26.4](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.26.3...pysakoinnin-sahk-asiointi-ui-v0.26.4) (2026-09-16)
+
+
+### Dependencies
+
+* Bump vitest from 4.1.9 to 4.1.11 ([7efdf8c](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/7efdf8c692b3703a34be5ff5a4177e96f2e8a493))
+* Vitest upgrade fixes Refs: RATY-357 ([66dab73](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/66dab7359549dfa168a5e7fb47717d24f45e948c))
+
 ## [0.26.3](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.26.2...pysakoinnin-sahk-asiointi-ui-v0.26.3) (2026-09-03)
 
 
