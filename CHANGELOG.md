@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.26.5](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.26.4...pysakoinnin-sahk-asiointi-ui-v0.26.5) (2026-09-19)
+
+
+### Bug Fixes
+
+* Dependabot alerts ([ec0b644](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/ec0b644e70cf43284fb10f29e6fad3f2c15529e8))
+
 ## [0.26.4](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.26.3...pysakoinnin-sahk-asiointi-ui-v0.26.4) (2026-09-16)
 
 
