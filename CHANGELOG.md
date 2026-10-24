@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.26.6](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.26.5...pysakoinnin-sahk-asiointi-ui-v0.26.6) (2026-10-24)
+
+
+### Bug Fixes
+
+* Update nodejs and pnpm version ([4ec04de](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/4ec04de379dc5c498c9146d97f4678f69bbd8188))
+
 ## [0.26.5](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.26.4...pysakoinnin-sahk-asiointi-ui-v0.26.5) (2026-09-24)
 
 
