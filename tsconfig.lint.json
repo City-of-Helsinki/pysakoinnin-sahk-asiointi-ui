@@ -9,6 +9,8 @@
         "vite.config.mts",
         "vitest.config.mts",
         "eslint.config.mjs",
+        "scripts/thirdPartyLicenses.config.mts",
+        "scripts/__tests__/*.test.ts",
     ],
     "compilerOptions": {
         "allowJs": true,

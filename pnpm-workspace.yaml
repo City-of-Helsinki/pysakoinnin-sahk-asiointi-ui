@@ -3,6 +3,7 @@ minimumReleaseAge: 10080
 
 # Use minimumReleaseAgeExclude temporarily for emergency security vulnerability fixes
 minimumReleaseAgeExclude:
+  - '@city-of-helsinki/license-notices@0.2.0'
   - baseline-browser-mapping@2.11.22
   - electron-to-chromium@1.5.427
   - nanoid@3.3.19

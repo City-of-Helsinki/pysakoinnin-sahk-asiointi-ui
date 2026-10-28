@@ -93,3 +93,31 @@ New commit messages must adhere to the [Conventional Commits](https://www.conven
 specification, and line length is limited to 72 characters.
 
 [`commitlint`](https://github.com/conventional-changelog/commitlint) checks new commit messages for the correct format.
+
+## License
+
+The source code in this repository is licensed under the MIT License; see
+[LICENSE](./LICENSE). The licenses of the third-party code included in the
+production build are listed in `third-party-licenses.txt`, which is generated
+during the build and served from the root of the deployed application. The
+same information is emitted alongside it as `oss-licenses.json`, for license
+audit tooling.
+
+The MIT License covers source code only. The following file is **not**
+covered by it:
+
+| File                 | Rights holder and terms                                                                                                                  |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| `public/favicon.ico` | City of Helsinki. It shows the City of Helsinki logo, which is a registered trademark; it was added without any recorded source in 2020. |
+
+[oidc-client-ts](https://github.com/authts/oidc-client-ts) (Apache-2.0) is
+bundled through hds-react and is listed in the generated files. In addition,
+[silent_renew.html](./public/silent_renew.html) loads a separate copy, version
+2.2.2, from cdnjs with a subresource integrity hash. That copy does not appear
+in the generated files and is not redistributed by this repository or by its
+build output.
+
+The Helsinki Grotesk typeface used by the user interface is proprietary and
+licensed by Camelot Typefaces. No font files are stored in this repository;
+they are loaded at runtime from a City of Helsinki service. See
+[index.css](./src/index.css).
