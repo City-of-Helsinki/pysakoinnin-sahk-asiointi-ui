@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.27.0](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.26.5...pysakoinnin-sahk-asiointi-ui-v0.27.0) (2026-10-31)
+
+
+### Features
+
+* Generate third-party license notices at build time ([6d4af89](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/6d4af89191694d1f66e10fc83009b0f7508985c9))
+
+
+### Bug Fixes
+
+* Update nodejs and pnpm version ([4ec04de](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/4ec04de379dc5c498c9146d97f4678f69bbd8188))
+
 ## [0.26.5](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.26.4...pysakoinnin-sahk-asiointi-ui-v0.26.5) (2026-09-24)
 
 
