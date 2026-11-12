@@ -18,6 +18,7 @@ import CookieManagement from './pages/CookieManagement';
 import CookieConsent from './components/cookieConsent/CookieConsent';
 
 function App(): React.ReactElement {
+  console.log("DUMMY CHANGE");
   const { t } = useTranslation();
   const { trackPageView } = useMatomo();
   const consents = useCookieConsents();
