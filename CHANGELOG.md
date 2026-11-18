@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.27.1](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.27.0...pysakoinnin-sahk-asiointi-ui-v0.27.1) (2026-11-18)
+
+
+### Bug Fixes
+
+* Update env-config.js script version to v2 ([09816e7](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/commit/09816e79b08f5e07d48c18de748b679c826b84ab))
+
 ## [0.27.0](https://github.com/City-of-Helsinki/pysakoinnin-sahk-asiointi-ui/compare/pysakoinnin-sahk-asiointi-ui-v0.26.5...pysakoinnin-sahk-asiointi-ui-v0.27.0) (2026-11-04)
 
 
