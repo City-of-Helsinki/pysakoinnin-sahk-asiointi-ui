@@ -23,6 +23,7 @@
       "vite/client",
       "vite-plugin-svgr/client",
       "vitest/globals",
+      "node",
     ],
     "paths": {
       "react": [
