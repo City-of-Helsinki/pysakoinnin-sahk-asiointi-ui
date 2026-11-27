@@ -4,7 +4,6 @@ import tseslint from 'typescript-eslint';
 import reactHooks from 'eslint-plugin-react-hooks';
 import importX, { createNodeResolver } from 'eslint-plugin-import-x';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
-import prettierRecommended from 'eslint-plugin-prettier/recommended';
 import sonarjs from 'eslint-plugin-sonarjs';
 import globals from 'globals';
 
@@ -30,7 +29,6 @@ export default [
   importX.flatConfigs.recommended,
   importX.flatConfigs.typescript,
   jsxA11y.flatConfigs.recommended,
-  prettierRecommended,
 
   {
     plugins: { sonarjs },
@@ -72,7 +70,6 @@ export default [
       'import-x/no-namespace': 'error',
       'no-underscore-dangle': ['error', { allow: ['__typename', '_env_'] }],
       'import-x/no-named-as-default': 'off',
-      'prettier/prettier': 'off',
     },
   },
   {
