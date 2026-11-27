@@ -6,13 +6,13 @@ import { useTranslation } from 'react-i18next';
 import {
   useGraphQL,
   useOidcClientTracking,
-  WithAuthentication
+  WithAuthentication,
 } from 'hds-react';
 import { NormalizedCacheObject } from '@apollo/client';
 import {
   changeLanguage,
   convertHelsinkiProfileLang,
-  ProfileQueryResult
+  ProfileQueryResult,
 } from '../common';
 import LoginInfo from '../components/LoginInfo';
 

@@ -9,7 +9,7 @@ export enum ResponseCode {
   DueDateExtensionNotPermitted,
   FoulHasTooManyNoticeChecks,
   TransferHasTooManyNoticeChecks,
-  FoulIsANote
+  FoulIsANote,
 }
 
 export interface Foul {

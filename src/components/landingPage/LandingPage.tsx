@@ -8,7 +8,7 @@ import {
   Notification,
   Option,
   Pagination,
-  Select
+  Select,
 } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import { sortByDate } from '../../utils/helpers';
@@ -24,7 +24,7 @@ import {
   isRequestLoading,
   isRequestNotAsked,
   isRequestSuccess,
-  useRequestState
+  useRequestState,
 } from '../../hooks/useRequestState';
 
 const LandingPage = (): React.ReactElement => {
@@ -35,14 +35,14 @@ const LandingPage = (): React.ReactElement => {
   const titleRef = useRef<null | HTMLDivElement>(null);
   const [filter, setFilter] = useState(() => ({
     value: 'show-all',
-    label: t('landing-page:list.status:show-all:default')
+    label: t('landing-page:list.status:show-all:default'),
   }));
   const [
     requestDocuments,
     ,
     setDocumentsLoading,
     setDocumentsFailure,
-    setDocumentsSuccess
+    setDocumentsSuccess,
   ] = useRequestState<Array<ObjectionDocument>, undefined>();
 
   const apiToken = useApiToken();
@@ -52,7 +52,7 @@ const LandingPage = (): React.ReactElement => {
     if (requestNotAsked && apiToken) {
       setDocumentsLoading();
       getDocuments()
-        .then(res => setDocumentsSuccess(res.results))
+        .then((res) => setDocumentsSuccess(res.results))
         .catch(() => setDocumentsFailure(undefined));
     }
   }, [
@@ -60,14 +60,14 @@ const LandingPage = (): React.ReactElement => {
     apiToken,
     setDocumentsLoading,
     setDocumentsSuccess,
-    setDocumentsFailure
+    setDocumentsFailure,
   ]);
 
   type Language = 'en' | 'sv' | 'fi';
 
   const documents = getRequestData(requestDocuments) || [];
 
-  const filteredDocuments = documents.filter(a =>
+  const filteredDocuments = documents.filter((a) =>
     filter.value !== 'show-all' ? a.status.value === filter.value : a
   );
   const documentListLength = filteredDocuments.length;
@@ -76,7 +76,7 @@ const LandingPage = (): React.ReactElement => {
   const links = [
     { name: 'due-date', value: '/erapaivansiirto' },
     { name: 'parking-fine', value: '/virhemaksu' },
-    { name: 'moved-car', value: '/ajoneuvonsiirto' }
+    { name: 'moved-car', value: '/ajoneuvonsiirto' },
   ];
   const statuses = [
     'show-all',
@@ -84,11 +84,11 @@ const LandingPage = (): React.ReactElement => {
     'received',
     'handling',
     'resolvedViaEService',
-    'resolvedViaMail'
+    'resolvedViaMail',
   ];
-  const options = statuses.map(status => ({
+  const options = statuses.map((status) => ({
     value: status,
-    label: t(`landing-page:list:status:${status}:default`)
+    label: t(`landing-page:list:status:${status}:default`),
   }));
 
   const handlePageChange = (index: number) => {
@@ -99,7 +99,7 @@ const LandingPage = (): React.ReactElement => {
   return (
     <>
       <div className="landing-page-link-list">
-        {links.map(link => (
+        {links.map((link) => (
           <Linkbox
             key={link.name}
             className="landing-page-linkbox"
@@ -132,7 +132,8 @@ const LandingPage = (): React.ReactElement => {
           size={ButtonSize.Small}
           iconEnd={<IconSort />}
           disabled={isEmptyFilteredList}
-          onClick={() => setSortByNewest(!sortByNewest)}>
+          onClick={() => setSortByNewest(!sortByNewest)}
+        >
           {sortByNewest
             ? t('landing-page:newest-first')
             : t('landing-page:oldest-first')}
@@ -162,7 +163,7 @@ const LandingPage = (): React.ReactElement => {
             pageIndex * elementsOnPage,
             pageIndex * elementsOnPage + elementsOnPage
           )
-          .map(form => (
+          .map((form) => (
             <div key={form.id}>
               <RectificationListRow form={form} />
               <hr />

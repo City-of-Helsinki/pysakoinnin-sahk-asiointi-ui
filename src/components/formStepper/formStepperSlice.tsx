@@ -4,7 +4,7 @@ import { RootState } from '../../store';
 export enum StepState {
   available,
   completed,
-  disabled
+  disabled,
 }
 
 export type Step = {
@@ -22,9 +22,9 @@ const initialState: SliceState = {
   steps: [
     {
       label: '',
-      state: StepState.disabled
-    }
-  ]
+      state: StepState.disabled,
+    },
+  ],
 };
 
 export const slice = createSlice({
@@ -43,14 +43,14 @@ export const slice = createSlice({
           // current one but not last one
           return {
             state: StepState.completed,
-            label: step.label
+            label: step.label,
           };
         }
         if (index === action.payload + 1) {
           // next one
           return {
             state: StepState.available,
-            label: step.label
+            label: step.label,
           };
         }
         return step;
@@ -62,7 +62,7 @@ export const slice = createSlice({
         if (index === action.payload) {
           return {
             state: StepState.available,
-            label: step.label
+            label: step.label,
           };
         }
         return step;
@@ -73,22 +73,18 @@ export const slice = createSlice({
         if (index !== action.payload) {
           return {
             state: StepState.disabled,
-            label: step.label
+            label: step.label,
           };
         }
         return step;
       });
-    }
-  }
+    },
+  },
 });
 
 // Actions
-export const {
-  completeStep,
-  setActive,
-  setSteps,
-  disablePreviousSteps
-} = slice.actions;
+export const { completeStep, setActive, setSteps, disablePreviousSteps } =
+  slice.actions;
 
 // Selectors
 export const selectStepperState = (state: RootState) => state.formStepper;

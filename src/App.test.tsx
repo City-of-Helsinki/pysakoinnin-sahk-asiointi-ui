@@ -3,13 +3,7 @@ import React, { act } from 'react';
 import { BrowserRouter } from 'react-router';
 import App from './App';
 
-declare global {
-  interface Window {
-    _paq: (string | boolean)[][];
-  }
-}
-
-vi.mock('hds-react', async importOriginal => ({
+vi.mock('hds-react', async (importOriginal) => ({
   ...(await importOriginal<typeof import('hds-react')>()),
   useCookieConsents: vi.fn(),
 }));

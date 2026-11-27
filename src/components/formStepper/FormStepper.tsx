@@ -13,7 +13,7 @@ import {
   IconThumbsUp,
   Notification,
   Stepper,
-  ButtonVariant
+  ButtonVariant,
 } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import { friendlyFormatIBAN } from 'ibantools';
@@ -24,7 +24,7 @@ import {
   selectStepperState,
   setActive,
   setSteps,
-  Step
+  Step,
 } from './formStepperSlice';
 import {
   selectFormContent,
@@ -35,11 +35,11 @@ import {
   extendDueDateThunk,
   saveObjectionThunk,
   setSubmitError,
-  FormId
+  FormId,
 } from '../formContent/formContentSlice';
 import {
   ObjectionForm,
-  ObjectionFormFiles
+  ObjectionFormFiles,
 } from '../../interfaces/objectionInterfaces';
 import ErrorLabel from '../errorLabel/ErrorLabel';
 import { ResponseCode } from '../../interfaces/foulInterfaces';
@@ -61,10 +61,10 @@ const useRectificationForm = () => {
     handleSubmit,
     reset,
     getValues,
-    formState: { isSubmitSuccessful }
+    formState: { isSubmitSuccessful },
   } = useForm<ObjectionForm>({
     mode: 'onTouched',
-    defaultValues: formValues
+    defaultValues: formValues,
   });
 
   // if form values are found from redux (i.e. a change happens), update the form default values
@@ -100,7 +100,7 @@ const FormStepper = (props: Props): React.ReactElement => {
   const mainPageButtonRef = useRef<null | HTMLDivElement>(null);
   const [files, setFiles] = useState<ObjectionFormFiles>({
     poaFile: [],
-    attachments: []
+    attachments: [],
   });
 
   const { control, handleSubmit, getValues } = useRectificationForm();
@@ -125,7 +125,7 @@ const FormStepper = (props: Props): React.ReactElement => {
   useEffect(() => {
     mainPageButtonRef.current?.scrollIntoView({
       behavior: 'smooth',
-      block: 'nearest'
+      block: 'nearest',
     });
   }, [showSubmitNotification]);
 
@@ -136,7 +136,7 @@ const FormStepper = (props: Props): React.ReactElement => {
   const onSubmitAttachmentFiles = (files: File[]) => {
     setFiles((current: ObjectionFormFiles) => ({
       ...current,
-      attachments: files
+      attachments: files,
     }));
   };
 
@@ -154,24 +154,24 @@ const FormStepper = (props: Props): React.ReactElement => {
 
   const handleFormSubmit = async (form: ObjectionForm) => {
     const filesAsBase64 = await Promise.all([
-      ...files.attachments.map(async file => {
+      ...files.attachments.map(async (file) => {
         const fileData = await fileToBase64(file);
         return {
           fileName: file.name,
           size: file.size,
           mimeType: file.type,
-          data: fileData.split(',').pop() as string
+          data: fileData.split(',').pop() as string,
         };
       }),
-      ...files.poaFile.map(async file => {
+      ...files.poaFile.map(async (file) => {
         const fileData = await fileToBase64(file);
         return {
           fileName: file.name,
           size: file.size,
           mimeType: file.type,
-          data: fileData.split(',').pop() as string
+          data: fileData.split(',').pop() as string,
         };
-      })
+      }),
     ]);
     const objection = createObjection(
       formContent.formValues,
@@ -192,8 +192,8 @@ const FormStepper = (props: Props): React.ReactElement => {
             register_number: form.registerNumber ? form.registerNumber : '',
             metadata: {
               lang: i18n.language,
-              email: userProfile.primaryEmail.email
-            }
+              email: userProfile.primaryEmail.email,
+            },
           })
         ).then(() => setShowSubmitNotification(true));
     }
@@ -208,14 +208,14 @@ const FormStepper = (props: Props): React.ReactElement => {
           return dispatch(
             getFoulDataThunk({
               foul_number: form.foulNumber ?? '',
-              register_number: form.registerNumber ?? ''
+              register_number: form.registerNumber ?? '',
             })
           );
         case FormId.MOVEDCAR:
           return dispatch(
             getTransferDataThunk({
               transfer_number: form.transferNumber ?? '',
-              register_number: form.registerNumber ?? ''
+              register_number: form.registerNumber ?? '',
             })
           );
       }
@@ -245,7 +245,8 @@ const FormStepper = (props: Props): React.ReactElement => {
         variant={ButtonVariant.Primary}
         disabled={
           activeStepIndex === 1 && responseCode !== ResponseCode.Success
-        }>
+        }
+      >
         {activeStepIndex === 1
           ? t('common:make-rectification')
           : t('common:next')}
@@ -258,7 +259,8 @@ const FormStepper = (props: Props): React.ReactElement => {
           id="button-submitted"
           className="button"
           iconStart={<IconThumbsUp aria-hidden />}
-          variant={ButtonVariant.Success}>
+          variant={ButtonVariant.Success}
+        >
           {t(`${formContent.selectedForm}:submit-success`)}
         </Button>
         {(formContent.selectedForm === FormId.PARKINGFINE ||
@@ -269,7 +271,8 @@ const FormStepper = (props: Props): React.ReactElement => {
             disableVisitedStyles
             external
             openInNewTab
-            openInNewTabLabel={t('common:aria:open-new-tab')}>
+            openInNewTabLabel={t('common:aria:open-new-tab')}
+          >
             {t('common:questionnaire-link')}
           </Link>
         )}
@@ -282,7 +285,8 @@ const FormStepper = (props: Props): React.ReactElement => {
         className="button submit"
         onClick={handleSubmit(handleFormSubmit)}
         variant={ButtonVariant.Primary}
-        disabled={formContent.submitDisabled}>
+        disabled={formContent.submitDisabled}
+      >
         {t(`${formContent.selectedForm}:submit`)}
       </Button>
     );
@@ -325,7 +329,8 @@ const FormStepper = (props: Props): React.ReactElement => {
                     iconStart={<IconPrinter aria-hidden />}
                     onClick={handlePrint}
                     variant={ButtonVariant.Secondary}
-                    className="button print">
+                    className="button print"
+                  >
                     {t('common:print')}
                   </Button>
                 )}
@@ -342,7 +347,8 @@ const FormStepper = (props: Props): React.ReactElement => {
                   ? goToHomePage()
                   : dispatch(setActive(activeStepIndex - 1))
               }
-              variant={ButtonVariant.Secondary}>
+              variant={ButtonVariant.Secondary}
+            >
               {t('common:previous')}
             </Button>
             {activeStepIndex === 1 && !lastStep && (
@@ -352,7 +358,8 @@ const FormStepper = (props: Props): React.ReactElement => {
                 iconEnd={<IconHome aria-hidden />}
                 role="link"
                 variant={ButtonVariant.Secondary}
-                onClick={goToHomePage}>
+                onClick={goToHomePage}
+              >
                 {t('common:to-mainpage')}
               </Button>
             )}
@@ -364,7 +371,8 @@ const FormStepper = (props: Props): React.ReactElement => {
                     iconStart={<IconPrinter aria-hidden />}
                     onClick={handlePrint}
                     variant={ButtonVariant.Secondary}
-                    className="button print">
+                    className="button print"
+                  >
                     {t('common:print')}
                   </Button>
                 )}
@@ -383,10 +391,11 @@ const FormStepper = (props: Props): React.ReactElement => {
               autoClose
               dismissible
               closeButtonLabelText={t('common:close-notification')}
-              onClose={() => setShowSubmitNotification(false)}>
+              onClose={() => setShowSubmitNotification(false)}
+            >
               {t(`${formContent.selectedForm}:notifications:success:text`, {
                 newDueDate:
-                  formContent.dueDate && formatDate(formContent.dueDate)
+                  formContent.dueDate && formatDate(formContent.dueDate),
               })}
             </Notification>
           )}
@@ -401,7 +410,8 @@ const FormStepper = (props: Props): React.ReactElement => {
               onClose={() => {
                 dispatch(setSubmitError(false));
                 setShowErrorNotification(false);
-              }}>
+              }}
+            >
               {t(`${formContent.selectedForm}:notifications:fail:text`)}
             </Notification>
           )}
@@ -412,7 +422,8 @@ const FormStepper = (props: Props): React.ReactElement => {
                 iconEnd={<IconHome aria-hidden />}
                 role="link"
                 variant={ButtonVariant.Primary}
-                onClick={goToHomePage}>
+                onClick={goToHomePage}
+              >
                 {t('common:to-mainpage')}
               </Button>
             </div>

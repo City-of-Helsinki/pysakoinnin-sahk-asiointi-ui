@@ -6,10 +6,10 @@ import { captureException } from '@sentry/react';
 
 const LoginCallbackHandlerWrapper = (): React.ReactElement => {
   const navigate = useNavigate();
-  const success = async () => {
+  const success = () => {
     navigate('/');
   };
-  const error = async (e: OidcClientError | undefined) => {
+  const error = (e: OidcClientError | undefined) => {
     captureException(e);
     navigate('/authError');
   };

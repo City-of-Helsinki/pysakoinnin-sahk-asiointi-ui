@@ -14,10 +14,11 @@ const LoginInfo = (): React.ReactElement => {
         <Button
           onClick={() =>
             client.login({
-              language: localStorage.getItem('lang') ?? i18n.language
+              language: localStorage.getItem('lang') ?? i18n.language,
             })
           }
-          data-test-id="login-button">
+          data-test-id="login-button"
+        >
           {t('common:log-in')}
         </Button>
       </div>

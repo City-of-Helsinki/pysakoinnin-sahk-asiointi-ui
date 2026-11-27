@@ -2,7 +2,7 @@ import {
   isApiTokensRemovedSignal,
   isApiTokensUpdatedSignal,
   useApiTokens,
-  useSignalListener
+  useSignalListener,
 } from 'hds-react';
 import { useCallback } from 'react';
 import config from '../config';

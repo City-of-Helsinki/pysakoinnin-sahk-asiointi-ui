@@ -2,7 +2,7 @@ import { AppStore } from '../store';
 import axios, {
   AxiosError,
   AxiosResponse,
-  InternalAxiosRequestConfig
+  InternalAxiosRequestConfig,
 } from 'axios';
 import { clearLoading, setLoading } from '../components/loader/loadingSlice';
 import { ResponseCode } from '../interfaces/foulInterfaces';
@@ -22,14 +22,14 @@ export const injectStore = (_store: AppStore) => {
 
 // Request interceptor
 axios.interceptors.request.use(
-  request => handleRequest(request),
-  error => handleError(error)
+  (request) => handleRequest(request),
+  (error) => handleError(error)
 );
 
 // Response interceptor
 axios.interceptors.response.use(
-  response => handleResponse(response),
-  error => handleError(error)
+  (response) => handleResponse(response),
+  (error) => handleError(error)
 );
 
 const handleRequest = (req: InternalAxiosRequestConfig) => {

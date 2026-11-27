@@ -46,20 +46,20 @@ describe('extend due date form', () => {
 
       // Form title is visible
       const formTitle = screen.getByRole('heading', {
-        name: t('due-date:title')
+        name: t('due-date:title'),
       });
       expect(formTitle).toBeInTheDocument();
 
       // Search fields (reference number and registration number) are visible
       // and empty by default
       const refNumberEl = screen.getByRole('textbox', {
-        name: t('common:fine-info:ref-number:label') + ' *'
+        name: t('common:fine-info:ref-number:label') + ' *',
       });
       expect(refNumberEl).toBeInTheDocument();
       expect(refNumberEl).toHaveValue('');
 
       const regNumberEl = screen.getByRole('textbox', {
-        name: t('common:fine-info:reg-number:label') + ' *'
+        name: t('common:fine-info:reg-number:label') + ' *',
       });
       expect(regNumberEl).toBeInTheDocument();
       expect(regNumberEl).toHaveValue('');
@@ -79,14 +79,14 @@ describe('extend due date form', () => {
             emailConfirmation: false,
             foulData: {
               dueDate: '2023-04-05T09:32:00',
-              dueDateExtendable: true
-            }
+              dueDateExtendable: true,
+            },
           },
           reducers: {
             setEmailConfirmation: (state, action) => {
               state.emailConfirmation = action.payload;
-            }
-          }
+            },
+          },
         });
 
         const userSliceMock = createSlice({
@@ -96,18 +96,18 @@ describe('extend due date form', () => {
               firstName: 'Test',
               lastName: 'User',
               email: 'test.user@test.fi',
-              ssn: '123456-789A'
+              ssn: '123456-789A',
             },
-            promptLogin: false
+            promptLogin: false,
           },
-          reducers: {}
+          reducers: {},
         });
 
         const store = configureStore({
           reducer: {
             formContent: formContentSliceMock.reducer,
-            user: userSliceMock.reducer
-          }
+            user: userSliceMock.reducer,
+          },
         });
 
         render(
@@ -148,7 +148,7 @@ describe('extend due date form', () => {
 
         // Due date notification is visible
         const infoNotificationHeading = screen.queryByRole('heading', {
-          name: t('due-date:notifications:allowed:label')
+          name: t('due-date:notifications:allowed:label'),
         });
         const infoNotificationBody = screen.getByText(
           t('due-date:notifications:allowed:text') as string
@@ -157,7 +157,7 @@ describe('extend due date form', () => {
         expect(infoNotificationBody).toBeVisible();
 
         const closeNotificationButton = screen.getByRole('button', {
-          name: t('common:close-notification')
+          name: t('common:close-notification'),
         });
         expect(closeNotificationButton).toBeVisible();
 
@@ -172,7 +172,7 @@ describe('extend due date form', () => {
 
         // Checkbox is visible and clickable
         const checkbox = screen.getByRole('checkbox', {
-          name: t('common:email-confirmation')
+          name: t('common:email-confirmation'),
         });
         expect(checkbox).toBeInTheDocument();
         expect(checkbox).not.toBeChecked();
@@ -191,11 +191,11 @@ describe('extend due date form', () => {
               firstName: 'Test',
               lastName: 'User',
               email: 'test.user@test.fi',
-              ssn: '123456-789A'
+              ssn: '123456-789A',
             },
-            promptLogin: false
+            promptLogin: false,
           },
-          reducers: {}
+          reducers: {},
         });
 
         test('it is already passed', async () => {
@@ -208,16 +208,16 @@ describe('extend due date form', () => {
               formSubmitted: false,
               selectedForm: 'due-date',
               submitDisabled: true,
-              foulData: foulData
+              foulData: foulData,
             },
-            reducers: {}
+            reducers: {},
           });
 
           const store = configureStore({
             reducer: {
               formContent: formContentSliceMock.reducer,
-              user: userSliceMock.reducer
-            }
+              user: userSliceMock.reducer,
+            },
           });
 
           render(
@@ -230,7 +230,7 @@ describe('extend due date form', () => {
 
           // Due date notification is visible
           const infoNotificationHeading = screen.getByRole('heading', {
-            name: t('due-date:notifications:not-allowed:label')
+            name: t('due-date:notifications:not-allowed:label'),
           });
           const infoNotificationBody = screen.getByText(
             t('due-date:errors:due-date-past') as string
@@ -268,7 +268,7 @@ describe('extend due date form', () => {
 
           // Checkbox is visible but not clickable
           const checkbox = screen.getByRole('checkbox', {
-            name: t('common:email-confirmation')
+            name: t('common:email-confirmation'),
           });
           expect(checkbox).toBeInTheDocument();
           expect(checkbox).toBeDisabled();
@@ -282,16 +282,16 @@ describe('extend due date form', () => {
             initialState: {
               formSubmitted: false,
               selectedForm: 'due-date',
-              foulData: foulData
+              foulData: foulData,
             },
-            reducers: {}
+            reducers: {},
           });
 
           const store = configureStore({
             reducer: {
               formContent: formContentSliceMock.reducer,
-              user: userSliceMock.reducer
-            }
+              user: userSliceMock.reducer,
+            },
           });
 
           render(
@@ -304,7 +304,7 @@ describe('extend due date form', () => {
 
           // Due date notification is visible
           const infoNotificationHeading = screen.getByRole('heading', {
-            name: t('due-date:notifications:not-allowed:label')
+            name: t('due-date:notifications:not-allowed:label'),
           });
           const infoNotificationBody = screen.getByText(
             t('due-date:errors:already-extended') as string
@@ -322,16 +322,16 @@ describe('extend due date form', () => {
             initialState: {
               formSubmitted: false,
               selectedForm: 'due-date',
-              foulData: foulData
+              foulData: foulData,
             },
-            reducers: {}
+            reducers: {},
           });
 
           const store = configureStore({
             reducer: {
               formContent: formContentSliceMock.reducer,
-              user: userSliceMock.reducer
-            }
+              user: userSliceMock.reducer,
+            },
           });
 
           render(
@@ -344,7 +344,7 @@ describe('extend due date form', () => {
 
           // Due date notification is visible
           const infoNotificationHeading = screen.getByRole('heading', {
-            name: t('due-date:notifications:not-allowed:label')
+            name: t('due-date:notifications:not-allowed:label'),
           });
           const infoNotificationBody = screen.getByText(
             t('due-date:errors:default') as string

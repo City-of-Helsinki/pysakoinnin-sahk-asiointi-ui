@@ -6,13 +6,13 @@ import {
   FormId,
   selectFormContent,
   selectFormValues,
-  setFormValues
+  setFormValues,
 } from './formContentSlice';
 import { selectUserProfile } from '../user/userSlice';
 import {
   ObjectionForm,
   ObjectionControlType,
-  ObjectionFormFiles
+  ObjectionFormFiles,
 } from '../../interfaces/objectionInterfaces';
 import ExtendDueDateForm from '../extendDueDate/ExtendDueDateForm';
 import InfoContainer from '../infoContainer/InfoContainer';
@@ -41,7 +41,7 @@ const FormContent = (props: Props): React.ReactElement => {
   useEffect(() => {
     const formValuesWithUserData = {
       ...formValues,
-      ...userProfile
+      ...userProfile,
     };
     dispatch(setFormValues(formValuesWithUserData));
   }, [userProfile]);
@@ -94,7 +94,7 @@ const FormContent = (props: Props): React.ReactElement => {
               formFiles={props.formFiles}
               editMode={true}
             />
-          )
+          ),
         }[props.activeStep]
       }
     </div>

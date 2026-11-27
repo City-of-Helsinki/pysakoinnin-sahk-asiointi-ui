@@ -1,6 +1,7 @@
 import React from 'react';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import Barcode from './Barcode';
+import i18n from '../../utils/i18n';
 import { axe } from 'vitest-axe';
 
 describe('Component', () => {
@@ -15,12 +16,15 @@ describe('Component', () => {
     expect(await axe(container)).toHaveNoViolations();
   });
 
-  it('copies barcode to clipboard', async () => {
-    Object.assign(window.navigator, {
-      clipboard: {
-        writeText: vi.fn().mockImplementation(() => Promise.resolve())
-      }
-    });
+  it('copies barcode to clipboard and shows success only after completion', async () => {
+    let resolveWrite: () => void = () => {};
+    const writeText = vi.fn().mockImplementation(
+      () =>
+        new Promise<void>((resolve) => {
+          resolveWrite = resolve;
+        })
+    );
+    Object.assign(window.navigator, { clipboard: { writeText } });
 
     const testBarcode = 'test-123';
     render(<Barcode barcode={testBarcode} />);
@@ -28,8 +32,14 @@ describe('Component', () => {
     const button = await screen.findByTestId('copy-to-clipboard');
     fireEvent.click(button);
 
-    expect(window.navigator.clipboard.writeText).toHaveBeenCalledWith(
-      testBarcode
-    );
+    expect(writeText).toHaveBeenCalledWith(testBarcode);
+    const successText = i18n.t('common:barcode:toast-body');
+    expect(screen.queryByText(successText)).not.toBeInTheDocument();
+
+    await act(async () => {
+      resolveWrite();
+    });
+
+    expect(await screen.findByText(successText)).toBeInTheDocument();
   });
 });

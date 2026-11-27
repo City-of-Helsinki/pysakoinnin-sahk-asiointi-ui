@@ -15,13 +15,15 @@ const CustomTag: FC<CustomTagProps> = ({ text, color, size, textColor }) => (
   <div
     className="custom-tag-container"
     style={{
-      background: color || 'var(--color-silver-medium-light)'
-    }}>
+      background: color || 'var(--color-silver-medium-light)',
+    }}
+  >
     <span
       style={{
         fontSize: size === 'm' ? '1rem' : '0.875rem',
-        color: textColor === 'white' ? 'white' : 'black'
-      }}>
+        color: textColor === 'white' ? 'white' : 'black',
+      }}
+    >
       {text}
     </span>
   </div>

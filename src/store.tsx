@@ -1,7 +1,4 @@
-import {
-  combineReducers,
-  configureStore
-} from '@reduxjs/toolkit';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import formContentReducer from './components/formContent/formContentSlice';
 import formStepperReducer from './components/formStepper/formStepperSlice';
 import userReducer from './components/user/userSlice';
@@ -12,7 +9,7 @@ export const storeItems = {
   formContent: formContentReducer,
   formStepper: formStepperReducer,
   user: userReducer,
-  loading: loadingReducer
+  loading: loadingReducer,
 };
 
 const rootReducer = combineReducers(storeItems);
@@ -20,7 +17,7 @@ const rootReducer = combineReducers(storeItems);
 export const setupStore = (preloadedState?: Partial<RootState>) =>
   configureStore({
     reducer: rootReducer,
-    preloadedState
+    preloadedState,
   });
 
 export default setupStore();

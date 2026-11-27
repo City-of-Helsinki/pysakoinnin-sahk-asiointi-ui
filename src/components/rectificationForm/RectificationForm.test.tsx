@@ -1,6 +1,12 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 import React from 'react';
-import { act, render, screen, waitFor, renderHook } from '@testing-library/react';
+import {
+  act,
+  render,
+  screen,
+  waitFor,
+  renderHook,
+} from '@testing-library/react';
 import RectificationForm, { phoneNumberRegex } from './RectificationForm';
 import { ObjectionForm } from '../../interfaces/objectionInterfaces';
 import { Provider } from 'react-redux';
@@ -26,9 +32,9 @@ const renderFormWithValues = (defaultValues: ObjectionForm) => {
         initialState: {
           formSubmitted: false,
           selectedForm: 'parking-fine',
-          submitDisabled: true
+          submitDisabled: true,
         },
-        reducers: {}
+        reducers: {},
       }).reducer,
       user: createSlice({
         name: 'validationUser',
@@ -37,13 +43,13 @@ const renderFormWithValues = (defaultValues: ObjectionForm) => {
             firstName: 'Test',
             lastName: 'User',
             email: 'test.user@test.fi',
-            ssn: '123456-789A'
+            ssn: '123456-789A',
           },
-          promptLogin: false
+          promptLogin: false,
         },
-        reducers: {}
-      }).reducer
-    }
+        reducers: {},
+      }).reducer,
+    },
   });
 
   render(
@@ -67,9 +73,9 @@ describe('Component in parking fine appeal form', () => {
     initialState: {
       formSubmitted: false,
       selectedForm: 'parking-fine',
-      submitDisabled: true
+      submitDisabled: true,
     },
-    reducers: {}
+    reducers: {},
   });
 
   const userProfileSliceMock = createSlice({
@@ -79,18 +85,18 @@ describe('Component in parking fine appeal form', () => {
         firstName: 'Test',
         lastName: 'User',
         email: 'test.user@test.fi',
-        ssn: '123456-789A'
+        ssn: '123456-789A',
       },
-      promptLogin: false
+      promptLogin: false,
     },
-    reducers: {}
+    reducers: {},
   });
 
   const store = configureStore({
     reducer: {
       formContent: formContentSliceMock.reducer,
-      user: userProfileSliceMock.reducer
-    }
+      user: userProfileSliceMock.reducer,
+    },
   });
 
   it('matches snapshot', async () => {
@@ -132,9 +138,9 @@ describe('Component in moved car form', () => {
     initialState: {
       formSubmitted: false,
       selectedForm: 'moved-car',
-      submitDisabled: true
+      submitDisabled: true,
     },
-    reducers: {}
+    reducers: {},
   });
 
   const userProfileSliceMock = createSlice({
@@ -144,18 +150,18 @@ describe('Component in moved car form', () => {
         firstName: 'Test',
         lastName: 'User',
         email: 'test.user@test.fi',
-        ssn: '123456-789A'
+        ssn: '123456-789A',
       },
-      promptLogin: false
+      promptLogin: false,
     },
-    reducers: {}
+    reducers: {},
   });
 
   const store = configureStore({
     reducer: {
       formContent: formContentSliceMock.reducer,
-      user: userProfileSliceMock.reducer
-    }
+      user: userProfileSliceMock.reducer,
+    },
   });
 
   it('matches snapshot', async () => {
@@ -197,21 +203,17 @@ describe('Phone number validation regex', () => {
     '+358401234567',
     '+358 40 123 4567',
     '040 123 4567',
-    '00 358 40 1234567'
-  ])('accepts valid phone number: %s', phone => {
+    '00 358 40 1234567',
+  ])('accepts valid phone number: %s', (phone) => {
     expect(phoneNumberRegex.test(phone)).toBe(true);
   });
 
-  it.each([
-    '',
-    '   ',
-    'abc',
-    '040abc1234',
-    '+',
-    '040+1234567'
-  ])('rejects invalid phone number: %s', phone => {
-    expect(phoneNumberRegex.test(phone)).toBe(false);
-  });
+  it.each(['', '   ', 'abc', '040abc1234', '+', '040+1234567'])(
+    'rejects invalid phone number: %s',
+    (phone) => {
+      expect(phoneNumberRegex.test(phone)).toBe(false);
+    }
+  );
 });
 
 describe('Validation messages', () => {
@@ -248,9 +250,7 @@ describe('Validation messages', () => {
     });
 
     expect(
-      screen.getByText(
-        t('rectificationForm:errors:description-over-limit')
-      )
+      screen.getByText(t('rectificationForm:errors:description-over-limit'))
     ).toBeVisible();
   });
 });

@@ -23,7 +23,7 @@ function App(): React.ReactElement {
   const consents = useCookieConsents();
   const location = useLocation();
   const statisticsConsent =
-    consents.find(consent => consent.group === 'statistics')?.consented ??
+    consents.find((consent) => consent.group === 'statistics')?.consented ??
     false;
 
   useEffect(() => {
@@ -47,7 +47,7 @@ function App(): React.ReactElement {
   useEffect(() => {
     if (statisticsConsent) {
       trackPageView({
-        href: window.location.href
+        href: window.location.href,
       });
     }
   }, [location.pathname, location.search, statisticsConsent, trackPageView]);
@@ -61,7 +61,7 @@ function App(): React.ReactElement {
           title: t('common:login-prompt:title'),
           text: t('common:login-prompt:body'),
           buttonText: t('common:login-prompt:button-label'),
-          closeButtonLabelText: t('common:login-prompt:button-label')
+          closeButtonLabelText: t('common:login-prompt:button-label'),
         }}
       />
       <Header />

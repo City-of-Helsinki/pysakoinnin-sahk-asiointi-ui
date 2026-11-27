@@ -3,11 +3,11 @@ import { getApiTokensFromStorage } from 'hds-react';
 import { waitForApiToken } from './common';
 
 vi.mock('hds-react', () => ({
-  getApiTokensFromStorage: vi.fn()
+  getApiTokensFromStorage: vi.fn(),
 }));
 
 vi.mock('../config', () => ({
-  default: { config: { apiClientId: 'test-client' } }
+  default: { config: { apiClientId: 'test-client' } },
 }));
 
 const CLIENT_ID = 'test-client';

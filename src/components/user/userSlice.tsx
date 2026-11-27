@@ -16,9 +16,9 @@ const initialState: SliceState = {
     firstName: '',
     lastName: '',
     email: '',
-    ssn: ''
+    ssn: '',
   },
-  promptLogin: false
+  promptLogin: false,
 };
 
 export const slice = createSlice({
@@ -31,19 +31,18 @@ export const slice = createSlice({
         firstName: firstName,
         lastName: lastName,
         email: action.payload.primaryEmail.email,
-        ssn:
-          action.payload.verifiedPersonalInformation
-            .nationalIdentificationNumber
+        ssn: action.payload.verifiedPersonalInformation
+          .nationalIdentificationNumber,
       };
       return {
         ...state,
-        userProfile: { ...state.userProfile, ...parsedUserInfo }
+        userProfile: { ...state.userProfile, ...parsedUserInfo },
       };
     },
     setPromptLogin: (state, action) => {
       state.promptLogin = action.payload;
-    }
-  }
+    },
+  },
 });
 
 // Actions

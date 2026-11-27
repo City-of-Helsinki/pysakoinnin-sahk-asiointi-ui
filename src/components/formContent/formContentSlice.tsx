@@ -4,20 +4,20 @@ import { RootState } from '../../store';
 import { FoulData, FoulRequest } from '../../interfaces/foulInterfaces';
 import {
   TransferData,
-  TransferRequest
+  TransferRequest,
 } from '../../interfaces/transferInterfaces';
 import { getFoulData } from '../../services/foulService';
 import { getTransferData } from '../../services/transferService';
 import { AxiosError } from 'axios';
 import {
   completeStep,
-  disablePreviousSteps
+  disablePreviousSteps,
 } from '../formStepper/formStepperSlice';
 import { DueDateRequest } from '../../interfaces/dueDateInterfaces';
 import { extendDueDate } from '../../services/dueDateService';
 import {
   AuthorRole,
-  ObjectionForm
+  ObjectionForm,
 } from '../../interfaces/objectionInterfaces';
 import { saveObjection } from '../../services/objectionService';
 
@@ -25,7 +25,7 @@ export enum FormId {
   NONE = '',
   DUEDATE = 'due-date',
   PARKINGFINE = 'parking-fine',
-  MOVEDCAR = 'moved-car'
+  MOVEDCAR = 'moved-car',
 }
 
 export type FileItem = {
@@ -70,19 +70,19 @@ const initialState: FormState = {
     address: {
       streetAddress: '',
       postCode: '',
-      postOffice: ''
+      postOffice: '',
     },
     mobilePhone: '',
     iban: '',
-    description: ''
-  }
+    description: '',
+  },
 };
 
 export const getFoulDataThunk = createAsyncThunk(
   'formContent/getFoulData',
   async (req: FoulRequest, thunkAPI) =>
     await getFoulData(req)
-      .then(res => {
+      .then((res) => {
         const activeStep = (thunkAPI.getState() as RootState).formStepper
           .activeStepIndex;
         thunkAPI.dispatch(completeStep(activeStep));
@@ -97,7 +97,7 @@ export const getTransferDataThunk = createAsyncThunk(
   'formContent/getTransferData',
   async (req: TransferRequest, thunkAPI) =>
     await getTransferData(req)
-      .then(res => {
+      .then((res) => {
         const activeStep = (thunkAPI.getState() as RootState).formStepper
           .activeStepIndex;
         thunkAPI.dispatch(completeStep(activeStep));
@@ -112,7 +112,7 @@ export const extendDueDateThunk = createAsyncThunk(
   'formContent/extendDueDate',
   async (req: DueDateRequest, thunkAPI) =>
     await extendDueDate(req)
-      .then(res => {
+      .then((res) => {
         const activeStep = (thunkAPI.getState() as RootState).formStepper
           .activeStepIndex;
         thunkAPI.dispatch(disablePreviousSteps(activeStep));
@@ -127,7 +127,7 @@ export const saveObjectionThunk = createAsyncThunk(
   'formContent/saveObjection',
   async (req: ObjectionForm, thunkAPI) =>
     await saveObjection(req)
-      .then(res => {
+      .then((res) => {
         const activeStep = (thunkAPI.getState() as RootState).formStepper
           .activeStepIndex;
         thunkAPI.dispatch(disablePreviousSteps(activeStep));
@@ -173,57 +173,57 @@ export const slice = createSlice({
     },
     setSubmitError: (state, action) => {
       state.submitError = action.payload;
-    }
+    },
   },
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     // GET FoulData
     builder.addCase(getFoulDataThunk.fulfilled, (state, action) => ({
       ...state,
       foulData: action.payload,
-      formError: null
+      formError: null,
     }));
     builder.addCase(getFoulDataThunk.rejected, (state, action) => ({
       ...state,
       formError: handleFormError(
         action.payload as number | undefined,
         FormId.PARKINGFINE
-      )
+      ),
     }));
     // GET TransferData
     builder.addCase(getTransferDataThunk.fulfilled, (state, action) => ({
       ...state,
       transferData: action.payload,
-      formError: null
+      formError: null,
     }));
     builder.addCase(getTransferDataThunk.rejected, (state, action) => ({
       ...state,
       formError: handleFormError(
         action.payload as number | undefined,
         FormId.MOVEDCAR
-      )
+      ),
     }));
     // POST ExtendDueDate
     builder.addCase(extendDueDateThunk.fulfilled, (state, action) => ({
       ...state,
       formSubmitted: true,
       dueDate: action.payload.dueDate,
-      submitError: false
+      submitError: false,
     }));
-    builder.addCase(extendDueDateThunk.rejected, state => ({
+    builder.addCase(extendDueDateThunk.rejected, (state) => ({
       ...state,
-      submitError: true
+      submitError: true,
     }));
     // POST SaveObjection
-    builder.addCase(saveObjectionThunk.fulfilled, state => ({
+    builder.addCase(saveObjectionThunk.fulfilled, (state) => ({
       ...state,
       formSubmitted: true,
-      submitError: false
+      submitError: false,
     }));
-    builder.addCase(saveObjectionThunk.rejected, state => ({
+    builder.addCase(saveObjectionThunk.rejected, (state) => ({
       ...state,
-      submitError: true
+      submitError: true,
     }));
-  }
+  },
 });
 
 // Actions
@@ -234,7 +234,7 @@ export const {
   setFormValues,
   setFormError,
   setEmailConfirmation,
-  setSubmitError
+  setSubmitError,
 } = slice.actions;
 
 // Selectors

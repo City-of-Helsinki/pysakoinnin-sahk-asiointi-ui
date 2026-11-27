@@ -29,7 +29,7 @@ const mockTransferData = {
   transferStatus: 'Suoritettu',
   transferReason: 'Katualue varattu',
   foulTypes: [],
-  responseCode: 0
+  responseCode: 0,
 };
 
 export default mockTransferData;

@@ -8,7 +8,7 @@ import {
   Logo,
   logoFi,
   LogoSize,
-  logoSv
+  logoSv,
 } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import i18n from '../utils/i18n';
@@ -42,8 +42,9 @@ const PageFooter = () => {
             icon={<IconYoutube />}
             href="https://www.youtube.com/@kaupunkiymparisto"
             target="_blank"
-          />
-        ]}>
+          />,
+        ]}
+      >
         <Footer.Link
           label={t('common:contact-us')}
           href="https://www.hel.fi/fi/kaupunkiymparisto-ja-liikenne/kaupunkiympariston-asiakaspalvelu"
@@ -65,7 +66,8 @@ const PageFooter = () => {
             alt={t('navigation.logo')}
             size={LogoSize.Medium}
           />
-        }>
+        }
+      >
         <Footer.Link
           label={t('common:legal:registry-description:title')}
           href={t('common:legal:registry-description:link')}

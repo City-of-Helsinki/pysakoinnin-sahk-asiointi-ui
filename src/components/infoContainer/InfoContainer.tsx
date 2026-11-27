@@ -22,7 +22,7 @@ const InfoContainer: FC<Props> = ({
   selectedForm,
   foulData,
   transferData,
-  editMode
+  editMode,
 }): React.ReactElement => {
   const { t } = useTranslation();
   const data = transferData || foulData;
@@ -59,7 +59,8 @@ const InfoContainer: FC<Props> = ({
               dismissible
               className="error-notification"
               closeButtonLabelText={t('common:close-notification') as string}
-              onClose={() => setErrorNotificationOpen(false)}>
+              onClose={() => setErrorNotificationOpen(false)}
+            >
               {t(getErrorMessage(data?.responseCode))}
             </Notification>
           )}
@@ -78,7 +79,8 @@ const InfoContainer: FC<Props> = ({
       ) : (
         <Notification
           label={t(`${selectedForm}:notifications:data-not-found:label`)}
-          type="error">
+          type="error"
+        >
           {t(`${selectedForm}:notifications:data-not-found:text`)}
         </Notification>
       )}

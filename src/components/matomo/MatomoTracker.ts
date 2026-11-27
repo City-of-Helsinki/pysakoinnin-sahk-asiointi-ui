@@ -49,7 +49,7 @@ class MatomoTracker {
     trackerUrl = 'matomo.php',
     enabled = true,
     linkTracking = true,
-    configurations = {}
+    configurations = {},
   }: MatomoTrackerOptions) {
     if (typeof window === 'undefined') {
       return;
@@ -114,7 +114,7 @@ class MatomoTracker {
   track({
     data = [],
     documentTitle = document.title,
-    href
+    href,
   }: TrackParams): void {
     if (data.length) {
       this.pushInstruction('setCustomUrl', href ?? window.location.href);

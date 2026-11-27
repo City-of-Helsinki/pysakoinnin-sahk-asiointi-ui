@@ -33,7 +33,8 @@ const ExtendedTextField = (props: ExtendedTextFieldProps) => {
         iconEnd={
           extended ? <IconAngleUp aria-hidden /> : <IconAngleDown aria-hidden />
         }
-        onClick={expandText}>
+        onClick={expandText}
+      >
         {extended ? t('common:show-less') : t('common:show-more')}
       </Button>
     </>

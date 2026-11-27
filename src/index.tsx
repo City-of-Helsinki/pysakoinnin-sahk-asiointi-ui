@@ -22,7 +22,7 @@ if (window._env_.REACT_APP_SENTRY_DSN) {
     release: window._env_.REACT_APP_SENTRY_RELEASE,
     integrations: [
       Sentry.browserTracingIntegration(),
-      Sentry.replayIntegration()
+      Sentry.replayIntegration(),
     ],
     tracesSampleRate: Number.parseFloat(
       window._env_.REACT_APP_SENTRY_TRACES_SAMPLE_RATE || '0'
@@ -37,7 +37,7 @@ if (window._env_.REACT_APP_SENTRY_DSN) {
       window._env_.REACT_APP_SENTRY_REPLAYS_ON_ERROR_SAMPLE_RATE || '0'
     ),
     beforeSend: beforeSend,
-    beforeSendTransaction: beforeSendTransaction
+    beforeSendTransaction: beforeSendTransaction,
   });
 }
 

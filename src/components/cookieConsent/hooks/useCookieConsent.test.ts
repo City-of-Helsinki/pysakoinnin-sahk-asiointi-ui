@@ -8,7 +8,7 @@ type PaqWindow = Window & {
   _paq: unknown[];
 };
 
-const paqWindow = (window as unknown) as PaqWindow;
+const paqWindow = window as unknown as PaqWindow;
 
 describe('useCookieConsent', () => {
   beforeEach(() => {
@@ -27,7 +27,7 @@ describe('useCookieConsent', () => {
     const { result, rerender } = renderHook(
       ({ language }: { language: Language }) => useCookieConsent({ language }),
       {
-        initialProps: { language: Language.FI }
+        initialProps: { language: Language.FI },
       }
     );
 
@@ -65,13 +65,13 @@ describe('useCookieConsent', () => {
 
     act(() => {
       result.current.onChange?.({
-        acceptedGroups: ['statistics']
+        acceptedGroups: ['statistics'],
       } as never);
     });
 
     expect(paqWindow._paq).toEqual([
       ['setConsentGiven'],
-      ['setCookieConsentGiven']
+      ['setCookieConsentGiven'],
     ]);
   });
 
@@ -86,7 +86,7 @@ describe('useCookieConsent', () => {
 
     act(() => {
       result.current.onChange?.({
-        acceptedGroups: ['essential']
+        acceptedGroups: ['essential'],
       } as never);
     });
 

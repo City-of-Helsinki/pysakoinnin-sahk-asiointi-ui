@@ -27,7 +27,7 @@ expect.extend(matchers);
 const originalConsoleError = console.error;
 console.error = (...args: unknown[]) => {
   const joinedMessage = args
-    .map(arg => {
+    .map((arg) => {
       if (arg instanceof Error) {
         return `${arg.name}: ${arg.message}`;
       }
@@ -72,7 +72,7 @@ if (typeof window !== 'undefined') {
     }
 
     // Add necessary methods and properties
-    return ({
+    return {
       ...mockStyle,
       getPropertyValue: () => '',
       getPropertyPriority: () => '',
@@ -83,10 +83,10 @@ if (typeof window !== 'undefined') {
       parentRule: null,
       cssText: '',
       cssFloat: '',
-      [Symbol.iterator]: function*() {
+      [Symbol.iterator]: function* () {
         yield* Object.keys(mockStyle);
-      }
-    } as unknown) as CSSStyleDeclaration;
+      },
+    } as unknown as CSSStyleDeclaration;
   };
 
   // Replace the original function with our mock

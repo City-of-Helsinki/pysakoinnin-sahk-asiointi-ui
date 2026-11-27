@@ -46,6 +46,8 @@ describe('Component', () => {
       </Provider>
     );
 
-    expect(screen.getByText(formatDateTime(mockFoulData.foulDate))).toBeVisible();
+    expect(
+      screen.getByText(formatDateTime(mockFoulData.foulDate))
+    ).toBeVisible();
   });
 });

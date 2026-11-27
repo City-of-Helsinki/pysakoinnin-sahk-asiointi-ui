@@ -1,5 +1,5 @@
 /* eslint-disable line-comment-position */
-import { ErrorEvent, TransactionEvent } from '@sentry/core';
+import { ErrorEvent, EventHint, TransactionEvent } from '@sentry/core';
 import { snakeCase } from 'lodash';
 
 // https://github.com/getsentry/sentry-python/blob/8094c9e4462c7af4d73bfe3b6382791f9949e7f0/sentry_sdk/scrubber.py#L14
@@ -43,7 +43,7 @@ const DEFAULT_DENYLIST = [
   'symfony', // Symfony
   'user_session', // Vue
   '_xsrf', // Tornado
-  'XSRF-TOKEN' // Angular, Laravel
+  'XSRF-TOKEN', // Angular, Laravel
 ];
 
 const SENTRY_DENYLIST = new Set([...DEFAULT_DENYLIST, 'register_number']);
@@ -81,10 +81,7 @@ export const cleanSensitiveData = (
   visited.set(data, result);
 
   for (const [key, value] of Object.entries(data)) {
-    if (
-      SENTRY_DENYLIST.has(key) ||
-      SENTRY_DENYLIST.has(snakeCase(key))
-    ) {
+    if (SENTRY_DENYLIST.has(key) || SENTRY_DENYLIST.has(snakeCase(key))) {
       continue; // omit sensitive key
     }
     result[key] = cleanSensitiveData(value, visited, depth + 1, maxDepth);
@@ -93,9 +90,14 @@ export const cleanSensitiveData = (
   return result;
 };
 
-export const beforeSend = (event: ErrorEvent): ErrorEvent =>
-  cleanSensitiveData(event) as ErrorEvent;
+export const beforeSend = (
+  event: ErrorEvent,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  hint?: EventHint
+): ErrorEvent => cleanSensitiveData(event) as ErrorEvent;
 
 export const beforeSendTransaction = (
-  event: TransactionEvent
+  event: TransactionEvent,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  hint?: EventHint
 ): TransactionEvent => cleanSensitiveData(event) as TransactionEvent;

@@ -10,7 +10,7 @@ const MatomoContext = createContext<MatomoTrackerInstance | null>(null);
 
 export const MatomoProvider: React.FC<MatomoProviderProps> = ({
   children,
-  value
+  value,
 }) => {
   const Context = MatomoContext;
 

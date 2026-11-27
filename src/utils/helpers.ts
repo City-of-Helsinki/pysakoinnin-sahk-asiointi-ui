@@ -6,7 +6,7 @@ import { FoulAttachment } from '../interfaces/foulInterfaces';
 import {
   FileItem,
   ObjectionForm,
-  ObjectionType
+  ObjectionType,
 } from '../interfaces/objectionInterfaces';
 import { TransferData } from '../interfaces/transferInterfaces';
 import i18n from './i18n';
@@ -101,12 +101,12 @@ export const createObjection = (
       ? {
           transferNumber: form.transferNumber,
           registerNumber: form.registerNumber,
-          lang: i18n.language
+          lang: i18n.language,
         }
       : {
           foulNumber: form.foulNumber,
           registerNumber: form.registerNumber,
-          lang: i18n.language
+          lang: i18n.language,
         };
   return objection;
 };

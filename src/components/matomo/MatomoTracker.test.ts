@@ -13,8 +13,8 @@ describe('MatomoTracker', () => {
       configurations: {
         foo: 'bar',
         testArray: ['testArrayItem1', 'testArrayItem2'],
-        testNoValue: undefined
-      }
+        testNoValue: undefined,
+      },
     });
 
     expect(intance).toBeTruthy();
@@ -24,7 +24,7 @@ describe('MatomoTracker', () => {
       ['foo', 'bar'],
       ['testArray', 'testArrayItem1', 'testArrayItem2'],
       ['testNoValue'],
-      ['enableLinkTracking', true]
+      ['enableLinkTracking', true],
     ]);
   });
 
@@ -38,7 +38,7 @@ describe('MatomoTracker', () => {
     expect(
       () =>
         new MatomoTracker({
-          urlBase: 'https://www.test.fi'
+          urlBase: 'https://www.test.fi',
         } as MatomoTrackerOptions)
     ).toThrowError();
   });

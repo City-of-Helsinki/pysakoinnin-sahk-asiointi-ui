@@ -14,9 +14,16 @@ const Barcode = (props: BarcodeProps) => {
   const { t } = useTranslation();
   const [copySuccess, setCopySuccess] = useState(false);
 
-  const copyToClipboard = () => {
-    barcode && navigator.clipboard.writeText(barcode);
-    setCopySuccess(true);
+  const copyToClipboard = async () => {
+    if (barcode) {
+      await navigator.clipboard.writeText(barcode);
+
+      setCopySuccess(true);
+
+      return;
+    }
+
+    setCopySuccess(false);
   };
 
   return (
@@ -31,7 +38,8 @@ const Barcode = (props: BarcodeProps) => {
               className="barcode-button"
               iconStart={<IconCopy aria-hidden />}
               onClick={copyToClipboard}
-              variant={ButtonVariant.Secondary}>
+              variant={ButtonVariant.Secondary}
+            >
               {t('common:barcode:copy-barcode')}
             </Button>
           </>
@@ -46,7 +54,8 @@ const Barcode = (props: BarcodeProps) => {
           onClose={() => setCopySuccess(false)}
           type="success"
           position="top-right"
-          notificationAriaLabel={t('common:barcode:toast-body')}>
+          notificationAriaLabel={t('common:barcode:toast-body')}
+        >
           {t('common:barcode:toast-body')}
         </Notification>
       )}

@@ -6,20 +6,20 @@ interface LoadingState {
 }
 
 const initialState: LoadingState = {
-  isLoading: false
+  isLoading: false,
 };
 
 export const slice = createSlice({
   name: 'loading',
   initialState,
   reducers: {
-    setLoading: state => {
+    setLoading: (state) => {
       state.isLoading = true;
     },
-    clearLoading: state => {
+    clearLoading: (state) => {
       state.isLoading = false;
-    }
-  }
+    },
+  },
 });
 
 export const selectIsLoading = (state: RootState) => state.loading.isLoading;

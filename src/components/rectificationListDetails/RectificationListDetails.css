@@ -73,7 +73,8 @@
     max-height: 10vh;
   }
 
-  .button-close, .button-print{
+  .button-close,
+  .button-print {
     max-height: 10vh !important;
   }
 

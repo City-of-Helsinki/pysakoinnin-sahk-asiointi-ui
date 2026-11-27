@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef } from 'react';
 import {
   useGraphQL,
   useApiTokensClient,
-  useAuthenticatedUser
+  useAuthenticatedUser,
 } from 'hds-react';
 import { NormalizedCacheObject } from '@apollo/client';
 import { ProfileQueryResult } from '../common';

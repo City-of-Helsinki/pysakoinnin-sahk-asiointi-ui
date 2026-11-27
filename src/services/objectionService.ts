@@ -1,7 +1,7 @@
 import {
   ObjectionDocumentResponse,
   ObjectionForm,
-  ObjectionResponse
+  ObjectionResponse,
 } from '../interfaces/objectionInterfaces';
 import axios from 'axios';
 import { waitForApiToken } from './common';
@@ -9,21 +9,21 @@ import { waitForApiToken } from './common';
 const api_url = window._env_.REACT_APP_API_URL;
 
 export const getDocuments = async (): Promise<ObjectionDocumentResponse> =>
-  waitForApiToken().then(async apiToken =>
+  waitForApiToken().then((apiToken) =>
     axios
       .get(`${api_url}/getDocuments/`, {
-        headers: { Authorization: `Bearer ${apiToken}` }
+        headers: { Authorization: `Bearer ${apiToken}` },
       })
-      .then(res => res.data)
+      .then((res) => res.data)
   );
 
 export const saveObjection = async (
   data: ObjectionForm
 ): Promise<ObjectionResponse> =>
-  waitForApiToken().then(async apiToken =>
+  waitForApiToken().then((apiToken) =>
     axios
       .post(`${api_url}/saveObjection`, data, {
-        headers: { Authorization: `Bearer ${apiToken}` }
+        headers: { Authorization: `Bearer ${apiToken}` },
       })
-      .then(res => res.data)
+      .then((res) => res.data)
   );

@@ -4,7 +4,7 @@ export enum RequestStateType {
   NotAsked = 'NOT_ASKED',
   Loading = 'LOADING',
   Failure = 'FAILURE',
-  Success = 'SUCCESS'
+  Success = 'SUCCESS',
 }
 
 export type RequestState<Data, Error> =
@@ -20,7 +20,7 @@ export const useRequestState = <Data = unknown, Error = unknown>(
   () => void,
   () => void,
   (error: Error) => void,
-  (data: Data) => void
+  (data: Data) => void,
 ] => {
   const [state, setState] = useState<RequestState<Data, Error>>(
     initialState || { type: RequestStateType.NotAsked }

@@ -21,17 +21,17 @@ describe('useMatomo', () => {
   it('should trackPageView', () => {
     const trackPageViewMock = vi.fn();
 
-    vi.spyOn(MatomoTracker, 'default').mockImplementation(
-      function () {
-        return { trackPageView: trackPageViewMock } as unknown as MatomoTracker.default;
-      }
-    );
+    vi.spyOn(MatomoTracker, 'default').mockImplementation(function () {
+      return {
+        trackPageView: trackPageViewMock,
+      } as unknown as MatomoTracker.default;
+    });
 
     const instance = new MatomoTracker.default({
       urlBase: MOCK_URL,
       siteId: 'test123',
       srcUrl: 'test.js',
-      enabled: true
+      enabled: true,
     });
 
     const MockProvider = () => (
@@ -45,7 +45,7 @@ describe('useMatomo', () => {
     render(<MockProvider />);
 
     expect(trackPageViewMock).toHaveBeenCalledWith({
-      href: MOCK_URL
+      href: MOCK_URL,
     });
   });
 });

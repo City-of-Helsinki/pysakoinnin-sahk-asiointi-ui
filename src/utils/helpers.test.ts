@@ -38,7 +38,7 @@ describe('createObjection', () => {
     expect(result.authorRole).toBe(Number(mockRectificationForm.authorRole));
     expect(result.metadata).toMatchObject({
       foulNumber: mockRectificationForm.foulNumber,
-      registerNumber: mockRectificationForm.registerNumber
+      registerNumber: mockRectificationForm.registerNumber,
     });
   });
 
@@ -46,10 +46,10 @@ describe('createObjection', () => {
     const movedCarForm = {
       ...mockRectificationForm,
       foulNumber: '',
-      transferNumber: '111'
+      transferNumber: '111',
     };
     const formContent = {
-      transferNumber: TRANSFER_NUMBER_FROM_PASI
+      transferNumber: TRANSFER_NUMBER_FROM_PASI,
     } as TransferData;
 
     const result = createObjection(
@@ -64,7 +64,7 @@ describe('createObjection', () => {
     expect(result.transferNumber).toBe(String(TRANSFER_NUMBER_FROM_PASI));
     expect(result.metadata).toMatchObject({
       transferNumber: movedCarForm.transferNumber,
-      registerNumber: movedCarForm.registerNumber
+      registerNumber: movedCarForm.registerNumber,
     });
   });
 });

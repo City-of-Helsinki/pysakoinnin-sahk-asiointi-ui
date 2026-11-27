@@ -12,20 +12,20 @@ const ParkingFineAppeal = (): React.ReactElement => {
   const steps = [
     {
       label: t('parking-fine:stepper:step1'),
-      state: StepState.available
+      state: StepState.available,
     },
     {
       label: t('parking-fine:stepper:step2'),
-      state: StepState.disabled
+      state: StepState.disabled,
     },
     {
       label: t('parking-fine:stepper:step3'),
-      state: StepState.disabled
+      state: StepState.disabled,
     },
     {
       label: t('parking-fine:stepper:step4'),
-      state: StepState.disabled
-    }
+      state: StepState.disabled,
+    },
   ];
 
   useEffect(() => {

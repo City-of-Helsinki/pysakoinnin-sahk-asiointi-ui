@@ -10,13 +10,13 @@ import {
   createGraphQLModule,
   GraphQLModule,
   LoginProvider,
-  LoginProviderProps
+  LoginProviderProps,
 } from 'hds-react';
 import config from './config';
 import {
   ApolloClient,
   InMemoryCache,
-  NormalizedCacheObject
+  NormalizedCacheObject,
 } from '@apollo/client';
 import { MY_PROFILE_QUERY } from './graphql/MyProfileQuery';
 import { Language, ProfileQueryResult } from './common';
@@ -32,44 +32,42 @@ const loginProviderProps: LoginProviderProps = {
     scope: config.config.scope,
     redirect_uri: `${window.location.origin}${config.config.callbackPath}`,
     silent_redirect_uri: `${window.location.origin}${config.config.silentAuthPath}`,
-    post_logout_redirect_uri: `${window.location.origin}${config.config.logoutPath}`
+    post_logout_redirect_uri: `${window.location.origin}${config.config.logoutPath}`,
   },
   apiTokensClientSettings: {
     url: config.config.apiTokensUrl,
     queryProps: {
       grantType: 'urn:ietf:params:oauth:grant-type:uma-ticket',
-      permission: '#access'
+      permission: '#access',
     },
-    audiences: [config.config.apiClientId, config.config.profileApiClientId]
+    audiences: [config.config.apiClientId, config.config.profileApiClientId],
   },
-  sessionPollerSettings: { pollIntervalInMs: 10000 }
+  sessionPollerSettings: { pollIntervalInMs: 10000 },
 };
 
-const profileGraphQL: GraphQLModule<
-  NormalizedCacheObject,
-  ProfileQueryResult
-> = createGraphQLModule({
-  query: MY_PROFILE_QUERY,
-  queryOptions: {
-    // this is needed with Profile BE, because it returns an error in result.data with weak authentication
-    errorPolicy: 'all'
-  },
-  graphQLClient: new ApolloClient({
-    uri: config.config.profileApiUrl,
-    cache: new InMemoryCache()
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  }) as any,
-  options: {
-    apiTokenKey: config.config.profileApiClientId
-  }
-});
+const profileGraphQL: GraphQLModule<NormalizedCacheObject, ProfileQueryResult> =
+  createGraphQLModule({
+    query: MY_PROFILE_QUERY,
+    queryOptions: {
+      // this is needed with Profile BE, because it returns an error in result.data with weak authentication
+      errorPolicy: 'all',
+    },
+    graphQLClient: new ApolloClient({
+      uri: config.config.profileApiUrl,
+      cache: new InMemoryCache(),
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    }) as any,
+    options: {
+      apiTokenKey: config.config.profileApiClientId,
+    },
+  });
 
 const store = setupStore();
 
 injectStore(store);
 function BrowserApp(): React.ReactElement {
   const cookieConsentProps = useCookieConsent({
-    language: i18n.language as Language
+    language: i18n.language as Language,
   });
 
   const matomoTracker = useMemo(
@@ -82,8 +80,8 @@ function BrowserApp(): React.ReactElement {
         configurations: {
           setDoNotTrack: true,
           requireConsent: undefined,
-          requireCookieConsent: undefined
-        }
+          requireCookieConsent: undefined,
+        },
       }),
     []
   );

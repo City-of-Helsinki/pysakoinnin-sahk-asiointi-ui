@@ -12,7 +12,7 @@ import {
   LinkSize,
   RadioButton,
   TextArea,
-  TextInput
+  TextInput,
 } from 'hds-react';
 import { extractIBAN } from 'ibantools';
 import { FormId, selectFormContent } from '../formContent/formContentSlice';
@@ -20,7 +20,7 @@ import {
   ObjectionForm,
   ObjectionFormFiles,
   ObjectionControlType,
-  AuthorRole
+  AuthorRole,
 } from '../../interfaces/objectionInterfaces';
 import { selectUserProfile } from '../user/userSlice';
 import FieldLabel from '../fieldLabel/FieldLabel';
@@ -46,7 +46,7 @@ const RectificationForm: FC<Props> = ({
   values,
   onSubmitPoaFile,
   onSubmitAttachmentFiles,
-  formFiles
+  formFiles,
 }) => {
   const { t, i18n } = useTranslation();
   const user = useSelector(selectUserProfile);
@@ -96,14 +96,14 @@ const RectificationForm: FC<Props> = ({
                     required={true}
                   />
                   <div className="radio-group-container">
-                    {relations.map(relation => (
+                    {relations.map((relation) => (
                       <RadioButton
                         key={relation}
                         label={t(`rectificationForm:relation-info:${relation}`)}
                         id={relation}
                         value={relation}
                         checked={relation === field.value}
-                        onChange={e => field.onChange(e.target.value)}
+                        onChange={(e) => field.onChange(e.target.value)}
                       />
                     ))}
                     {fieldState.error && (
@@ -145,7 +145,7 @@ const RectificationForm: FC<Props> = ({
                     name="poaFile"
                     control={control}
                     rules={{
-                      validate: isValidPOAFile
+                      validate: isValidPOAFile,
                     }}
                     render={({ field }) => (
                       <>
@@ -153,7 +153,7 @@ const RectificationForm: FC<Props> = ({
                           language={i18n.language as Language}
                           label={t('rectificationForm:attach-poa:label')}
                           id="rectificationPOAFile"
-                          onChange={e => field.onChange(onSubmitPoaFile(e))}
+                          onChange={(e) => field.onChange(onSubmitPoaFile(e))}
                           dragAndDrop={!isMobileWidth}
                           accept={'.jpg, .pdf'}
                           maxSize={5 * 1024 * 1024}
@@ -161,7 +161,7 @@ const RectificationForm: FC<Props> = ({
                             'rectificationForm:attach-poa:helper-text'
                           )}
                           {...(formFiles.poaFile.length > 0 && {
-                            defaultValue: formFiles.poaFile
+                            defaultValue: formFiles.poaFile,
                           })}
                         />
                         {values().authorRole === AuthorRole.Possessor &&
@@ -189,7 +189,8 @@ const RectificationForm: FC<Props> = ({
             external
             openInNewTab
             openInExternalDomainAriaLabel={t('common:aria:open-external')}
-            openInNewTabLabel={t('common:aria:open-new-tab')}>
+            openInNewTabLabel={t('common:aria:open-new-tab')}
+          >
             {t('common:helsinki-profile-link')}
           </Link>
         </div>
@@ -253,8 +254,8 @@ const RectificationForm: FC<Props> = ({
               required: t('common:required-field') as string,
               pattern: {
                 value: phoneNumberRegex,
-                message: t('rectificationForm:errors:invalid-phone')
-              }
+                message: t('rectificationForm:errors:invalid-phone'),
+              },
             }}
             render={({ field, fieldState }) => (
               <TextInput
@@ -274,7 +275,7 @@ const RectificationForm: FC<Props> = ({
             control={control}
             rules={{
               required: t('common:required-field') as string,
-              validate: isValidIBAN
+              validate: isValidIBAN,
             }}
             render={({ field, fieldState }) => {
               let errorText: string | undefined;
@@ -303,14 +304,11 @@ const RectificationForm: FC<Props> = ({
             control={control}
             rules={{
               required: t('common:required-field') as string,
-              maxLength: rectificationMaxLength
+              maxLength: rectificationMaxLength,
             }}
             render={({ field, fieldState }) => {
               let errorText = '';
-              if (
-                field.value &&
-                field.value.length > rectificationMaxLength
-              ) {
+              if (field.value && field.value.length > rectificationMaxLength) {
                 errorText = t(
                   'rectificationForm:errors:description-over-limit'
                 );
@@ -345,7 +343,7 @@ const RectificationForm: FC<Props> = ({
               name="attachments"
               control={control}
               rules={{
-                validate: numberOfAttachmentsIsValid
+                validate: numberOfAttachmentsIsValid,
               }}
               render={({ field }) => (
                 <>
@@ -355,9 +353,9 @@ const RectificationForm: FC<Props> = ({
                     className="rectification-fileinput"
                     label={t('rectificationForm:attachments:label')}
                     id="rectificationAttachments"
-                    onChange={e => field.onChange(onSubmitAttachmentFiles(e))}
+                    onChange={(e) => field.onChange(onSubmitAttachmentFiles(e))}
                     {...(formFiles.attachments.length > 0 && {
-                      defaultValue: formFiles.attachments
+                      defaultValue: formFiles.attachments,
                     })}
                     dragAndDrop={!isMobileWidth}
                     accept={'.jpg, .pdf'}
