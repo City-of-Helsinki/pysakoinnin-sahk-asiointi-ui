@@ -19,7 +19,7 @@ export const getTransferData = async (
   }
 
   return waitForApiToken()
-    .then(async apiToken =>
+    .then(apiToken =>
       axios
         .get(`${api_url}/getTransferData`, {
           params,

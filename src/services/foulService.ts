@@ -51,7 +51,7 @@ export const getFoulData = async (params: FoulRequest): Promise<FoulData> => {
     );
   }
 
-  return waitForApiToken().then(async apiToken =>
+  return waitForApiToken().then(apiToken =>
     axios
       .get(`${api_url}/getFoulData`, {
         params,

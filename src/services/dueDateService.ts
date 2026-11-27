@@ -10,7 +10,7 @@ const api_url = window._env_.REACT_APP_API_URL;
 export const extendDueDate = async (
   data: DueDateRequest
 ): Promise<DueDateResponse> =>
-  waitForApiToken().then(async apiToken =>
+  waitForApiToken().then(apiToken =>
     axios
       .post(`${api_url}/extendDueDate`, data, {
         headers: { Authorization: `Bearer ${apiToken}` }

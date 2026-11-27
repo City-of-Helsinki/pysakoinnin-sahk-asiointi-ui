@@ -55,7 +55,7 @@ const RectificationListDetails: FC<Props> = ({
   };
 
   // Opens a decision pdf in a new window
-  const openDecisionDocument = async () => {
+  const openDecisionDocument = () => {
     if (decision) {
       const byteCharacters = atob(decision.data);
       const byteNumbers = new Array(byteCharacters.length);
