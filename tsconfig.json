@@ -40,13 +40,5 @@
     "dist",
     "build",
     "coverage",
-    "cypress",
-    "cypress.config.ts",
-    "cypress/support/index.ts",
-    "src/**/*.test.ts",
-    "src/**/*.test.tsx",
-    "src/utils/renderWithProviders.tsx",
-    "src/utils/mockLoginHooks.tsx",
-    "src/setupTests.ts"
   ]
 }
