@@ -4,7 +4,7 @@ import { waitForApiToken } from './common';
 import { DueDateExtendableReason } from '../interfaces/dueDateInterfaces';
 import {
   MOCK_FOUL_NUMBER,
-  MOCK_FOUL_NUMBER_WITH_DECISION
+  MOCK_FOUL_NUMBER_WITH_DECISION,
 } from '../mocks/mockConstants';
 import config from '../config';
 
@@ -16,7 +16,7 @@ type MockFoulDataLoader = () => Promise<{ default: FoulData }>;
 const mockFoulDataLoaders: Partial<Record<number, MockFoulDataLoader>> = {
   [MOCK_FOUL_NUMBER_WITH_DECISION]: () =>
     import('../mocks/mockFoulDataWithDecision'),
-  [MOCK_FOUL_NUMBER]: () => import('../mocks/mockFoulData')
+  [MOCK_FOUL_NUMBER]: () => import('../mocks/mockFoulData'),
 };
 
 const getMockFoulData = async (params: FoulRequest): Promise<FoulData> => {
@@ -31,8 +31,8 @@ const getMockFoulData = async (params: FoulRequest): Promise<FoulData> => {
   const response = {
     status: 404,
     data: {
-      detail: 'Resource not found'
-    }
+      detail: 'Resource not found',
+    },
   } as AxiosResponse;
 
   throw new AxiosError(undefined, undefined, undefined, undefined, response);
@@ -40,23 +40,23 @@ const getMockFoulData = async (params: FoulRequest): Promise<FoulData> => {
 
 export const getFoulData = async (params: FoulRequest): Promise<FoulData> => {
   if (config.mockData.enabled) {
-    return getMockFoulData(params).then(mockFoulData =>
+    return getMockFoulData(params).then((mockFoulData) =>
       window.location.pathname === DUE_DATE_PATH
         ? {
             ...mockFoulData,
             dueDateExtendable: true,
-            dueDateExtendableReason: DueDateExtendableReason.Success
+            dueDateExtendableReason: DueDateExtendableReason.Success,
           }
         : mockFoulData
     );
   }
 
-  return waitForApiToken().then(apiToken =>
+  return waitForApiToken().then((apiToken) =>
     axios
       .get(`${api_url}/getFoulData`, {
         params,
-        headers: { Authorization: `Bearer ${apiToken}` }
+        headers: { Authorization: `Bearer ${apiToken}` },
       })
-      .then(res => res.data)
+      .then((res) => res.data)
   );
 };

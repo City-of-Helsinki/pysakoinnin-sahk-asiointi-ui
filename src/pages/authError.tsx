@@ -8,7 +8,8 @@ export const AuthError = () => {
     <Notification
       label={t('common:errors:login')}
       type="error"
-      className="error-notification">
+      className="error-notification"
+    >
       {t('common:errors:unknown')}
     </Notification>
   );

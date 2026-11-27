@@ -36,8 +36,8 @@ const createMockProfile = (email = 'test.user@example.com'): MockProfile => ({
   firstName: 'Test',
   lastName: 'User',
   primaryEmail: {
-    email
-  }
+    email,
+  },
 });
 
 const createGraphQLState = (
@@ -47,11 +47,11 @@ const createGraphQLState = (
     options && 'data' in options
       ? options.data
       : {
-          myProfile: createMockProfile(options?.email)
+          myProfile: createMockProfile(options?.email),
         },
   error: options?.error ?? null,
   loading: options?.loading ?? false,
-  refetch: refetchMock
+  refetch: refetchMock,
 });
 
 let authenticatedUser: object | null = { sub: 'test-user' };
@@ -60,11 +60,11 @@ let graphQLState: MockGraphQLState;
 vi.mock('hds-react', () => ({
   useGraphQL: vi.fn(() => [null, graphQLState]),
   useApiTokensClient: vi.fn(() => ({ fetch: fetchApiTokensMock })),
-  useAuthenticatedUser: vi.fn(() => authenticatedUser)
+  useAuthenticatedUser: vi.fn(() => authenticatedUser),
 }));
 
 vi.mock('../store', () => ({
-  useAppDispatch: vi.fn(() => dispatchMock)
+  useAppDispatch: vi.fn(() => dispatchMock),
 }));
 
 describe('useProfileSync', () => {
@@ -87,7 +87,7 @@ describe('useProfileSync', () => {
       data: graphQLState.data,
       error: null,
       loading: false,
-      userProfile: graphQLState.data?.myProfile
+      userProfile: graphQLState.data?.myProfile,
     });
   });
 
@@ -152,7 +152,7 @@ describe('useProfileSync', () => {
 
     expect(dispatchMock).not.toHaveBeenCalledWith(
       expect.objectContaining({
-        type: setUserProfile.type
+        type: setUserProfile.type,
       })
     );
   });

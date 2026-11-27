@@ -8,7 +8,7 @@ const COOKIE_CONSENT_GROUP = {
   Tunnistamo: 'tunnistamo',
   Essential: 'essential',
   Shared: 'shared',
-  Statistics: 'statistics'
+  Statistics: 'statistics',
 } as const;
 
 type Props = {
@@ -19,7 +19,7 @@ type Props = {
 
 const useCookieConsent = ({
   language,
-  isModal = true
+  isModal = true,
 }: Props): CookieConsentReactProps => {
   const [currentLang, setCurrentLang] = useState(language ?? Language.FI);
 
@@ -49,8 +49,8 @@ const useCookieConsent = ({
       },
       options: {
         focusTargetSelector: isModal ? '#content' : undefined,
-        language: currentLang
-      }
+        language: currentLang,
+      },
     }),
     [currentLang, isModal]
   );

@@ -2,7 +2,7 @@
 import {
   beforeSend,
   beforeSendTransaction,
-  cleanSensitiveData
+  cleanSensitiveData,
 } from './sentry';
 
 const sensitive = 'sensitive';
@@ -13,14 +13,14 @@ const originalData = {
   register_number: sensitive,
   arrayOfObjects: [{ a: safe }, { b: safe }],
   arrayOfStrings: [safe],
-  object: { c: safe, register_number: sensitive }
+  object: { c: safe, register_number: sensitive },
 };
 
 const cleanedData = {
   a: safe,
   arrayOfObjects: [{ a: safe }, { b: safe }],
   arrayOfStrings: [safe],
-  object: { c: safe }
+  object: { c: safe },
 };
 
 describe('beforeSend', () => {
@@ -37,7 +37,7 @@ describe('beforeSendTransaction', () => {
       beforeSendTransaction(
         {
           extra: { data: originalData },
-          type: 'transaction'
+          type: 'transaction',
         },
         {}
       )

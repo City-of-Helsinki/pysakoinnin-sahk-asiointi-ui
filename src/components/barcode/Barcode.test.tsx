@@ -18,8 +18,8 @@ describe('Component', () => {
   it('copies barcode to clipboard', async () => {
     Object.assign(window.navigator, {
       clipboard: {
-        writeText: vi.fn().mockImplementation(() => Promise.resolve())
-      }
+        writeText: vi.fn().mockImplementation(() => Promise.resolve()),
+      },
     });
 
     const testBarcode = 'test-123';

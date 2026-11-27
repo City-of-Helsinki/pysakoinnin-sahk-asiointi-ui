@@ -4,14 +4,14 @@ import {
   ButtonVariant,
   IconAngleDown,
   IconAngleUp,
-  IconSize
+  IconSize,
 } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import './CustomAccordion.css';
 
 const CustomAccordion = ({
   heading,
-  children
+  children,
 }: {
   heading: string;
   children: ReactNode;
@@ -30,7 +30,8 @@ const CustomAccordion = ({
           )
         }
         className="custom-accordion custom-accordion-header"
-        variant={ButtonVariant.Supplementary}>
+        variant={ButtonVariant.Supplementary}
+      >
         {heading}
       </Button>
       {accordionOpen && (
@@ -40,7 +41,8 @@ const CustomAccordion = ({
             onClick={() => setAccordionOpen(!accordionOpen)}
             iconEnd={<IconAngleUp size={IconSize.Medium} aria-hidden />}
             className="custom-accordion close"
-            variant={ButtonVariant.Supplementary}>
+            variant={ButtonVariant.Supplementary}
+          >
             {t('common:close')}
           </Button>
         </>

@@ -11,7 +11,7 @@ import mockRectificationForm from '../../mocks/mockRectificationForm';
 describe('Component', () => {
   const attachmentMock = {
     poaFile: [new File([''], 'test.pdf', { type: 'application/pdf' })],
-    attachments: [new File([''], 'test2.jpg', { type: 'image/jpeg' })]
+    attachments: [new File([''], 'test2.jpg', { type: 'image/jpeg' })],
   };
   it('matches snapshot', async () => {
     const formContentSliceMock = createSlice({
@@ -21,9 +21,9 @@ describe('Component', () => {
         selectedForm: 'parking-fine',
         submitDisabled: true,
         foulData: mockFoulData,
-        formValues: mockRectificationForm
+        formValues: mockRectificationForm,
       },
-      reducers: {}
+      reducers: {},
     });
 
     const userSliceMock = createSlice({
@@ -33,18 +33,18 @@ describe('Component', () => {
           firstName: 'Test',
           lastName: 'User',
           email: 'test.user@test.fi',
-          ssn: '123456-789A'
+          ssn: '123456-789A',
         },
-        promptLogin: false
+        promptLogin: false,
       },
-      reducers: {}
+      reducers: {},
     });
 
     const store = configureStore({
       reducer: {
         formContent: formContentSliceMock.reducer,
-        user: userSliceMock.reducer
-      }
+        user: userSliceMock.reducer,
+      },
     });
     const { container } = render(
       <Provider store={store}>

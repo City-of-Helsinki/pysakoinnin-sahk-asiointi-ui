@@ -1,3 +1,3 @@
 export const TRACK_TYPES = {
-  TRACK_VIEW: 'trackPageView'
+  TRACK_VIEW: 'trackPageView',
 };

@@ -3,7 +3,7 @@ import './FieldLabel.css';
 
 const FieldLabel = ({
   text,
-  required
+  required,
 }: {
   text: string;
   required?: boolean;

@@ -13,7 +13,7 @@ import {
   WithAuthentication,
   useOidcClientTracking,
   useGraphQL,
-  LogoSize
+  LogoSize,
 } from 'hds-react';
 import styles from './styles.module.css';
 import config from '../config';
@@ -36,12 +36,14 @@ const LoggedInActionBarItem = () => {
       icon={<IconUser aria-hidden />}
       closeIcon={<IconCross aria-hidden />}
       closeLabel={t('common:close')}
-      label={userName}>
+      label={userName}
+    >
       <div className={styles['action-bar-item-list']}>
         <Link
           external
           href={`${config.ui.profileUIUrl}/loginsso`}
-          className={styles['link-to-profile']}>
+          className={styles['link-to-profile']}
+        >
           Helsinki-profiili
         </Link>
         <Link
@@ -52,7 +54,8 @@ const LoggedInActionBarItem = () => {
             client.logout();
           }}
           className={styles.navigationButton}
-          iconStart={<IconSignout aria-hidden />}>
+          iconStart={<IconSignout aria-hidden />}
+        >
           {t('common:log-out')}
         </Link>
       </div>
@@ -73,7 +76,7 @@ const UnauthorisedActionBarItem = () => {
       id="action-bar-sign-in"
       onClick={() =>
         client.login({
-          language: localStorage.getItem('lang') ?? i18n.language
+          language: localStorage.getItem('lang') ?? i18n.language,
         })
       }
     />
@@ -95,12 +98,12 @@ const Header = (): React.ReactElement => {
     const languageLabels = {
       fi: 'Suomi',
       en: 'English',
-      sv: 'Svenska'
+      sv: 'Svenska',
     };
 
-    return Object.values(Language).map(language => ({
+    return Object.values(Language).map((language) => ({
       label: languageLabels[language],
-      value: language
+      value: language,
     }));
   }, []);
 
@@ -108,9 +111,10 @@ const Header = (): React.ReactElement => {
     <HDSHeader
       className="hide-on-print"
       theme={'light'}
-      onDidChangeLanguage={lang => changeLanguage(lang as Language)}
+      onDidChangeLanguage={(lang) => changeLanguage(lang as Language)}
       languages={languageOptions}
-      defaultLanguage={i18n.language}>
+      defaultLanguage={i18n.language}
+    >
       <HDSHeader.SkipLink
         skipTo="#content"
         label={t('common:skip-to-content-label')}
@@ -127,7 +131,8 @@ const Header = (): React.ReactElement => {
             size={LogoSize.Full}
           />
         }
-        menuButtonAriaLabel={t('navigation.menuToggleAriaLabel')}>
+        menuButtonAriaLabel={t('navigation.menuToggleAriaLabel')}
+      >
         <HDSHeader.LanguageSelector aria-label={i18n.language.toUpperCase()} />
         <hr aria-hidden="true" />
         <WithAuthentication

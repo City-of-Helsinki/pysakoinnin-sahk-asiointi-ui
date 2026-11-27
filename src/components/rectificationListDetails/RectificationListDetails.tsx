@@ -7,7 +7,7 @@ import {
   IconDocument,
   IconPrinter,
   Notification,
-  NotificationSize
+  NotificationSize,
 } from 'hds-react';
 import { useTranslation } from 'react-i18next';
 import { formatDate, formatDateTime, sortByDate } from '../../utils/helpers';
@@ -28,7 +28,7 @@ const RectificationListDetails: FC<Props> = ({
   form,
   formType,
   foulData,
-  transferData
+  transferData,
 }): React.ReactElement => {
   const { t } = useTranslation();
   const isDueDateForm = form.content?.dueDate;
@@ -39,9 +39,9 @@ const RectificationListDetails: FC<Props> = ({
   const [formDialogOpen, setFormDialogOpen] = useState(false);
   const openDialogButtonRef = useRef<HTMLButtonElement>(null!);
   const decision = foulData
-    ? foulData.attachments.find(attachment => attachment.attachmentType === 1)
+    ? foulData.attachments.find((attachment) => attachment.attachmentType === 1)
     : transferData?.attachments.find(
-        attachment => attachment.attachmentType === 1
+        (attachment) => attachment.attachmentType === 1
       );
 
   const openFormDialog = () => {
@@ -72,7 +72,8 @@ const RectificationListDetails: FC<Props> = ({
   return (
     <div
       className="rectification-details"
-      id={`rectification-details-${form.transaction_id}`}>
+      id={`rectification-details-${form.transaction_id}`}
+    >
       <div className="rectification-details-log">
         <div className="rectification-details-events">
           <span className="rectification-details-title">
@@ -107,12 +108,13 @@ const RectificationListDetails: FC<Props> = ({
             )}
             dismissible
             closeButtonLabelText={t('common:close-notification') as string}
-            onClose={() => setNotificationOpen(false)}>
+            onClose={() => setNotificationOpen(false)}
+          >
             {t(
               `landing-page:list:details:notification:${notificationType}:text`,
               {
                 dueDate:
-                  form.content.dueDate && formatDate(form.content.dueDate)
+                  form.content.dueDate && formatDate(form.content.dueDate),
               }
             )}
           </Notification>
@@ -120,7 +122,8 @@ const RectificationListDetails: FC<Props> = ({
         {decision && (
           <Button
             iconEnd={<IconDocument aria-hidden />}
-            onClick={() => openDecisionDocument()}>
+            onClick={() => openDecisionDocument()}
+          >
             {t('landing-page:list:details:open-decision')}
           </Button>
         )}
@@ -129,7 +132,8 @@ const RectificationListDetails: FC<Props> = ({
             <Button
               variant={ButtonVariant.Secondary}
               ref={openDialogButtonRef}
-              onClick={openFormDialog}>
+              onClick={openFormDialog}
+            >
               {t('landing-page:list:details:show-form')}
             </Button>
             <Dialog
@@ -141,7 +145,8 @@ const RectificationListDetails: FC<Props> = ({
               closeButtonLabelText={
                 t('common:close-rectification-dialog') as string
               }
-              scrollable>
+              scrollable
+            >
               <Dialog.Header
                 id="form-summary-dialog-header"
                 title={t(`${formType}:title`)}
@@ -157,13 +162,13 @@ const RectificationListDetails: FC<Props> = ({
                     formFiles={{
                       attachments: form.content.attachments
                         ? form.content.attachments.map(
-                            file =>
+                            (file) =>
                               new File([file.data], file.fileName, {
-                                type: file.mimeType
+                                type: file.mimeType,
                               })
                           )
                         : [],
-                      poaFile: []
+                      poaFile: [],
                     }}
                   />
                 </div>
@@ -176,7 +181,8 @@ const RectificationListDetails: FC<Props> = ({
                   className="button-print"
                   onClick={() => window.print()}
                   iconStart={<IconPrinter aria-hidden />}
-                  variant={ButtonVariant.Secondary}>
+                  variant={ButtonVariant.Secondary}
+                >
                   {t('common:print')}
                 </Button>
               </Dialog.ActionButtons>
@@ -194,13 +200,13 @@ const RectificationListDetails: FC<Props> = ({
           formFiles={{
             attachments: form.content.attachments
               ? form.content.attachments.map(
-                  file =>
+                  (file) =>
                     new File([file.data], file.fileName, {
-                      type: file.mimeType
+                      type: file.mimeType,
                     })
                 )
               : [],
-            poaFile: []
+            poaFile: [],
           }}
         />
       </div>

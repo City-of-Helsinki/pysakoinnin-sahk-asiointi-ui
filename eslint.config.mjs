@@ -63,7 +63,6 @@ export default [
       ],
       'arrow-body-style': ['error', 'as-needed'],
       'line-comment-position': ['error', { position: 'above' }],
-      'arrow-parens': ['error', 'as-needed'],
       '@typescript-eslint/no-unused-vars': 'error',
       '@typescript-eslint/no-explicit-any': 'error',
       '@typescript-eslint/no-unnecessary-type-assertion': 'error',

@@ -22,7 +22,7 @@ describe('rectification list row', () => {
   beforeEach(async () => {
     mockAuthenticatedLoginState();
     mockedAxios.get.mockResolvedValueOnce({
-      data: mockFoulDataWithDecision
+      data: mockFoulDataWithDecision,
     });
   });
 
@@ -57,7 +57,7 @@ describe('rectification list row', () => {
       );
 
       const showMoreButton = screen.getByRole('button', {
-        name: t('landing-page:list:show-more')
+        name: t('landing-page:list:show-more'),
       });
       expect(showMoreButton).toBeVisible();
 
@@ -105,7 +105,7 @@ describe('rectification list row', () => {
 
       // Notification
       const mailNotification = screen.getByRole('region', {
-        name: 'Notification'
+        name: 'Notification',
       });
       expect(mailNotification).toBeVisible();
       expect(mailNotification).toHaveTextContent(
@@ -114,12 +114,12 @@ describe('rectification list row', () => {
 
       // 'Show form' button is visible but 'open decision' button is not
       const showFormButton = screen.getByRole('button', {
-        name: t('landing-page:list:details:show-form')
+        name: t('landing-page:list:details:show-form'),
       });
       expect(showFormButton).toBeVisible();
 
       const openDecisionButton = screen.queryByRole('button', {
-        name: t('landing-page:list:details:open-decision')
+        name: t('landing-page:list:details:open-decision'),
       });
       expect(openDecisionButton).not.toBeInTheDocument();
     });
@@ -136,7 +136,7 @@ describe('rectification list row', () => {
       );
 
       const showMoreButton = screen.getByRole('button', {
-        name: t('landing-page:list:show-more')
+        name: t('landing-page:list:show-more'),
       });
       expect(showMoreButton).toBeVisible();
 
@@ -144,18 +144,18 @@ describe('rectification list row', () => {
 
       // No notifications visible
       const notification = screen.queryByRole('region', {
-        name: 'Notification'
+        name: 'Notification',
       });
       expect(notification).not.toBeInTheDocument();
 
       // Both buttons visible
       const showFormButton = screen.getByRole('button', {
-        name: t('landing-page:list:details:show-form')
+        name: t('landing-page:list:details:show-form'),
       });
       expect(showFormButton).toBeVisible();
 
       const openDecisionButton = screen.getByRole('button', {
-        name: t('landing-page:list:details:open-decision')
+        name: t('landing-page:list:details:open-decision'),
       });
       expect(openDecisionButton).toBeVisible();
     });
@@ -172,7 +172,7 @@ describe('rectification list row', () => {
       );
 
       const showMoreButton = screen.getByRole('button', {
-        name: t('landing-page:list:show-more')
+        name: t('landing-page:list:show-more'),
       });
       expect(showMoreButton).toBeVisible();
 
@@ -180,18 +180,18 @@ describe('rectification list row', () => {
 
       // No notifications visible
       const notification = screen.queryByRole('region', {
-        name: 'Notification'
+        name: 'Notification',
       });
       expect(notification).not.toBeInTheDocument();
 
       // 'Show form' button is visible but 'open decision' button is not
       const showFormButton = screen.getByRole('button', {
-        name: t('landing-page:list:details:show-form')
+        name: t('landing-page:list:details:show-form'),
       });
       expect(showFormButton).toBeVisible();
 
       const openDecisionButton = screen.queryByRole('button', {
-        name: t('landing-page:list:details:open-decision')
+        name: t('landing-page:list:details:open-decision'),
       });
       expect(openDecisionButton).not.toBeInTheDocument();
 
@@ -232,7 +232,7 @@ describe('rectification list row', () => {
       );
 
       const showMoreButton = screen.getByRole('button', {
-        name: t('landing-page:list:show-more')
+        name: t('landing-page:list:show-more'),
       });
       expect(showMoreButton).toBeVisible();
 
@@ -266,7 +266,7 @@ describe('rectification list row', () => {
 
       // Notification
       const mailNotification = screen.getByRole('region', {
-        name: 'Notification'
+        name: 'Notification',
       });
       expect(mailNotification).toBeVisible();
       expect(mailNotification).toHaveTextContent(
@@ -275,12 +275,12 @@ describe('rectification list row', () => {
 
       // Buttons not visible
       const showFormButton = screen.queryByRole('button', {
-        name: t('landing-page:list:details:show-form')
+        name: t('landing-page:list:details:show-form'),
       });
       expect(showFormButton).not.toBeInTheDocument();
 
       const openDecisionButton = screen.queryByRole('button', {
-        name: t('landing-page:list:details:open-decision')
+        name: t('landing-page:list:details:open-decision'),
       });
       expect(openDecisionButton).not.toBeInTheDocument();
     });

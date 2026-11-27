@@ -14,8 +14,8 @@ i18n.use(initReactI18next).init({
   fallbackLng: 'fi',
   lng,
   interpolation: {
-    escapeValue: false
-  }
+    escapeValue: false,
+  },
 });
 
 export default i18n;

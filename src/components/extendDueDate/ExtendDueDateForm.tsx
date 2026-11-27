@@ -8,7 +8,7 @@ import { selectUserProfile } from '../user/userSlice';
 import {
   selectFormContent,
   setEmailConfirmation,
-  setSubmitDisabled
+  setSubmitDisabled,
 } from '../formContent/formContentSlice';
 import Barcode from '../barcode/Barcode';
 import { DueDateExtendableReason } from '../../interfaces/dueDateInterfaces';
@@ -61,7 +61,8 @@ const ExtendDueDateForm = (): React.ReactElement => {
           type={foulData?.dueDateExtendable ? 'success' : 'error'}
           dismissible
           closeButtonLabelText={t('common:close-notification') as string}
-          onClose={() => setInfoNotificationOpen(false)}>
+          onClose={() => setInfoNotificationOpen(false)}
+        >
           {foulData?.dueDateExtendable
             ? t('due-date:notifications:allowed:text')
             : t(getErrorMessage(foulData?.dueDateExtendableReason))}
@@ -104,7 +105,7 @@ const ExtendDueDateForm = (): React.ReactElement => {
       </p>
       <p>
         {t('due-date:notifications:email-confirmation:text', {
-          email: user?.email
+          email: user?.email,
         })}{' '}
         <Link
           href={window._env_.REACT_APP_PROFILE_UI_URL}
@@ -112,7 +113,8 @@ const ExtendDueDateForm = (): React.ReactElement => {
           external
           openInNewTab
           openInExternalDomainAriaLabel={t('common:aria:open-external')}
-          openInNewTabLabel={t('common:aria:open-new-tab')}>
+          openInNewTabLabel={t('common:aria:open-new-tab')}
+        >
           {t('common:helsinki-profile-link')}
         </Link>
       </p>

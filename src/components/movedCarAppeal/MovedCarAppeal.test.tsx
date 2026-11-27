@@ -40,20 +40,20 @@ describe('moved car appeal form', () => {
 
       // Form title is visible
       const formTitle = screen.getByRole('heading', {
-        name: t('moved-car:title')
+        name: t('moved-car:title'),
       });
       expect(formTitle).toBeInTheDocument();
 
       // Search fields (invoice number and registration number) are visible
       // and empty bu default
       const invoiceNumberEl = screen.getByRole('textbox', {
-        name: t('common:fine-info:invoice-number:label') + ' *'
+        name: t('common:fine-info:invoice-number:label') + ' *',
       });
       expect(invoiceNumberEl).toBeInTheDocument();
       expect(invoiceNumberEl).toHaveValue('');
 
       const regNumberEl = screen.getByRole('textbox', {
-        name: t('common:fine-info:reg-number:label') + ' *'
+        name: t('common:fine-info:reg-number:label') + ' *',
       });
       expect(regNumberEl).toBeInTheDocument();
       expect(regNumberEl).toHaveValue('');

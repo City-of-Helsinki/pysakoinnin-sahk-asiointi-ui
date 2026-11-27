@@ -5,7 +5,7 @@ const breakpointValues = {
   s: 576,
   m: 768,
   l: 992,
-  xl: 1248
+  xl: 1248,
 };
 
 const getWindowInnerWidth: () => undefined | number = () =>

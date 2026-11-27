@@ -7,7 +7,7 @@ export enum DueDateExtendableReason {
   HasNoChecks,
   HasTooManyChecks,
   HasObjectionsLinked,
-  HasPaidCheck
+  HasPaidCheck,
 }
 
 export interface DueDateRequest {

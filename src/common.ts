@@ -50,7 +50,7 @@ export type ProfileQueryResult = {
 export enum Language {
   FI = 'fi',
   SV = 'sv',
-  EN = 'en'
+  EN = 'en',
 }
 
 export const convertHelsinkiProfileLang = (lang: string) => {

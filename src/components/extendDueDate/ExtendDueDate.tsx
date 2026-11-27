@@ -12,12 +12,12 @@ const ExtendDueDate = (): React.ReactElement => {
   const steps = [
     {
       label: t('due-date:stepper:step1'),
-      state: StepState.available
+      state: StepState.available,
     },
     {
       label: t('due-date:stepper:step2'),
-      state: StepState.disabled
-    }
+      state: StepState.disabled,
+    },
   ];
 
   useEffect(() => {

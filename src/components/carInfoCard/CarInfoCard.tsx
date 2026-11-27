@@ -15,7 +15,7 @@ const CarInfoCard: FC<Props> = ({ data }) => {
 
   // Attachments can also contain pdf file(s), so extract only images here
   const images = data?.attachments?.filter(
-    attachment =>
+    (attachment) =>
       attachment.attachmentType === 0 &&
       attachment.mimeType?.startsWith('image')
   );
@@ -28,8 +28,9 @@ const CarInfoCard: FC<Props> = ({ data }) => {
       theme={{
         '--border-color': 'var(--color-black-20)',
         '--padding-horizontal': 'var(--spacing-l)',
-        '--padding-vertical': 'var(--spacing-m)'
-      }}>
+        '--padding-vertical': 'var(--spacing-m)',
+      }}
+    >
       <h2 className="vehicle-details-header">
         {t('parking-fine:vehicle-info:header')}
       </h2>

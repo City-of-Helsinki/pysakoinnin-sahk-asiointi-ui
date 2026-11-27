@@ -12,7 +12,7 @@ const useContainerDimensions = (myRef: RefObject<HTMLElement | null>) => {
   useEffect(() => {
     const getDimensions = () => ({
       width: myRef.current?.offsetWidth || 0,
-      height: myRef.current?.offsetHeight || 0
+      height: myRef.current?.offsetHeight || 0,
     });
 
     const handleResize = () => {

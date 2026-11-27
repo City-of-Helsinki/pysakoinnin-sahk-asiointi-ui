@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 import {
   FormId,
   selectFormContent,
-  setFormError
+  setFormError,
 } from '../formContent/formContentSlice';
 import { ObjectionControlType } from '../../interfaces/objectionInterfaces';
 import config from '../../config';
@@ -38,8 +38,8 @@ const SearchForm = (props: Props): React.ReactElement => {
             pattern: {
               /* only numbers and max 10 characters */
               value: /^( *\d{1,10} *)$/i,
-              message: t('rectificationForm:errors:invalid-refnumber')
-            }
+              message: t('rectificationForm:errors:invalid-refnumber'),
+            },
           }}
           render={({ field, fieldState }) => (
             <TextInput
@@ -49,7 +49,9 @@ const SearchForm = (props: Props): React.ReactElement => {
               label={t('common:fine-info:invoice-number:label')}
               placeholder={t('common:fine-info:invoice-number:placeholder')}
               tooltip={
-                <Tooltip buttonLabel={t('common:fine-info:invoice-number:label')}>
+                <Tooltip
+                  buttonLabel={t('common:fine-info:invoice-number:label')}
+                >
                   {t('common:fine-info:invoice-number:tooltip-text')}
                 </Tooltip>
               }
@@ -59,7 +61,7 @@ const SearchForm = (props: Props): React.ReactElement => {
                   : undefined
               }
               required
-              onChange={e => {
+              onChange={(e) => {
                 field.onChange(e);
                 // clear form error when the field value is changed
                 formError && dispatch(setFormError(null));
@@ -78,8 +80,8 @@ const SearchForm = (props: Props): React.ReactElement => {
             pattern: {
               /* only numbers and max 10 characters */
               value: /^( *\d{1,10} *)$/i,
-              message: t('rectificationForm:errors:invalid-refnumber')
-            }
+              message: t('rectificationForm:errors:invalid-refnumber'),
+            },
           }}
           render={({ field, fieldState }) => (
             <TextInput
@@ -99,7 +101,7 @@ const SearchForm = (props: Props): React.ReactElement => {
                 </Tooltip>
               }
               required
-              onChange={e => {
+              onChange={(e) => {
                 field.onChange(e);
                 formError && dispatch(setFormError(null));
               }}
@@ -113,7 +115,7 @@ const SearchForm = (props: Props): React.ReactElement => {
         name="registerNumber"
         control={props.control}
         rules={{
-          required: t('common:required-field') as string
+          required: t('common:required-field') as string,
         }}
         render={({ field, fieldState }) => (
           <TextInput
@@ -128,7 +130,7 @@ const SearchForm = (props: Props): React.ReactElement => {
                 : t('common:fine-info:reg-number:helper-text:common')
             }
             required
-            onChange={e => {
+            onChange={(e) => {
               field.onChange(e);
               formError && dispatch(setFormError(null));
             }}

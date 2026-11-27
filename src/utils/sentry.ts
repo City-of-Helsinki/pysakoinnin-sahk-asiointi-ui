@@ -43,7 +43,7 @@ const DEFAULT_DENYLIST = [
   'symfony', // Symfony
   'user_session', // Vue
   '_xsrf', // Tornado
-  'XSRF-TOKEN' // Angular, Laravel
+  'XSRF-TOKEN', // Angular, Laravel
 ];
 
 const SENTRY_DENYLIST = new Set([...DEFAULT_DENYLIST, 'register_number']);
@@ -81,10 +81,7 @@ export const cleanSensitiveData = (
   visited.set(data, result);
 
   for (const [key, value] of Object.entries(data)) {
-    if (
-      SENTRY_DENYLIST.has(key) ||
-      SENTRY_DENYLIST.has(snakeCase(key))
-    ) {
+    if (SENTRY_DENYLIST.has(key) || SENTRY_DENYLIST.has(snakeCase(key))) {
       continue; // omit sensitive key
     }
     result[key] = cleanSensitiveData(value, visited, depth + 1, maxDepth);

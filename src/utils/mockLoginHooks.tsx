@@ -19,7 +19,7 @@ export const fakeOidcUserProfileState = (
       iat: 0,
       iss: '',
       name: 'Test user',
-      sub: TEST_USER_ID
+      sub: TEST_USER_ID,
     },
     overrides
   );
@@ -38,7 +38,7 @@ export const fakeOidcUserState = (overrides?: Partial<User>): User =>
       scopes: [],
       session_state: null,
       state: null,
-      token_type: ''
+      token_type: '',
     },
     overrides
   );
@@ -58,13 +58,13 @@ const mockLoginState = ({
   authenticated,
   login,
   logout,
-  user
+  user,
 }: Partial<LoginStateOptions>) => {
   const oidcClient = {
     isAuthenticated: () => authenticated,
     getUser: () => user,
     login: login ?? vi.fn(),
-    logout: logout ?? vi.fn()
+    logout: logout ?? vi.fn(),
   };
   const useOidcClient = vi
     .spyOn(hdsReact, 'useOidcClient')
@@ -85,13 +85,13 @@ const mockLoginState = ({
 
   const useApiTokens = vi.spyOn(hdsReact, 'useApiTokens').mockReturnValue({
     getStoredApiTokens: () => [null, tokens],
-    isRenewing: () => false
+    isRenewing: () => false,
   } as any);
 
   const useApiTokensClient = vi
     .spyOn(hdsReact, 'useApiTokensClient')
     .mockReturnValue({
-      fetch: vi.fn()
+      fetch: vi.fn(),
     } as any);
 
   const useAuthenticatedUser = vi
@@ -110,14 +110,14 @@ const mockLoginState = ({
           lastName: 'TestLastName',
           primaryEmail: { email: 'test_email@localhost.local' },
           verifiedPersonalInformation: {
-            nationalIdentificationNumber: '010106A9067'
-          }
-        }
+            nationalIdentificationNumber: '010106A9067',
+          },
+        },
       },
       error: null,
       loading: null,
-      refetch: null
-    }
+      refetch: null,
+    },
   ] as any);
 
   const SessionEndedHandler = vi
@@ -128,7 +128,7 @@ const mockLoginState = ({
     .spyOn(hdsReact, 'WithAuthentication')
     .mockImplementation((({
       AuthorisedComponent,
-      UnauthorisedComponent
+      UnauthorisedComponent,
     }: {
       AuthorisedComponent: any;
       UnauthorisedComponent: any;
@@ -153,7 +153,7 @@ const mockLoginState = ({
     useGraphQL,
     SessionEndedHandler,
     WithAuthentication,
-    useSignalListener
+    useSignalListener,
   };
 };
 
@@ -168,7 +168,7 @@ export const mockAuthenticatedLoginState = (
     profileApiToken,
     authenticated: true,
     user: fakeOidcUserState(),
-    ...options
+    ...options,
   });
 };
 
@@ -178,5 +178,5 @@ export const mockUnauthenticatedLoginState = (
   mockLoginState({
     authenticated: false,
     user: null,
-    ...options
+    ...options,
   });

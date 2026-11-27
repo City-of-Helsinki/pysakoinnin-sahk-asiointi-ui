@@ -20,9 +20,9 @@ const dueDateFormContentSliceMock = createSlice({
     formSubmitted: false,
     selectedForm: 'due-date',
     submitDisabled: true,
-    foulData: mockFoulData
+    foulData: mockFoulData,
   },
-  reducers: {}
+  reducers: {},
 });
 
 const parkingFineFormContentSliceMock = createSlice({
@@ -31,9 +31,9 @@ const parkingFineFormContentSliceMock = createSlice({
     formSubmitted: false,
     selectedForm: 'parking-fine',
     submitDisabled: true,
-    foulData: mockFoulData
+    foulData: mockFoulData,
   },
-  reducers: {}
+  reducers: {},
 });
 
 const movedCarFormContentSliceMock = createSlice({
@@ -42,9 +42,9 @@ const movedCarFormContentSliceMock = createSlice({
     formSubmitted: false,
     selectedForm: 'moved-car',
     submitDisabled: true,
-    transferData: mockTransferData
+    transferData: mockTransferData,
   },
-  reducers: {}
+  reducers: {},
 });
 
 const userSliceMock = createSlice({
@@ -54,11 +54,11 @@ const userSliceMock = createSlice({
       firstName: 'Test',
       lastName: 'User',
       email: 'test.user@test.fi',
-      ssn: '123456-789A'
+      ssn: '123456-789A',
     },
-    promptLogin: false
+    promptLogin: false,
   },
-  reducers: {}
+  reducers: {},
 });
 
 const { result } = renderHook(() =>
@@ -66,8 +66,8 @@ const { result } = renderHook(() =>
     defaultValues: {
       transferNumber: '',
       foulNumber: '',
-      registerNumber: ''
-    }
+      registerNumber: '',
+    },
   })
 );
 
@@ -97,8 +97,8 @@ describe('form content', () => {
         const store = configureStore({
           reducer: {
             formContent: dueDateFormContentSliceMock.reducer,
-            user: userSliceMock.reducer
-          }
+            user: userSliceMock.reducer,
+          },
         });
 
         const { getByTestId } = render(
@@ -121,8 +121,8 @@ describe('form content', () => {
         const store = configureStore({
           reducer: {
             formContent: parkingFineFormContentSliceMock.reducer,
-            user: userSliceMock.reducer
-          }
+            user: userSliceMock.reducer,
+          },
         });
         const { getByTestId } = render(
           <Provider store={store}>
@@ -143,8 +143,8 @@ describe('form content', () => {
         const store = configureStore({
           reducer: {
             formContent: movedCarFormContentSliceMock.reducer,
-            user: userSliceMock.reducer
-          }
+            user: userSliceMock.reducer,
+          },
         });
         const { getByTestId } = render(
           <Provider store={store}>
@@ -166,8 +166,8 @@ describe('form content', () => {
         const store = configureStore({
           reducer: {
             formContent: dueDateFormContentSliceMock.reducer,
-            user: userSliceMock.reducer
-          }
+            user: userSliceMock.reducer,
+          },
         });
 
         const { getByTestId } = render(
@@ -192,8 +192,8 @@ describe('form content', () => {
         const store = configureStore({
           reducer: {
             formContent: parkingFineFormContentSliceMock.reducer,
-            user: userSliceMock.reducer
-          }
+            user: userSliceMock.reducer,
+          },
         });
 
         const { getByTestId } = render(
@@ -218,8 +218,8 @@ describe('form content', () => {
         const store = configureStore({
           reducer: {
             formContent: movedCarFormContentSliceMock.reducer,
-            user: userSliceMock.reducer
-          }
+            user: userSliceMock.reducer,
+          },
         });
         const { getByTestId } = render(
           <Provider store={store}>

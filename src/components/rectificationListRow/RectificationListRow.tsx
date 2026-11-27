@@ -4,7 +4,7 @@ import {
   ButtonSize,
   ButtonVariant,
   IconAngleDown,
-  IconAngleUp
+  IconAngleUp,
 } from 'hds-react';
 import { ObjectionDocument } from '../../interfaces/objectionInterfaces';
 import RectificationListDetails from '../rectificationListDetails/RectificationListDetails';
@@ -57,9 +57,9 @@ const RectificationListRow: FC<Props> = ({ form }): React.ReactElement => {
         if (form.metadata.foulNumber) {
           await getFoulData({
             foul_number: form.metadata.foulNumber,
-            register_number: form.metadata.registerNumber
+            register_number: form.metadata.registerNumber,
           })
-            .then(res => {
+            .then((res) => {
               setFoulData(res);
             })
             .catch(() => {
@@ -68,9 +68,9 @@ const RectificationListRow: FC<Props> = ({ form }): React.ReactElement => {
         } else if (form.metadata.transferNumber) {
           await getTransferData({
             transfer_number: form.metadata.transferNumber,
-            register_number: form.metadata.registerNumber
+            register_number: form.metadata.registerNumber,
           })
-            .then(res => {
+            .then((res) => {
               setTransferData(res);
             })
             .catch(() => {
@@ -120,7 +120,8 @@ const RectificationListRow: FC<Props> = ({ form }): React.ReactElement => {
           onClick={async () => {
             await fetchData();
             setExtended(!extended);
-          }}>
+          }}
+        >
           {extended
             ? t('landing-page:list:show-less')
             : t('landing-page:list:show-more')}

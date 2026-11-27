@@ -11,25 +11,25 @@ const mockObjectionDocumentList: ObjectionDocument[] = [
     updated_at: '2023-01-29T12:24:04.077293+03:00',
     status: {
       value: 'resolvedViaMail',
-      timestamp: '2023-01-29T12:24:04.060481+03:00'
+      timestamp: '2023-01-29T12:24:04.060481+03:00',
     },
     status_histories: [
       {
         value: 'resolvedViaMail',
-        timestamp: '2023-01-29T12:24:04.060481+03:00'
+        timestamp: '2023-01-29T12:24:04.060481+03:00',
       },
       {
         value: 'handling',
-        timestamp: '2023-01-29T12:24:04.060481+03:00'
+        timestamp: '2023-01-29T12:24:04.060481+03:00',
       },
       {
         value: 'received',
-        timestamp: '2023-01-29T11:24:04.060481+03:00'
+        timestamp: '2023-01-29T11:24:04.060481+03:00',
       },
       {
         value: 'sent',
-        timestamp: '2023-03-29T19:24:04.060481+03:00'
-      }
+        timestamp: '2023-03-29T19:24:04.060481+03:00',
+      },
     ],
     type: '',
     service: 'Pysäköinnin Sähköinen Asiointi',
@@ -46,26 +46,26 @@ const mockObjectionDocumentList: ObjectionDocument[] = [
           fileName: 'long-file-name-for-testing-abcd-efgh-ijkl.png',
           size: 5600,
           mimeType: 'image/png',
-          data: ''
+          data: '',
         },
         {
           fileName: 'test-image2.jpg',
           size: 65040,
           mimeType: 'image/jpg',
-          data: ''
+          data: '',
         },
         {
           fileName: 'test-file1.pdf',
           size: 70500,
           mimeType: 'application/pdf',
-          data: ''
-        }
-      ]
+          data: '',
+        },
+      ],
     },
     draft: false,
     locked_after: '',
     deletable: true,
-    attachments: []
+    attachments: [],
   },
   {
     id: '22324567',
@@ -73,17 +73,17 @@ const mockObjectionDocumentList: ObjectionDocument[] = [
     updated_at: '2023-02-11T21:20:00.077293+03:00',
     status: {
       value: 'received',
-      timestamp: '2023-03-29T11:24:04.060481+03:00'
+      timestamp: '2023-03-29T11:24:04.060481+03:00',
     },
     status_histories: [
       {
         value: 'received',
-        timestamp: '2023-03-29T11:24:04.060481+03:00'
+        timestamp: '2023-03-29T11:24:04.060481+03:00',
       },
       {
         value: 'sent',
-        timestamp: '2023-03-29T19:24:04.060481+03:00'
-      }
+        timestamp: '2023-03-29T19:24:04.060481+03:00',
+      },
     ],
     type: '',
     service: 'Pysäköinnin Sähköinen Asiointi',
@@ -96,7 +96,7 @@ const mockObjectionDocumentList: ObjectionDocument[] = [
     draft: false,
     locked_after: '',
     deletable: true,
-    attachments: []
+    attachments: [],
   },
   {
     id: '2345678',
@@ -104,13 +104,13 @@ const mockObjectionDocumentList: ObjectionDocument[] = [
     updated_at: '2023-02-01T12:24:04.077293+03:00',
     status: {
       value: 'sent',
-      timestamp: '2023-02-01T19:24:04.060481+03:00'
+      timestamp: '2023-02-01T19:24:04.060481+03:00',
     },
     status_histories: [
       {
         value: 'sent',
-        timestamp: '2023-02-01T19:24:04.060481+03:00'
-      }
+        timestamp: '2023-02-01T19:24:04.060481+03:00',
+      },
     ],
     type: '',
     service: 'Pysäköinnin Sähköinen Asiointi',
@@ -123,7 +123,7 @@ const mockObjectionDocumentList: ObjectionDocument[] = [
     draft: false,
     locked_after: '',
     deletable: true,
-    attachments: []
+    attachments: [],
   },
   {
     id: '11111111',
@@ -131,13 +131,13 @@ const mockObjectionDocumentList: ObjectionDocument[] = [
     updated_at: '2023-01-20T12:24:04.077293+03:00',
     status: {
       value: 'sent',
-      timestamp: '2023-01-20T19:24:04.060481+03:00'
+      timestamp: '2023-01-20T19:24:04.060481+03:00',
     },
     status_histories: [
       {
         value: 'sent',
-        timestamp: '2023-01-20T19:24:04.060481+03:00'
-      }
+        timestamp: '2023-01-20T19:24:04.060481+03:00',
+      },
     ],
     type: '',
     service: 'Pysäköinnin Sähköinen Asiointi',
@@ -150,7 +150,7 @@ const mockObjectionDocumentList: ObjectionDocument[] = [
     draft: false,
     locked_after: '',
     deletable: true,
-    attachments: []
+    attachments: [],
   },
   {
     id: '222222',
@@ -158,29 +158,29 @@ const mockObjectionDocumentList: ObjectionDocument[] = [
     updated_at: '2022-03-29T12:24:04.077293+03:00',
     status: {
       value: 'resolvedViaEService',
-      timestamp: '2022-03-29T12:24:04.060481+03:00'
+      timestamp: '2022-03-29T12:24:04.060481+03:00',
     },
     status_histories: [
       {
         value: 'resolvedViaEService',
-        timestamp: '2022-03-29T12:24:04.060481+03:00'
+        timestamp: '2022-03-29T12:24:04.060481+03:00',
       },
       {
         value: 'handling',
-        timestamp: '2022-03-29T12:24:04.060481+03:00'
+        timestamp: '2022-03-29T12:24:04.060481+03:00',
       },
       {
         value: 'received',
-        timestamp: '2022-03-29T11:24:04.060481+03:00'
+        timestamp: '2022-03-29T11:24:04.060481+03:00',
       },
       {
         value: 'sent',
-        timestamp: '2022-03-29T19:24:04.060481+03:00'
-      }
+        timestamp: '2022-03-29T19:24:04.060481+03:00',
+      },
     ],
     metadata: {
       foulNumber: '123456789',
-      registerNumber: 'ABC-123'
+      registerNumber: 'ABC-123',
     },
     type: '',
     service: 'Pysäköinnin Sähköinen Asiointi',
@@ -190,12 +190,12 @@ const mockObjectionDocumentList: ObjectionDocument[] = [
     tos_function_id: '123',
     tos_record_id: '123',
     content: {
-      ...mockTransferDocument
+      ...mockTransferDocument,
     },
     draft: false,
     locked_after: '',
     deletable: true,
-    attachments: []
+    attachments: [],
   },
   {
     id: '2222222',
@@ -203,21 +203,21 @@ const mockObjectionDocumentList: ObjectionDocument[] = [
     updated_at: '2022-03-29T12:24:04.077293+03:00',
     status: {
       value: 'handling',
-      timestamp: '2022-03-29T12:24:04.060481+03:00'
+      timestamp: '2022-03-29T12:24:04.060481+03:00',
     },
     status_histories: [
       {
         value: 'handling',
-        timestamp: '2022-03-29T12:24:04.060481+03:00'
+        timestamp: '2022-03-29T12:24:04.060481+03:00',
       },
       {
         value: 'received',
-        timestamp: '2022-03-29T11:24:04.060481+03:00'
+        timestamp: '2022-03-29T11:24:04.060481+03:00',
       },
       {
         value: 'sent',
-        timestamp: '2022-03-29T19:24:04.060481+03:00'
-      }
+        timestamp: '2022-03-29T19:24:04.060481+03:00',
+      },
     ],
     type: '',
     service: 'Pysäköinnin Sähköinen Asiointi',
@@ -230,7 +230,7 @@ const mockObjectionDocumentList: ObjectionDocument[] = [
     draft: false,
     locked_after: '',
     deletable: true,
-    attachments: []
+    attachments: [],
   },
   {
     id: '333333',
@@ -238,17 +238,17 @@ const mockObjectionDocumentList: ObjectionDocument[] = [
     updated_at: '2021-11-20T12:24:04.077293+03:00',
     status: {
       value: 'received',
-      timestamp: '2021-03-29T11:24:04.060481+03:00'
+      timestamp: '2021-03-29T11:24:04.060481+03:00',
     },
     status_histories: [
       {
         value: 'received',
-        timestamp: '2021-03-29T11:24:04.060481+03:00'
+        timestamp: '2021-03-29T11:24:04.060481+03:00',
       },
       {
         value: 'sent',
-        timestamp: '2021-03-29T19:24:04.060481+03:00'
-      }
+        timestamp: '2021-03-29T19:24:04.060481+03:00',
+      },
     ],
     type: '',
     service: 'Pysäköinnin Sähköinen Asiointi',
@@ -261,8 +261,8 @@ const mockObjectionDocumentList: ObjectionDocument[] = [
     draft: false,
     locked_after: '',
     deletable: true,
-    attachments: []
-  }
+    attachments: [],
+  },
 ];
 
 export const mockObjectionDocumentResponse: {
@@ -270,7 +270,7 @@ export const mockObjectionDocumentResponse: {
   results: ObjectionDocument[];
 } = {
   count: 7,
-  results: mockObjectionDocumentList
+  results: mockObjectionDocumentList,
 };
 
 export default mockObjectionDocumentList;

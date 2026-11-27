@@ -27,9 +27,9 @@ const formContentSliceMock = createSlice({
     formValues: {},
     formError: null,
     submitError: false,
-    emailConfirmation: false
+    emailConfirmation: false,
   },
-  reducers: {}
+  reducers: {},
 });
 
 const extendDueDateFormSliceMock = createSlice({
@@ -37,9 +37,9 @@ const extendDueDateFormSliceMock = createSlice({
   initialState: {
     dueDate: '2022-12-12',
     newDueDate: '2023-01-11',
-    emailConfirmationChecked: false
+    emailConfirmationChecked: false,
   },
-  reducers: {}
+  reducers: {},
 });
 
 let formStepperSliceMock = createSlice({
@@ -49,19 +49,19 @@ let formStepperSliceMock = createSlice({
     steps: [
       {
         label: 'Haku',
-        state: 0
+        state: 0,
       },
       {
         label: 'Eräpäivän siirto',
-        state: 2
-      }
-    ]
+        state: 2,
+      },
+    ],
   },
   reducers: {
     completeStep: mockAction,
     setActive: mockAction,
-    setSteps: mockAction
-  }
+    setSteps: mockAction,
+  },
 });
 
 const userSliceMock = createSlice({
@@ -71,11 +71,11 @@ const userSliceMock = createSlice({
       firstName: 'Test',
       lastName: 'User',
       email: 'test.user@test.fi',
-      ssn: '123456-789A'
+      ssn: '123456-789A',
     },
-    promptLogin: false
+    promptLogin: false,
   },
-  reducers: {}
+  reducers: {},
 });
 
 describe('form stepper', () => {
@@ -102,8 +102,8 @@ describe('form stepper', () => {
         formStepper: formStepperSliceMock.reducer,
         extendDueDateForm: extendDueDateFormSliceMock.reducer,
         user: userSliceMock.reducer,
-        loading: loadingSlice
-      }
+        loading: loadingSlice,
+      },
     });
 
     render(
@@ -120,12 +120,12 @@ describe('form stepper', () => {
 
     // Check that the correct step is rendered
     const firstStepHeading = screen.getByRole('heading', {
-      name: 'Vaihe 1/2: Haku'
+      name: 'Vaihe 1/2: Haku',
     });
     expect(firstStepHeading).toBeInTheDocument();
 
     const secondStepHeading = screen.queryByRole('heading', {
-      name: 'Vaihe 2/2: Eräpäivän siirto'
+      name: 'Vaihe 2/2: Eräpäivän siirto',
     });
     expect(secondStepHeading).toBeNull();
 
@@ -134,18 +134,18 @@ describe('form stepper', () => {
     // 'previous' button should have role 'link' instead of 'button'
     // since it takes user to the landing page
     const previousButton = screen.queryByRole('button', {
-      name: t('common:previous')
+      name: t('common:previous'),
     });
     expect(previousButton).not.toBeInTheDocument();
 
     const previousButtonLink = screen.queryByRole('link', {
-      name: t('common:previous')
+      name: t('common:previous'),
     });
     expect(previousButtonLink).toBeInTheDocument();
     expect(previousButtonLink).toBeEnabled();
 
     const nextButton = screen.getByRole('button', {
-      name: t('common:next')
+      name: t('common:next'),
     });
     expect(nextButton).toBeInTheDocument();
     expect(nextButton).toBeEnabled();
@@ -165,19 +165,19 @@ describe('form stepper', () => {
         steps: [
           {
             label: 'Haku',
-            state: 1
+            state: 1,
           },
           {
             label: 'Eräpäivän siirto',
-            state: 0
-          }
-        ]
+            state: 0,
+          },
+        ],
       },
       reducers: {
         completeStep: mockAction,
         setActive: mockAction,
-        setSteps: mockAction
-      }
+        setSteps: mockAction,
+      },
     });
 
     const store = configureStore({
@@ -185,8 +185,8 @@ describe('form stepper', () => {
         formContent: formContentSliceMock.reducer,
         formStepper: formStepperSliceMock.reducer,
         extendDueDateForm: extendDueDateFormSliceMock.reducer,
-        user: userSliceMock.reducer
-      }
+        user: userSliceMock.reducer,
+      },
     });
 
     render(
@@ -203,23 +203,23 @@ describe('form stepper', () => {
 
     // Check that the correct step is rendered
     const firstStepHeading = screen.queryByRole('heading', {
-      name: 'Vaihe 1/2: Haku'
+      name: 'Vaihe 1/2: Haku',
     });
     expect(firstStepHeading).toBeNull();
 
     const secondStepHeading = screen.getByRole('heading', {
-      name: 'Vaihe 2/2: Eräpäivän siirto'
+      name: 'Vaihe 2/2: Eräpäivän siirto',
     });
     expect(secondStepHeading).toBeInTheDocument();
 
     // Check that both buttons are visible but submit button is disabled by default
     const previousButton = screen.getByRole('button', {
-      name: t('common:previous')
+      name: t('common:previous'),
     });
     expect(previousButton).toBeInTheDocument();
 
     const submitButton = screen.getByRole('button', {
-      name: t('due-date:submit')
+      name: t('due-date:submit'),
     });
     expect(submitButton).toBeInTheDocument();
     expect(submitButton).toBeDisabled();
@@ -251,9 +251,9 @@ describe('FormStepper questionnaire link', () => {
         formValues: {},
         formError: null,
         submitError: false,
-        emailConfirmation: false
+        emailConfirmation: false,
       },
-      reducers: {}
+      reducers: {},
     });
 
     const lastStepStepperMock = createSlice({
@@ -264,14 +264,14 @@ describe('FormStepper questionnaire link', () => {
           { label: 'Haku', state: 0 },
           { label: 'Pysäköintivirhemaksun tiedot', state: 0 },
           { label: 'Oikaisuvaatimus', state: 0 },
-          { label: 'Yhteenveto', state: 0 }
-        ]
+          { label: 'Yhteenveto', state: 0 },
+        ],
       },
       reducers: {
         completeStep: mockAction,
         setActive: mockAction,
-        setSteps: mockAction
-      }
+        setSteps: mockAction,
+      },
     });
 
     const testStore = configureStore({
@@ -280,8 +280,8 @@ describe('FormStepper questionnaire link', () => {
         formStepper: lastStepStepperMock.reducer,
         extendDueDateForm: extendDueDateFormSliceMock.reducer,
         user: userSliceMock.reducer,
-        loading: loadingSlice
-      }
+        loading: loadingSlice,
+      },
     });
 
     render(
@@ -297,7 +297,7 @@ describe('FormStepper questionnaire link', () => {
     );
 
     const questionnaireLink = screen.getByRole('link', {
-      name: content => content.includes(t('common:questionnaire-link'))
+      name: (content) => content.includes(t('common:questionnaire-link')),
     });
     expect(questionnaireLink).toBeInTheDocument();
     expect(questionnaireLink).toHaveAttribute('href', questionnaireHref);
@@ -315,9 +315,9 @@ describe('FormStepper questionnaire link', () => {
         formValues: {},
         formError: null,
         submitError: false,
-        emailConfirmation: false
+        emailConfirmation: false,
       },
-      reducers: {}
+      reducers: {},
     });
 
     const lastStepStepperMock = createSlice({
@@ -328,14 +328,14 @@ describe('FormStepper questionnaire link', () => {
           { label: 'Haku', state: 0 },
           { label: 'Korvauspäätös', state: 0 },
           { label: 'Oikaisuvaatimus', state: 0 },
-          { label: 'Yhteenveto', state: 0 }
-        ]
+          { label: 'Yhteenveto', state: 0 },
+        ],
       },
       reducers: {
         completeStep: mockAction,
         setActive: mockAction,
-        setSteps: mockAction
-      }
+        setSteps: mockAction,
+      },
     });
 
     const testStore = configureStore({
@@ -344,8 +344,8 @@ describe('FormStepper questionnaire link', () => {
         formStepper: lastStepStepperMock.reducer,
         extendDueDateForm: extendDueDateFormSliceMock.reducer,
         user: userSliceMock.reducer,
-        loading: loadingSlice
-      }
+        loading: loadingSlice,
+      },
     });
 
     render(
@@ -361,7 +361,7 @@ describe('FormStepper questionnaire link', () => {
     );
 
     const questionnaireLink = screen.getByRole('link', {
-      name: content => content.includes(t('common:questionnaire-link'))
+      name: (content) => content.includes(t('common:questionnaire-link')),
     });
     expect(questionnaireLink).toBeInTheDocument();
     expect(questionnaireLink).toHaveAttribute('href', questionnaireHref);
@@ -377,9 +377,9 @@ describe('FormStepper questionnaire link', () => {
         formValues: {},
         formError: null,
         submitError: false,
-        emailConfirmation: false
+        emailConfirmation: false,
       },
-      reducers: {}
+      reducers: {},
     });
 
     const lastStepStepperMock = createSlice({
@@ -388,14 +388,14 @@ describe('FormStepper questionnaire link', () => {
         activeStepIndex: 1,
         steps: [
           { label: 'Haku', state: 1 },
-          { label: 'Eräpäivän siirto', state: 0 }
-        ]
+          { label: 'Eräpäivän siirto', state: 0 },
+        ],
       },
       reducers: {
         completeStep: mockAction,
         setActive: mockAction,
-        setSteps: mockAction
-      }
+        setSteps: mockAction,
+      },
     });
 
     const testStore = configureStore({
@@ -404,8 +404,8 @@ describe('FormStepper questionnaire link', () => {
         formStepper: lastStepStepperMock.reducer,
         extendDueDateForm: extendDueDateFormSliceMock.reducer,
         user: userSliceMock.reducer,
-        loading: loadingSlice
-      }
+        loading: loadingSlice,
+      },
     });
 
     render(
@@ -421,7 +421,7 @@ describe('FormStepper questionnaire link', () => {
     );
 
     const questionnaireLink = screen.queryByRole('link', {
-      name: content => content.includes(t('common:questionnaire-link'))
+      name: (content) => content.includes(t('common:questionnaire-link')),
     });
     expect(questionnaireLink).not.toBeInTheDocument();
   });
@@ -436,9 +436,9 @@ describe('FormStepper questionnaire link', () => {
         formValues: {},
         formError: null,
         submitError: false,
-        emailConfirmation: false
+        emailConfirmation: false,
       },
-      reducers: {}
+      reducers: {},
     });
 
     const lastStepStepperMock = createSlice({
@@ -449,14 +449,14 @@ describe('FormStepper questionnaire link', () => {
           { label: 'Haku', state: 0 },
           { label: 'Pysäköintivirhemaksun tiedot', state: 0 },
           { label: 'Oikaisuvaatimus', state: 0 },
-          { label: 'Yhteenveto', state: 0 }
-        ]
+          { label: 'Yhteenveto', state: 0 },
+        ],
       },
       reducers: {
         completeStep: mockAction,
         setActive: mockAction,
-        setSteps: mockAction
-      }
+        setSteps: mockAction,
+      },
     });
 
     const testStore = configureStore({
@@ -465,8 +465,8 @@ describe('FormStepper questionnaire link', () => {
         formStepper: lastStepStepperMock.reducer,
         extendDueDateForm: extendDueDateFormSliceMock.reducer,
         user: userSliceMock.reducer,
-        loading: loadingSlice
-      }
+        loading: loadingSlice,
+      },
     });
 
     render(
@@ -482,7 +482,7 @@ describe('FormStepper questionnaire link', () => {
     );
 
     const questionnaireLink = screen.queryByRole('link', {
-      name: content => content.includes(t('common:questionnaire-link'))
+      name: (content) => content.includes(t('common:questionnaire-link')),
     });
     expect(questionnaireLink).not.toBeInTheDocument();
   });

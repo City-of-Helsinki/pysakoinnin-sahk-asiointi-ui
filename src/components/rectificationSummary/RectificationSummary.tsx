@@ -6,7 +6,7 @@ import InfoContainer from '../infoContainer/InfoContainer';
 import CustomAccordion from '../customAccordion/CustomAccordion';
 import {
   ObjectionForm,
-  ObjectionFormFiles
+  ObjectionFormFiles,
 } from '../../interfaces/objectionInterfaces';
 import ExtendedTextField from '../extendedTextField/ExtendedTextField';
 import { FoulData } from '../../interfaces/foulInterfaces';
@@ -30,7 +30,7 @@ const RectificationSummary: FC<Props> = ({
   foulData,
   transferData,
   formFiles,
-  editMode
+  editMode,
 }) => {
   const { t } = useTranslation();
   const formValues = form;
@@ -84,7 +84,10 @@ const RectificationSummary: FC<Props> = ({
             <label>{t('rectificationForm:IBAN')}</label>
             <p>{formValues?.iban}</p>
           </div>
-          <div className="delivery-decision-info" data-testid="deliveryDecision">
+          <div
+            className="delivery-decision-info"
+            data-testid="deliveryDecision"
+          >
             <p>{t('rectificationForm:delivery-decision-info')}</p>
           </div>
         </div>
@@ -92,7 +95,8 @@ const RectificationSummary: FC<Props> = ({
           <div className="rectification-summary-rectification-content">
             <label
               htmlFor="rectification-content"
-              className={styles['text-label']}>
+              className={styles['text-label']}
+            >
               {t('rectificationForm:rectification-content')}
             </label>
             {useMediaQueryLessThan('m') && formValues?.description ? (

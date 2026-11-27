@@ -13,7 +13,7 @@ export enum AuthorRole {
   Driver = '1',
   Owner = '2',
   Possessor = '3',
-  Other = '4'
+  Other = '4',
 }
 
 export interface ObjectionForm {
@@ -89,7 +89,7 @@ export type ObjectionResponse = {
 
 export enum ObjectionType {
   Foul,
-  Transfer
+  Transfer,
 }
 
 export interface ObjectionFormFiles {

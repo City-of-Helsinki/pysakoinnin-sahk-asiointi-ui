@@ -9,7 +9,7 @@ declare global {
   }
 }
 
-vi.mock('hds-react', async importOriginal => ({
+vi.mock('hds-react', async (importOriginal) => ({
   ...(await importOriginal<typeof import('hds-react')>()),
   useCookieConsents: vi.fn(),
 }));

@@ -120,11 +120,11 @@ const config = {
   profileApiClientId: window._env_[`REACT_APP_PROFILE_API_CLIENT_ID`],
   profileApiUrl: window._env_[`REACT_APP_PROFILE_API_URL`],
   path: '/callback',
-  label: 'Helsinki-profiili MVP'
+  label: 'Helsinki-profiili MVP',
 } as ClientConfig;
 
 const uiConfig: { profileUIUrl: string } = {
-  profileUIUrl: String(window._env_.REACT_APP_PROFILE_UI_URL)
+  profileUIUrl: String(window._env_.REACT_APP_PROFILE_UI_URL),
 };
 
 const matomo: {
@@ -136,7 +136,7 @@ const matomo: {
   urlBase: String(window._env_.REACT_APP_MATOMO_URL_BASE),
   siteId: String(window._env_.REACT_APP_MATOMO_SITE_ID),
   srcUrl: String(window._env_.REACT_APP_MATOMO_SRC_URL),
-  enabled: envValueToBoolean(window._env_.REACT_APP_MATOMO_ENABLED, false)
+  enabled: envValueToBoolean(window._env_.REACT_APP_MATOMO_ENABLED, false),
 };
 
 const useMockData = envValueToBoolean(
@@ -145,7 +145,7 @@ const useMockData = envValueToBoolean(
 );
 
 const mockData = {
-  enabled: useMockData
+  enabled: useMockData,
 };
 
 const isCallbackUrl = (route: string): boolean => route === config.callbackPath;
@@ -155,5 +155,5 @@ export default {
   ui: uiConfig,
   matomo,
   mockData,
-  isCallbackUrl
+  isCallbackUrl,
 };

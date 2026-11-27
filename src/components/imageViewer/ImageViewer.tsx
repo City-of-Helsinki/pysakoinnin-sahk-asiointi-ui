@@ -16,7 +16,7 @@ type PreviewImageProps = {
 const PreviewImage: FC<PreviewImageProps> = ({
   image,
   index,
-  handleImageClick
+  handleImageClick,
 }) => {
   const imageRef = useRef<HTMLInputElement>(null);
   const { t } = useTranslation();
@@ -90,7 +90,8 @@ const ImageViewer = (props: ImageViewerProps) => {
         close={closeDialog}
         focusAfterCloseRef={focusElementRef}
         closeButtonLabelText={t('imageViewer:closebutton-text')}
-        className="imageViewer-dialog">
+        className="imageViewer-dialog"
+      >
         <Dialog.Header
           id="imageviewer-header"
           title={t('imageViewer:header')}
@@ -112,7 +113,8 @@ const ImageViewer = (props: ImageViewerProps) => {
           <Button
             onClick={previousImage}
             disabled={currentImage === 0}
-            className="imageViewer-button-previous">
+            className="imageViewer-button-previous"
+          >
             {isLessThanM
               ? t('common:previous')
               : t('imageViewer:previous-image')}
@@ -125,7 +127,8 @@ const ImageViewer = (props: ImageViewerProps) => {
           <Button
             onClick={nextImage}
             disabled={currentImage === images.length - 1}
-            className="imageViewer-button-next">
+            className="imageViewer-button-next"
+          >
             {isLessThanM ? t('common:next') : t('imageViewer:next-image')}
           </Button>
         </Dialog.ActionButtons>

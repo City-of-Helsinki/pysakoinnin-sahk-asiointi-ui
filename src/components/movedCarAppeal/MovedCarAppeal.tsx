@@ -12,20 +12,20 @@ const MovedCarAppeal = (): React.ReactElement => {
   const steps = [
     {
       label: t('moved-car:stepper:step1'),
-      state: StepState.available
+      state: StepState.available,
     },
     {
       label: t('moved-car:stepper:step2'),
-      state: StepState.disabled
+      state: StepState.disabled,
     },
     {
       label: t('moved-car:stepper:step3'),
-      state: StepState.disabled
+      state: StepState.disabled,
     },
     {
       label: t('moved-car:stepper:step4'),
-      state: StepState.disabled
-    }
+      state: StepState.disabled,
+    },
   ];
 
   useEffect(() => {

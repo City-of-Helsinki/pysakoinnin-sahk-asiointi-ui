@@ -22,7 +22,7 @@ describe('landing page', () => {
   beforeEach(async () => {
     mockAuthenticatedLoginState();
     mockedAxios.get.mockResolvedValueOnce({
-      data: mockObjectionDocumentResponse
+      data: mockObjectionDocumentResponse,
     });
   });
 
@@ -51,34 +51,34 @@ describe('landing page', () => {
       // Linkboxes are visible
       expect(
         screen.getByRole('heading', {
-          name: t('landing-page:links:due-date')
+          name: t('landing-page:links:due-date'),
         })
       ).toBeVisible();
       expect(
         screen.getByRole('link', {
-          name: `${t('landing-page:links:due-date')}.`
+          name: `${t('landing-page:links:due-date')}.`,
         })
       ).toBeVisible();
 
       expect(
         screen.getByRole('heading', {
-          name: t('landing-page:links:parking-fine')
+          name: t('landing-page:links:parking-fine'),
         })
       ).toBeVisible();
       expect(
         screen.getByRole('link', {
-          name: `${t('landing-page:links:parking-fine')}.`
+          name: `${t('landing-page:links:parking-fine')}.`,
         })
       ).toBeVisible();
 
       expect(
         screen.getByRole('heading', {
-          name: t('landing-page:links:moved-car')
+          name: t('landing-page:links:moved-car'),
         })
       ).toBeVisible();
       expect(
         screen.getByRole('link', {
-          name: `${t('landing-page:links:moved-car')}.`
+          name: `${t('landing-page:links:moved-car')}.`,
         })
       ).toBeVisible();
     });
@@ -99,7 +99,7 @@ describe('landing page', () => {
       // Title
       expect(
         screen.getByRole('heading', {
-          name: t('landing-page:list:title')
+          name: t('landing-page:list:title'),
         })
       ).toBeVisible();
 
@@ -120,7 +120,7 @@ describe('landing page', () => {
       expect(rectificationList.length).toBe(5);
 
       const nextPageButton = screen.getByRole('button', {
-        name: t('common:next')
+        name: t('common:next'),
       });
       expect(nextPageButton).toBeVisible();
       fireEvent.click(nextPageButton);
@@ -186,7 +186,7 @@ describe('landing page', () => {
 
     // Open dropdown menu
     const filterCombobox = screen.getByRole('combobox', {
-      name: new RegExp(t('landing-page:list:status:show-all:default'))
+      name: new RegExp(t('landing-page:list:status:show-all:default')),
     });
     expect(filterCombobox).toBeVisible();
     fireEvent.click(filterCombobox);
@@ -207,7 +207,7 @@ describe('landing page', () => {
     );
 
     const sentFilterOption = screen.getByRole('option', {
-      name: t('landing-page:list:status:sent:default')
+      name: t('landing-page:list:status:sent:default'),
     });
     fireEvent.click(sentFilterOption);
 
@@ -244,7 +244,7 @@ describe('landing page', () => {
 
     // Click the 'next page' button
     const nextPageButton = screen.getByRole('button', {
-      name: t('common:next')
+      name: t('common:next'),
     });
     expect(nextPageButton).toBeVisible();
     fireEvent.click(nextPageButton);
@@ -253,7 +253,7 @@ describe('landing page', () => {
 
     // Open dropdown menu
     const filterCombobox = screen.getByRole('combobox', {
-      name: new RegExp(t('landing-page:list:status:show-all:default'))
+      name: new RegExp(t('landing-page:list:status:show-all:default')),
     });
     expect(filterCombobox).toBeVisible();
     fireEvent.click(filterCombobox);

@@ -5,7 +5,7 @@ const RETRY_TIME_MS = 200;
 const MAX_RETRY_ATTEMPTS = 10;
 
 const wait = (waitForMs: number) =>
-  new Promise<void>(resolve => {
+  new Promise<void>((resolve) => {
     setTimeout(() => resolve(), waitForMs);
   });
 
